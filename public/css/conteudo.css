@@ -1,0 +1,168 @@
+/* conteudo.css — estilos específicos da página de conteúdo (teoria, exemplos, vídeos etc.) */
+
+.conteudo-cabecalho {
+  padding-block: var(--espaco-xl) var(--espaco-lg);
+}
+
+.conteudo-cabecalho__titulo {
+  font-size: clamp(24px, 4vw, 32px);
+}
+
+.conteudo-cabecalho__introducao {
+  margin-top: var(--espaco-sm);
+  color: var(--cor-texto-muted);
+  max-width: var(--largura-leitura);
+}
+
+.objetivos {
+  margin-top: var(--espaco-md);
+}
+
+.resumo li,
+.objetivos li {
+  position: relative;
+  padding-left: var(--espaco-lg);
+  margin-bottom: var(--espaco-xs);
+  color: var(--cor-texto-muted);
+}
+
+.resumo li::before,
+.objetivos li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria);
+  font-weight: 700;
+}
+
+/* Teoria */
+
+.teoria__bloco {
+  max-width: var(--largura-leitura);
+  margin-bottom: var(--espaco-lg);
+}
+
+.teoria__bloco h3 {
+  font-size: 18px;
+  margin-bottom: var(--espaco-xs);
+}
+
+.teoria__bloco p {
+  margin-bottom: var(--espaco-xs);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.teoria__destaque {
+  margin-top: var(--espaco-sm);
+  padding: var(--espaco-md);
+  background-color: var(--cor-superficie-alt);
+  border-left: 3px solid var(--cor-primaria);
+  border-radius: var(--raio-sm);
+  font-family: var(--fonte-mono);
+  font-size: 14px;
+  color: var(--cor-texto);
+}
+
+/* Exemplos */
+
+.exemplo {
+  max-width: var(--largura-leitura);
+  padding: var(--espaco-md);
+  margin-bottom: var(--espaco-md);
+  background-color: var(--cor-superficie-alt);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+}
+
+.exemplo p {
+  margin-bottom: var(--espaco-xxs);
+  font-size: 15px;
+}
+
+.exemplo__rotulo {
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espaco-xs);
+}
+
+.exemplo__resultado {
+  font-weight: 600;
+}
+
+/* Dicas */
+
+.dica {
+  max-width: var(--largura-leitura);
+  padding: var(--espaco-sm) var(--espaco-md);
+  margin-bottom: var(--espaco-sm);
+  background-color: var(--cor-aviso-suave);
+  border-radius: var(--raio-sm);
+  font-size: 14px;
+}
+
+/* Vídeos */
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-lg);
+}
+
+@media (min-width: 768px) {
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.video {
+  margin: 0;
+  border-radius: var(--raio-md);
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-superficie-suave);
+}
+
+.video__gatilho {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.video__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video__icone-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: rgba(23, 26, 33, 0.35);
+}
+
+.video__frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+.video__legenda {
+  padding: var(--espaco-sm) var(--espaco-md);
+  font-size: 13px;
+  color: var(--cor-texto-muted);
+}
+
+.dashboard__titulo ~ p {
+  margin-top: var(--espaco-sm);
+}

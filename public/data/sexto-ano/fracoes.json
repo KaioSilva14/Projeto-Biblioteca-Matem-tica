@@ -1,0 +1,345 @@
+{
+  "id": "fracoes-6ano",
+  "titulo": "Frações",
+  "descricao": "Frações representam partes de um todo dividido em partes iguais. Neste conteúdo você vai aprender a ler, comparar, simplificar e operar com frações.",
+  "ano": 6,
+  "categoria": "aritmetica",
+  "nivel": "basico",
+  "objetivos": [
+    "Identificar e ler frações corretamente",
+    "Comparar frações e reconhecer frações equivalentes",
+    "Simplificar frações até a forma irredutível",
+    "Somar e subtrair frações com denominadores iguais e diferentes",
+    "Resolver problemas do dia a dia usando frações"
+  ],
+  "teoria": [
+    {
+      "titulo": "O que é uma fração?",
+      "paragrafos": [
+        "Uma fração representa uma parte de um todo que foi dividido em partes iguais.",
+        "Toda fração tem dois números: o numerador (em cima) e o denominador (embaixo)."
+      ],
+      "destaque": "numerador / denominador — o denominador diz em quantas partes iguais o todo foi dividido; o numerador diz quantas dessas partes estamos considerando."
+    },
+    {
+      "titulo": "Comparando frações",
+      "paragrafos": [
+        "Quando duas frações têm o mesmo denominador, basta comparar os numeradores: quanto maior o numerador, maior a fração.",
+        "Quando os denominadores são diferentes, é preciso transformar as frações para um denominador comum antes de comparar."
+      ]
+    },
+    {
+      "titulo": "Frações equivalentes e simplificação",
+      "paragrafos": [
+        "Duas frações são equivalentes quando representam a mesma quantidade, mesmo com números diferentes — como 1/2 e 2/4.",
+        "Simplificar uma fração é dividir o numerador e o denominador pelo mesmo número (o MDC entre eles) até não ser mais possível dividir."
+      ],
+      "destaque": "Para simplificar: encontre o MDC entre numerador e denominador e divida os dois por ele."
+    },
+    {
+      "titulo": "Somando e subtraindo frações",
+      "paragrafos": [
+        "Com o mesmo denominador, some ou subtraia apenas os numeradores e mantenha o denominador.",
+        "Com denominadores diferentes, primeiro transforme as frações para terem o mesmo denominador (usando o MMC dos denominadores) e só depois some ou subtraia os numeradores."
+      ]
+    }
+  ],
+  "exemplos": [
+    {
+      "problema": "Represente a fração correspondente a 2 pedaços de uma pizza dividida em 6 pedaços iguais.",
+      "estrategia": "O denominador é o total de partes iguais, e o numerador é a quantidade considerada.",
+      "calculo": "Total de partes = 6 (denominador). Partes consideradas = 2 (numerador).",
+      "resultado": "2/6, que pode ser simplificado para 1/3.",
+      "explicacao": "Sempre identifique primeiro em quantas partes o todo foi dividido (denominador) e depois quantas dessas partes estão sendo consideradas (numerador)."
+    },
+    {
+      "problema": "Simplifique a fração 12/18 até a forma irredutível.",
+      "estrategia": "Encontrar o MDC entre 12 e 18 e dividir os dois números por ele.",
+      "calculo": "MDC(12, 18) = 6. 12 ÷ 6 = 2. 18 ÷ 6 = 3.",
+      "resultado": "2/3",
+      "explicacao": "A fração 2/3 já é irredutível, porque o MDC entre 2 e 3 é 1 — não há mais como dividir os dois números por um número maior que 1."
+    },
+    {
+      "problema": "Calcule 1/4 + 1/2.",
+      "estrategia": "Os denominadores são diferentes, então é preciso um denominador comum antes de somar.",
+      "calculo": "MMC(4, 2) = 4. 1/4 já está com denominador 4. 1/2 = 2/4. Somando: 1/4 + 2/4 = 3/4.",
+      "resultado": "3/4",
+      "explicacao": "Transformar 1/2 em 2/4 não muda o valor da fração — é uma fração equivalente, só que com o mesmo denominador de 1/4, o que permite somar."
+    }
+  ],
+  "dicas": [
+    "Sempre que uma fração parecer 'estranha', tente simplificá-la primeiro — muitas vezes fica mais fácil de entender.",
+    "Para comparar frações rapidamente, transforme os denominadores usando o MMC entre eles.",
+    "Numerador igual ao denominador (como 5/5) sempre vale 1 inteiro.",
+    "Ao somar ou subtrair frações, nunca some os denominadores — eles só mudam quando você busca um denominador comum."
+  ],
+  "videos": [
+    {
+      "titulo": "Frações: Definição e Características — 6º ano",
+      "canal": "Canal Futura",
+      "thumbnail": "https://img.youtube.com/vi/baJ2jp3_ZHE/hqdefault.jpg",
+      "descricao": "Introdução ao conceito de fração e seus elementos (numerador e denominador).",
+      "url": "https://www.youtube.com/embed/baJ2jp3_ZHE"
+    },
+    {
+      "titulo": "Exercícios sobre frações — 6º ano",
+      "canal": "Rioeduca na TV",
+      "thumbnail": "https://img.youtube.com/vi/yWffq3WMfiQ/hqdefault.jpg",
+      "descricao": "Aula com exercícios práticos de representação de frações, com o professor Sergio Gouveia.",
+      "url": "https://www.youtube.com/embed/yWffq3WMfiQ"
+    }
+  ],
+  "resumo": [
+    "Fração é uma parte de um todo dividido em partes iguais: numerador / denominador.",
+    "Com o mesmo denominador, a fração maior é a de maior numerador.",
+    "Frações equivalentes representam a mesma quantidade com números diferentes.",
+    "Simplificar é dividir numerador e denominador pelo MDC entre eles.",
+    "Para somar/subtrair com denominadores diferentes, use o MMC para igualar os denominadores primeiro."
+  ],
+  "atividades": [
+    { "id": 1, "tipo": "multipla_escolha", "nivel": "basico",
+      "pergunta": "Uma pizza foi dividida em 8 pedaços iguais. Se você comeu 3 pedaços, qual fração representa a parte que você comeu?",
+      "opcoes": ["3/8", "8/3", "5/8", "3/5"], "resposta": 0,
+      "explicacao": "O total de partes iguais é o denominador (8) e a quantidade considerada é o numerador (3): 3/8.",
+      "dica": "O denominador é o total de partes; o numerador é quantas partes você está contando." },
+
+    { "id": 2, "tipo": "verdadeiro_falso", "nivel": "basico",
+      "pergunta": "Na fração 5/9, o número 9 é o numerador.",
+      "resposta": false,
+      "explicacao": "O numerador é o número de cima (5). O 9 é o denominador, que mostra em quantas partes iguais o todo foi dividido.",
+      "dica": "Numerador fica em cima, denominador fica embaixo." },
+
+    { "id": 3, "tipo": "complete", "nivel": "basico",
+      "pergunta": "Na fração 7/12, o denominador é ____.",
+      "resposta": "12",
+      "explicacao": "O denominador é o número de baixo, que indica em quantas partes iguais o todo foi dividido: 12.",
+      "dica": "Denominador é o número que fica embaixo na fração." },
+
+    { "id": 4, "tipo": "resposta_numerica", "nivel": "basico",
+      "pergunta": "Escreva apenas o numerador da fração 4/10.",
+      "resposta": 4, "tolerancia": 0,
+      "explicacao": "O numerador é o número de cima da fração: 4.",
+      "dica": "O numerador é a parte de cima da fração." },
+
+    { "id": 5, "tipo": "multipla_escolha", "nivel": "basico",
+      "pergunta": "Qual fração representa 'três partes de um total de quatro partes iguais'?",
+      "opcoes": ["3/4", "4/3", "1/4", "3/3"], "resposta": 0,
+      "explicacao": "Total de partes = 4 (denominador). Partes consideradas = 3 (numerador): 3/4.",
+      "dica": "Leia a frase de trás para frente: 'de quatro' vira o denominador." },
+
+    { "id": 6, "tipo": "verdadeiro_falso", "nivel": "basico",
+      "pergunta": "Em 6/6, a fração representa o todo inteiro (1 inteiro).",
+      "resposta": true,
+      "explicacao": "Quando o numerador é igual ao denominador, a fração vale exatamente 1 inteiro.",
+      "dica": "Pense: se você comeu todos os 6 pedaços de algo dividido em 6, comeu o todo." },
+
+    { "id": 7, "tipo": "multipla_escolha", "nivel": "basico",
+      "pergunta": "Qual fração é maior: 3/7 ou 5/7?",
+      "opcoes": ["3/7", "5/7", "São iguais", "Não é possível comparar"], "resposta": 1,
+      "explicacao": "Com o mesmo denominador, quanto maior o numerador, maior a fração. Como 5 > 3, então 5/7 > 3/7.",
+      "dica": "Denominadores iguais: compare só os numeradores." },
+
+    { "id": 8, "tipo": "complete", "nivel": "basico",
+      "pergunta": "Complete: quando duas frações têm o mesmo denominador, a maior é a que tem o maior ____.",
+      "resposta": "numerador",
+      "explicacao": "Com denominadores iguais, basta comparar os numeradores para saber qual fração é maior.",
+      "dica": "É a parte de cima da fração." },
+
+    { "id": 9, "tipo": "resposta_numerica", "nivel": "basico",
+      "pergunta": "Quantas partes iguais o inteiro foi dividido, se a fração é 9/13?",
+      "resposta": 13, "tolerancia": 0,
+      "explicacao": "O denominador (13) representa em quantas partes iguais o todo foi dividido.",
+      "dica": "Essa informação está no denominador, o número de baixo." },
+
+    { "id": 10, "tipo": "multipla_escolha", "nivel": "basico",
+      "pergunta": "Qual das alternativas mostra a fração 'dois quintos'?",
+      "opcoes": ["2/5", "5/2", "2/2", "5/5"], "resposta": 0,
+      "explicacao": "'Dois quintos' significa 2 partes de um total dividido em 5: 2/5.",
+      "dica": "'Quintos' indica que o denominador é 5." },
+
+    { "id": 11, "tipo": "multipla_escolha", "nivel": "intermediario",
+      "pergunta": "Qual fração é equivalente a 1/2?",
+      "opcoes": ["2/4", "3/5", "1/3", "4/5"], "resposta": 0,
+      "explicacao": "Multiplicando numerador e denominador de 1/2 por 2, obtemos 2/4 — a mesma quantidade, com números diferentes.",
+      "dica": "Multiplique o numerador e o denominador pelo mesmo número." },
+
+    { "id": 12, "tipo": "resposta_numerica", "nivel": "intermediario",
+      "pergunta": "Simplifique a fração 8/12 até a forma irredutível e digite apenas o numerador do resultado.",
+      "resposta": 2, "tolerancia": 0,
+      "explicacao": "MDC(8, 12) = 4. Dividindo os dois por 4: 8÷4 = 2 e 12÷4 = 3, resultando em 2/3.",
+      "dica": "Encontre o MDC entre 8 e 12 e divida os dois números por ele." },
+
+    { "id": 13, "tipo": "resposta_numerica", "nivel": "intermediario",
+      "pergunta": "Simplifique a fração 10/15 até a forma irredutível e digite apenas o denominador do resultado.",
+      "resposta": 3, "tolerancia": 0,
+      "explicacao": "MDC(10, 15) = 5. Dividindo os dois por 5: 10÷5 = 2 e 15÷5 = 3, resultando em 2/3.",
+      "dica": "Encontre o MDC entre 10 e 15 e divida os dois números por ele." },
+
+    { "id": 14, "tipo": "verdadeiro_falso", "nivel": "intermediario",
+      "pergunta": "A fração 6/8 já está na forma irredutível (simplificada ao máximo).",
+      "resposta": false,
+      "explicacao": "O MDC entre 6 e 8 é 2, então 6/8 pode ser simplificada para 3/4. Não estava na forma irredutível.",
+      "dica": "Verifique se existe um número maior que 1 que divide os dois ao mesmo tempo." },
+
+    { "id": 15, "tipo": "complete", "nivel": "intermediario",
+      "pergunta": "Duas frações são chamadas de frações ____ quando representam a mesma quantidade, mesmo com números diferentes.",
+      "resposta": "equivalentes",
+      "explicacao": "Frações equivalentes representam o mesmo valor, como 1/2 e 2/4.",
+      "dica": "Pense na palavra que lembra 'equivalência', 'igualdade de valor'." },
+
+    { "id": 16, "tipo": "multipla_escolha", "nivel": "intermediario",
+      "pergunta": "Qual fração é maior: 2/3 ou 3/5?",
+      "opcoes": ["2/3", "3/5", "São iguais", "Não dá para comparar"], "resposta": 0,
+      "explicacao": "Usando denominador comum 15: 2/3 = 10/15 e 3/5 = 9/15. Como 10/15 > 9/15, então 2/3 é maior.",
+      "dica": "Transforme as duas frações para o mesmo denominador antes de comparar." },
+
+    { "id": 17, "tipo": "ordenacao", "nivel": "intermediario",
+      "pergunta": "Coloque as frações em ordem crescente (da menor para a maior).",
+      "itens": ["3/4", "1/2", "1/4"], "ordemCorreta": [2, 1, 0],
+      "explicacao": "Em decimal: 1/4 = 0,25; 1/2 = 0,5; 3/4 = 0,75. Ordem crescente: 1/4, 1/2, 3/4.",
+      "dica": "Transforme cada fração em decimal para comparar mais fácil." },
+
+    { "id": 18, "tipo": "resposta_numerica", "nivel": "intermediario",
+      "pergunta": "Escreva 0,5 na forma de fração irredutível e digite apenas o denominador.",
+      "resposta": 2, "tolerancia": 0,
+      "explicacao": "0,5 equivale a 5/10, que simplificado (dividindo por 5) resulta em 1/2. O denominador é 2.",
+      "dica": "0,5 é 'meio', ou seja, 1 de 2 partes." },
+
+    { "id": 19, "tipo": "multipla_escolha", "nivel": "intermediario",
+      "pergunta": "Qual fração é equivalente a 3/4?",
+      "opcoes": ["6/8", "4/3", "3/3", "2/4"], "resposta": 0,
+      "explicacao": "Multiplicando numerador e denominador de 3/4 por 2, obtemos 6/8 — a mesma quantidade.",
+      "dica": "Multiplique numerador e denominador de 3/4 pelo mesmo número." },
+
+    { "id": 20, "tipo": "encontre_erro", "nivel": "intermediario",
+      "pergunta": "Encontre o passo com erro na simplificação de 9/12:",
+      "opcoes": ["Passo 1: MDC(9, 12) = 3", "Passo 2: 9 ÷ 3 = 3", "Passo 3: 12 ÷ 3 = 5", "Passo 4: fração simplificada = 3/4"],
+      "resposta": 2,
+      "explicacao": "12 ÷ 3 = 4, não 5. A fração simplificada correta é 3/4, e o resultado do Passo 4 até está certo, mas o cálculo do Passo 3 estava errado.",
+      "dica": "Refaça a divisão 12 ÷ 3 com atenção." },
+
+    { "id": 21, "tipo": "resposta_numerica", "nivel": "aplicacao",
+      "pergunta": "Calcule 2/7 + 3/7 e digite apenas o numerador do resultado (mantendo o denominador 7).",
+      "resposta": 5, "tolerancia": 0,
+      "explicacao": "Com o mesmo denominador, some apenas os numeradores: 2 + 3 = 5, resultando em 5/7.",
+      "dica": "Denominadores iguais: some só os números de cima." },
+
+    { "id": 22, "tipo": "multipla_escolha", "nivel": "aplicacao",
+      "pergunta": "Qual é o resultado de 5/9 − 2/9?",
+      "opcoes": ["3/9", "3/0", "7/9", "2/9"], "resposta": 0,
+      "explicacao": "Com o mesmo denominador, subtraia apenas os numeradores: 5 − 2 = 3, resultando em 3/9 (que pode ser simplificado para 1/3).",
+      "dica": "Denominadores iguais: subtraia só os números de cima." },
+
+    { "id": 23, "tipo": "problema", "nivel": "aplicacao",
+      "pergunta": "Uma receita usa 1/4 de xícara de açúcar e 2/4 de xícara de farinha. Quantas xícaras de ingredientes são usadas ao todo? Digite o resultado em forma decimal (ex.: 0.75).",
+      "resposta": 0.75, "tolerancia": 0.01,
+      "explicacao": "1/4 + 2/4 = 3/4 de xícara ao todo, que em decimal é 0,75.",
+      "dica": "Some as duas frações — elas já têm o mesmo denominador." },
+
+    { "id": 24, "tipo": "resposta_numerica", "nivel": "aplicacao",
+      "pergunta": "Calcule 1/3 + 1/6. Use o denominador comum 6 e digite apenas o numerador do resultado.",
+      "resposta": 3, "tolerancia": 0,
+      "explicacao": "1/3 equivale a 2/6. Somando: 2/6 + 1/6 = 3/6.",
+      "dica": "Transforme 1/3 em sextos antes de somar: 1/3 = 2/6." },
+
+    { "id": 25, "tipo": "verdadeiro_falso", "nivel": "aplicacao",
+      "pergunta": "1/2 + 1/2 = 1 (um inteiro).",
+      "resposta": true,
+      "explicacao": "Somando os numeradores com o mesmo denominador: 1 + 1 = 2, resultando em 2/2, que é igual a 1 inteiro.",
+      "dica": "2/2 é o mesmo que 1 inteiro." },
+
+    { "id": 26, "tipo": "problema", "nivel": "aplicacao",
+      "pergunta": "Um estacionamento tem 40 vagas. 3/8 das vagas estão ocupadas. Quantas vagas estão ocupadas? Digite apenas o número.",
+      "resposta": 15, "tolerancia": 0,
+      "explicacao": "40 × 3/8 = 120/8 = 15 vagas ocupadas.",
+      "dica": "Multiplique o total de vagas pela fração ocupada." },
+
+    { "id": 27, "tipo": "complete", "nivel": "aplicacao",
+      "pergunta": "Para somar frações com denominadores diferentes, é preciso transformá-las em frações com o mesmo ____.",
+      "resposta": "denominador",
+      "explicacao": "Só é possível somar ou subtrair frações diretamente quando elas têm o mesmo denominador.",
+      "dica": "É o número de baixo da fração." },
+
+    { "id": 28, "tipo": "resposta_numerica", "nivel": "aplicacao",
+      "pergunta": "Uma turma tem 30 alunos. 2/5 dos alunos praticam esporte. Quantos alunos praticam esporte?",
+      "resposta": 12, "tolerancia": 0,
+      "explicacao": "30 × 2/5 = 60/5 = 12 alunos.",
+      "dica": "Multiplique o total de alunos pela fração que pratica esporte." },
+
+    { "id": 29, "tipo": "multipla_escolha", "nivel": "aplicacao",
+      "pergunta": "Qual é o resultado de 3/10 + 4/10?",
+      "opcoes": ["7/10", "7/20", "7/0", "3/40"], "resposta": 0,
+      "explicacao": "Com o mesmo denominador, some apenas os numeradores: 3 + 4 = 7, resultando em 7/10.",
+      "dica": "O denominador não muda quando os denominadores já são iguais." },
+
+    { "id": 30, "tipo": "problema", "nivel": "aplicacao",
+      "pergunta": "João leu 2/5 de um livro de 150 páginas. Quantas páginas ele já leu? Digite apenas o número.",
+      "resposta": 60, "tolerancia": 0,
+      "explicacao": "150 × 2/5 = 300/5 = 60 páginas.",
+      "dica": "Multiplique o total de páginas pela fração já lida." },
+
+    { "id": 31, "tipo": "relacionamento", "nivel": "desafio",
+      "pergunta": "Relacione cada fração da coluna A com sua forma simplificada na coluna B.",
+      "colunaA": ["4/6", "9/15", "10/25", "9/12"],
+      "colunaB": ["3/4", "2/5", "2/3", "3/5"],
+      "paresCorretos": [2, 3, 1, 0],
+      "explicacao": "4/6 = 2/3 (÷2) · 9/15 = 3/5 (÷3) · 10/25 = 2/5 (÷5) · 9/12 = 3/4 (÷3).",
+      "dica": "Simplifique cada fração da coluna A antes de procurar na coluna B." },
+
+    { "id": 32, "tipo": "ordenacao", "nivel": "desafio",
+      "pergunta": "Ordene da menor para a maior: 5/6, 1/3, 3/4, 1/2.",
+      "itens": ["5/6", "1/3", "3/4", "1/2"], "ordemCorreta": [1, 3, 2, 0],
+      "explicacao": "Em decimal: 1/3 ≈ 0,33 · 1/2 = 0,5 · 3/4 = 0,75 · 5/6 ≈ 0,83. Ordem crescente: 1/3, 1/2, 3/4, 5/6.",
+      "dica": "Transforme todas em decimal para comparar com mais facilidade." },
+
+    { "id": 33, "tipo": "problema", "nivel": "desafio",
+      "pergunta": "Uma piscina está sendo enchida. Após 1 hora, ela está com 2/5 de sua capacidade. Depois de mais uma hora, mais 1/5 foi adicionado. Que fração da piscina está cheia agora? Digite apenas o numerador (mantendo denominador 5).",
+      "resposta": 3, "tolerancia": 0,
+      "explicacao": "2/5 + 1/5 = 3/5 da piscina está cheia.",
+      "dica": "Some as duas frações — elas já têm o mesmo denominador." },
+
+    { "id": 34, "tipo": "encontre_erro", "nivel": "desafio",
+      "pergunta": "Encontre o erro na resolução de 3/4 + 1/6:",
+      "opcoes": ["Passo 1: MMC(4, 6) = 12", "Passo 2: 3/4 = 9/12", "Passo 3: 1/6 = 2/12", "Passo 4: 9/12 + 2/12 = 11/10"],
+      "resposta": 3,
+      "explicacao": "Ao somar frações com o mesmo denominador, o denominador não muda: 9/12 + 2/12 = 11/12, e não 11/10.",
+      "dica": "Revise: o que acontece com o denominador quando ele já é igual nas duas frações?" },
+
+    { "id": 35, "tipo": "resposta_numerica", "nivel": "desafio",
+      "pergunta": "Um tanque tem capacidade para 200 litros e está com 3/8 de água. Quantos litros faltam para enchê-lo completamente? Digite apenas o número.",
+      "resposta": 125, "tolerancia": 0,
+      "explicacao": "200 × 3/8 = 75 litros já estão no tanque. Faltam 200 − 75 = 125 litros.",
+      "dica": "Primeiro descubra quantos litros já tem, depois subtraia da capacidade total." }
+  ],
+  "atividadesExtras": [
+    { "id": 101, "tipo": "multipla_escolha", "nivel": "basico",
+      "pergunta": "Qual fração representa a metade de uma pizza?",
+      "opcoes": ["1/2", "2/1", "1/4", "2/2"], "resposta": 0,
+      "explicacao": "Metade significa 1 parte de um total de 2 partes iguais: 1/2.",
+      "dica": "Metade é dividir em 2 partes iguais e considerar 1." },
+
+    { "id": 102, "tipo": "resposta_numerica", "nivel": "intermediario",
+      "pergunta": "Simplifique 12/16 até a forma irredutível e digite apenas o numerador.",
+      "resposta": 3, "tolerancia": 0,
+      "explicacao": "MDC(12, 16) = 4. Dividindo os dois por 4: 12÷4 = 3 e 16÷4 = 4, resultando em 3/4.",
+      "dica": "Encontre o MDC entre 12 e 16." },
+
+    { "id": 103, "tipo": "verdadeiro_falso", "nivel": "basico",
+      "pergunta": "3/5 é menor que 4/5.",
+      "resposta": true,
+      "explicacao": "Com o mesmo denominador, quanto menor o numerador, menor a fração: 3 < 4, então 3/5 < 4/5.",
+      "dica": "Denominadores iguais: compare os numeradores." },
+
+    { "id": 104, "tipo": "problema", "nivel": "aplicacao",
+      "pergunta": "Uma jarra tem 2 litros de suco. Se 1/4 da jarra foi usado, quantos litros ainda restam? Digite o número.",
+      "resposta": 1.5, "tolerancia": 0.05,
+      "explicacao": "Usado: 2 × 1/4 = 0,5 litro. Restam: 2 − 0,5 = 1,5 litro.",
+      "dica": "Primeiro calcule quanto foi usado, depois subtraia do total." },
+
+    { "id": 105, "tipo": "complete", "nivel": "intermediario",
+      "pergunta": "Quando o numerador e o denominador de uma fração são iguais, a fração vale exatamente 1 ____.",
+      "resposta": "inteiro",
+      "explicacao": "Frações como 4/4, 5/5 ou 10/10 sempre valem 1 inteiro.",
+      "dica": "É a palavra usada para 'o todo completo'." }
+  ]
+}

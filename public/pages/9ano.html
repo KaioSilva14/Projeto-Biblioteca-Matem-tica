@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matemática — 9º Ano | Biblioteca Matemática</title>
+  <meta name="description" content="Conteúdos de Matemática do 9º ano do Ensino Fundamental II: teoria, exemplos, vídeos e atividades." />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/ano.css" />
+</head>
+<body data-page="ano" data-ano="9">
+  <header class="cabecalho">
+    <div class="container cabecalho__barra">
+      <a href="/" class="cabecalho__logo">Biblioteca Matemática</a>
+      <div class="menu">
+        <div class="busca">
+          <input type="search" class="busca__input" data-busca-input placeholder="Buscar conteúdo..." aria-label="Buscar conteúdo" />
+          <div class="busca__resultados" data-busca-resultados hidden></div>
+        </div>
+        <button class="menu__botao" data-menu-botao type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+        <nav class="menu__lista" data-menu-lista aria-label="Navegação principal">
+          <a href="/">Início</a>
+          <a href="/pages/6ano.html">6º Ano</a>
+          <a href="/pages/7ano.html">7º Ano</a>
+          <a href="/pages/8ano.html">8º Ano</a>
+          <a href="/pages/9ano.html">9º Ano</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container ano-cabecalho">
+      <p class="breadcrumb__lista"><a href="/">Início</a> › 9º Ano</p>
+      <h1 class="ano-cabecalho__titulo">Matemática — 9º Ano</h1>
+      <p class="ano-cabecalho__subtitulo">Escolha um conteúdo para começar.</p>
+    </section>
+
+    <section class="container secao">
+      <div class="filtros">
+        <select data-filtro-categoria aria-label="Filtrar por categoria">
+          <option value="todas">Todas as categorias</option>
+          <option value="aritmetica">Aritmética</option>
+          <option value="algebra">Álgebra</option>
+          <option value="geometria">Geometria</option>
+          <option value="estatistica">Estatística</option>
+          <option value="probabilidade">Probabilidade</option>
+        </select>
+        <select data-filtro-nivel aria-label="Filtrar por nível">
+          <option value="todos">Todos os níveis</option>
+          <option value="basico">Básico</option>
+          <option value="intermediario">Intermediário</option>
+          <option value="aplicacao">Aplicação</option>
+          <option value="desafio">Desafio</option>
+        </select>
+      </div>
+      <div class="grid-cards" data-conteudos-grid></div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="rodape__titulo">Biblioteca Matemática</p>
+      <p class="rodape__slogan">Aprenda, pratique e desenvolva seu raciocínio matemático.</p>
+      <nav class="rodape__links" aria-label="Links do rodapé">
+        <a href="/">Início</a>
+        <a href="/pages/6ano.html">6º Ano</a>
+        <a href="/pages/7ano.html">7º Ano</a>
+        <a href="/pages/8ano.html">8º Ano</a>
+        <a href="/pages/9ano.html">9º Ano</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

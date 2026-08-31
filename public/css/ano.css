@@ -1,0 +1,14 @@
+/* ano.css — estilos específicos das páginas de ano (6º ao 9º) */
+
+.ano-cabecalho {
+  padding-block: var(--espaco-xl) var(--espaco-lg);
+}
+
+.ano-cabecalho__titulo {
+  font-size: clamp(24px, 4vw, 32px);
+}
+
+.ano-cabecalho__subtitulo {
+  margin-top: var(--espaco-xs);
+  color: var(--cor-texto-muted);
+}
