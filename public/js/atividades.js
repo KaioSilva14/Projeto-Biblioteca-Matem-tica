@@ -75,24 +75,23 @@ export function sessaoConcluida(estado) {
  * Processa a resposta do aluno para a atividade atual.
  * Na primeira tentativa errada, permite tentar de novo (não conta como avanço).
  * Na segunda tentativa (certa ou errada), sempre libera avançar.
+ * Não altera o objeto "estado" recebido — sempre devolve uma cópia atualizada,
+ * seguindo o mesmo padrão imutável de avancarAtividade() e registrarDesistencia().
  */
 export function processarResposta(estado, respostaAluno) {
     const atividade = atividadeAtual(estado);
     if (!atividade) {
-        return { correta: false, primeiraTentativa: true };
+        return { estado, correta: false, primeiraTentativa: true };
     }
     const correta = corrigirAtividade(atividade, respostaAluno);
     const primeiraTentativa = !estado.jaErrouAtividadeAtual;
     if (correta) {
-        estado.acertos += 1;
+        return { estado: { ...estado, acertos: estado.acertos + 1 }, correta, primeiraTentativa };
     }
-    else if (primeiraTentativa) {
-        estado.jaErrouAtividadeAtual = true;
+    if (primeiraTentativa) {
+        return { estado: { ...estado, jaErrouAtividadeAtual: true }, correta, primeiraTentativa };
     }
-    else {
-        estado.erros += 1;
-    }
-    return { correta, primeiraTentativa };
+    return { estado: { ...estado, erros: estado.erros + 1 }, correta, primeiraTentativa };
 }
 /** Avança para a próxima atividade da sessão, reiniciando o estado de tentativa. */
 export function avancarAtividade(estado) {

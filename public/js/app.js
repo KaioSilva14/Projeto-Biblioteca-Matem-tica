@@ -5,10 +5,10 @@
 import { initNavegacao } from "./navegacao.js";
 import { carregarIndiceGeral, carregarConteudo, filtrarPorAno } from "./conteudos.js";
 import { aplicarFiltros } from "./filtros.js";
-import { renderCard, renderCardConteudo, renderBreadcrumb, renderResumo, renderVideo, renderQuestao, renderProgresso, renderFeedback, renderExplicacaoCompleta, } from "./componentes.js";
+import { renderCard, renderCardConteudo, renderBreadcrumb, renderResumo, renderVideo, renderQuestao, renderProgresso, renderFeedback, renderCaixaExplicacao, } from "./componentes.js";
 import { iniciarSessao, atividadeAtual, sessaoConcluida, processarResposta, avancarAtividade, registrarDesistencia, nomeDaSessao, } from "./atividades.js";
 import { getProgress, getProgressoEmAndamento, updateProgress, resetProgress } from "./progresso.js";
-import { qs, criarElemento, limparElemento, formatarPercentual } from "./utils.js";
+import { qs, criarElemento, limparElemento, formatarPercentual, rolarParaElemento, aoClicarUmaVez } from "./utils.js";
 document.addEventListener("DOMContentLoaded", () => {
     initNavegacao();
     const pagina = document.body.dataset.page;
@@ -245,7 +245,7 @@ function renderTelaRetomada(area, conteudo, concluidas, atividades) {
     continuar.addEventListener("click", () => {
         const estado = iniciarSessao(conteudo.id, atividades, concluidas);
         renderizarAtividadeAtual(area, conteudo, estado, false);
-    });
+    }, { once: true });
     recomecar.addEventListener("click", () => {
         if (window.confirm("Isso vai apagar seu progresso atual neste conteúdo. Deseja recomeçar?")) {
             resetProgress(conteudo.id);
@@ -268,7 +268,7 @@ function iniciarTelaDeInicio(area, conteudo, atividades, extra) {
     botaoIniciar.addEventListener("click", () => {
         const estado = iniciarSessao(conteudo.id, atividades, 0);
         renderizarAtividadeAtual(area, conteudo, estado, extra);
-    });
+    }, { once: true });
     area.appendChild(botaoIniciar);
 }
 function renderizarAtividadeAtual(area, conteudo, estado, extra) {
@@ -277,9 +277,11 @@ function renderizarAtividadeAtual(area, conteudo, estado, extra) {
         if (extra) {
             const fim = criarElemento("p", { classes: ["dica"], texto: "Atividades extras concluídas! Bom treino." });
             area.appendChild(fim);
+            rolarParaElemento(area);
             return;
         }
         renderTelaConclusao(area, conteudo, estado.acertos, estado.erros, estado.atividades.length);
+        rolarParaElemento(area);
         return;
     }
     const atividade = atividadeAtual(estado);
@@ -288,24 +290,27 @@ function renderizarAtividadeAtual(area, conteudo, estado, extra) {
     if (!extra) {
         const sessaoLabel = criarElemento("p", { classes: ["questao__sessao"], texto: nomeDaSessao(atividade.nivel) });
         area.appendChild(sessaoLabel);
-        area.appendChild(renderProgresso(estado.indiceAtual, estado.atividades.length, estado.acertos, estado.erros));
+        area.appendChild(renderProgresso(estado.indiceAtual + 1, estado.atividades.length, estado.acertos, estado.erros));
     }
     const { elemento: elementoQuestao, obterResposta } = renderQuestao(atividade);
     area.appendChild(elementoQuestao);
+    // Área de ações fica DENTRO do card da questão, para que o feedback e a
+    // explicação sejam anexados ali sem nunca remover a pergunta da tela —
+    // era isso que fazia parecer que o aluno "voltava para o início".
     const areaAcoes = criarElemento("div", { classes: ["questao__acoes"] });
-    area.appendChild(areaAcoes);
+    elementoQuestao.appendChild(areaAcoes);
     const botaoVerificar = criarElemento("button", {
         classes: ["botao", "botao--primario"],
         texto: "Verificar resposta",
         atributos: { type: "button" },
     });
     areaAcoes.appendChild(botaoVerificar);
-    botaoVerificar.addEventListener("click", () => {
+    aoClicarUmaVez(botaoVerificar, () => {
         const resposta = obterResposta();
         const resultado = processarResposta(estado, resposta);
         limparElemento(areaAcoes);
         if (resultado.correta) {
-            area.appendChild(renderFeedback(true, atividade.explicacao));
+            areaAcoes.appendChild(renderFeedback(true, atividade.explicacao));
             if (!extra) {
                 updateProgress(conteudo.id, {
                     acertou: true,
@@ -318,15 +323,17 @@ function renderizarAtividadeAtual(area, conteudo, estado, extra) {
                 texto: "Próxima atividade",
                 atributos: { type: "button" },
             });
-            proximo.addEventListener("click", () => {
-                const novoEstado = avancarAtividade(estado);
+            aoClicarUmaVez(proximo, () => {
+                const novoEstado = avancarAtividade(resultado.estado);
                 renderizarAtividadeAtual(area, conteudo, novoEstado, extra);
+                rolarParaElemento(area);
             });
-            area.appendChild(proximo);
+            areaAcoes.appendChild(proximo);
+            rolarParaElemento(elementoQuestao);
             return;
         }
         if (resultado.primeiraTentativa) {
-            area.appendChild(renderFeedback(false, "", atividade.dica));
+            areaAcoes.appendChild(renderFeedback(false, "", atividade.dica));
             const acoes = criarElemento("div", { classes: ["questao__acoes"] });
             const tentarNovamente = criarElemento("button", {
                 classes: ["botao", "botao--primario"],
@@ -338,11 +345,12 @@ function renderizarAtividadeAtual(area, conteudo, estado, extra) {
                 texto: "Ver explicação",
                 atributos: { type: "button" },
             });
-            tentarNovamente.addEventListener("click", () => {
-                renderizarAtividadeAtual(area, conteudo, estado, extra);
+            aoClicarUmaVez(tentarNovamente, () => {
+                renderizarAtividadeAtual(area, conteudo, resultado.estado, extra);
+                rolarParaElemento(area);
             });
-            verExplicacao.addEventListener("click", () => {
-                const estadoComDesistencia = registrarDesistencia(estado);
+            aoClicarUmaVez(verExplicacao, () => {
+                const estadoComDesistencia = registrarDesistencia(resultado.estado);
                 if (!extra) {
                     updateProgress(conteudo.id, {
                         acertou: false,
@@ -350,27 +358,30 @@ function renderizarAtividadeAtual(area, conteudo, estado, extra) {
                         totalAtividades: estado.atividades.length,
                     });
                 }
-                limparElemento(area);
-                area.appendChild(renderExplicacaoCompleta(atividade.explicacao));
+                limparElemento(acoes);
+                elementoQuestao.appendChild(renderCaixaExplicacao(atividade.explicacao));
                 const proximo = criarElemento("button", {
                     classes: ["botao", "botao--primario"],
                     texto: "Próxima atividade",
                     atributos: { type: "button" },
                 });
-                proximo.addEventListener("click", () => {
+                aoClicarUmaVez(proximo, () => {
                     const novoEstado = avancarAtividade(estadoComDesistencia);
                     renderizarAtividadeAtual(area, conteudo, novoEstado, extra);
+                    rolarParaElemento(area);
                 });
-                area.appendChild(proximo);
+                elementoQuestao.appendChild(proximo);
+                rolarParaElemento(elementoQuestao);
             });
             acoes.appendChild(tentarNovamente);
             acoes.appendChild(verExplicacao);
-            area.appendChild(acoes);
+            areaAcoes.appendChild(acoes);
+            rolarParaElemento(elementoQuestao);
             return;
         }
-        // Segunda tentativa também errada: mostra explicação direto e segue em frente.
-        area.appendChild(renderFeedback(false, "", undefined));
-        area.appendChild(renderExplicacaoCompleta(atividade.explicacao));
+        // Segunda tentativa também errada: mostra a explicação em destaque e segue em frente.
+        areaAcoes.appendChild(renderFeedback(false, "", undefined));
+        areaAcoes.appendChild(renderCaixaExplicacao(atividade.explicacao));
         if (!extra) {
             updateProgress(conteudo.id, {
                 acertou: false,
@@ -383,11 +394,13 @@ function renderizarAtividadeAtual(area, conteudo, estado, extra) {
             texto: "Próxima atividade",
             atributos: { type: "button" },
         });
-        proximo.addEventListener("click", () => {
-            const novoEstado = avancarAtividade(estado);
+        aoClicarUmaVez(proximo, () => {
+            const novoEstado = avancarAtividade(resultado.estado);
             renderizarAtividadeAtual(area, conteudo, novoEstado, extra);
+            rolarParaElemento(area);
         });
-        area.appendChild(proximo);
+        areaAcoes.appendChild(proximo);
+        rolarParaElemento(elementoQuestao);
     });
 }
 function renderTelaConclusao(area, conteudo, acertos, erros, total) {

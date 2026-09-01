@@ -215,6 +215,15 @@
   border: 1px solid var(--cor-erro);
 }
 
+.feedback--explicacao {
+  background-color: var(--cor-primaria-suave);
+  border: 1px solid var(--cor-primaria);
+}
+
+.feedback--explicacao .feedback__titulo {
+  color: var(--cor-primaria);
+}
+
 .feedback__titulo {
   font-weight: 700;
   margin-bottom: var(--espaco-xxs);

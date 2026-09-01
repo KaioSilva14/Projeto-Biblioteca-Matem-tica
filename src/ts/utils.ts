@@ -89,3 +89,27 @@ export function textoOuPadrao(valor: unknown, padrao: string): string {
   }
   return padrao;
 }
+
+/**
+ * Rola a tela até o topo do elemento informado, mantendo o aluno orientado
+ * a cada troca de atividade (evita a sensação de "ter voltado ao início").
+ * Respeita prefers-reduced-motion, usando rolagem instantânea quando ativado.
+ */
+export function rolarParaElemento(elemento: HTMLElement): void {
+  const semAnimacao = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  elemento.scrollIntoView({ behavior: semAnimacao ? "auto" : "smooth", block: "start" });
+}
+
+/**
+ * Protege um botão contra clique duplo/duplo toque: desabilita imediatamente
+ * ao ser acionado e só executa a ação uma vez por clique real.
+ */
+export function aoClicarUmaVez(botao: HTMLButtonElement, acao: () => void): void {
+  botao.addEventListener("click", () => {
+    if (botao.disabled) {
+      return;
+    }
+    botao.disabled = true;
+    acao();
+  });
+}

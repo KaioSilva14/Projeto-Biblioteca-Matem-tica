@@ -118,21 +118,26 @@ export function renderBreadcrumb(itens: { texto: string; href?: string }[]): HTM
 // ---------- Progresso ----------
 
 export function renderProgresso(
-  atual: number,
+  posicaoAtual: number,
   total: number,
   acertos: number,
   erros: number
 ): HTMLElement {
   const container = criarElemento("div", { classes: ["progresso"] });
 
+  // posicaoAtual é 1-based (ex.: 1 = primeira atividade). A barra representa
+  // quantas atividades já foram concluídas ANTES desta, ou seja, posicaoAtual - 1.
+  const concluidasAntes = Math.max(posicaoAtual - 1, 0);
+  const posicaoExibida = Math.min(Math.max(posicaoAtual, 1), total);
+
   const cabecalho = criarElemento("div", { classes: ["progresso__cabecalho"] });
   cabecalho.appendChild(
     criarElemento("span", {
       classes: ["progresso__contagem"],
-      texto: `Atividade ${Math.min(atual, total)} de ${total}`,
+      texto: `Atividade ${posicaoExibida} de ${total}`,
     })
   );
-  const proporcao = total > 0 ? atual / total : 0;
+  const proporcao = total > 0 ? concluidasAntes / total : 0;
   cabecalho.appendChild(
     criarElemento("span", { classes: ["progresso__percentual"], texto: formatarPercentual(proporcao) })
   );
@@ -144,7 +149,7 @@ export function renderProgresso(
       role: "progressbar",
       "aria-valuemin": "0",
       "aria-valuemax": String(total),
-      "aria-valuenow": String(atual),
+      "aria-valuenow": String(concluidasAntes),
     },
   });
   const barraPreenchida = criarElemento("div", { classes: ["progresso__preenchimento"] });
@@ -189,8 +194,19 @@ export function renderFeedback(correto: boolean, explicacao: string, dica?: stri
   return container;
 }
 
-export function renderExplicacaoCompleta(explicacao: string): HTMLElement {
-  return criarElemento("p", { classes: ["feedback__explicacao"], texto: explicacao });
+/**
+ * Caixa de explicação com destaque visual próprio (título + fundo diferenciado),
+ * usada quando o aluno desiste de tentar de novo ou erra a segunda tentativa.
+ * Antes disso ficava só um parágrafo solto, fácil de não notar — corrigido aqui.
+ */
+export function renderCaixaExplicacao(explicacao: string): HTMLElement {
+  const container = criarElemento("div", {
+    classes: ["feedback", "feedback--explicacao"],
+    atributos: { role: "status" },
+  });
+  container.appendChild(criarElemento("p", { classes: ["feedback__titulo"], texto: "📘 Explicação" }));
+  container.appendChild(criarElemento("p", { classes: ["feedback__explicacao"], texto: explicacao }));
+  return container;
 }
 
 // ---------- Vídeo (clique para carregar — sem autoplay, sem pesar a página) ----------
