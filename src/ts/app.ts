@@ -19,6 +19,11 @@ import {
   renderProgresso,
   renderFeedback,
   renderCaixaExplicacao,
+  renderBlocoTeoria,
+  renderExemplo,
+  renderDica,
+  renderCabecalhoModulo,
+  renderTrilhaResumo,
 } from "./componentes.js";
 import {
   iniciarSessao,
@@ -27,10 +32,11 @@ import {
   processarResposta,
   avancarAtividade,
   registrarDesistencia,
-  nomeDaSessao,
   type EstadoSessao,
 } from "./atividades.js";
+import { resolverModulos, ordemGlobalDeAtividades, type LoteAtividades, type ModuloResolvido } from "./modulos.js";
 import { getProgress, getProgressoEmAndamento, updateProgress, resetProgress } from "./progresso.js";
+import { desenharCertificado, baixarCertificado } from "./certificado.js";
 import { qs, criarElemento, limparElemento, formatarPercentual, rolarParaElemento, aoClicarUmaVez } from "./utils.js";
 import type { Ano, ConteudoResumo, Conteudo } from "./types.js";
 
@@ -70,13 +76,14 @@ async function initHome(): Promise<void> {
   if (containerAnos) {
     limparElemento(containerAnos);
     ([6, 7, 8, 9] as Ano[]).forEach((ano) => {
-      const quantidade = indice.filter((item) => item.ano === ano).length;
+      const doAno = indice.filter((item) => item.ano === ano);
+      const disponiveis = doAno.filter((item) => item.disponivel).length;
       containerAnos.appendChild(
         renderCard({
           destaque: `${ano}º ANO`,
           titulo: NOMES_ANO[ano],
           descricao: DESCRICAO_ANO[ano],
-          meta: `${quantidade} conteúdos`,
+          meta: `${disponiveis} de ${doAno.length} conteúdos prontos`,
           cta: "Explorar conteúdos",
           href: `/pages/${ano}ano.html`,
         })
@@ -96,7 +103,9 @@ async function initHome(): Promise<void> {
         containerDashboard.appendChild(
           renderCard({
             titulo: resumo.titulo,
-            descricao: `${emAndamento.concluidas} de 35 atividades concluídas`,
+            // O total vem do índice, não de um "35" fixo no código — assim
+            // um conteúdo com outra quantidade de atividades mostra o número certo.
+            descricao: `${emAndamento.concluidas} de ${resumo.quantidadeAtividades} atividades concluídas`,
             cta: "Continuar",
             href: resumo.rota,
           })
@@ -104,9 +113,9 @@ async function initHome(): Promise<void> {
         return;
       }
     }
-    containerDashboard.appendChild(
-      criarElemento("p", { classes: ["dashboard__titulo"], texto: "Comece escolhendo seu ano." })
-    );
+    // Sem matéria em andamento, o cartão simplesmente não aparece. A seção
+    // "Escolha seu ano" vem logo abaixo e já cumpre esse papel — um aviso
+    // solto aqui só criava um rótulo órfão no topo da página.
   }
 }
 
@@ -153,11 +162,11 @@ async function initConteudo(): Promise<void> {
   }
 
   const conteudo = await carregarConteudo(caminhoJson);
-  const areaPrincipal = qs<HTMLElement>("[data-conteudo-principal]");
-  if (!conteudo || !areaPrincipal) {
-    if (areaPrincipal) {
-      limparElemento(areaPrincipal);
-      areaPrincipal.appendChild(
+  const areaTrilha = qs<HTMLElement>("[data-trilha]");
+  if (!conteudo) {
+    if (areaTrilha) {
+      limparElemento(areaTrilha);
+      areaTrilha.appendChild(
         criarElemento("p", {
           classes: ["estado-vazio"],
           texto: "Não foi possível carregar este conteúdo. Volte e tente novamente.",
@@ -168,13 +177,11 @@ async function initConteudo(): Promise<void> {
   }
 
   renderCabecalhoConteudo(conteudo);
-  renderTeoriaConteudo(conteudo);
-  renderExemplosConteudo(conteudo);
-  renderDicasConteudo(conteudo);
-  renderVideosConteudo(conteudo);
+  if (areaTrilha) {
+    renderTrilha(areaTrilha, conteudo);
+  }
   renderResumoConteudo(conteudo);
-  initAreaAtividades(conteudo, false);
-  initAreaAtividades(conteudo, true);
+  initAtividadesExtras(conteudo);
 }
 
 function renderCabecalhoConteudo(conteudo: Conteudo): void {
@@ -201,57 +208,21 @@ function renderCabecalhoConteudo(conteudo: Conteudo): void {
     limparElemento(objetivos);
     objetivos.appendChild(renderResumo(conteudo.objetivos));
   }
-}
 
-function renderTeoriaConteudo(conteudo: Conteudo): void {
-  const container = qs<HTMLElement>("[data-conteudo-teoria]");
-  if (!container) return;
-  limparElemento(container);
-  conteudo.teoria.forEach((bloco) => {
-    const secao = criarElemento("div", { classes: ["teoria__bloco"] });
-    secao.appendChild(criarElemento("h3", { texto: bloco.titulo }));
-    bloco.paragrafos.forEach((paragrafo) => {
-      secao.appendChild(criarElemento("p", { texto: paragrafo }));
+  const meta = qs<HTMLElement>("[data-conteudo-meta]");
+  if (meta) {
+    const totalAtividades = ordemGlobalDeAtividades(conteudo).length;
+    const totalModulos = conteudo.modulos?.length ?? 0;
+    limparElemento(meta);
+    const partes = [
+      totalModulos > 0 ? `${totalModulos} módulos` : null,
+      `${totalAtividades} atividades`,
+      `${conteudo.videos.length} vídeos`,
+    ].filter((parte): parte is string => parte !== null);
+    partes.forEach((parte) => {
+      meta.appendChild(criarElemento("span", { classes: ["conteudo-meta__item"], texto: parte }));
     });
-    if (bloco.destaque) {
-      secao.appendChild(criarElemento("p", { classes: ["teoria__destaque"], texto: bloco.destaque }));
-    }
-    container.appendChild(secao);
-  });
-}
-
-function renderExemplosConteudo(conteudo: Conteudo): void {
-  const container = qs<HTMLElement>("[data-conteudo-exemplos]");
-  if (!container) return;
-  limparElemento(container);
-  conteudo.exemplos.forEach((exemplo, indice) => {
-    const card = criarElemento("div", { classes: ["exemplo"] });
-    card.appendChild(criarElemento("p", { classes: ["exemplo__rotulo"], texto: `Exemplo ${indice + 1}` }));
-    card.appendChild(criarElemento("p", { texto: `Problema: ${exemplo.problema}` }));
-    card.appendChild(criarElemento("p", { texto: `Estratégia: ${exemplo.estrategia}` }));
-    card.appendChild(criarElemento("p", { texto: `Cálculo: ${exemplo.calculo}` }));
-    card.appendChild(
-      criarElemento("p", { classes: ["exemplo__resultado"], texto: `Resultado: ${exemplo.resultado}` })
-    );
-    card.appendChild(criarElemento("p", { texto: exemplo.explicacao }));
-    container.appendChild(card);
-  });
-}
-
-function renderDicasConteudo(conteudo: Conteudo): void {
-  const container = qs<HTMLElement>("[data-conteudo-dicas]");
-  if (!container) return;
-  limparElemento(container);
-  conteudo.dicas.forEach((dica) => {
-    container.appendChild(criarElemento("p", { classes: ["dica"], texto: `💡 ${dica}` }));
-  });
-}
-
-function renderVideosConteudo(conteudo: Conteudo): void {
-  const container = qs<HTMLElement>("[data-conteudo-videos]");
-  if (!container) return;
-  limparElemento(container);
-  conteudo.videos.forEach((video) => container.appendChild(renderVideo(video)));
+  }
 }
 
 function renderResumoConteudo(conteudo: Conteudo): void {
@@ -261,130 +232,282 @@ function renderResumoConteudo(conteudo: Conteudo): void {
   container.appendChild(renderResumo(conteudo.resumo));
 }
 
-// ---------- Motor de atividades aplicado à página de conteúdo ----------
+// ---------- Trilha de módulos (v2) ----------
+//
+// A v1 empilhava toda a teoria, depois todos os vídeos e por fim as 35
+// atividades seguidas. A v2 renderiza a trilha declarada no JSON: cada módulo
+// intercala explicação, exemplo, vídeo e lotes curtos de atividades.
+//
+// Os lotes são liberados em ordem. Isso não é gamificação — é o que mantém o
+// progresso coerente: como o progresso é um índice numa lista ordenada, deixar
+// o aluno pular para o lote 5 antes do 2 faria a contagem de concluídas
+// descrever um estado que não aconteceu.
 
-function initAreaAtividades(conteudo: Conteudo, extra: boolean): void {
-  const seletor = extra ? "[data-atividades-extras]" : "[data-atividades-principal]";
-  const area = qs<HTMLElement>(seletor);
-  if (!area) return;
-
-  const listaAtividades = extra ? conteudo.atividadesExtras : conteudo.atividades;
-  if (listaAtividades.length === 0) {
-    area.hidden = true;
-    return;
-  }
+function renderTrilha(area: HTMLElement, conteudo: Conteudo): void {
+  const resolvidos = resolverModulos(conteudo);
+  const totalGlobal = ordemGlobalDeAtividades(conteudo).length;
 
   limparElemento(area);
 
-  if (extra) {
-    iniciarTelaDeInicio(area, conteudo, listaAtividades, extra);
+  if (resolvidos.length === 0) {
+    // Conteúdo ainda no formato v1 (sem "modulos" no JSON): exibe o formato
+    // linear antigo em vez de uma página vazia.
+    renderConteudoLinear(area, conteudo);
     return;
   }
 
-  const progressoSalvo = getProgress(conteudo.id);
-  if (progressoSalvo?.concluido) {
-    renderTelaConclusao(area, conteudo, progressoSalvo.acertos, progressoSalvo.erros, listaAtividades.length);
-    return;
-  }
-  if (progressoSalvo && progressoSalvo.concluidas > 0) {
-    renderTelaRetomada(area, conteudo, progressoSalvo.concluidas, listaAtividades);
-    return;
-  }
-  iniciarTelaDeInicio(area, conteudo, listaAtividades, extra);
+  const caixaResumo = criarElemento("div", { classes: ["trilha-resumo__caixa"] });
+  area.appendChild(caixaResumo);
+
+  const containerModulos = criarElemento("div", { classes: ["trilha"] });
+  area.appendChild(containerModulos);
+
+  const areaConclusao = criarElemento("div", { classes: ["trilha__conclusao"] });
+  area.appendChild(areaConclusao);
+
+  // Redesenha as partes que dependem do progresso. Chamado sempre que o aluno
+  // termina um lote, para que a barra do topo e os selos "concluído" fiquem
+  // coerentes sem recarregar a página.
+  const atualizar = (): void => {
+    const progresso = getProgress(conteudo.id);
+    const concluidas = progresso?.concluidas ?? 0;
+
+    limparElemento(caixaResumo);
+    caixaResumo.appendChild(renderTrilhaResumo(Math.min(concluidas, totalGlobal), totalGlobal));
+
+    limparElemento(containerModulos);
+    resolvidos.forEach((resolvido) => {
+      containerModulos.appendChild(montarModulo(conteudo, resolvido, totalGlobal, concluidas, atualizar));
+    });
+
+    limparElemento(areaConclusao);
+    if (concluidas >= totalGlobal && totalGlobal > 0) {
+      areaConclusao.appendChild(montarConclusao(conteudo, totalGlobal, atualizar));
+    }
+  };
+
+  atualizar();
 }
 
-function renderTelaRetomada(
-  area: HTMLElement,
+function montarModulo(
   conteudo: Conteudo,
+  resolvido: ModuloResolvido,
+  totalGlobal: number,
   concluidas: number,
-  atividades: Conteudo["atividades"]
-): void {
-  limparElemento(area);
-  const banner = criarElemento("div", { classes: ["banner-retomada"] });
-  banner.appendChild(
-    criarElemento("p", { texto: `Você já concluiu ${concluidas} de ${atividades.length} atividades.` })
-  );
-  const botoes = criarElemento("div", { classes: ["banner-retomada__botoes"] });
-  const continuar = criarElemento("button", {
-    classes: ["botao", "botao--primario"],
-    texto: "Continuar de onde parei",
-    atributos: { type: "button" },
+  aoMudarProgresso: () => void
+): HTMLElement {
+  const moduloConcluido = concluidas >= resolvido.indiceGlobalFinal && resolvido.atividades.length > 0;
+
+  const secao = criarElemento("section", {
+    classes: ["modulo", moduloConcluido ? "modulo--concluido" : "modulo--aberto"],
+    atributos: { id: `modulo-${resolvido.modulo.id}` },
   });
-  const recomecar = criarElemento("button", {
-    classes: ["botao", "botao--secundario"],
-    texto: "Recomeçar do zero",
-    atributos: { type: "button" },
-  });
-  continuar.addEventListener("click", () => {
-    const estado = iniciarSessao(conteudo.id, atividades, concluidas);
-    renderizarAtividadeAtual(area, conteudo, estado, false);
-  }, { once: true });
-  recomecar.addEventListener("click", () => {
-    if (window.confirm("Isso vai apagar seu progresso atual neste conteúdo. Deseja recomeçar?")) {
-      resetProgress(conteudo.id);
-      const estado = iniciarSessao(conteudo.id, atividades, 0);
-      renderizarAtividadeAtual(area, conteudo, estado, false);
+  secao.appendChild(renderCabecalhoModulo(resolvido.modulo, moduloConcluido));
+
+  const corpo = criarElemento("div", { classes: ["modulo__corpo"] });
+
+  let contadorExemplo = 0;
+  resolvido.itens.forEach((item) => {
+    switch (item.tipo) {
+      case "teoria": {
+        if (item.item.tipo !== "teoria") break;
+        corpo.appendChild(renderBlocoTeoria(item.item));
+        break;
+      }
+      case "exemplo": {
+        if (item.item.tipo !== "exemplo") break;
+        contadorExemplo += 1;
+        corpo.appendChild(renderExemplo(item.item, contadorExemplo));
+        break;
+      }
+      case "video": {
+        if (item.item.tipo !== "video") break;
+        const caixa = criarElemento("div", { classes: ["modulo__video"] });
+        caixa.appendChild(renderVideo(item.item));
+        corpo.appendChild(caixa);
+        break;
+      }
+      case "dica": {
+        if (item.item.tipo !== "dica") break;
+        corpo.appendChild(renderDica(item.item.texto));
+        break;
+      }
+      case "atividades": {
+        corpo.appendChild(montarLote(conteudo, item.lote, totalGlobal, concluidas, aoMudarProgresso));
+        break;
+      }
     }
   });
-  botoes.appendChild(continuar);
-  botoes.appendChild(recomecar);
-  banner.appendChild(botoes);
-  area.appendChild(banner);
+
+  secao.appendChild(corpo);
+  return secao;
 }
 
-function iniciarTelaDeInicio(
+/** Estados possíveis de um lote de atividades dentro de um módulo. */
+type EstadoLote = "bloqueado" | "disponivel" | "em-andamento" | "concluido";
+
+function estadoDoLote(lote: LoteAtividades, concluidas: number): EstadoLote {
+  const inicio = lote.indiceGlobalInicial;
+  const fim = inicio + lote.atividades.length;
+  if (concluidas >= fim) return "concluido";
+  if (concluidas > inicio) return "em-andamento";
+  if (concluidas === inicio) return "disponivel";
+  return "bloqueado";
+}
+
+function montarLote(
+  conteudo: Conteudo,
+  lote: LoteAtividades,
+  totalGlobal: number,
+  concluidas: number,
+  aoMudarProgresso: () => void
+): HTMLElement {
+  const caixa = criarElemento("div", { classes: ["lote"] });
+  const estado = estadoDoLote(lote, concluidas);
+  caixa.classList.add(`lote--${estado}`);
+
+  const cabecalho = criarElemento("div", { classes: ["lote__cabecalho"] });
+  cabecalho.appendChild(criarElemento("h4", { classes: ["lote__titulo"], texto: lote.titulo }));
+  cabecalho.appendChild(
+    criarElemento("span", {
+      classes: ["lote__contagem"],
+      texto: `${lote.atividades.length} ${lote.atividades.length === 1 ? "atividade" : "atividades"}`,
+    })
+  );
+  caixa.appendChild(cabecalho);
+
+  const areaExercicio = criarElemento("div", { classes: ["lote__area"] });
+  caixa.appendChild(areaExercicio);
+
+  const iniciar = (): void => {
+    const progresso = getProgress(conteudo.id);
+    const feitas = progresso?.concluidas ?? 0;
+    const deslocamentoLocal = Math.max(0, Math.min(feitas - lote.indiceGlobalInicial, lote.atividades.length - 1));
+    // O placar da sessão parte do que já está salvo (correção do bug 1):
+    // assim acertos/erros continuam corretos mesmo numa matéria retomada.
+    const sessao = iniciarSessao(conteudo.id, lote.atividades, deslocamentoLocal, {
+      acertos: progresso?.acertos ?? 0,
+      erros: progresso?.erros ?? 0,
+    });
+    renderizarAtividadeDoLote(areaExercicio, conteudo, lote, sessao, totalGlobal, aoMudarProgresso);
+    rolarParaElemento(areaExercicio);
+  };
+
+  switch (estado) {
+    case "concluido": {
+      const aviso = criarElemento("div", { classes: ["lote__estado", "lote__estado--concluido"] });
+      aviso.appendChild(criarElemento("span", { classes: ["lote__icone"], texto: "✓", atributos: { "aria-hidden": "true" } }));
+      aviso.appendChild(criarElemento("p", { texto: "Bloco concluído." }));
+      const revisar = criarElemento("button", {
+        classes: ["botao", "botao--fantasma"],
+        texto: "Revisar este bloco",
+        atributos: { type: "button" },
+      });
+      // Revisão não mexe no progresso — é só treino.
+      revisar.addEventListener("click", () => {
+        const sessao = iniciarSessao(conteudo.id, lote.atividades, 0);
+        renderizarAtividadeDoLote(areaExercicio, conteudo, lote, sessao, totalGlobal, aoMudarProgresso, true);
+        rolarParaElemento(areaExercicio);
+      });
+      aviso.appendChild(revisar);
+      areaExercicio.appendChild(aviso);
+      break;
+    }
+    case "bloqueado": {
+      const aviso = criarElemento("div", { classes: ["lote__estado", "lote__estado--bloqueado"] });
+      aviso.appendChild(criarElemento("span", { classes: ["lote__icone"], texto: "🔒", atributos: { "aria-hidden": "true" } }));
+      aviso.appendChild(criarElemento("p", { texto: "Conclua o bloco anterior para liberar este." }));
+      areaExercicio.appendChild(aviso);
+      break;
+    }
+    default: {
+      const restantes = lote.indiceGlobalInicial + lote.atividades.length - concluidas;
+      const botao = criarElemento("button", {
+        classes: ["botao", "botao--primario"],
+        texto:
+          estado === "em-andamento"
+            ? `Continuar bloco (faltam ${restantes})`
+            : "Começar este bloco",
+        atributos: { type: "button" },
+      });
+      botao.addEventListener("click", iniciar, { once: true });
+      areaExercicio.appendChild(botao);
+      break;
+    }
+  }
+
+  return caixa;
+}
+
+/**
+ * Motor de atividades aplicado a UM lote.
+ *
+ * "revisao = true" desliga a gravação de progresso: o aluno pode refazer um
+ * bloco já concluído sem inflar acertos/erros nem alterar a contagem.
+ */
+function renderizarAtividadeDoLote(
   area: HTMLElement,
   conteudo: Conteudo,
-  atividades: Conteudo["atividades"],
-  extra: boolean
+  lote: LoteAtividades,
+  estado: EstadoSessao,
+  totalGlobal: number,
+  aoMudarProgresso: () => void,
+  revisao = false
 ): void {
-  limparElemento(area);
-  const botaoIniciar = criarElemento("button", {
-    classes: ["botao", "botao--primario"],
-    texto: extra ? "Praticar atividades extras" : "Começar atividades",
-    atributos: { type: "button" },
-  });
-  botaoIniciar.addEventListener("click", () => {
-    const estado = iniciarSessao(conteudo.id, atividades, 0);
-    renderizarAtividadeAtual(area, conteudo, estado, extra);
-  }, { once: true });
-  area.appendChild(botaoIniciar);
-}
-
-function renderizarAtividadeAtual(area: HTMLElement, conteudo: Conteudo, estado: EstadoSessao, extra: boolean): void {
   limparElemento(area);
 
   if (sessaoConcluida(estado)) {
-    if (extra) {
-      const fim = criarElemento("p", { classes: ["dica"], texto: "Atividades extras concluídas! Bom treino." });
-      area.appendChild(fim);
-      rolarParaElemento(area);
-      return;
+    const fim = criarElemento("div", { classes: ["lote__estado", "lote__estado--concluido"] });
+    fim.appendChild(criarElemento("span", { classes: ["lote__icone"], texto: "✓", atributos: { "aria-hidden": "true" } }));
+    fim.appendChild(
+      criarElemento("p", {
+        texto: revisao ? "Revisão concluída. Bom treino!" : "Bloco concluído! Siga para a próxima etapa do módulo.",
+      })
+    );
+    area.appendChild(fim);
+    if (!revisao) {
+      aoMudarProgresso();
     }
-    renderTelaConclusao(area, conteudo, estado.acertos, estado.erros, estado.atividades.length);
-    rolarParaElemento(area);
     return;
   }
 
   const atividade = atividadeAtual(estado);
   if (!atividade) return;
 
-  if (!extra) {
-    const sessaoLabel = criarElemento("p", { classes: ["questao__sessao"], texto: nomeDaSessao(atividade.nivel) });
-    area.appendChild(sessaoLabel);
-    area.appendChild(
-      renderProgresso(estado.indiceAtual + 1, estado.atividades.length, estado.acertos, estado.erros)
-    );
-  }
+  const indiceGlobal = lote.indiceGlobalInicial + estado.indiceAtual;
+
+  // O progresso mostrado é o da matéria inteira (não o do lote), para o aluno
+  // nunca perder a referência de onde está no todo.
+  area.appendChild(
+    renderProgresso(
+      revisao ? estado.indiceAtual + 1 : indiceGlobal + 1,
+      revisao ? lote.atividades.length : totalGlobal,
+      estado.acertos,
+      estado.erros
+    )
+  );
 
   const { elemento: elementoQuestao, obterResposta } = renderQuestao(atividade);
   area.appendChild(elementoQuestao);
 
-  // Área de ações fica DENTRO do card da questão, para que o feedback e a
-  // explicação sejam anexados ali sem nunca remover a pergunta da tela —
-  // era isso que fazia parecer que o aluno "voltava para o início".
+  // A área de ações fica DENTRO do card da questão, para que o feedback e a
+  // explicação sejam anexados ali sem nunca remover a pergunta da tela.
   const areaAcoes = criarElemento("div", { classes: ["questao__acoes"] });
   elementoQuestao.appendChild(areaAcoes);
+
+  const gravar = (acertou: boolean): void => {
+    if (revisao) return;
+    updateProgress(conteudo.id, {
+      acertou,
+      indiceAtividade: indiceGlobal,
+      totalAtividades: totalGlobal,
+    });
+  };
+
+  const seguir = (novoEstado: EstadoSessao): void => {
+    renderizarAtividadeDoLote(area, conteudo, lote, avancarAtividade(novoEstado), totalGlobal, aoMudarProgresso, revisao);
+    rolarParaElemento(area);
+  };
 
   const botaoVerificar = criarElemento("button", {
     classes: ["botao", "botao--primario"],
@@ -394,29 +517,18 @@ function renderizarAtividadeAtual(area: HTMLElement, conteudo: Conteudo, estado:
   areaAcoes.appendChild(botaoVerificar);
 
   aoClicarUmaVez(botaoVerificar, () => {
-    const resposta = obterResposta();
-    const resultado = processarResposta(estado, resposta);
+    const resultado = processarResposta(estado, obterResposta());
     limparElemento(areaAcoes);
 
     if (resultado.correta) {
       areaAcoes.appendChild(renderFeedback(true, atividade.explicacao));
-      if (!extra) {
-        updateProgress(conteudo.id, {
-          acertou: true,
-          indiceAtividade: estado.indiceAtual,
-          totalAtividades: estado.atividades.length,
-        });
-      }
+      gravar(true);
       const proximo = criarElemento("button", {
         classes: ["botao", "botao--primario"],
         texto: "Próxima atividade",
         atributos: { type: "button" },
       });
-      aoClicarUmaVez(proximo, () => {
-        const novoEstado = avancarAtividade(resultado.estado);
-        renderizarAtividadeAtual(area, conteudo, novoEstado, extra);
-        rolarParaElemento(area);
-      });
+      aoClicarUmaVez(proximo, () => seguir(resultado.estado));
       areaAcoes.appendChild(proximo);
       rolarParaElemento(elementoQuestao);
       return;
@@ -436,18 +548,12 @@ function renderizarAtividadeAtual(area: HTMLElement, conteudo: Conteudo, estado:
         atributos: { type: "button" },
       });
       aoClicarUmaVez(tentarNovamente, () => {
-        renderizarAtividadeAtual(area, conteudo, resultado.estado, extra);
+        renderizarAtividadeDoLote(area, conteudo, lote, resultado.estado, totalGlobal, aoMudarProgresso, revisao);
         rolarParaElemento(area);
       });
       aoClicarUmaVez(verExplicacao, () => {
         const estadoComDesistencia = registrarDesistencia(resultado.estado);
-        if (!extra) {
-          updateProgress(conteudo.id, {
-            acertou: false,
-            indiceAtividade: estado.indiceAtual,
-            totalAtividades: estado.atividades.length,
-          });
-        }
+        gravar(false);
         limparElemento(acoes);
         elementoQuestao.appendChild(renderCaixaExplicacao(atividade.explicacao));
         const proximo = criarElemento("button", {
@@ -455,11 +561,7 @@ function renderizarAtividadeAtual(area: HTMLElement, conteudo: Conteudo, estado:
           texto: "Próxima atividade",
           atributos: { type: "button" },
         });
-        aoClicarUmaVez(proximo, () => {
-          const novoEstado = avancarAtividade(estadoComDesistencia);
-          renderizarAtividadeAtual(area, conteudo, novoEstado, extra);
-          rolarParaElemento(area);
-        });
+        aoClicarUmaVez(proximo, () => seguir(estadoComDesistencia));
         elementoQuestao.appendChild(proximo);
         rolarParaElemento(elementoQuestao);
       });
@@ -470,81 +572,221 @@ function renderizarAtividadeAtual(area: HTMLElement, conteudo: Conteudo, estado:
       return;
     }
 
-    // Segunda tentativa também errada: mostra a explicação em destaque e segue em frente.
+    // Segunda tentativa também errada: mostra a explicação em destaque e segue.
     areaAcoes.appendChild(renderFeedback(false, "", undefined));
     areaAcoes.appendChild(renderCaixaExplicacao(atividade.explicacao));
-    if (!extra) {
-      updateProgress(conteudo.id, {
-        acertou: false,
-        indiceAtividade: estado.indiceAtual,
-        totalAtividades: estado.atividades.length,
-      });
-    }
+    gravar(false);
     const proximo = criarElemento("button", {
       classes: ["botao", "botao--primario"],
       texto: "Próxima atividade",
       atributos: { type: "button" },
     });
-    aoClicarUmaVez(proximo, () => {
-      const novoEstado = avancarAtividade(resultado.estado);
-      renderizarAtividadeAtual(area, conteudo, novoEstado, extra);
-      rolarParaElemento(area);
-    });
+    aoClicarUmaVez(proximo, () => seguir(resultado.estado));
     areaAcoes.appendChild(proximo);
     rolarParaElemento(elementoQuestao);
   });
 }
 
-function renderTelaConclusao(
-  area: HTMLElement,
-  conteudo: Conteudo,
-  acertos: number,
-  erros: number,
-  total: number
-): void {
-  limparElemento(area);
+// ---------- Conclusão da matéria + certificado ----------
+
+function montarConclusao(conteudo: Conteudo, totalGlobal: number, aoMudarProgresso: () => void): HTMLElement {
+  // Os números vêm do localStorage, não do estado em memória. É a segunda
+  // trava contra o bug 1: mesmo que uma sessão em memória estivesse
+  // incompleta, o placar exibido aqui é o acumulado real da matéria.
+  const progresso = getProgress(conteudo.id);
+  const acertos = progresso?.acertos ?? 0;
+  const erros = progresso?.erros ?? 0;
+  const aproveitamento = totalGlobal > 0 ? acertos / totalGlobal : 0;
+
   const container = criarElemento("div", { classes: ["conclusao"] });
-  container.appendChild(criarElemento("h3", { texto: "Conteúdo concluído!" }));
-  container.appendChild(criarElemento("p", { texto: `${total}/${total} atividades` }));
-  container.appendChild(criarElemento("p", { texto: `Você acertou ${acertos} de ${total} atividades.` }));
-  void erros;
-  container.appendChild(
-    criarElemento("p", {
-      classes: ["conclusao__percentual"],
-      texto: `${formatarPercentual(total > 0 ? acertos / total : 0)} de aproveitamento.`,
-    })
-  );
+
+  container.appendChild(criarElemento("p", { classes: ["conclusao__selo"], texto: "Matéria concluída" }));
+  container.appendChild(criarElemento("h3", { classes: ["conclusao__titulo"], texto: `Você terminou ${conteudo.titulo}!` }));
+
+  const placar = criarElemento("div", { classes: ["conclusao__placar"] });
+  const itemPlacar = (valor: string, rotulo: string, modificador: string) => {
+    const item = criarElemento("div", { classes: ["placar-item", `placar-item--${modificador}`] });
+    item.appendChild(criarElemento("span", { classes: ["placar-item__valor"], texto: valor }));
+    item.appendChild(criarElemento("span", { classes: ["placar-item__rotulo"], texto: rotulo }));
+    return item;
+  };
+  placar.appendChild(itemPlacar(String(acertos), "acertos", "acertos"));
+  placar.appendChild(itemPlacar(String(erros), "erros", "erros"));
+  placar.appendChild(itemPlacar(formatarPercentual(aproveitamento), "aproveitamento", "aproveitamento"));
+  container.appendChild(placar);
+
+  container.appendChild(montarCertificado(conteudo, acertos, totalGlobal));
 
   const botoes = criarElemento("div", { classes: ["conclusao__botoes"] });
-
-  const revisar = criarElemento("a", {
-    classes: ["botao", "botao--secundario"],
-    texto: "Revisar conteúdo",
-    atributos: { href: "#topo-conteudo" },
-  });
-
+  botoes.appendChild(
+    criarElemento("a", {
+      classes: ["botao", "botao--secundario"],
+      texto: "Revisar a matéria",
+      atributos: { href: "#topo-conteudo" },
+    })
+  );
   const refazer = criarElemento("button", {
-    classes: ["botao", "botao--primario"],
-    texto: "Refazer atividades",
+    classes: ["botao", "botao--secundario"],
+    texto: "Refazer do início",
     atributos: { type: "button" },
   });
   refazer.addEventListener("click", () => {
-    if (window.confirm("Isso vai apagar seu progresso atual neste conteúdo. Deseja refazer do início?")) {
+    if (window.confirm("Isso vai apagar seu progresso nesta matéria. Deseja refazer do início?")) {
       resetProgress(conteudo.id);
-      const estado = iniciarSessao(conteudo.id, conteudo.atividades, 0);
-      renderizarAtividadeAtual(area, conteudo, estado, false);
+      aoMudarProgresso();
+      rolarParaElemento(document.body);
     }
   });
+  botoes.appendChild(refazer);
+  botoes.appendChild(
+    criarElemento("a", {
+      classes: ["botao", "botao--secundario"],
+      texto: "Voltar aos conteúdos",
+      atributos: { href: `/pages/${conteudo.ano}ano.html` },
+    })
+  );
+  container.appendChild(botoes);
 
-  const voltar = criarElemento("a", {
-    classes: ["botao", "botao--secundario"],
-    texto: "Voltar aos conteúdos",
-    atributos: { href: `/pages/${conteudo.ano}ano.html` },
+  return container;
+}
+
+/**
+ * Bloco do certificado: campo de nome + pré-visualização + download em PNG.
+ * Não existe cadastro no site, então o nome é digitado aqui. Em branco,
+ * o certificado sai como "Aluno(a)".
+ */
+function montarCertificado(conteudo: Conteudo, acertos: number, total: number): HTMLElement {
+  const bloco = criarElemento("div", { classes: ["certificado"] });
+
+  bloco.appendChild(criarElemento("h4", { classes: ["certificado__titulo"], texto: "Seu certificado" }));
+  bloco.appendChild(
+    criarElemento("p", {
+      classes: ["certificado__ajuda"],
+      texto: "Escreva seu nome como quer que apareça no certificado e baixe a imagem.",
+    })
+  );
+
+  const formulario = criarElemento("div", { classes: ["certificado__form"] });
+  const campo = criarElemento("input", {
+    classes: ["certificado__input"],
+    atributos: {
+      type: "text",
+      maxlength: "60",
+      placeholder: "Seu nome completo",
+      "aria-label": "Nome para o certificado",
+      autocomplete: "name",
+    },
+  });
+  const botaoBaixar = criarElemento("button", {
+    classes: ["botao", "botao--rosa"],
+    texto: "Baixar certificado",
+    atributos: { type: "button" },
+  });
+  formulario.appendChild(campo);
+  formulario.appendChild(botaoBaixar);
+  bloco.appendChild(formulario);
+
+  const previa = criarElemento("div", { classes: ["certificado__previa"] });
+  bloco.appendChild(previa);
+
+  const dados = () => ({
+    nome: campo.value,
+    materia: conteudo.titulo,
+    ano: conteudo.ano,
+    acertos,
+    total,
   });
 
-  botoes.appendChild(revisar);
-  botoes.appendChild(refazer);
-  botoes.appendChild(voltar);
-  container.appendChild(botoes);
-  area.appendChild(container);
+  const atualizarPrevia = (): void => {
+    limparElemento(previa);
+    const canvas = desenharCertificado(dados());
+    canvas.classList.add("certificado__canvas");
+    canvas.setAttribute("role", "img");
+    canvas.setAttribute(
+      "aria-label",
+      `Prévia do certificado de ${campo.value.trim() || "Aluno(a)"} em ${conteudo.titulo}.`
+    );
+    previa.appendChild(canvas);
+  };
+
+  // Redesenha enquanto o aluno digita, sem redesenhar a cada tecla.
+  let temporizador: number | undefined;
+  campo.addEventListener("input", () => {
+    window.clearTimeout(temporizador);
+    temporizador = window.setTimeout(atualizarPrevia, 250);
+  });
+
+  botaoBaixar.addEventListener("click", () => {
+    baixarCertificado(dados());
+  });
+
+  atualizarPrevia();
+  return bloco;
+}
+
+// ---------- Atividades extras (treino livre, sem afetar o progresso) ----------
+
+function initAtividadesExtras(conteudo: Conteudo): void {
+  const area = qs<HTMLElement>("[data-atividades-extras]");
+  if (!area) return;
+
+  if (conteudo.atividadesExtras.length === 0) {
+    const secao = area.closest("section");
+    if (secao instanceof HTMLElement) {
+      secao.hidden = true;
+    }
+    return;
+  }
+
+  limparElemento(area);
+  const loteExtra: LoteAtividades = {
+    titulo: "Treino livre",
+    atividades: conteudo.atividadesExtras,
+    indiceGlobalInicial: 0,
+  };
+
+  const botao = criarElemento("button", {
+    classes: ["botao", "botao--secundario"],
+    texto: "Praticar atividades extras",
+    atributos: { type: "button" },
+  });
+  botao.addEventListener(
+    "click",
+    () => {
+      const sessao = iniciarSessao(conteudo.id, conteudo.atividadesExtras, 0);
+      // revisao = true: treino extra nunca altera o progresso da matéria.
+      renderizarAtividadeDoLote(area, conteudo, loteExtra, sessao, conteudo.atividadesExtras.length, () => {}, true);
+    },
+    { once: true }
+  );
+  area.appendChild(botao);
+}
+
+// ---------- Modo linear (conteúdo ainda sem módulos no JSON) ----------
+
+function renderConteudoLinear(area: HTMLElement, conteudo: Conteudo): void {
+  const aviso = criarElemento("p", {
+    classes: ["estado-vazio"],
+    texto: "Este conteúdo ainda não foi organizado em módulos. Exibindo no formato simples.",
+  });
+  area.appendChild(aviso);
+
+  conteudo.teoria.forEach((bloco) => area.appendChild(renderBlocoTeoria(bloco)));
+  conteudo.exemplos.forEach((exemplo, indice) => area.appendChild(renderExemplo(exemplo, indice + 1)));
+  conteudo.dicas.forEach((dica) => area.appendChild(renderDica(dica)));
+  conteudo.videos.forEach((video) => area.appendChild(renderVideo(video)));
+
+  const lote: LoteAtividades = {
+    titulo: "Atividades",
+    atividades: conteudo.atividades,
+    indiceGlobalInicial: 0,
+  };
+  const caixa = criarElemento("div", { classes: ["lote"] });
+  area.appendChild(caixa);
+  const progresso = getProgress(conteudo.id);
+  const sessao = iniciarSessao(conteudo.id, conteudo.atividades, progresso?.concluidas ?? 0, {
+    acertos: progresso?.acertos ?? 0,
+    erros: progresso?.erros ?? 0,
+  });
+  renderizarAtividadeDoLote(caixa, conteudo, lote, sessao, conteudo.atividades.length, () => {});
 }

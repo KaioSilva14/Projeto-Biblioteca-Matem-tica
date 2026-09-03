@@ -20,6 +20,6 @@
     "dev": "nodemon server.js",
     "build": "tsc",
     "dev:build": "tsc --watch",
-    "test": "npm run build && node tests/logica-atividades.test.mjs && node tests/progresso-visual.test.mjs"
+    "test": "npm run build && node tests/logica-atividades.test.mjs && node tests/progresso-visual.test.mjs && node tests/pagina-conteudo.test.mjs"
   }
 }

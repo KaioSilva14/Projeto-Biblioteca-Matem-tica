@@ -1,5 +1,6 @@
 import { criarElemento, embaralhar } from "./utils.js";
 import { formatarPercentual } from "./utils.js";
+import { renderIlustracao } from "./ilustracoes.js";
 const NOMES_NIVEL = {
     basico: "Básico",
     intermediario: "Intermediário",
@@ -193,6 +194,14 @@ export function renderQuestao(atividade) {
         texto: NOMES_NIVEL[atividade.nivel] ?? atividade.nivel,
     }));
     container.appendChild(criarElemento("p", { classes: ["questao__pergunta"], texto: atividade.pergunta }));
+    // Apoio visual do enunciado (pedido da v2). A chave vem do JSON e é
+    // resolvida pelo gerador paramétrico — ver ilustracoes.ts.
+    if (atividade.ilustracao) {
+        const figura = renderIlustracao(atividade.ilustracao);
+        if (figura) {
+            container.appendChild(figura);
+        }
+    }
     const corpo = criarElemento("div", { classes: ["questao__corpo"] });
     container.appendChild(corpo);
     let obterResposta = () => null;
@@ -359,5 +368,100 @@ function renderOpcoesNumeradas(opcoes, aoSelecionar) {
         lista.appendChild(li);
     });
     return lista;
+}
+// ---------- Blocos de conteúdo (usados dentro dos módulos da v2) ----------
+const NOMES_NIVEL_MODULO = {
+    basico: "Fundamentos",
+    intermediario: "Prática",
+    aplicacao: "Aplicação",
+    desafio: "Desafio",
+};
+export function renderBlocoTeoria(bloco) {
+    const secao = criarElemento("div", { classes: ["teoria__bloco"] });
+    secao.appendChild(criarElemento("h4", { classes: ["teoria__titulo"], texto: bloco.titulo }));
+    bloco.paragrafos.forEach((paragrafo) => {
+        secao.appendChild(criarElemento("p", { texto: paragrafo }));
+    });
+    if (bloco.ilustracao) {
+        const figura = renderIlustracao(bloco.ilustracao);
+        if (figura) {
+            secao.appendChild(figura);
+        }
+    }
+    if (bloco.destaque) {
+        secao.appendChild(criarElemento("p", { classes: ["teoria__destaque"], texto: bloco.destaque }));
+    }
+    return secao;
+}
+export function renderExemplo(exemplo, numero) {
+    const card = criarElemento("div", { classes: ["exemplo"] });
+    card.appendChild(criarElemento("p", { classes: ["exemplo__rotulo"], texto: `Exemplo resolvido ${numero}` }));
+    card.appendChild(criarElemento("p", { classes: ["exemplo__problema"], texto: exemplo.problema }));
+    const passos = criarElemento("div", { classes: ["exemplo__passos"] });
+    const linha = (rotulo, valor, classe) => {
+        const item = criarElemento("div", { classes: ["exemplo__passo"] });
+        item.appendChild(criarElemento("span", { classes: ["exemplo__rotulo-passo"], texto: rotulo }));
+        item.appendChild(criarElemento("span", { classes: classe ? [classe] : [], texto: valor }));
+        return item;
+    };
+    passos.appendChild(linha("Estratégia", exemplo.estrategia));
+    passos.appendChild(linha("Cálculo", exemplo.calculo, "exemplo__calculo"));
+    passos.appendChild(linha("Resultado", exemplo.resultado, "exemplo__resultado"));
+    card.appendChild(passos);
+    card.appendChild(criarElemento("p", { classes: ["exemplo__explicacao"], texto: exemplo.explicacao }));
+    return card;
+}
+export function renderDica(texto) {
+    const caixa = criarElemento("div", { classes: ["dica"] });
+    caixa.appendChild(criarElemento("span", { classes: ["dica__icone"], texto: "💡", atributos: { "aria-hidden": "true" } }));
+    caixa.appendChild(criarElemento("p", { classes: ["dica__texto"], texto }));
+    return caixa;
+}
+/** Cabeçalho de um módulo da trilha: número, título, objetivo e nível. */
+export function renderCabecalhoModulo(modulo, concluido) {
+    const cabecalho = criarElemento("header", { classes: ["modulo__cabecalho"] });
+    const selo = criarElemento("div", { classes: ["modulo__selo"] });
+    selo.appendChild(criarElemento("span", { classes: ["modulo__selo-rotulo"], texto: "Módulo" }));
+    selo.appendChild(criarElemento("span", { classes: ["modulo__selo-numero"], texto: String(modulo.numero) }));
+    cabecalho.appendChild(selo);
+    const textos = criarElemento("div", { classes: ["modulo__textos"] });
+    textos.appendChild(criarElemento("h3", { classes: ["modulo__titulo"], texto: modulo.titulo }));
+    textos.appendChild(criarElemento("p", { classes: ["modulo__objetivo"], texto: modulo.objetivo }));
+    cabecalho.appendChild(textos);
+    const etiquetas = criarElemento("div", { classes: ["modulo__etiquetas"] });
+    etiquetas.appendChild(criarElemento("span", {
+        classes: ["etiqueta", `etiqueta--${modulo.nivel}`],
+        texto: NOMES_NIVEL_MODULO[modulo.nivel] ?? modulo.nivel,
+    }));
+    if (concluido) {
+        etiquetas.appendChild(criarElemento("span", { classes: ["etiqueta", "etiqueta--concluido"], texto: "✓ Concluído" }));
+    }
+    cabecalho.appendChild(etiquetas);
+    return cabecalho;
+}
+/** Barra fina de progresso da trilha inteira, fixada no topo da área de estudo. */
+export function renderTrilhaResumo(concluidas, total) {
+    const container = criarElemento("div", { classes: ["trilha-resumo"] });
+    const topo = criarElemento("div", { classes: ["trilha-resumo__topo"] });
+    topo.appendChild(criarElemento("span", { classes: ["trilha-resumo__rotulo"], texto: "Seu progresso na matéria" }));
+    topo.appendChild(criarElemento("span", { classes: ["trilha-resumo__numeros"], texto: `${concluidas} de ${total} atividades` }));
+    container.appendChild(topo);
+    const proporcao = total > 0 ? concluidas / total : 0;
+    const barra = criarElemento("div", {
+        classes: ["trilha-resumo__barra"],
+        atributos: {
+            role: "progressbar",
+            "aria-valuemin": "0",
+            "aria-valuemax": String(total),
+            "aria-valuenow": String(concluidas),
+            "aria-label": "Progresso na matéria",
+        },
+    });
+    const preenchimento = criarElemento("div", { classes: ["trilha-resumo__preenchimento"] });
+    preenchimento.style.width = `${Math.min(proporcao, 1) * 100}%`;
+    barra.appendChild(preenchimento);
+    container.appendChild(barra);
+    container.appendChild(criarElemento("span", { classes: ["trilha-resumo__percentual"], texto: formatarPercentual(proporcao) }));
+    return container;
 }
 //# sourceMappingURL=componentes.js.map

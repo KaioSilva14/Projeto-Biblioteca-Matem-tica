@@ -55,14 +55,28 @@ export function corrigirAtividade(atividade, respostaAluno) {
             return validarRelacionamento(atividade, respostaAluno);
     }
 }
-export function iniciarSessao(conteudoId, atividades, indiceInicial = 0) {
+/**
+ * Cria o estado de uma sessão.
+ *
+ * BUG 1 (média/placar errado ao concluir uma matéria retomada) era causado
+ * aqui: a sessão sempre começava com acertos:0 e erros:0, mesmo quando o aluno
+ * clicava em "Continuar de onde parei". Só o índice era retomado. Se ele
+ * terminasse a matéria dentro dessa sessão, a tela de conclusão mostrava
+ * apenas os acertos daquele trecho — por isso um refresh "arrumava" o número,
+ * já que o localStorage sempre esteve certo.
+ *
+ * A correção é aceitar o placar acumulado ao retomar. Quem chama passa o que
+ * está salvo em getProgress(); o padrão continua sendo zero para uma sessão
+ * realmente nova.
+ */
+export function iniciarSessao(conteudoId, atividades, indiceInicial = 0, placarInicial = { acertos: 0, erros: 0 }) {
     return {
         conteudoId,
         atividades,
         indiceAtual: indiceInicial,
         jaErrouAtividadeAtual: false,
-        acertos: 0,
-        erros: 0,
+        acertos: placarInicial.acertos,
+        erros: placarInicial.erros,
     };
 }
 export function atividadeAtual(estado) {

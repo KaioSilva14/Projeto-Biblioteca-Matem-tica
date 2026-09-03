@@ -4,39 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biblioteca Matemática — Aprenda, pratique e evolua</title>
-  <meta name="description" content="Biblioteca digital de Matemática para o Ensino Fundamental II (6º ao 9º ano), com teoria, exemplos, vídeos e atividades." />
+  <meta name="description" content="Biblioteca digital de Matemática para o Ensino Fundamental II (6º ao 9º ano), com módulos de estudo, vídeos, exemplos resolvidos e atividades corrigidas na hora." />
+  <meta name="theme-color" content="#123A8F" />
   <link rel="stylesheet" href="/css/global.css" />
   <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body data-page="home">
   <header class="cabecalho">
     <div class="container cabecalho__barra">
-      <a href="/" class="cabecalho__logo">Biblioteca Matemática</a>
-      <div class="menu">
-        <div class="busca">
-          <input type="search" class="busca__input" data-busca-input placeholder="Buscar conteúdo..." aria-label="Buscar conteúdo" />
-          <div class="busca__resultados" data-busca-resultados hidden></div>
-        </div>
-        <button class="menu__botao" data-menu-botao type="button" aria-label="Abrir menu" aria-expanded="false">
-          <span></span>
-        </button>
-        <nav class="menu__lista" data-menu-lista aria-label="Navegação principal">
-          <a href="/">Início</a>
-          <a href="/pages/6ano.html">6º Ano</a>
-          <a href="/pages/7ano.html">7º Ano</a>
-          <a href="/pages/8ano.html">8º Ano</a>
-          <a href="/pages/9ano.html">9º Ano</a>
-        </nav>
+      <a href="/" class="logo">
+        <svg class="logo__marca" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M10 20 L1 11 L12 34 Z" fill="#123A8F" />
+          <circle cx="21" cy="25" r="13" fill="#123A8F" />
+          <circle cx="33" cy="15" r="8" fill="#123A8F" />
+          <path d="M40 12 L47 15 L40 18 Z" fill="#FF2E93" />
+          <path d="M13 23 L30 17 L20 36 Z" fill="#FF2E93" />
+          <circle cx="35" cy="13" r="2.2" fill="#FFFFFF" />
+        </svg>
+        <span class="logo__nome"><b>Biblioteca</b><span>Matemática</span></span>
+      </a>
+
+      <nav class="menu__lista" data-menu-lista aria-label="Navegação principal">
+        <a href="/">Início</a>
+        <a href="/pages/6ano.html">6º Ano</a>
+        <a href="/pages/7ano.html">7º Ano</a>
+        <a href="/pages/8ano.html">8º Ano</a>
+        <a href="/pages/9ano.html">9º Ano</a>
+      </nav>
+
+      <div class="busca">
+        <svg class="busca__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M20 20 L16.4 16.4" stroke-linecap="round" />
+        </svg>
+        <input type="search" class="busca__input" data-busca-input placeholder="Buscar conteúdo…" aria-label="Buscar conteúdo" />
+        <div class="busca__resultados" data-busca-resultados hidden></div>
       </div>
+
+      <button class="menu__botao" data-menu-botao type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <section class="hero container">
-      <h1 class="hero__titulo">Biblioteca Matemática</h1>
-      <p class="hero__subtitulo">Aprenda, pratique e desenvolva seu raciocínio matemático.</p>
+      <svg class="hero__marca" viewBox="0 0 48 48" role="img" aria-label="Pássaro, símbolo da Biblioteca Matemática">
+        <path d="M10 20 L1 11 L12 34 Z" fill="#123A8F" />
+        <circle cx="21" cy="25" r="13" fill="#123A8F" />
+        <circle cx="33" cy="15" r="8" fill="#123A8F" />
+        <path d="M40 12 L47 15 L40 18 Z" fill="#FF2E93" />
+        <path d="M13 23 L30 17 L20 36 Z" fill="#FF2E93" />
+        <circle cx="35" cy="13" r="2.2" fill="#FFFFFF" />
+      </svg>
+      <h1 class="hero__titulo">Matemática que você entende <em>passo a passo</em></h1>
+      <p class="hero__subtitulo">
+        Módulos de estudo do 6º ao 9º ano: explicação, exemplo resolvido, vídeo e
+        atividades corrigidas na hora. Sem cadastro, sem custo.
+      </p>
       <div class="hero__acoes">
         <a href="#anos" class="botao botao--primario">Começar a estudar</a>
+        <a href="#como-funciona" class="botao botao--secundario">Como funciona</a>
       </div>
     </section>
 
@@ -47,33 +75,33 @@
       <div class="grid-cards grid-cards--anos" data-anos-grid></div>
     </section>
 
-    <section class="secao secao--suave">
+    <section id="como-funciona" class="secao secao--suave">
       <div class="container">
-        <h2 class="titulo-secao">Como funciona?</h2>
+        <h2 class="titulo-secao">Como funciona</h2>
         <ol class="como-funciona__lista">
           <li class="como-funciona__passo">
             <span class="como-funciona__numero">1</span>
-            <p>Escolha seu ano.</p>
+            <p>Escolha seu ano e a matéria que quer estudar.</p>
           </li>
           <li class="como-funciona__passo">
             <span class="como-funciona__numero">2</span>
-            <p>Escolha um conteúdo.</p>
+            <p>Leia a explicação e veja um exemplo resolvido.</p>
           </li>
           <li class="como-funciona__passo">
             <span class="como-funciona__numero">3</span>
-            <p>Aprenda com explicações e exemplos.</p>
+            <p>Resolva um bloco curto de atividades.</p>
           </li>
           <li class="como-funciona__passo">
             <span class="como-funciona__numero">4</span>
-            <p>Assista aos vídeos.</p>
+            <p>Assista ao vídeo do módulo para fixar.</p>
           </li>
           <li class="como-funciona__passo">
             <span class="como-funciona__numero">5</span>
-            <p>Resolva as atividades.</p>
+            <p>Avance para o próximo módulo, mais desafiador.</p>
           </li>
           <li class="como-funciona__passo">
             <span class="como-funciona__numero">6</span>
-            <p>Confira seu desempenho.</p>
+            <p>Termine a matéria e baixe seu certificado.</p>
           </li>
         </ol>
       </div>

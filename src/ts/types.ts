@@ -48,6 +48,8 @@ export interface BlocoTeoria {
   titulo: string;
   paragrafos: string[];
   destaque?: string;
+  /** Chave de uma ilustração do banco de SVGs (ver ilustracoes.ts). */
+  ilustracao?: string;
 }
 
 // ---------- Atividades (união discriminada por "tipo") ----------
@@ -59,6 +61,11 @@ export interface AtividadeBase {
   pergunta: string;
   explicacao: string;
   dica: string;
+  /**
+   * Chave de uma ilustração do banco de SVGs, exibida junto do enunciado.
+   * Opcional: atividades sem apoio visual continuam válidas.
+   */
+  ilustracao?: string;
 }
 
 export interface AtividadeMultiplaEscolha extends AtividadeBase {
@@ -118,6 +125,32 @@ export type Atividade =
   | AtividadeProblema
   | AtividadeRelacionamento;
 
+// ---------- Módulos de estudo (v2) ----------
+//
+// A v1 mostrava tudo em blocos fixos: toda a teoria, depois todos os exemplos,
+// depois todos os vídeos e, por último, as 35 atividades seguidas. A v2 troca
+// isso por uma trilha: o conteúdo é uma sequência de módulos, e cada módulo é
+// uma sequência de itens que MISTURA teoria, exemplo, vídeo, dica e atividades.
+//
+// A ordem é definida 100% no JSON — nenhuma matéria nova precisa mexer em TS.
+
+export type ItemModulo =
+  | ({ tipo: "teoria" } & BlocoTeoria)
+  | ({ tipo: "exemplo" } & Exemplo)
+  | ({ tipo: "video" } & Video)
+  | { tipo: "dica"; texto: string }
+  /** Lote de atividades, referenciadas pelo "id" delas em Conteudo.atividades. */
+  | { tipo: "atividades"; titulo: string; ids: number[] };
+
+export interface Modulo {
+  id: string;
+  numero: number;
+  titulo: string;
+  objetivo: string;
+  nivel: NivelAtividade;
+  itens: ItemModulo[];
+}
+
 // ---------- Conteúdo ----------
 
 export interface Conteudo {
@@ -135,6 +168,12 @@ export interface Conteudo {
   atividades: Atividade[];
   atividadesExtras: Atividade[];
   resumo: string[];
+  /**
+   * Trilha de módulos da v2. Opcional de propósito: um conteúdo antigo que
+   * ainda não tenha sido convertido continua sendo exibido no formato linear
+   * da v1, sem quebrar a página.
+   */
+  modulos?: Modulo[];
 }
 
 // Versão resumida usada nos cards de listagem (Home, páginas de ano, busca)

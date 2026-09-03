@@ -1,168 +1,427 @@
-/* conteudo.css — estilos específicos da página de conteúdo (teoria, exemplos, vídeos etc.) */
+/* ============================================================
+   conteudo.css — página de uma matéria: cabeçalho, trilha de
+   módulos, teoria, exemplos, vídeo, conclusão e certificado.
+   ============================================================ */
+
+/* ---------- Cabeçalho da matéria ---------- */
 
 .conteudo-cabecalho {
-  padding-block: var(--espaco-xl) var(--espaco-lg);
+  padding-block: var(--espaco-lg) var(--espaco-md);
 }
-
-.conteudo-cabecalho__titulo {
-  font-size: clamp(24px, 4vw, 32px);
-}
-
+.conteudo-cabecalho__titulo { margin-bottom: var(--espaco-sm); }
 .conteudo-cabecalho__introducao {
-  margin-top: var(--espaco-sm);
-  color: var(--cor-texto-muted);
-  max-width: var(--largura-leitura);
+  max-width: 68ch;
+  font-size: 17px;
+  color: var(--texto-suave);
+}
+
+.conteudo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-sm);
+  margin-bottom: var(--espaco-lg);
+}
+.conteudo-meta__item {
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--azul-tinta);
+  background: var(--branco);
+  border: 1px solid var(--azul-borda);
+  border-radius: var(--raio-pill);
 }
 
 .objetivos {
-  margin-top: var(--espaco-md);
+  padding: var(--espaco-lg);
+  background: var(--branco);
+  border: 1px solid var(--azul-borda);
+  border-left: 5px solid var(--rosa);
+  border-radius: var(--raio-md);
+}
+.objetivos__titulo {
+  margin: 0 0 var(--espaco-sm);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--framboesa);
 }
 
-.resumo li,
-.objetivos li {
-  position: relative;
-  padding-left: var(--espaco-lg);
-  margin-bottom: var(--espaco-xs);
-  color: var(--cor-texto-muted);
+/* ---------- Resumo da trilha (barra do topo) ---------- */
+
+.trilha-resumo__caixa {
+  position: sticky;
+  top: var(--cabecalho-altura);
+  z-index: 20;
+  margin-bottom: var(--espaco-lg);
+  padding: var(--espaco-md);
+  background: rgba(255, 255, 255, .96);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--azul-borda);
+  border-radius: var(--raio-md);
+  box-shadow: var(--sombra-sm);
 }
 
-.resumo li::before,
-.objetivos li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--cor-primaria);
+.trilha-resumo { display: grid; gap: var(--espaco-sm); }
+.trilha-resumo__topo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--espaco-sm);
+}
+.trilha-resumo__rotulo { font-size: 13px; font-weight: 700; color: var(--azul-tinta); }
+.trilha-resumo__numeros { font-size: 13px; font-weight: 600; color: var(--texto-suave); }
+.trilha-resumo__barra {
+  height: 10px;
+  background: var(--cinza-200);
+  border-radius: var(--raio-pill);
+  overflow: hidden;
+}
+.trilha-resumo__preenchimento {
+  height: 100%;
+  border-radius: var(--raio-pill);
+  background: linear-gradient(90deg, var(--azul), var(--rosa));
+  transition: width .4s ease;
+}
+.trilha-resumo__percentual {
+  justify-self: end;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--framboesa);
+}
+
+/* ---------- Trilha e módulos ---------- */
+
+.trilha { display: grid; gap: var(--espaco-lg); }
+
+.modulo {
+  padding: var(--espaco-lg);
+  background: var(--branco);
+  border: 1px solid var(--azul-borda);
+  border-radius: var(--raio-lg);
+  box-shadow: var(--sombra-sm);
+  scroll-margin-top: calc(var(--cabecalho-altura) + 90px);
+}
+.modulo--concluido { border-color: #BFE5D3; }
+
+.modulo__cabecalho {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--espaco-md);
+  align-items: start;
+  padding-bottom: var(--espaco-md);
+  margin-bottom: var(--espaco-md);
+  border-bottom: 2px solid var(--cinza-100);
+}
+
+.modulo__selo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 62px; height: 62px;
+  border-radius: var(--raio-md);
+  color: var(--branco);
+  background: linear-gradient(145deg, var(--azul-tinta), var(--azul));
+  flex: 0 0 auto;
+}
+.modulo--concluido .modulo__selo { background: linear-gradient(145deg, var(--framboesa), var(--rosa)); }
+.modulo__selo-rotulo {
+  font-size: 9px;
   font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .85;
+}
+.modulo__selo-numero { font-size: 26px; font-weight: 800; line-height: 1; }
+
+.modulo__textos { min-width: 0; }
+.modulo__titulo { margin: 0 0 var(--espaco-xs); font-size: 21px; }
+.modulo__objetivo { margin: 0; font-size: 15px; color: var(--texto-suave); }
+
+.modulo__etiquetas {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-sm);
+}
+@media (min-width: 720px) {
+  .modulo__cabecalho { grid-template-columns: auto 1fr auto; align-items: center; }
+  .modulo__etiquetas { grid-column: auto; }
 }
 
-/* Teoria */
+.etiqueta {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-radius: var(--raio-pill);
+  white-space: nowrap;
+}
+.etiqueta--basico        { color: var(--azul-tinta); background: var(--azul-nevoa); }
+.etiqueta--intermediario { color: var(--azul-tinta); background: #DDE8FF; }
+.etiqueta--aplicacao     { color: var(--framboesa); background: var(--rosa-claro); }
+.etiqueta--desafio       { color: var(--branco); background: var(--framboesa); }
+.etiqueta--concluido     { color: var(--branco); background: var(--sucesso); }
+
+.modulo__corpo > * + * { margin-top: var(--espaco-md); }
+
+/* ---------- Teoria ---------- */
 
 .teoria__bloco {
-  max-width: var(--largura-leitura);
-  margin-bottom: var(--espaco-lg);
+  max-width: 68ch;
+  padding: var(--espaco-md) 0;
 }
-
-.teoria__bloco h3 {
+.teoria__titulo {
+  margin: 0 0 var(--espaco-sm);
   font-size: 18px;
-  margin-bottom: var(--espaco-xs);
+  color: var(--azul-tinta);
 }
-
-.teoria__bloco p {
-  margin-bottom: var(--espaco-xs);
-  font-size: 17px;
-  line-height: 1.6;
-}
-
+.teoria__bloco p { font-size: 16px; line-height: 1.7; }
 .teoria__destaque {
-  margin-top: var(--espaco-sm);
+  margin: var(--espaco-md) 0 0;
   padding: var(--espaco-md);
-  background-color: var(--cor-superficie-alt);
-  border-left: 3px solid var(--cor-primaria);
-  border-radius: var(--raio-sm);
-  font-family: var(--fonte-mono);
-  font-size: 14px;
-  color: var(--cor-texto);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--azul-tinta);
+  background: var(--azul-nevoa);
+  border-left: 5px solid var(--azul);
+  border-radius: 0 var(--raio-md) var(--raio-md) 0;
 }
+.teoria__bloco .ilustracao { max-width: 340px; }
 
-/* Exemplos */
+/* ---------- Exemplo resolvido ---------- */
 
 .exemplo {
-  max-width: var(--largura-leitura);
-  padding: var(--espaco-md);
-  margin-bottom: var(--espaco-md);
-  background-color: var(--cor-superficie-alt);
-  border: 1px solid var(--cor-borda);
+  padding: var(--espaco-lg);
+  background: var(--papel);
+  border: 1px solid var(--azul-borda);
   border-radius: var(--raio-md);
 }
+.exemplo__rotulo {
+  margin: 0 0 var(--espaco-sm);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--framboesa);
+}
+.exemplo__problema { margin: 0 0 var(--espaco-md); font-size: 16px; font-weight: 600; }
 
-.exemplo p {
-  margin-bottom: var(--espaco-xxs);
+.exemplo__passos {
+  display: grid;
+  gap: var(--espaco-sm);
+  margin-bottom: var(--espaco-md);
+  padding: var(--espaco-md);
+  background: var(--branco);
+  border-radius: var(--raio-sm);
+}
+.exemplo__passo {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: var(--espaco-sm);
+  align-items: baseline;
   font-size: 15px;
 }
-
-.exemplo__rotulo {
-  font-weight: 700;
-  color: var(--cor-primaria);
-  margin-bottom: var(--espaco-xs);
+.exemplo__rotulo-passo {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--cinza-400);
 }
-
-.exemplo__resultado {
-  font-weight: 600;
+/* o cálculo precisa alinhar dígito com dígito — daí a fonte monoespaçada */
+.exemplo__calculo {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 14px;
+  color: var(--azul-tinta);
+  overflow-x: auto;
 }
+.exemplo__resultado { font-weight: 800; color: var(--framboesa); }
+.exemplo__explicacao { margin: 0; font-size: 15px; color: var(--texto-suave); }
 
-/* Dicas */
+/* ---------- Dica ---------- */
 
 .dica {
-  max-width: var(--largura-leitura);
-  padding: var(--espaco-sm) var(--espaco-md);
-  margin-bottom: var(--espaco-sm);
-  background-color: var(--cor-aviso-suave);
-  border-radius: var(--raio-sm);
-  font-size: 14px;
-}
-
-/* Vídeos */
-
-.videos-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--espaco-lg);
-}
-
-@media (min-width: 768px) {
-  .videos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.video {
-  margin: 0;
+  display: flex;
+  gap: var(--espaco-sm);
+  align-items: flex-start;
+  padding: var(--espaco-md);
+  background: var(--rosa-claro);
   border-radius: var(--raio-md);
-  overflow: hidden;
-  border: 1px solid var(--cor-borda);
-  background-color: var(--cor-superficie-suave);
 }
+.dica__icone { font-size: 18px; line-height: 1.4; flex: 0 0 auto; }
+.dica__texto { margin: 0; font-size: 15px; font-weight: 600; color: var(--framboesa-esc); }
 
+/* ---------- Vídeo ---------- */
+
+/* O vídeo acompanha a largura da coluna de leitura. Em tela cheia ele
+   dominava o módulo e empurrava o bloco de atividades para longe. */
+.modulo__video { margin-block: var(--espaco-lg); max-width: 560px; }
+
+.videos-grid { display: grid; gap: var(--espaco-lg); }
+@media (min-width: 720px) { .videos-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.video { margin: 0; }
 .video__gatilho {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
   padding: 0;
-  border: none;
-  background: none;
+  background: var(--cinza-900);
+  border: 0;
+  border-radius: var(--raio-md);
+  overflow: hidden;
   cursor: pointer;
+  aspect-ratio: 16 / 9;
 }
-
-.video__thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.video__thumb { width: 100%; height: 100%; object-fit: cover; opacity: .92; transition: opacity .2s, transform .3s; }
+.video__gatilho:hover .video__thumb { opacity: 1; transform: scale(1.03); }
 
 .video__icone-play {
   position: absolute;
-  inset: 0;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: #ffffff;
-  background-color: rgba(23, 26, 33, 0.35);
+  width: 64px; height: 64px;
+  padding-left: 5px;
+  font-size: 22px;
+  color: var(--branco);
+  background: var(--framboesa);
+  border-radius: 50%;
+  box-shadow: var(--sombra-lg);
+  transition: transform .2s, background .2s;
 }
+.video__gatilho:hover .video__icone-play { transform: translate(-50%, -50%) scale(1.08); background: var(--rosa); }
 
 .video__frame {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: none;
+  border: 0;
+  border-radius: var(--raio-md);
+  display: block;
 }
-
 .video__legenda {
-  padding: var(--espaco-sm) var(--espaco-md);
-  font-size: 13px;
-  color: var(--cor-texto-muted);
+  margin-top: var(--espaco-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto-suave);
 }
 
-.dashboard__titulo ~ p {
-  margin-top: var(--espaco-sm);
+/* ---------- Conclusão da matéria ---------- */
+
+.trilha__conclusao:not(:empty) { margin-top: var(--espaco-xl); }
+
+.conclusao {
+  padding: var(--espaco-xl) var(--espaco-lg);
+  text-align: center;
+  background: var(--branco);
+  border: 2px solid var(--rosa);
+  border-radius: var(--raio-lg);
+  box-shadow: var(--sombra-md);
 }
+.conclusao__selo {
+  display: inline-block;
+  margin: 0 0 var(--espaco-md);
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--branco);
+  background: var(--framboesa);
+  border-radius: var(--raio-pill);
+}
+.conclusao__titulo { margin: 0 0 var(--espaco-lg); font-size: clamp(22px, 5vw, 32px); }
+
+.conclusao__placar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espaco-sm);
+  max-width: 520px;
+  margin: 0 auto var(--espaco-xl);
+}
+.placar-item {
+  padding: var(--espaco-md) var(--espaco-sm);
+  background: var(--papel);
+  border: 1px solid var(--azul-borda);
+  border-radius: var(--raio-md);
+}
+.placar-item__valor { display: block; font-size: clamp(22px, 5vw, 30px); font-weight: 800; line-height: 1.1; }
+.placar-item__rotulo {
+  display: block;
+  margin-top: var(--espaco-xs);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+.placar-item--acertos .placar-item__valor { color: var(--sucesso); }
+.placar-item--erros .placar-item__valor { color: var(--framboesa); }
+.placar-item--aproveitamento .placar-item__valor { color: var(--azul-tinta); }
+
+.conclusao__botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espaco-sm);
+  margin-top: var(--espaco-xl);
+}
+
+/* ---------- Certificado ---------- */
+
+.certificado {
+  padding: var(--espaco-lg);
+  text-align: left;
+  background: var(--azul-nevoa);
+  border-radius: var(--raio-md);
+}
+.certificado__titulo { margin: 0 0 var(--espaco-xs); font-size: 18px; }
+.certificado__ajuda { margin: 0 0 var(--espaco-md); font-size: 14px; color: var(--texto-suave); }
+
+.certificado__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-sm);
+  margin-bottom: var(--espaco-md);
+}
+.certificado__input {
+  flex: 1 1 240px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 0 var(--espaco-md);
+  font: inherit;
+  font-size: 15px;
+  color: var(--texto);
+  background: var(--branco);
+  border: 1.5px solid var(--azul-borda);
+  border-radius: var(--raio-pill);
+}
+.certificado__input:focus {
+  outline: none;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(24, 90, 219, .15);
+}
+.certificado__form .botao { flex: 0 0 auto; }
+
+.certificado__previa {
+  padding: var(--espaco-sm);
+  background: var(--branco);
+  border: 1px solid var(--azul-borda);
+  border-radius: var(--raio-sm);
+}
+.certificado__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--raio-sm);
+}
+
+/* ---------- Atividades extras ---------- */
+
+.atividades-secao { display: grid; gap: var(--espaco-md); }

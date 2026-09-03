@@ -18,6 +18,7 @@ app.use((req, res) => {
   res.status(404).send("Página não encontrada.");
 });
 
+// Inicia o servidor
 app.listen(PORT, () => {
   console.log(`Biblioteca Matemática rodando em http://localhost:${PORT}`);
 });

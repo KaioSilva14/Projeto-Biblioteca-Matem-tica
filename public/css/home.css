@@ -1,74 +1,112 @@
-/* home.css — estilos específicos da página inicial */
+/* ============================================================
+   home.css — página inicial.
+   Usa os tokens da v2 definidos em global.css.
+   ============================================================ */
+
+/* ---------- Hero ---------- */
 
 .hero {
-  padding-block: var(--espaco-xxl) var(--espaco-xl);
+  position: relative;
+  padding-block: var(--espaco-2xl) var(--espaco-xl);
   text-align: center;
+  overflow: hidden;
+}
+
+/* Fundo geométrico discreto: formas de matemática em rosa e azul muito
+   claros. Fica atrás do texto e não interfere na leitura. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 46, 147, .10), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(24, 90, 219, .12), transparent 45%),
+    radial-gradient(circle at 72% 88%, rgba(255, 46, 147, .07), transparent 40%);
+}
+
+.hero__marca {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto var(--espaco-md);
 }
 
 .hero__titulo {
-  font-size: clamp(28px, 5vw, 40px);
-  max-width: 720px;
+  max-width: 760px;
   margin-inline: auto;
+}
+.hero__titulo em {
+  font-style: normal;
+  color: var(--framboesa);
 }
 
 .hero__subtitulo {
-  margin-top: var(--espaco-md);
-  font-size: clamp(16px, 2vw, 18px);
-  color: var(--cor-texto-muted);
   max-width: 560px;
-  margin-inline: auto;
+  margin: var(--espaco-md) auto 0;
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--texto-suave);
 }
 
 .hero__acoes {
-  margin-top: var(--espaco-lg);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: var(--espaco-sm);
+  margin-top: var(--espaco-lg);
 }
 
-.dashboard {
-  padding-block: var(--espaco-lg);
-}
+/* ---------- Continue de onde parou ---------- */
+
+.dashboard { padding-block: var(--espaco-lg); }
+.dashboard:empty { display: none; }
 
 .dashboard__titulo {
-  font-weight: 600;
   margin-bottom: var(--espaco-sm);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--framboesa);
 }
 
-.dashboard .card {
-  max-width: 480px;
-}
+.dashboard .card { max-width: 480px; }
+
+/* ---------- Como funciona ---------- */
 
 .como-funciona__lista {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--espaco-md);
-  counter-reset: passo;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-
-@media (min-width: 768px) {
-  .como-funciona__lista {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+@media (min-width: 620px) { .como-funciona__lista { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 940px) { .como-funciona__lista { grid-template-columns: repeat(3, 1fr); } }
 
 .como-funciona__passo {
   display: flex;
-  gap: var(--espaco-sm);
+  align-items: center;
+  gap: var(--espaco-md);
   padding: var(--espaco-md);
-  background-color: var(--cor-fundo);
-  border: 1px solid var(--cor-borda);
+  background: var(--branco);
+  border: 1px solid var(--azul-borda);
   border-radius: var(--raio-md);
 }
+.como-funciona__passo p { margin: 0; font-size: 15px; font-weight: 600; }
 
 .como-funciona__numero {
-  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  flex: 0 0 auto;
+  width: 38px; height: 38px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--branco);
+  background: linear-gradient(145deg, var(--azul-tinta), var(--azul));
   border-radius: var(--raio-pill);
-  background-color: var(--cor-primaria-suave);
-  color: var(--cor-primaria);
-  font-weight: 700;
+}
+.como-funciona__passo:nth-child(even) .como-funciona__numero {
+  background: linear-gradient(145deg, var(--framboesa), var(--rosa));
 }

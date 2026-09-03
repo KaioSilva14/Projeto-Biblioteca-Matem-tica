@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frações — 6º Ano | Biblioteca Matemática</title>
-  <meta name="description" content="Aprenda frações com teoria, exemplos resolvidos, vídeos e 35 atividades com correção automática." />
+  <meta name="description" content="Estude frações em módulos: explicação, exemplos resolvidos, vídeos e 35 atividades corrigidas na hora, com certificado ao concluir." />
+  <meta name="theme-color" content="#123A8F" />
   <link rel="stylesheet" href="/css/global.css" />
   <link rel="stylesheet" href="/css/conteudo.css" />
   <link rel="stylesheet" href="/css/atividades.css" />
@@ -12,23 +13,38 @@
 <body data-page="conteudo" data-conteudo-json="/data/sexto-ano/fracoes.json">
   <header class="cabecalho">
     <div class="container cabecalho__barra">
-      <a href="/" class="cabecalho__logo">Biblioteca Matemática</a>
-      <div class="menu">
-        <div class="busca">
-          <input type="search" class="busca__input" data-busca-input placeholder="Buscar conteúdo..." aria-label="Buscar conteúdo" />
-          <div class="busca__resultados" data-busca-resultados hidden></div>
-        </div>
-        <button class="menu__botao" data-menu-botao type="button" aria-label="Abrir menu" aria-expanded="false">
-          <span></span>
-        </button>
-        <nav class="menu__lista" data-menu-lista aria-label="Navegação principal">
-          <a href="/">Início</a>
-          <a href="/pages/6ano.html">6º Ano</a>
-          <a href="/pages/7ano.html">7º Ano</a>
-          <a href="/pages/8ano.html">8º Ano</a>
-          <a href="/pages/9ano.html">9º Ano</a>
-        </nav>
+      <a href="/" class="logo">
+        <svg class="logo__marca" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M10 20 L1 11 L12 34 Z" fill="#123A8F" />
+          <circle cx="21" cy="25" r="13" fill="#123A8F" />
+          <circle cx="33" cy="15" r="8" fill="#123A8F" />
+          <path d="M40 12 L47 15 L40 18 Z" fill="#FF2E93" />
+          <path d="M13 23 L30 17 L20 36 Z" fill="#FF2E93" />
+          <circle cx="35" cy="13" r="2.2" fill="#FFFFFF" />
+        </svg>
+        <span class="logo__nome"><b>Biblioteca</b><span>Matemática</span></span>
+      </a>
+
+      <nav class="menu__lista" data-menu-lista aria-label="Navegação principal">
+        <a href="/">Início</a>
+        <a href="/pages/6ano.html">6º Ano</a>
+        <a href="/pages/7ano.html">7º Ano</a>
+        <a href="/pages/8ano.html">8º Ano</a>
+        <a href="/pages/9ano.html">9º Ano</a>
+      </nav>
+
+      <div class="busca">
+        <svg class="busca__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M20 20 L16.4 16.4" stroke-linecap="round" />
+        </svg>
+        <input type="search" class="busca__input" data-busca-input placeholder="Buscar conteúdo…" aria-label="Buscar conteúdo" />
+        <div class="busca__resultados" data-busca-resultados hidden></div>
       </div>
+
+      <button class="menu__botao" data-menu-botao type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -37,43 +53,27 @@
       <div data-breadcrumb></div>
       <h1 class="conteudo-cabecalho__titulo" data-conteudo-titulo>Carregando…</h1>
       <p class="conteudo-cabecalho__introducao" data-conteudo-introducao></p>
+      <div class="conteudo-meta" data-conteudo-meta></div>
       <div class="objetivos">
-        <h2 class="titulo-secao" style="font-size:16px; margin-bottom: var(--espaco-sm);">O que você vai aprender</h2>
+        <h2 class="objetivos__titulo">O que você vai aprender</h2>
         <div data-conteudo-objetivos></div>
       </div>
     </section>
 
-    <section class="container secao" data-conteudo-principal>
-      <h2 class="titulo-secao">Teoria</h2>
-      <div data-conteudo-teoria></div>
-
-      <h2 class="titulo-secao">Exemplos resolvidos</h2>
-      <div data-conteudo-exemplos></div>
-
-      <h2 class="titulo-secao">Dicas</h2>
-      <div data-conteudo-dicas></div>
-
-      <h2 class="titulo-secao">Vídeos</h2>
-      <div class="videos-grid" data-conteudo-videos></div>
-    </section>
+    <!-- A trilha de módulos é montada por app.ts a partir do JSON. -->
+    <section class="container secao" data-trilha aria-live="polite"></section>
 
     <section class="secao secao--suave">
       <div class="container">
-        <h2 class="titulo-secao">Atividades</h2>
-        <div class="atividades-secao" data-atividades-principal></div>
-      </div>
-    </section>
-
-    <section class="secao">
-      <div class="container">
         <h2 class="titulo-secao">Atividades extras</h2>
+        <p class="leitura">Treino livre. Não conta para o progresso nem para o certificado.</p>
         <div class="atividades-secao" data-atividades-extras></div>
       </div>
     </section>
 
-    <section class="secao secao--suave">
+    <section class="secao">
       <div class="container leitura">
-        <h2 class="titulo-secao">Resumo do conteúdo</h2>
+        <h2 class="titulo-secao">Resumo da matéria</h2>
         <div data-conteudo-resumo></div>
       </div>
     </section>
