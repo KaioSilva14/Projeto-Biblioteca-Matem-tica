@@ -207,7 +207,7 @@
     "arquivo": "/assets/questoes/q-atletas.png",
     "alt": "Barra do total de alunos da escola repartida em quatro categorias, com legenda: só vôlei, só futebol, nenhum dos dois e os dois esportes.",
     "largura": 520,
-    "altura": 212
+    "altura": 230
   },
   "q-quant-inversa": {
     "arquivo": "/assets/questoes/q-quant-inversa.png",

@@ -253,7 +253,11 @@ export function corteDuplo({ colunas, pintadasColunas, cortes, rotulo = "" }) {
 export function barraCategorias({ categorias, largura = 520, rotuloTotal }) {
   const m = 8, h = 62;
   const util = largura - m * 2;
-  const A = h + m * 2 + categorias.length * 26 + 30;
+  // O rotulo do total e a legenda precisam de faixas proprias: quando o
+  // espacamento e calculado "no olho" os dois se encostam.
+  const yTotal = m + h + 22;
+  const yLegenda = rotuloTotal ? yTotal + 30 : m + h + 24;
+  const A = yLegenda + categorias.length * 26 + 4;
   let corpo = "";
   let inicio = 0;
 
@@ -261,15 +265,21 @@ export function barraCategorias({ categorias, largura = 520, rotuloTotal }) {
     const w = util * cat.fracao;
     const x = m + util * inicio;
     corpo += `<rect x="${x.toFixed(2)}" y="${m}" width="${w.toFixed(2)}" height="${h}" fill="${CHEIO}" fill-opacity="${0.22 + 0.2 * i}" stroke="${TRACO}" stroke-width="2"/>`;
-    if (w > 44) corpo += texto(x + w / 2, m + h / 2, esc(cat.curto), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+    // Cabe o rotulo curto? A largura real do texto depende de quantos
+    // caracteres ele tem — um limite fixo deixava sem rotulo faixas estreitas
+    // em que um digito sozinho caberia folgado.
+    const larguraTexto = String(cat.curto ?? "").length * 7.8;
+    if (cat.curto && w >= larguraTexto + 14) {
+      corpo += texto(x + w / 2, m + h / 2, esc(cat.curto), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+    }
     inicio += cat.fracao;
   });
   corpo += `<rect x="${m}" y="${m}" width="${util}" height="${h}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.5"/>`;
-  if (rotuloTotal) corpo += texto(m + util / 2, m + h + 18, esc(rotuloTotal), { tamanho: 13, cor: TRACO_FORTE, fonte: FONTE_MONO });
+  if (rotuloTotal) corpo += texto(m + util / 2, yTotal, esc(rotuloTotal), { tamanho: 13, cor: TRACO_FORTE, fonte: FONTE_MONO });
 
   categorias.forEach((cat, i) => {
-    const y = m + h + 34 + i * 26;
-    corpo += `<rect x="${m}" y="${y - 8}" width="14" height="14" fill="${CHEIO}" fill-opacity="${0.22 + 0.2 * i}" stroke="${TRACO}" stroke-width="1.5"/>`;
+    const y = yLegenda + i * 26;
+    corpo += `<rect x="${m}" y="${y - 7}" width="14" height="14" fill="${CHEIO}" fill-opacity="${0.22 + 0.2 * i}" stroke="${TRACO}" stroke-width="1.5"/>`;
     corpo += texto(m + 24, y, esc(cat.rotulo), { tamanho: 14, ancora: "start" });
   });
   return svg(largura, A, corpo);
