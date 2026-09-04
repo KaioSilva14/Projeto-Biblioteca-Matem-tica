@@ -1,529 +1,526 @@
 ---
 version: alpha
-name: Biblioteca-Matematica-DESIGN
-description: >
-  Sistema de design da Biblioteca Matemática — biblioteca educacional digital
-  para alunos do Ensino Fundamental II (6º ao 9º ano). Fundo branco
-  predominante, superfícies secundárias muito claras, alto contraste,
-  Azul Cobalto de Estudo (#185ADB) como única cor de ação, tipografia
-  moderna com hierarquia forte, cards de bordas suaves e sombra discreta,
-  mobile-first, sem gamificação excessiva, sem login, sem IA.
+name: Warp-design-analysis
+description: An inspired interpretation of Warp's design language — an agentic terminal-and-development-environment brand whose surface is a warm near-charcoal canvas (a tint warmer than pure black), broken only by clean Inter typography, the occasional Instrument Serif italic moment, and dense terminal-mockup imagery; CTAs are unusually understated, with shape geometry running tighter than most marketing sites.
 
 colors:
-  primary: "#185ADB"
-  primary-hover: "#124AB8"
-  primary-pressed: "#0E3A93"
-  primary-focus-ring: "#5B8DEF"
-  primary-soft: "#E8EFFD"
-  on-primary: "#FFFFFF"
-  ink: "#171A21"
-  ink-muted: "#4B5563"
-  ink-subtle: "#6B7280"
-  on-dark: "#FFFFFF"
-  canvas: "#FFFFFF"
-  surface-soft: "#F6F8FB"
-  surface-alt: "#EEF2F8"
-  surface-inverse: "#171A21"
-  hairline: "#E3E7EE"
-  hairline-strong: "#C7CDD9"
-  success: "#16A34A"
-  success-soft: "#E7F7ED"
-  warning: "#D97706"
-  warning-soft: "#FDF1E1"
-  danger: "#DC2626"
-  danger-soft: "#FCEAEA"
-  info: "#185ADB"
+  primary: "#f7f5f0"
+  on-primary: "#2b2622"
+  ink: "#f7f5f0"
+  body: "#c9c0ad"
+  body-strong: "#dad2c1"
+  mute: "#aea69c"
+  canvas: "#2b2622"
+  canvas-soft: "#383330"
+  hairline: "#3f3a36"
 
 typography:
-  display:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "clamp(28px, 4vw, 40px)"
-    fontWeight: 700
-    lineHeight: 1.15
-  h1:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "clamp(24px, 3vw, 32px)"
-    fontWeight: 700
-    lineHeight: 1.2
-  h2:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "20px–24px"
-    fontWeight: 600
-    lineHeight: 1.25
-  h3:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "18px"
-    fontWeight: 600
-    lineHeight: 1.3
+  display-xl:
+    fontFamily: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif
+    fontSize: 64px
+    fontWeight: 400
+    lineHeight: 70.4px
+    letterSpacing: -1.6px
+  display-lg:
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 48px
+    fontWeight: 400
+    lineHeight: 52.8px
+    letterSpacing: -1.2px
+  display-md:
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 32px
+    fontWeight: 500
+    lineHeight: 40px
+    letterSpacing: -0.8px
+  display-sm:
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 24px
+    fontWeight: 500
+    lineHeight: 32px
+    letterSpacing: -0.4px
+  display-serif:
+    fontFamily: Instrument Serif, Georgia, "Times New Roman", serif
+    fontSize: 48px
+    fontWeight: 400
+    lineHeight: 52px
+    letterSpacing: -0.5px
   body-lg:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "17px–18px"
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 18px
     fontWeight: 400
-    lineHeight: 1.6
-  body:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "16px"
+    lineHeight: 28px
+  body-md:
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 16px
     fontWeight: 400
-    lineHeight: 1.55
+    lineHeight: 24px
+  body-md-strong:
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 16px
+    fontWeight: 500
+    lineHeight: 24px
   body-sm:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "14px"
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 14px
     fontWeight: 400
-    lineHeight: 1.5
-  label:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "14px"
-    fontWeight: 600
-    lineHeight: 1.3
+    lineHeight: 20px
+  body-sm-strong:
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 14px
+    fontWeight: 500
+    lineHeight: 20px
   caption:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "13px"
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 12px
     fontWeight: 400
-    lineHeight: 1.4
-  mono-math:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
-    fontSize: "15px–16px"
+    lineHeight: 16px
+  code:
+    fontFamily: DM Mono, ui-monospace, SFMono-Regular, Menlo, monospace
+    fontSize: 13px
     fontWeight: 400
-    lineHeight: 1.5
+    lineHeight: 18px
+  code-md:
+    fontFamily: DM Mono, ui-monospace, SFMono-Regular, Menlo, monospace
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 20px
+  button-md:
+    fontFamily: Inter, system-ui, -apple-system, sans-serif
+    fontSize: 14px
+    fontWeight: 500
+    lineHeight: 20px
 
 rounded:
-  xs: 6px
-  sm: 8px
-  md: 12px
-  lg: 16px
+  none: 0px
+  xxs: 1px
+  xs: 2px
+  sm: 3px
+  md: 4px
+  lg: 6px
   pill: 9999px
+  full: 9999px
 
 spacing:
-  xxs: 4px
-  xs: 8px
-  sm: 12px
-  md: 16px
-  lg: 24px
-  xl: 32px
-  xxl: 48px
-  xxxl: 64px
-  section: 96px
+  xxs: 2px
+  xs: 4px
+  sm: 8px
+  md: 10px
+  lg: 16px
+  xl: 24px
+  2xl: 32px
+  3xl: 48px
+  4xl: 64px
+  5xl: 96px
 
-breakpoints:
-  base: "0–479px"
-  sm: "480–767px"
-  md: "768–1023px"
-  lg: "1024–1279px"
-  xl: "≥1280px"
+components:
+  nav-bar:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-sm-strong}"
+    padding: "{spacing.md} {spacing.xl}"
+  nav-link:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-sm-strong}"
+    rounded: "{rounded.sm}"
+    padding: "{spacing.xs} {spacing.md}"
+  button-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.sm}"
+    padding: "{spacing.sm} {spacing.lg}"
+  button-secondary-ghost:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.sm}"
+    padding: "{spacing.sm} {spacing.lg}"
+  button-icon-circular:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.full}"
+    padding: "{spacing.xs}"
+  text-input:
+    backgroundColor: "{colors.canvas-soft}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-sm}"
+    rounded: "{rounded.sm}"
+    padding: "{spacing.sm} {spacing.md}"
+  card-content:
+    backgroundColor: "{colors.canvas-soft}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.xl}"
+  card-mockup:
+    backgroundColor: "{colors.canvas-soft}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.code}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.lg}"
+  download-tile:
+    backgroundColor: "{colors.canvas-soft}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md-strong}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.xl}"
+  press-row:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.body}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md}"
+    padding: "{spacing.lg} 0"
+  job-row:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md-strong}"
+    padding: "{spacing.lg} 0"
+  hero-band:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.display-xl}"
+    padding: "{spacing.5xl} {spacing.xl}"
+  content-band:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.display-md}"
+    padding: "{spacing.5xl} {spacing.xl}"
+  partner-logo-tile:
+    backgroundColor: "{colors.canvas-soft}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md-strong}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.lg}"
+  testimonial-card:
+    backgroundColor: "{colors.canvas-soft}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.xl}"
+  footer:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.body}"
+    typography: "{typography.body-sm}"
+    padding: "{spacing.3xl} {spacing.xl}"
+
+  # ─── Examples (illustrative) — auto-derived; resolve any TO_FILL markers below ───
+  ex-pricing-tier:
+    description: "Default Pricing tier card. Re-uses feature-card chrome with brand canvas-soft surface."
+    backgroundColor: "{colors.canvas-soft}"
+    textColor: "{colors.ink}"
+    borderColor: "{colors.hairline}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.xl}"
+  ex-pricing-tier-featured:
+    description: "Featured/highlighted tier — polarity-flipped surface (dark fill + light text in light mode, light fill + dark text in dark mode)."
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-primary}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.xl}"
+  ex-product-selector:
+    description: "What's Included summary card — re-purposed for SaaS / B2B verticals (NOT a literal product gallery)."
+    backgroundColor: "{colors.canvas-soft}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.xl}"
+  ex-cart-drawer:
+    description: "Subscription summary — re-purposed for SaaS / B2B (line items per add-on, not literal cart)."
+    backgroundColor: "{colors.canvas}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.xl}"
+    item-divider: "{colors.hairline}"
+  ex-app-shell-row:
+    description: "Sidebar nav row inside the App Shell example. Active state uses brand primary as the indicator."
+    backgroundColor: "{colors.canvas}"
+    activeIndicator: "{colors.primary}"
+    rounded: "{rounded.sm}"
+    padding: "{spacing.sm} {spacing.md}"
+  ex-data-table-cell:
+    description: "Default data-table th + td chrome. Header uses mono-caps eyebrow typography; body uses body-sm."
+    headerBackground: "{colors.canvas-soft}"
+    headerTypography: "{typography.caption}"
+    bodyTypography: "{typography.body-sm}"
+    cellPadding: "{spacing.sm} {spacing.md}"
+    rowBorder: "{colors.hairline}"
+  ex-auth-form-card:
+    description: "Sign-in / sign-up card. Re-uses feature-card chrome with text-input primitives inside."
+    backgroundColor: "{colors.canvas-soft}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.xl}"
+  ex-modal-card:
+    description: "Modal dialog surface — same chrome as feature-card with elevated shadow."
+    backgroundColor: "{colors.canvas}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.xl}"
+  ex-empty-state-card:
+    description: "Empty-state illustration frame."
+    backgroundColor: "{colors.canvas-soft}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.2xl}"
+    captionTypography: "{typography.body-md}"
+  ex-toast:
+    description: "Toast notification surface — feature-card shape + medium shadow."
+    backgroundColor: "{colors.canvas}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.sm} {spacing.md}"
+    typography: "{typography.body-sm}"
+
 ---
 
-## 1. Essência e objetivo visual
 
-A Biblioteca Matemática é uma biblioteca de conteúdo educacional — não um
-aplicativo, não uma rede social, não um jogo. O objetivo visual da V1 é que a
-interface **desapareça em favor do conteúdo**: teoria, exemplos e atividades
-de matemática devem ser lidos e resolvidos sem fricção, em qualquer
-dispositivo, com carregamento rápido e navegação óbvia.
+## Overview
 
-Três ideias resumem a direção visual:
+Warp is an "agentic development environment" — a terminal application that wraps an AI agent — and its marketing site mirrors the product's posture: a single dark band running the entire page, warmer than pure black (`{colors.canvas}` `#2b2622` carries a hint of brown-beige from the brand's oklch-defined warmth value), with copy set almost entirely in Inter. The page reads more like a developer's reading-mode editor than a marketing surface.
 
-- **Clareza antes de personalidade.** Uma cor de assinatura, uma família
-  tipográfica, uma escala de espaçamento. Nada compete com o conteúdo
-  matemático.
-- **Respiro sem vazio.** Espaçamento generoso (inspirado no ritmo editorial
-  da Apple), mas sem se tornar um site de vitrine — a densidade de
-  informação é maior que uma landing page de marketing, porque o usuário
-  está estudando.
-- **Seriedade sem frieza.** Hierarquia visual forte e sistemática (como a
-  da IBM), mas com cantos suavemente arredondados e sombras discretas
-  (como a da HP), porque o público tem 11 a 15 anos — não é um painel
-  corporativo B2B.
+The decoration is restrained. Two terminal screenshots open the hero (split between the two main product modes — agent + terminal). A partner-logo strip (Anthropic / OpenAI / Google / Stanford) sits below the hero on a slightly warmer tile surface. A single testimonial card with a portrait photograph. A press-coverage list. Then the page closes with download tiles for Mac / Linux / Windows. There is no gradient, no atmospheric backdrop, no illustration system.
 
-## 2. Público e tom de voz
+Type is the second decisive voice. Hero display sits at 64 px Inter weight 400 with `-1.6px` tracking — restrained for a hero, deliberately quiet. The brand carries DM Mono as its monospace face for code blocks, and Instrument Serif italics occasionally appear for editorial moments. Body text is 16 px Inter at line-height 1.5, very readable.
 
-- **Público:** estudantes de 11 a 15 anos, do 6º ao 9º ano do Ensino
-  Fundamental II. Também é lida por professores e responsáveis, então a
-  interface não pode parecer "infantil demais" a ponto de perder
-  credibilidade com adultos.
-- **Tom de voz:** educacional, acolhedor, direto e objetivo. Frases curtas,
-  vocabulário simples, sem gírias forçadas e sem tom de "app infantil"
-  (nada de exclamações em excesso, emojis decorativos em botões ou mascotes
-  falantes).
-- **Feedback ao aluno:** sempre construtivo. Uma resposta incorreta é
-  tratada como parte do aprendizado ("Quase lá — revise o passo 2"), nunca
-  como punição visual (sem sons de erro agressivos, sem vermelho piscando).
+**Key Characteristics:**
+- A single primary "color" — really an off-white `{colors.primary}` (`#f7f5f0`) — that doubles as text on canvas and as the button-primary fill. There is no chromatic brand accent.
+- Warm dark canvas (`{colors.canvas}` `#2b2622`) is the only page surface. The brand's defining tone is the brown-warmth, not pure black.
+- Extremely tight button radii — 3 / 4 px (1 / 2× the brand's `{rounded.md}` 4 px base) — the brand never uses generous pill shapes for CTAs. Only icon containers use `{rounded.full}`.
+- Inter sans + DM Mono mono is the canonical pairing. Instrument Serif appears as a third editorial face for occasional italics.
+- Terminal-mockup imagery is the brand's only consistent decorative system — no gradients, no atmospheric overlays.
+- A subtle warm tint runs through every neutral; even body text and dividers carry a hint of warmth rather than neutral gray.
 
-## 3. Paleta com papéis semânticos
+## Colors
 
-| Token | Hex | Papel |
+### Brand & Accent
+- **Off White Primary** (`{colors.primary}` — `#f7f5f0`): The brand's "primary" is a warm off-white. Used as button-primary fill, as default text on canvas, as the wordmark color. There is no chromatic brand accent — the off-white IS the brand's distinguishing tone.
+
+### Surface
+- **Canvas** (`{colors.canvas}` — `#2b2622`): The warm dark page background. Resolved from `oklch(22.0% 0.004 84.6)`. Slightly browner than pure black, slightly warmer than a neutral gray — the warmth IS the brand's identity.
+- **Canvas Soft** (`{colors.canvas-soft}` — `#383330`): A lighter warm-dark fill used for cards, mockup chrome, and partner-logo tiles.
+- **Hairline** (`{colors.hairline}` — `#3f3a36`): 1 px solid divider on dark surfaces.
+
+### Text
+- **Ink** (`{colors.ink}` — `#f7f5f0`): Default text on canvas — same off-white as the primary, intentionally unified.
+- **Body Strong** (`{colors.body-strong}` — `#dad2c1`): Mid-emphasis body text.
+- **Body** (`{colors.body}` — `#c9c0ad`): Secondary body text — captions, supporting copy, press-coverage rows.
+- **Mute** (`{colors.mute}` — `#aea69c`): Lowest-priority text — timestamps, fine print, footer secondary lines. Resolved from `oklch(71.5% 0.008 84.6)`.
+
+### Semantic
+The brand doesn't surface a separate error / warning / success palette in its marketing pages. Validation cues come from the unified off-white system; in-product semantic colors live in the terminal application proper.
+
+## Typography
+
+### Font Family
+Three faces ladder the system:
+1. **Inter** for every display, body, button, link, and label role. Weights 400 / 500 are the working pair. Used with the brand's "Inter Fallback" custom face as the metric-compatible system fallback.
+2. **DM Mono** for terminal mockups, command snippets, and code blocks. Weight 400 only. Loaded as `--font-dm-mono`.
+3. **Instrument Serif** for occasional editorial italic moments — rare on the marketing surface, but documented as a third face for emphasised tagline-style phrases. **Abel** is also loaded as a fourth fallback for headline emphasis.
+
+### Hierarchy
+
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|
+| `{typography.display-xl}` | 64px | 400 | 70.4px | -1.6px | Hero headline ("Warp is the agentic development environment"). |
+| `{typography.display-lg}` | 48px | 400 | 52.8px | -1.2px | Section headlines. |
+| `{typography.display-md}` | 32px | 500 | 40px | -0.8px | Sub-section displays. |
+| `{typography.display-sm}` | 24px | 500 | 32px | -0.4px | Card titles and lead emphasis. |
+| `{typography.display-serif}` | 48px | 400 | 52px | -0.5px | Instrument Serif italic editorial moments. |
+| `{typography.body-lg}` | 18px | 400 | 28px | 0 | Lead paragraphs. |
+| `{typography.body-md}` | 16px | 400 | 24px | 0 | Default body. |
+| `{typography.body-md-strong}` | 16px | 500 | 24px | 0 | Bold inline body. |
+| `{typography.body-sm}` | 14px | 400 | 20px | 0 | Secondary body. |
+| `{typography.body-sm-strong}` | 14px | 500 | 20px | 0 | Nav link / button labels. |
+| `{typography.caption}` | 12px | 400 | 16px | 0 | Captions, fine print. |
+| `{typography.code}` | 13px | 400 | 18px | 0 | Terminal mockup body. |
+| `{typography.code-md}` | 14px | 400 | 20px | 0 | Inline command snippets. |
+| `{typography.button-md}` | 14px | 500 | 20px | 0 | Button labels. |
+
+### Principles
+- **Hero display at weight 400** — the brand reads as quietly confident, not as a billboard.
+- **Negative tracking is part of the voice.** `-1.6 px` at 64 px hero, scaling down through display levels.
+- **Inter for narrative, DM Mono for technical.** Strict role separation.
+
+### Note on Font Substitutes
+All three faces are open or freely-loadable:
+- **Inter** — load directly from Google Fonts or Vercel-hosted CDN.
+- **DM Mono** — open-source on Google Fonts.
+- **Instrument Serif** — open-source on Google Fonts.
+
+## Layout
+
+### Spacing System
+- **Base unit**: 4 px (with occasional 10 px and 6 px values for button padding).
+- **Tokens**: `{spacing.xxs}` 2 px · `{spacing.xs}` 4 px · `{spacing.sm}` 8 px · `{spacing.md}` 10 px · `{spacing.lg}` 16 px · `{spacing.xl}` 24 px · `{spacing.2xl}` 32 px · `{spacing.3xl}` 48 px · `{spacing.4xl}` 64 px · `{spacing.5xl}` 96 px.
+- **Section padding**: hero / content bands use `{spacing.5xl}` 96 px on desktop.
+- **Card interior**: cards sit at `{spacing.xl}` 24 px.
+
+### Grid & Container
+- Marketing content centres at roughly 1200 px width.
+- Hero: 2-column at desktop (split between two terminal screenshots), stacks at mobile.
+- Partner logos: 5-up wrapping flex row.
+- Download tiles: 3-up at desktop (Mac / Linux / Windows), 1-up at mobile.
+
+### Responsive Strategy
+
+#### Breakpoints
+
+| Name | Width | Key Changes |
 |---|---|---|
-| `primary` | **#185ADB** | Azul Cobalto de Estudo — única cor de ação: links, botões primários, foco, seleção ativa |
-| `primary-hover` | #124AB8 | Estado hover/press de elementos primários |
-| `primary-pressed` | #0E3A93 | Estado pressed/active mais escuro |
-| `primary-focus-ring` | #5B8DEF | Anel de foco por teclado (mais claro para se destacar sobre o azul) |
-| `primary-soft` | #E8EFFD | Fundo suave para itens selecionados (ano ativo, tab ativa, chip selecionado) |
-| `ink` | #171A21 | Texto principal — quase preto, alto contraste sobre branco |
-| `ink-muted` | #4B5563 | Texto secundário (descrições, metadados) |
-| `ink-subtle` | #6B7280 | Texto terciário (placeholders, legendas discretas) |
-| `canvas` | #FFFFFF | Fundo predominante da aplicação |
-| `surface-soft` | #F6F8FB | Superfície secundária muito clara (faixas alternadas, fundo de página) |
-| `surface-alt` | #EEF2F8 | Superfície para blocos de destaque leve (ex.: caixa de dica) |
-| `surface-inverse` | #171A21 | Uso pontual e raro (ex.: rodapé), nunca em grandes áreas de conteúdo |
-| `hairline` | #E3E7EE | Bordas e divisores padrão |
-| `hairline-strong` | #C7CDD9 | Bordas com mais presença (inputs, cards em destaque) |
-| `success` / `success-soft` | #16A34A / #E7F7ED | Resposta correta, progresso concluído |
-| `warning` / `warning-soft` | #D97706 / #FDF1E1 | Avisos não críticos (ex.: "revise antes de enviar") |
-| `danger` / `danger-soft` | #DC2626 / #FCEAEA | Resposta incorreta, erro de formulário |
+| Mobile | < 768px | Hero stacks; 1-up grids; nav hamburger. |
+| Tablet | 768–1023px | 2-up grids. |
+| Desktop | ≥ 1024px | Full hero split; 3-up download tiles. |
 
-Regra fixa: **#185ADB é a única cor de ação da interface.** Verde, laranja e
-vermelho são estritamente semânticos (sucesso/aviso/erro) e nunca decorativos.
+#### Touch Targets
+Buttons render at ~36 px tall (8 px vertical padding + 20 px line-height). Mobile inflates touch area through additional padding to meet WCAG 44 × 44 px floor.
 
-## 4. Tipografia
+#### Collapsing Strategy
+- Nav: full link row + Sign in / Download right cluster at desktop. Hamburger at mobile.
+- Hero terminal-mockup split: stacks vertically at mobile.
+- Press / job rows: full-width single column; stay legible at all widths.
 
-- **Fonte principal recomendada:** **Inter** (Google Fonts, gratuita, licença
-  aberta, excelente legibilidade em telas pequenas e números tabulares —
-  importante para exercícios de matemática).
-- **Alternativa de acessibilidade de leitura:** **Lexend** — fonte
-  open-source desenvolvida especificamente para reduzir esforço de leitura;
-  boa opção como alternativa selecionável ou para blocos longos de teoria.
-- **Fonte monoespaçada (para expressões e fórmulas em texto):**
-  **JetBrains Mono** — open source, números e operadores bem diferenciados.
-- **Pilha de fallback:** `Inter, system-ui, -apple-system, "Segoe UI",
-  Roboto, sans-serif` — garante que, mesmo sem a fonte carregada, a
-  tipografia do sistema já é legível (evita "flash" de texto ilegível).
-- **Escala** (mobile-first, cresce moderadamente até desktop):
-  `display` 28–40px / 700 · `h1` 24–32px / 700 · `h2` 20–24px / 600 ·
-  `h3` 18px / 600 · `body-lg` 17–18px / 400 (teoria e leitura longa) ·
-  `body` 16px / 400 (padrão de interface) · `body-sm` 14px / 400 ·
-  `label` 14px / 600 (botões, tags) · `caption` 13px / 400.
-- **Nunca abaixo de 13px** para qualquer texto com função de leitura.
-- **Altura de linha generosa para leitura:** 1.55–1.6 em blocos de teoria
-  (público jovem lê melhor com mais espaço entre linhas); 1.2–1.3 em
-  títulos.
+#### Image Behavior
+- **Terminal mockups**: rendered as dark cards with the actual terminal UI inside (warm canvas + colored syntax). Aspect ratio ~3:2.
+- **Partner logos**: monochrome SVGs on dark tile cards.
+- **Testimonial portraits**: 1:1 square crop inside `{rounded.md}` card chrome.
 
-## 5. Espaçamento, grid, largura de leitura e breakpoints
+## Elevation & Depth
 
-- **Escala de espaçamento (grade de 8pt):** `4 · 8 · 12 · 16 · 24 · 32 · 48 ·
-  64 · 96px` — nomeada `xxs → section`.
-- **Grid de conteúdo:** largura máxima de **1200px**, com margens laterais
-  fluidas (`16px` no mobile, `24px` no tablet, `32px+` no desktop).
-- **Largura de leitura (teoria/exemplos em texto corrido):** máximo de
-  **~700px (≈70 caracteres por linha)** — blocos de teoria não devem ocupar
-  a largura total do grid em telas largas, para não cansar a leitura.
-- **Breakpoints (mobile-first):**
-
-| Nome | Faixa | Comportamento |
+| Level | Treatment | Use |
 |---|---|---|
-| base | 0–479px | 1 coluna, navegação em menu hambúrguer, cards empilhados |
-| sm | 480–767px | 1 coluna, cards um pouco mais largos, tipografia sobe um degrau |
-| md | 768–1023px | 2 colunas em grades de cards (conteúdo, atividades) |
-| lg | 1024–1279px | 3 colunas em grades de cards, navegação principal expandida |
-| xl | ≥1280px | grid trava em 1200px de conteúdo; 3–4 colunas conforme componente |
+| Level 0 — Flat | No shadow, no border. | Default for hero band. |
+| Level 1 — Hairline | 1 px solid `{colors.hairline}` border on `{colors.canvas-soft}`. | Default card chrome. |
+| Level 2 — Inset Card | Canvas-soft fill against canvas background with 1 px hairline. | Mockup cards, download tiles, testimonial cards. |
 
-## 6. Regras de componentes
+The brand uses surface-contrast and hairline borders for elevation; soft drop-shadows do not appear in the marketing surface.
 
-**Cabeçalho / navegação principal**
-- Fundo branco (`canvas`), altura ~64px, borda inferior `hairline`.
-- Logo/nome à esquerda, navegação central (Início · Anos · Buscar), sem
-  ícones de perfil/login/carrinho (não existem na V1).
-- Mobile (`base`/`sm`): colapsa em hambúrguer; gaveta ocupa a tela cheia com
-  lista vertical em `body-lg`.
+## Shapes
 
-**Cards de ano (6º ao 9º)**
-- Grade de 4 cards (1 por ano). Fundo `canvas`, borda `hairline`, raio
-  `lg` (16px), sombra discreta, padding `lg` (24px).
-- Conteúdo: número do ano em destaque (`display` ou `h1`), nome curto da
-  fase, ícone simples de linha (não emoji), leve indicador de progresso
-  (ex.: "3 de 12 tópicos concluídos") — sem porcentagem gamificada, sem
-  troféu.
-- Estado ativo/selecionado: fundo `primary-soft`, borda `primary`.
+### Border Radius Scale
 
-**Cards de conteúdo (tópicos dentro de um ano)**
-- Fundo `canvas`, borda `hairline`, raio `md` (12px), sombra ainda mais
-  discreta que o card de ano (hierarquia: ano > tópico).
-- Título em `h3`, descrição curta em `body-sm` `ink-muted`, tag de assunto
-  (ex.: "Frações") como chip pequeno com `surface-alt`.
+| Token | Value | Use |
+|---|---|---|
+| `{rounded.none}` | 0px | Full-bleed bands. |
+| `{rounded.xxs}` | 1px | Tightest in-text indicator. |
+| `{rounded.xs}` | 2px | Inline very-small chips. |
+| `{rounded.sm}` | 3px | Default button radius — extremely tight. |
+| `{rounded.md}` | 4px | Card chrome (the brand's `--radius` base). |
+| `{rounded.lg}` | 6px | Slightly larger cards. |
+| `{rounded.pill}` | 9999px | Icon containers, status pills. |
 
-**Bloco de teoria**
-- Largura de leitura limitada (~700px), fundo `canvas` ou `surface-soft`
-  alternado por seção, tipografia `body-lg`, títulos internos em `h2`/`h3`.
-- Fórmulas/expressões em `mono-math`, nunca em itálico decorativo.
+### Photography Geometry
+- Terminal mockups: ~3:2 inside `{rounded.md}` card chrome.
+- Partner logos: monochrome SVGs at consistent 24 px height inside tile cards.
+- Testimonial portraits: 1:1 square inside `{rounded.md}`.
 
-**Bloco de exemplo resolvido**
-- Fundo `surface-alt`, borda `hairline`, raio `md`, rótulo fixo "Exemplo"
-  em `label` + `primary`. Passo a passo numerado, um passo por linha.
+## Components
 
-**Vídeos**
-- Player em contêiner de raio `md`, proporção 16:9, thumbnail com botão de
-  play central simples (círculo `primary` + ícone triângulo branco).
-- Sem autoplay. Sem sugestões automáticas de outros vídeos ao final
-  (evita distração / rabbit-hole).
+### Buttons
 
-**Atividades / exercícios**
-- Card de pergunta com enunciado em `body`, alternativas como botões de
-  largura total empilhados (mobile) ou grade 2 colunas (desktop), altura
-  mínima de toque 44px.
-- Botão "Verificar resposta" como ação primária; some/desabilita após
-  resposta ser dada.
+**`button-primary`** — the off-white CTA on dark canvas.
+- Background `{colors.primary}` (off-white), text `{colors.on-primary}` (warm dark), label `{typography.button-md}`, padding `{spacing.sm} {spacing.lg}`, shape `{rounded.sm}` 3 px. Tight.
 
-**Feedback de resposta**
-- Correta: borda e fundo `success-soft`, ícone de check, texto curto de
-  reforço positivo.
-- Incorreta: borda e fundo `danger-soft`, ícone neutro (não "X" agressivo
-  grande), texto explicando o próximo passo — nunca apenas "Errado".
+**`button-secondary-ghost`** — the ghost-style secondary used for nav and tertiary actions.
+- Background `{colors.canvas}`, text `{colors.ink}`, no border, same typography / shape.
 
-**Progresso**
-- Indicador simples e local por tópico/ano: barra de progresso fina em
-  `primary` sobre `hairline`, ou "3/12 concluídos" em texto. Sem ranking,
-  sem comparação entre alunos, sem XP.
+**`button-icon-circular`** — the circular icon container.
+- Background `{colors.canvas}`, ink icon, shape `{rounded.full}`. Used for nav controls (search, theme).
 
-**Desafios (extras opcionais)**
-- Visualmente idênticos a um card de atividade, com uma tag "Desafio extra"
-  em `warning-soft`/`ink` para indicar nível acima — não é competição, é
-  aprofundamento opcional.
+### Cards & Containers
 
-## 7. Estados
+**`card-content`** — the default content card on canvas-soft.
+- Background `{colors.canvas-soft}`, text `{colors.ink}`, 1 px solid `{colors.hairline}`, padding `{spacing.xl}`, shape `{rounded.md}`.
 
-**Botão** — `default` (fundo `primary`, texto `on-primary`) → `hover`
-(escurece para `primary-hover`) → `focus-visible` (anel 2px
-`primary-focus-ring` com 2px de offset) → `active/pressed` (escala
-`transform: scale(0.98)`, fundo `primary-pressed`) → `disabled` (opacidade
-~40%, cursor not-allowed, sem hover) → `loading` (texto some, spinner
-simples centralizado, botão mantém a mesma largura para não "pular" o
-layout).
+**`card-mockup`** — the terminal-screenshot mockup card.
+- Same chrome as `card-content` but body in `{typography.code}` (DM Mono) when text appears inside.
 
-**Formulário / input** — `default` (borda `hairline-strong`) → `focus`
-(borda `primary` + anel `primary-focus-ring`) → `error` (borda `danger`,
-texto de ajuda em `danger` abaixo do campo) → `disabled` (fundo
-`surface-soft`, texto `ink-subtle`).
+**`download-tile`** — the Mac / Linux / Windows download tile.
+- Background `{colors.canvas-soft}`, text `{colors.ink}`, hairline border, padding `{spacing.xl}`, shape `{rounded.md}`. Hosts a platform icon + label + download CTA.
 
-**Resposta correta / incorreta** — ver seção 6 (Feedback de resposta).
-Nunca depender só da cor: sempre acompanhar de ícone + texto (regra de
-acessibilidade, ver seção 8).
+**`partner-logo-tile`** — the canvas-soft tile hosting a partner logo.
+- Background `{colors.canvas-soft}`, monochrome logo SVG inside, padding `{spacing.lg}`, shape `{rounded.md}`.
 
-**Foco por teclado** — todo elemento interativo (link, botão, alternativa
-de exercício, campo) recebe **anel de foco visível de 2px**, cor
-`primary-focus-ring`, com 2px de espaçamento do elemento (`outline-offset`).
-Nunca `outline: none` sem substituto visível.
+**`testimonial-card`** — the single quote-style card with a portrait.
+- Background `{colors.canvas-soft}`, text `{colors.ink}`, padding `{spacing.xl}`, shape `{rounded.md}`. Portrait 1:1 + body in `{typography.body-md}`.
 
-**Carregamento** — skeleton simples (blocos cinza `surface-soft` pulsando
-suavemente) para listas de cards; spinner central para ações pontuais.
-Sem telas de loading com mascote animado.
+**`press-row`** — the press-coverage list item.
+- Background `{colors.canvas}` (no fill — sits on the canvas band), 1 px solid bottom border `{colors.hairline}`, body in `{typography.body-md}`, padding `{spacing.lg}` 0.
 
-**Vazio** — ilustração de linha simples + texto curto e propositivo (ex.:
-"Nenhum tópico encontrado. Tente outro termo de busca.") + ação de
-recuperação quando aplicável (ex.: botão "Limpar busca").
+**`job-row`** — the "Join our team" list item (single row per open role).
+- Background `{colors.canvas}`, 1 px solid bottom border, body in `{typography.body-md-strong}`, padding `{spacing.lg}` 0.
 
-## 8. Contraste, foco, toque, linguagem e teclado
+### Inputs & Forms
 
-- **Contraste:** texto principal (`ink` sobre `canvas`) deve atingir no
-  mínimo **WCAG 2.2 AA** (4.5:1 para texto normal, 3:1 para texto grande).
-  `#185ADB` sobre branco atende AA para texto grande/UI; para texto de
-  parágrafo pequeno sobre azul, usar sempre `on-primary` (branco) sobre o
-  botão, nunca azul como cor de texto de leitura corrida sobre fundo claro
-  abaixo de 18px em peso normal sem checagem prévia.
-- **Foco visível:** obrigatório em 100% dos elementos interativos (ver
-  seção 7). Nunca remover o foco do navegador sem substituí-lo.
-- **Toque mínimo:** **44×44px** em qualquer alvo tocável (botões,
-  alternativas de exercício, ícones clicáveis, itens de menu).
-- **Linguagem simples:** frases curtas, um conceito por vez, evitar
-  jargão de UX/tech ("CTA", "modal") na interface visível ao aluno.
-- **Navegação por teclado:** toda a jornada principal (escolher ano → abrir
-  tópico → ler teoria → responder atividade → ver feedback) deve ser
-  completável apenas com Tab / Shift+Tab / Enter / Espaço / setas em
-  grupos de opções.
+**`text-input`** — the dark-canvas text input.
+- Background `{colors.canvas-soft}`, text `{colors.ink}`, 1 px solid `{colors.hairline}`, body in `{typography.body-sm}`, padding `{spacing.sm} {spacing.md}`, shape `{rounded.sm}`.
 
-## 9. Imagens, ícones e ilustrações
+### Navigation
 
-- **Ícones:** conjunto de linha simples, um traço (~1.5–2px), cor única
-  (`ink` ou `primary`, nunca as duas misturadas no mesmo ícone), tamanho
-  20–24px. Referências de catálogo compatíveis com esse estilo: Feather
-  Icons, Lucide, Tabler Icons, Heroicons (linha). Evitar pacotes de ícones
-  3D, com gradiente ou com múltiplas cores por padrão.
-- **Ilustrações:** permitidas apenas como acento pontual (estado vazio,
-  cabeçalho de seção "Anos"), em estilo geométrico/linear, paleta limitada
-  ao azul de marca + neutros. Evitar mascotes, personagens de desenho
-  animado ou ilustrações "fofinhas" — o público de 14–15 anos rejeita
-  estética muito infantilizada, e o público de 11 anos ainda lê bem
-  interfaces neutras e claras.
-- **Fotografia:** não é um elemento central da V1 (biblioteca de conteúdo,
-  não site institucional). Se usada (ex.: capa de tópico), sempre com
-  moldura de raio `md` e nunca full-bleed atrás de texto.
+**`nav-bar`** — the sticky top nav.
+- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.md} {spacing.xl}`.
 
-## 10. Responsividade
+**`nav-link`** — link items in nav.
+- Background `{colors.canvas}`, text `{colors.ink}`, body in `{typography.body-sm-strong}`, padding `{spacing.xs} {spacing.md}`, shape `{rounded.sm}`.
 
-- **Celular (`base`/`sm`, até 767px):** 1 coluna em todas as grades de
-  card; navegação em hambúrguer; padding de seção reduzido (`lg`/24px em
-  vez de `section`/96px); tipografia de título no piso da escala
-  (`display` ≈28px).
-- **Tablet (`md`, 768–1023px):** grades de card em 2 colunas; navegação
-  principal pode permanecer expandida ou em hambúrguer dependendo da
-  largura real de conteúdo; padding de seção intermediário.
-- **Desktop (`lg`/`xl`, ≥1024px):** grades de card em 3–4 colunas; grid
-  trava em 1200px a partir de `xl`; navegação principal sempre expandida;
-  padding de seção completo (`xxl`/`section`).
-- Toque mínimo de 44px se mantém em **todas** as larguras, inclusive
-  desktop com mouse (facilita também uso em telas touch grandes).
+**`footer`** — the footer band.
+- Background `{colors.canvas}`, text `{colors.body}`, padding `{spacing.3xl} {spacing.xl}`. Body in `{typography.body-sm}`.
 
-## 11. Animações e `prefers-reduced-motion`
+### Signature Components
 
-**Permitido (funcional, curto, com propósito):**
-- Transições de cor/estado em botões e links: 150–200ms, `ease`.
-- Feedback de pressão em botão: `transform: scale(0.98)` no `active`
-  (mesmo princípio documentado na Apple), sem exagero de escala.
-- Abrir/fechar acordeões (exemplo passo a passo, FAQ): 150–250ms,
-  altura + opacidade.
-- Skeleton de carregamento: pulso suave e lento (~1.5s), nunca piscante.
+**`hero-band`** — the dark hero band hosting the 64-px Inter headline.
+- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.5xl} {spacing.xl}`. Headline `{typography.display-xl}` (64 px / 400 / `-1.6 px`). Below: a 2-column terminal-mockup split.
 
-**Não permitido na V1:**
-- Parallax, scroll-jacking, partículas decorativas, carrosséis com
-  autoplay, animações de entrada de texto letra a letra, confete/efeitos
-  de celebração gamificados.
+**`content-band`** — the standard content band.
+- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.5xl} {spacing.xl}`. Section headline `{typography.display-md}`.
 
-**`prefers-reduced-motion: reduce`:** quando ativado, remover toda
-transição não essencial (scale de press, pulso de skeleton) e trocar
-abrir/fechar de acordeão por corte direto sem animação. Nenhuma
-funcionalidade pode depender de uma animação para ser compreendida.
+### Examples (illustrative)
 
-## 12. Do's e Don'ts
+> Auto-derived kit-mirror demonstration surfaces (`scripts/derive-examples-block.mjs`). Each `ex-*` entry references brand-native primitives so downstream consumers (`/preview-design`, `/generate-kit`) re-skin the same 10 surfaces consistently. `TO_FILL` markers indicate missing primitives — resolve in the LLM judgment pass.
 
-**Do**
-- Usar `#185ADB` para todo e qualquer elemento que signifique "clique aqui"
-  — e só para isso.
-- Manter cards com raio suave (12–16px) e sombra discreta em vez de bordas
-  duras ou sombras pesadas.
-- Escrever feedback de erro como orientação ("Revise o sinal da fração"),
-  não como veredito ("Errado!").
-- Testar todo componente novo com navegação só por teclado antes de
-  considerá-lo pronto.
-- Manter times de carregamento baixos: sem bibliotecas pesadas de animação,
-  sem fontes não usadas carregadas "por garantia".
+**`ex-pricing-tier`** — Default Pricing tier card. Re-uses feature-card chrome with brand canvas-soft surface.
+- Properties: `backgroundColor`, `textColor`, `borderColor`, `rounded`, `padding`
 
-**Don't**
-- Não introduzir uma segunda cor de ação (nem verde de "próximo passo", nem
-  roxo de destaque) — o azul cobre 100% dos casos de ação.
-- Não usar `border-radius: 0` (aesthetic da IBM) nem pílula total em todo
-  botão (aesthetic da Apple) — ambos fogem do "bordas suaves" pedido.
-- Não usar caixa alta com tracking em botões (convenção da HP) — soa formal
-  e distante demais para o público de 11–15 anos.
-- Não adicionar XP, moedas, ranking, avatar, badge de conquista ou qualquer
-  reforço de gamificação além de um indicador simples de progresso.
-- Não usar emoji como ícone funcional de interface (ok em copy pontual de
-  feedback, nunca substituindo um ícone de ação).
+**`ex-pricing-tier-featured`** — Featured/highlighted tier — polarity-flipped surface (dark fill + light text in light mode, light fill + dark text in dark mode).
+- Properties: `backgroundColor`, `textColor`, `rounded`, `padding`
 
-## 13. Decisões herdadas das referências
+**`ex-product-selector`** — What's Included summary card — re-purposed for SaaS / B2B verticals (NOT a literal product gallery).
+- Properties: `backgroundColor`, `rounded`, `padding`
 
-**De `design-visual/apple/DESIGN.md` (respiro, clareza, foco no conteúdo)**
-- Disciplina de **uma única cor de interação** aplicada a tudo (link, CTA,
-  foco) — adotado integralmente, só trocando a cor por `#185ADB`.
-- Ritmo de seções alternando fundo branco e fundo levemente diferente
-  (`surface-soft`) como divisor visual, em vez de linhas/bordas pesadas.
-- Micro-interação de pressão de botão via `transform: scale()` no estado
-  `active`.
-- Peso tipográfico econômico: preferir 400/600/700 e evitar variação de
-  peso sem motivo — adaptado à escala do projeto.
+**`ex-cart-drawer`** — Subscription summary — re-purposed for SaaS / B2B (line items per add-on, not literal cart).
+- Properties: `backgroundColor`, `rounded`, `padding`, `item-divider`
 
-**De `design-visual/hp/DESIGN.md` (branco, sinalização azul, geometria
-moderada)**
-- Fundo branco com faixas alternadas em cinza muito claro, azul reservado
-  como sinal único de ação.
-- Sombra "soft lift" discreta em cards interativos (não em toda a página).
-- Geometria de cantos moderadamente arredondados (nem 0px, nem pill em
-  tudo) — base para a escala de `rounded` deste documento.
-- Padrão de **pill tabs** para alternar categorias — adotado para a
-  navegação entre anos/séries.
-- **Rejeitado deliberadamente:** rótulos de botão em caixa alta com
-  tracking — não combina com o tom acolhedor pedido para o público jovem
-  (ver seção 12, Don't).
+**`ex-app-shell-row`** — Sidebar nav row inside the App Shell example. Active state uses brand primary as the indicator.
+- Properties: `backgroundColor`, `activeIndicator`, `rounded`, `padding`
 
-**De `design-visual/ibm/DESIGN.md` (hierarquia e sistema visual)**
-- Estrutura de hierarquia tipográfica em camadas nomeadas (display >
-  headline/h1 > subhead/h2 > body > caption), adaptada e simplificada.
-- Conceito de elevação por **mudança de superfície + hairline** em vez de
-  sombra pesada — usado como reforço junto com a sombra discreta da HP,
-  não como substituto total (o briefing pede "sombras discretas", não
-  "zero sombra").
-- Cores semânticas de status (sucesso/aviso/erro) como categoria separada
-  da cor de marca — princípio adotado; valores específicos vieram das
-  skills `regras-ui-ux`, não da IBM.
-- Grade de espaçamento em base 4px como disciplina de consistência.
+**`ex-data-table-cell`** — Default data-table th + td chrome. Header uses mono-caps eyebrow typography; body uses body-sm.
+- Properties: `headerBackground`, `headerTypography`, `bodyTypography`, `cellPadding`, `rowBorder`
 
-**De `regras-ui-ux/skills/clean` e `regras-ui-ux/skills/spacious`**
-- Escala de espaçamento em **grade de 8pt**, adotada como espinha dorsal
-  da seção 5.
-- Exigência explícita de estados completos por componente (default, hover,
-  focus-visible, active, disabled, loading, error) — estrutura da seção 7.
-- Barra de acessibilidade: WCAG 2.2 AA, foco visível, alvo de toque
-  mínimo de 44px, suporte a `prefers-reduced-motion` — adotada
-  integralmente.
-- "Projetar para estados vazio/carregamento/erro" — motivou a seção 7
-  incluir Vazio e Carregamento como estados de primeira classe.
+**`ex-auth-form-card`** — Sign-in / sign-up card. Re-uses feature-card chrome with text-input primitives inside.
+- Properties: `backgroundColor`, `rounded`, `padding`
 
-**De `regras-ui-ux/skills/professional`**
-- Estrutura de escala de espaçamento (4/8/12/16/24/32) considerada, mas a
-  paleta de cor (amarelo `#FECE14` / preto, tema de loja de eletrônicos) é
-  **irrelevante e não foi usada** — pertence a outro domínio de marca.
-- Tom de voz "conciso, confiante, prestativo" foi absorvido de forma
-  compatível com o tom educacional pedido no briefing.
+**`ex-modal-card`** — Modal dialog surface — same chrome as feature-card with elevated shadow.
+- Properties: `backgroundColor`, `rounded`, `padding`
 
-**De `regras-ui-ux/skills/geometric`**
-- Vocabulário "geométrico, estruturado, limpo" reforça a escolha por
-  cantos suavemente arredondados e grade consistente, em vez de formas
-  orgânicas ou decorativas.
-- Indicação de família tipográfica **Inter** e monoespaçada
-  **JetBrains Mono** — adotadas neste documento como recomendação de
-  fonte (seção 4).
+**`ex-empty-state-card`** — Empty-state illustration frame.
+- Properties: `backgroundColor`, `rounded`, `padding`, `captionTypography`
 
-**De `repertorio-frontend/README.md` (Cores, CSS, Design Systems, Fontes,
-Ícones, Ilustrações, Performance, HTML, UI Kits, Templates HTML/CSS)**
-- Seção **Fontes**: confirmação de Google Fonts como fonte de distribuição
-  gratuita e confiável para Inter/Lexend.
-- Seção **Ícones**: confirmação de que Feather/Lucide/Tabler/Heroicons são
-  catálogos de ícones de linha compatíveis com o estilo pedido (usados como
-  categoria de referência, não como dependência obrigatória).
-- Seção **Performance**: ferramentas como PageSpeed Insight/GTmetrix citadas
-  como forma de validar o requisito "rápida" do briefing em etapas
-  futuras — não uma decisão visual, mas um critério de aceite a lembrar.
-- Seção **CSS**: o catálogo inclui bibliotecas de animação decorativa
-  (partículas, parallax, scroll-jacking) — **deliberadamente não
-  incorporadas** por conflitarem com "nenhuma... excesso de animações" do
-  briefing.
-- Seção **Design Systems / UI Kits / Templates HTML-CSS**: consultadas como
-  categoria geral; nenhum kit ou template específico foi adotado nesta
-  etapa — a V1 usa um sistema próprio, não um template de terceiros.
+**`ex-toast`** — Toast notification surface — feature-card shape + medium shadow.
+- Properties: `backgroundColor`, `rounded`, `padding`, `typography`
 
-## 14. Itens deliberadamente excluídos da V1
 
-Confirmando o escopo do briefing, os itens abaixo **não fazem parte da V1**
-e não devem aparecer em nenhuma tela, componente ou fluxo desta fase:
+## Do's and Don'ts
 
-- Login e cadastro de usuário
-- Banco de dados / persistência de conta
-- Avatar e perfil de usuário
-- Ranking ou qualquer comparação entre alunos
-- Chat (com outros alunos, com professores ou com IA)
-- Inteligência artificial (tutor, gerador de exercícios, chatbot)
-- Pagamento ou qualquer fluxo de monetização
-- Recursos de rede social (seguir, curtir, compartilhar perfil)
-- Moedas, XP, níveis ou qualquer sistema de recompensa gamificada
-- Qualquer gamificação além de um indicador simples e local de progresso
+### Do
+- Reserve `{colors.primary}` off-white for primary CTA pills and default text. There is no chromatic accent.
+- Use tight `{rounded.sm}` 3 px or `{rounded.md}` 4 px button radii. The brand never uses generous pills for CTAs.
+- Set hero headlines in Inter weight 400 with `-1.6 px` tracking. The brand reads as quietly confident.
+- Pair Inter (sentence-case) with DM Mono (code blocks, terminal mockups).
+- Keep the warm-dark canvas tone — pure black breaks the brand's identity.
 
-## Tabela de decisões
-
-| Decisão | Recomendação | Motivo | Fonte consultada |
-|---|---|---|---|
-| Cor de assinatura/ação | `#185ADB` como única cor interativa da interface | Requisito explícito do briefing; mantém coerência de marca educacional | Especificação da Biblioteca Matemática (briefing) |
-| Raio de borda dos cards | 16px (`rounded.lg`) | Atende "bordas suaves" sem herdar o 0px da IBM nem o pill total da Apple | HP DESIGN.md + briefing |
-| Raio de borda dos botões | 10–12px (`rounded.md`) | Meio-termo entre pill (Apple) e quadrado (IBM); mais "ação" que o card, menos que uma pílula | HP DESIGN.md + briefing |
-| Sombra de cards | Sombra discreta (baixa opacidade, blur curto) | Atende "sombras discretas" do briefing; HP já documenta esse padrão como "soft lift" | HP DESIGN.md |
-| Fonte principal | Inter | Alta legibilidade, gratuita, sem vínculo com marca das empresas analisadas | Decisão própria, informada por `regras-ui-ux/geometric` |
-| Fonte alternativa de leitura | Lexend | Fonte open-source projetada para reduzir esforço de leitura em público jovem | Decisão própria |
-| Fonte monoespaçada | JetBrains Mono | Boa diferenciação de números/operadores para conteúdo matemático | `regras-ui-ux/geometric` |
-| Escala de espaçamento | Grade de 8pt (4 a 96px) | Reforçada em duas das quatro skills lidas e compatível com o ritmo de Apple/IBM | `regras-ui-ux` (clean, spacious) |
-| Alvo mínimo de toque | 44×44px | Exigência recorrente nas skills de acessibilidade consultadas | `regras-ui-ux` (clean, spacious) |
-| Rótulo de botão em caixa alta | Rejeitado — manter case normal | Soa formal/distante demais para público de 11–15 anos | Conflito com HP DESIGN.md — briefing prevalece |
-| Ícones | Estilo de linha, cor única, sem 3D/emoji | Mantém interface limpa e não infantilizada | `repertorio-frontend` (seção Ícones) |
-| Paleta da skill `professional` (amarelo/preto) | Não utilizada | Tema de marca de loja de eletrônicos, sem relação com o produto | `regras-ui-ux/professional` — descartada intencionalmente |
-| Cores semânticas (sucesso/erro) | Verde `#16A34A` / Vermelho `#DC2626` | Consistentes entre as quatro skills lidas; já reconhecíveis pelo público | `regras-ui-ux` (clean, professional, geometric, spacious) |
-| Navegação entre anos (6º–9º) | Pill tabs no estilo `category-tab` | Padrão testado de filtro por categoria, comunicação compacta e clara | HP DESIGN.md |
-| Elevação de cards | Sombra discreta + leve mudança de superfície | Combina o princípio de elevação por superfície da IBM com a sombra suave da HP, sem ficar pesado | IBM DESIGN.md + HP DESIGN.md |
-| Animações | Só transições funcionais (150–250ms) e `scale(0.98)` no press | Reduz "excesso de animação" do briefing; usa o mesmo princípio documentado na Apple | Apple DESIGN.md + briefing |
-| `prefers-reduced-motion` | Suporte obrigatório, remove transições não essenciais | Exigência explícita das skills de acessibilidade lidas | `regras-ui-ux` (clean, spacious) |
-| Foco por teclado | Anel de 2px com `outline-offset`, cor `primary-focus-ring` | Necessidade de foco sempre visível; inspirado na precisão de foco documentada na IBM | IBM DESIGN.md (elevação nível 3) + briefing |
-| Bibliotecas de animação decorativa (partículas, parallax) | Não adotadas | Conflitam com o requisito "rápida" e "sem excesso de animações" do briefing | `repertorio-frontend` (seção CSS) — descartadas intencionalmente |
-| Progresso do aluno | Indicador simples local (ex.: "3/12 concluídos"), sem ranking/XP | Requisito explícito do briefing de evitar gamificação excessiva | Especificação da Biblioteca Matemática (briefing) |
+### Don't
+- Don't introduce a chromatic brand accent. The off-white-on-warm-dark IS the brand's voice.
+- Don't render the hero headline in heavy weight (700+). The brand's display is intentionally light.
+- Don't use generous pill CTAs. The brand's button radius is 3-4 px, almost rectangular.
+- Don't replace the warm dark canvas with neutral gray or pure black. The warmth IS the brand.
+- Don't drop a soft drop-shadow on cards. Hairlines + surface contrast carry elevation.

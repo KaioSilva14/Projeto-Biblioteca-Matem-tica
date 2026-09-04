@@ -1,0 +1,214 @@
+{
+  "id": "comparar",
+  "numero": 4,
+  "titulo": "Qual decimal é maior",
+  "pergunta": "Por que 0,7 é maior que 0,15, se 15 é maior que 7?",
+  "ideia": {
+    "paragrafos": [
+      "Esse é o erro mais comum de decimais no Brasil inteiro, e ele tem uma causa clara: a pessoa olha para o que vem depois da vírgula como se fosse um número inteiro solto. Vê 15 contra 7, conclui que 0,15 é maior. Só que 15 e 7 ali não são quantidades comparáveis — são quantidades de pedaços de tamanhos diferentes.",
+      "0,7 são sete DÉCIMOS. 0,15 são quinze CENTÉSIMOS. Décimo é dez vezes maior que centésimo, então sete décimos é bastante coisa e quinze centésimos é pouco. É o mesmo problema de comparar 7 reais com 15 centavos: quem tem mais dinheiro não é quem tem o número maior.",
+      "A saída é a mesma que você usou em frações: deixar os pedaços do mesmo tamanho antes de comparar. E em decimal isso é mais fácil ainda, porque basta completar com zeros à direita — que, como você viu na lição 2, não mudam o valor. 0,7 vira 0,70, e agora dá para comparar 70 com 15.",
+      "Com o mesmo número de casas, a comparação vira leitura da esquerda para a direita: compare as unidades; se empatarem, compare os décimos; se empatarem de novo, os centésimos. Para na primeira casa em que os algarismos forem diferentes."
+    ],
+    "destaque": "Complete com zeros até as duas terem o mesmo número de casas. Aí compare da esquerda para a direita.",
+    "imagem": "dec-ideia-comparar"
+  },
+  "resolvido": {
+    "enunciado": "Qual é maior: 0,7 ou 0,15?",
+    "imagem": "dec-res-comparar",
+    "passos": [
+      {
+        "titulo": "Por que não dá para olhar só os algarismos",
+        "explicacao": "Depois da vírgula, 0,7 tem uma casa e 0,15 tem duas. Os pedaços têm tamanhos diferentes: um é décimo, o outro é centésimo. Comparar 7 com 15 assim é comparar coisas de unidades diferentes.",
+        "conta": "0,7 → décimos · 0,15 → centésimos"
+      },
+      {
+        "titulo": "Iguale o número de casas",
+        "explicacao": "Acrescente um zero no fim de 0,7. Isso não muda o valor — só reescreve o número em centésimos, que é a unidade da outra.",
+        "conta": "0,7 = 0,70"
+      },
+      {
+        "titulo": "Agora os dois estão em centésimos",
+        "explicacao": "0,70 são setenta centésimos. 0,15 são quinze centésimos. Mesma unidade, então é só contar.",
+        "conta": "70 centésimos vs 15 centésimos"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Setenta é bem maior que quinze. E não por pouco: 0,7 é quase cinco vezes 0,15.",
+        "conta": "0,70 > 0,15, logo 0,7 > 0,15"
+      },
+      {
+        "titulo": "Confira pelo bom senso",
+        "explicacao": "0,7 passa da metade de um inteiro; 0,15 nem chega perto de um quinto. Se a sua resposta disser o contrário, alguma coisa saiu errada.",
+        "conta": "0,7 > 0,5 > 0,15"
+      }
+    ],
+    "fecho": "Quando um decimal tiver menos casas que o outro, complete com zero. É de graça e resolve o erro mais comum da matéria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o maior número: 0,8 ou 0,25?",
+      "imagem": "dec-q-comp-08-025",
+      "dica": "Complete o de uma casa com um zero para os dois ficarem em centésimos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "0,8" },
+        { "rotulo": "B", "texto": "0,25" },
+        { "rotulo": "C", "texto": "São iguais" },
+        { "rotulo": "D", "texto": "Não dá para comparar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,25",
+          "porque": "Você comparou 25 com 8 como se fossem números inteiros. Mas 0,8 são oito décimos e 0,25 são vinte e cinco centésimos. Escrevendo os dois em centésimos: 0,80 contra 0,25 — o primeiro é mais que o triplo."
+        },
+        {
+          "resposta": "Não dá para comparar",
+          "porque": "Dá sempre. Basta completar com zeros até os dois terem o mesmo número de casas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale as casas",
+          "explicacao": "0,8 tem uma casa; 0,25 tem duas. Acrescente um zero no fim do primeiro.",
+          "conta": "0,8 = 0,80"
+        },
+        {
+          "titulo": "Compare em centésimos",
+          "explicacao": "Oitenta centésimos contra vinte e cinco centésimos.",
+          "conta": "80 > 25"
+        },
+        {
+          "titulo": "Confira na reta",
+          "explicacao": "0,8 passa da metade do caminho até 1; 0,25 é um quarto. O primeiro está bem mais à direita.",
+          "conta": "0,8 > 0,25"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Coloque em ordem crescente: 1,2 · 1,15 · 1,09. Qual é a ordem certa?",
+      "imagem": "dec-q-comp-ordem",
+      "dica": "Todos têm 1 inteiro. Complete com zeros e compare só a parte depois da vírgula.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1,09 · 1,15 · 1,2" },
+        { "rotulo": "B", "texto": "1,2 · 1,15 · 1,09" },
+        { "rotulo": "C", "texto": "1,09 · 1,2 · 1,15" },
+        { "rotulo": "D", "texto": "1,15 · 1,09 · 1,2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1,2 · 1,15 · 1,09",
+          "porque": "Essa é a ordem da MAIOR para a menor — você ordenou certo, mas ao contrário do que foi pedido. Vale reler o enunciado: 'crescente' é do menor para o maior."
+        },
+        {
+          "resposta": "1,09 · 1,2 · 1,15",
+          "porque": "Você comparou 2 com 15 como inteiros e concluiu que 1,15 é maior que 1,2. Escrevendo tudo com duas casas: 1,20 contra 1,15 — o 1,2 é o maior dos três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare primeiro a parte inteira",
+          "explicacao": "Os três têm 1 inteiro. Empate — então a decisão passa para os décimos.",
+          "conta": "1 = 1 = 1"
+        },
+        {
+          "titulo": "Iguale as casas",
+          "explicacao": "O 1,2 tem uma casa só; os outros têm duas. Acrescente um zero nele.",
+          "conta": "1,20 · 1,15 · 1,09"
+        },
+        {
+          "titulo": "Compare os décimos",
+          "explicacao": "Agora é só olhar a primeira casa depois da vírgula: 2, 1 e 0. Isso já resolve, sem precisar dos centésimos.",
+          "conta": "0 < 1 < 2"
+        },
+        {
+          "titulo": "Escreva na ordem pedida",
+          "explicacao": "Do menor para o maior, voltando aos números como estavam escritos no enunciado. Os zeros que você acrescentou serviram só para comparar.",
+          "conta": "1,09 < 1,15 < 1,2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Duas corredoras marcaram 12,4 s e 12,35 s. Quem foi mais rápida marcou o MENOR tempo. Qual é o menor tempo?",
+      "imagem": "dec-q-comp-tempos",
+      "dica": "Cuidado: aqui ganha o menor, não o maior. Complete as casas antes de decidir.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "12,35 s" },
+        { "rotulo": "B", "texto": "12,4 s" },
+        { "rotulo": "C", "texto": "Os dois tempos são iguais" },
+        { "rotulo": "D", "texto": "Falta saber a distância da prova" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "12,4 s",
+          "porque": "Aqui há duas armadilhas de uma vez. Primeiro, 12,4 = 12,40 é MAIOR que 12,35, e não menor. Segundo, em prova de corrida o menor tempo é o melhor — então 12,4 seria o pior resultado, não o menor."
+        },
+        {
+          "resposta": "Falta saber a distância da prova",
+          "porque": "Não falta: os dois tempos já estão dados na mesma unidade, segundos. Comparar tempos é comparar os números diretamente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale as casas",
+          "explicacao": "12,4 tem uma casa e 12,35 tem duas. Complete o primeiro com zero.",
+          "conta": "12,4 = 12,40"
+        },
+        {
+          "titulo": "Parte inteira: empate",
+          "explicacao": "Os dois têm 12 segundos inteiros, então a decisão vai para os décimos.",
+          "conta": "12 = 12"
+        },
+        {
+          "titulo": "Compare os décimos",
+          "explicacao": "4 contra 3. Como 3 é menor, o tempo 12,35 é o menor — e não precisa nem olhar os centésimos.",
+          "conta": "12,35 < 12,40"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Complete com zeros e diga quantos CENTÉSIMOS há em 0,6. Digite apenas o número.",
+      "imagem": "dec-q-comp-06",
+      "dica": "Reescreva 0,6 com duas casas depois da vírgula.",
+      "formato": "numero",
+      "resposta": 60,
+      "unidade": "centésimos",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "Seis é a quantidade de DÉCIMOS. Como cada décimo vale dez centésimos, seis décimos valem sessenta centésimos."
+        },
+        {
+          "resposta": "600",
+          "porque": "Seiscentos seria a quantidade de MILÉSIMOS: 0,6 = 0,600. A pergunta é sobre centésimos, que são duas casas, não três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Complete a segunda casa",
+          "explicacao": "Acrescentar zero no fim não muda o valor — só reescreve o número na unidade dos centésimos.",
+          "conta": "0,6 = 0,60"
+        },
+        {
+          "titulo": "Leia o novo número",
+          "explicacao": "0,60 lê-se 'sessenta centésimos'.",
+          "conta": "0,60 = 60/100"
+        },
+        {
+          "titulo": "Por que dá sessenta",
+          "explicacao": "Cada décimo vale 10 centésimos, e são seis décimos.",
+          "conta": "6 × 10 = 60"
+        }
+      ]
+    }
+  ]
+}

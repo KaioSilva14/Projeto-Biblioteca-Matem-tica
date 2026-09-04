@@ -1,0 +1,49 @@
+{
+  "id": "fracoes",
+  "titulo": "Frações",
+  "ano": 6,
+  "descricao": "Do primeiro corte numa barra de chocolate até problemas de olimpíada. Oito lições, cada uma com uma ideia só, um problema resolvido junto com você e questões de prova de verdade.",
+  "pergunta": "O que dois números empilhados conseguem dizer que um número sozinho não diz?",
+  "videos": [
+    {
+      "id": "baJ2jp3_ZHE",
+      "titulo": "Frações: Definição e Características - Matemática - 6º ano - Ensino Fundamental",
+      "canal": "Canal Futura",
+      "descricao": "Retoma o conceito de fração com exemplos do dia a dia. Bom para assistir depois da lição 1, se a ideia de parte-todo ainda estiver escorregando."
+    },
+    {
+      "id": "yWffq3WMfiQ",
+      "titulo": "Exercícios sobre frações | Rioeduca na TV – Matemática - 6º Ano",
+      "canal": "MultiRio",
+      "descricao": "Uma aula inteira resolvendo exercícios de representação e comparação. Útil para quem quer ver mais casos resolvidos antes de encarar as questões."
+    },
+    {
+      "id": "ZU-DAqtVkmI",
+      "titulo": "FRAÇÃO | ADIÇÃO e SUBTRAÇÃO de FRAÇÕES. Método convencional e o método BORBOLETA.",
+      "canal": "Gis com Giz",
+      "descricao": "Mostra dois caminhos para a mesma soma. O método borboleta é um atalho — vale conhecer depois da lição 7, quando o motivo por trás da conta já estiver claro."
+    },
+    {
+      "id": "Smf9yhSFG5w",
+      "titulo": "FRAÇÃO : ADIÇÃO E SUBTRAÇÃO COM DENOMINADORES DIFERENTES - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Passo a passo detalhado do MMC aplicado à soma de frações. Complementa a lição 7 para quem quer mais repetição do procedimento."
+    },
+    {
+      "id": "u4uAsW2nJCM",
+      "titulo": "FRAÇÕES - Resolução de Problemas com Frações - Professora Angela Matemática",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Problemas de várias etapas resolvidos do começo ao fim. É o vídeo mais próximo da lição 8, a do 'fração do que sobrou'."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/fracoes/o-que-e.json" },
+    { "id": "reta-numerica", "arquivo": "/dados/licoes/fracoes/reta-numerica.json" },
+    { "id": "equivalentes", "arquivo": "/dados/licoes/fracoes/equivalentes.json" },
+    { "id": "simplificar", "arquivo": "/dados/licoes/fracoes/simplificar.json" },
+    { "id": "comparar", "arquivo": "/dados/licoes/fracoes/comparar.json" },
+    { "id": "fracao-de-quantidade", "arquivo": "/dados/licoes/fracoes/fracao-de-quantidade.json" },
+    { "id": "somar-subtrair", "arquivo": "/dados/licoes/fracoes/somar-subtrair.json" },
+    { "id": "do-que-sobrou", "arquivo": "/dados/licoes/fracoes/do-que-sobrou.json" }
+  ]
+}

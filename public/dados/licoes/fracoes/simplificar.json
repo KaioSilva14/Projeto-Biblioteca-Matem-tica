@@ -1,0 +1,209 @@
+{
+  "id": "simplificar",
+  "numero": 4,
+  "titulo": "Escrever do jeito mais simples",
+  "pergunta": "Por que 18/24 e 3/4 são a mesma coisa — e qual dos dois vale a pena escrever?",
+  "ideia": {
+    "paragrafos": [
+      "Na lição passada você viu que cortar mais fino não muda a quantidade. Simplificar é o caminho de volta: juntar os pedacinhos em pedaços maiores até não dar mais para juntar.",
+      "Fazer isso não é obrigação nem frescura. É que 3/4 diz na hora quanto você tem, e 18/24 não. Ninguém consegue sentir o tamanho de 18/24 de cabeça — mas todo mundo sabe onde fica três quartos.",
+      "Para juntar os pedaços você precisa de um número que divida os dois andares ao mesmo tempo. Se você usar o MAIOR desses números, chega ao destino de uma vez. Esse maior número tem nome: máximo divisor comum, o MDC.",
+      "Não é obrigatório achar o MDC de primeira. Dividir por 2 várias vezes, depois por 3, funciona igual — só dá mais voltas. A fração está simplificada quando o único número que ainda divide os dois é o 1."
+    ],
+    "destaque": "Simplificar não muda o número. Muda só a clareza com que ele aparece.",
+    "imagem": "ideia-simplificar"
+  },
+  "resolvido": {
+    "enunciado": "Simplifique 18/24 até não dar mais.",
+    "imagem": "res-simplificar",
+    "passos": [
+      {
+        "titulo": "Procure um número que divida os dois",
+        "explicacao": "18 e 24 são pares, então 2 serve. Mas dá para ir mais longe: os dois também são divisíveis por 3, e portanto por 6. O maior que divide os dois é 6 — esse é o MDC.",
+        "conta": "divisores comuns de 18 e 24: 1, 2, 3, 6 → MDC = 6"
+      },
+      {
+        "titulo": "Divida os dois andares por ele",
+        "explicacao": "Aqui é a mesma lógica da lição anterior, ao contrário: juntando os pedacinhos de 6 em 6, sobram pedaços maiores e em menor quantidade.",
+        "conta": "18 ÷ 6 = 3 · 24 ÷ 6 = 4"
+      },
+      {
+        "titulo": "Chegou ao fim?",
+        "explicacao": "Olhe para 3 e 4. Existe algum número maior que 1 que divide os dois? Não: 3 só é divisível por 1 e 3, e 4 não é divisível por 3. Então acabou.",
+        "conta": "3/4 é irredutível"
+      },
+      {
+        "titulo": "E se você não tivesse enxergado o 6?",
+        "explicacao": "Chegaria no mesmo lugar em duas etapas: dividindo por 2 dá 9/12, e dividindo 9/12 por 3 dá 3/4. Mais devagar, igualmente correto.",
+        "conta": "18/24 → 9/12 → 3/4"
+      }
+    ],
+    "fecho": "18/24 e 3/4 são o mesmo ponto na reta numérica. Simplificar é escolher o nome mais curto para esse ponto."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Simplifique 12/16 até a forma irredutível e digite apenas o número de cima do resultado.",
+      "imagem": "q-simp-12-16",
+      "dica": "Qual é o maior número que divide 12 e 16 ao mesmo tempo?",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "Você dividiu por 2 e parou: 12/16 virou 6/8. Está certo, mas ainda não acabou — 6 e 8 continuam sendo pares. Divida mais uma vez por 2."
+        },
+        {
+          "resposta": "4",
+          "porque": "Esse é o MDC de 12 e 16, não o resultado. O MDC é o número pelo qual você DIVIDE; a resposta é o que sobra em cima depois da divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o maior divisor comum",
+          "explicacao": "12 é divisível por 1, 2, 3, 4, 6 e 12. O 16 é divisível por 1, 2, 4, 8 e 16. O maior que aparece nas duas listas é o 4.",
+          "conta": "MDC(12, 16) = 4"
+        },
+        {
+          "titulo": "Divida os dois andares",
+          "explicacao": "Juntando os pedacinhos de 4 em 4.",
+          "conta": "12 ÷ 4 = 3 · 16 ÷ 4 = 4"
+        },
+        {
+          "titulo": "Confirme que acabou",
+          "explicacao": "3 e 4 não têm divisor comum além do 1. O número de cima é 3.",
+          "conta": "12/16 = 3/4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas frações JÁ está na forma irredutível, ou seja, não dá mais para simplificar?",
+      "imagem": "q-simp-quais",
+      "dica": "Para cada uma, procure algum número maior que 1 que divida os dois andares.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "7/9" },
+        { "rotulo": "B", "texto": "6/8" },
+        { "rotulo": "C", "texto": "10/15" },
+        { "rotulo": "D", "texto": "9/12" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6/8",
+          "porque": "Os dois são pares, então 2 divide ambos: 6/8 = 3/4. Sempre que os dois números forem pares, ainda dá para simplificar."
+        },
+        {
+          "resposta": "10/15",
+          "porque": "Os dois terminam em 0 ou 5, então 5 divide ambos: 10/15 = 2/3."
+        },
+        {
+          "resposta": "9/12",
+          "porque": "Os dois são divisíveis por 3, então ainda dá para juntar os pedaços: 9 ÷ 3 = 3 e 12 ÷ 3 = 4, ou seja, 9/12 = 3/4. Um teste rápido para o 3: some os algarismos do número e veja se o resultado é múltiplo de 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste cada uma",
+          "explicacao": "6 e 8 são pares (dá para dividir por 2). 10 e 15 acabam em 0 e 5 (dá para dividir por 5). 9 e 12 são múltiplos de 3.",
+          "conta": "6/8 = 3/4 · 10/15 = 2/3 · 9/12 = 3/4"
+        },
+        {
+          "titulo": "Sobrou 7/9",
+          "explicacao": "O 7 só é divisível por 1 e por ele mesmo. Como 9 não é múltiplo de 7, o único divisor comum é 1.",
+          "conta": "MDC(7, 9) = 1"
+        },
+        {
+          "titulo": "Um atalho útil",
+          "explicacao": "Quando o número de cima é primo (como 2, 3, 5, 7, 11), a fração já está simplificada — a menos que o de baixo seja múltiplo dele.",
+          "conta": "7/9 é irredutível"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Simplifique 24/36 até a forma irredutível e digite apenas o número de baixo do resultado.",
+      "imagem": "q-simp-24-36",
+      "dica": "Tanto 24 quanto 36 são divisíveis por 12.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Esse é o número de CIMA do resultado. 24/36 simplificado dá 2/3, e a pergunta pede o de baixo."
+        },
+        {
+          "resposta": "18",
+          "porque": "Você dividiu só por 2 e parou em 12/18. Ainda dá para continuar: 12 e 18 são ambos divisíveis por 6."
+        },
+        {
+          "resposta": "12",
+          "porque": "Esse é o MDC de 24 e 36, o número pelo qual você divide. O resultado da divisão é 2/3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o MDC",
+          "explicacao": "O maior número que divide 24 e 36 ao mesmo tempo é 12.",
+          "conta": "MDC(24, 36) = 12"
+        },
+        {
+          "titulo": "Divida os dois andares pelo MDC",
+          "explicacao": "Dividir em cima e embaixo pelo mesmo 12 é juntar os pedacinhos de doze em doze. A quantidade não muda — muda só o tamanho do pedaço com que ela é descrita.",
+          "conta": "24 ÷ 12 = 2 · 36 ÷ 12 = 3"
+        },
+        {
+          "titulo": "Leia a resposta certa",
+          "explicacao": "O resultado é 2/3, e o número de baixo é 3. Vale reler o que a questão pediu antes de digitar — é fácil responder o andar errado.",
+          "conta": "24/36 = 2/3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa turma de 30 alunos, 18 são meninas. Que fração da turma são meninas, escrita da forma mais simples?",
+      "imagem": "q-simp-turma",
+      "dica": "Monte a fração primeiro, sem se preocupar em simplificar. Depois procure o que divide os dois números.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3/5" },
+        { "rotulo": "B", "texto": "18/30" },
+        { "rotulo": "C", "texto": "9/15" },
+        { "rotulo": "D", "texto": "2/5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "18/30",
+          "porque": "A fração está certa, mas a pergunta pede a forma mais simples. 18 e 30 são ambos divisíveis por 6."
+        },
+        {
+          "resposta": "9/15",
+          "porque": "Você dividiu por 2 e parou. 9 e 15 ainda têm o 3 em comum: 9/15 = 3/5."
+        },
+        {
+          "resposta": "2/5",
+          "porque": "Essa é a fração dos MENINOS: 30 − 18 = 12 meninos, e 12/30 = 2/5. A pergunta é sobre as meninas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a fração",
+          "explicacao": "A turma inteira é o inteiro: 30 alunos embaixo. As meninas são 18, em cima.",
+          "conta": "18/30"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "O maior número que divide 18 e 30 é 6.",
+          "conta": "18 ÷ 6 = 3 · 30 ÷ 6 = 5"
+        },
+        {
+          "titulo": "Leia o resultado",
+          "explicacao": "Três quintos da turma são meninas — e agora dá para sentir o tamanho: um pouco mais da metade.",
+          "conta": "18/30 = 3/5"
+        }
+      ]
+    }
+  ]
+}

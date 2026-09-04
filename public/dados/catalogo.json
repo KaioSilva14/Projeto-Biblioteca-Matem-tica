@@ -1,0 +1,340 @@
+{
+  "anos": [
+    {
+      "ano": 6,
+      "titulo": "6º ano",
+      "descricao": "O ano em que o número deixa de ser só contagem. Frações, decimais e as primeiras medidas de forma e espaço.",
+      "cursos": [
+        {
+          "id": "fracoes",
+          "titulo": "Frações",
+          "resumo": "Do primeiro corte numa barra de chocolate até problemas de olimpíada.",
+          "disponivel": true,
+          "arquivo": "/dados/cursos/fracoes.json"
+        },
+        {
+          "id": "decimais",
+          "titulo": "Números decimais",
+          "resumo": "Por que a vírgula muda tudo, e como somar, comparar e arredondar.",
+          "disponivel": true,
+          "arquivo": "/dados/cursos/decimais.json"
+        },
+        {
+          "id": "divisibilidade",
+          "titulo": "Divisibilidade e primos",
+          "resumo": "Múltiplos, divisores, números primos, MDC e MMC — e para que servem.",
+          "disponivel": false
+        },
+        {
+          "id": "potencias",
+          "titulo": "Potências e raiz quadrada",
+          "resumo": "Multiplicar um número por ele mesmo, e o caminho de volta.",
+          "disponivel": false
+        },
+        {
+          "id": "porcentagem",
+          "titulo": "Porcentagem",
+          "resumo": "Desconto, aumento e a fração de denominador 100 escondida em tudo.",
+          "disponivel": false
+        },
+        {
+          "id": "angulos",
+          "titulo": "Ângulos",
+          "resumo": "Medir giro: agudo, reto, obtuso, e como usar o transferidor.",
+          "disponivel": false
+        },
+        {
+          "id": "figuras-planas",
+          "titulo": "Figuras planas",
+          "resumo": "Polígonos, triângulos e quadriláteros: como reconhecer e nomear.",
+          "disponivel": false
+        },
+        {
+          "id": "perimetro",
+          "titulo": "Perímetro",
+          "resumo": "O contorno de uma figura, e por que ele não diz nada sobre a área.",
+          "disponivel": false
+        },
+        {
+          "id": "area",
+          "titulo": "Área",
+          "resumo": "Quanto espaço uma figura ocupa, do quadradinho até a fórmula.",
+          "disponivel": false
+        },
+        {
+          "id": "solidos-volume",
+          "titulo": "Sólidos e volume",
+          "resumo": "Do plano para o espaço: cubos, blocos e quanto cabe dentro.",
+          "disponivel": false
+        },
+        {
+          "id": "medidas",
+          "titulo": "Grandezas e medidas",
+          "resumo": "Comprimento, massa, capacidade e tempo — e como trocar de unidade.",
+          "disponivel": false
+        },
+        {
+          "id": "plano-cartesiano",
+          "titulo": "Plano cartesiano",
+          "resumo": "Dois números que localizam qualquer ponto.",
+          "disponivel": false
+        },
+        {
+          "id": "graficos-tabelas",
+          "titulo": "Gráficos e tabelas",
+          "resumo": "Ler dados sem ser enganado por eles.",
+          "disponivel": false
+        },
+        {
+          "id": "media",
+          "titulo": "Média aritmética",
+          "resumo": "O número que representa um conjunto — e quando ele mente.",
+          "disponivel": false
+        }
+      ]
+    },
+    {
+      "ano": 7,
+      "titulo": "7º ano",
+      "descricao": "O ano do sinal negativo e da primeira álgebra. Proporção, equações e a letra que representa um número.",
+      "cursos": [
+        {
+          "id": "inteiros",
+          "titulo": "Números inteiros",
+          "resumo": "O que existe à esquerda do zero, e como somar dívidas.",
+          "disponivel": false
+        },
+        {
+          "id": "racionais",
+          "titulo": "Números racionais",
+          "resumo": "Fração, decimal e negativo na mesma reta.",
+          "disponivel": false
+        },
+        {
+          "id": "razao-proporcao",
+          "titulo": "Razão e proporção",
+          "resumo": "Comparar por divisão, e quando duas razões são iguais.",
+          "disponivel": false
+        },
+        {
+          "id": "regra-de-tres",
+          "titulo": "Regra de três",
+          "resumo": "Grandezas que crescem juntas — e as que fazem o contrário.",
+          "disponivel": false
+        },
+        {
+          "id": "juros-simples",
+          "titulo": "Porcentagem e juros simples",
+          "resumo": "Aumento, desconto e o que o banco faz com o seu dinheiro.",
+          "disponivel": false
+        },
+        {
+          "id": "algebra-inicial",
+          "titulo": "Linguagem algébrica",
+          "resumo": "Quando a letra vira número, e por que isso ajuda.",
+          "disponivel": false
+        },
+        {
+          "id": "equacoes-1grau",
+          "titulo": "Equações do 1º grau",
+          "resumo": "Descobrir o valor que faz a igualdade ficar verdadeira.",
+          "disponivel": false
+        },
+        {
+          "id": "inequacoes",
+          "titulo": "Inequações",
+          "resumo": "Quando a resposta não é um número, e sim um intervalo.",
+          "disponivel": false
+        },
+        {
+          "id": "retas-paralelas",
+          "titulo": "Retas paralelas e transversais",
+          "resumo": "Os ângulos que aparecem quando uma reta corta duas paralelas.",
+          "disponivel": false
+        },
+        {
+          "id": "triangulos-quadrilateros",
+          "titulo": "Triângulos e quadriláteros",
+          "resumo": "Propriedades, soma dos ângulos e condição de existência.",
+          "disponivel": false
+        },
+        {
+          "id": "circunferencia",
+          "titulo": "Circunferência e círculo",
+          "resumo": "O número π e o que ele mede de verdade.",
+          "disponivel": false
+        },
+        {
+          "id": "estatistica-7",
+          "titulo": "Média, moda e mediana",
+          "resumo": "Três jeitos de resumir um conjunto de dados.",
+          "disponivel": false
+        },
+        {
+          "id": "probabilidade-7",
+          "titulo": "Probabilidade",
+          "resumo": "Contar o que pode acontecer, e medir a chance.",
+          "disponivel": false
+        }
+      ]
+    },
+    {
+      "ano": 8,
+      "titulo": "8º ano",
+      "descricao": "O ano da álgebra pra valer. Produtos notáveis, fatoração, sistemas e a geometria que começa a demonstrar.",
+      "cursos": [
+        {
+          "id": "notacao-cientifica",
+          "titulo": "Potências e notação científica",
+          "resumo": "Escrever números gigantes e minúsculos sem encher a folha de zeros.",
+          "disponivel": false
+        },
+        {
+          "id": "reais",
+          "titulo": "Dízimas e números reais",
+          "resumo": "O que acontece quando a divisão não acaba nunca.",
+          "disponivel": false
+        },
+        {
+          "id": "produtos-notaveis",
+          "titulo": "Produtos notáveis",
+          "resumo": "Três padrões que aparecem o tempo todo e valem decorar.",
+          "disponivel": false
+        },
+        {
+          "id": "fatoracao",
+          "titulo": "Fatoração",
+          "resumo": "Transformar soma em multiplicação — e por que isso simplifica tudo.",
+          "disponivel": false
+        },
+        {
+          "id": "fracoes-algebricas",
+          "titulo": "Frações algébricas",
+          "resumo": "As mesmas regras das frações, agora com letras.",
+          "disponivel": false
+        },
+        {
+          "id": "sistemas",
+          "titulo": "Sistemas de equações",
+          "resumo": "Duas incógnitas, duas equações, um encontro.",
+          "disponivel": false
+        },
+        {
+          "id": "poligonos",
+          "titulo": "Ângulos e polígonos",
+          "resumo": "Soma dos ângulos internos e o que isso permite descobrir.",
+          "disponivel": false
+        },
+        {
+          "id": "congruencia",
+          "titulo": "Congruência de triângulos",
+          "resumo": "Quando dois triângulos são o mesmo triângulo, e como provar.",
+          "disponivel": false
+        },
+        {
+          "id": "area-8",
+          "titulo": "Áreas de figuras planas",
+          "resumo": "Decompor figuras difíceis em figuras fáceis.",
+          "disponivel": false
+        },
+        {
+          "id": "volume-8",
+          "titulo": "Volume",
+          "resumo": "Prismas, cilindros e a ideia de área da base vezes altura.",
+          "disponivel": false
+        },
+        {
+          "id": "probabilidade-8",
+          "titulo": "Probabilidade",
+          "resumo": "Eventos sucessivos e o princípio multiplicativo.",
+          "disponivel": false
+        },
+        {
+          "id": "estatistica-8",
+          "titulo": "Estatística",
+          "resumo": "Amostra, população e como um gráfico pode mentir.",
+          "disponivel": false
+        }
+      ]
+    },
+    {
+      "ano": 9,
+      "titulo": "9º ano",
+      "descricao": "O ano que prepara o Ensino Médio. Equação do 2º grau, função, semelhança e Pitágoras.",
+      "cursos": [
+        {
+          "id": "irracionais",
+          "titulo": "Números irracionais e reais",
+          "resumo": "A raiz de 2 e os números que não cabem em fração nenhuma.",
+          "disponivel": false
+        },
+        {
+          "id": "radiciacao",
+          "titulo": "Potenciação e radiciação",
+          "resumo": "Expoente negativo, expoente fracionário e as propriedades.",
+          "disponivel": false
+        },
+        {
+          "id": "equacoes-2grau",
+          "titulo": "Equações do 2º grau",
+          "resumo": "Bhaskara, e o que o discriminante está tentando te contar.",
+          "disponivel": false
+        },
+        {
+          "id": "funcao-afim",
+          "titulo": "Função afim",
+          "resumo": "A regra que liga duas grandezas, e o gráfico que a desenha.",
+          "disponivel": false
+        },
+        {
+          "id": "funcao-quadratica",
+          "titulo": "Função quadrática",
+          "resumo": "A parábola: onde ela corta o eixo e onde está o vértice.",
+          "disponivel": false
+        },
+        {
+          "id": "semelhanca",
+          "titulo": "Semelhança de triângulos",
+          "resumo": "Mesma forma, tamanhos diferentes — e a proporção que sai disso.",
+          "disponivel": false
+        },
+        {
+          "id": "tales",
+          "titulo": "Teorema de Tales",
+          "resumo": "Retas paralelas cortando transversais e a proporção entre segmentos.",
+          "disponivel": false
+        },
+        {
+          "id": "pitagoras",
+          "titulo": "Teorema de Pitágoras",
+          "resumo": "Por que a² + b² = c², e não só que é assim.",
+          "disponivel": false
+        },
+        {
+          "id": "relacoes-metricas",
+          "titulo": "Relações métricas no triângulo retângulo",
+          "resumo": "Altura, projeções e as relações que saem da semelhança.",
+          "disponivel": false
+        },
+        {
+          "id": "trigonometria",
+          "titulo": "Trigonometria no triângulo retângulo",
+          "resumo": "Seno, cosseno e tangente: medir o que não dá para alcançar.",
+          "disponivel": false
+        },
+        {
+          "id": "arcos-angulos",
+          "titulo": "Arcos e ângulos na circunferência",
+          "resumo": "Ângulo central, ângulo inscrito e a relação entre os dois.",
+          "disponivel": false
+        },
+        {
+          "id": "volume-9",
+          "titulo": "Volume de sólidos",
+          "resumo": "Cone, pirâmide e esfera — e de onde vem o famoso terço.",
+          "disponivel": false
+        }
+      ]
+    }
+  ]
+}

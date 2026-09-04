@@ -1,0 +1,578 @@
+{
+  "ideia-o-que-e": {
+    "arquivo": "/assets/licoes/ideia-o-que-e.png",
+    "alt": "Barra dividida em 4 partes iguais, com a primeira preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "res-o-que-e": {
+    "arquivo": "/assets/licoes/res-o-que-e.png",
+    "alt": "Barra de chocolate dividida em 6 pedaços iguais, com 2 preenchidos.",
+    "largura": 420,
+    "altura": 118
+  },
+  "q-pizza-8-3": {
+    "arquivo": "/assets/questoes/q-pizza-8-3.png",
+    "alt": "Pizza dividida em 8 fatias iguais, com 3 fatias preenchidas.",
+    "largura": 260,
+    "altura": 260
+  },
+  "q-ovos-12-5": {
+    "arquivo": "/assets/questoes/q-ovos-12-5.png",
+    "alt": "Doze círculos representando ovos, com 5 preenchidos.",
+    "largura": 280,
+    "altura": 104
+  },
+  "q-grade-10-3": {
+    "arquivo": "/assets/questoes/q-grade-10-3.png",
+    "alt": "Retângulo dividido em 10 partes iguais (5 colunas por 2 linhas), com 3 preenchidas.",
+    "largura": 212,
+    "altura": 92
+  },
+  "q-pizza-8-vazia": {
+    "arquivo": "/assets/questoes/q-pizza-8-vazia.png",
+    "alt": "Pizza dividida em 8 fatias iguais, nenhuma preenchida.",
+    "largura": 260,
+    "altura": 260
+  },
+  "ideia-reta": {
+    "arquivo": "/assets/licoes/ideia-reta.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 4 partes iguais, sem ponto marcado.",
+    "largura": 460,
+    "altura": 108
+  },
+  "res-reta-vazia": {
+    "arquivo": "/assets/licoes/res-reta-vazia.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 8 partes iguais, sem ponto marcado.",
+    "largura": 460,
+    "altura": 108
+  },
+  "q-reta-5-3": {
+    "arquivo": "/assets/questoes/q-reta-5-3.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 5 partes iguais, com um ponto marcado no terceiro tracinho.",
+    "largura": 460,
+    "altura": 108
+  },
+  "q-reta-4-4": {
+    "arquivo": "/assets/questoes/q-reta-4-4.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 4 partes iguais, com um ponto marcado exatamente sobre o número 1.",
+    "largura": 460,
+    "altura": 108
+  },
+  "q-reta-6-vazia": {
+    "arquivo": "/assets/questoes/q-reta-6-vazia.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 6 partes iguais, sem ponto marcado.",
+    "largura": 460,
+    "altura": 108
+  },
+  "q-reta-8-6": {
+    "arquivo": "/assets/questoes/q-reta-8-6.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 8 partes iguais, com um ponto marcado no sexto tracinho.",
+    "largura": 460,
+    "altura": 108
+  },
+  "ideia-equivalentes": {
+    "arquivo": "/assets/licoes/ideia-equivalentes.png",
+    "alt": "Retângulo dividido em 2 colunas com 1 preenchida, e duas linhas tracejadas atravessando a figura.",
+    "largura": 300,
+    "altura": 196
+  },
+  "res-equivalentes": {
+    "arquivo": "/assets/licoes/res-equivalentes.png",
+    "alt": "Retângulo dividido em 3 colunas com 2 preenchidas, e linhas tracejadas que o cortam em 12 partes.",
+    "largura": 300,
+    "altura": 196
+  },
+  "q-corte-2-3": {
+    "arquivo": "/assets/questoes/q-corte-2-3.png",
+    "alt": "Retângulo dividido em 3 colunas com 2 preenchidas, atravessado por linhas tracejadas que formam 12 partes iguais.",
+    "largura": 300,
+    "altura": 166
+  },
+  "q-equiv-barras": {
+    "arquivo": "/assets/questoes/q-equiv-barras.png",
+    "alt": "Duas barras de mesmo comprimento: a de cima dividida em 2 partes com 1 preenchida, a de baixo em 6 partes com 3 preenchidas.",
+    "largura": 460,
+    "altura": 166
+  },
+  "q-equiv-1-4": {
+    "arquivo": "/assets/questoes/q-equiv-1-4.png",
+    "alt": "Barra dividida em 4 partes iguais com 1 preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "q-equiv-6-10": {
+    "arquivo": "/assets/questoes/q-equiv-6-10.png",
+    "alt": "Barra dividida em 10 partes iguais, com 6 preenchidas.",
+    "largura": 420,
+    "altura": 84
+  },
+  "ideia-simplificar": {
+    "arquivo": "/assets/licoes/ideia-simplificar.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 12 partes com 8 preenchidas, outra em 3 partes com 2 preenchidas.",
+    "largura": 460,
+    "altura": 166
+  },
+  "res-simplificar": {
+    "arquivo": "/assets/licoes/res-simplificar.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 24 partes com 18 preenchidas, outra em 4 partes com 3 preenchidas.",
+    "largura": 460,
+    "altura": 166
+  },
+  "q-simp-12-16": {
+    "arquivo": "/assets/questoes/q-simp-12-16.png",
+    "alt": "Barra dividida em 16 partes iguais, com 12 preenchidas.",
+    "largura": 420,
+    "altura": 84
+  },
+  "q-simp-quais": {
+    "arquivo": "/assets/questoes/q-simp-quais.png",
+    "alt": "Quatro barras de mesmo comprimento, divididas respectivamente em 9, 8, 15 e 12 partes, com 7, 6, 10 e 9 preenchidas.",
+    "largura": 470,
+    "altura": 242
+  },
+  "q-simp-24-36": {
+    "arquivo": "/assets/questoes/q-simp-24-36.png",
+    "alt": "Barra dividida em 36 partes iguais, com 24 preenchidas.",
+    "largura": 460,
+    "altura": 84
+  },
+  "q-simp-turma": {
+    "arquivo": "/assets/questoes/q-simp-turma.png",
+    "alt": "Trinta círculos representando os alunos de uma turma, com 18 preenchidos.",
+    "largura": 456,
+    "altura": 176
+  },
+  "ideia-comparar": {
+    "arquivo": "/assets/licoes/ideia-comparar.png",
+    "alt": "Duas pizzas do mesmo tamanho: uma cortada em 3 fatias com 1 preenchida, outra em 5 fatias com 1 preenchida.",
+    "largura": 420,
+    "altura": 210
+  },
+  "res-comparar": {
+    "arquivo": "/assets/licoes/res-comparar.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 8 partes com 5 preenchidas, outra em 11 partes com 7 preenchidas.",
+    "largura": 440,
+    "altura": 190
+  },
+  "q-comp-2-3-3-5": {
+    "arquivo": "/assets/questoes/q-comp-2-3-3-5.png",
+    "alt": "Duas barras de mesmo comprimento: a de cima dividida em 3 partes com 2 preenchidas, a de baixo em 5 partes com 3 preenchidas.",
+    "largura": 460,
+    "altura": 166
+  },
+  "q-comp-1-5-1-8": {
+    "arquivo": "/assets/questoes/q-comp-1-5-1-8.png",
+    "alt": "Duas pizzas do mesmo tamanho: uma cortada em 5 fatias com 1 preenchida, outra em 8 fatias com 1 preenchida.",
+    "largura": 420,
+    "altura": 210
+  },
+  "q-comp-ordem": {
+    "arquivo": "/assets/questoes/q-comp-ordem.png",
+    "alt": "Três barras de mesmo comprimento, divididas em 4, 2 e 8 partes, com 3, 1 e 5 preenchidas.",
+    "largura": 450,
+    "altura": 182
+  },
+  "q-comp-times": {
+    "arquivo": "/assets/questoes/q-comp-times.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 9 partes com 7 preenchidas, outra em 6 partes com 5 preenchidas.",
+    "largura": 470,
+    "altura": 122
+  },
+  "ideia-quantidade": {
+    "arquivo": "/assets/licoes/ideia-quantidade.png",
+    "alt": "Barra dividida em 5 partes iguais com 3 preenchidas, representando uma quantidade repartida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "res-quantidade": {
+    "arquivo": "/assets/licoes/res-quantidade.png",
+    "alt": "Barra representando 200 alunos dividida em 5 partes iguais, com 3 preenchidas.",
+    "largura": 440,
+    "altura": 152
+  },
+  "q-quant-350": {
+    "arquivo": "/assets/questoes/q-quant-350.png",
+    "alt": "Barra representando 350 livros, dividida em 5 partes iguais com 2 preenchidas.",
+    "largura": 440,
+    "altura": 152
+  },
+  "q-amigos": {
+    "arquivo": "/assets/questoes/q-amigos.png",
+    "alt": "Três barras representando o dinheiro de Adriano, Bruno e César, divididas em 5, 4 e 3 partes iguais, com uma parte preenchida em cada.",
+    "largura": 480,
+    "altura": 182
+  },
+  "q-atletas": {
+    "arquivo": "/assets/questoes/q-atletas.png",
+    "alt": "Barra do total de alunos da escola repartida em quatro categorias, com legenda: só vôlei, só futebol, nenhum dos dois e os dois esportes.",
+    "largura": 520,
+    "altura": 212
+  },
+  "q-quant-inversa": {
+    "arquivo": "/assets/questoes/q-quant-inversa.png",
+    "alt": "Barra dividida em 4 partes iguais, com uma chave marcando o valor de uma delas.",
+    "largura": 440,
+    "altura": 152
+  },
+  "ideia-somar": {
+    "arquivo": "/assets/licoes/ideia-somar.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 2 partes com 1 preenchida, outra em 3 partes com 1 preenchida.",
+    "largura": 460,
+    "altura": 166
+  },
+  "res-somar": {
+    "arquivo": "/assets/licoes/res-somar.png",
+    "alt": "Três barras de mesmo comprimento divididas em 6 partes, com 3, 2 e 5 preenchidas.",
+    "largura": 450,
+    "altura": 182
+  },
+  "q-soma-3-4-1-6": {
+    "arquivo": "/assets/questoes/q-soma-3-4-1-6.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 4 partes com 3 preenchidas, outra em 6 partes com 1 preenchida.",
+    "largura": 460,
+    "altura": 166
+  },
+  "q-canecas": {
+    "arquivo": "/assets/questoes/q-canecas.png",
+    "alt": "Três canecas de tamanhos diferentes: a pequena e a média cheias, a grande vazia.",
+    "largura": 460,
+    "altura": 250
+  },
+  "q-sub-5-6-1-4": {
+    "arquivo": "/assets/questoes/q-sub-5-6-1-4.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 6 partes com 5 preenchidas, outra em 4 partes com 1 preenchida.",
+    "largura": 460,
+    "altura": 166
+  },
+  "q-jarra": {
+    "arquivo": "/assets/questoes/q-jarra.png",
+    "alt": "Uma jarra cheia até três quartos ao lado de um copo, representando o suco servido.",
+    "largura": 320,
+    "altura": 250
+  },
+  "ideia-sobrou": {
+    "arquivo": "/assets/licoes/ideia-sobrou.png",
+    "alt": "Barra do total repartida em duas etapas consecutivas, mostrando que a segunda fração se aplica ao que restou da primeira.",
+    "largura": 500,
+    "altura": 204
+  },
+  "res-sobrou": {
+    "arquivo": "/assets/licoes/res-sobrou.png",
+    "alt": "Barra de 240 páginas repartida em três trechos: a leitura de segunda, a de terça e o que ainda falta.",
+    "largura": 500,
+    "altura": 204
+  },
+  "q-sobrou-dinheiro": {
+    "arquivo": "/assets/questoes/q-sobrou-dinheiro.png",
+    "alt": "Barra representando R$ 60,00 repartida em três trechos: a camiseta, o lanche e o que sobrou.",
+    "largura": 500,
+    "altura": 204
+  },
+  "q-sobrou-bombons": {
+    "arquivo": "/assets/questoes/q-sobrou-bombons.png",
+    "alt": "Barra representando 90 bombons repartida em três trechos: o que João comeu, o que Maria comeu e o que ficou na caixa.",
+    "largura": 500,
+    "altura": 204
+  },
+  "q-sobrou-reservatorio": {
+    "arquivo": "/assets/questoes/q-sobrou-reservatorio.png",
+    "alt": "Barra do reservatório cheio repartida em três trechos: a primeira retirada, a segunda retirada e o que resta.",
+    "largura": 500,
+    "altura": 204
+  },
+  "q-sobrou-ana": {
+    "arquivo": "/assets/questoes/q-sobrou-ana.png",
+    "alt": "Barra do livro repartida em três trechos: a leitura de segunda, a de terça e as 120 páginas que ainda faltam.",
+    "largura": 500,
+    "altura": 204
+  },
+  "dec-ideia-grade": {
+    "arquivo": "/assets/licoes/dec-ideia-grade.png",
+    "alt": "Quadrado dividido em 100 partes iguais, com 1 preenchida.",
+    "largura": 412,
+    "altura": 442
+  },
+  "dec-res-100-27": {
+    "arquivo": "/assets/licoes/dec-res-100-27.png",
+    "alt": "Quadrado dividido em 100 partes iguais, com 27 preenchidas.",
+    "largura": 412,
+    "altura": 442
+  },
+  "dec-q-100-7": {
+    "arquivo": "/assets/questoes/dec-q-100-7.png",
+    "alt": "Quadrado dividido em 100 partes iguais, com 7 preenchidas.",
+    "largura": 412,
+    "altura": 412
+  },
+  "dec-q-decimos-4": {
+    "arquivo": "/assets/questoes/dec-q-decimos-4.png",
+    "alt": "Barra dividida em 10 partes iguais, com 4 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "dec-q-100-40": {
+    "arquivo": "/assets/questoes/dec-q-100-40.png",
+    "alt": "Quadrado dividido em 100 partes iguais, com 40 preenchidas.",
+    "largura": 412,
+    "altura": 412
+  },
+  "dec-q-025": {
+    "arquivo": "/assets/questoes/dec-q-025.png",
+    "alt": "Quadrado dividido em 100 partes iguais, com 25 preenchidas.",
+    "largura": 412,
+    "altura": 442
+  },
+  "dec-ideia-quadro": {
+    "arquivo": "/assets/licoes/dec-ideia-quadro.png",
+    "alt": "Quadro de ordens com as colunas unidades, décimos, centésimos e milésimos, preenchido com o número 2,314.",
+    "largura": 400,
+    "altura": 142
+  },
+  "dec-res-quadro-4507": {
+    "arquivo": "/assets/licoes/dec-res-quadro-4507.png",
+    "alt": "Quadro de ordens preenchido com o número 4,507: 4 unidades, 5 décimos, 0 centésimos e 7 milésimos.",
+    "largura": 400,
+    "altura": 142
+  },
+  "dec-q-quadro-3168": {
+    "arquivo": "/assets/questoes/dec-q-quadro-3168.png",
+    "alt": "Quadro de ordens vazio, com as colunas unidades, décimos, centésimos e milésimos.",
+    "largura": 400,
+    "altura": 142
+  },
+  "dec-q-quadro-vazio": {
+    "arquivo": "/assets/questoes/dec-q-quadro-vazio.png",
+    "alt": "Quadro de ordens vazio, com as colunas unidades, décimos, centésimos e milésimos.",
+    "largura": 400,
+    "altura": 142
+  },
+  "dec-q-zeros": {
+    "arquivo": "/assets/questoes/dec-q-zeros.png",
+    "alt": "Quadrado dividido em 100 partes iguais, com 50 preenchidas.",
+    "largura": 412,
+    "altura": 442
+  },
+  "dec-q-quadro-809": {
+    "arquivo": "/assets/questoes/dec-q-quadro-809.png",
+    "alt": "Quadro de ordens vazio, com as colunas unidades, décimos, centésimos e milésimos.",
+    "largura": 400,
+    "altura": 142
+  },
+  "dec-ideia-reta": {
+    "arquivo": "/assets/licoes/dec-ideia-reta.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 10 partes iguais, sem ponto marcado.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-res-reta-vazia": {
+    "arquivo": "/assets/licoes/dec-res-reta-vazia.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 10 partes iguais, sem ponto marcado.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-q-reta-03": {
+    "arquivo": "/assets/questoes/dec-q-reta-03.png",
+    "alt": "Reta numérica de 0 a 1 dividida em 10 partes iguais, com um ponto marcado no terceiro tracinho.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-q-reta-245": {
+    "arquivo": "/assets/questoes/dec-q-reta-245.png",
+    "alt": "Reta numérica de 0 a 5 marcada nos números inteiros, sem ponto destacado.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-q-reta-36": {
+    "arquivo": "/assets/questoes/dec-q-reta-36.png",
+    "alt": "Reta numérica de 3 a 4 dividida em 10 partes iguais, com um ponto marcado no sexto tracinho.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-q-reta-15": {
+    "arquivo": "/assets/questoes/dec-q-reta-15.png",
+    "alt": "Reta numérica de 0 a 3 marcada apenas nos números inteiros, sem ponto destacado.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-ideia-comparar": {
+    "arquivo": "/assets/licoes/dec-ideia-comparar.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 10 partes com 7 preenchidas, outra em 20 partes com 3 preenchidas.",
+    "largura": 470,
+    "altura": 122
+  },
+  "dec-res-comparar": {
+    "arquivo": "/assets/licoes/dec-res-comparar.png",
+    "alt": "Duas barras de mesmo comprimento: uma dividida em 10 partes com 7 preenchidas, outra em 20 partes com 3 preenchidas.",
+    "largura": 470,
+    "altura": 122
+  },
+  "dec-q-comp-08-025": {
+    "arquivo": "/assets/questoes/dec-q-comp-08-025.png",
+    "alt": "Quadro de ordens vazio com duas linhas, para encaixar dois números.",
+    "largura": 400,
+    "altura": 194
+  },
+  "dec-q-comp-ordem": {
+    "arquivo": "/assets/questoes/dec-q-comp-ordem.png",
+    "alt": "Quadro de ordens vazio com três linhas, para encaixar três números.",
+    "largura": 400,
+    "altura": 246
+  },
+  "dec-q-comp-tempos": {
+    "arquivo": "/assets/questoes/dec-q-comp-tempos.png",
+    "alt": "Quadro de ordens vazio com duas linhas, para encaixar dois tempos.",
+    "largura": 400,
+    "altura": 194
+  },
+  "dec-q-comp-06": {
+    "arquivo": "/assets/questoes/dec-q-comp-06.png",
+    "alt": "Barra dividida em 10 partes iguais, com 6 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "dec-ideia-soma": {
+    "arquivo": "/assets/licoes/dec-ideia-soma.png",
+    "alt": "Conta de adição armada em coluna, com as vírgulas alinhadas uma sobre a outra.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-res-soma": {
+    "arquivo": "/assets/licoes/dec-res-soma.png",
+    "alt": "Conta de adição armada: 3,40 mais 12,75, com as vírgulas alinhadas.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-q-soma-1": {
+    "arquivo": "/assets/questoes/dec-q-soma-1.png",
+    "alt": "Conta de adição armada: 2,50 mais 1,75, com as vírgulas alinhadas.",
+    "largura": 340,
+    "altura": 124
+  },
+  "dec-q-sub-1": {
+    "arquivo": "/assets/questoes/dec-q-sub-1.png",
+    "alt": "Conta de subtração armada: 10,0 menos 3,6, com as vírgulas alinhadas.",
+    "largura": 340,
+    "altura": 124
+  },
+  "dec-q-soma-compras": {
+    "arquivo": "/assets/questoes/dec-q-soma-compras.png",
+    "alt": "Conta de adição armada: 8,50 mais 4,79, com as vírgulas alinhadas.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-q-troco": {
+    "arquivo": "/assets/questoes/dec-q-troco.png",
+    "alt": "Conta de subtração armada: 50,00 menos 27,40, com as vírgulas alinhadas.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-ideia-pordez": {
+    "arquivo": "/assets/licoes/dec-ideia-pordez.png",
+    "alt": "Quadro de ordens com duas linhas mostrando o número 4,3 e, abaixo, o mesmo número deslocado uma casa para a esquerda.",
+    "largura": 400,
+    "altura": 194
+  },
+  "dec-res-pordez": {
+    "arquivo": "/assets/licoes/dec-res-pordez.png",
+    "alt": "Quadro de ordens com três linhas mostrando 4,3 subindo duas casas até virar 430.",
+    "largura": 400,
+    "altura": 246
+  },
+  "dec-q-pordez-1": {
+    "arquivo": "/assets/questoes/dec-q-pordez-1.png",
+    "alt": "Quadro de ordens vazio com duas linhas.",
+    "largura": 400,
+    "altura": 194
+  },
+  "dec-q-pordez-2": {
+    "arquivo": "/assets/questoes/dec-q-pordez-2.png",
+    "alt": "Quadro de ordens vazio com duas linhas, das dezenas aos centésimos.",
+    "largura": 400,
+    "altura": 194
+  },
+  "dec-q-pordez-3": {
+    "arquivo": "/assets/questoes/dec-q-pordez-3.png",
+    "alt": "Quadro de ordens vazio com duas linhas.",
+    "largura": 400,
+    "altura": 194
+  },
+  "dec-q-pordez-4": {
+    "arquivo": "/assets/questoes/dec-q-pordez-4.png",
+    "alt": "Quadro de ordens vazio com duas linhas, das dezenas aos centésimos.",
+    "largura": 400,
+    "altura": 194
+  },
+  "dec-ideia-mult": {
+    "arquivo": "/assets/licoes/dec-ideia-mult.png",
+    "alt": "Barra dividida em 10 partes iguais com 5 preenchidas, representando a metade de um inteiro.",
+    "largura": 420,
+    "altura": 118
+  },
+  "dec-res-mult": {
+    "arquivo": "/assets/licoes/dec-res-mult.png",
+    "alt": "Quadrado dividido em 100 partes iguais, com 12 preenchidas.",
+    "largura": 412,
+    "altura": 442
+  },
+  "dec-q-mult-1": {
+    "arquivo": "/assets/questoes/dec-q-mult-1.png",
+    "alt": "Conta de multiplicação armada: 1,2 vezes 0,5.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-q-div-1": {
+    "arquivo": "/assets/questoes/dec-q-div-1.png",
+    "alt": "Conta de divisão indicada: 4,5 dividido por 0,5.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-q-mult-cafe": {
+    "arquivo": "/assets/questoes/dec-q-mult-cafe.png",
+    "alt": "Conta de multiplicação armada: 12,50 vezes 3.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-q-mult-estimar": {
+    "arquivo": "/assets/questoes/dec-q-mult-estimar.png",
+    "alt": "Barra dividida em 4 partes iguais, com 1 preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "dec-ideia-arredondar": {
+    "arquivo": "/assets/licoes/dec-ideia-arredondar.png",
+    "alt": "Reta numérica de 3,4 a 3,5 dividida em 10 partes, com um ponto marcado em 3,47.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-res-arredondar": {
+    "arquivo": "/assets/licoes/dec-res-arredondar.png",
+    "alt": "Reta numérica de 3,4 a 3,5 dividida em 10 partes, com um ponto marcado em 3,47.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-q-arred-1": {
+    "arquivo": "/assets/questoes/dec-q-arred-1.png",
+    "alt": "Reta numérica de 12,8 a 12,9 dividida em 10 partes iguais, sem ponto marcado.",
+    "largura": 520,
+    "altura": 116
+  },
+  "dec-q-arred-2": {
+    "arquivo": "/assets/questoes/dec-q-arred-2.png",
+    "alt": "Reta numérica de 7 a 8 dividida em 10 partes iguais, sem ponto marcado.",
+    "largura": 500,
+    "altura": 116
+  },
+  "dec-q-arred-estimativa": {
+    "arquivo": "/assets/questoes/dec-q-arred-estimativa.png",
+    "alt": "Conta de multiplicação armada: 19,80 vezes 3.",
+    "largura": 340,
+    "altura": 150
+  },
+  "dec-q-arred-3": {
+    "arquivo": "/assets/questoes/dec-q-arred-3.png",
+    "alt": "Reta numérica de 3,4 a 3,5 dividida em 10 partes iguais, sem ponto marcado.",
+    "largura": 520,
+    "altura": 116
+  }
+}

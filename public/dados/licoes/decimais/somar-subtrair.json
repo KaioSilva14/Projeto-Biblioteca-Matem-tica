@@ -1,0 +1,214 @@
+{
+  "id": "somar-subtrair",
+  "numero": 5,
+  "titulo": "Somar e subtrair",
+  "pergunta": "Por que todo mundo insiste que a vírgula tem que ficar alinhada?",
+  "ideia": {
+    "paragrafos": [
+      "Somar decimais é igual a somar inteiros — desde que cada algarismo esteja somado com um do MESMO tipo. Unidade com unidade, décimo com décimo, centésimo com centésimo. Se você somar décimo com centésimo, o resultado não significa nada.",
+      "É por isso que a conta se arma pela vírgula, e não pela borda direita. Alinhar a vírgula é a maneira mecânica de garantir que as casas iguais fiquem uma embaixo da outra. Quem arma 3,4 + 12,75 encostando os números à direita acaba somando o 4 dos décimos com o 5 dos centésimos, e o resultado sai errado.",
+      "Quando um número tem menos casas que o outro, complete com zeros. Isso não muda o valor (lição 2) e deixa a conta com o mesmo formato dos dois lados — o que reduz muito a chance de escorregar.",
+      "Na subtração vale exatamente o mesmo, com um cuidado a mais: se você precisa 'pedir emprestado', esse empréstimo atravessa a vírgula normalmente. A vírgula não é uma parede; ela é só uma marca de onde a unidade acabou."
+    ],
+    "destaque": "Arme pela vírgula, não pela borda. Complete com zeros para as duas contas terem o mesmo formato.",
+    "imagem": "dec-ideia-soma"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 3,4 + 12,75.",
+    "imagem": "dec-res-soma",
+    "passos": [
+      {
+        "titulo": "Iguale o número de casas",
+        "explicacao": "O 3,4 tem uma casa e o 12,75 tem duas. Acrescente um zero no fim do primeiro para os dois ficarem em centésimos.",
+        "conta": "3,4 = 3,40"
+      },
+      {
+        "titulo": "Arme alinhando a vírgula",
+        "explicacao": "A vírgula de cima exatamente sobre a de baixo. Assim os décimos ficam numa coluna e os centésimos em outra, sem mistura.",
+        "conta": "3,40 + 12,75 (vírgula sob vírgula)"
+      },
+      {
+        "titulo": "Some da direita para a esquerda",
+        "explicacao": "Centésimos: 0 + 5 = 5. Décimos: 4 + 7 = 11, então escreve 1 e vai 1 para as unidades. Unidades: 3 + 2 + 1 = 6. Dezenas: 1.",
+        "conta": "centésimos 5 · décimos 1 (vai 1) · unidades 6 · dezenas 1"
+      },
+      {
+        "titulo": "Desça a vírgula",
+        "explicacao": "A vírgula do resultado fica exatamente na mesma coluna das outras duas. Ela não se move.",
+        "conta": "3,40 + 12,75 = 16,15"
+      },
+      {
+        "titulo": "O resultado faz sentido?",
+        "explicacao": "3,4 é quase 3,5 e 12,75 é quase 13. Somando por cima, algo perto de 16,25. O resultado 16,15 está na vizinhança — sinal de que a conta não saiu do rumo.",
+        "conta": "≈ 3,5 + 13 = 16,5 → 16,15 é plausível"
+      }
+    ],
+    "fecho": "Estimar antes de calcular custa três segundos e pega quase todo erro de vírgula fora do lugar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule 2,5 + 1,75 e digite o resultado.",
+      "imagem": "dec-q-soma-1",
+      "dica": "Complete 2,5 com um zero para ficar com duas casas, e alinhe as vírgulas.",
+      "formato": "numero",
+      "resposta": 4.25,
+      "errosComuns": [
+        {
+          "resposta": "1.8",
+          "porque": "Você somou encostando os números à direita: o 5 dos décimos acabou embaixo do 5 dos centésimos. Alinhando pela vírgula, 2,50 + 1,75 dá 4,25."
+        },
+        {
+          "resposta": "3.25",
+          "porque": "O resultado dos centésimos e décimos está certo, mas faltou o 'vai 1': 50 + 75 = 125 centésimos, que é 1 inteiro e 25 centésimos. Esse inteiro entra na soma das unidades."
+        },
+        {
+          "resposta": "4.2",
+          "porque": "Quase — parece que os centésimos se perderam no caminho. 0,50 + 0,75 dá 1,25, então sobram 25 centésimos, não 20."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Complete as casas",
+          "explicacao": "O primeiro número ganha um zero no fim para ficar em centésimos, como o segundo.",
+          "conta": "2,5 = 2,50"
+        },
+        {
+          "titulo": "Some a parte decimal",
+          "explicacao": "50 centésimos mais 75 centésimos dão 125 centésimos — que é mais de um inteiro.",
+          "conta": "0,50 + 0,75 = 1,25"
+        },
+        {
+          "titulo": "Some as unidades e junte",
+          "explicacao": "2 + 1 dá 3, mais o inteiro que veio dos centésimos.",
+          "conta": "2 + 1 + 1 = 4 · resultado 4,25"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Calcule 10 − 3,6 e digite o resultado.",
+      "imagem": "dec-q-sub-1",
+      "dica": "O 10 é inteiro, mas você pode escrevê-lo como 10,0 para armar a conta.",
+      "formato": "numero",
+      "resposta": 6.4,
+      "errosComuns": [
+        {
+          "resposta": "7.4",
+          "porque": "Parece que você subtraiu 3 de 10 e depois colou o 6 como décimo, sem descontar. Como não há décimos no 10, é preciso pedir emprestado: 10,0 vira 9 inteiros e 10 décimos."
+        },
+        {
+          "resposta": "6.6",
+          "porque": "O inteiro saiu certo, mas os décimos não: 10 décimos menos 6 décimos dão 4, não 6."
+        },
+        {
+          "resposta": "13.6",
+          "porque": "Você somou em vez de subtrair. O resultado tem que ser menor que 10."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o inteiro com casa decimal",
+          "explicacao": "10 é o mesmo que 10,0. Isso não muda o valor e deixa a conta com o mesmo formato dos dois lados.",
+          "conta": "10 = 10,0"
+        },
+        {
+          "titulo": "Peça emprestado",
+          "explicacao": "Não dá para tirar 6 décimos de 0 décimos. Então pegue 1 unidade do 10 e transforme em 10 décimos: sobram 9 unidades e 10 décimos.",
+          "conta": "10,0 = 9 unidades + 10 décimos"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Décimos: 10 − 6 = 4. Unidades: 9 − 3 = 6.",
+          "conta": "10,0 − 3,6 = 6,4"
+        },
+        {
+          "titulo": "Confira somando de volta",
+          "explicacao": "Se a subtração está certa, o resultado mais o que foi tirado dá o número original.",
+          "conta": "6,4 + 3,6 = 10 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa padaria, o pão custou R$ 8,50 e o leite R$ 4,79. Quanto custou tudo?",
+      "imagem": "dec-q-soma-compras",
+      "dica": "Some os centavos primeiro. Se passarem de 100, um real inteiro vai para a coluna das unidades.",
+      "formato": "numero",
+      "resposta": 13.29,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "12.29",
+          "porque": "Os centavos estão certos, mas faltou o real que veio deles: 50 + 79 = 129 centavos, ou seja, 1 real e 29 centavos. Esse 1 real precisa entrar na soma dos reais."
+        },
+        {
+          "resposta": "13.19",
+          "porque": "Parece um escorregão na soma dos centavos: 50 + 79 dá 129, não 119."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os centavos",
+          "explicacao": "Cinquenta centavos mais setenta e nove centavos.",
+          "conta": "50 + 79 = 129 centavos"
+        },
+        {
+          "titulo": "Converta o excesso",
+          "explicacao": "Cento e vinte e nove centavos são 1 real e 29 centavos. Esse real vai para a coluna dos reais.",
+          "conta": "129 centavos = R$ 1,29"
+        },
+        {
+          "titulo": "Some os reais",
+          "explicacao": "Oito mais quatro, mais o real que veio dos centavos.",
+          "conta": "8 + 4 + 1 = 13 · total R$ 13,29"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Você pagou uma conta de R$ 27,40 com uma nota de R$ 50,00. Quanto recebeu de troco?",
+      "imagem": "dec-q-troco",
+      "dica": "É uma subtração. Arme 50,00 menos 27,40 alinhando a vírgula.",
+      "formato": "numero",
+      "resposta": 22.6,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "23.6",
+          "porque": "Parece que o empréstimo dos centavos não foi descontado dos reais. Ao pegar 1 real emprestado para os centavos, o 50 vira 49 — e 49 − 27 dá 22, não 23."
+        },
+        {
+          "resposta": "22.4",
+          "porque": "Os reais saíram certos, mas os centavos não: 100 centavos menos 40 centavos dão 60, então o troco tem 60 centavos."
+        },
+        {
+          "resposta": "77.4",
+          "porque": "Você somou em vez de subtrair. Troco é o que sobra, então tem que ser menor que os R$ 50,00."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Arme pela vírgula",
+          "explicacao": "Cinquenta reais e zero centavos menos vinte e sete reais e quarenta centavos.",
+          "conta": "50,00 − 27,40"
+        },
+        {
+          "titulo": "Peça emprestado nos centavos",
+          "explicacao": "Não dá para tirar 40 centavos de 0. Pegue 1 real dos 50 e transforme em 100 centavos: sobram 49 reais e 100 centavos.",
+          "conta": "50,00 = 49 reais + 100 centavos"
+        },
+        {
+          "titulo": "Subtraia as duas colunas",
+          "explicacao": "Centavos: 100 − 40 = 60. Reais: 49 − 27 = 22.",
+          "conta": "50,00 − 27,40 = 22,60"
+        },
+        {
+          "titulo": "Confira somando de volta",
+          "explicacao": "O troco mais a conta tem que dar a nota.",
+          "conta": "22,60 + 27,40 = 50,00 ✓"
+        }
+      ]
+    }
+  ]
+}

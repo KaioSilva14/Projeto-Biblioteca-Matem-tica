@@ -1,0 +1,198 @@
+{
+  "id": "equivalentes",
+  "numero": 3,
+  "titulo": "Duas escritas, o mesmo número",
+  "pergunta": "Como 1/2, 3/6 e 50/100 podem ser a mesma coisa?",
+  "ideia": {
+    "paragrafos": [
+      "Meia pizza é meia pizza. Se alguém pegar essa metade e cortar em três, você continua com a mesma quantidade de pizza — só que agora em três pedaços em vez de um. Nada de pizza apareceu ou sumiu. O que mudou foi só o tamanho do corte.",
+      "É exatamente isso que acontece com 1/2 e 3/6. Quando você corta cada pedaço da figura em 3, duas coisas mudam ao mesmo tempo: os pedaços ficam três vezes menores (o de baixo triplica) e você passa a ter três vezes mais deles (o de cima triplica). Os dois efeitos se cancelam.",
+      "Daí sai a regra que todo mundo decora: multiplique em cima e embaixo pelo mesmo número e a fração não muda de valor. Só que agora ela não é uma regra caída do céu — é a descrição do que o corte fez.",
+      "Um alerta: isso só vale para multiplicar e dividir. Somar 1 em cima e 1 embaixo estraga tudo. 1/2 e 2/3 não são o mesmo número, e a reta numérica mostra isso na hora."
+    ],
+    "destaque": "Cortar mais fino não muda quanto você tem. Muda só em quantos pedaços isso está.",
+    "imagem": "ideia-equivalentes"
+  },
+  "resolvido": {
+    "enunciado": "Escreva 2/3 como uma fração de denominador 12.",
+    "imagem": "res-equivalentes",
+    "passos": [
+      {
+        "titulo": "O que precisa acontecer com o de baixo",
+        "explicacao": "Você tem terços e quer doze avos. Pergunta: por quanto multiplicar 3 para chegar em 12? Por 4. Então cada terço vai ser cortado em 4 pedacinhos.",
+        "conta": "3 × 4 = 12"
+      },
+      {
+        "titulo": "O mesmo tem que acontecer em cima",
+        "explicacao": "Se cada terço virou 4 pedacinhos, os 2 terços que você tinha viraram 8 pedacinhos. Não é uma regra: é contagem. Dois grupos de quatro dão oito.",
+        "conta": "2 × 4 = 8"
+      },
+      {
+        "titulo": "A fração equivalente",
+        "explicacao": "Oito doze avos. A quantidade é a mesma de antes — na figura, a área pintada não mudou de tamanho, só ganhou linhas atravessando.",
+        "conta": "2/3 = 8/12"
+      },
+      {
+        "titulo": "Como conferir",
+        "explicacao": "Volte: 8 e 12 são ambos divisíveis por 4, e 8÷4 = 2, 12÷4 = 3. Você voltou para 2/3. Se a ida e a volta batem, a equivalência está certa.",
+        "conta": "8 ÷ 4 = 2 · 12 ÷ 4 = 3"
+      }
+    ],
+    "fecho": "O número que multiplica embaixo é o MESMO que multiplica em cima. Sempre. Se você usou números diferentes nos dois andares, mudou a quantidade sem querer."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A figura mostra 2/3 pintados. As linhas tracejadas cortam a figura em doze partes iguais. Quantas dessas doze partes estão pintadas?",
+      "imagem": "q-corte-2-3",
+      "dica": "Cada terço foi cortado em 4 pedacinhos. Quantos pedacinhos há em 2 terços?",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "partes",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "Quatro é quanto vale UM terço depois do corte. A figura tem dois terços pintados, então são dois grupos de quatro."
+        },
+        {
+          "resposta": "2",
+          "porque": "Esse era o número de pedaços ANTES dos cortes. Depois de cortar, cada pedaço grande virou 4 pequenos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantos pedacinhos cada terço virou?",
+          "explicacao": "A figura foi de 3 para 12 partes, então cada terço foi cortado em 4.",
+          "conta": "12 ÷ 3 = 4"
+        },
+        {
+          "titulo": "Conte nos dois terços pintados",
+          "explicacao": "São dois terços, e cada um virou 4 pedacinhos.",
+          "conta": "2 × 4 = 8"
+        },
+        {
+          "titulo": "Escreva a equivalência",
+          "explicacao": "A área pintada não mudou — mas agora ela é descrita com pedaços menores.",
+          "conta": "2/3 = 8/12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "As duas barras têm o mesmo comprimento e a mesma quantidade pintada. Qual igualdade a figura mostra?",
+      "imagem": "q-equiv-barras",
+      "dica": "Conte em quantas partes cada barra foi dividida e quantas estão pintadas em cada uma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1/2 = 3/6" },
+        { "rotulo": "B", "texto": "1/2 = 1/6" },
+        { "rotulo": "C", "texto": "1/2 = 6/3" },
+        { "rotulo": "D", "texto": "2/1 = 6/3" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/2 = 1/6",
+          "porque": "Você pegou o tamanho de um pedaço da barra de baixo, mas ali são TRÊS pedaços pintados, não um. 1/6 sozinho é bem menos que a metade."
+        },
+        {
+          "resposta": "1/2 = 6/3",
+          "porque": "6/3 é maior que 1 — são dois inteiros. A barra de baixo tem só metade pintada, então o de cima tem que ser menor que o de baixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a barra de cima",
+          "explicacao": "Duas partes iguais, uma pintada. Isso é um meio.",
+          "conta": "1/2"
+        },
+        {
+          "titulo": "Leia a barra de baixo",
+          "explicacao": "Seis partes iguais, três pintadas. Isso é três sextos.",
+          "conta": "3/6"
+        },
+        {
+          "titulo": "Por que são iguais",
+          "explicacao": "Cada metade da barra de cima foi cortada em 3. O de baixo foi multiplicado por 3 (2 × 3 = 6) e o de cima também (1 × 3 = 3). Como o comprimento pintado é visivelmente o mesmo, as duas frações são o mesmo número.",
+          "conta": "1/2 = 3/6"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Complete a igualdade: 1/4 = ?/20. Digite o número que falta em cima.",
+      "imagem": "q-equiv-1-4",
+      "dica": "Descubra primeiro por quanto o 4 foi multiplicado para virar 20. Depois faça o mesmo com o 1.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "Você somou 16 embaixo (4 + 16 = 20) e usou o mesmo raciocínio em cima. Mas equivalência funciona por MULTIPLICAÇÃO, não por soma: somar o mesmo número nos dois andares muda o valor da fração."
+        },
+        {
+          "resposta": "20",
+          "porque": "Se em cima e embaixo fosse 20, a fração valeria 1 inteiro. E 1/4 é bem menos que um inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Por quanto o de baixo foi multiplicado?",
+          "explicacao": "De 4 para 20. Como 4 × 5 = 20, o fator é 5. Cada quarto foi cortado em 5 pedacinhos.",
+          "conta": "20 ÷ 4 = 5"
+        },
+        {
+          "titulo": "Aplique o mesmo em cima",
+          "explicacao": "Você tinha 1 quarto, e esse único pedaço virou 5 pedacinhos.",
+          "conta": "1 × 5 = 5"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "5/20 dividido por 5 em cima e embaixo volta a 1/4. Bateu.",
+          "conta": "1/4 = 5/20"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A barra foi dividida em 10 partes iguais e 6 estão pintadas. Qual das frações abaixo representa a MESMA quantidade pintada?",
+      "imagem": "q-equiv-6-10",
+      "dica": "Tente juntar os pedaços de dois em dois e ver em quantos grupos a barra fica.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3/5" },
+        { "rotulo": "B", "texto": "6/5" },
+        { "rotulo": "C", "texto": "3/10" },
+        { "rotulo": "D", "texto": "5/3" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/10",
+          "porque": "Você dividiu só o de cima por 2 e deixou o de baixo em 10. Quando um andar muda, o outro tem que mudar junto — senão a quantidade muda de verdade. 3/10 é metade do que a figura mostra."
+        },
+        {
+          "resposta": "6/5",
+          "porque": "6/5 é maior que 1 inteiro, e a figura tem parte da barra vazia. O de cima nunca pode passar o de baixo numa figura que não está cheia."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte os pedaços de dois em dois",
+          "explicacao": "Se você agrupar os 10 pedacinhos em pares, a barra fica com 5 grupos.",
+          "conta": "10 ÷ 2 = 5"
+        },
+        {
+          "titulo": "Veja quantos grupos ficaram pintados",
+          "explicacao": "Os 6 pedacinhos pintados formam 3 pares completos.",
+          "conta": "6 ÷ 2 = 3"
+        },
+        {
+          "titulo": "A mesma quantidade, com pedaços maiores",
+          "explicacao": "Dividir os dois andares por 2 é o caminho inverso de multiplicar os dois por 2. A parte pintada da barra é exatamente a mesma.",
+          "conta": "6/10 = 3/5"
+        }
+      ]
+    }
+  ]
+}

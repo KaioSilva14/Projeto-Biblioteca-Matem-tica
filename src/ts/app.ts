@@ -1,792 +1,601 @@
-// app.ts — ponto de entrada da aplicação (Biblioteca Matemática).
-export {};
+// app.ts — ponto de entrada.
+//
+// Quatro páginas, identificadas por data-pagina no <body>:
+//   inicio  -> os quatro anos + certificados conquistados
+//   ano     -> as matérias de um ano          (?a=6)
+//   curso   -> uma matéria: lições, vídeos, certificado   (?c=fracoes)
+//   licao   -> uma lição                      (?c=fracoes&l=o-que-e)
+//
+// Não há roteador. curso.html serve qualquer matéria e licao.html qualquer
+// lição: adicionar conteúdo é escrever JSON e citá-lo no catálogo.
 
-// app.ts
-// Ponto de entrada da aplicação. Identifica a página atual pelo atributo
-// data-page do <body> e inicializa somente o que aquela página precisa.
-// Não existe roteador de framework — cada página HTML é estática e independente.
-
-import { initNavegacao } from "./navegacao.js";
-import { carregarIndiceGeral, carregarConteudo, filtrarPorAno } from "./conteudos.js";
-import { aplicarFiltros, type FiltroCategoria, type FiltroNivel } from "./filtros.js";
+import type { Catalogo, Certificado, Curso, Licao, Questao, ProgressoLicao } from "./tipos.js";
+import { corrigir, respostaCorreta } from "./correcao.js";
 import {
-  renderCard,
-  renderCardConteudo,
-  renderBreadcrumb,
-  renderResumo,
-  renderVideo,
-  renderQuestao,
-  renderProgresso,
-  renderFeedback,
-  renderCaixaExplicacao,
-  renderBlocoTeoria,
-  renderExemplo,
-  renderDica,
-  renderCabecalhoModulo,
-  renderTrilhaResumo,
-} from "./componentes.js";
-import {
-  iniciarSessao,
-  atividadeAtual,
-  sessaoConcluida,
-  processarResposta,
-  avancarAtividade,
-  registrarDesistencia,
-  type EstadoSessao,
-} from "./atividades.js";
-import { resolverModulos, ordemGlobalDeAtividades, type LoteAtividades, type ModuloResolvido } from "./modulos.js";
-import { getProgress, getProgressoEmAndamento, updateProgress, resetProgress } from "./progresso.js";
+  lerLicao, registrarResposta, reiniciarLicao, reiniciarCurso, lerCurso,
+  proximaLicao, resumirCurso, lerCertificado, emitirCertificado, listarCertificados,
+} from "./progresso.js";
 import { desenharCertificado, baixarCertificado } from "./certificado.js";
-import { qs, criarElemento, limparElemento, formatarPercentual, rolarParaElemento, aoClicarUmaVez } from "./utils.js";
-import type { Ano, ConteudoResumo, Conteudo } from "./types.js";
+import {
+  renderResolvido, renderQuestao, renderAcerto, renderErro, renderResolucao,
+  renderProgressoLicao, renderImagem, renderVideo, renderCertificado,
+  type IndiceImagens,
+} from "./ui.js";
+import { qs, el, limpar, rolarAte, parametro } from "./util.js";
+
+const CATALOGO = "/dados/catalogo.json";
+
+async function json<T>(url: string): Promise<T | null> {
+  try {
+    const r = await fetch(url);
+    if (!r.ok) return null;
+    return (await r.json()) as T;
+  } catch {
+    return null;
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  initNavegacao();
-
-  const pagina = document.body.dataset.page;
-  switch (pagina) {
-    case "home":
-      initHome();
-      break;
-    case "ano":
-      initAno();
-      break;
-    case "conteudo":
-      initConteudo();
-      break;
+  initMenu();
+  switch (document.body.dataset.pagina) {
+    case "inicio": void iniciarHome(); break;
+    case "ano": void iniciarAno(); break;
+    case "curso": void iniciarCurso(); break;
+    case "licao": void iniciarLicao(); break;
   }
 });
 
+function initMenu(): void {
+  const botao = qs<HTMLButtonElement>("[data-menu]");
+  const lista = qs<HTMLElement>("[data-menu-lista]");
+  if (!botao || !lista) return;
+  botao.addEventListener("click", () => {
+    const aberto = lista.classList.toggle("nav__links--aberto");
+    botao.setAttribute("aria-expanded", String(aberto));
+  });
+}
+
+function recado(alvo: HTMLElement, texto: string): void {
+  limpar(alvo);
+  alvo.appendChild(el("p", { classe: "t-lg cor-body", texto }));
+}
+
 // ---------- Home ----------
 
-const NOMES_ANO: Record<Ano, string> = { 6: "6º Ano", 7: "7º Ano", 8: "8º Ano", 9: "9º Ano" };
-const DESCRICAO_ANO: Record<Ano, string> = {
-  6: "Comece pelos fundamentos: números, frações e geometria básica.",
-  7: "Aprofunde com proporção, equações e estatística.",
-  8: "Avance com potências, fatoração e o Teorema de Pitágoras.",
-  9: "Prepare-se com funções, semelhança e geometria avançada.",
-};
+async function iniciarHome(): Promise<void> {
+  const catalogo = await json<Catalogo>(CATALOGO);
+  const grade = qs<HTMLElement>("[data-anos]");
+  if (!catalogo || !grade) return;
 
-async function initHome(): Promise<void> {
-  const containerAnos = qs<HTMLElement>("[data-anos-grid]");
-  const containerDashboard = qs<HTMLElement>("[data-dashboard]");
-
-  const indice = await carregarIndiceGeral();
-
-  if (containerAnos) {
-    limparElemento(containerAnos);
-    ([6, 7, 8, 9] as Ano[]).forEach((ano) => {
-      const doAno = indice.filter((item) => item.ano === ano);
-      const disponiveis = doAno.filter((item) => item.disponivel).length;
-      containerAnos.appendChild(
-        renderCard({
-          destaque: `${ano}º ANO`,
-          titulo: NOMES_ANO[ano],
-          descricao: DESCRICAO_ANO[ano],
-          meta: `${disponiveis} de ${doAno.length} conteúdos prontos`,
-          cta: "Explorar conteúdos",
-          href: `/pages/${ano}ano.html`,
-        })
-      );
-    });
+  limpar(grade);
+  for (const ano of catalogo.anos) {
+    const prontos = ano.cursos.filter((c) => c.disponivel).length;
+    const card = el("a", { classe: "ano-card card", atributos: { href: `/ano.html?a=${ano.ano}` } });
+    card.appendChild(el("p", { classe: "eyebrow", texto: `${ano.ano}º ano` }));
+    card.appendChild(el("h3", { classe: "d-sm ano-card__titulo", texto: ano.titulo }));
+    card.appendChild(el("p", { classe: "t-sm cor-body ano-card__texto", texto: ano.descricao }));
+    card.appendChild(
+      el("p", {
+        classe: "mono-sm cor-mute ano-card__conta",
+        texto: `${prontos} de ${ano.cursos.length} matérias prontas`,
+      })
+    );
+    grade.appendChild(card);
   }
 
-  if (containerDashboard) {
-    const emAndamento = getProgressoEmAndamento();
-    limparElemento(containerDashboard);
-    if (emAndamento) {
-      const resumo = indice.find((item) => item.id === emAndamento.conteudoId);
-      if (resumo) {
-        containerDashboard.appendChild(
-          criarElemento("p", { classes: ["dashboard__titulo"], texto: "Continue de onde parou" })
-        );
-        containerDashboard.appendChild(
-          renderCard({
-            titulo: resumo.titulo,
-            // O total vem do índice, não de um "35" fixo no código — assim
-            // um conteúdo com outra quantidade de atividades mostra o número certo.
-            descricao: `${emAndamento.concluidas} de ${resumo.quantidadeAtividades} atividades concluídas`,
-            cta: "Continuar",
-            href: resumo.rota,
+  // Certificados já conquistados nesta máquina.
+  const areaCert = qs<HTMLElement>("[data-certificados]");
+  if (areaCert) {
+    const certificados = listarCertificados();
+    limpar(areaCert);
+    if (certificados.length === 0) {
+      areaCert.hidden = true;
+    } else {
+      areaCert.hidden = false;
+      areaCert.appendChild(el("h2", { classe: "d-md secao__titulo", texto: "Seus certificados" }));
+      const lista = el("div", { classe: "lista" });
+      for (const c of certificados) {
+        const linha = el("a", {
+          classe: "linha linha--licao",
+          atributos: { href: `/curso.html?c=${c.cursoId}#certificado` },
+        });
+        linha.appendChild(el("span", { classe: "linha__num", texto: "✓" }));
+        const corpo = el("div", { classe: "linha__corpo" });
+        corpo.appendChild(el("span", { classe: "linha__titulo", texto: c.cursoTitulo }));
+        corpo.appendChild(
+          el("p", {
+            classe: "linha__nota",
+            texto: `${c.nome.trim() || "Aluno(a)"} · ${c.acertosDePrimeira} de ${c.questoes} de primeira`,
           })
         );
-        return;
+        linha.appendChild(corpo);
+        linha.appendChild(
+          el("span", {
+            classe: "linha__fim mono-sm",
+            texto: new Date(c.data).toLocaleDateString("pt-BR"),
+          })
+        );
+        lista.appendChild(linha);
       }
+      areaCert.appendChild(lista);
     }
-    // Sem matéria em andamento, o cartão simplesmente não aparece. A seção
-    // "Escolha seu ano" vem logo abaixo e já cumpre esse papel — um aviso
-    // solto aqui só criava um rótulo órfão no topo da página.
   }
 }
 
 // ---------- Página de ano ----------
 
-async function initAno(): Promise<void> {
-  const ano = Number(document.body.dataset.ano) as Ano;
-  const grid = qs<HTMLElement>("[data-conteudos-grid]");
-  const filtroCategoria = qs<HTMLSelectElement>("[data-filtro-categoria]");
-  const filtroNivel = qs<HTMLSelectElement>("[data-filtro-nivel]");
-  if (!grid) {
-    return;
+async function iniciarAno(): Promise<void> {
+  const alvo = qs<HTMLElement>("[data-cursos]");
+  if (!alvo) return;
+
+  const catalogo = await json<Catalogo>(CATALOGO);
+  const numero = Number(parametro("a"));
+  const ano = catalogo?.anos.find((a) => a.ano === numero);
+  if (!ano) return recado(alvo, "Não encontramos esse ano. Volte ao início e escolha de novo.");
+
+  document.title = `Matemática do ${ano.ano}º ano — Biblioteca Matemática`;
+  const cabecalho = qs<HTMLElement>("[data-cabecalho]");
+  if (cabecalho) {
+    limpar(cabecalho);
+    cabecalho.appendChild(el("p", { classe: "eyebrow", texto: `${ano.ano}º ano · Ensino Fundamental` }));
+    cabecalho.appendChild(el("h1", { classe: "d-lg", texto: ano.titulo }));
+    cabecalho.appendChild(el("p", { classe: "t-lg cor-body leitura", texto: ano.descricao }));
   }
 
-  const indiceCompleto = await carregarIndiceGeral();
-  const doAno = filtrarPorAno(indiceCompleto, ano);
-
-  const renderizar = () => {
-    const categoria = (filtroCategoria?.value ?? "todas") as FiltroCategoria;
-    const nivel = (filtroNivel?.value ?? "todos") as FiltroNivel;
-    const filtrados = aplicarFiltros(doAno, { categoria, nivel });
-
-    limparElemento(grid);
-    if (filtrados.length === 0) {
-      grid.appendChild(
-        criarElemento("p", { classes: ["estado-vazio"], texto: "Nenhum conteúdo encontrado com esse filtro." })
-      );
-      return;
-    }
-    filtrados.forEach((resumo: ConteudoResumo) => grid.appendChild(renderCardConteudo(resumo)));
-  };
-
-  filtroCategoria?.addEventListener("change", renderizar);
-  filtroNivel?.addEventListener("change", renderizar);
-  renderizar();
-}
-
-// ---------- Página de conteúdo ----------
-
-async function initConteudo(): Promise<void> {
-  const caminhoJson = document.body.dataset.conteudoJson;
-  if (!caminhoJson) {
-    return;
-  }
-
-  const conteudo = await carregarConteudo(caminhoJson);
-  const areaTrilha = qs<HTMLElement>("[data-trilha]");
-  if (!conteudo) {
-    if (areaTrilha) {
-      limparElemento(areaTrilha);
-      areaTrilha.appendChild(
-        criarElemento("p", {
-          classes: ["estado-vazio"],
-          texto: "Não foi possível carregar este conteúdo. Volte e tente novamente.",
-        })
-      );
-    }
-    return;
-  }
-
-  renderCabecalhoConteudo(conteudo);
-  if (areaTrilha) {
-    renderTrilha(areaTrilha, conteudo);
-  }
-  renderResumoConteudo(conteudo);
-  initAtividadesExtras(conteudo);
-}
-
-function renderCabecalhoConteudo(conteudo: Conteudo): void {
-  const breadcrumbContainer = qs<HTMLElement>("[data-breadcrumb]");
-  if (breadcrumbContainer) {
-    limparElemento(breadcrumbContainer);
-    breadcrumbContainer.appendChild(
-      renderBreadcrumb([
-        { texto: "Início", href: "/" },
-        { texto: `${conteudo.ano}º Ano`, href: `/pages/${conteudo.ano}ano.html` },
-        { texto: conteudo.titulo },
-      ])
-    );
-  }
-
-  const titulo = qs<HTMLElement>("[data-conteudo-titulo]");
-  if (titulo) titulo.textContent = conteudo.titulo;
-
-  const introducao = qs<HTMLElement>("[data-conteudo-introducao]");
-  if (introducao) introducao.textContent = conteudo.descricao;
-
-  const objetivos = qs<HTMLElement>("[data-conteudo-objetivos]");
-  if (objetivos) {
-    limparElemento(objetivos);
-    objetivos.appendChild(renderResumo(conteudo.objetivos));
-  }
-
-  const meta = qs<HTMLElement>("[data-conteudo-meta]");
-  if (meta) {
-    const totalAtividades = ordemGlobalDeAtividades(conteudo).length;
-    const totalModulos = conteudo.modulos?.length ?? 0;
-    limparElemento(meta);
-    const partes = [
-      totalModulos > 0 ? `${totalModulos} módulos` : null,
-      `${totalAtividades} atividades`,
-      `${conteudo.videos.length} vídeos`,
-    ].filter((parte): parte is string => parte !== null);
-    partes.forEach((parte) => {
-      meta.appendChild(criarElemento("span", { classes: ["conteudo-meta__item"], texto: parte }));
+  limpar(alvo);
+  for (const item of ano.cursos) {
+    const disponivel = item.disponivel;
+    const linha = el(disponivel ? "a" : "div", {
+      classe: `linha linha--curso${disponivel ? "" : " linha--indisponivel"}`,
     });
-  }
-}
+    if (disponivel) linha.setAttribute("href", `/curso.html?c=${item.id}`);
 
-function renderResumoConteudo(conteudo: Conteudo): void {
-  const container = qs<HTMLElement>("[data-conteudo-resumo]");
-  if (!container) return;
-  limparElemento(container);
-  container.appendChild(renderResumo(conteudo.resumo));
-}
-
-// ---------- Trilha de módulos (v2) ----------
-//
-// A v1 empilhava toda a teoria, depois todos os vídeos e por fim as 35
-// atividades seguidas. A v2 renderiza a trilha declarada no JSON: cada módulo
-// intercala explicação, exemplo, vídeo e lotes curtos de atividades.
-//
-// Os lotes são liberados em ordem. Isso não é gamificação — é o que mantém o
-// progresso coerente: como o progresso é um índice numa lista ordenada, deixar
-// o aluno pular para o lote 5 antes do 2 faria a contagem de concluídas
-// descrever um estado que não aconteceu.
-
-function renderTrilha(area: HTMLElement, conteudo: Conteudo): void {
-  const resolvidos = resolverModulos(conteudo);
-  const totalGlobal = ordemGlobalDeAtividades(conteudo).length;
-
-  limparElemento(area);
-
-  if (resolvidos.length === 0) {
-    // Conteúdo ainda no formato v1 (sem "modulos" no JSON): exibe o formato
-    // linear antigo em vez de uma página vazia.
-    renderConteudoLinear(area, conteudo);
-    return;
-  }
-
-  const caixaResumo = criarElemento("div", { classes: ["trilha-resumo__caixa"] });
-  area.appendChild(caixaResumo);
-
-  const containerModulos = criarElemento("div", { classes: ["trilha"] });
-  area.appendChild(containerModulos);
-
-  const areaConclusao = criarElemento("div", { classes: ["trilha__conclusao"] });
-  area.appendChild(areaConclusao);
-
-  // Redesenha as partes que dependem do progresso. Chamado sempre que o aluno
-  // termina um lote, para que a barra do topo e os selos "concluído" fiquem
-  // coerentes sem recarregar a página.
-  const atualizar = (): void => {
-    const progresso = getProgress(conteudo.id);
-    const concluidas = progresso?.concluidas ?? 0;
-
-    limparElemento(caixaResumo);
-    caixaResumo.appendChild(renderTrilhaResumo(Math.min(concluidas, totalGlobal), totalGlobal));
-
-    limparElemento(containerModulos);
-    resolvidos.forEach((resolvido) => {
-      containerModulos.appendChild(montarModulo(conteudo, resolvido, totalGlobal, concluidas, atualizar));
-    });
-
-    limparElemento(areaConclusao);
-    if (concluidas >= totalGlobal && totalGlobal > 0) {
-      areaConclusao.appendChild(montarConclusao(conteudo, totalGlobal, atualizar));
+    const marca = el("span", { classe: "linha__num" });
+    if (disponivel) {
+      const resumo = lerCurso(item.id);
+      const temCertificado = Boolean(resumo.certificado);
+      marca.textContent = temCertificado ? "✓" : "→";
+      if (temCertificado) linha.classList.add("linha--feita");
+    } else {
+      marca.textContent = "·";
     }
-  };
+    linha.appendChild(marca);
 
-  atualizar();
-}
+    const corpo = el("div", { classe: "linha__corpo" });
+    corpo.appendChild(el("span", { classe: "linha__titulo", texto: item.titulo }));
+    corpo.appendChild(el("p", { classe: "linha__nota", texto: item.resumo }));
+    linha.appendChild(corpo);
 
-function montarModulo(
-  conteudo: Conteudo,
-  resolvido: ModuloResolvido,
-  totalGlobal: number,
-  concluidas: number,
-  aoMudarProgresso: () => void
-): HTMLElement {
-  const moduloConcluido = concluidas >= resolvido.indiceGlobalFinal && resolvido.atividades.length > 0;
-
-  const secao = criarElemento("section", {
-    classes: ["modulo", moduloConcluido ? "modulo--concluido" : "modulo--aberto"],
-    atributos: { id: `modulo-${resolvido.modulo.id}` },
-  });
-  secao.appendChild(renderCabecalhoModulo(resolvido.modulo, moduloConcluido));
-
-  const corpo = criarElemento("div", { classes: ["modulo__corpo"] });
-
-  let contadorExemplo = 0;
-  resolvido.itens.forEach((item) => {
-    switch (item.tipo) {
-      case "teoria": {
-        if (item.item.tipo !== "teoria") break;
-        corpo.appendChild(renderBlocoTeoria(item.item));
-        break;
-      }
-      case "exemplo": {
-        if (item.item.tipo !== "exemplo") break;
-        contadorExemplo += 1;
-        corpo.appendChild(renderExemplo(item.item, contadorExemplo));
-        break;
-      }
-      case "video": {
-        if (item.item.tipo !== "video") break;
-        const caixa = criarElemento("div", { classes: ["modulo__video"] });
-        caixa.appendChild(renderVideo(item.item));
-        corpo.appendChild(caixa);
-        break;
-      }
-      case "dica": {
-        if (item.item.tipo !== "dica") break;
-        corpo.appendChild(renderDica(item.item.texto));
-        break;
-      }
-      case "atividades": {
-        corpo.appendChild(montarLote(conteudo, item.lote, totalGlobal, concluidas, aoMudarProgresso));
-        break;
-      }
-    }
-  });
-
-  secao.appendChild(corpo);
-  return secao;
-}
-
-/** Estados possíveis de um lote de atividades dentro de um módulo. */
-type EstadoLote = "bloqueado" | "disponivel" | "em-andamento" | "concluido";
-
-function estadoDoLote(lote: LoteAtividades, concluidas: number): EstadoLote {
-  const inicio = lote.indiceGlobalInicial;
-  const fim = inicio + lote.atividades.length;
-  if (concluidas >= fim) return "concluido";
-  if (concluidas > inicio) return "em-andamento";
-  if (concluidas === inicio) return "disponivel";
-  return "bloqueado";
-}
-
-function montarLote(
-  conteudo: Conteudo,
-  lote: LoteAtividades,
-  totalGlobal: number,
-  concluidas: number,
-  aoMudarProgresso: () => void
-): HTMLElement {
-  const caixa = criarElemento("div", { classes: ["lote"] });
-  const estado = estadoDoLote(lote, concluidas);
-  caixa.classList.add(`lote--${estado}`);
-
-  const cabecalho = criarElemento("div", { classes: ["lote__cabecalho"] });
-  cabecalho.appendChild(criarElemento("h4", { classes: ["lote__titulo"], texto: lote.titulo }));
-  cabecalho.appendChild(
-    criarElemento("span", {
-      classes: ["lote__contagem"],
-      texto: `${lote.atividades.length} ${lote.atividades.length === 1 ? "atividade" : "atividades"}`,
-    })
-  );
-  caixa.appendChild(cabecalho);
-
-  const areaExercicio = criarElemento("div", { classes: ["lote__area"] });
-  caixa.appendChild(areaExercicio);
-
-  const iniciar = (): void => {
-    const progresso = getProgress(conteudo.id);
-    const feitas = progresso?.concluidas ?? 0;
-    const deslocamentoLocal = Math.max(0, Math.min(feitas - lote.indiceGlobalInicial, lote.atividades.length - 1));
-    // O placar da sessão parte do que já está salvo (correção do bug 1):
-    // assim acertos/erros continuam corretos mesmo numa matéria retomada.
-    const sessao = iniciarSessao(conteudo.id, lote.atividades, deslocamentoLocal, {
-      acertos: progresso?.acertos ?? 0,
-      erros: progresso?.erros ?? 0,
-    });
-    renderizarAtividadeDoLote(areaExercicio, conteudo, lote, sessao, totalGlobal, aoMudarProgresso);
-    rolarParaElemento(areaExercicio);
-  };
-
-  switch (estado) {
-    case "concluido": {
-      const aviso = criarElemento("div", { classes: ["lote__estado", "lote__estado--concluido"] });
-      aviso.appendChild(criarElemento("span", { classes: ["lote__icone"], texto: "✓", atributos: { "aria-hidden": "true" } }));
-      aviso.appendChild(criarElemento("p", { texto: "Bloco concluído." }));
-      const revisar = criarElemento("button", {
-        classes: ["botao", "botao--fantasma"],
-        texto: "Revisar este bloco",
-        atributos: { type: "button" },
-      });
-      // Revisão não mexe no progresso — é só treino.
-      revisar.addEventListener("click", () => {
-        const sessao = iniciarSessao(conteudo.id, lote.atividades, 0);
-        renderizarAtividadeDoLote(areaExercicio, conteudo, lote, sessao, totalGlobal, aoMudarProgresso, true);
-        rolarParaElemento(areaExercicio);
-      });
-      aviso.appendChild(revisar);
-      areaExercicio.appendChild(aviso);
-      break;
-    }
-    case "bloqueado": {
-      const aviso = criarElemento("div", { classes: ["lote__estado", "lote__estado--bloqueado"] });
-      aviso.appendChild(criarElemento("span", { classes: ["lote__icone"], texto: "🔒", atributos: { "aria-hidden": "true" } }));
-      aviso.appendChild(criarElemento("p", { texto: "Conclua o bloco anterior para liberar este." }));
-      areaExercicio.appendChild(aviso);
-      break;
-    }
-    default: {
-      const restantes = lote.indiceGlobalInicial + lote.atividades.length - concluidas;
-      const botao = criarElemento("button", {
-        classes: ["botao", "botao--primario"],
-        texto:
-          estado === "em-andamento"
-            ? `Continuar bloco (faltam ${restantes})`
-            : "Começar este bloco",
-        atributos: { type: "button" },
-      });
-      botao.addEventListener("click", iniciar, { once: true });
-      areaExercicio.appendChild(botao);
-      break;
-    }
-  }
-
-  return caixa;
-}
-
-/**
- * Motor de atividades aplicado a UM lote.
- *
- * "revisao = true" desliga a gravação de progresso: o aluno pode refazer um
- * bloco já concluído sem inflar acertos/erros nem alterar a contagem.
- */
-function renderizarAtividadeDoLote(
-  area: HTMLElement,
-  conteudo: Conteudo,
-  lote: LoteAtividades,
-  estado: EstadoSessao,
-  totalGlobal: number,
-  aoMudarProgresso: () => void,
-  revisao = false
-): void {
-  limparElemento(area);
-
-  if (sessaoConcluida(estado)) {
-    const fim = criarElemento("div", { classes: ["lote__estado", "lote__estado--concluido"] });
-    fim.appendChild(criarElemento("span", { classes: ["lote__icone"], texto: "✓", atributos: { "aria-hidden": "true" } }));
-    fim.appendChild(
-      criarElemento("p", {
-        texto: revisao ? "Revisão concluída. Bom treino!" : "Bloco concluído! Siga para a próxima etapa do módulo.",
+    linha.appendChild(
+      el("span", {
+        classe: "linha__fim mono-sm",
+        texto: disponivel ? "estudar" : "em breve",
       })
     );
-    area.appendChild(fim);
-    if (!revisao) {
-      aoMudarProgresso();
-    }
-    return;
+    alvo.appendChild(linha);
   }
-
-  const atividade = atividadeAtual(estado);
-  if (!atividade) return;
-
-  const indiceGlobal = lote.indiceGlobalInicial + estado.indiceAtual;
-
-  // O progresso mostrado é o da matéria inteira (não o do lote), para o aluno
-  // nunca perder a referência de onde está no todo.
-  area.appendChild(
-    renderProgresso(
-      revisao ? estado.indiceAtual + 1 : indiceGlobal + 1,
-      revisao ? lote.atividades.length : totalGlobal,
-      estado.acertos,
-      estado.erros
-    )
-  );
-
-  const { elemento: elementoQuestao, obterResposta } = renderQuestao(atividade);
-  area.appendChild(elementoQuestao);
-
-  // A área de ações fica DENTRO do card da questão, para que o feedback e a
-  // explicação sejam anexados ali sem nunca remover a pergunta da tela.
-  const areaAcoes = criarElemento("div", { classes: ["questao__acoes"] });
-  elementoQuestao.appendChild(areaAcoes);
-
-  const gravar = (acertou: boolean): void => {
-    if (revisao) return;
-    updateProgress(conteudo.id, {
-      acertou,
-      indiceAtividade: indiceGlobal,
-      totalAtividades: totalGlobal,
-    });
-  };
-
-  const seguir = (novoEstado: EstadoSessao): void => {
-    renderizarAtividadeDoLote(area, conteudo, lote, avancarAtividade(novoEstado), totalGlobal, aoMudarProgresso, revisao);
-    rolarParaElemento(area);
-  };
-
-  const botaoVerificar = criarElemento("button", {
-    classes: ["botao", "botao--primario"],
-    texto: "Verificar resposta",
-    atributos: { type: "button" },
-  });
-  areaAcoes.appendChild(botaoVerificar);
-
-  aoClicarUmaVez(botaoVerificar, () => {
-    const resultado = processarResposta(estado, obterResposta());
-    limparElemento(areaAcoes);
-
-    if (resultado.correta) {
-      areaAcoes.appendChild(renderFeedback(true, atividade.explicacao));
-      gravar(true);
-      const proximo = criarElemento("button", {
-        classes: ["botao", "botao--primario"],
-        texto: "Próxima atividade",
-        atributos: { type: "button" },
-      });
-      aoClicarUmaVez(proximo, () => seguir(resultado.estado));
-      areaAcoes.appendChild(proximo);
-      rolarParaElemento(elementoQuestao);
-      return;
-    }
-
-    if (resultado.primeiraTentativa) {
-      areaAcoes.appendChild(renderFeedback(false, "", atividade.dica));
-      const acoes = criarElemento("div", { classes: ["questao__acoes"] });
-      const tentarNovamente = criarElemento("button", {
-        classes: ["botao", "botao--primario"],
-        texto: "Tentar novamente",
-        atributos: { type: "button" },
-      });
-      const verExplicacao = criarElemento("button", {
-        classes: ["botao", "botao--secundario"],
-        texto: "Ver explicação",
-        atributos: { type: "button" },
-      });
-      aoClicarUmaVez(tentarNovamente, () => {
-        renderizarAtividadeDoLote(area, conteudo, lote, resultado.estado, totalGlobal, aoMudarProgresso, revisao);
-        rolarParaElemento(area);
-      });
-      aoClicarUmaVez(verExplicacao, () => {
-        const estadoComDesistencia = registrarDesistencia(resultado.estado);
-        gravar(false);
-        limparElemento(acoes);
-        elementoQuestao.appendChild(renderCaixaExplicacao(atividade.explicacao));
-        const proximo = criarElemento("button", {
-          classes: ["botao", "botao--primario"],
-          texto: "Próxima atividade",
-          atributos: { type: "button" },
-        });
-        aoClicarUmaVez(proximo, () => seguir(estadoComDesistencia));
-        elementoQuestao.appendChild(proximo);
-        rolarParaElemento(elementoQuestao);
-      });
-      acoes.appendChild(tentarNovamente);
-      acoes.appendChild(verExplicacao);
-      areaAcoes.appendChild(acoes);
-      rolarParaElemento(elementoQuestao);
-      return;
-    }
-
-    // Segunda tentativa também errada: mostra a explicação em destaque e segue.
-    areaAcoes.appendChild(renderFeedback(false, "", undefined));
-    areaAcoes.appendChild(renderCaixaExplicacao(atividade.explicacao));
-    gravar(false);
-    const proximo = criarElemento("button", {
-      classes: ["botao", "botao--primario"],
-      texto: "Próxima atividade",
-      atributos: { type: "button" },
-    });
-    aoClicarUmaVez(proximo, () => seguir(resultado.estado));
-    areaAcoes.appendChild(proximo);
-    rolarParaElemento(elementoQuestao);
-  });
 }
 
-// ---------- Conclusão da matéria + certificado ----------
+// ---------- Página de curso ----------
 
-function montarConclusao(conteudo: Conteudo, totalGlobal: number, aoMudarProgresso: () => void): HTMLElement {
-  // Os números vêm do localStorage, não do estado em memória. É a segunda
-  // trava contra o bug 1: mesmo que uma sessão em memória estivesse
-  // incompleta, o placar exibido aqui é o acumulado real da matéria.
-  const progresso = getProgress(conteudo.id);
-  const acertos = progresso?.acertos ?? 0;
-  const erros = progresso?.erros ?? 0;
-  const aproveitamento = totalGlobal > 0 ? acertos / totalGlobal : 0;
+async function iniciarCurso(): Promise<void> {
+  const alvo = qs<HTMLElement>("[data-curso]");
+  if (!alvo) return;
 
-  const container = criarElemento("div", { classes: ["conclusao"] });
+  const catalogo = await json<Catalogo>(CATALOGO);
+  const id = parametro("c");
+  const item = catalogo?.anos.flatMap((a) => a.cursos).find((c) => c.id === id);
+  if (!item?.arquivo) return recado(alvo, "Essa matéria ainda não está disponível.");
 
-  container.appendChild(criarElemento("p", { classes: ["conclusao__selo"], texto: "Matéria concluída" }));
-  container.appendChild(criarElemento("h3", { classes: ["conclusao__titulo"], texto: `Você terminou ${conteudo.titulo}!` }));
+  const curso = await json<Curso>(item.arquivo);
+  if (!curso) return recado(alvo, "Não foi possível carregar essa matéria.");
 
-  const placar = criarElemento("div", { classes: ["conclusao__placar"] });
-  const itemPlacar = (valor: string, rotulo: string, modificador: string) => {
-    const item = criarElemento("div", { classes: ["placar-item", `placar-item--${modificador}`] });
-    item.appendChild(criarElemento("span", { classes: ["placar-item__valor"], texto: valor }));
-    item.appendChild(criarElemento("span", { classes: ["placar-item__rotulo"], texto: rotulo }));
-    return item;
+  const licoes = (await Promise.all(curso.licoes.map((l) => json<Licao>(l.arquivo))))
+    .filter((l): l is Licao => l !== null);
+
+  document.title = `${curso.titulo} — Biblioteca Matemática`;
+
+  const cabecalho = qs<HTMLElement>("[data-cabecalho]");
+  if (cabecalho) {
+    limpar(cabecalho);
+    const trilha = el("p", { classe: "eyebrow" });
+    trilha.appendChild(el("a", { texto: `${curso.ano}º ano`, atributos: { href: `/ano.html?a=${curso.ano}` } }));
+    trilha.appendChild(el("span", { texto: " · Matemática" }));
+    cabecalho.appendChild(trilha);
+    cabecalho.appendChild(el("h1", { classe: "d-lg", texto: curso.titulo }));
+    cabecalho.appendChild(el("p", { classe: "t-lg cor-body leitura", texto: curso.descricao }));
+  }
+
+  const desenhar = (): void => {
+    limpar(alvo);
+
+    const contagem = licoes.map((l) => ({ id: l.id, questoes: l.questoes.length }));
+    const resumo = resumirCurso(curso.id, contagem);
+    const totalQuestoes = contagem.reduce((s, l) => s + l.questoes, 0);
+
+    // --- barra de continuidade ---
+    const topo = el("div", { classe: "curso__topo" });
+    const proxima = proximaLicao(curso.id, licoes.map((l) => l.id));
+    const acao = el("a", {
+      classe: "botao botao--primario",
+      texto: proxima
+        ? resumo.licoesConcluidas === 0
+          ? "Começar pela lição 1"
+          : "Continuar de onde parei"
+        : "Revisar desde o início",
+      atributos: { href: `/licao.html?c=${curso.id}&l=${proxima ?? licoes[0]?.id ?? ""}` },
+    });
+    topo.appendChild(acao);
+    topo.appendChild(
+      el("span", {
+        classe: "mono-sm cor-mute",
+        texto: `${resumo.licoesConcluidas} de ${licoes.length} lições · ${resumo.questoesRespondidas} de ${totalQuestoes} questões`,
+      })
+    );
+    alvo.appendChild(topo);
+
+    // --- lições ---
+    const secaoLicoes = el("section", { classe: "bloco" });
+    secaoLicoes.appendChild(el("h2", { classe: "d-md secao__titulo", texto: "As lições" }));
+    const lista = el("div", { classe: "lista" });
+    const progressoCurso = lerCurso(curso.id);
+
+    licoes.forEach((licao) => {
+      const p = progressoCurso.licoes[licao.id];
+      const linha = el("a", {
+        classe: "linha linha--licao",
+        atributos: { href: `/licao.html?c=${curso.id}&l=${licao.id}` },
+      });
+      linha.appendChild(el("span", { classe: "linha__num", texto: String(licao.numero).padStart(2, "0") }));
+      const corpo = el("div", { classe: "linha__corpo" });
+      corpo.appendChild(el("span", { classe: "linha__titulo", texto: licao.titulo }));
+      corpo.appendChild(el("p", { classe: "linha__nota", texto: licao.pergunta }));
+      linha.appendChild(corpo);
+
+      const fim = el("span", { classe: "linha__fim mono-sm" });
+      if (p?.concluida) {
+        fim.textContent = `${p.acertadas.length}/${licao.questoes.length} de primeira`;
+        linha.classList.add("linha--feita");
+      } else if (p && p.respondidas.length > 0) {
+        fim.textContent = `${p.respondidas.length}/${licao.questoes.length}`;
+      } else {
+        fim.textContent = `${licao.questoes.length} questões`;
+      }
+      linha.appendChild(fim);
+      lista.appendChild(linha);
+    });
+    secaoLicoes.appendChild(lista);
+    alvo.appendChild(secaoLicoes);
+
+    // --- certificado ---
+    const salvo = lerCertificado(curso.id);
+    const areaCert = el("div", { atributos: { id: "certificado" } });
+    areaCert.appendChild(
+      renderCertificado({
+        concluido: resumo.concluido,
+        licoesConcluidas: resumo.licoesConcluidas,
+        totalLicoes: licoes.length,
+        questoes: totalQuestoes,
+        acertosDePrimeira: resumo.acertosDePrimeira,
+        nomeSalvo: salvo?.nome ?? "",
+        aoEmitir: (nome) => {
+          emitirCertificado(montarCertificado(curso, nome, totalQuestoes, resumo.acertosDePrimeira, salvo));
+        },
+        desenhar: (nome) =>
+          desenharCertificado(montarCertificado(curso, nome, totalQuestoes, resumo.acertosDePrimeira, salvo)),
+        aoBaixar: (nome) =>
+          baixarCertificado(montarCertificado(curso, nome, totalQuestoes, resumo.acertosDePrimeira, salvo)),
+      })
+    );
+    alvo.appendChild(areaCert);
+
+    // --- vídeos ---
+    if (curso.videos.length > 0) {
+      const secaoVideos = el("section", { classe: "bloco" });
+      secaoVideos.appendChild(el("p", { classe: "eyebrow", texto: "Para se aprofundar" }));
+      secaoVideos.appendChild(el("h2", { classe: "d-md secao__titulo", texto: "Vídeos" }));
+      secaoVideos.appendChild(
+        el("p", {
+          classe: "t-md cor-body leitura curso__nota-videos",
+          texto:
+            "As lições acima já ensinam a matéria inteira — estes vídeos são para quem quer ouvir a mesma ideia explicada por outra pessoa, ou ver mais exemplos resolvidos. Cada um traz uma nota dizendo para quando ele serve.",
+        })
+      );
+      const grade = el("div", { classe: "videos" });
+      curso.videos.forEach((v) => grade.appendChild(renderVideo(v)));
+      secaoVideos.appendChild(grade);
+      alvo.appendChild(secaoVideos);
+    }
+
+    // --- recomeçar ---
+    if (resumo.questoesRespondidas > 0) {
+      const rodape = el("div", { classe: "curso__rodape" });
+      const zerar = el("button", {
+        classe: "botao botao--nu",
+        texto: "Apagar meu progresso nesta matéria",
+        atributos: { type: "button" },
+      });
+      zerar.addEventListener("click", () => {
+        if (window.confirm(`Isso apaga seu progresso e o certificado de ${curso.titulo}. Continuar?`)) {
+          reiniciarCurso(curso.id);
+          desenhar();
+        }
+      });
+      rodape.appendChild(zerar);
+      alvo.appendChild(rodape);
+    }
   };
-  placar.appendChild(itemPlacar(String(acertos), "acertos", "acertos"));
-  placar.appendChild(itemPlacar(String(erros), "erros", "erros"));
-  placar.appendChild(itemPlacar(formatarPercentual(aproveitamento), "aproveitamento", "aproveitamento"));
-  container.appendChild(placar);
 
-  container.appendChild(montarCertificado(conteudo, acertos, totalGlobal));
+  desenhar();
+}
 
-  const botoes = criarElemento("div", { classes: ["conclusao__botoes"] });
-  botoes.appendChild(
-    criarElemento("a", {
-      classes: ["botao", "botao--secundario"],
-      texto: "Revisar a matéria",
-      atributos: { href: "#topo-conteudo" },
+function montarCertificado(
+  curso: Curso,
+  nome: string,
+  questoes: number,
+  acertos: number,
+  anterior: Certificado | null
+): Certificado {
+  return {
+    cursoId: curso.id,
+    cursoTitulo: curso.titulo,
+    ano: curso.ano,
+    nome,
+    // A data é a da primeira emissão: trocar o nome depois não "renova" o feito.
+    data: anterior?.data ?? new Date().toISOString(),
+    questoes,
+    acertosDePrimeira: acertos,
+  };
+}
+
+// ---------- Página de lição ----------
+
+async function iniciarLicao(): Promise<void> {
+  const alvo = qs<HTMLElement>("[data-licao]");
+  if (!alvo) return;
+
+  const cursoId = parametro("c");
+  const licaoId = parametro("l");
+  const catalogo = await json<Catalogo>(CATALOGO);
+  const item = catalogo?.anos.flatMap((a) => a.cursos).find((c) => c.id === cursoId);
+  if (!item?.arquivo || !licaoId) return recado(alvo, "Não encontramos essa lição. Volte e escolha de novo.");
+
+  const curso = await json<Curso>(item.arquivo);
+  const entrada = curso?.licoes.find((l) => l.id === licaoId);
+  if (!curso || !entrada) return recado(alvo, "Não encontramos essa lição. Volte e escolha de novo.");
+
+  const [licao, imagens] = await Promise.all([
+    json<Licao>(entrada.arquivo),
+    json<IndiceImagens>("/dados/imagens.json"),
+  ]);
+  if (!licao) return recado(alvo, "Não foi possível carregar essa lição.");
+
+  montarLicao(alvo, curso, licao, imagens ?? {});
+}
+
+function montarLicao(alvo: HTMLElement, curso: Curso, licao: Licao, imagens: IndiceImagens): void {
+  document.title = `${licao.titulo} — ${curso.titulo} | Biblioteca Matemática`;
+  const totalLicoes = curso.licoes.length;
+
+  const cabecalho = qs<HTMLElement>("[data-cabecalho]");
+  if (cabecalho) {
+    limpar(cabecalho);
+    const trilha = el("p", { classe: "eyebrow" });
+    trilha.appendChild(el("a", { texto: curso.titulo, atributos: { href: `/curso.html?c=${curso.id}` } }));
+    trilha.appendChild(el("span", { texto: ` · lição ${licao.numero} de ${totalLicoes}` }));
+    cabecalho.appendChild(trilha);
+    cabecalho.appendChild(el("h1", { classe: "d-lg", texto: licao.titulo }));
+    cabecalho.appendChild(el("p", { classe: "t-lg cor-body leitura", texto: licao.pergunta }));
+  }
+
+  limpar(alvo);
+
+  // ---- A ideia ----
+  const ideia = el("section", { classe: "bloco" });
+  ideia.appendChild(el("p", { classe: "eyebrow", texto: "A ideia" }));
+  const texto = el("div", { classe: "leitura" });
+  licao.ideia.paragrafos.forEach((p) => texto.appendChild(el("p", { classe: "t-md cor-body-strong", texto: p })));
+  ideia.appendChild(texto);
+  const figIdeia = renderImagem(imagens, licao.ideia.imagem);
+  if (figIdeia) ideia.appendChild(figIdeia);
+  if (licao.ideia.destaque) {
+    ideia.appendChild(el("p", { classe: "destaque d-serif", texto: licao.ideia.destaque }));
+  }
+  alvo.appendChild(ideia);
+
+  // ---- Resolvido com você ----
+  alvo.appendChild(renderResolvido(imagens, licao));
+
+  // ---- Prática ----
+  const pratica = el("section", { classe: "bloco", atributos: { id: "pratica" } });
+  pratica.appendChild(el("p", { classe: "eyebrow", texto: "Agora você" }));
+  pratica.appendChild(el("h2", { classe: "d-sm", texto: "Sua vez" }));
+  const areaProgresso = el("div", { classe: "bloco__progresso" });
+  pratica.appendChild(areaProgresso);
+  const areaQuestao = el("div", { classe: "bloco__questao" });
+  pratica.appendChild(areaQuestao);
+  alvo.appendChild(pratica);
+
+  const salvo = lerLicao(curso.id, licao.id);
+  const primeira = licao.questoes.findIndex((q) => !salvo.respondidas.includes(q.id));
+  iniciarQuestao(primeira === -1 ? licao.questoes.length : primeira);
+
+  function atualizarProgresso(): ProgressoLicao {
+    const p = lerLicao(curso.id, licao.id);
+    limpar(areaProgresso);
+    areaProgresso.appendChild(renderProgressoLicao(p.respondidas.length, licao.questoes.length));
+    return p;
+  }
+
+  function iniciarQuestao(posicao: number): void {
+    const p = atualizarProgresso();
+    limpar(areaQuestao);
+    if (posicao >= licao.questoes.length) {
+      areaQuestao.appendChild(montarFim(curso, licao, p));
+      return;
+    }
+    areaQuestao.appendChild(montarQuestao(licao.questoes[posicao], posicao));
+  }
+
+  function montarQuestao(questao: Questao, posicao: number): HTMLElement {
+    const caixa = el("div");
+    const montada = renderQuestao(imagens, questao, posicao + 1, licao.questoes.length);
+    caixa.appendChild(montada.elemento);
+
+    const acoes = el("div", { classe: "acoes" });
+    const retorno = el("div", { classe: "acoes__retorno" });
+    montada.elemento.appendChild(retorno);
+    montada.elemento.appendChild(acoes);
+
+    let tentativas = 0;
+    const ultima = posicao + 1 >= licao.questoes.length;
+
+    const btnVerificar = el("button", {
+      classe: "botao botao--primario",
+      texto: "Verificar",
+      atributos: { type: "button" },
+    });
+    acoes.appendChild(btnVerificar);
+
+    const seguir = (acertouDePrimeira: boolean): void => {
+      registrarResposta(curso.id, licao.id, questao.id, acertouDePrimeira, licao.questoes.length);
+      iniciarQuestao(posicao + 1);
+      rolarAte(areaQuestao);
+    };
+
+    const abrirResolucao = (): void => {
+      montada.travar();
+      limpar(acoes);
+      montada.elemento.appendChild(renderResolucao(imagens, questao, respostaCorreta(questao)));
+      const btn = el("button", {
+        classe: "botao botao--primario",
+        texto: ultima ? "Terminar a lição" : "Próxima questão",
+        atributos: { type: "button" },
+      });
+      btn.addEventListener("click", () => seguir(false), { once: true });
+      montada.elemento.appendChild(btn);
+      rolarAte(montada.elemento);
+    };
+
+    btnVerificar.addEventListener("click", () => {
+      const veredito = corrigir(questao, montada.lerResposta());
+      tentativas += 1;
+      limpar(retorno);
+
+      if (veredito.certo) {
+        montada.travar();
+        limpar(acoes);
+        retorno.appendChild(
+          renderAcerto(
+            tentativas === 1
+              ? "Você acertou de primeira."
+              : "Agora sim — e você chegou lá sozinho, que é o que importa."
+          )
+        );
+        const btn = el("button", {
+          classe: "botao botao--primario",
+          texto: ultima ? "Terminar a lição" : "Próxima questão",
+          atributos: { type: "button" },
+        });
+        const dePrimeira = tentativas === 1;
+        btn.addEventListener("click", () => seguir(dePrimeira), { once: true });
+        acoes.appendChild(btn);
+        rolarAte(montada.elemento);
+        return;
+      }
+
+      retorno.appendChild(renderErro(veredito.diagnostico?.porque, questao.dica, tentativas === 1));
+
+      if (tentativas === 1) {
+        limpar(acoes);
+        const tentar = el("button", {
+          classe: "botao botao--primario",
+          texto: "Tentar de novo",
+          atributos: { type: "button" },
+        });
+        const ver = el("button", {
+          classe: "botao botao--fantasma",
+          texto: "Ver como se resolve",
+          atributos: { type: "button" },
+        });
+        tentar.addEventListener("click", () => {
+          limpar(retorno);
+          acoes.replaceChildren(btnVerificar, ver);
+        });
+        ver.addEventListener("click", abrirResolucao);
+        acoes.appendChild(tentar);
+        acoes.appendChild(ver);
+        return;
+      }
+
+      // Segunda tentativa errada: a resolução abre sozinha. Insistir mais sem
+      // apoio só ensina o aluno a chutar.
+      abrirResolucao();
+    });
+
+    return caixa;
+  }
+}
+
+function montarFim(curso: Curso, licao: Licao, progresso: ProgressoLicao): HTMLElement {
+  const caixa = el("section", { classe: "fim card" });
+  const total = licao.questoes.length;
+  const dePrimeira = progresso.acertadas.length;
+
+  const posicao = curso.licoes.findIndex((l) => l.id === licao.id);
+  const proxima = curso.licoes[posicao + 1];
+  const ultimaDoCurso = !proxima;
+
+  caixa.appendChild(el("p", { classe: "eyebrow", texto: "Lição concluída" }));
+  caixa.appendChild(el("h3", { classe: "d-sm", texto: licao.titulo }));
+  caixa.appendChild(
+    el("p", {
+      classe: "t-md cor-body",
+      texto:
+        dePrimeira === total
+          ? `Você acertou as ${total} de primeira. Pode seguir em frente com tranquilidade.`
+          : `Você acertou ${dePrimeira} de ${total} de primeira. As que precisaram de uma segunda olhada são justamente as que vale refazer daqui a alguns dias.`,
     })
   );
-  const refazer = criarElemento("button", {
-    classes: ["botao", "botao--secundario"],
-    texto: "Refazer do início",
+
+  if (ultimaDoCurso) {
+    const resumo = resumirCurso(curso.id, curso.licoes.map((l) => ({ id: l.id, questoes: 0 })));
+    void resumo;
+    caixa.appendChild(
+      el("p", {
+        classe: "t-md cor-body",
+        texto: "Essa era a última lição da matéria. Se todas estiverem concluídas, seu certificado já está liberado na página da matéria.",
+      })
+    );
+  }
+
+  const acoes = el("div", { classe: "acoes" });
+  acoes.appendChild(
+    el("a", {
+      classe: "botao botao--primario",
+      texto: proxima ? "Próxima lição" : "Ver meu certificado",
+      atributos: {
+        href: proxima
+          ? `/licao.html?c=${curso.id}&l=${proxima.id}`
+          : `/curso.html?c=${curso.id}#certificado`,
+      },
+    })
+  );
+
+  const refazer = el("button", {
+    classe: "botao botao--fantasma",
+    texto: "Refazer esta lição",
     atributos: { type: "button" },
   });
   refazer.addEventListener("click", () => {
-    if (window.confirm("Isso vai apagar seu progresso nesta matéria. Deseja refazer do início?")) {
-      resetProgress(conteudo.id);
-      aoMudarProgresso();
-      rolarParaElemento(document.body);
-    }
+    reiniciarLicao(curso.id, licao.id);
+    window.location.reload();
   });
-  botoes.appendChild(refazer);
-  botoes.appendChild(
-    criarElemento("a", {
-      classes: ["botao", "botao--secundario"],
-      texto: "Voltar aos conteúdos",
-      atributos: { href: `/pages/${conteudo.ano}ano.html` },
-    })
+  acoes.appendChild(refazer);
+
+  acoes.appendChild(
+    el("a", { classe: "botao botao--nu", texto: "Todas as lições", atributos: { href: `/curso.html?c=${curso.id}` } })
   );
-  container.appendChild(botoes);
-
-  return container;
-}
-
-/**
- * Bloco do certificado: campo de nome + pré-visualização + download em PNG.
- * Não existe cadastro no site, então o nome é digitado aqui. Em branco,
- * o certificado sai como "Aluno(a)".
- */
-function montarCertificado(conteudo: Conteudo, acertos: number, total: number): HTMLElement {
-  const bloco = criarElemento("div", { classes: ["certificado"] });
-
-  bloco.appendChild(criarElemento("h4", { classes: ["certificado__titulo"], texto: "Seu certificado" }));
-  bloco.appendChild(
-    criarElemento("p", {
-      classes: ["certificado__ajuda"],
-      texto: "Escreva seu nome como quer que apareça no certificado e baixe a imagem.",
-    })
-  );
-
-  const formulario = criarElemento("div", { classes: ["certificado__form"] });
-  const campo = criarElemento("input", {
-    classes: ["certificado__input"],
-    atributos: {
-      type: "text",
-      maxlength: "60",
-      placeholder: "Seu nome completo",
-      "aria-label": "Nome para o certificado",
-      autocomplete: "name",
-    },
-  });
-  const botaoBaixar = criarElemento("button", {
-    classes: ["botao", "botao--rosa"],
-    texto: "Baixar certificado",
-    atributos: { type: "button" },
-  });
-  formulario.appendChild(campo);
-  formulario.appendChild(botaoBaixar);
-  bloco.appendChild(formulario);
-
-  const previa = criarElemento("div", { classes: ["certificado__previa"] });
-  bloco.appendChild(previa);
-
-  const dados = () => ({
-    nome: campo.value,
-    materia: conteudo.titulo,
-    ano: conteudo.ano,
-    acertos,
-    total,
-  });
-
-  const atualizarPrevia = (): void => {
-    limparElemento(previa);
-    const canvas = desenharCertificado(dados());
-    canvas.classList.add("certificado__canvas");
-    canvas.setAttribute("role", "img");
-    canvas.setAttribute(
-      "aria-label",
-      `Prévia do certificado de ${campo.value.trim() || "Aluno(a)"} em ${conteudo.titulo}.`
-    );
-    previa.appendChild(canvas);
-  };
-
-  // Redesenha enquanto o aluno digita, sem redesenhar a cada tecla.
-  let temporizador: number | undefined;
-  campo.addEventListener("input", () => {
-    window.clearTimeout(temporizador);
-    temporizador = window.setTimeout(atualizarPrevia, 250);
-  });
-
-  botaoBaixar.addEventListener("click", () => {
-    baixarCertificado(dados());
-  });
-
-  atualizarPrevia();
-  return bloco;
-}
-
-// ---------- Atividades extras (treino livre, sem afetar o progresso) ----------
-
-function initAtividadesExtras(conteudo: Conteudo): void {
-  const area = qs<HTMLElement>("[data-atividades-extras]");
-  if (!area) return;
-
-  if (conteudo.atividadesExtras.length === 0) {
-    const secao = area.closest("section");
-    if (secao instanceof HTMLElement) {
-      secao.hidden = true;
-    }
-    return;
-  }
-
-  limparElemento(area);
-  const loteExtra: LoteAtividades = {
-    titulo: "Treino livre",
-    atividades: conteudo.atividadesExtras,
-    indiceGlobalInicial: 0,
-  };
-
-  const botao = criarElemento("button", {
-    classes: ["botao", "botao--secundario"],
-    texto: "Praticar atividades extras",
-    atributos: { type: "button" },
-  });
-  botao.addEventListener(
-    "click",
-    () => {
-      const sessao = iniciarSessao(conteudo.id, conteudo.atividadesExtras, 0);
-      // revisao = true: treino extra nunca altera o progresso da matéria.
-      renderizarAtividadeDoLote(area, conteudo, loteExtra, sessao, conteudo.atividadesExtras.length, () => {}, true);
-    },
-    { once: true }
-  );
-  area.appendChild(botao);
-}
-
-// ---------- Modo linear (conteúdo ainda sem módulos no JSON) ----------
-
-function renderConteudoLinear(area: HTMLElement, conteudo: Conteudo): void {
-  const aviso = criarElemento("p", {
-    classes: ["estado-vazio"],
-    texto: "Este conteúdo ainda não foi organizado em módulos. Exibindo no formato simples.",
-  });
-  area.appendChild(aviso);
-
-  conteudo.teoria.forEach((bloco) => area.appendChild(renderBlocoTeoria(bloco)));
-  conteudo.exemplos.forEach((exemplo, indice) => area.appendChild(renderExemplo(exemplo, indice + 1)));
-  conteudo.dicas.forEach((dica) => area.appendChild(renderDica(dica)));
-  conteudo.videos.forEach((video) => area.appendChild(renderVideo(video)));
-
-  const lote: LoteAtividades = {
-    titulo: "Atividades",
-    atividades: conteudo.atividades,
-    indiceGlobalInicial: 0,
-  };
-  const caixa = criarElemento("div", { classes: ["lote"] });
-  area.appendChild(caixa);
-  const progresso = getProgress(conteudo.id);
-  const sessao = iniciarSessao(conteudo.id, conteudo.atividades, progresso?.concluidas ?? 0, {
-    acertos: progresso?.acertos ?? 0,
-    erros: progresso?.erros ?? 0,
-  });
-  renderizarAtividadeDoLote(caixa, conteudo, lote, sessao, conteudo.atividades.length, () => {});
+  caixa.appendChild(acoes);
+  return caixa;
 }

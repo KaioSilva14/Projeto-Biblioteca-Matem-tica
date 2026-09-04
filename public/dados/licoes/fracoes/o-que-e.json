@@ -1,0 +1,203 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O que uma fração quer dizer",
+  "pergunta": "Por que uma fração precisa de dois números?",
+  "ideia": {
+    "paragrafos": [
+      "Um número inteiro conta coisas inteiras: 3 maçãs, 7 cadeiras. Mas e quando a coisa foi partida? Aí um número só não basta, porque duas informações diferentes estão em jogo — de que tamanho é cada pedaço, e quantos pedaços você tem.",
+      "É por isso que a fração tem dois andares. O número de baixo diz em quantos pedaços iguais o inteiro foi cortado. Ele não conta nada: ele batiza o tamanho do pedaço. Cortou em 4, cada pedaço é um quarto. Cortou em 10, cada pedaço é um décimo.",
+      "O número de cima é o que conta. Ele diz quantos daqueles pedaços você está considerando. Nada mais.",
+      "Uma coisa que parece detalhe e não é: os pedaços têm que ser iguais. Se você parte uma barra em dois pedaços tortos, o maior não vale 1/2. Não existe 'metade maior'."
+    ],
+    "destaque": "O de baixo nomeia o tamanho do pedaço. O de cima conta quantos pedaços.",
+    "imagem": "ideia-o-que-e"
+  },
+  "resolvido": {
+    "enunciado": "Uma barra de chocolate foi partida em 6 pedaços iguais. João comeu 2 pedaços. Que fração da barra ele comeu?",
+    "imagem": "res-o-que-e",
+    "passos": [
+      {
+        "titulo": "Primeiro: qual é o inteiro?",
+        "explicacao": "Toda fração fala de alguma coisa. Aqui a coisa é a barra toda — não o pedaço, não o que sobrou. É a barra inteira que vale 1.",
+        "conta": "inteiro = a barra de chocolate"
+      },
+      {
+        "titulo": "Em quantos pedaços iguais ela foi cortada?",
+        "explicacao": "Seis. Então cada pedaço é um sexto da barra. Esse 6 vai embaixo, porque ele é quem diz o tamanho do pedaço.",
+        "conta": "denominador = 6"
+      },
+      {
+        "titulo": "Quantos desses pedaços o João comeu?",
+        "explicacao": "Dois. Esse é o número que conta, e ele vai em cima.",
+        "conta": "numerador = 2"
+      },
+      {
+        "titulo": "Juntando os dois andares",
+        "explicacao": "Lemos 'dois sextos'. Repare que o nome da fração já conta a história inteira: 'sextos' porque cortamos em seis, 'dois' porque ele pegou dois.",
+        "conta": "2/6"
+      }
+    ],
+    "fecho": "Os dois números vieram de perguntas diferentes. O 6 respondeu 'como foi cortado?'. O 2 respondeu 'quanto foi pego?'. Confundir os dois é o erro mais comum de todos."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A pizza da figura foi dividida em fatias iguais e algumas foram preenchidas. Que fração da pizza está preenchida?",
+      "imagem": "q-pizza-8-3",
+      "dica": "Conte primeiro em quantas fatias a pizza inteira foi cortada. Esse número vai embaixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3/8" },
+        { "rotulo": "B", "texto": "8/3" },
+        { "rotulo": "C", "texto": "5/8" },
+        { "rotulo": "D", "texto": "3/5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "8/3",
+          "porque": "Os dois números estão certos, mas trocados de andar. O 8 diz em quantas fatias a pizza foi cortada — é ele que nomeia o tamanho da fatia, então fica embaixo. O 3 é quanto você contou, e fica em cima."
+        },
+        {
+          "resposta": "5/8",
+          "porque": "Você contou as fatias vazias. São 5 mesmo, mas a pergunta é sobre as preenchidas."
+        },
+        {
+          "resposta": "3/5",
+          "porque": "Aqui o 5 é o número de fatias vazias, não o total. O de baixo tem que ser a pizza inteira: 3 preenchidas + 5 vazias = 8 fatias."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte o total de fatias",
+          "explicacao": "A pizza inteira é o que vale 1. Contando todas as fatias, cheias e vazias, dá 8. Então cada fatia é um oitavo.",
+          "conta": "denominador = 8"
+        },
+        {
+          "titulo": "Conte só as preenchidas",
+          "explicacao": "São 3. Esse é o número que vai em cima.",
+          "conta": "numerador = 3"
+        },
+        {
+          "titulo": "Escreva a fração",
+          "explicacao": "Três oitavos: três fatias de uma pizza que foi cortada em oito.",
+          "conta": "3/8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma caixa tinha 12 ovos, todos iguais. Cinco foram usados numa receita, e estão marcados na figura. Que fração dos ovos foi usada?",
+      "imagem": "q-ovos-12-5",
+      "dica": "O inteiro aqui é a caixa toda, com os 12 ovos — não só os que sobraram.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5/12" },
+        { "rotulo": "B", "texto": "12/5" },
+        { "rotulo": "C", "texto": "7/12" },
+        { "rotulo": "D", "texto": "5/7" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "7/12",
+          "porque": "Sete é quanto SOBROU na caixa. A pergunta é quanto foi usado. As duas frações existem e são úteis, mas respondem coisas diferentes: 5/12 foi usado e 7/12 sobrou — e juntas dão a caixa inteira."
+        },
+        {
+          "resposta": "5/7",
+          "porque": "O 7 é o que sobrou, não o total. O de baixo tem que ser a caixa inteira: 12 ovos."
+        },
+        {
+          "resposta": "12/5",
+          "porque": "Andares trocados. O total de ovos é quem nomeia o tamanho da parte, então o 12 fica embaixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual é o inteiro?",
+          "explicacao": "A caixa completa, com 12 ovos. É ela que vale 1 aqui, então o 12 vai embaixo.",
+          "conta": "denominador = 12"
+        },
+        {
+          "titulo": "Quantos foram usados?",
+          "explicacao": "Cinco. Esse é o número que conta.",
+          "conta": "numerador = 5"
+        },
+        {
+          "titulo": "Confira somando",
+          "explicacao": "Usados mais restantes tem que dar a caixa inteira: 5/12 + 7/12 = 12/12, que é 1. Bateu.",
+          "conta": "5/12 usados · 7/12 restantes"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O retângulo foi dividido em partes iguais e 3 foram preenchidas. Que fração do retângulo NÃO foi preenchida?",
+      "imagem": "q-grade-10-3",
+      "dica": "Conte todas as partes primeiro. Depois conte só as vazias — é isso que a pergunta quer.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "7/10" },
+        { "rotulo": "B", "texto": "3/10" },
+        { "rotulo": "C", "texto": "10/7" },
+        { "rotulo": "D", "texto": "7/3" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/10",
+          "porque": "Essa é a parte preenchida. A palavra NÃO muda a pergunta: ela pede o pedaço vazio. Vale reler o enunciado antes de responder — nesse tipo de questão a pegadinha é sempre essa."
+        },
+        {
+          "resposta": "7/3",
+          "porque": "Você comparou vazias com preenchidas. Mas o de baixo da fração é sempre o inteiro, e o inteiro aqui é o retângulo todo: 10 partes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte todas as partes",
+          "explicacao": "A grade tem 5 colunas e 2 linhas, então são 10 quadradinhos iguais. O retângulo inteiro vale 1, e cada quadradinho é um décimo.",
+          "conta": "denominador = 10"
+        },
+        {
+          "titulo": "Conte as que ficaram vazias",
+          "explicacao": "Três estão preenchidas, então sobram 7 vazias. É esse 7 que a pergunta quer.",
+          "conta": "10 − 3 = 7"
+        },
+        {
+          "titulo": "Escreva",
+          "explicacao": "Sete décimos do retângulo não foram preenchidos.",
+          "conta": "7/10"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa pizzaria, cada fatia corresponde a 1/8 da pizza. Quantas fatias tem uma pizza inteira?",
+      "imagem": "q-pizza-8-vazia",
+      "dica": "Pense no que o número de baixo está dizendo: ele conta em quantos pedaços a pizza foi cortada.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "fatias",
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "O 1 de 1/8 é o tamanho de UMA fatia — quantas você pegou. Quem responde 'em quantos pedaços a pizza foi cortada' é o 8, o número de baixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que o denominador significa",
+          "explicacao": "Dizer que a fatia é 1/8 é dizer que a pizza foi cortada em 8 pedaços iguais e que a fatia é um deles.",
+          "conta": "1/8 = 1 pedaço de 8"
+        },
+        {
+          "titulo": "Junte as fatias de volta",
+          "explicacao": "Se cada fatia é 1/8, juntar 8 delas dá 8/8 — a pizza inteira, que é 1.",
+          "conta": "8 × 1/8 = 8/8 = 1"
+        }
+      ]
+    }
+  ]
+}

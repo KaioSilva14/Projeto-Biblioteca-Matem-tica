@@ -1,0 +1,183 @@
+{
+  "id": "reta-numerica",
+  "numero": 2,
+  "titulo": "Fração é um número",
+  "pergunta": "Se fração é um número, onde ela mora na reta?",
+  "ideia": {
+    "paragrafos": [
+      "Muita gente sai da primeira aula achando que fração é um desenho — uma pizza, um bolo, um pedaço pintado. Não é. Fração é número, do mesmo jeito que 7 é número. E todo número tem um lugar só dele na reta numérica.",
+      "Achar esse lugar é mais fácil do que parece, porque a fração já vem com as instruções. O número de baixo diz em quantos pedaços iguais dividir o caminho de 0 até 1. O de cima diz quantos pedaços andar a partir do zero.",
+      "Repare no que isso explica de graça. Se você andar todos os pedaços, chega no 1 — por isso 5/5 é 1. Se andar mais pedaços do que existem entre 0 e 1, você passa do 1: 7/5 fica depois do 1. E quanto mais à direita, maior o número. Comparar frações vira olhar quem está mais longe do zero."
+    ],
+    "destaque": "O de baixo diz o tamanho do passo. O de cima diz quantos passos dar.",
+    "imagem": "ideia-reta"
+  },
+  "resolvido": {
+    "enunciado": "Marque o número 5/8 na reta numérica entre 0 e 1.",
+    "imagem": "res-reta-vazia",
+    "passos": [
+      {
+        "titulo": "O de baixo manda dividir",
+        "explicacao": "O 8 diz que o caminho de 0 até 1 tem que ser cortado em 8 pedaços do mesmo tamanho. Cada pedacinho vale 1/8. Marque os cortes antes de qualquer outra coisa.",
+        "conta": "0 até 1 dividido em 8 → cada passo = 1/8"
+      },
+      {
+        "titulo": "O de cima manda andar",
+        "explicacao": "Agora conte 5 passos, começando do zero. Um cuidado que evita quase todo erro aqui: conte os PASSOS, não os tracinhos. O primeiro tracinho depois do zero já é o fim do primeiro passo.",
+        "conta": "5 passos de 1/8 = 5/8"
+      },
+      {
+        "titulo": "Onde você parou",
+        "explicacao": "Você parou depois da metade e antes do 1. Faz sentido: 4/8 seria exatamente a metade, e 5 é um pouco mais que 4.",
+        "conta": "4/8 = 1/2, então 5/8 fica logo depois da metade"
+      }
+    ],
+    "fecho": "Achar uma fração na reta é seguir duas ordens em sequência: divida assim, ande tanto. Toda vez que você travar numa fração, volte para a reta — ela mostra o tamanho do número."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A reta de 0 até 1 foi dividida em partes iguais. Que número está marcado com o ponto?",
+      "imagem": "q-reta-5-3",
+      "dica": "Conte quantos pedaços iguais existem entre 0 e 1. Depois conte quantos passos o ponto andou.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3/5" },
+        { "rotulo": "B", "texto": "5/3" },
+        { "rotulo": "C", "texto": "2/5" },
+        { "rotulo": "D", "texto": "3/2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "5/3",
+          "porque": "Andares trocados. O 5 é em quantos pedaços o caminho foi cortado — ele manda dividir, então fica embaixo. O 3 é quantos passos o ponto deu."
+        },
+        {
+          "resposta": "2/5",
+          "porque": "Você contou os passos que faltam para chegar no 1. São 2 mesmo, mas a pergunta é onde o ponto ESTÁ, e isso se conta a partir do zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantos pedaços entre 0 e 1?",
+          "explicacao": "Cinco. Então cada passo vale um quinto, e o 5 é o número de baixo.",
+          "conta": "cada passo = 1/5"
+        },
+        {
+          "titulo": "Quantos passos o ponto andou?",
+          "explicacao": "Três, contando a partir do zero. Esse é o número de cima.",
+          "conta": "3 passos"
+        },
+        {
+          "titulo": "O número",
+          "explicacao": "Três quintos. E dá para conferir pelo olho: 3/5 está um pouco depois da metade, que é onde o ponto aparece.",
+          "conta": "3/5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A reta foi dividida em 4 partes iguais e o ponto caiu exatamente em cima do 1. Que fração o ponto representa?",
+      "imagem": "q-reta-4-4",
+      "dica": "Quantos passos de 1/4 você precisa dar para chegar no 1?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "4/4" },
+        { "rotulo": "B", "texto": "1/4" },
+        { "rotulo": "C", "texto": "3/4" },
+        { "rotulo": "D", "texto": "0/4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/4",
+          "porque": "1/4 é o tamanho de UM passo. O ponto não deu um passo: ele deu os quatro e chegou no fim. Quem conta os passos é o número de cima."
+        },
+        {
+          "resposta": "3/4",
+          "porque": "Provavelmente você contou os tracinhos do meio e esqueceu que o 1 também é o fim do último passo. Dividindo em 4, os passos são: 1/4, 2/4, 3/4 e 4/4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os passos até o fim",
+          "explicacao": "Cada passo vale 1/4. Para sair do 0 e chegar no 1 você dá quatro passos.",
+          "conta": "1/4, 2/4, 3/4, 4/4"
+        },
+        {
+          "titulo": "O que isso significa",
+          "explicacao": "Quando o número de cima alcança o de baixo, você percorreu o caminho inteiro. Por isso 4/4 é outro jeito de escrever 1 — e o mesmo vale para 7/7, 100/100 e qualquer outro.",
+          "conta": "4/4 = 1"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa reta, cada passo vale 1/6. Quantos passos são necessários para sair do 0 e chegar exatamente no 1?",
+      "imagem": "q-reta-6-vazia",
+      "dica": "O número de baixo já diz em quantos pedaços o caminho até o 1 foi cortado.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "passos",
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "O 1 de 1/6 é o tamanho de um passo só. Quem diz em quantos pedaços o caminho foi dividido é o 6."
+        },
+        {
+          "resposta": "5",
+          "porque": "Esse é o número de tracinhos ENTRE o 0 e o 1. Mas os passos são os espaços entre os tracinhos, e espaços sempre são um a mais que as divisões internas: são 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o denominador",
+          "explicacao": "Dizer que o passo vale 1/6 é dizer que o caminho de 0 até 1 foi cortado em 6 pedaços iguais.",
+          "conta": "1 inteiro ÷ 6 = passos de 1/6"
+        },
+        {
+          "titulo": "Some os passos",
+          "explicacao": "Seis passos de um sexto cada dão 6/6, e 6/6 é o caminho inteiro — ou seja, 1.",
+          "conta": "6 × 1/6 = 6/6 = 1"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Que número está marcado nesta reta?",
+      "imagem": "q-reta-8-6",
+      "dica": "São 8 pedaços entre 0 e 1. Conte quantos o ponto andou.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "6/8" },
+        { "rotulo": "B", "texto": "8/6" },
+        { "rotulo": "C", "texto": "6/2" },
+        { "rotulo": "D", "texto": "2/8" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2/8",
+          "porque": "Você contou o que falta para o 1. O ponto andou 6 passos, e é isso que a fração registra."
+        },
+        {
+          "resposta": "8/6",
+          "porque": "Andares trocados. Repare que 8/6 seria maior que 1, e o ponto está claramente antes do 1 — só isso já elimina essa opção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida e ande",
+          "explicacao": "São 8 pedaços entre 0 e 1, e o ponto está no sexto tracinho depois do zero.",
+          "conta": "6 passos de 1/8 = 6/8"
+        },
+        {
+          "titulo": "Um detalhe que volta na próxima lição",
+          "explicacao": "Olhe onde o ponto caiu: exatamente três quartos do caminho. Isso não é coincidência — 6/8 e 3/4 são o mesmo número escrito de dois jeitos. É disso que trata a lição 3.",
+          "conta": "6/8 = 3/4"
+        }
+      ]
+    }
+  ]
+}

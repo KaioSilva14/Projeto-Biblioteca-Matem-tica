@@ -1,0 +1,233 @@
+{
+  "id": "fracao-de-quantidade",
+  "numero": 6,
+  "titulo": "Fração de uma quantidade",
+  "pergunta": "Como calcular 3/5 de 200 sem chutar?",
+  "ideia": {
+    "paragrafos": [
+      "Até agora a fração falava de uma figura. Agora ela vai falar de uma quantidade: 3/5 dos alunos, 2/3 do dinheiro, 1/4 da distância. A ideia é a mesma, só que o inteiro virou um número.",
+      "E o método é o que a fração sempre mandou fazer, na ordem: o de baixo manda dividir, o de cima manda multiplicar. Dividir por 5 responde 'quanto vale uma parte'. Multiplicar por 3 responde 'e quanto valem três dessas partes'.",
+      "Fazer nessa ordem — dividir primeiro, multiplicar depois — costuma dar contas bem mais fáceis. 3/5 de 200: divide 200 por 5 e dá 40; multiplica por 3 e dá 120. Se você fizesse 200 × 3 primeiro, teria que dividir 600 por 5. Mesmo resultado, mais trabalho.",
+      "Repare que 'de' virou multiplicação. É por isso que 'metade de 80' e '1/2 × 80' são a mesma conta — você já fazia isso antes de saber o nome."
+    ],
+    "destaque": "Divida pelo de baixo para achar uma parte. Multiplique pelo de cima para juntar as partes.",
+    "imagem": "ideia-quantidade"
+  },
+  "resolvido": {
+    "enunciado": "Uma escola tem 200 alunos e 3/5 deles vão de ônibus. Quantos alunos vão de ônibus?",
+    "imagem": "res-quantidade",
+    "passos": [
+      {
+        "titulo": "Qual é o inteiro?",
+        "explicacao": "Os 200 alunos. É essa quantidade que está sendo repartida — não o número de ônibus, não outra coisa. Identificar o inteiro errado é o que estraga a maioria dos problemas.",
+        "conta": "inteiro = 200 alunos"
+      },
+      {
+        "titulo": "O de baixo manda dividir",
+        "explicacao": "O 5 diz para repartir os 200 alunos em 5 grupos iguais. Cada grupo é um quinto da escola.",
+        "conta": "200 ÷ 5 = 40 alunos em cada quinto"
+      },
+      {
+        "titulo": "O de cima manda multiplicar",
+        "explicacao": "Você não quer um quinto, quer três. Então junte três grupos de 40.",
+        "conta": "3 × 40 = 120 alunos"
+      },
+      {
+        "titulo": "O resultado faz sentido?",
+        "explicacao": "Sempre vale essa checagem. 3/5 é mais que a metade, e 120 é mais que 100 — a metade de 200. Se tivesse dado 60, você saberia na hora que errou.",
+        "conta": "120 de 200 · e sobram 80 que não vão de ônibus"
+      }
+    ],
+    "fecho": "Divida, depois multiplique. E antes de tudo isso, pergunte: fração DE QUÊ? O inteiro é quem manda."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma biblioteca tem 350 livros. Dois quintos deles são de literatura. Quantos livros de literatura a biblioteca tem?",
+      "imagem": "q-quant-350",
+      "dica": "Divida 350 em 5 partes iguais primeiro. Depois pegue duas dessas partes.",
+      "formato": "numero",
+      "resposta": 140,
+      "unidade": "livros",
+      "errosComuns": [
+        {
+          "resposta": "70",
+          "porque": "Setenta é quanto vale UM quinto. A questão pede dois quintos, então falta multiplicar por 2."
+        },
+        {
+          "resposta": "210",
+          "porque": "Esses são os livros que NÃO são de literatura (três quintos). As duas contas são úteis, mas a pergunta é sobre a literatura."
+        },
+        {
+          "resposta": "175",
+          "porque": "Isso é metade de 350. Dois quintos não é metade — é um pouco menos, porque 2/5 = 0,4 e a metade seria 2,5/5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida pelo de baixo",
+          "explicacao": "Repartir 350 livros em 5 grupos iguais.",
+          "conta": "350 ÷ 5 = 70"
+        },
+        {
+          "titulo": "Multiplique pelo de cima",
+          "explicacao": "Você não quer um quinto, quer dois. Como cada quinto vale 70 livros, dois quintos são dois grupos de 70 juntos.",
+          "conta": "2 × 70 = 140"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "140 de literatura e 210 de outros assuntos somam 350. Bateu com o total.",
+          "conta": "140 + 210 = 350"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Adriano, Bruno, César e Daniel são quatro bons amigos. Daniel não tinha dinheiro, mas os outros tinham. Adriano deu a Daniel um quinto do seu dinheiro, Bruno deu um quarto do seu dinheiro e César deu um terço do seu dinheiro. Cada um deu a Daniel a mesma quantia. A quantia que Daniel possui agora representa que fração da quantia total que seus três amigos juntos possuíam inicialmente?",
+      "imagem": "q-amigos",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 14 — Amigos e frações"
+      },
+      "dica": "Chame de x a quantia que cada um deu. Se um quinto do dinheiro de Adriano é x, quanto Adriano tinha?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1/4" },
+        { "rotulo": "B", "texto": "1/3" },
+        { "rotulo": "C", "texto": "1/10" },
+        { "rotulo": "D", "texto": "2/5" },
+        { "rotulo": "E", "texto": "1/2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/3",
+          "porque": "Daniel recebeu de três amigos, mas isso não faz dele um terço do total. Cada amigo deu uma fatia diferente do próprio bolso, e os bolsos tinham tamanhos diferentes: Adriano tinha 5x, Bruno 4x e César 3x."
+        },
+        {
+          "resposta": "1/10",
+          "porque": "Talvez você tenha somado 5 + 4 + 3 = 12 e comparado com algo errado, ou somado os denominadores 5 + 4 + 3 e usado como total. O total é 12x e Daniel tem 3x, então a fração é 3x/12x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Dê um nome à quantia doada",
+          "explicacao": "Todos deram a mesma quantia. Chame essa quantia de x. Não precisa saber quanto é — o truque é justamente não precisar.",
+          "conta": "cada um deu x reais"
+        },
+        {
+          "titulo": "Descubra quanto cada um tinha",
+          "explicacao": "Adriano deu um quinto do dele e isso valeu x. Se uma parte de cinco vale x, o dinheiro dele todo vale 5x. O mesmo raciocínio vale para os outros: Bruno deu um quarto, então tinha 4x; César deu um terço, então tinha 3x.",
+          "conta": "Adriano = 5x · Bruno = 4x · César = 3x"
+        },
+        {
+          "titulo": "Quanto os três tinham juntos",
+          "explicacao": "É só somar os três bolsos iniciais.",
+          "conta": "5x + 4x + 3x = 12x"
+        },
+        {
+          "titulo": "Quanto Daniel tem agora",
+          "explicacao": "Ele recebeu x de cada um dos três amigos.",
+          "conta": "3 × x = 3x"
+        },
+        {
+          "titulo": "Monte a fração",
+          "explicacao": "Daniel tem 3x de um total de 12x. O x aparece em cima e embaixo, então ele some — por isso nunca precisamos saber o valor dele.",
+          "conta": "3x/12x = 3/12 = 1/4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa escola, um quarto dos alunos joga somente vôlei, um terço joga somente futebol, 300 alunos praticam os dois esportes e um doze avos não pratica nenhum dos dois. Quantos alunos tem a escola?",
+      "imagem": "q-atletas",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 152 — Atletas da escola"
+      },
+      "dica": "Escreva todas as frações com o mesmo denominador 12 e veja quantas partes sobram para o grupo dos 300 alunos.",
+      "formato": "numero",
+      "resposta": 900,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 é o número de alunos que praticam os DOIS esportes — um grupo só, não a escola inteira. Esse grupo corresponde a 4 das 12 partes, então a escola é bem maior."
+        },
+        {
+          "resposta": "3600",
+          "porque": "Parece que você multiplicou 300 por 12, como se os 300 fossem uma única parte de doze. Mas eles ocupam 4 partes, não 1."
+        },
+        {
+          "resposta": "1200",
+          "porque": "Você chegou perto do método, mas errou quantas partes sobram. Some de novo: 3 + 4 + 1 = 8 partes ocupadas, então sobram 4 — não 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Coloque tudo em doze avos",
+          "explicacao": "Pense na escola como um retângulo dividido em 12 partes iguais. Assim as três frações do enunciado viram números inteiros de partes.",
+          "conta": "1/4 = 3/12 · 1/3 = 4/12 · 1/12 = 1/12"
+        },
+        {
+          "titulo": "Conte as partes já ocupadas",
+          "explicacao": "Três partes são de quem só joga vôlei, quatro de quem só joga futebol e uma de quem não joga nada.",
+          "conta": "3 + 4 + 1 = 8 partes de 12"
+        },
+        {
+          "titulo": "O que sobra é o grupo dos 300",
+          "explicacao": "Só resta um grupo no enunciado: quem pratica os dois esportes. Então esses 300 alunos ocupam as 4 partes restantes.",
+          "conta": "12 − 8 = 4 partes = 300 alunos"
+        },
+        {
+          "titulo": "Ache uma parte e depois o total",
+          "explicacao": "Se 4 partes valem 300, uma parte vale 75. A escola tem 12 dessas partes.",
+          "conta": "300 ÷ 4 = 75 · 75 × 12 = 900"
+        },
+        {
+          "titulo": "Confira com o enunciado",
+          "explicacao": "Um quarto de 900 é 225 (só vôlei), um terço é 300 (só futebol), um doze avos é 75 (nenhum), mais os 300 dos dois esportes.",
+          "conta": "225 + 300 + 75 + 300 = 900"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um quarto do dinheiro que Rita tinha na carteira é R$ 15,00. Quanto dinheiro Rita tem na carteira?",
+      "imagem": "q-quant-inversa",
+      "dica": "Aqui o caminho é o contrário do normal: você conhece uma parte e quer o inteiro.",
+      "formato": "numero",
+      "resposta": 60,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "3.75",
+          "porque": "Você dividiu 15 por 4. Mas 15 já É a quarta parte — dividir de novo dá a parte de uma parte. Como você tem uma das quatro, precisa multiplicar."
+        },
+        {
+          "resposta": "45",
+          "porque": "Esse é o dinheiro que sobra tirando a parte que você conhece (três quartos). O total é a carteira inteira: as quatro partes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Entenda o que foi dado",
+          "explicacao": "A carteira foi repartida em 4 partes iguais, e uma dessas partes vale R$ 15,00.",
+          "conta": "1 parte de 4 = R$ 15,00"
+        },
+        {
+          "titulo": "Junte as quatro partes",
+          "explicacao": "Se cada parte vale 15, a carteira inteira vale quatro vezes isso.",
+          "conta": "4 × 15 = 60"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Um quarto de 60 é 60 ÷ 4 = 15. Voltou ao dado do enunciado, então está certo.",
+          "conta": "60 ÷ 4 = 15 ✓"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "id": "por-dez",
+  "numero": 6,
+  "titulo": "Multiplicar e dividir por 10, 100, 1000",
+  "pergunta": "Por que a vírgula anda quando eu multiplico por 10?",
+  "ideia": {
+    "paragrafos": [
+      "Você provavelmente já ouviu a regra: multiplicou por 10, anda a vírgula uma casa para a direita. Funciona. Mas decorar isso sem entender é perigoso, porque na hora do nervoso todo mundo troca o lado.",
+      "O motivo é o de sempre: cada casa vale dez vezes mais que a casa à direita. Multiplicar por 10 é dar a cada algarismo uma promoção — o que era décimo vira unidade, o que era unidade vira dezena. Todos sobem uma casa de uma vez.",
+      "E aqui está o detalhe que evita a confusão: quem se move de verdade são os algarismos. Como é bem mais fácil escrever a vírgula em outro lugar do que reescrever todos os números, a gente move a vírgula e diz que ela andou. É um truque de escrita, não o que está acontecendo.",
+      "Daí sai o resto sozinho. Multiplicar aumenta o número, e para aumentar a vírgula vai para a direita. Dividir diminui, e a vírgula vai para a esquerda. A quantidade de casas é a quantidade de zeros: 10 tem um zero, 100 tem dois, 1000 tem três. Se faltar casa, complete com zero."
+    ],
+    "destaque": "Quem sobe de casa são os algarismos. Mover a vírgula é só um atalho de escrita.",
+    "imagem": "dec-ideia-pordez"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 4,3 × 100.",
+    "imagem": "dec-res-pordez",
+    "passos": [
+      {
+        "titulo": "Quantos zeros tem o 100?",
+        "explicacao": "Dois. Cada zero corresponde a uma promoção de casa, então cada algarismo vai subir duas casas.",
+        "conta": "100 = dois zeros → duas casas"
+      },
+      {
+        "titulo": "Para que lado?",
+        "explicacao": "Multiplicar aumenta o número. Para o número ficar maior, a vírgula anda para a direita.",
+        "conta": "multiplicação → vírgula para a direita"
+      },
+      {
+        "titulo": "Ande a primeira casa",
+        "explicacao": "O 3, que era décimo, vira unidade. O 4, que era unidade, vira dezena.",
+        "conta": "4,3 × 10 = 43"
+      },
+      {
+        "titulo": "Ande a segunda casa",
+        "explicacao": "Agora não há mais algarismo depois da vírgula para promover, então entra um zero para ocupar a casa das unidades.",
+        "conta": "43 × 10 = 430"
+      },
+      {
+        "titulo": "Confira pelo tamanho",
+        "explicacao": "4,3 é um pouco mais que 4. Cem vezes isso tem que ser um pouco mais que 400. O resultado 430 bate.",
+        "conta": "4,3 × 100 = 430"
+      }
+    ],
+    "fecho": "Multiplicou, o número cresce e a vírgula vai para a direita. Dividiu, o número encolhe e ela vai para a esquerda. Se o resultado não ficou do tamanho esperado, você trocou o lado."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule 0,45 × 10 e digite o resultado.",
+      "imagem": "dec-q-pordez-1",
+      "dica": "Um zero no 10 significa uma casa. Multiplicar aumenta, então a vírgula vai para a direita.",
+      "formato": "numero",
+      "resposta": 4.5,
+      "errosComuns": [
+        {
+          "resposta": "0.045",
+          "porque": "A vírgula andou para o lado errado. Multiplicar por 10 tem que AUMENTAR o número, e 0,045 é menor que 0,45. Para a esquerda seria divisão."
+        },
+        {
+          "resposta": "45",
+          "porque": "Você andou duas casas em vez de uma. O 10 tem um zero só, então é uma casa. Duas casas seria multiplicar por 100."
+        },
+        {
+          "resposta": "0.4510",
+          "porque": "Multiplicar não é colar o 10 no fim do número. É promover cada algarismo uma casa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os zeros",
+          "explicacao": "O 10 tem um zero, então cada algarismo sobe uma casa.",
+          "conta": "10 → 1 casa"
+        },
+        {
+          "titulo": "Promova os algarismos",
+          "explicacao": "O 4, que era décimo, vira unidade. O 5, que era centésimo, vira décimo.",
+          "conta": "0,45 → 4,5"
+        },
+        {
+          "titulo": "Confira pelo tamanho",
+          "explicacao": "0,45 é quase meio. Dez vezes meio é perto de 5, e 4,5 está lá.",
+          "conta": "0,45 × 10 = 4,5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Calcule 87,5 ÷ 100 e digite o resultado.",
+      "imagem": "dec-q-pordez-2",
+      "dica": "Dividir diminui o número, então a vírgula vai para a esquerda. Dois zeros, duas casas.",
+      "formato": "numero",
+      "resposta": 0.875,
+      "errosComuns": [
+        {
+          "resposta": "8750",
+          "porque": "A vírgula foi para a direita, que é o lado da multiplicação. Dividir por 100 tem que DIMINUIR o número — o resultado precisa ser bem menor que 87,5."
+        },
+        {
+          "resposta": "8.75",
+          "porque": "Você andou uma casa só. O 100 tem dois zeros, então são duas casas."
+        },
+        {
+          "resposta": "0.0875",
+          "porque": "Você andou três casas, mas o divisor manda o número de casas: 100 tem dois zeros, então são duas. Três casas seria dividir por 1000."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os zeros e escolha o lado",
+          "explicacao": "O 100 tem dois zeros, então são duas casas. Como é divisão, o número diminui e a vírgula vai para a esquerda.",
+          "conta": "100 → 2 casas, para a esquerda"
+        },
+        {
+          "titulo": "Ande a primeira casa",
+          "explicacao": "Cada algarismo desce uma casa: o 7 das unidades vira décimo.",
+          "conta": "87,5 ÷ 10 = 8,75"
+        },
+        {
+          "titulo": "Ande a segunda",
+          "explicacao": "Agora não sobra algarismo antes da vírgula, então entra um zero nas unidades para marcar que não há inteiro nenhum.",
+          "conta": "8,75 ÷ 10 = 0,875"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma caixa tem 1000 parafusos e pesa 3,5 kg no total. Quanto pesa cada parafuso, em quilos?",
+      "imagem": "dec-q-pordez-3",
+      "dica": "Repartir o peso total entre 1000 é dividir por 1000. Três zeros, três casas para a esquerda.",
+      "formato": "numero",
+      "resposta": 0.0035,
+      "unidade": "kg",
+      "errosComuns": [
+        {
+          "resposta": "0.035",
+          "porque": "Você andou duas casas. O 1000 tem três zeros, então são três casas."
+        },
+        {
+          "resposta": "3500",
+          "porque": "A vírgula foi para o lado da multiplicação. Um parafuso sozinho tem que pesar MENOS que a caixa inteira, então o resultado é bem menor que 3,5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Que conta é essa?",
+          "explicacao": "O peso total foi repartido igualmente entre 1000 parafusos, então é uma divisão.",
+          "conta": "3,5 ÷ 1000"
+        },
+        {
+          "titulo": "Conte os zeros",
+          "explicacao": "1000 tem três zeros, e como é divisão a vírgula anda três casas para a esquerda.",
+          "conta": "3 casas para a esquerda"
+        },
+        {
+          "titulo": "Ande, completando com zeros",
+          "explicacao": "Não há algarismos suficientes antes da vírgula, então entram zeros para ocupar as casas.",
+          "conta": "3,5 → 0,35 → 0,035 → 0,0035"
+        },
+        {
+          "titulo": "Faz sentido?",
+          "explicacao": "0,0035 kg são 3,5 gramas. Peso plausível para um parafuso — se tivesse dado 3,5 kg por parafuso, a caixa pesaria 3,5 toneladas.",
+          "conta": "0,0035 kg = 3,5 g"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por quanto você precisa multiplicar 0,07 para obter 70?",
+      "imagem": "dec-q-pordez-4",
+      "dica": "Conte quantas casas o algarismo 7 precisa subir para sair dos centésimos e chegar nas dezenas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1000" },
+        { "rotulo": "B", "texto": "10" },
+        { "rotulo": "C", "texto": "100" },
+        { "rotulo": "D", "texto": "10000" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "100",
+          "porque": "Multiplicando por 100, o 7 sobe duas casas: de centésimos para unidades, dando 7. Falta mais uma casa para chegar em 70."
+        },
+        {
+          "resposta": "10",
+          "porque": "Multiplicar por 10 move uma casa só, levando 0,07 até 0,7. Ainda falta um bocado para chegar em 70 — são três casas no total, não uma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Onde o 7 está e onde precisa chegar",
+          "explicacao": "Em 0,07 o 7 está nos centésimos. Em 70 ele está nas dezenas.",
+          "conta": "centésimos → dezenas"
+        },
+        {
+          "titulo": "Conte as casas do percurso",
+          "explicacao": "De centésimos para décimos é uma casa; para unidades, duas; para dezenas, três.",
+          "conta": "3 casas para a direita"
+        },
+        {
+          "titulo": "Traduza casas em zeros",
+          "explicacao": "Três casas correspondem a três zeros no multiplicador.",
+          "conta": "0,07 × 1000 = 70"
+        }
+      ]
+    }
+  ]
+}

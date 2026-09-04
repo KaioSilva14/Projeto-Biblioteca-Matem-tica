@@ -1,0 +1,225 @@
+{
+  "id": "arredondar",
+  "numero": 8,
+  "titulo": "Arredondar e estimar",
+  "pergunta": "Quando dá para trocar 3,97 por 4 — e quando isso estraga tudo?",
+  "ideia": {
+    "paragrafos": [
+      "Arredondar é trocar um número por outro mais simples que esteja bem perto dele. Serve para duas coisas: falar de um número sem carregar dígitos que ninguém precisa, e conferir se uma conta deu resultado plausível antes de confiar nela.",
+      "O método é: escolha até que casa você quer manter, olhe o algarismo IMEDIATAMENTE depois dela e decida. Se for 5 ou mais, sobe um na casa que você guardou. Se for 4 ou menos, ela fica como está. Em qualquer dos casos, o resto vai fora.",
+      "O 5 é o divisor de águas porque ele marca o meio do caminho. Entre 3,4 e 3,5, o número 3,47 está mais perto de 3,5 — então arredonda para cima. Não é convenção arbitrária: é a distância que decide. Só o 5 exato é convenção, e a combinação usual é subir.",
+      "Um cuidado que vale ouro: olhe UM algarismo, não a cauda inteira. Para arredondar 3,4499 aos décimos, olhe só o 4 que vem depois do 4 — e ele manda manter. Quem olha os 99 no fim se convence de que 'quase chegou' e arredonda errado.",
+      "E arredondar tem preço. Ao trocar 3,97 por 4 você errou por 0,03. Isso é irrelevante para estimar uma compra e é inaceitável num remédio. Arredonde para pensar rápido; calcule com o número cheio quando a precisão importa."
+    ],
+    "destaque": "Olhe um algarismo só: o primeiro que vai ser descartado. Ele decide sozinho.",
+    "imagem": "dec-ideia-arredondar"
+  },
+  "resolvido": {
+    "enunciado": "Arredonde 3,47 para os décimos, ou seja, para uma casa depois da vírgula.",
+    "imagem": "dec-res-arredondar",
+    "passos": [
+      {
+        "titulo": "Qual casa você vai manter?",
+        "explicacao": "A dos décimos, que é a primeira depois da vírgula. Nesse número, é o 4.",
+        "conta": "3,4|7 → guardar o 4"
+      },
+      {
+        "titulo": "Olhe o algarismo seguinte",
+        "explicacao": "Logo depois do 4 vem o 7. É ele — e só ele — que decide.",
+        "conta": "algarismo decisor = 7"
+      },
+      {
+        "titulo": "Aplique o critério",
+        "explicacao": "7 é maior que 5, então o número está na metade de cima do intervalo. Sobe um na casa guardada.",
+        "conta": "7 ≥ 5 → 4 vira 5"
+      },
+      {
+        "titulo": "Escreva e descarte o resto",
+        "explicacao": "A casa dos décimos vira 5 e tudo que estava à direita dela é descartado — o 7 não vira zero, ele simplesmente sai do número.",
+        "conta": "3,47 ≈ 3,5"
+      },
+      {
+        "titulo": "Confira na reta",
+        "explicacao": "3,47 está entre 3,4 e 3,5. A distância até 3,5 é 0,03; até 3,4 é 0,07. Está mesmo mais perto do 3,5.",
+        "conta": "3,5 − 3,47 = 0,03 · 3,47 − 3,4 = 0,07"
+      }
+    ],
+    "fecho": "Guardou a casa, olhou o próximo algarismo, decidiu. E se ficar em dúvida, desenhe a reta: quem está mais perto ganha."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Arredonde 12,83 para os décimos (uma casa depois da vírgula) e digite o resultado.",
+      "imagem": "dec-q-arred-1",
+      "dica": "Guarde o 8 dos décimos e olhe o algarismo logo depois dele.",
+      "formato": "numero",
+      "resposta": 12.8,
+      "errosComuns": [
+        {
+          "resposta": "12.9",
+          "porque": "O algarismo decisor é o 3, que vem logo depois do 8. Como 3 é menor que 5, o 8 fica como está. Talvez você tenha olhado o número inteiro (83) e achado que ele 'está alto' — mas quem decide é um algarismo só."
+        },
+        {
+          "resposta": "13",
+          "porque": "Isso é arredondar para as UNIDADES, não para os décimos. A questão pediu uma casa depois da vírgula."
+        },
+        {
+          "resposta": "12.83",
+          "porque": "Esse é o número original. Arredondar aos décimos significa deixar só uma casa depois da vírgula."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe na casa pedida",
+          "explicacao": "Décimos é a primeira casa depois da vírgula: o 8. Tudo à direita dele será descartado.",
+          "conta": "12,8|3"
+        },
+        {
+          "titulo": "Olhe o decisor",
+          "explicacao": "O algarismo imediatamente à direita é o 3.",
+          "conta": "decisor = 3"
+        },
+        {
+          "titulo": "Decida",
+          "explicacao": "3 é menor que 5, então o número está na metade de baixo do intervalo e a casa guardada não muda.",
+          "conta": "3 < 5 → mantém o 8"
+        },
+        {
+          "titulo": "Resultado",
+          "explicacao": "A casa dos décimos fica como estava e o 3 é descartado. O resultado tem exatamente uma casa depois da vírgula, que era o pedido.",
+          "conta": "12,83 ≈ 12,8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Arredonde 7,96 para as unidades (nenhuma casa depois da vírgula) e digite o resultado.",
+      "imagem": "dec-q-arred-2",
+      "dica": "Guarde o 7 das unidades e olhe o algarismo dos décimos. Cuidado: subir um no 7 pode causar efeito em cadeia.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "O decisor é o 9 dos décimos, que é maior que 5 — então o 7 sobe para 8. 7,96 está quase colado no 8, bem longe do 7."
+        },
+        {
+          "resposta": "7.9",
+          "porque": "Isso é arredondar aos décimos. A questão pediu unidades, ou seja, nenhuma casa depois da vírgula."
+        },
+        {
+          "resposta": "8.0",
+          "porque": "O valor está certo, mas arredondado às unidades o número não tem casa decimal: escreve-se 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe na casa pedida",
+          "explicacao": "Unidades é a casa antes da vírgula: o 7.",
+          "conta": "7|,96"
+        },
+        {
+          "titulo": "Olhe o decisor",
+          "explicacao": "O primeiro algarismo descartado é o 9 dos décimos.",
+          "conta": "decisor = 9"
+        },
+        {
+          "titulo": "Decida",
+          "explicacao": "9 é maior que 5, então sobe um na casa guardada.",
+          "conta": "7 + 1 = 8"
+        },
+        {
+          "titulo": "Confira a distância",
+          "explicacao": "De 7,96 até 8 falta 0,04. Até 7 são 0,96. O 8 está muito mais perto.",
+          "conta": "7,96 ≈ 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Você vai comprar 3 itens de R$ 19,80 cada. Sem fazer a conta exata, qual é a melhor estimativa do total?",
+      "imagem": "dec-q-arred-estimativa",
+      "dica": "Arredonde o preço para um número fácil de multiplicar por 3, e depois pense se o total real ficou acima ou abaixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Um pouco menos de R$ 60" },
+        { "rotulo": "B", "texto": "Um pouco mais de R$ 60" },
+        { "rotulo": "C", "texto": "Cerca de R$ 30" },
+        { "rotulo": "D", "texto": "Cerca de R$ 600" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Um pouco mais de R$ 60",
+          "porque": "O raciocínio do R$ 60 está certo, mas o lado do erro não. Como R$ 19,80 é MENOR que R$ 20, o total real fica ABAIXO de R$ 60 — são R$ 59,40. Arredondar para cima faz a estimativa ficar acima do valor real."
+        },
+        {
+          "resposta": "Cerca de R$ 30",
+          "porque": "Isso seria comprar um item e meio. São três itens de quase R$ 20 cada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Arredonde o preço",
+          "explicacao": "R$ 19,80 está a 20 centavos de R$ 20,00 — bem perto. Vinte é um número fácil de multiplicar de cabeça.",
+          "conta": "19,80 ≈ 20"
+        },
+        {
+          "titulo": "Faça a conta fácil",
+          "explicacao": "Três vezes vinte — uma conta que dá para fazer de cabeça, que é justamente o motivo de ter arredondado antes.",
+          "conta": "3 × 20 = 60"
+        },
+        {
+          "titulo": "Para que lado você errou?",
+          "explicacao": "Você arredondou o preço para CIMA, então a estimativa ficou maior que o total real. Logo o valor verdadeiro está um pouco abaixo de R$ 60.",
+          "conta": "arredondei para cima → estimativa acima do real"
+        },
+        {
+          "titulo": "De quanto foi o erro",
+          "explicacao": "Foram 20 centavos a mais por item, em três itens: 60 centavos. O total real é R$ 59,40.",
+          "conta": "60 − 0,60 = R$ 59,40"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Arredonde 3,4499 para os décimos e digite o resultado.",
+      "imagem": "dec-q-arred-3",
+      "dica": "Olhe apenas UM algarismo depois da casa que você vai guardar. Os que vêm depois dele não votam.",
+      "formato": "numero",
+      "resposta": 3.4,
+      "errosComuns": [
+        {
+          "resposta": "3.5",
+          "porque": "Essa é a armadilha da questão. Os 99 no fim dão a impressão de que o número 'quase chegou' em 3,45, e daí subiria. Mas quem decide é só o algarismo imediatamente após a casa guardada — aqui, o 4. E 4 manda manter. De fato, 3,4499 é menor que 3,45, então está mais perto de 3,4."
+        },
+        {
+          "resposta": "3.45",
+          "porque": "Isso é arredondar aos centésimos, com duas casas. A questão pediu décimos, ou seja, uma casa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe na casa pedida",
+          "explicacao": "Décimos é a primeira casa depois da vírgula: o 4. Tudo à direita será descartado.",
+          "conta": "3,4|499"
+        },
+        {
+          "titulo": "Olhe UM algarismo",
+          "explicacao": "O primeiro descartado é o 4. Os dois noves que vêm depois não participam da decisão.",
+          "conta": "decisor = 4"
+        },
+        {
+          "titulo": "Decida",
+          "explicacao": "4 é menor que 5, então a casa guardada fica como está.",
+          "conta": "4 < 5 → mantém"
+        },
+        {
+          "titulo": "Confirme pela distância",
+          "explicacao": "3,4499 é menor que 3,45, que é o meio do caminho entre 3,4 e 3,5. Quem não chegou no meio está mais perto do começo.",
+          "conta": "3,4499 < 3,45 → mais perto de 3,4"
+        }
+      ]
+    }
+  ]
+}

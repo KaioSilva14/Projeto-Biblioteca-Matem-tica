@@ -1,0 +1,209 @@
+{
+  "id": "comparar",
+  "numero": 5,
+  "titulo": "Qual das duas é maior",
+  "pergunta": "Por que 1/3 é maior que 1/5, se 3 é menor que 5?",
+  "ideia": {
+    "paragrafos": [
+      "Essa é a pergunta que derruba mais gente em frações, e a resposta está na lição 1: o número de baixo não conta, ele nomeia o tamanho do pedaço. Quanto mais você corta uma pizza, menor fica cada fatia. Cortar em 5 dá fatias menores que cortar em 3. Por isso 1/5 é menor que 1/3, mesmo com 5 sendo maior que 3.",
+      "Guarde isso: com o mesmo número em cima, quem tem o de baixo MAIOR é a fração MENOR. Parece invertido porque é invertido mesmo.",
+      "Quando os de baixo são iguais, aí não tem mistério: os pedaços têm o mesmo tamanho, então ganha quem tem mais pedaços. 5/8 é maior que 3/8 e ponto.",
+      "O problema é o caso do meio: 5/8 contra 7/11. Pedaços de tamanhos diferentes e quantidades diferentes — não dá para comparar de olho. A saída é reescrever as duas com pedaços do mesmo tamanho, usando o que você aprendeu sobre frações equivalentes. Com pedaços iguais, é só contar."
+    ],
+    "destaque": "Só dá para comparar contando quando os pedaços têm o mesmo tamanho.",
+    "imagem": "ideia-comparar"
+  },
+  "resolvido": {
+    "enunciado": "Qual é maior: 5/8 ou 7/11?",
+    "imagem": "res-comparar",
+    "passos": [
+      {
+        "titulo": "Por que não dá para chutar",
+        "explicacao": "7 é maior que 5, mas os onze avos são pedaços menores que os oitavos. Uma coisa puxa para um lado e a outra para o outro. Olhar não resolve — as duas estão bem perto uma da outra.",
+        "conta": "5/8 e 7/11: nem o de cima nem o de baixo decidem sozinho"
+      },
+      {
+        "titulo": "Escolha um tamanho de pedaço que sirva para as duas",
+        "explicacao": "Precisa ser um número que 8 e 11 dividam. O jeito garantido é multiplicar um pelo outro: 88. Cada oitavo cabe 11 vezes ali, e cada onze avos cabe 8 vezes.",
+        "conta": "8 × 11 = 88"
+      },
+      {
+        "titulo": "Reescreva as duas em oitenta e oito avos",
+        "explicacao": "Multiplicando em cima e embaixo pelo mesmo número, como na lição 3. Em 5/8, o fator é 11. Em 7/11, o fator é 8.",
+        "conta": "5/8 = 55/88 · 7/11 = 56/88"
+      },
+      {
+        "titulo": "Agora é só contar",
+        "explicacao": "Os pedaços agora têm exatamente o mesmo tamanho, então vence quem tem mais. 56 é maior que 55 — por pouquinho.",
+        "conta": "56 > 55, logo 7/11 > 5/8"
+      }
+    ],
+    "fecho": "A diferença era de 1/88 — quase nada. Por isso comparar de olho falha nesses casos, e por isso vale o trabalho de igualar os pedaços."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As duas barras têm o mesmo comprimento. Qual fração é maior: 2/3 ou 3/5?",
+      "imagem": "q-comp-2-3-3-5",
+      "dica": "Compare as partes pintadas na figura. Se quiser conferir pela conta, reescreva as duas com o mesmo número embaixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2/3" },
+        { "rotulo": "B", "texto": "3/5" },
+        { "rotulo": "C", "texto": "São iguais" },
+        { "rotulo": "D", "texto": "Não dá para comparar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/5",
+          "porque": "Provavelmente você comparou só os números de cima (3 é maior que 2). Mas os pedaços são de tamanhos diferentes: um terço é bem maior que um quinto. Reescrevendo em quinze avos: 2/3 = 10/15 e 3/5 = 9/15."
+        },
+        {
+          "resposta": "Não dá para comparar",
+          "porque": "Dá sim — sempre dá. Basta reescrever as duas com o mesmo número embaixo, e aí é só contar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha um tamanho comum de pedaço",
+          "explicacao": "Precisa de um número que 3 e 5 dividam. O menor é 15.",
+          "conta": "3 × 5 = 15"
+        },
+        {
+          "titulo": "Reescreva as duas",
+          "explicacao": "Em 2/3 o fator é 5 (porque 3 × 5 = 15). Em 3/5 o fator é 3 (porque 5 × 3 = 15).",
+          "conta": "2/3 = 10/15 · 3/5 = 9/15"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Com pedaços do mesmo tamanho, ganha quem tem mais. E a figura mostra o mesmo: a barra de cima tem um pedacinho pintado a mais.",
+          "conta": "10 > 9, logo 2/3 > 3/5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Duas pizzas do mesmo tamanho foram cortadas: uma em 5 fatias iguais e a outra em 8 fatias iguais. Você come 1 fatia de cada. Em qual pizza você comeu mais?",
+      "imagem": "q-comp-1-5-1-8",
+      "dica": "Quanto mais cortes, menor fica cada fatia.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Na pizza cortada em 5" },
+        { "rotulo": "B", "texto": "Na pizza cortada em 8" },
+        { "rotulo": "C", "texto": "Comi a mesma quantidade nas duas" },
+        { "rotulo": "D", "texto": "Depende do sabor da pizza" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Na pizza cortada em 8",
+          "porque": "Esse é o erro clássico: 8 é maior que 5, então parece que a fatia é maior. É o contrário. Cortar em mais pedaços faz cada pedaço ficar MENOR. 1/8 é menor que 1/5."
+        },
+        {
+          "resposta": "Comi a mesma quantidade nas duas",
+          "porque": "Foi uma fatia de cada, mas as fatias não têm o mesmo tamanho. Uma pizza inteira dividida em 5 dá fatias maiores do que a mesma pizza dividida em 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare o tamanho das fatias",
+          "explicacao": "A mesma pizza foi repartida entre mais pedaços na segunda. Se são mais pedaços para a mesma quantidade de pizza, cada um sai menor.",
+          "conta": "1/5 da pizza vs 1/8 da pizza"
+        },
+        {
+          "titulo": "Confirme pela conta",
+          "explicacao": "Reescrevendo com pedaços do mesmo tamanho: o menor número que 5 e 8 dividem é 40.",
+          "conta": "1/5 = 8/40 · 1/8 = 5/40"
+        },
+        {
+          "titulo": "A regra que fica",
+          "explicacao": "Com o mesmo número em cima, a fração de maior denominador é a MENOR. Foi na pizza de 5 fatias que você comeu mais.",
+          "conta": "8/40 > 5/40, logo 1/5 > 1/8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Coloque as três frações em ordem, da menor para a maior: 3/4, 1/2 e 5/8. Qual é a ordem certa?",
+      "imagem": "q-comp-ordem",
+      "dica": "Todas cabem confortavelmente em oitavos: 4 e 2 dividem 8.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1/2 · 5/8 · 3/4" },
+        { "rotulo": "B", "texto": "1/2 · 3/4 · 5/8" },
+        { "rotulo": "C", "texto": "3/4 · 5/8 · 1/2" },
+        { "rotulo": "D", "texto": "5/8 · 1/2 · 3/4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/2 · 3/4 · 5/8",
+          "porque": "Você ordenou pelo número de cima (1, 3, 5) sem igualar os pedaços. Em oitavos: 1/2 = 4/8, 3/4 = 6/8 e 5/8 = 5/8. A ordem certa é 4, 5, 6 oitavos."
+        },
+        {
+          "resposta": "3/4 · 5/8 · 1/2",
+          "porque": "Essa é a ordem da maior para a menor. A questão pediu da menor para a maior — é só ler ao contrário."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha o tamanho comum",
+          "explicacao": "O 8 já serve para todas: 4 divide 8 e 2 divide 8. Não precisa multiplicar tudo.",
+          "conta": "denominador comum = 8"
+        },
+        {
+          "titulo": "Reescreva as três",
+          "explicacao": "1/2 multiplicando por 4 em cima e embaixo. 3/4 multiplicando por 2. E 5/8 já está pronta.",
+          "conta": "1/2 = 4/8 · 3/4 = 6/8 · 5/8 = 5/8"
+        },
+        {
+          "titulo": "Ordene contando",
+          "explicacao": "Com pedaços iguais é só olhar os números de cima: 4, 5, 6.",
+          "conta": "4/8 < 5/8 < 6/8 → 1/2 < 5/8 < 3/4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois times jogaram o mesmo número de partidas. O time A venceu 7/9 dos seus jogos e o time B venceu 5/6 dos seus. Qual time teve o melhor aproveitamento?",
+      "imagem": "q-comp-times",
+      "dica": "Procure um número que 9 e 6 dividam. Não precisa ser 54.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O time B" },
+        { "rotulo": "B", "texto": "O time A" },
+        { "rotulo": "C", "texto": "Os dois tiveram o mesmo aproveitamento" },
+        { "rotulo": "D", "texto": "Falta saber quantos jogos cada time disputou" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O time A",
+          "porque": "7 é maior que 5, mas os nonos são pedaços menores que os sextos. Reescrevendo em dezoito avos: 7/9 = 14/18 e 5/6 = 15/18. O time B levou por um fio."
+        },
+        {
+          "resposta": "Falta saber quantos jogos cada time disputou",
+          "porque": "Aproveitamento já É uma fração — ela diz a proporção de vitórias, seja em 18 jogos ou em 180. Como os dois jogaram o mesmo número de partidas, comparar as frações basta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache um denominador comum",
+          "explicacao": "Não precisa multiplicar 9 por 6. Basta um número que os dois dividam, e 18 serve: 9 × 2 = 18 e 6 × 3 = 18.",
+          "conta": "denominador comum = 18"
+        },
+        {
+          "titulo": "Reescreva as duas",
+          "explicacao": "Em 7/9 o fator é 2. Em 5/6 o fator é 3.",
+          "conta": "7/9 = 14/18 · 5/6 = 15/18"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "15 é maior que 14, então o time B venceu uma proporção maior dos seus jogos. A diferença é de 1/18 — bem apertada.",
+          "conta": "15/18 > 14/18, logo 5/6 > 7/9"
+        }
+      ]
+    }
+  ]
+}

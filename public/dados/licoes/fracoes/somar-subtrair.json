@@ -1,0 +1,237 @@
+{
+  "id": "somar-subtrair",
+  "numero": 7,
+  "titulo": "Somar e subtrair",
+  "pergunta": "Por que 1/2 + 1/3 não dá 2/5?",
+  "ideia": {
+    "paragrafos": [
+      "Somar 1/2 + 1/3 e responder 2/5 é o erro mais natural do mundo — você soma em cima, soma embaixo, pronto. O problema é que o resultado sai menor que uma das parcelas: 2/5 é menor que 1/2. Você juntou duas quantidades e ficou com menos do que já tinha. Alguma coisa está errada.",
+      "O que está errado é somar os de baixo. Lembre que o número de baixo não é quantidade — é o nome do tamanho do pedaço. Somar 'meio' com 'terço' não produz 'quinto'; isso seria como somar 3 metros com 2 centímetros e responder 5.",
+      "Quando os pedaços já têm o mesmo tamanho, somar é fácil e óbvio: 2/7 + 3/7 = 5/7. Duas fatias mais três fatias dão cinco fatias, e a fatia continua sendo a mesma coisa. O de baixo não muda porque o tamanho do pedaço não mudou.",
+      "Então todo o trabalho é anterior à soma: transformar as duas frações em pedaços do mesmo tamanho, exatamente como você fez para comparar. Depois disso, some só os de cima."
+    ],
+    "destaque": "Só se somam pedaços do mesmo tamanho. O de baixo não é somado nunca.",
+    "imagem": "ideia-somar"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 1/2 + 1/3.",
+    "imagem": "res-somar",
+    "passos": [
+      {
+        "titulo": "Por que não dá para somar direto",
+        "explicacao": "Meios e terços são pedaços de tamanhos diferentes. Antes de juntar, os dois precisam ser recortados no mesmo tamanho.",
+        "conta": "1/2 + 1/3 ≠ 2/5"
+      },
+      {
+        "titulo": "Ache um tamanho que sirva para os dois",
+        "explicacao": "Precisa ser um número que 2 e 3 dividam. O menor é 6. Isso significa cortar tudo em sextos.",
+        "conta": "menor múltiplo comum de 2 e 3 = 6"
+      },
+      {
+        "titulo": "Reescreva as duas em sextos",
+        "explicacao": "Cada metade vira 3 sextos (2 × 3 = 6, então multiplica em cima por 3). Cada terço vira 2 sextos (3 × 2 = 6, então multiplica em cima por 2).",
+        "conta": "1/2 = 3/6 · 1/3 = 2/6"
+      },
+      {
+        "titulo": "Agora some só os de cima",
+        "explicacao": "Três sextos mais dois sextos são cinco sextos. O 6 fica parado porque o tamanho do pedaço não mudou — mudou só quantos você tem.",
+        "conta": "3/6 + 2/6 = 5/6"
+      },
+      {
+        "titulo": "O resultado faz sentido?",
+        "explicacao": "5/6 é quase 1, e você somou mais da metade com um terço. Faz sentido. Se tivesse dado 2/5, o resultado seria menor que a primeira parcela — sinal claro de erro.",
+        "conta": "5/6 > 1/2 ✓"
+      }
+    ],
+    "fecho": "Iguale os pedaços, some os de cima, mantenha o de baixo. Subtrair é igual, só trocando o sinal."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule 3/4 + 1/6 e digite apenas o número de cima do resultado, já na forma mais simples.",
+      "imagem": "q-soma-3-4-1-6",
+      "dica": "Procure o menor número que 4 e 6 dividem. Não é 24.",
+      "formato": "numero",
+      "resposta": 11,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "Você somou em cima e embaixo: 3 + 1 = 4 e 4 + 6 = 10, dando 4/10. Mas somar os de baixo não faz sentido — 'quartos' mais 'sextos' não dá 'décimos'."
+        },
+        {
+          "resposta": "22",
+          "porque": "Você usou 24 como denominador comum (3/4 = 18/24 e 1/6 = 4/24, somando 22/24). A conta está certa! Só falta simplificar: 22/24 dividido por 2 dá 11/12."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o denominador comum",
+          "explicacao": "Procure o menor número que 4 e 6 dividem. Os múltiplos de 4 são 4, 8, 12... e os de 6 são 6, 12... O primeiro que aparece nas duas listas é 12.",
+          "conta": "menor múltiplo comum de 4 e 6 = 12"
+        },
+        {
+          "titulo": "Reescreva as duas frações",
+          "explicacao": "Em 3/4 o fator é 3 (4 × 3 = 12). Em 1/6 o fator é 2 (6 × 2 = 12).",
+          "conta": "3/4 = 9/12 · 1/6 = 2/12"
+        },
+        {
+          "titulo": "Some os de cima",
+          "explicacao": "Nove doze avos mais dois doze avos.",
+          "conta": "9/12 + 2/12 = 11/12"
+        },
+        {
+          "titulo": "Já está simplificada?",
+          "explicacao": "11 é primo e 12 não é múltiplo de 11, então não dá para simplificar. O número de cima é 11.",
+          "conta": "11/12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Janaína tem três canecas: uma pequena, uma média e uma grande. Com a caneca pequena cheia, ela enche 3/5 da caneca média. Com a caneca média cheia, ela enche 5/8 da caneca grande. Janaína enche as canecas pequena e média e despeja tudo na caneca grande. O que vai acontecer com a caneca grande?",
+      "imagem": "q-canecas",
+      "fonte": {
+        "prova": "OBMEP · 1ª Fase, Nível 1",
+        "ano": 2019,
+        "referencia": "Questão 17"
+      },
+      "dica": "Descubra primeiro quanto da caneca grande cabe na pequena. Depois some com o que a média representa.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Ela ficará totalmente cheia, sem transbordar." },
+        { "rotulo": "B", "texto": "Ela ficará preenchida em 7/8 de sua capacidade." },
+        { "rotulo": "C", "texto": "Ela ficará preenchida em 8/13 de sua capacidade." },
+        { "rotulo": "D", "texto": "Ela ficará preenchida em 5/8 de sua capacidade." },
+        { "rotulo": "E", "texto": "Ela vai transbordar." }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Ela ficará preenchida em 8/13 de sua capacidade.",
+          "porque": "Você somou 3/5 + 5/8 somando em cima e embaixo (3+5=8 e 5+8=13). Além de a soma de denominadores não valer, as duas frações nem se referem à mesma coisa: 3/5 é da caneca média, e 5/8 é da grande."
+        },
+        {
+          "resposta": "Ela ficará preenchida em 5/8 de sua capacidade.",
+          "porque": "Esse é só o que a caneca média sozinha representa. Falta somar o que veio da caneca pequena."
+        },
+        {
+          "resposta": "Ela vai transbordar.",
+          "porque": "Somando direitinho dá exatamente 8/8. Cheia até a boca, sem uma gota a mais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Cuidado: as frações falam de canecas diferentes",
+          "explicacao": "3/5 é uma fração da caneca MÉDIA, e 5/8 é uma fração da GRANDE. Não dá para somar as duas assim, porque o inteiro de cada uma é diferente. Primeiro tudo precisa virar fração da caneca grande.",
+          "conta": "pequena = 3/5 da média · média = 5/8 da grande"
+        },
+        {
+          "titulo": "Quanto da grande cabe na pequena?",
+          "explicacao": "A pequena é 3/5 da média, e a média é 5/8 da grande. Então a pequena é três quintos de cinco oitavos da grande — ou seja, 3/5 de 5/8. Dividindo 5/8 em 5 partes, cada uma é 1/8; tomando 3 delas, dá 3/8.",
+          "conta": "3/5 de 5/8 = 3/8 da grande"
+        },
+        {
+          "titulo": "Agora as duas falam da mesma caneca",
+          "explicacao": "A pequena vale 3/8 da grande e a média vale 5/8 da grande. Mesmo tamanho de pedaço: oitavos.",
+          "conta": "pequena = 3/8 · média = 5/8"
+        },
+        {
+          "titulo": "Agora sim, some",
+          "explicacao": "Três oitavos mais cinco oitavos dão oito oitavos, que é a caneca grande inteira. Repare que só foi possível somar depois que as duas frações passaram a falar da mesma caneca.",
+          "conta": "3/8 + 5/8 = 8/8 = 1"
+        },
+        {
+          "titulo": "Traduza o resultado",
+          "explicacao": "Deu exatamente 1 caneca grande: ela fica cheia até a borda e não transborda.",
+          "conta": "8/8 = totalmente cheia"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Calcule 5/6 − 1/4 e digite apenas o número de cima do resultado, já na forma mais simples.",
+      "imagem": "q-sub-5-6-1-4",
+      "dica": "Subtrair funciona igual a somar: iguale os pedaços primeiro, depois subtraia só os de cima.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "Você subtraiu em cima e embaixo: 5 − 1 = 4 e 6 − 4 = 2, dando 4/2. Isso daria 2 inteiros, mas o resultado tem que ser MENOR que 5/6 — subtrair não pode aumentar o número."
+        },
+        {
+          "resposta": "13",
+          "porque": "Você somou em vez de subtrair: 10/12 + 3/12 = 13/12. A conta de igualar os pedaços está perfeita, só o sinal saiu trocado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o denominador comum",
+          "explicacao": "Os múltiplos de 6 são 6, 12, 18... e os de 4 são 4, 8, 12... O primeiro em comum é 12.",
+          "conta": "menor múltiplo comum de 6 e 4 = 12"
+        },
+        {
+          "titulo": "Reescreva as duas",
+          "explicacao": "Em 5/6 o fator é 2 (6 × 2 = 12). Em 1/4 o fator é 3 (4 × 3 = 12).",
+          "conta": "5/6 = 10/12 · 1/4 = 3/12"
+        },
+        {
+          "titulo": "Subtraia os de cima",
+          "explicacao": "Dez doze avos menos três doze avos.",
+          "conta": "10/12 − 3/12 = 7/12"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "7 é primo e 12 não é múltiplo de 7, então 7/12 já é irredutível. E o resultado é menor que 5/6, como tem que ser numa subtração.",
+          "conta": "7/12"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma jarra estava com 3/4 de suco. Foram servidos 2/5 da jarra. Que fração da jarra ainda tem suco?",
+      "imagem": "q-jarra",
+      "dica": "É uma subtração: o que havia menos o que saiu. Iguale os pedaços antes.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "7/20" },
+        { "rotulo": "B", "texto": "1/1" },
+        { "rotulo": "C", "texto": "1/20" },
+        { "rotulo": "D", "texto": "5/9" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "5/9",
+          "porque": "Você somou em vez de subtrair, e ainda somou os de baixo. Servir suco diminui o que resta, então o resultado tem que ser menor que 3/4."
+        },
+        {
+          "resposta": "1/20",
+          "porque": "A conta de igualar está certa (15/20 e 8/20), mas a subtração escorregou: 15 − 8 = 7, não 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o que a pergunta pede",
+          "explicacao": "Sobra é o que havia menos o que saiu.",
+          "conta": "3/4 − 2/5"
+        },
+        {
+          "titulo": "Iguale os pedaços",
+          "explicacao": "Precisa de um número que 4 e 5 dividam: 20.",
+          "conta": "3/4 = 15/20 · 2/5 = 8/20"
+        },
+        {
+          "titulo": "Subtraia os de cima",
+          "explicacao": "Quinze vinte avos menos oito vinte avos.",
+          "conta": "15/20 − 8/20 = 7/20"
+        },
+        {
+          "titulo": "Faz sentido?",
+          "explicacao": "Sobrou 7/20, que é menos que a metade — coerente, já que quase todo o suco que havia foi servido.",
+          "conta": "7/20 da jarra"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "id": "o-que-e-virgula",
+  "numero": 1,
+  "titulo": "O que a vírgula quer dizer",
+  "pergunta": "Como escrever 'menos que um inteiro' sem usar fração?",
+  "ideia": {
+    "paragrafos": [
+      "Você já sabe escrever pedaços com fração: 3/10 é três décimos. O decimal é o mesmo número escrito de outro jeito — e o motivo de existirem os dois é que cada um é mais prático numa situação diferente. Fração é melhor para pensar; decimal é melhor para calcular e para caber num visor de calculadora.",
+      "Para entender de onde sai a vírgula, olhe para como um número inteiro funciona. Em 435, cada casa vale dez vezes mais que a casa à direita dela: 4 centenas, 3 dezenas, 5 unidades. Andar uma casa para a esquerda multiplica por 10; andar uma casa para a direita divide por 10.",
+      "Aí vem a pergunta óbvia: e se a gente continuar dividindo por 10 depois da unidade? A casa seguinte valeria um décimo. A próxima, um centésimo. A regra não muda — ela só continua. A vírgula existe só para marcar onde ficou a unidade, para você saber onde está.",
+      "Por isso 0,3 é exatamente 3/10, e 0,07 é exatamente 7/100. Não são coisas parecidas: são o mesmo número. A vírgula é um marcador de posição, não uma operação."
+    ],
+    "destaque": "A vírgula não separa dois números. Ela marca onde termina a unidade.",
+    "imagem": "dec-ideia-grade"
+  },
+  "resolvido": {
+    "enunciado": "Um quadrado foi dividido em 100 quadradinhos iguais e 27 deles foram preenchidos. Escreva essa parte como fração e como número decimal.",
+    "imagem": "dec-res-100-27",
+    "passos": [
+      {
+        "titulo": "Escreva primeiro como fração",
+        "explicacao": "O quadrado inteiro foi cortado em 100 partes iguais, então cada quadradinho é um centésimo. Foram 27 deles.",
+        "conta": "27/100"
+      },
+      {
+        "titulo": "Quantos décimos cabem aí?",
+        "explicacao": "Vinte e sete centésimos são duas fileiras cheias de dez, mais sete soltos. Cada fileira cheia é um décimo. Então são 2 décimos e 7 centésimos.",
+        "conta": "27 centésimos = 2 décimos + 7 centésimos"
+      },
+      {
+        "titulo": "Monte o decimal",
+        "explicacao": "A primeira casa depois da vírgula é a dos décimos; a segunda, a dos centésimos. Colocando 2 e 7 nessas casas, e 0 nas unidades porque não há nenhum quadrado inteiro preenchido.",
+        "conta": "0,27"
+      },
+      {
+        "titulo": "Confira lendo em voz alta",
+        "explicacao": "Lemos 0,27 como 'vinte e sete centésimos' — exatamente o nome da fração. Se o nome que você lê não bate com a fração, alguma casa está no lugar errado.",
+        "conta": "27/100 = 0,27"
+      }
+    ],
+    "fecho": "Fração e decimal são duas roupas do mesmo número. O nome que você lê em voz alta é o mesmo nos dois."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O quadrado da figura foi dividido em 100 partes iguais e algumas foram preenchidas. Que número decimal representa a parte preenchida?",
+      "imagem": "dec-q-100-7",
+      "dica": "Conte quantos quadradinhos estão preenchidos. Cada um vale um centésimo — a SEGUNDA casa depois da vírgula.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "0,07" },
+        { "rotulo": "B", "texto": "0,7" },
+        { "rotulo": "C", "texto": "7,0" },
+        { "rotulo": "D", "texto": "0,007" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,7",
+          "porque": "0,7 é sete DÉCIMOS, ou seja, sete fileiras inteiras — setenta quadradinhos. Aqui são só sete quadradinhos soltos, que valem sete centésimos. O zero depois da vírgula é o que segura o 7 na casa certa."
+        },
+        {
+          "resposta": "7,0",
+          "porque": "7,0 são sete quadrados INTEIROS. A figura mostra menos de um quadrado preenchido, então o número tem que ser menor que 1."
+        },
+        {
+          "resposta": "0,007",
+          "porque": "Aí o 7 caiu na casa dos milésimos, que seria o quadrado dividido em 1000 partes. Aqui a divisão foi em 100."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Em quantas partes o inteiro foi dividido?",
+          "explicacao": "Cem. Então cada quadradinho vale um centésimo, e centésimo é a segunda casa depois da vírgula.",
+          "conta": "1 quadradinho = 1/100 = 0,01"
+        },
+        {
+          "titulo": "Quantos estão preenchidos?",
+          "explicacao": "Sete. Como não completam nem uma fileira de dez, não há décimo nenhum.",
+          "conta": "7/100"
+        },
+        {
+          "titulo": "Monte as casas",
+          "explicacao": "Zero décimos e sete centésimos. O zero entre a vírgula e o 7 não é enfeite: é ele que diz que o 7 está na casa dos centésimos.",
+          "conta": "7/100 = 0,07"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos décimos há no número 0,4? Digite apenas o número.",
+      "imagem": "dec-q-decimos-4",
+      "dica": "A primeira casa depois da vírgula é a dos décimos. Leia o número em voz alta.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "décimos",
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "Quarenta seria a quantidade de CENTÉSIMOS: 0,4 é o mesmo que 0,40, ou seja, 40 centésimos. Mas a pergunta é sobre décimos, e em décimos o número é 4."
+        },
+        {
+          "resposta": "0.4",
+          "porque": "0,4 é o número inteiro que está sendo descrito. A pergunta é quantos décimos cabem nele — e décimos são pedaços, então a resposta é uma quantidade: 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o número",
+          "explicacao": "Lemos 0,4 como 'quatro décimos'. A leitura já entrega a resposta.",
+          "conta": "0,4 = quatro décimos"
+        },
+        {
+          "titulo": "Confirme pela fração",
+          "explicacao": "Quatro décimos escrito em fração é 4/10, e o numerador conta quantos pedaços você tem.",
+          "conta": "0,4 = 4/10"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A figura mostra um quadrado dividido em 100 partes iguais, com 40 preenchidas. Qual decimal representa essa parte?",
+      "imagem": "dec-q-100-40",
+      "dica": "Quarenta centésimos completam fileiras inteiras. Cada fileira cheia vale um décimo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "0,4" },
+        { "rotulo": "B", "texto": "0,04" },
+        { "rotulo": "C", "texto": "4,0" },
+        { "rotulo": "D", "texto": "40,0" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,04",
+          "porque": "0,04 são quatro quadradinhos soltos. Aqui são quarenta — quatro fileiras cheias, que valem quatro décimos."
+        },
+        {
+          "resposta": "40,0",
+          "porque": "40,0 são quarenta quadrados INTEIROS. A figura tem menos de um quadrado preenchido, então o resultado é menor que 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva como fração",
+          "explicacao": "Quarenta partes de cem. O quadrado inteiro continua sendo o inteiro, então o 100 vai embaixo e o 40 em cima.",
+          "conta": "40/100"
+        },
+        {
+          "titulo": "Agrupe em fileiras",
+          "explicacao": "Cada fileira de dez quadradinhos é um décimo. Quarenta quadradinhos formam quatro fileiras cheias.",
+          "conta": "40/100 = 4/10"
+        },
+        {
+          "titulo": "Escreva o decimal",
+          "explicacao": "Quatro décimos e nenhum centésimo sobrando.",
+          "conta": "4/10 = 0,4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O número 0,25 é o mesmo que qual fração?",
+      "imagem": "dec-q-025",
+      "dica": "Leia 0,25 em voz alta. O nome que você fala já diz qual é o denominador.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "25/100" },
+        { "rotulo": "B", "texto": "25/10" },
+        { "rotulo": "C", "texto": "1/25" },
+        { "rotulo": "D", "texto": "2/5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "25/10",
+          "porque": "25/10 é maior que 2 inteiros — dois inteiros e meio. Como 0,25 é menor que 1, o denominador não pode ser 10. Repare que a última casa de 0,25 é a dos centésimos, então o denominador é 100."
+        },
+        {
+          "resposta": "1/25",
+          "porque": "Você inverteu. 1/25 é um pedaço muito pequeno (0,04). O 25 de 0,25 é a QUANTIDADE de centésimos, então ele vai em cima."
+        },
+        {
+          "resposta": "2/5",
+          "porque": "2/5 é 0,4, não 0,25. Talvez você tenha lido as duas casas como números separados — mas 0,25 é 'vinte e cinco centésimos', um número só."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia em voz alta",
+          "explicacao": "0,25 lê-se 'vinte e cinco centésimos'. A leitura já dá a fração pronta.",
+          "conta": "0,25 = vinte e cinco centésimos"
+        },
+        {
+          "titulo": "Escreva o que você leu",
+          "explicacao": "A quantidade (25) vai em cima; o nome do pedaço (centésimos, 100) vai embaixo.",
+          "conta": "25/100"
+        },
+        {
+          "titulo": "Vale simplificar?",
+          "explicacao": "Dá: dividindo por 25 em cima e embaixo, 25/100 vira 1/4. As três escritas são o mesmo número — mas a alternativa que representa diretamente as casas de 0,25 é 25/100.",
+          "conta": "25/100 = 1/4 = 0,25"
+        }
+      ]
+    }
+  ]
+}

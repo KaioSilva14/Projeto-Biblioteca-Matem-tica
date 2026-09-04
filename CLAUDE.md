@@ -3,177 +3,201 @@
 > Lido automaticamente pelo Claude Code a cada conversa neste projeto.
 > Leia por completo antes de qualquer alteração.
 >
-> **Estado: v2.0 implementada (Frações como padrão-ouro).**
+> **Estado: v3 implementada.** A v2 (azul + rosa, 35 atividades em módulos)
+> foi descartada por inteiro — não é referência para nada.
 
 ## O que é o projeto
 
-**Biblioteca Matemática** — biblioteca digital de Matemática para o Ensino
-Fundamental II (6º ao 9º ano). O aluno entra e estuda imediatamente: sem
-login, sem cadastro, sem banco de dados, sem IA embutida no produto, sem
-gamificação (XP, moedas, ranking). Progresso salvo em `localStorage`.
+Plataforma de estudo de Matemática para o Ensino Fundamental II. O aluno
+entra e estuda: sem login, sem cadastro, sem banco de dados, sem IA embutida
+no produto, sem gamificação. Progresso em `localStorage`.
 
-## Stack técnica (não mudar sem necessidade real)
+**Catálogo completo dos 4 anos (51 matérias). Prontas: Frações e Números
+decimais**, ambas no 6º ano. Cada matéria concluída emite certificado.
 
-- **Frontend:** HTML5 + CSS3 + TypeScript compilado (nunca JS puro na
-  lógica). Sem framework.
-- **Backend:** Node.js + Express (`server.js`, CommonJS), servindo `public/`
-  como estático.
-- **Build:** `tsc` compila `src/ts/*.ts` → `public/js/*.js`.
-  `tsconfig.json` usa `moduleResolution: "Bundler"` de propósito — os imports
-  dentro dos `.ts` terminam em `.js` (ex.: `from "./utils.js"`). É esperado.
-- `public/js/package.json` contém apenas `{"type":"module"}`. Existe para o
-  Node tratar a saída compilada como ESM ao rodar os testes (a raiz não pode
-  virar `type: module` porque `server.js` usa `require`). Não apagar.
-- Scripts: `npm run build`, `npm start`, `npm run dev` / `dev:build`,
+## Stack
+
+- HTML + CSS + TypeScript compilado. Sem framework, sem bundler.
+- `server.js` (Express, CommonJS) serve `public/` como estático.
+- `tsc` compila `src/ts/*.ts` → `public/js/*.js`. `moduleResolution: "Bundler"`
+  de propósito: os imports nos `.ts` terminam em `.js`. É esperado.
+- `public/js/package.json` contém só `{"type":"module"}`, para o Node tratar a
+  saída compilada como ESM nos testes. A raiz não pode virar `type: module`
+  porque `server.js` usa `require`. Não apagar.
+- Scripts: `npm run build`, `npm start`, `npm run dev`, `npm run imagens`,
   `npm test`.
 
-## Arquitetura
+## Design — leia o DESIGN.md
 
-O motor é **genérico e orientado a dados** — nunca duplicar lógica por
-matéria. Adicionar conteúdo novo = criar o JSON + a página HTML (cópia de
-`public/conteudos/fracoes.html`, trocando `data-conteudo-json`) + uma entrada
-em `public/data/indice-geral.json`. **Não** deve exigir tocar em `src/ts/`.
+`DESIGN.md` na raiz **é a especificação visual vigente** (sistema inspirado no
+Warp). Não é histórico. O que ele manda e não pode ser quebrado:
 
-Arquivos em `src/ts/`:
-- `types.ts` — todos os tipos. União discriminada de 8 tipos de atividade
-  (multipla_escolha, resposta_numerica, verdadeiro_falso, complete,
-  ordenacao, encontre_erro, problema, relacionamento) e os tipos da trilha
-  de módulos (`Modulo`, `ItemModulo`).
-- `atividades.ts` — correção e estado de sessão. Padrão **imutável**: toda
-  função devolve um novo estado, nunca muta o recebido. Manter.
-- `modulos.ts` — resolve a trilha declarada no JSON, calcula a ordem global
-  das atividades e valida a integridade (`verificarTrilha`).
-- `progresso.ts` — `localStorage` (`biblioteca_matematica_progress`), com
-  recuperação segura se os dados estiverem corrompidos.
-- `componentes.ts` — funções `render*()`.
-- `ilustracoes.ts` — gerador **paramétrico** de SVG (ver abaixo).
-- `certificado.ts` — desenha o certificado em `<canvas>` e exporta PNG.
-- `app.ts` — bootstrap. Cada página tem `data-page` no `<body>`
-  (`home` / `ano` / `conteudo`). Sem roteador.
+- superfície única: canvas quente `#2b2622`. Nunca preto puro, nunca cinza
+  neutro — a temperatura é a identidade;
+- **não existe acento cromático.** O off-white `#f7f5f0` É a cor da marca;
+- Inter em peso 400/500. Display nunca em 700+. Tracking negativo nos títulos;
+- DM Mono para contas e rótulos técnicos; Instrument Serif itálico só para o
+  destaque de cada lição — usar mais que isso tira o peso do momento;
+- raio 3px em botão, 4px em card. Pill só em ícone;
+- elevação por hairline + contraste de superfície. **Sem sombra, sem gradiente.**
 
-### Trilha de módulos (o coração da v2)
+Tokens em `public/css/base.css`, com os nomes do DESIGN.md.
 
-Um conteúdo declara `modulos: Modulo[]`. Cada módulo tem `itens`, uma lista
-ORDENADA que mistura `teoria`, `exemplo`, `video`, `dica` e `atividades`.
-O item `atividades` só referencia ids (`"ids": [1,2,3,4,5]`) da lista
-`conteudo.atividades`. É isso que produz o formato pedido: teoria → bloco
-curto de atividades → vídeo → mais atividades.
+### A única extensão ao DESIGN.md
 
-- A ordem dos módulos é a ordem **canônica**: é ela que o índice de progresso
-  no `localStorage` referencia (`ordemGlobalDeAtividades`).
-- Os blocos são liberados em sequência. Não é gamificação: como o progresso
-  é um índice numa lista ordenada, deixar pular blocos tornaria a contagem
-  de concluídas incoerente.
-- `modulos` é opcional. Um JSON sem ele cai no formato linear da v1 sem
-  quebrar a página.
+O documento registra que a marca não expõe paleta de erro/sucesso. Uma
+plataforma de estudo precisa dizer se a resposta está certa, e isso é função,
+não decoração. A extensão é mínima e dessaturada, para ficar na família quente:
 
-### Ilustrações
+    --acerto  #9db87f   6.84:1 sobre canvas · 5.70:1 sobre canvas-soft
+    --erro    #d99b80   6.38:1 sobre canvas · 5.31:1 sobre canvas-soft
 
-Nada de um SVG por questão. A chave vem do JSON e é gerada por parâmetros:
+Os dois passam em AA nas duas superfícies. Não introduzir mais cores.
 
-    "ilustracao": "circulo:8:3"    roda em 8 partes, 3 pintadas
-    "ilustracao": "barra:5:2"      barra em 5 partes, 2 pintadas
-    "ilustracao": "grade:4:3:5"    grade 4x3, 5 células pintadas
-    "ilustracao": "reta:4:3"       reta de 0 a 1 em quartos, 3/4 marcado
-    "ilustracao": "conjunto:10:4"  10 objetos, 4 destacados
+## Arquitetura do conteúdo
 
-Vale em atividades e em blocos de teoria. Chave inválida devolve `null` e a
-questão aparece sem imagem — nunca quebrada. Um teste garante que toda chave
-usada no JSON é válida.
+Três níveis: **catálogo → curso (matéria) → lição**.
 
-**Não ilustrar questão cuja imagem entrega a resposta.**
+- `public/dados/catalogo.json` — os 4 anos e as ~51 matérias da BNCC. Matéria
+  sem conteúdo tem `disponivel: false` e NÃO pode ter `arquivo` (teste garante).
+- `public/dados/cursos/<id>.json` — a matéria: descrição, vídeos e a ordem
+  das lições.
+- `public/dados/licoes/<curso>/<licao>.json` — uma lição.
+- `public/dados/imagens.json` — **gerado**, não editar à mão.
 
-## Identidade visual v2.0
+Páginas, sem roteador: `index.html` (anos) · `ano.html?a=6` ·
+`curso.html?c=fracoes` · `licao.html?c=fracoes&l=o-que-e`.
 
-Azul + rosa, tema geométrico, mobile-first. Tokens em `public/css/global.css`.
+**Publicar uma matéria nova = escrever os JSONs, gerar as imagens e virar o
+`disponivel` para `true`.** Nenhum HTML novo, nenhum TypeScript.
 
-    --azul-tinta    #123A8F   10.36:1  títulos, texto de marca
-    --azul          #185ADB    5.96:1  ações, links
-    --rosa          #FF2E93    3.46:1  SÓ preenchimento — nunca texto
-    --framboesa     #A81455    7.25:1  o rosa que vira TEXTO
+### Anatomia de uma lição
 
-**A regra dos dois rosas é deliberada e medida:** o rosa-choque puro reprova
-em WCAG AA para texto (3.46:1, mínimo 4.5:1). Ele entra em logo, badge, barra
-de progresso, preenchimento de forma. Quando o rosa precisa ser letra, usa-se
-a framboesa. Não trocar um pelo outro.
+Cada lição ensina UMA ideia e tem sempre a mesma estrutura:
 
-**Logo:** pássaro geométrico (círculo + triângulos), azul com asa e bico
-rosa. Está inline como SVG no `<header>` de cada página e redesenhado em
-canvas em `certificado.ts` — se mudar o desenho, mudar nos dois lugares.
+1. **A ideia** — por que a coisa funciona, em texto corrido.
+2. **Resolvido com você** — um problema resolvido passo a passo, revelado um
+   passo por vez.
+3. **Sua vez** — questões, cada uma com imagem própria.
 
-`DESIGN.md` na raiz é histórico da v1. A paleta dele foi substituída.
+### Duas decisões do modelo que vêm de críticas reais
 
-## Conteúdo
+- `PassoResolvido` separa `explicacao` (o porquê) de `conta` (a aritmética).
+  Misturar os dois num parágrafo só produz texto que manda fazer sem ensinar
+  a pensar — foi o defeito da v2.
+- `ErroComum` liga uma resposta errada específica ao motivo de ela ser
+  tentadora. Quando o aluno erra, ele recebe o diagnóstico do engano que
+  cometeu, não a solução genérica. **Esse campo é a alma da v3.** Um teste
+  reprova questão sem `errosComuns`.
 
-**Pronto: Frações (6º ano)** — o padrão-ouro da v2. 4 módulos, 7 blocos de
-atividades, 35 atividades + 5 extras, 5 vídeos verificados, teoria e exemplos
-intercalados, certificado ao concluir.
+## Progresso e certificado
 
-Todo o restante do currículo (6º ao 9º) está listado com `disponivel: false`
-em `public/data/indice-geral.json`. Próximos do 6º ano: Geometria, Perímetro,
-Área, Medidas, Gráficos, Tabelas.
+Não há banco de dados nem cadastro: tudo vive no `localStorage`, na chave
+`biblioteca_matematica_v3`, organizado por curso.
 
-### Regras de conteúdo que não podem ser quebradas
+O progresso de uma lição é a **lista de ids** das questões respondidas, não um
+contador — contador quebra com repetição de clique ou mudança de ordem.
+`acertadas` guarda só quem acertou SEM ver a resolução; é esse número que vai
+para o certificado.
 
-- **Nunca inventar URL de vídeo.** Verificar a existência antes de publicar.
-  O jeito rápido e confiável é a própria API do YouTube:
-  `curl -s "https://www.youtube.com/oembed?url=https%3A//www.youtube.com/watch%3Fv%3D<ID>&format=json"`
-  — devolve título e canal reais, e 404 se o vídeo não existir ou for privado.
-  Usar o canal que o oEmbed retorna, não o nome do programa.
-- **Nunca** duas alternativas corretas, nenhuma correta, cálculo errado ou
-  questão ambígua.
-- **Todo cálculo verificado rodando em código antes de publicar**, não de
-  cabeça. Os testes conferem formato, unicidade de resposta e a ordem de
-  questões de ordenação, mas não substituem verificar a conta.
-- Dificuldade calibrada (decisão do usuário): básico e intermediário são a
-  rampa de entrada e continuam acessíveis; **aplicação e desafio é que
-  carregam a dificuldade** — problemas de duas ou mais etapas, dados
-  irrelevantes, e o desafio no estilo OBMEP nível 1.
+O certificado é emitido quando todas as lições da matéria estão concluídas,
+fica salvo junto do progresso daquele curso e é exportado em PNG
+(`src/ts/certificado.ts`, canvas → PNG). A página avisa o aluno que limpar os
+dados do navegador apaga tudo — porque apaga mesmo.
+
+## Vídeos
+
+Cada matéria tem **pelo menos 3 vídeos** numa seção "Para se aprofundar", fora
+das lições: o site ensina por conta própria, e o vídeo é para quem quiser ir
+além. Cada um traz uma nota dizendo para quando ele serve.
+
+**Nunca inventar URL.** `npm run videos` confere todo vídeo citado contra a API
+oEmbed do YouTube (que devolve título e canal reais e dá 404 no que não existe
+ou virou privado). Com `--corrigir`, ele reescreve título e canal com o valor
+verdadeiro. Rodar isso antes de publicar matéria nova, e de vez em quando —
+vídeo sai do ar.
+
+O player só é carregado no clique; antes disso a página não fala com o YouTube.
+
+## Imagens
+
+**Toda questão tem imagem, e imagem é arquivo PNG em `/assets`.** A página
+nunca desenha figura em tempo de execução.
+
+- `ferramentas/desenhos.mjs` — 16 geradores paramétricos de SVG: roda, barra,
+  barras empilhadas, barras comparadas, rodas comparadas, grade, reta numérica,
+  reta decimal, coleção, recipientes, barra de etapas, corte duplo, barra por
+  categorias, preço por parte, quadro de ordens e conta armada.
+- `ferramentas/manifesto-imagens.mjs` — a lista de todas as imagens.
+- `npm run imagens` rasteriza tudo com o Chrome headless em 2x, fundo
+  transparente, e reescreve `public/dados/imagens.json`.
+
+O conteúdo cita a imagem **pelo id**; o índice resolve caminho, alt e
+dimensões. Por isso o CSS de `.figura__img` **não pode** declarar
+`width: auto` — isso faria o navegador usar a largura física do PNG 2x e a
+figura sairia no dobro do tamanho.
+
+Duas regras de conteúdo para as figuras:
+- o `alt` descreve o que a figura mostra, **nunca a resposta**;
+- a figura não entrega o resultado. Em "qual é maior", as barras vão sem
+  rótulo de fração.
+
+## Conteúdo — regras que não podem ser quebradas
+
+- **Toda conta verificada rodando código antes de publicar.** Nunca de cabeça.
+  `tests/conteudo.test.mjs` recalcula cada resposta do zero, a partir dos dados
+  do enunciado. Se você adicionar questão, adicione a verificação junto.
+- **Questões de aplicação vêm de provas públicas da OBMEP**, com `fonte`
+  declarada. São livres para redistribuir, com atribuição.
+  - Onde achar: `https://www.obmep.org.br/provas_static/<ano>/f1n1.htm` tem os
+    links (Google Drive) da prova e das soluções. O download direto funciona
+    com `https://drive.google.com/uc?export=download&id=<ID>`.
+  - Os PDFs são de duas colunas: `pdftotext -layout` embaralha a leitura.
+    Extrair coluna a coluna com `-marginl`/`-marginr` (o pdftotext do ambiente
+    é o do xpdf e **não** tem `-x/-y/-W/-H`).
+  - **Conferir a solução oficial antes de usar.** O problema "Os livros da
+    Elisa" (BQ 2010, nº 220) foi descartado porque a própria solução publicada
+    não fecha: ela conclui N=71 com 24+7+18=49 livros.
+- A OBMEP é olimpíada e **não tem itens básicos**. As lições 1 a 5 usam
+  questões escritas para o site; a OBMEP entra da lição 6 em diante.
+- Nunca duas alternativas corretas, nenhuma correta, ou enunciado ambíguo.
 
 ## Testes
 
-`npm test` roda o build e três arquivos (65 testes no total):
+`npm test` roda o build e três arquivos (90 testes):
 
-- `tests/logica-atividades.test.mjs` — correção por tipo, imutabilidade do
-  motor, **regressão do bug do placar ao retomar**, integridade da trilha e
-  do conteúdo publicado.
-- `tests/progresso-visual.test.mjs` — `localStorage`, renderização de
-  progresso e questões, gerador de ilustrações, certificado (jsdom).
-- `tests/pagina-conteudo.test.mjs` — integração: monta a página real com o
-  JSON real e confere módulos, blocos, desbloqueio progressivo e conclusão.
+- `tests/conteudo.test.mjs` — percorre o catálogo inteiro: integridade de todos
+  os cursos e, principalmente, a **recontagem independente de toda a
+  matemática**. Ao adicionar questão, adicione a verificação junto.
+- `tests/motor.test.mjs` — correção, diagnóstico de erro, progresso por curso e
+  certificado.
+- `tests/pagina.test.mjs` — integração: monta as quatro páginas reais e
+  percorre o caminho do aluno até o certificado.
 
 Detalhe do teste de integração: `app.js` registra o listener de
 `DOMContentLoaded` no import, ligado ao document daquele momento. Como cada
-montagem cria um jsdom novo, o import usa `?montagem=N` para forçar uma
-instância nova. Sem isso, só o primeiro teste passa.
+montagem cria um jsdom novo, o import usa `?m=N` para forçar reavaliação.
 
-Rodar `npm test` depois de qualquer mudança em `atividades.ts`,
-`modulos.ts`, `progresso.ts` ou `app.ts`. `strict: true` deve continuar
-passando sem erro.
+## Verificação visual
 
-Para conferência visual, dá para tirar screenshot com o Chrome headless.
-Atenção: no Windows a janela tem largura mínima real de ~504px, então
-`--window-size=390` **não** simula um celular de 390px — ele renderiza a 504
-e corta a imagem, o que parece um bug de layout que não existe.
+Screenshot com Chrome headless funciona bem. **No Windows a janela tem largura
+mínima real de ~504px**, então `--window-size=390` não simula um celular de
+390px: ele renderiza a 504 e corta a imagem, o que parece um bug de layout que
+não existe. Para testar mobile, use 504.
 
-## Bugs
+## Pendências
 
-1. **Placar errado ao concluir uma matéria retomada — CORRIGIDO.**
-   `iniciarSessao` reiniciava `acertos`/`erros` em zero mesmo ao continuar.
-   Agora aceita o placar acumulado, e a tela de conclusão lê do
-   `localStorage`. Coberto por teste de regressão nos dois níveis.
-2. **Contador "zerando" ao sair e voltar — provavelmente resolvido, não
-   confirmado ao vivo.** A causa nunca foi comprovada. A hipótese principal
-   era a tela de retomada não mostrar onde o aluno estava. Na v2 a barra da
-   trilha fica fixa no topo e os blocos concluídos ficam marcados, então o
-   número aparece sempre. **Confirmar com o usuário** antes de dar como
-   encerrado.
-3. **CSS da busca quebrado — CORRIGIDO.** Faltava `box-sizing`, `min-width:0`
-   dentro do flex e largura contida. A lupa agora é um ícone absoluto e o
-   input reserva o espaço dela no `padding-left`.
+**Prontas (padrão-ouro): Frações e Números decimais** — 16 lições, 64 questões,
+150 diagnósticos de erro, 96 imagens, 8 vídeos verificados.
 
-## Pendências da v2.0
+Falta o resto do 6º ano, na ordem do catálogo: Divisibilidade e primos,
+Potências e raiz quadrada, Porcentagem, Ângulos, Figuras planas, Perímetro,
+Área, Sólidos e volume, Grandezas e medidas, Plano cartesiano, Gráficos e
+tabelas, Média aritmética. Depois 7º, 8º e 9º.
 
-- Aplicar a estrutura de módulos às demais matérias (nenhuma outra existe
-  ainda — Frações é a única).
-- Confirmar o bug 2 ao vivo.
+A decisão do usuário foi **terminar o 6º ano inteiro antes de subir de ano**.
+
+Custo real por matéria, medido nas duas primeiras: 6 a 8 lições, ~4 questões
+por lição, ~6 imagens por lição, 3 vídeos verificados, e a verificação
+matemática de cada resposta. Não dá para acelerar isso sem cair no conteúdo
+raso que motivou a v3.

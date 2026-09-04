@@ -1,0 +1,220 @@
+{
+  "id": "multiplicar-dividir",
+  "numero": 7,
+  "titulo": "Multiplicar e dividir decimais",
+  "pergunta": "Como 0,3 × 0,4 pode dar 0,12, um número menor que os dois?",
+  "ideia": {
+    "paragrafos": [
+      "Existe uma ideia teimosa na cabeça de todo mundo: multiplicar aumenta. Ela vem de anos multiplicando por números inteiros maiores que 1. Mas multiplicar por um número MENOR que 1 é pegar um pedaço — e pedaço é menos que o todo. Metade de 8 é 4. Multiplicar por 0,5 é a mesma coisa que dividir por 2.",
+      "Por isso 0,3 × 0,4 dá 0,12. Você está pegando três décimos de quatro décimos: um pedaço de um pedaço. Não tem como o resultado ser grande.",
+      "Para fazer a conta, o caminho mais seguro é ignorar as vírgulas, multiplicar como se fossem inteiros, e só no fim decidir onde a vírgula entra. A regra: conte quantas casas decimais existem nos dois números somadas, e o resultado tem esse tanto de casas. Em 0,3 × 0,4 são uma casa mais uma casa, então o resultado tem duas: 12 vira 0,12.",
+      "Na divisão o truque é outro, e é bonito. Como dividir é uma fração, multiplicar os dois números pelo mesmo valor não muda o resultado — igualzinho a frações equivalentes. Então mova a vírgula dos DOIS até o divisor virar inteiro, e faça uma divisão comum. 4,5 ÷ 0,5 vira 45 ÷ 5, que é 9."
+    ],
+    "destaque": "Multiplicar por menos de 1 diminui. Você está pegando um pedaço, não repetindo o número.",
+    "imagem": "dec-ideia-mult"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 0,3 × 0,4.",
+    "imagem": "dec-res-mult",
+    "passos": [
+      {
+        "titulo": "Estime antes",
+        "explicacao": "Você vai pegar três décimos de quatro décimos — um pedaço de um pedaço. O resultado tem que ser pequeno, bem menor que 0,4.",
+        "conta": "resultado esperado: bem menor que 0,4"
+      },
+      {
+        "titulo": "Esqueça as vírgulas e multiplique",
+        "explicacao": "Trate como se fossem inteiros. Isso é seguro porque a vírgula será reposicionada no fim, com uma regra própria.",
+        "conta": "3 × 4 = 12"
+      },
+      {
+        "titulo": "Conte as casas dos dois fatores",
+        "explicacao": "0,3 tem uma casa depois da vírgula. 0,4 também tem uma. Somando, duas casas.",
+        "conta": "1 casa + 1 casa = 2 casas"
+      },
+      {
+        "titulo": "Coloque a vírgula no resultado",
+        "explicacao": "O resultado precisa ter duas casas decimais. Como 12 só tem dois algarismos, entra um zero na frente para ocupar as unidades.",
+        "conta": "12 com 2 casas → 0,12"
+      },
+      {
+        "titulo": "Bateu com a estimativa?",
+        "explicacao": "Bateu: 0,12 é bem menor que 0,4, como esperávamos. Se tivesse dado 1,2 ou 12, a vírgula estaria no lugar errado.",
+        "conta": "0,3 × 0,4 = 0,12"
+      },
+      {
+        "titulo": "Por que a regra das casas funciona",
+        "explicacao": "0,3 é 3/10 e 0,4 é 4/10. Multiplicando as frações, 3×4 em cima e 10×10 embaixo dá 12/100 — e centésimos são exatamente duas casas.",
+        "conta": "3/10 × 4/10 = 12/100 = 0,12"
+      }
+    ],
+    "fecho": "Multiplique sem vírgula, some as casas dos dois fatores e coloque a vírgula no fim. E sempre estime antes: é a estimativa que denuncia a vírgula fora do lugar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule 1,2 × 0,5 e digite o resultado.",
+      "imagem": "dec-q-mult-1",
+      "dica": "Multiplique 12 por 5 ignorando as vírgulas. Depois conte quantas casas decimais há nos dois fatores somadas.",
+      "formato": "numero",
+      "resposta": 0.6,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "A multiplicação sem vírgula está certa (12 × 5 = 60), mas faltou colocar a vírgula. São duas casas somadas, então 60 vira 0,60 — ou seja, 0,6."
+        },
+        {
+          "resposta": "6.0",
+          "porque": "Mesmo problema: a vírgula ficou uma casa fora. Multiplicar por 0,5 é o mesmo que pegar a metade, e a metade de 1,2 é 0,6, não 6."
+        },
+        {
+          "resposta": "1.7",
+          "porque": "Você somou em vez de multiplicar. 1,2 + 0,5 dá 1,7; a questão pede o produto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Estime",
+          "explicacao": "Multiplicar por 0,5 é pegar a metade. A metade de 1,2 é 0,6 — a estimativa já entrega a resposta, e a conta só confirma.",
+          "conta": "metade de 1,2 ≈ 0,6"
+        },
+        {
+          "titulo": "Multiplique sem vírgula",
+          "explicacao": "Trate 1,2 e 0,5 como se fossem 12 e 5. Isso é seguro porque a vírgula será reposicionada no fim, por uma regra própria.",
+          "conta": "12 × 5 = 60"
+        },
+        {
+          "titulo": "Conte e posicione",
+          "explicacao": "1,2 tem uma casa e 0,5 tem uma casa: duas no total. Então 60 recebe duas casas decimais.",
+          "conta": "60 → 0,60 = 0,6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Calcule 4,5 ÷ 0,5 e digite o resultado.",
+      "imagem": "dec-q-div-1",
+      "dica": "Mova a vírgula dos DOIS números até o divisor virar inteiro. Depois faça a divisão comum.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "2.25",
+          "porque": "Você dividiu por 2 em vez de 0,5. Dividir por 0,5 é perguntar quantas metades cabem — e cabem o dobro, não a metade. Por isso o resultado é maior que 4,5, não menor."
+        },
+        {
+          "resposta": "0.9",
+          "porque": "A conta 45 ÷ 5 = 9 está certa, mas sobrou uma vírgula. Quando você move a vírgula dos dois números igualmente, o resultado sai inteiro — não precisa reposicionar nada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Estime primeiro",
+          "explicacao": "Dividir por 0,5 é perguntar quantas metades cabem em 4,5. Como cabem duas metades em cada inteiro, o resultado tem que ser maior que 4,5 — perto do dobro.",
+          "conta": "resultado esperado ≈ 9"
+        },
+        {
+          "titulo": "Deixe o divisor inteiro",
+          "explicacao": "Multiplique os dois números por 10. Como divisão é uma fração, multiplicar em cima e embaixo pelo mesmo número não muda o resultado — é a mesma ideia de frações equivalentes.",
+          "conta": "4,5 ÷ 0,5 = 45 ÷ 5"
+        },
+        {
+          "titulo": "Divida normalmente",
+          "explicacao": "Agora é uma divisão de inteiros.",
+          "conta": "45 ÷ 5 = 9"
+        },
+        {
+          "titulo": "Confira multiplicando de volta",
+          "explicacao": "Se a divisão está certa, o resultado vezes o divisor dá o número original.",
+          "conta": "9 × 0,5 = 4,5 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um pacote de café custa R$ 12,50 e você comprou 3 pacotes. Quanto gastou?",
+      "imagem": "dec-q-mult-cafe",
+      "dica": "Aqui você multiplica por um inteiro, então o resultado é maior. Multiplique sem vírgula e devolva a casa no fim.",
+      "formato": "numero",
+      "resposta": 37.5,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "36.5",
+          "porque": "Parece que os centavos ficaram de fora. Três vezes 50 centavos dão 150 centavos, ou seja, 1 real e 50 centavos — e esse real precisa entrar na conta."
+        },
+        {
+          "resposta": "375",
+          "porque": "A multiplicação sem vírgula está certa (1250 × 3 = 3750), mas faltou repor a vírgula. R$ 12,50 tem duas casas, então o resultado também tem duas: 37,50."
+        },
+        {
+          "resposta": "15.5",
+          "porque": "Você somou 12,50 + 3 em vez de multiplicar. Três pacotes custam três vezes o preço de um."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Estime",
+          "explicacao": "Cada pacote custa quase R$ 13, e são três. Então o total deve ficar perto de R$ 39.",
+          "conta": "≈ 3 × 13 = 39"
+        },
+        {
+          "titulo": "Multiplique sem vírgula",
+          "explicacao": "Pense em centavos para sumir com a vírgula: 1250 centavos vezes 3. No fim você devolve a vírgula e volta para reais.",
+          "conta": "1250 × 3 = 3750"
+        },
+        {
+          "titulo": "Reponha a vírgula",
+          "explicacao": "12,50 tem duas casas decimais e o 3 não tem nenhuma, então o resultado tem duas casas.",
+          "conta": "3750 → 37,50"
+        },
+        {
+          "titulo": "Bateu com a estimativa",
+          "explicacao": "R$ 37,50 está perto dos R$ 39 estimados — um pouco menos, porque arredondamos o preço para cima.",
+          "conta": "R$ 37,50"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sem fazer a conta inteira: o resultado de 8 × 0,25 é maior ou menor que 8?",
+      "imagem": "dec-q-mult-estimar",
+      "dica": "0,25 é maior ou menor que 1? É isso que decide.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Menor que 8" },
+        { "rotulo": "B", "texto": "Maior que 8" },
+        { "rotulo": "C", "texto": "Exatamente 8" },
+        { "rotulo": "D", "texto": "Depende de fazer a conta" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Maior que 8",
+          "porque": "É a ideia teimosa de que multiplicar sempre aumenta. Ela só vale quando o multiplicador é maior que 1. Como 0,25 é menor que 1, você está pegando um pedaço de 8 — no caso, um quarto, que dá 2."
+        },
+        {
+          "resposta": "Depende de fazer a conta",
+          "porque": "Não depende. Comparar o multiplicador com 1 já decide: menor que 1 diminui, maior que 1 aumenta, igual a 1 mantém."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare o multiplicador com 1",
+          "explicacao": "0,25 é menor que 1. Multiplicar por algo menor que 1 é pegar uma parte do número, não repeti-lo.",
+          "conta": "0,25 < 1"
+        },
+        {
+          "titulo": "Que parte, exatamente?",
+          "explicacao": "0,25 é 25/100, que simplificado dá 1/4. Então a conta pede um quarto de 8.",
+          "conta": "0,25 = 1/4"
+        },
+        {
+          "titulo": "Confirme",
+          "explicacao": "Um quarto de 8 é 2 — bem menor que 8, como a comparação com 1 já previa.",
+          "conta": "8 × 0,25 = 2"
+        }
+      ]
+    }
+  ]
+}

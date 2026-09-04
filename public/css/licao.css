@@ -1,0 +1,433 @@
+/* ============================================================
+   licao.css — home do curso e página de lição.
+   Continua o sistema de base.css: hairlines, sem sombra,
+   sem acento cromático.
+   ============================================================ */
+
+/* ---------- Home ---------- */
+
+.hero { padding-block: var(--e-5xl) var(--e-4xl); }
+.hero__titulo { margin: var(--e-lg) 0 var(--e-xl); }
+.hero__linha { max-width: 58ch; margin-bottom: var(--e-2xl); }
+
+/* O serif editorial dentro do parágrafo: um pouco maior que o texto ao
+   redor para o itálico não sumir, mas sem virar outro nível de título. */
+.hero__enfase {
+  font-size: 1.15em;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
+.hero__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-lg);
+}
+.hero__resumo { font-size: 13px; }
+
+@media (max-width: 767px) {
+  .hero { padding-block: var(--e-2xl) var(--e-3xl); }
+  .hero__titulo { max-width: none; }
+}
+
+.secao__titulo { margin-bottom: var(--e-xl); }
+
+.lista { border-top: 1px solid var(--hairline); }
+
+.linha--licao { transition: background .12s ease; }
+.linha--licao:hover { background: var(--canvas-soft); text-decoration: none; }
+.linha--feita .linha__num { color: var(--acerto); }
+.linha--feita .linha__num::after { content: " ✓"; }
+
+@media (max-width: 599px) {
+  .linha { align-items: flex-start; gap: var(--e-md); flex-wrap: wrap; }
+  .linha__fim { width: 100%; padding-left: 44px; }
+}
+
+.metodo {
+  display: grid;
+  gap: var(--e-lg);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) { .metodo { grid-template-columns: repeat(3, 1fr); } }
+.metodo__item p:last-child { margin-bottom: 0; }
+.metodo__item .eyebrow { display: block; margin-bottom: var(--e-md); }
+.metodo__nota { margin-top: var(--e-xl); }
+
+/* ---------- Cabeçalho da lição ---------- */
+
+.licao__cabecalho {
+  padding-block: var(--e-4xl) var(--e-2xl);
+  border-bottom: 1px solid var(--hairline);
+}
+.licao__cabecalho h1 { margin: var(--e-md) 0 var(--e-lg); }
+.licao__cabecalho p:last-child { margin-bottom: 0; }
+
+@media (max-width: 767px) { .licao__cabecalho { padding-block: var(--e-2xl) var(--e-xl); } }
+
+/* ---------- Blocos da lição ---------- */
+
+.licao { padding-bottom: var(--e-5xl); }
+
+.bloco { padding-block: var(--e-3xl); border-bottom: 1px solid var(--hairline); }
+.bloco:last-child { border-bottom: 0; }
+.bloco .eyebrow { display: block; margin-bottom: var(--e-sm); }
+.bloco > h2 { margin-bottom: var(--e-xl); }
+
+.bloco__acoes { display: flex; flex-wrap: wrap; gap: var(--e-sm); margin-top: var(--e-lg); }
+
+/* A frase-síntese da ideia, no serif editorial do DESIGN.md.
+   É o único lugar onde o Instrument Serif aparece — usar mais que isso
+   tira o peso do momento. */
+.destaque {
+  max-width: 24ch;
+  margin: var(--e-2xl) 0 0;
+  padding-left: var(--e-lg);
+  border-left: 2px solid var(--mute);
+  color: var(--ink);
+}
+
+/* ---------- Figuras ---------- */
+
+.figura {
+  margin: var(--e-xl) 0 0;
+  padding: var(--e-xl);
+  background: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  display: flex;
+  justify-content: center;
+}
+/* Os PNGs são gerados em 2x para ficarem nítidos em tela retina. O tamanho
+   de exibição vem dos atributos width/height do <img>, que trazem a medida
+   lógica do desenho — por isso o CSS não pode declarar "width: auto" aqui:
+   isso faria o navegador usar a largura física do arquivo e a figura sairia
+   no dobro do tamanho. */
+.figura__img {
+  max-width: 100%;
+  height: auto;
+}
+.figura--questao { margin-block: var(--e-lg); background: var(--canvas); }
+
+/* ---------- Enunciado do exemplo resolvido ---------- */
+
+.enunciado { margin-bottom: var(--e-xl); }
+.enunciado p:last-of-type { margin-bottom: 0; }
+.enunciado .figura { background: var(--canvas); }
+
+/* ---------- Passos ---------- */
+
+.passos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--e-lg);
+}
+
+.passo {
+  padding: var(--e-lg) 0 var(--e-lg) var(--e-xl);
+  border-left: 1px solid var(--hairline);
+}
+.passo__cabeca { display: flex; align-items: baseline; gap: var(--e-md); margin-bottom: var(--e-sm); }
+.passo__num {
+  flex: 0 0 auto;
+  color: var(--mute);
+}
+.passo__titulo { margin: 0; }
+.passo__texto { margin: 0; max-width: 62ch; }
+
+/* A conta fica em DM Mono e numa faixa própria: separar o raciocínio da
+   aritmética é a razão de o passo existir. */
+.passo__conta {
+  display: inline-block;
+  margin: var(--e-md) 0 0;
+  padding: var(--e-sm) var(--e-md);
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+  font-family: var(--fonte-mono);
+  font-size: 14px;
+  line-height: 20px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.passos--compacto .passo { padding-block: var(--e-md); }
+
+.fecho {
+  max-width: 62ch;
+  margin-top: var(--e-xl);
+  padding: var(--e-lg);
+  background: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+}
+.fecho p { margin: 0; color: var(--body-strong); }
+
+/* ---------- Progresso da lição ---------- */
+
+.progresso { display: flex; align-items: center; gap: var(--e-md); margin-bottom: var(--e-xl); }
+.progresso__trilho {
+  flex: 1 1 auto;
+  height: 2px;
+  background: var(--hairline);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.progresso__barra { height: 100%; background: var(--primary); transition: width .3s ease; }
+.progresso__conta { flex: 0 0 auto; color: var(--mute); }
+
+/* ---------- Questão ---------- */
+
+.questao { padding: var(--e-xl); }
+.questao__topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-sm);
+  margin-bottom: var(--e-lg);
+}
+.questao__enunciado { margin: 0; max-width: 62ch; }
+.questao__corpo { margin-top: var(--e-xl); }
+
+.alternativas { display: grid; gap: var(--e-sm); }
+
+.alternativa {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-md);
+  width: 100%;
+  padding: var(--e-md) var(--e-lg);
+  text-align: left;
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-family: var(--fonte);
+  transition: border-color .12s ease, background .12s ease;
+}
+.alternativa:hover:not(:disabled) { border-color: var(--mute); }
+.alternativa:disabled { cursor: default; opacity: .6; }
+.alternativa__letra { flex: 0 0 auto; color: var(--mute); }
+.alternativa__texto { flex: 1 1 auto; }
+
+.alternativa--marcada {
+  border-color: var(--primary);
+  background: var(--canvas-raised);
+}
+.alternativa--marcada .alternativa__letra { color: var(--ink); }
+.alternativa--marcada:disabled { opacity: 1; }
+
+@media (max-width: 767px) { .alternativa { min-height: 48px; } }
+
+.resposta-numero { display: flex; align-items: center; gap: var(--e-md); }
+.campo--numero { max-width: 220px; font-family: var(--fonte-mono); font-size: 16px; }
+
+/* ---------- Ações e retorno ---------- */
+
+.acoes { display: flex; flex-wrap: wrap; gap: var(--e-sm); margin-top: var(--e-xl); }
+.acoes__retorno:empty { display: none; }
+
+.retorno {
+  margin-top: var(--e-xl);
+  padding: var(--e-lg);
+  border: 1px solid var(--hairline);
+  border-left-width: 2px;
+  border-radius: var(--r-sm);
+}
+.retorno__titulo { margin: 0 0 var(--e-sm); }
+.retorno__texto { margin: 0; color: var(--body-strong); max-width: 62ch; }
+
+.retorno--acerto { background: var(--acerto-fundo); border-left-color: var(--acerto); }
+.retorno--acerto .retorno__titulo { color: var(--acerto); }
+
+.retorno--erro { background: var(--erro-fundo); border-left-color: var(--erro); }
+.retorno--erro .retorno__titulo { color: var(--erro); }
+
+/* ---------- Resolução ---------- */
+
+.resolucao {
+  margin-top: var(--e-xl);
+  padding-top: var(--e-lg);
+  border-top: 1px solid var(--hairline);
+}
+.resolucao .eyebrow { display: block; margin-bottom: var(--e-lg); }
+.resolucao__resposta {
+  margin: var(--e-lg) 0 0;
+  padding: var(--e-md) var(--e-lg);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--e-sm);
+}
+
+/* ---------- Fim da lição ---------- */
+
+.fim { margin-top: var(--e-xl); }
+.fim h3 { margin: var(--e-sm) 0 var(--e-md); }
+.fim .acoes { margin-top: var(--e-xl); }
+
+/* ============================================================
+   Telas novas: anos, matéria, vídeos e certificado
+   ============================================================ */
+
+.banda--curta { padding-block: var(--e-3xl); }
+
+/* ---------- Cards de ano ---------- */
+
+.anos {
+  display: grid;
+  gap: var(--e-lg);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .anos { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .anos { grid-template-columns: repeat(4, 1fr); } }
+
+.ano-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-sm);
+  color: var(--ink);
+  transition: border-color .12s ease, background .12s ease;
+}
+.ano-card:hover { text-decoration: none; border-color: var(--mute); }
+.ano-card__titulo { margin: var(--e-xs) 0 0; }
+.ano-card__texto { flex: 1 1 auto; margin: 0; }
+.ano-card__conta { margin: var(--e-sm) 0 0; }
+
+/* ---------- Linhas de matéria ---------- */
+
+.linha--curso { transition: background .12s ease; }
+.linha--curso:hover { background: var(--canvas-soft); text-decoration: none; }
+
+.linha--indisponivel { cursor: default; }
+.linha--indisponivel .linha__titulo,
+.linha--indisponivel .linha__nota { color: var(--mute); }
+.linha--indisponivel:hover { background: transparent; }
+.linha--indisponivel .linha__fim { color: var(--hairline); }
+
+/* ---------- Topo da página de matéria ---------- */
+
+.curso { padding-bottom: var(--e-5xl); }
+
+.curso__topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-lg);
+  padding-block: var(--e-2xl);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.curso__rodape { padding-top: var(--e-2xl); }
+.curso__nota-videos { margin-bottom: var(--e-xl); }
+
+/* ---------- Vídeos ---------- */
+
+.videos {
+  display: grid;
+  gap: var(--e-xl);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) { .videos { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1080px) { .videos { grid-template-columns: repeat(3, 1fr); } }
+
+.video {
+  display: flex;
+  flex-direction: column;
+  background: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.video__capa {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  background: var(--canvas);
+  border: 0;
+  border-bottom: 1px solid var(--hairline);
+  cursor: pointer;
+  overflow: hidden;
+}
+.video__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .78;
+  transition: opacity .15s ease, transform .3s ease;
+}
+.video__capa:hover .video__thumb { opacity: 1; transform: scale(1.02); }
+
+.video__play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  padding-left: 4px;
+  font-size: 17px;
+  color: var(--on-primary);
+  background: var(--primary);
+  border-radius: var(--r-pill);
+  transition: transform .15s ease;
+}
+.video__capa:hover .video__play { transform: translate(-50%, -50%) scale(1.06); }
+
+.video__frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-bottom: 1px solid var(--hairline);
+  display: block;
+}
+
+.video__corpo { padding: var(--e-lg); display: flex; flex-direction: column; gap: var(--e-sm); }
+.video__canal { margin: 0; }
+.video__titulo { margin: 0; }
+.video__descricao { margin: 0; }
+
+/* ---------- Certificado ---------- */
+
+.certificado {
+  margin-block: var(--e-3xl);
+  scroll-margin-top: 80px;
+}
+.certificado .eyebrow { display: block; margin-bottom: var(--e-sm); }
+.certificado__titulo { margin-bottom: var(--e-md); }
+.certificado p { max-width: 62ch; }
+
+.certificado__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-sm);
+  margin-block: var(--e-lg);
+}
+.certificado__campo { flex: 1 1 260px; min-width: 0; max-width: 380px; }
+.certificado__form .botao { flex: 0 0 auto; }
+
+.certificado__previa {
+  padding: var(--e-sm);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+}
+.certificado__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-xs);
+}
+.certificado__aviso { margin: var(--e-lg) 0 0; }

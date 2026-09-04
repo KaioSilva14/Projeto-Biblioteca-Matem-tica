@@ -1,0 +1,241 @@
+{
+  "id": "do-que-sobrou",
+  "numero": 8,
+  "titulo": "Fração do que sobrou",
+  "pergunta": "\"Um terço do restante\" é um terço de quê, exatamente?",
+  "ideia": {
+    "paragrafos": [
+      "Chegamos no tipo de problema que separa quem decorou de quem entendeu. A frase é sempre parecida: gastou 2/5 do dinheiro e depois 1/3 DO QUE SOBROU. Ou leu metade do livro e depois 1/4 DO RESTANTE.",
+      "A armadilha é automática: a segunda fração parece se referir ao total, mas não se refere. Ela se refere ao que restou depois da primeira etapa — que é um inteiro menor, novo, diferente do original.",
+      "Um exemplo com números fáceis mostra o tamanho da diferença. Com R$ 100 e um gasto de 1/2, sobram R$ 50. Um quarto do RESTANTE é R$ 12,50. Um quarto do TOTAL seria R$ 25 — o dobro. Não é um detalhe.",
+      "A saída é sempre a mesma, e é chata de tão simples: resolva uma etapa por vez e escreva quanto sobrou depois de cada uma. Nunca tente pular direto para a resposta. Cada vez que o enunciado disser 'do restante', pare e pergunte: restante de quê? Quanto é isso agora?"
+    ],
+    "destaque": "Toda vez que ler \"do restante\", pare e calcule o restante antes de continuar.",
+    "imagem": "ideia-sobrou"
+  },
+  "resolvido": {
+    "enunciado": "Um livro tem 240 páginas. Marina leu 1/4 do livro na segunda-feira e 2/5 do restante na terça. Quantas páginas ela leu na terça?",
+    "imagem": "res-sobrou",
+    "passos": [
+      {
+        "titulo": "Etapa 1 — o que aconteceu na segunda",
+        "explicacao": "Um quarto de 240 páginas. Divide por 4 e multiplica por 1, como na lição 6.",
+        "conta": "240 ÷ 4 = 60 páginas na segunda"
+      },
+      {
+        "titulo": "Pare e calcule o que sobrou",
+        "explicacao": "Este é o passo que quase todo mundo pula, e é o que decide o problema. Depois da segunda-feira, o livro não tem mais 240 páginas por ler.",
+        "conta": "240 − 60 = 180 páginas restantes"
+      },
+      {
+        "titulo": "Etapa 2 — o novo inteiro é 180",
+        "explicacao": "Quando o enunciado diz '2/5 do restante', o inteiro dessa fração passou a ser 180, não 240. Agora é só aplicar o método de sempre sobre esse número.",
+        "conta": "180 ÷ 5 = 36 · 36 × 2 = 72 páginas na terça"
+      },
+      {
+        "titulo": "Compare com o erro clássico",
+        "explicacao": "Se alguém calculasse 2/5 de 240, chegaria a 96 páginas. Erraria por 24 páginas — e sem perceber, porque a conta em si estaria correta. O erro estaria em qual inteiro usar.",
+        "conta": "2/5 de 240 = 96 (errado) · 2/5 de 180 = 72 (certo)"
+      },
+      {
+        "titulo": "Feche o balanço",
+        "explicacao": "Sempre vale conferir se as partes fecham com o total.",
+        "conta": "60 + 72 = 132 lidas · 240 − 132 = 108 ainda faltam"
+      }
+    ],
+    "fecho": "Uma etapa por vez, anotando o que sobrou depois de cada uma. Quem tenta resolver de cabeça nesses problemas erra — não por não saber fração, mas por aplicar a fração ao número errado."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Pedro tinha R$ 60,00. Gastou 2/5 desse dinheiro numa camiseta e, depois, 1/4 do que havia sobrado num lanche. Quantos reais sobraram para ele?",
+      "imagem": "q-sobrou-dinheiro",
+      "dica": "Calcule quanto sobrou depois da camiseta ANTES de aplicar a fração do lanche.",
+      "formato": "numero",
+      "resposta": 27,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "21",
+          "porque": "Você aplicou 1/4 sobre os R$ 60 iniciais (dando R$ 15 no lanche) em vez de sobre o que sobrou. Mas quando ele foi lanchar já tinha gastado a camiseta — restavam R$ 36, e 1/4 disso é R$ 9."
+        },
+        {
+          "resposta": "36",
+          "porque": "Esse é o dinheiro depois da camiseta, mas antes do lanche. Falta descontar os R$ 9 do lanche."
+        },
+        {
+          "resposta": "9",
+          "porque": "R$ 9,00 é quanto ele gastou no lanche. A pergunta é quanto SOBROU no fim."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Etapa 1 — a camiseta",
+          "explicacao": "Dois quintos de 60: divide por 5 e multiplica por 2.",
+          "conta": "60 ÷ 5 = 12 · 12 × 2 = R$ 24,00"
+        },
+        {
+          "titulo": "Quanto sobrou depois da camiseta",
+          "explicacao": "Pare aqui. É este o valor que a próxima fração vai usar.",
+          "conta": "60 − 24 = R$ 36,00"
+        },
+        {
+          "titulo": "Etapa 2 — o lanche",
+          "explicacao": "Um quarto do que sobrou, ou seja, um quarto de 36 — e não de 60.",
+          "conta": "36 ÷ 4 = R$ 9,00"
+        },
+        {
+          "titulo": "O que restou",
+          "explicacao": "Do que ele tinha depois da camiseta, tire o lanche.",
+          "conta": "36 − 9 = R$ 27,00"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma caixa tem 90 bombons. João comeu 1/3 dos bombons e Maria comeu metade do que sobrou. Quantos bombons ficaram na caixa?",
+      "imagem": "q-sobrou-bombons",
+      "dica": "Depois que João comeu, quantos bombons restavam? É sobre esse número que a metade da Maria se aplica.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "bombons",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "Você calculou a metade de 90 como se fosse o que Maria comeu, ou aplicou as duas frações sobre o total. Quando Maria pegou a caixa, restavam 60 bombons — ela comeu 30."
+        },
+        {
+          "resposta": "45",
+          "porque": "Metade de 90. Mas Maria não comeu metade da caixa cheia: comeu metade do que SOBROU depois do João."
+        },
+        {
+          "resposta": "60",
+          "porque": "Esse é o número de bombons depois que João comeu, antes de a Maria pegar a caixa. Falta a etapa dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Etapa 1 — o que João comeu",
+          "explicacao": "Um terço de 90 bombons: divide por 3 para achar quanto vale um terço, e como é só um terço não precisa multiplicar nada depois.",
+          "conta": "90 ÷ 3 = 30 bombons"
+        },
+        {
+          "titulo": "Quanto sobrou",
+          "explicacao": "Este é o novo inteiro do problema.",
+          "conta": "90 − 30 = 60 bombons"
+        },
+        {
+          "titulo": "Etapa 2 — o que Maria comeu",
+          "explicacao": "Metade dos 60 que restavam — e não metade dos 90 originais. Quando Maria pegou a caixa, os bombons do João já não estavam mais lá.",
+          "conta": "60 ÷ 2 = 30 bombons"
+        },
+        {
+          "titulo": "O que ficou na caixa",
+          "explicacao": "Tire o que Maria comeu do que havia sobrado.",
+          "conta": "60 − 30 = 30 bombons"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um reservatório está cheio. Retira-se 1/2 da água e, em seguida, 1/2 do que restou. Que fração da água original ainda está no reservatório?",
+      "imagem": "q-sobrou-reservatorio",
+      "dica": "Não tem número nenhum no enunciado — e não precisa. Trabalhe direto com as frações, ou invente um valor fácil como 100 litros.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1/4" },
+        { "rotulo": "B", "texto": "0 — o reservatório fica vazio" },
+        { "rotulo": "C", "texto": "1/2" },
+        { "rotulo": "D", "texto": "1/3" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0 — o reservatório fica vazio",
+          "porque": "Você somou 1/2 + 1/2 = 1 e concluiu que saiu tudo. Mas a segunda metade não é metade do reservatório: é metade do que sobrou, que já era só metade. Duas retiradas de 'metade do que há' nunca esvaziam nada."
+        },
+        {
+          "resposta": "1/2",
+          "porque": "Essa é a fração que sobrou depois da PRIMEIRA retirada. Ainda falta a segunda."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Invente um número fácil",
+          "explicacao": "Como o enunciado não dá o volume, escolha um que simplifique a conta. 100 litros serve.",
+          "conta": "suponha 100 litros"
+        },
+        {
+          "titulo": "Primeira retirada",
+          "explicacao": "Metade de 100 sai, metade fica.",
+          "conta": "100 ÷ 2 = 50 litros restantes"
+        },
+        {
+          "titulo": "Segunda retirada",
+          "explicacao": "Metade do que restou, ou seja, metade de 50 — não de 100.",
+          "conta": "50 ÷ 2 = 25 litros saem · restam 25"
+        },
+        {
+          "titulo": "Volte para a fração",
+          "explicacao": "Sobraram 25 de 100 litros. Como o número inventado some na fração, a resposta vale para qualquer volume inicial.",
+          "conta": "25/100 = 1/4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Ana leu 2/5 de um livro na segunda-feira e 1/3 do que restou na terça. Ainda faltam 120 páginas para ela terminar. Quantas páginas tem o livro?",
+      "imagem": "q-sobrou-ana",
+      "dica": "Aqui você conhece o FIM e quer o começo. Descubra que fração do livro inteiro corresponde às 120 páginas que faltam.",
+      "formato": "numero",
+      "resposta": 300,
+      "unidade": "páginas",
+      "errosComuns": [
+        {
+          "resposta": "200",
+          "porque": "Provavelmente você tratou as 120 páginas como 3/5 do livro, esquecendo a leitura de terça. Depois da terça sobra menos que 3/5."
+        },
+        {
+          "resposta": "360",
+          "porque": "Parece que você usou 1/3 do total para a terça em vez de 1/3 do restante. A leitura de terça foi 1/3 de 3/5, que dá 1/5 do livro — não 1/3."
+        },
+        {
+          "resposta": "180",
+          "porque": "Esse é o número de páginas que restavam DEPOIS da segunda-feira, num livro de 300 páginas. A pergunta é o total do livro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que sobrou depois da segunda",
+          "explicacao": "Ela leu 2/5, então restam 3/5 do livro. Trabalhar com as frações do livro inteiro evita ter que adivinhar o total.",
+          "conta": "1 − 2/5 = 3/5 restantes"
+        },
+        {
+          "titulo": "Quanto ela leu na terça, em fração do livro",
+          "explicacao": "Um terço dos 3/5 que restavam. Dividir 3/5 em três partes iguais dá 1/5 em cada.",
+          "conta": "1/3 de 3/5 = 1/5 do livro"
+        },
+        {
+          "titulo": "Quanto ela leu ao todo",
+          "explicacao": "Some as duas leituras, agora que as duas estão em quintos.",
+          "conta": "2/5 + 1/5 = 3/5 do livro"
+        },
+        {
+          "titulo": "Que fração são as 120 páginas",
+          "explicacao": "Se ela leu 3/5, o que falta é o resto do livro.",
+          "conta": "1 − 3/5 = 2/5 = 120 páginas"
+        },
+        {
+          "titulo": "Do pedaço para o inteiro",
+          "explicacao": "Se 2 quintos valem 120, um quinto vale 60. O livro tem cinco quintos.",
+          "conta": "120 ÷ 2 = 60 · 60 × 5 = 300 páginas"
+        },
+        {
+          "titulo": "Confira do começo",
+          "explicacao": "Segunda: 2/5 de 300 = 120, restam 180. Terça: 1/3 de 180 = 60, restam 120. Bateu com o enunciado.",
+          "conta": "120 + 60 = 180 lidas · 300 − 180 = 120 ✓"
+        }
+      ]
+    }
+  ]
+}

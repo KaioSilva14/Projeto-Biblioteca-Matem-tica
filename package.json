@@ -1,9 +1,13 @@
 {
   "name": "biblioteca-matematica",
   "version": "1.0.0",
-  "description": "Biblioteca digital de Matemática para o Ensino Fundamental II (6º ao 9º ano).",
+  "description": "Biblioteca digital de Matemática para o Ensino Fundamental II — lições guiadas de frações.",
   "main": "server.js",
-  "keywords": ["educacao", "matematica", "ensino-fundamental"],
+  "keywords": [
+    "educacao",
+    "matematica",
+    "ensino-fundamental"
+  ],
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2"
@@ -20,6 +24,8 @@
     "dev": "nodemon server.js",
     "build": "tsc",
     "dev:build": "tsc --watch",
-    "test": "npm run build && node tests/logica-atividades.test.mjs && node tests/progresso-visual.test.mjs && node tests/pagina-conteudo.test.mjs"
+    "imagens": "node ferramentas/gerar-imagens.mjs",
+    "test": "npm run build && node tests/conteudo.test.mjs && node tests/motor.test.mjs && node tests/pagina.test.mjs",
+    "videos": "node ferramentas/verificar-videos.mjs"
   }
 }

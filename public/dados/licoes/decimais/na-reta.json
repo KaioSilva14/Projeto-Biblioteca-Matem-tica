@@ -1,0 +1,198 @@
+{
+  "id": "na-reta",
+  "numero": 3,
+  "titulo": "Decimais na reta",
+  "pergunta": "Onde exatamente fica 0,7? E 2,45?",
+  "ideia": {
+    "paragrafos": [
+      "Todo decimal é um número, e todo número tem um lugar só dele na reta. Achar esse lugar é o teste mais honesto de que você entendeu o número: quem sabe onde 0,7 fica não confunde ele com 0,07.",
+      "O método é o mesmo que você usou com frações. A quantidade de casas depois da vírgula diz em quantos pedaços dividir cada unidade: uma casa significa dividir de 10 em 10 (décimos); duas casas, de 100 em 100 (centésimos).",
+      "Na prática, você quase nunca precisa desenhar 100 marcas. Para achar 2,45, primeiro localize entre quais inteiros o número está — 2 e 3. Depois entre quais décimos — 2,4 e 2,5. Aí é só ver que 2,45 está bem no meio desses dois. Ir apertando o cerco é mais rápido e menos sujeito a erro.",
+      "Essa técnica de aproximar por etapas serve para o resto da matemática. Antes de calcular qualquer coisa, saber mais ou menos onde o resultado deve cair evita entregar uma resposta absurda sem perceber."
+    ],
+    "destaque": "Ache primeiro entre quais inteiros. Depois entre quais décimos. O cerco vai fechando.",
+    "imagem": "dec-ideia-reta"
+  },
+  "resolvido": {
+    "enunciado": "Marque o número 0,7 na reta e diga se ele está mais perto de 0 ou de 1.",
+    "imagem": "dec-res-reta-vazia",
+    "passos": [
+      {
+        "titulo": "Quantas casas depois da vírgula?",
+        "explicacao": "Uma só. Isso significa décimos, então o caminho de 0 até 1 precisa ser cortado em 10 pedaços iguais.",
+        "conta": "0,7 → uma casa → dividir de 0 a 1 em 10"
+      },
+      {
+        "titulo": "Conte os passos",
+        "explicacao": "Cada pedaço vale 0,1. Ande sete deles a partir do zero. Conte os PASSOS, não os tracinhos: o primeiro tracinho depois do zero já é o fim do primeiro passo.",
+        "conta": "7 passos de 0,1 = 0,7"
+      },
+      {
+        "titulo": "Perto de quem?",
+        "explicacao": "O meio do caminho é 0,5. Como 0,7 passou de 0,5, ele está na metade direita — mais perto do 1.",
+        "conta": "0,7 > 0,5 → mais perto de 1"
+      },
+      {
+        "titulo": "Confirme pela distância",
+        "explicacao": "De 0,7 até 1 falta 0,3. De 0,7 até 0 são 0,7. Como 0,3 é menor que 0,7, o 1 está mesmo mais perto.",
+        "conta": "1 − 0,7 = 0,3 · 0,7 − 0 = 0,7"
+      }
+    ],
+    "fecho": "Sempre que um decimal parecer abstrato, jogue ele na reta. O tamanho do número vira distância, e distância a gente enxerga."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A reta de 0 a 1 foi dividida em 10 partes iguais. Que número está marcado com o ponto?",
+      "imagem": "dec-q-reta-03",
+      "dica": "Cada pedaço vale um décimo, ou seja, 0,1. Conte quantos passos o ponto andou.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "0,3" },
+        { "rotulo": "B", "texto": "0,03" },
+        { "rotulo": "C", "texto": "3,0" },
+        { "rotulo": "D", "texto": "0,7" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,03",
+          "porque": "0,03 são três centésimos — um ponto praticamente colado no zero, invisível numa reta dividida em dez. Como a divisão foi em 10, cada passo vale 0,1 e três passos dão 0,3."
+        },
+        {
+          "resposta": "0,7",
+          "porque": "Você contou o que falta para chegar no 1. O ponto andou 3 passos a partir do zero, e é isso que a marca registra."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto vale cada pedaço?",
+          "explicacao": "A unidade foi cortada em 10, então cada pedaço é um décimo.",
+          "conta": "1 ÷ 10 = 0,1 por passo"
+        },
+        {
+          "titulo": "Quantos passos?",
+          "explicacao": "Três, contando a partir do zero. Conte os espaços entre os tracinhos, não os tracinhos — é aí que a maioria erra por um.",
+          "conta": "3 × 0,1 = 0,3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Entre quais dois números inteiros está o decimal 2,45?",
+      "imagem": "dec-q-reta-245",
+      "dica": "Olhe só para a parte antes da vírgula. Ela já diz o inteiro de baixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Entre 2 e 3" },
+        { "rotulo": "B", "texto": "Entre 24 e 25" },
+        { "rotulo": "C", "texto": "Entre 1 e 2" },
+        { "rotulo": "D", "texto": "Entre 0 e 1" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Entre 24 e 25",
+          "porque": "Você leu 2,45 como se a vírgula não existisse. Ela existe e é decisiva: o número tem 2 inteiros e um pedaço, não 24."
+        },
+        {
+          "resposta": "Entre 1 e 2",
+          "porque": "2,45 é maior que 2, porque tem 2 inteiros completos MAIS um pedaço. Então ele fica depois do 2, não antes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a parte inteira",
+          "explicacao": "Antes da vírgula está o 2. São dois inteiros completos, e ainda sobra um pedaço.",
+          "conta": "2,45 = 2 + 0,45"
+        },
+        {
+          "titulo": "Onde isso cai",
+          "explicacao": "Como sobra alguma coisa depois do 2, mas menos que um inteiro, o número fica entre 2 e 3.",
+          "conta": "2 < 2,45 < 3"
+        },
+        {
+          "titulo": "Fechando mais o cerco",
+          "explicacao": "Dá para ir além: 0,45 está entre 0,4 e 0,5, então 2,45 está entre 2,4 e 2,5 — bem no meio deles.",
+          "conta": "2,4 < 2,45 < 2,5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A reta abaixo vai de 3 a 4 e está dividida em 10 partes iguais. Que número está marcado?",
+      "imagem": "dec-q-reta-36",
+      "dica": "O ponto de partida não é o zero. Comece no 3 e conte os passos de 0,1.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3,6" },
+        { "rotulo": "B", "texto": "0,6" },
+        { "rotulo": "C", "texto": "6,3" },
+        { "rotulo": "D", "texto": "3,06" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,6",
+          "porque": "Você contou os passos, mas esqueceu de onde a reta começa. Ela não parte do zero: parte do 3. Então o número é 3 mais 6 décimos."
+        },
+        {
+          "resposta": "3,06",
+          "porque": "0,06 são seis centésimos, um ponto quase encostado no 3. Como a reta foi dividida em 10, cada passo vale 0,1 e seis passos dão 0,6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "De onde a reta parte?",
+          "explicacao": "Do 3. Tudo que você contar é acrescentado a esse 3, não ao zero.",
+          "conta": "início = 3"
+        },
+        {
+          "titulo": "Quanto vale cada passo?",
+          "explicacao": "O trecho de 3 até 4 vale 1 inteiro, cortado em 10 pedaços.",
+          "conta": "1 ÷ 10 = 0,1"
+        },
+        {
+          "titulo": "Some ao ponto de partida",
+          "explicacao": "Seis passos de 0,1 dão 0,6, que se somam ao 3.",
+          "conta": "3 + 0,6 = 3,6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O número 1,5 está exatamente no meio de quais dois inteiros? Digite o MENOR deles.",
+      "imagem": "dec-q-reta-15",
+      "dica": "Meio inteiro depois de um número inteiro. Qual inteiro vem antes?",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "O 2 é o inteiro de cima — o número está entre 1 e 2, e a pergunta pede o menor. Vale reler o enunciado antes de digitar."
+        },
+        {
+          "resposta": "0",
+          "porque": "1,5 já passou do 1 inteiro. Ele está no trecho entre 1 e 2, não entre 0 e 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe inteiro e pedaço",
+          "explicacao": "1,5 é um inteiro mais cinco décimos, e cinco décimos é exatamente meio.",
+          "conta": "1,5 = 1 + 0,5"
+        },
+        {
+          "titulo": "Localize na reta",
+          "explicacao": "Passou do 1 mas não chegou no 2, e ficou na metade exata do caminho entre os dois.",
+          "conta": "1 < 1,5 < 2"
+        },
+        {
+          "titulo": "Responda o que foi pedido",
+          "explicacao": "O menor dos dois inteiros é o 1.",
+          "conta": "menor = 1"
+        }
+      ]
+    }
+  ]
+}

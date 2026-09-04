@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matemática por ano — Biblioteca Matemática</title>
+  <meta name="description" content="As matérias de Matemática de um ano do Ensino Fundamental II, em lições guiadas." />
+  <meta name="theme-color" content="#2b2622" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/licao.css" />
+</head>
+<body data-pagina="ano">
+  <header class="nav">
+    <div class="nav__barra">
+      <a href="/" class="marca">
+        <svg class="marca__glifo" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="4.5" r="2.4" fill="currentColor" />
+          <rect x="1.5" y="10" width="19" height="2" rx="1" fill="currentColor" />
+          <rect x="7" y="15.5" width="8" height="4.5" rx="1.2" fill="currentColor" />
+        </svg>
+        <span>Biblioteca Matemática</span>
+      </a>
+      <button class="nav__alternar" data-menu type="button" aria-label="Abrir menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+      <nav class="nav__links" data-menu-lista aria-label="Navegação">
+        <a class="nav__link" href="/ano.html?a=6">6º ano</a>
+        <a class="nav__link" href="/ano.html?a=7">7º ano</a>
+        <a class="nav__link" href="/ano.html?a=8">8º ano</a>
+        <a class="nav__link" href="/ano.html?a=9">9º ano</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <header class="licao__cabecalho" data-cabecalho></header>
+      <section class="banda banda--curta">
+        <div class="lista" data-cursos>
+          <p class="t-md cor-mute">Carregando as matérias…</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__interno">
+      <p class="t-sm-strong">Biblioteca Matemática</p>
+      <p class="t-sm cor-mute">As matérias marcadas como “em breve” ainda não foram escritas.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

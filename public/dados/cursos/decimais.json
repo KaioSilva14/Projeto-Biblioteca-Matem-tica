@@ -1,0 +1,37 @@
+{
+  "id": "decimais",
+  "titulo": "Números decimais",
+  "ano": 6,
+  "descricao": "A vírgula não é um detalhe de escrita: ela marca onde o inteiro acaba. Oito lições que vão de 'o que significa 0,1' até multiplicar, dividir e arredondar sem chutar onde a vírgula cai.",
+  "pergunta": "O que a vírgula está dizendo, exatamente?",
+  "videos": [
+    {
+      "id": "_GrsS5hA0i8",
+      "titulo": "Números decimais | Rioeduca na TV – Matemática - 6º Ano",
+      "canal": "MultiRio",
+      "descricao": "Aula que percorre a ida e a volta entre fração e decimal. Boa para assistir depois da lição 1, se a ligação entre 3/10 e 0,3 ainda parecer mágica."
+    },
+    {
+      "id": "8wYAgK5Ccjw",
+      "titulo": "Calculando com números decimais | Rioeduca na TV – 5º Ano",
+      "canal": "MultiRio",
+      "descricao": "As quatro operações com decimais, com exemplos resolvidos na lousa. Complementa as lições 5 e 7 para quem quer ver mais contas montadas."
+    },
+    {
+      "id": "sI6xptyCP_w",
+      "titulo": "Divisão com Números Decimais - Vivendo a Matemática com a Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Foca só na divisão, que é a parte que mais gera dúvida. Vale depois da lição 7, quando a ideia de mover a vírgula nos dois números já estiver clara."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e-virgula", "arquivo": "/dados/licoes/decimais/o-que-e-virgula.json" },
+    { "id": "ler-escrever", "arquivo": "/dados/licoes/decimais/ler-escrever.json" },
+    { "id": "na-reta", "arquivo": "/dados/licoes/decimais/na-reta.json" },
+    { "id": "comparar", "arquivo": "/dados/licoes/decimais/comparar.json" },
+    { "id": "somar-subtrair", "arquivo": "/dados/licoes/decimais/somar-subtrair.json" },
+    { "id": "por-dez", "arquivo": "/dados/licoes/decimais/por-dez.json" },
+    { "id": "multiplicar-dividir", "arquivo": "/dados/licoes/decimais/multiplicar-dividir.json" },
+    { "id": "arredondar", "arquivo": "/dados/licoes/decimais/arredondar.json" }
+  ]
+}

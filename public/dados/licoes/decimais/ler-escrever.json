@@ -1,0 +1,203 @@
+{
+  "id": "ler-escrever",
+  "numero": 2,
+  "titulo": "Ler e escrever sem tropeçar",
+  "pergunta": "Como se lê 4,507 — e por que não é \"quatro vírgula quinhentos e sete\"?",
+  "ideia": {
+    "paragrafos": [
+      "Muita gente lê 4,507 como 'quatro vírgula quinhentos e sete'. Não está errado como atalho de conversa, mas esconde o que o número é — e quem lê assim tende a errar comparação e conta depois.",
+      "A leitura certa usa o nome da ÚLTIMA casa ocupada. Em 4,507 a última casa é a dos milésimos, então lemos 'quatro inteiros e quinhentos e sete milésimos'. O nome da última casa batiza o número inteiro depois da vírgula.",
+      "Para não se perder, vale montar o quadro de ordens: unidades, décimos, centésimos, milésimos. Cada algarismo tem um lugar, e o lugar é quem dá o valor. O 5 de 4,507 não vale 5: vale cinco décimos.",
+      "E existe um zero que confunde: o zero no MEIO do número é obrigatório, porque ele segura os outros algarismos nas casas certas — 4,507 e 4,57 são números diferentes. Já o zero no FIM não muda nada: 0,4 e 0,40 são o mesmo número, porque acrescentar centésimos vazios não acrescenta quantidade."
+    ],
+    "destaque": "O nome da última casa batiza o número. O zero do meio é obrigatório; o do fim é opcional.",
+    "imagem": "dec-ideia-quadro"
+  },
+  "resolvido": {
+    "enunciado": "Escreva por extenso o número 4,507 e diga quanto vale cada algarismo depois da vírgula.",
+    "imagem": "dec-res-quadro-4507",
+    "passos": [
+      {
+        "titulo": "Separe a parte inteira",
+        "explicacao": "Antes da vírgula está o 4. São quatro unidades inteiras — quatro do que quer que estejamos contando.",
+        "conta": "parte inteira = 4"
+      },
+      {
+        "titulo": "Coloque cada algarismo na sua casa",
+        "explicacao": "Depois da vírgula, na ordem: décimos, centésimos, milésimos. Então o 5 está nos décimos, o 0 nos centésimos e o 7 nos milésimos.",
+        "conta": "5 décimos · 0 centésimos · 7 milésimos"
+      },
+      {
+        "titulo": "Qual é a última casa ocupada?",
+        "explicacao": "A dos milésimos. É ela que dá o nome ao número todo depois da vírgula.",
+        "conta": "última casa = milésimos"
+      },
+      {
+        "titulo": "Leia como um número só",
+        "explicacao": "Os três algarismos depois da vírgula formam 507, e o nome da última casa é milésimos. Então: quatro inteiros e quinhentos e sete milésimos.",
+        "conta": "4,507 = 4 + 507/1000"
+      },
+      {
+        "titulo": "Por que o zero do meio importa",
+        "explicacao": "Se você apagasse o zero, sobraria 4,57 — o 7 subiria para os centésimos e valeria dez vezes mais. O zero está ali segurando o 7 no lugar dele.",
+        "conta": "4,507 ≠ 4,57"
+      }
+    ],
+    "fecho": "O valor de um algarismo não está nele: está na casa em que ele mora. Trocar de casa é trocar de valor."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No número 3,168, qual é o valor do algarismo 6?",
+      "imagem": "dec-q-quadro-3168",
+      "dica": "Conte as casas depois da vírgula: a primeira é décimos, a segunda é centésimos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "6 centésimos" },
+        { "rotulo": "B", "texto": "6 décimos" },
+        { "rotulo": "C", "texto": "6 milésimos" },
+        { "rotulo": "D", "texto": "6 unidades" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6 décimos",
+          "porque": "Décimos é a PRIMEIRA casa depois da vírgula, onde está o 1. O 6 vem logo depois, então está nos centésimos."
+        },
+        {
+          "resposta": "6 milésimos",
+          "porque": "Milésimos é a terceira casa, onde está o 8. Você contou uma casa a mais."
+        },
+        {
+          "resposta": "6 unidades",
+          "porque": "Unidades é a casa ANTES da vírgula, ocupada pelo 3. Tudo que está depois da vírgula vale menos que uma unidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Marque a vírgula e conte para a direita",
+          "explicacao": "Logo depois da vírgula vem a casa dos décimos, depois a dos centésimos, depois a dos milésimos.",
+          "conta": "3 , 1 6 8  →  décimos=1 · centésimos=6 · milésimos=8"
+        },
+        {
+          "titulo": "Onde caiu o 6?",
+          "explicacao": "Na segunda casa, que é a dos centésimos. Então ele vale seis centésimos, ou seja, 0,06.",
+          "conta": "6 centésimos = 6/100 = 0,06"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Como se escreve em algarismos o número \"doze inteiros e trinta e quatro centésimos\"?",
+      "imagem": "dec-q-quadro-vazio",
+      "dica": "Centésimos ocupam duas casas depois da vírgula. Escreva o 34 nessas duas casas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "12,34" },
+        { "rotulo": "B", "texto": "12,034" },
+        { "rotulo": "C", "texto": "1234" },
+        { "rotulo": "D", "texto": "12,304" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "12,034",
+          "porque": "Assim o 34 caiu nos milésimos, não nos centésimos. Como o nome do número é 'centésimos', a última casa ocupada tem que ser a segunda depois da vírgula."
+        },
+        {
+          "resposta": "12,304",
+          "porque": "Você separou o 3 e o 4 com um zero, mas 'trinta e quatro' é um número só, e ele ocupa duas casas seguidas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a parte inteira",
+          "explicacao": "'Doze inteiros' é o que vem antes da vírgula.",
+          "conta": "12,"
+        },
+        {
+          "titulo": "Quantas casas os centésimos ocupam?",
+          "explicacao": "Duas — décimos e centésimos. O número 34 cabe exatamente nelas.",
+          "conta": "34 centésimos → duas casas"
+        },
+        {
+          "titulo": "Junte",
+          "explicacao": "Doze inteiros e trinta e quatro centésimos.",
+          "conta": "12,34 = 12 + 34/100"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual dos números abaixo é IGUAL a 0,5?",
+      "imagem": "dec-q-zeros",
+      "dica": "Zero acrescentado no fim de um decimal não muda o valor. Zero acrescentado no meio muda.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "0,50" },
+        { "rotulo": "B", "texto": "0,05" },
+        { "rotulo": "C", "texto": "5,0" },
+        { "rotulo": "D", "texto": "0,005" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,05",
+          "porque": "Aqui o zero entrou ANTES do 5, empurrando ele para os centésimos. 0,05 é dez vezes menor que 0,5. Zero só é inofensivo quando entra no fim."
+        },
+        {
+          "resposta": "5,0",
+          "porque": "5,0 são cinco unidades inteiras. 0,5 é meia unidade — dez vezes menos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva os dois em centésimos",
+          "explicacao": "0,5 é cinco décimos. Cada décimo vale dez centésimos, então cinco décimos são cinquenta centésimos.",
+          "conta": "0,5 = 5/10 = 50/100 = 0,50"
+        },
+        {
+          "titulo": "Por que o zero do fim não muda nada",
+          "explicacao": "Acrescentar a casa dos centésimos com zero é dizer 'e mais nenhum centésimo'. Não soma quantidade nenhuma.",
+          "conta": "0,5 = 0,50 = 0,500"
+        },
+        {
+          "titulo": "E por que o do começo muda tudo",
+          "explicacao": "Um zero colocado logo depois da vírgula empurra todos os outros algarismos uma casa para a direita, e cada casa vale dez vezes menos.",
+          "conta": "0,05 é dez vezes menor que 0,5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um atleta correu 8,09 segundos. Quantos centésimos de segundo há na parte depois da vírgula? Digite apenas o número.",
+      "imagem": "dec-q-quadro-809",
+      "dica": "Leia a parte depois da vírgula como um número só, e use o nome da última casa.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "centésimos",
+      "errosComuns": [
+        {
+          "resposta": "90",
+          "porque": "Noventa centésimos seria 0,90. Aqui o 9 está na segunda casa, e a primeira é zero — então são nove centésimos, não noventa."
+        },
+        {
+          "resposta": "809",
+          "porque": "Você contou o número inteiro. A pergunta é só sobre a parte depois da vírgula."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe a parte depois da vírgula",
+          "explicacao": "Antes da vírgula estão 8 segundos inteiros. Depois dela está 09.",
+          "conta": "8,09 → parte decimal = 09"
+        },
+        {
+          "titulo": "Qual é a última casa?",
+          "explicacao": "A segunda depois da vírgula, ou seja, centésimos. Então lemos 'nove centésimos' — o zero à frente não conta como quantidade, ele só marca que não há décimo nenhum.",
+          "conta": "0,09 = 9/100"
+        }
+      ]
+    }
+  ]
+}
