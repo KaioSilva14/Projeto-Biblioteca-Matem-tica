@@ -1,0 +1,211 @@
+{
+  "id": "triangulos-lados",
+  "numero": 2,
+  "titulo": "Triângulos pelos lados",
+  "pergunta": "Três medidas quaisquer sempre fecham um triângulo?",
+  "ideia": {
+    "paragrafos": [
+      "O triângulo é o polígono mais simples que existe: com menos de três lados não dá para fechar figura nenhuma. E há duas formas de classificá-lo — pelos lados, que é o assunto desta lição, e pelos ângulos, que é o da próxima.",
+      "Pelos lados, são três casos e a conta é só olhar quantas medidas se repetem. Equilátero é o que tem os três lados iguais. Isósceles é o que tem dois lados iguais e um diferente. Escaleno é o que tem os três lados diferentes.",
+      "Os nomes ajudam: 'equi' é igual e 'látero' é lado, então equilátero é 'lados iguais'. 'Iso' também é igual e 'sceles' é perna, então isósceles é 'pernas iguais' — as duas pernas que saem do topo.",
+      "Mas há um detalhe que quase ninguém conta: nem todo trio de medidas forma triângulo. Tente com 3 cm, 4 cm e 9 cm. Deite o lado de 9 cm na mesa e tente alcançar as duas pontas dele com os outros dois. Juntos, eles medem 3 + 4 = 7 cm — não chega. Os dois lados ficam pendurados sem se encontrar.",
+      "A regra é essa: a soma de dois lados quaisquer tem que ser MAIOR que o terceiro. Se for igual, os três ficam alinhados e a figura achata numa linha; se for menor, nem alcança. Antes de classificar um triângulo, vale conferir se ele existe."
+    ],
+    "destaque": "Dois lados juntos precisam ser mais compridos que o terceiro. Senão não fecha.",
+    "imagem": "fig-ideia-tri-lados"
+  },
+  "resolvido": {
+    "enunciado": "Classifique quanto aos lados os triângulos de medidas 5-5-5, 7-7-4 e 3-4-6.",
+    "imagem": "fig-res-tri-lados",
+    "passos": [
+      {
+        "titulo": "Confira se cada um existe",
+        "explicacao": "Antes de classificar, some os dois menores lados e compare com o maior. Se a soma não passar do maior, o triângulo não fecha e não há o que classificar.",
+        "conta": "5+5>5 ✓ · 7+4>7 ✓ · 3+4>6 ✓"
+      },
+      {
+        "titulo": "O primeiro: 5-5-5",
+        "explicacao": "As três medidas são iguais, então não há lado diferente nenhum.",
+        "conta": "5 = 5 = 5 → equilátero"
+      },
+      {
+        "titulo": "O segundo: 7-7-4",
+        "explicacao": "Duas medidas se repetem e uma é diferente. É o caso do meio.",
+        "conta": "7 = 7 ≠ 4 → isósceles"
+      },
+      {
+        "titulo": "O terceiro: 3-4-6",
+        "explicacao": "Nenhuma medida se repete: as três são diferentes entre si.",
+        "conta": "3 ≠ 4 ≠ 6 → escaleno"
+      }
+    ],
+    "fecho": "A classificação pelos lados é só uma contagem de repetições: três iguais, dois iguais ou nenhum igual."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo tem lados de 6 cm, 6 cm e 10 cm. Como ele é classificado quanto aos lados?",
+      "imagem": "fig-q-tri-6610",
+      "dica": "Conte quantas medidas se repetem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Isósceles" },
+        { "rotulo": "B", "texto": "Equilátero" },
+        { "rotulo": "C", "texto": "Escaleno" },
+        { "rotulo": "D", "texto": "Não é um triângulo possível" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Equilátero",
+          "porque": "Equilátero exige os TRÊS lados iguais. Aqui só dois medem 6 cm; o terceiro mede 10 cm e quebra a igualdade."
+        },
+        {
+          "resposta": "Escaleno",
+          "porque": "Escaleno é quando NENHUM lado se repete. Aqui há uma repetição — os dois lados de 6 cm — então ele não entra nesse caso."
+        },
+        {
+          "resposta": "Não é um triângulo possível",
+          "porque": "Ele é possível sim: 6 + 6 = 12, que é maior que 10, então os dois lados menores alcançam as pontas do maior com folga."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira se existe",
+          "explicacao": "Some os dois menores e compare com o maior. Passando, o triângulo fecha.",
+          "conta": "6 + 6 = 12 > 10 ✓"
+        },
+        {
+          "titulo": "Conte as repetições",
+          "explicacao": "Duas medidas iguais e uma diferente. É exatamente a definição do caso do meio.",
+          "conta": "6 = 6 ≠ 10 → isósceles"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo tem lados de 4 cm, 7 cm e 9 cm. Como ele é classificado quanto aos lados?",
+      "imagem": "fig-q-tri-479",
+      "dica": "Alguma medida se repete?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Escaleno" },
+        { "rotulo": "B", "texto": "Isósceles" },
+        { "rotulo": "C", "texto": "Equilátero" },
+        { "rotulo": "D", "texto": "Não é um triângulo possível" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Isósceles",
+          "porque": "Isósceles precisa de duas medidas iguais, e aqui as três são diferentes: 4, 7 e 9."
+        },
+        {
+          "resposta": "Equilátero",
+          "porque": "Equilátero precisa das três medidas iguais. Nenhuma se repete neste triângulo."
+        },
+        {
+          "resposta": "Não é um triângulo possível",
+          "porque": "É possível: 4 + 7 = 11, maior que 9. Os dois lados menores conseguem alcançar as pontas do maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira se existe",
+          "explicacao": "A soma dos dois menores tem que passar do maior.",
+          "conta": "4 + 7 = 11 > 9 ✓"
+        },
+        {
+          "titulo": "Procure repetições",
+          "explicacao": "As três medidas são diferentes entre si, então não há par nenhum.",
+          "conta": "4 ≠ 7 ≠ 9 → escaleno"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos lados iguais tem um triângulo equilátero? Digite apenas a quantidade.",
+      "imagem": "fig-q-equilatero",
+      "dica": "O prefixo 'equi' quer dizer igual. Quantos lados um triângulo tem ao todo?",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "lados",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Dois lados iguais é o ISÓSCELES. O equilátero vai além: nele todos os lados têm a mesma medida."
+        },
+        {
+          "resposta": "0",
+          "porque": "Nenhum lado igual é o ESCALENO. O equilátero é o extremo oposto desse caso."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é a medida em GRAUS de cada ângulo do triângulo equilátero, que você viu na matéria de Ângulos. A pergunta é sobre a quantidade de lados iguais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o nome",
+          "explicacao": "'Equi' significa igual e 'látero' significa lado: lados iguais, sem ressalva.",
+          "conta": "equilátero = lados iguais"
+        },
+        {
+          "titulo": "Quantos lados existem",
+          "explicacao": "Um triângulo tem três lados, e no equilátero os três têm a mesma medida.",
+          "conta": "3 lados iguais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "É possível construir um triângulo com lados de 3 cm, 4 cm e 9 cm?",
+      "imagem": "fig-q-desigualdade",
+      "dica": "Deite o lado de 9 cm e veja se os outros dois, juntos, conseguem alcançar as duas pontas dele.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque 3 + 4 é menor que 9" },
+        { "rotulo": "B", "texto": "Sim, e ele seria escaleno" },
+        { "rotulo": "C", "texto": "Sim, porque as três medidas são diferentes" },
+        { "rotulo": "D", "texto": "Não, porque um triângulo precisa ter pelo menos dois lados iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, e ele seria escaleno",
+          "porque": "As medidas realmente são todas diferentes, mas isso só decidiria a classificação SE o triângulo existisse. E ele não existe: 3 + 4 dá 7, e 7 não alcança os 9 do lado maior."
+        },
+        {
+          "resposta": "Sim, porque as três medidas são diferentes",
+          "porque": "Ter medidas diferentes não garante nada. O que decide se o triângulo fecha é a soma dos dois menores comparada com o maior."
+        },
+        {
+          "resposta": "Não, porque um triângulo precisa ter pelo menos dois lados iguais",
+          "porque": "Isso não é verdade: o triângulo escaleno tem os três lados diferentes e existe normalmente. O problema aqui é outro — as medidas não alcançam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o maior lado",
+          "explicacao": "O maior é o de 9 cm. Imagine ele deitado na mesa, e os outros dois presos às pontas dele, tentando se encontrar no alto.",
+          "conta": "maior lado = 9 cm"
+        },
+        {
+          "titulo": "Some os outros dois",
+          "explicacao": "Mesmo esticados na horizontal, um na continuação do outro, os dois menores cobrem no máximo essa distância.",
+          "conta": "3 + 4 = 7 cm"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Sete é menor que nove, então os dois lados não chegam nem a se tocar: sobra um vão de 2 cm entre eles. Sem encontro não há vértice, e sem vértice não há triângulo.",
+          "conta": "7 < 9 → não fecha"
+        },
+        {
+          "titulo": "A regra que fica",
+          "explicacao": "A soma de dois lados quaisquer precisa ser MAIOR que o terceiro. Se der exatamente igual, os três ficam alinhados e a figura vira um risco, sem área nenhuma.",
+          "conta": "soma de dois > o terceiro"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "id": "potencias-de-10",
+  "numero": 3,
+  "titulo": "Potências de 10",
+  "pergunta": "Como escrever um número gigante sem contar zeros na mão?",
+  "ideia": {
+    "paragrafos": [
+      "Entre todas as bases, o 10 é a mais útil, porque é a base do jeito como escrevemos os números. E ela tem um padrão que dispensa cálculo: 10¹ é 10, 10² é 100, 10³ é 1.000. O expoente diz exatamente quantos zeros vêm depois do 1.",
+      "O motivo é direto. Multiplicar por 10 empurra todos os algarismos uma casa para a esquerda e acrescenta um zero no fim. Fazendo isso três vezes a partir do 1, você acrescenta três zeros. Se você já estudou decimais, é a mesma regra vista de outro lado: multiplicar por 10 anda com a vírgula uma casa para a direita.",
+      "Isso resolve um problema prático. A distância da Terra ao Sol é cerca de 150.000.000 km. Contar oito zeros na tela do celular é um convite ao erro, e por isso a gente escreve 15 × 10⁷, ou 1,5 × 10⁸. A parte da frente diz os algarismos que importam; a potência de 10 diz o tamanho.",
+      "Para ler um número escrito assim, faça na ordem: calcule a potência de 10 primeiro e multiplique depois. Em 3 × 10⁴, o 10⁴ é 10.000, e três vezes isso é 30.000. Repare que o resultado é o 3 seguido de quatro zeros — o número da frente entra na frente e os zeros ficam atrás."
+    ],
+    "destaque": "No 10, o expoente é a quantidade de zeros. Nenhuma outra base é tão generosa.",
+    "imagem": "pot-ideia-dez"
+  },
+  "resolvido": {
+    "enunciado": "Quanto vale 10⁶? E quanto vale 3 × 10⁴?",
+    "imagem": "pot-res-10a6",
+    "passos": [
+      {
+        "titulo": "Use a regra dos zeros",
+        "explicacao": "Em 10⁶ o expoente é 6, então é o algarismo 1 seguido de seis zeros. Não precisa multiplicar nada.",
+        "conta": "10⁶ = 1 000 000"
+      },
+      {
+        "titulo": "Dê nome ao número",
+        "explicacao": "Um seguido de seis zeros é um milhão. Saber o nome ajuda a perceber quando o resultado ficou absurdo.",
+        "conta": "10⁶ = um milhão"
+      },
+      {
+        "titulo": "Na segunda conta, resolva a potência primeiro",
+        "explicacao": "Em 3 × 10⁴ há duas operações. A potência vem antes da multiplicação, então calcule 10⁴ e só depois multiplique por 3.",
+        "conta": "10⁴ = 10 000"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Três vezes dez mil. Repare no resultado: o 3 na frente e os quatro zeros atrás, exatamente como o expoente prometia.",
+        "conta": "3 × 10 000 = 30 000"
+      }
+    ],
+    "fecho": "Escrever 3 × 10⁴ em vez de 30.000 parece exagero num número pequeno, mas salva quando o número tem vinte zeros."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale 10⁵? Digite apenas o número, sem pontos.",
+      "imagem": "pot-q-10a5",
+      "dica": "O expoente é a quantidade de zeros que vêm depois do 1.",
+      "formato": "numero",
+      "resposta": 100000,
+      "errosComuns": [
+        {
+          "resposta": "50",
+          "porque": "50 é 10 × 5, base vezes expoente. O 5 conta zeros, não entra na multiplicação."
+        },
+        {
+          "resposta": "10000",
+          "porque": "10.000 é 10⁴, um zero a menos. Vale contar os zeros com o dedo depois de escrever — errar por um é o deslize mais comum aqui."
+        },
+        {
+          "resposta": "1000000",
+          "porque": "1.000.000 é 10⁶, um zero a mais. O expoente 5 pede exatamente cinco zeros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a regra",
+          "explicacao": "Escreva o 1 e acrescente um zero para cada unidade do expoente, contando enquanto escreve.",
+          "conta": "10⁵ = 1 seguido de 5 zeros"
+        },
+        {
+          "titulo": "Confira pelo nome",
+          "explicacao": "Um seguido de cinco zeros é cem mil — um número que a gente reconhece de ouvido.",
+          "conta": "10⁵ = 100 000"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale 7 × 10³?",
+      "imagem": "pot-q-7x10a3",
+      "dica": "Resolva a potência primeiro e depois multiplique pelo 7.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "7000"
+        },
+        {
+          "rotulo": "B",
+          "texto": "700"
+        },
+        {
+          "rotulo": "C",
+          "texto": "70000"
+        },
+        {
+          "rotulo": "D",
+          "texto": "730"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "700",
+          "porque": "700 é 7 × 10², um zero a menos. O expoente 3 pede três zeros depois do 7."
+        },
+        {
+          "resposta": "70000",
+          "porque": "70.000 é 7 × 10⁴, um zero a mais. Conte os zeros da potência antes de multiplicar."
+        },
+        {
+          "resposta": "730",
+          "porque": "Parece que o 7 e o 3 foram escritos juntos, como se o expoente fosse um algarismo do número. Ele não é: o 3 é uma instrução que manda escrever três zeros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a potência",
+          "explicacao": "10³ é o 1 seguido de três zeros. Resolver a potência antes de multiplicar é o que evita contar zeros errado no fim.",
+          "conta": "10³ = 1 000"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Sete vezes mil. O 7 vai para a frente e os três zeros continuam atrás.",
+          "conta": "7 × 1 000 = 7 000"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos zeros tem o número 10⁸ quando escrito por extenso? Digite apenas a quantidade.",
+      "imagem": "pot-q-zeros",
+      "dica": "A resposta está escrita na própria potência.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "zeros",
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "Nove seria a quantidade de ALGARISMOS do número: o 1 mais os oito zeros. A pergunta é só sobre os zeros."
+        },
+        {
+          "resposta": "80",
+          "porque": "80 é 10 × 8. Aqui não há multiplicação nenhuma para fazer: o expoente já é a resposta."
+        },
+        {
+          "resposta": "100000000",
+          "porque": "Esse é o próprio número 10⁸ escrito por extenso. A pergunta pede quantos zeros ele tem, e não o valor dele."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre a regra",
+          "explicacao": "Numa potência de 10, o expoente é exatamente a quantidade de zeros que acompanham o 1.",
+          "conta": "10ⁿ = 1 seguido de n zeros"
+        },
+        {
+          "titulo": "Leia o expoente",
+          "explicacao": "O expoente é 8, então são oito zeros. O 1 da frente não é zero e não entra na contagem.",
+          "conta": "10⁸ = 100 000 000 → 8 zeros"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A distância média da Terra à Lua é de aproximadamente 4 × 10⁵ km. Quantos quilômetros são, escrevendo o número por extenso? Digite apenas o número, sem pontos.",
+      "imagem": "pot-q-distancia",
+      "dica": "Calcule 10⁵ primeiro e multiplique por 4 depois. O resultado é o 4 seguido de zeros.",
+      "formato": "numero",
+      "resposta": 400000,
+      "unidade": "km",
+      "errosComuns": [
+        {
+          "resposta": "45",
+          "porque": "45 é o 4 e o 5 escritos lado a lado. O 5 é o expoente do 10, não um algarismo do número."
+        },
+        {
+          "resposta": "40000",
+          "porque": "40.000 é 4 × 10⁴, um zero a menos. Depois de multiplicar, o 4 fica na frente e os cinco zeros do 10⁵ continuam atrás."
+        },
+        {
+          "resposta": "100000",
+          "porque": "100.000 é só o 10⁵, sem multiplicar pelo 4. Falta o último passo da conta."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 4 × 5, base da frente vezes expoente. O expoente pertence ao 10 e diz quantos zeros ele carrega."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Resolva a potência",
+          "explicacao": "10⁵ é o 1 seguido de cinco zeros, ou seja, cem mil.",
+          "conta": "10⁵ = 100 000"
+        },
+        {
+          "titulo": "Multiplique pelo 4",
+          "explicacao": "Quatro vezes cem mil dá quatrocentos mil. O 4 entra na frente e os cinco zeros permanecem.",
+          "conta": "4 × 100 000 = 400 000"
+        },
+        {
+          "titulo": "Confira se faz sentido",
+          "explicacao": "Quatrocentos mil quilômetros é umas dez voltas na Terra — grande, mas plausível para a distância até a Lua. Quarenta mil já seria só uma volta.",
+          "conta": "400 000 km"
+        }
+      ]
+    }
+  ]
+}

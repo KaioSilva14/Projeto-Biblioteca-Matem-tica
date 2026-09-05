@@ -1,0 +1,232 @@
+{
+  "id": "mesmo-perimetro",
+  "numero": 5,
+  "titulo": "Mesmo perímetro, tamanhos diferentes",
+  "pergunta": "Se dois terrenos têm a mesma cerca, cabe a mesma coisa dentro?",
+  "ideia": {
+    "paragrafos": [
+      "Aqui está a ideia mais importante desta matéria, e ela é contraintuitiva: saber o perímetro de uma figura não diz quase nada sobre o tamanho dela por dentro.",
+      "Pegue 20 metros de cerca e monte um terreno retangular. Você pode fazer 6 m por 4 m — a meia volta dá 10, a volta dá 20. Ou pode fazer 9 m por 1 m — meia volta 10, volta 20 também. Mesma cerca, exatamente.",
+      "Mas o que cabe dentro é muito diferente. Cobrindo o chão com quadrados de 1 m de lado, no terreno de 6 por 4 cabem 24 quadrados; no de 9 por 1 cabem só 9. Menos da metade, com a mesma cerca comprada.",
+      "O motivo é geométrico: quando a figura fica muito comprida e estreita, quase todo o contorno é gasto nos dois lados longos, e sobra pouquíssimo espaço entre eles. Quanto mais 'quadrada' a figura for, mais espaço ela guarda para o mesmo contorno.",
+      "Perímetro e área são duas medidas independentes: uma mede a borda, a outra mede o miolo. Elas podem crescer juntas, mas não precisam. Este é o assunto que a próxima matéria, Área, retoma do começo — aqui basta contar quadradinhos para se convencer."
+    ],
+    "destaque": "Perímetro mede a borda. O que cabe dentro é outra pergunta, e outra resposta.",
+    "imagem": "per-ideia-mesmo"
+  },
+  "resolvido": {
+    "enunciado": "Dois retângulos têm perímetro de 20 cm cada: um mede 6 cm por 4 cm e o outro mede 9 cm por 1 cm. Confirme os perímetros e conte quantos quadradinhos de 1 cm de lado cabem em cada um.",
+    "imagem": "per-res-mesmo",
+    "passos": [
+      {
+        "titulo": "Confirme o primeiro perímetro",
+        "explicacao": "Base mais altura dá a meia volta; o dobro fecha o contorno.",
+        "conta": "2 × (6 + 4) = 2 × 10 = 20 cm"
+      },
+      {
+        "titulo": "Confirme o segundo",
+        "explicacao": "Formatos bem diferentes, mesma meia volta — e por isso mesmo perímetro.",
+        "conta": "2 × (9 + 1) = 2 × 10 = 20 cm"
+      },
+      {
+        "titulo": "Conte os quadradinhos do primeiro",
+        "explicacao": "Cobrindo com quadrados de 1 cm de lado, o retângulo de 6 por 4 tem 4 fileiras de 6 quadradinhos cada.",
+        "conta": "6 × 4 = 24 quadradinhos"
+      },
+      {
+        "titulo": "Conte os do segundo",
+        "explicacao": "O de 9 por 1 tem uma fileira só, de 9 quadradinhos. Ele é comprido, mas fino demais para guardar alguma coisa.",
+        "conta": "9 × 1 = 9 quadradinhos"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Mesma cerca, e o primeiro guarda quase o triplo do segundo. Nenhuma conta de perímetro conseguiria prever isso.",
+        "conta": "24 contra 9, com os mesmos 20 cm de contorno"
+      }
+    ],
+    "fecho": "Quanto mais parecida com um quadrado, mais a figura aproveita o contorno que tem."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um retângulo mede 8 cm por 2 cm. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-mesmo-8-2",
+      "dica": "Some base e altura e dobre. Compare depois com o retângulo de 6 por 4 do exemplo.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é 8 × 2, o número de quadradinhos que cabem dentro — a área. O perímetro percorre a borda e vale 2 × (8 + 2)."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 8 + 2, só a meia volta. Falta dobrar para completar o contorno."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 2 × 8 + 2, multiplicando antes de somar. Os parênteses vêm primeiro na ordem das operações."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meia volta",
+          "explicacao": "Base mais altura dá o caminho de um canto até o canto oposto, passando por dois lados.",
+          "conta": "8 + 2 = 10"
+        },
+        {
+          "titulo": "Volta inteira",
+          "explicacao": "Dobre. Repare que dá 20 cm, o mesmo perímetro do retângulo 6 por 4 do exemplo — mas este aqui guarda só 16 quadradinhos, contra 24.",
+          "conta": "2 × 10 = 20 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos quadradinhos de 1 cm de lado cabem dentro de um retângulo de 5 cm por 3 cm? Digite apenas a quantidade.",
+      "imagem": "per-q-mesmo-5-3",
+      "dica": "Conte por fileiras: quantas fileiras existem e quantos quadradinhos cabem em cada uma?",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "quadradinhos",
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é o PERÍMETRO do retângulo, em centímetros: 2 × (5 + 3). A pergunta é sobre o que cabe dentro, e não sobre o contorno."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é 5 + 3, a meia volta. Para contar o que cabe dentro é preciso multiplicar as fileiras pelo que cabe em cada uma."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o que cabe em UMA fileira. Faltam as outras duas — o retângulo tem 3 cm de altura, então são três fileiras."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantos por fileira",
+          "explicacao": "A base mede 5 cm, então cabem 5 quadradinhos de 1 cm lado a lado.",
+          "conta": "5 por fileira"
+        },
+        {
+          "titulo": "Quantas fileiras",
+          "explicacao": "A altura mede 3 cm, então há 3 fileiras empilhadas.",
+          "conta": "3 fileiras"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Três fileiras de cinco quadradinhos cada.",
+          "conta": "5 × 3 = 15"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Duas figuras têm exatamente o mesmo perímetro. Elas têm necessariamente o mesmo tamanho por dentro?",
+      "imagem": "per-q-mesmo-compara",
+      "dica": "Lembre dos dois retângulos do exemplo: mesma cerca, quantidades de quadradinhos bem diferentes.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Não: o perímetro não determina o que cabe dentro"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Sim, sempre"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Sim, desde que as duas sejam retângulos"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Sim, desde que as duas tenham o mesmo número de lados"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, sempre",
+          "porque": "Os dois retângulos do exemplo desmentem isso: os dois têm 20 cm de contorno, e um guarda 24 quadradinhos enquanto o outro guarda 9. Basta um contraexemplo para derrubar um 'sempre'."
+        },
+        {
+          "resposta": "Sim, desde que as duas sejam retângulos",
+          "porque": "Justamente os dois exemplos são retângulos — 6 por 4 e 9 por 1 — e mesmo assim guardam quantidades bem diferentes. Ser retângulo não resolve nada."
+        },
+        {
+          "resposta": "Sim, desde que as duas tenham o mesmo número de lados",
+          "porque": "Os dois retângulos do exemplo têm quatro lados cada. A quantidade de lados não determina o que cabe dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Procure um contraexemplo",
+          "explicacao": "Para derrubar uma afirmação do tipo 'sempre', basta achar um caso em que ela falha. Aqui há um pronto.",
+          "conta": "6 × 4 e 9 × 1"
+        },
+        {
+          "titulo": "Confira que os perímetros são iguais",
+          "explicacao": "As duas meias voltas valem 10, então os dois contornos valem 20.",
+          "conta": "2 × 10 = 20 nos dois"
+        },
+        {
+          "titulo": "Confira que o interior é diferente",
+          "explicacao": "Vinte e quatro quadradinhos contra nove. Mesma borda, miolos bem distintos.",
+          "conta": "24 ≠ 9"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Entre todos os retângulos de perímetro 16 cm com lados inteiros, qual é o maior número de quadradinhos de 1 cm que cabem dentro? Digite apenas a quantidade.",
+      "imagem": "per-q-mesmo-16",
+      "dica": "Se o perímetro é 16, a meia volta é 8. Liste todos os pares de inteiros que somam 8 e conte os quadradinhos de cada um.",
+      "formato": "numero",
+      "resposta": 16,
+      "unidade": "quadradinhos",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 é o caso 3 por 5, que é bom mas não é o melhor. Falta testar o 4 por 4 — quanto mais próximos os dois lados, mais espaço sobra."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o caso 1 por 7, o retângulo mais fino possível. Ele é o PIOR aproveitamento, não o melhor."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é a meia volta, e não uma contagem de quadradinhos. Ela é o ponto de partida: os dois lados precisam somar 8."
+        },
+        {
+          "resposta": "64",
+          "porque": "64 seria um quadrado de lado 8. Mas um quadrado de lado 8 teria perímetro 32, o dobro do permitido — o 8 é a soma dos dois lados, não a medida de um."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a meia volta",
+          "explicacao": "O perímetro é o dobro da meia volta, então divida por 2.",
+          "conta": "16 ÷ 2 = 8"
+        },
+        {
+          "titulo": "Liste os pares que somam 8",
+          "explicacao": "Com lados inteiros e positivos, são quatro possibilidades.",
+          "conta": "1+7 · 2+6 · 3+5 · 4+4"
+        },
+        {
+          "titulo": "Conte os quadradinhos de cada um",
+          "explicacao": "Multiplique os dois lados de cada par.",
+          "conta": "7 · 12 · 15 · 16"
+        },
+        {
+          "titulo": "O melhor caso",
+          "explicacao": "O maior é o 4 por 4, que é o quadrado. Entre todos os retângulos de mesmo perímetro, o quadrado é sempre o que guarda mais espaço — os lados repartidos igualmente aproveitam melhor o contorno.",
+          "conta": "4 × 4 = 16 quadradinhos"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "id": "calcular",
+  "numero": 3,
+  "titulo": "Calcular a porcentagem de um valor",
+  "pergunta": "Quanto é 15% de 240?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui a porcentagem descrevia uma situação. Agora ela vira conta: quanto é 15% de 240? A tradução é curta e resolve tudo — a palavra 'de' vira multiplicação, igual acontecia com fração de uma quantidade.",
+      "O primeiro caminho é transformar a taxa em decimal e multiplicar. 15% é 0,15, então 15% de 240 é 0,15 × 240. Funciona sempre e é o caminho da calculadora.",
+      "O segundo caminho é melhor para fazer de cabeça e para entender o que está acontecendo. Primeiro descubra quanto vale 1%, dividindo o total por 100. Depois multiplique esse valor pela taxa. Em 240, 1% vale 2,4; então 15% valem 2,4 × 15 = 36.",
+      "Esse segundo caminho tem uma vantagem que não é só de conta: ele deixa claro que porcentagem é sempre porcentagem DE alguma coisa. 15% de 240 e 15% de 1.000 são taxas iguais e valores completamente diferentes. Quando alguém diz só 'aumentou 15%', a pergunta seguinte é sempre: quinze por cento de quê?",
+      "E vale conferir se o resultado faz sentido antes de aceitá-lo. 15% é menos que um sexto, então o resultado tem que ser bem menor que o total. Se der maior, alguma coisa saiu do lugar."
+    ],
+    "destaque": "A palavra 'de' vira multiplicação. E porcentagem é sempre porcentagem DE alguma coisa.",
+    "imagem": "por-ideia-1porcento"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 15% de 240.",
+    "imagem": "por-res-15-240",
+    "passos": [
+      {
+        "titulo": "Descubra quanto vale 1%",
+        "explicacao": "Um por cento é o total dividido em cem partes iguais. Dividir por 100 anda com a vírgula duas casas para a esquerda.",
+        "conta": "240 ÷ 100 = 2,4"
+      },
+      {
+        "titulo": "Multiplique pela taxa",
+        "explicacao": "Se uma parte vale 2,4, então quinze partes valem quinze vezes isso. Fazer 2,4 × 15 é mais fácil quebrando em 2,4 × 10 mais 2,4 × 5.",
+        "conta": "2,4 × 10 = 24 · 2,4 × 5 = 12 · 24 + 12 = 36"
+      },
+      {
+        "titulo": "Confira pelo outro caminho",
+        "explicacao": "Transformando a taxa em decimal e multiplicando direto, o resultado tem que ser o mesmo. Se der diferente, um dos dois caminhos tem erro.",
+        "conta": "0,15 × 240 = 36"
+      },
+      {
+        "titulo": "O resultado faz sentido?",
+        "explicacao": "36 é bem menor que 240, como tinha que ser: 15% é uma fatia pequena. Se tivesse dado 360, daria para desconfiar na hora.",
+        "conta": "36 é pouco menos de um sexto de 240"
+      }
+    ],
+    "fecho": "Achar o 1% primeiro é mais trabalho no papel e menos erro na cabeça — e é o caminho que continua funcionando quando não há calculadora."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto é 20% de 350? Digite apenas o número.",
+      "imagem": "por-q-20-350",
+      "dica": "Vinte por cento é um quinto. Ou então ache 1% e multiplique por 20.",
+      "formato": "numero",
+      "resposta": 70,
+      "errosComuns": [
+        {
+          "resposta": "3.5",
+          "porque": "3,5 é 1% de 350, ou seja, só uma das cem partes. Falta multiplicar por 20 para chegar na taxa pedida."
+        },
+        {
+          "resposta": "7000",
+          "porque": "7.000 é 20 × 350, sem dividir por 100. A taxa não multiplica direto: ela é uma fração de cem, então o 100 precisa entrar na conta."
+        },
+        {
+          "resposta": "280",
+          "porque": "280 é 80% de 350, o que SOBRA depois de tirar 20%. A pergunta é pelo pedaço tomado, não pelo que resta."
+        },
+        {
+          "resposta": "17.5",
+          "porque": "17,5 é 5% de 350. Parece que a taxa usada foi 5 em vez de 20 — ou que você dividiu por 20 em vez de multiplicar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto vale 1%",
+          "explicacao": "Divida o total por 100, andando com a vírgula duas casas para a esquerda.",
+          "conta": "350 ÷ 100 = 3,5"
+        },
+        {
+          "titulo": "Multiplique por 20",
+          "explicacao": "Vinte partes de 3,5 cada. Fazer 3,5 × 2 e depois × 10 deixa a conta bem mais simples.",
+          "conta": "3,5 × 20 = 70"
+        },
+        {
+          "titulo": "Confira por outro caminho",
+          "explicacao": "20% é o mesmo que um quinto, e um quinto de 350 é 350 ÷ 5. O resultado bate.",
+          "conta": "350 ÷ 5 = 70"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto é 8% de 50? Digite apenas o número.",
+      "imagem": "por-q-8-50",
+      "dica": "Aqui o total é pequeno, então o 1% é um número com vírgula. Não tem problema: siga a conta.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "400",
+          "porque": "400 é 8 × 50, sem dividir por 100. O símbolo % é justamente a instrução de dividir por cem antes de multiplicar."
+        },
+        {
+          "resposta": "0.5",
+          "porque": "0,5 é 1% de 50, ou seja, só uma das cem partes do total. Falta multiplicar pelos 8 pontos da taxa para chegar nos 8% pedidos."
+        },
+        {
+          "resposta": "6.25",
+          "porque": "6,25 sai de dividir 50 por 8. A taxa multiplica, não divide — dividir daria a resposta de outra pergunta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto vale 1%",
+          "explicacao": "Cinquenta dividido por cem dá meio. Não estranhe o número quebrado: o total é pequeno, então cada centésimo dele é menor que 1.",
+          "conta": "50 ÷ 100 = 0,5"
+        },
+        {
+          "titulo": "Multiplique por 8",
+          "explicacao": "Oito vezes meio é o mesmo que metade de oito.",
+          "conta": "0,5 × 8 = 4"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Transformando a taxa em decimal e multiplicando direto, dá o mesmo resultado.",
+          "conta": "0,08 × 50 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto é 30% de 90?",
+      "imagem": "por-q-30-90",
+      "dica": "Ache 10% primeiro, que é só dividir por 10, e depois triplique.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "27"
+        },
+        {
+          "rotulo": "B",
+          "texto": "3"
+        },
+        {
+          "rotulo": "C",
+          "texto": "60"
+        },
+        {
+          "rotulo": "D",
+          "texto": "270"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 sai de dividir 90 por 30. A taxa multiplica o valor de 1%, e não divide o total."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é 90 menos 30, uma subtração que não tem lugar aqui. A taxa 30% não é uma quantidade a ser tirada: ela é uma proporção do total."
+        },
+        {
+          "resposta": "270",
+          "porque": "270 é 3 × 90, ou seja, 300% de 90. Faltou dividir por 100 em algum momento — e daria para desconfiar, porque o resultado ficou maior que o total."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece pelos 10%",
+          "explicacao": "Dez por cento é a décima parte, então basta dividir por 10.",
+          "conta": "90 ÷ 10 = 9"
+        },
+        {
+          "titulo": "Triplique",
+          "explicacao": "Trinta por cento são três vezes dez por cento.",
+          "conta": "9 × 3 = 27"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Pelo caminho do decimal, o resultado é o mesmo. E 27 é menos de um terço de 90, o que faz sentido para uma taxa de 30%.",
+          "conta": "0,3 × 90 = 27"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num certo país com 14 milhões de habitantes, 0,15% da população contraiu uma certa gripe. Quantos habitantes NÃO contraíram essa gripe?",
+      "imagem": "por-q-gripe",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 64 — Imunes à gripe"
+      },
+      "dica": "Calcule primeiro quantos contraíram. Atenção: a taxa é 0,15%, e não 15% — ela é bem menor que 1%.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "13 979 000"
+        },
+        {
+          "rotulo": "B",
+          "texto": "1 397 900"
+        },
+        {
+          "rotulo": "C",
+          "texto": "139 790"
+        },
+        {
+          "rotulo": "D",
+          "texto": "13 979"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1 397 900",
+          "porque": "Este valor é dez vezes menor que a população que sobrou, e nem chegaria perto: se quase ninguém adoeceu, o número de sadios tem que ficar pertinho dos 14 milhões."
+        },
+        {
+          "resposta": "139 790",
+          "porque": "139.790 é cem vezes menos que a resposta. Provavelmente a vírgula de 0,15% escorregou de casa no meio da conta."
+        },
+        {
+          "resposta": "13 979",
+          "porque": "13.979 habitantes seria uma cidade pequena, não um país inteiro. Vale sempre olhar a ordem de grandeza: quem não adoeceu é quase toda a população."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Entenda o tamanho da taxa",
+          "explicacao": "0,15% é menos de um quinto de 1%. Num quadrado de cem quadradinhos, isso não chega a preencher um quadradinho — é uma parcela bem pequena da população.",
+          "conta": "0,15% = 0,15/100 = 0,0015"
+        },
+        {
+          "titulo": "Ache quanto vale 1%",
+          "explicacao": "Um por cento de 14 milhões é o total dividido por cem.",
+          "conta": "14 000 000 ÷ 100 = 140 000"
+        },
+        {
+          "titulo": "Multiplique pela taxa",
+          "explicacao": "A taxa é 0,15, e não 15. Quinze centésimos de 140.000 dão bem menos que 140.000.",
+          "conta": "140 000 × 0,15 = 21 000"
+        },
+        {
+          "titulo": "Responda o que foi pedido",
+          "explicacao": "A pergunta é por quem NÃO contraiu, então tire os doentes do total. É o passo que mais se esquece nesta questão.",
+          "conta": "14 000 000 − 21 000 = 13 979 000"
+        }
+      ]
+    }
+  ]
+}

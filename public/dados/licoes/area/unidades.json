@@ -1,0 +1,206 @@
+{
+  "id": "unidades",
+  "numero": 5,
+  "titulo": "Trocar de unidade de área",
+  "pergunta": "Por que 1 m² não é 100 cm²?",
+  "ideia": {
+    "paragrafos": [
+      "Esta lição existe por causa de um erro que quase todo mundo comete uma vez na vida. Como 1 metro tem 100 centímetros, parece natural concluir que 1 metro quadrado tem 100 centímetros quadrados. Não tem: tem dez mil.",
+      "O motivo fica claro desenhando. Um metro quadrado é um quadrado de 1 metro de lado, ou seja, de 100 cm de lado. Quantos quadradinhos de 1 cm cabem nele? Cabem 100 numa fileira, e há 100 fileiras. Então são 100 × 100 = 10 000.",
+      "A regra geral é essa: quando a unidade de comprimento é multiplicada por um número, a de área é multiplicada por esse número AO QUADRADO. Se o comprimento cresce 100 vezes, a área cresce 100 × 100 vezes. O expoente 2 da unidade avisa exatamente isso.",
+      "Vale a mesma lógica para as outras unidades. 1 dm² = 100 cm², porque 1 dm são 10 cm e 10 × 10 = 100. E 1 km² = 1 000 000 m², porque 1 km são 1000 m e 1000 × 1000 dá um milhão.",
+      "Na prática, o cuidado que resolve quase tudo é converter ANTES de multiplicar. Se uma sala mede 5 m por 400 cm, transforme os 400 cm em 4 m e só então calcule. Misturar unidades na mesma multiplicação produz um número que não significa nada."
+    ],
+    "destaque": "O comprimento cresce 100 vezes; a área cresce 100 × 100. É o que o expoente 2 avisa.",
+    "imagem": "are-ideia-unidades"
+  },
+  "resolvido": {
+    "enunciado": "Quantos centímetros quadrados há em 1 metro quadrado?",
+    "imagem": "are-res-m2",
+    "passos": [
+      {
+        "titulo": "Desenhe o metro quadrado",
+        "explicacao": "Um metro quadrado é um quadrado de 1 metro de lado. Não é um metro 'em algum lugar': é uma região.",
+        "conta": "quadrado de 1 m de lado"
+      },
+      {
+        "titulo": "Converta o LADO",
+        "explicacao": "Um metro tem 100 centímetros. Então o mesmo quadrado pode ser descrito como tendo 100 cm de lado.",
+        "conta": "1 m = 100 cm"
+      },
+      {
+        "titulo": "Conte os quadradinhos",
+        "explicacao": "Quadradinhos de 1 cm de lado: cabem 100 numa fileira, e há 100 fileiras empilhadas.",
+        "conta": "100 por fileira · 100 fileiras"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Cem vezes cem. É aqui que o número surpreende quem esperava só 100.",
+        "conta": "100 × 100 = 10 000 cm²"
+      },
+      {
+        "titulo": "Por que não é 100",
+        "explicacao": "Porque 100 seria uma única fileira de quadradinhos, que cobriria só uma faixa de 1 cm de altura ao longo do metro quadrado. Falta preencher as outras 99 fileiras.",
+        "conta": "1 m² = 10 000 cm²"
+      }
+    ],
+    "fecho": "Sempre que trocar de unidade em área, converta o lado primeiro e conte depois. O erro some sozinho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos centímetros quadrados há em 3 metros quadrados? Digite apenas o número.",
+      "imagem": "are-q-3m2",
+      "dica": "Descubra quanto vale 1 m² em cm² e multiplique por 3.",
+      "formato": "numero",
+      "resposta": 30000,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 sai de multiplicar por 100 em vez de 10 000. Essa é a armadilha central da lição: a conversão de área usa o quadrado do fator de comprimento."
+        },
+        {
+          "resposta": "10000",
+          "porque": "10.000 cm² é quanto vale UM metro quadrado. O enunciado pede três, então falta multiplicar."
+        },
+        {
+          "resposta": "90000",
+          "porque": "90.000 sai de fazer 3 × 3 × 10 000, elevando o 3 ao quadrado também. O quadrado se aplica só ao fator de conversão da unidade, e não à quantidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto vale 1 m²",
+          "explicacao": "Cem centímetros de lado, cem fileiras.",
+          "conta": "1 m² = 100 × 100 = 10 000 cm²"
+        },
+        {
+          "titulo": "Multiplique pela quantidade",
+          "explicacao": "São três metros quadrados, cada um com dez mil centímetros quadrados.",
+          "conta": "3 × 10 000 = 30 000 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos centímetros quadrados tem 1 metro quadrado?",
+      "imagem": "are-q-1m2",
+      "dica": "Cem centímetros de lado. Quantos quadradinhos cabem no total?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "10 000 cm²" },
+        { "rotulo": "B", "texto": "100 cm²" },
+        { "rotulo": "C", "texto": "1 000 cm²" },
+        { "rotulo": "D", "texto": "1 000 000 cm²" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "100 cm²",
+          "porque": "100 é o fator de conversão do COMPRIMENTO: 1 m = 100 cm. Em área ele entra duas vezes, uma para cada dimensão, e vira 100 × 100."
+        },
+        {
+          "resposta": "1 000 cm²",
+          "porque": "1.000 é o fator de conversão do VOLUME entre dm³ e cm³, ou 10 ao cubo. Aqui a medida tem duas dimensões, e não três."
+        },
+        {
+          "resposta": "1 000 000 cm²",
+          "porque": "Um milhão é quantos metros quadrados cabem num quilômetro quadrado. Entre metro e centímetro o fator é bem menor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta o lado",
+          "explicacao": "O quadrado de 1 m de lado é o mesmo quadrado de 100 cm de lado.",
+          "conta": "1 m = 100 cm"
+        },
+        {
+          "titulo": "Conte a região",
+          "explicacao": "Cem quadradinhos por fileira, cem fileiras.",
+          "conta": "100 × 100 = 10 000 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma área de 50 000 cm² corresponde a quantos metros quadrados? Digite apenas o número.",
+      "imagem": "are-q-50000",
+      "dica": "Este é o caminho de volta: divida pelo fator, em vez de multiplicar.",
+      "formato": "numero",
+      "resposta": 5,
+      "unidade": "m²",
+      "errosComuns": [
+        {
+          "resposta": "500",
+          "porque": "500 sai de dividir por 100 em vez de por 10 000. Em área o fator entre metro e centímetro é o quadrado de 100."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 sai de dividir por 1.000. O fator certo é 10.000, porque 1 m² tem cem fileiras de cem quadradinhos."
+        },
+        {
+          "resposta": "500000000",
+          "porque": "Esse número sai de MULTIPLICAR por 10 000. Como estamos indo de uma unidade pequena para uma grande, o número precisa diminuir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual é o fator",
+          "explicacao": "Cada metro quadrado vale dez mil centímetros quadrados.",
+          "conta": "1 m² = 10 000 cm²"
+        },
+        {
+          "titulo": "Indo do pequeno para o grande, divida",
+          "explicacao": "Estamos trocando centímetros quadrados por metros quadrados, que são bem maiores — então o número diminui.",
+          "conta": "50 000 ÷ 10 000 = 5 m²"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Cinco metros quadrados, cada um com dez mil centímetros quadrados, reconstroem o valor do enunciado.",
+          "conta": "5 × 10 000 = 50 000 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos metros quadrados há em 1 quilômetro quadrado? Digite apenas o número.",
+      "imagem": "are-q-km2",
+      "dica": "Um quilômetro tem 1000 metros. Em área, esse fator entra duas vezes.",
+      "formato": "numero",
+      "resposta": 1000000,
+      "unidade": "m²",
+      "errosComuns": [
+        {
+          "resposta": "1000",
+          "porque": "1.000 é o fator de conversão do COMPRIMENTO: 1 km = 1000 m. Em área ele entra duas vezes, uma para cada dimensão."
+        },
+        {
+          "resposta": "10000",
+          "porque": "10.000 é o fator entre metro quadrado e centímetro quadrado. Entre quilômetro e metro o salto é muito maior."
+        },
+        {
+          "resposta": "2000",
+          "porque": "2.000 é 1000 × 2, dobrando em vez de elevar ao quadrado. O expoente 2 da unidade significa multiplicar o fator por ele mesmo, e não por dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta o lado",
+          "explicacao": "Um quilômetro quadrado é um quadrado de 1 km de lado, ou seja, de 1000 metros de lado.",
+          "conta": "1 km = 1 000 m"
+        },
+        {
+          "titulo": "Conte a região",
+          "explicacao": "Mil quadrados de 1 metro por fileira, e mil fileiras.",
+          "conta": "1 000 × 1 000 = 1 000 000 m²"
+        },
+        {
+          "titulo": "A regra que se repete",
+          "explicacao": "Comprimento multiplicado por 1000; área multiplicada por 1000 ao quadrado. É o mesmo padrão do metro para o centímetro, só que numa escala maior.",
+          "conta": "1 km² = 1 000 000 m²"
+        }
+      ]
+    }
+  ]
+}

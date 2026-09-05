@@ -227,7 +227,14 @@ await teste("digitar o nome emite o certificado no armazenamento local", async (
 });
 
 await teste("matéria indisponível mostra recado", async () => {
-  const { doc } = await montar("curso.html", "?c=perimetro");
+  // A matéria é escolhida do catálogo em vez de fixada aqui: com o id
+  // cravado, o teste quebrava toda vez que aquela matéria era publicada.
+  const indisponivel = catalogo.anos
+    .flatMap((a) => a.cursos)
+    .find((c) => !c.disponivel);
+  assert.ok(indisponivel, "o catálogo não tem mais nenhuma matéria por publicar");
+
+  const { doc } = await montar("curso.html", `?c=${indisponivel.id}`);
   assert.match(doc.querySelector("[data-curso]").textContent, /ainda não está disponível/);
 });
 

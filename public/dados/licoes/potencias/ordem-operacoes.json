@@ -1,0 +1,229 @@
+{
+  "id": "ordem-operacoes",
+  "numero": 4,
+  "titulo": "Potência na ordem das operações",
+  "pergunta": "Em 3 + 2 × 5², o que se resolve primeiro?",
+  "ideia": {
+    "paragrafos": [
+      "Uma expressão como 3 + 2 × 5² tem três operações, e a ordem em que você as faz muda o resultado. Não é questão de gosto: existe uma combinação aceita no mundo inteiro, e ela existe justamente para que a mesma expressão signifique a mesma coisa para todo mundo.",
+      "A ordem é: primeiro o que estiver dentro de parênteses; depois as potências; depois multiplicações e divisões, da esquerda para a direita; e por último somas e subtrações, também da esquerda para a direita.",
+      "As potências vêm cedo porque são a operação mais 'condensada' da lista. Uma potência é uma multiplicação abreviada, do mesmo jeito que uma multiplicação é uma soma abreviada. Quanto mais compacta a operação, mais cedo ela é desfeita — a expressão vai sendo aberta de dentro para fora.",
+      "Na prática, vale um hábito simples: antes de calcular, reescreva a expressão substituindo cada potência pelo valor dela. Em 3 + 2 × 5², troque o 5² por 25 e você fica com 3 + 2 × 25, uma expressão sem armadilhas. Metade dos erros desta lição some com esse único passo.",
+      "E um cuidado com os parênteses: (2 + 3)² não é 2² + 3². O primeiro soma antes e eleva depois, dando 25; o segundo eleva cada parcela e soma, dando 13. Elevar ao quadrado não se distribui pela soma."
+    ],
+    "destaque": "Parênteses, potências, depois × e ÷, por último + e −.",
+    "imagem": "pot-ideia-ordem"
+  },
+  "resolvido": {
+    "enunciado": "Calcule o valor de 3 + 2 × 5².",
+    "imagem": "pot-res-hierarquia",
+    "passos": [
+      {
+        "titulo": "Localize a potência",
+        "explicacao": "Não há parênteses na expressão, então o primeiro da fila é o 5². Ele é o único pedaço que precisa ser resolvido antes de qualquer outra coisa.",
+        "conta": "5² = 5 × 5 = 25"
+      },
+      {
+        "titulo": "Reescreva sem potência",
+        "explicacao": "Troque o 5² pelo valor dele e copie o resto igual. Agora a expressão só tem uma multiplicação e uma soma.",
+        "conta": "3 + 2 × 25"
+      },
+      {
+        "titulo": "Multiplicação antes de soma",
+        "explicacao": "O 2 está multiplicando o 25, e multiplicação vem antes de soma. Cuidado para não somar 3 + 2 primeiro: isso daria outra conta.",
+        "conta": "2 × 25 = 50"
+      },
+      {
+        "titulo": "Por último, some",
+        "explicacao": "Sobrou 3 + 50, e agora não há mais escolha a fazer.",
+        "conta": "3 + 50 = 53"
+      },
+      {
+        "titulo": "Veja o que daria na ordem errada",
+        "explicacao": "Se alguém somasse 3 + 2 primeiro e depois multiplicasse por 25, chegaria a 125. A diferença entre 53 e 125 mostra que a ordem não é detalhe.",
+        "conta": "(3 + 2) × 25 = 125 ≠ 53"
+      }
+    ],
+    "fecho": "Trocar cada potência pelo valor dela antes de começar transforma uma expressão assustadora numa conta comum."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule 2 + 3 × 4². Digite apenas o resultado.",
+      "imagem": "pot-q-ordem-1",
+      "dica": "Substitua o 4² pelo valor dele e a expressão vira uma conta simples.",
+      "formato": "numero",
+      "resposta": 50,
+      "errosComuns": [
+        {
+          "resposta": "80",
+          "porque": "80 sai de somar 2 + 3 primeiro e multiplicar por 16 depois. A soma é a última da fila, não a primeira — a multiplicação passa na frente dela."
+        },
+        {
+          "resposta": "26",
+          "porque": "26 sai de fazer 3 × 4 = 12 e só depois elevar ao quadrado errado, ou de trocar 4² por 8. Lembre: 4² é 4 × 4 = 16, não 4 × 2."
+        },
+        {
+          "resposta": "400",
+          "porque": "400 é (2 + 3 × 4)², ou seja, elevar tudo ao quadrado no final. O expoente pertence só ao 4, não à expressão inteira."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 sai de 2 + 3 × 4, esquecendo o expoente. O 4 está elevado ao quadrado, então vale 16 e não 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Resolva a potência",
+          "explicacao": "É a primeira da fila, porque não há parênteses na expressão.",
+          "conta": "4² = 16"
+        },
+        {
+          "titulo": "Reescreva e multiplique",
+          "explicacao": "A expressão vira 2 + 3 × 16, e a multiplicação vem antes da soma.",
+          "conta": "3 × 16 = 48"
+        },
+        {
+          "titulo": "Some por último",
+          "explicacao": "Sobrou somar o 2 que estava esperando desde o começo.",
+          "conta": "2 + 48 = 50"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale 4 + 2 × 3²?",
+      "imagem": "pot-q-ordem-2",
+      "dica": "Três operações, três lugares na fila: potência, multiplicação, soma.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "22"
+        },
+        {
+          "rotulo": "B",
+          "texto": "40"
+        },
+        {
+          "rotulo": "C",
+          "texto": "100"
+        },
+        {
+          "rotulo": "D",
+          "texto": "324"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 sai de multiplicar 2 × 3 antes de elevar: 4 + 6² = 4 + 36. Mas o expoente pertence só ao 3, e a potência é resolvida antes da multiplicação."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é (4 + 2 × 3)², ou seja, deixar o quadrado por último e aplicá-lo a tudo. O expoente nunca vale para a expressão inteira sem parênteses."
+        },
+        {
+          "resposta": "324",
+          "porque": "324 sai de calcular tudo da esquerda para a direita: 4 + 2 = 6, 6 × 3 = 18, 18² = 324. É o que acontece quando se ignora a hierarquia por completo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Potência primeiro",
+          "explicacao": "O único expoente da expressão está sobre o 3, e ele resolve antes de tudo.",
+          "conta": "3² = 9"
+        },
+        {
+          "titulo": "Depois a multiplicação",
+          "explicacao": "A expressão virou 4 + 2 × 9. O 2 multiplica só o 9, não o 4.",
+          "conta": "2 × 9 = 18"
+        },
+        {
+          "titulo": "A soma fecha a conta",
+          "explicacao": "Restou juntar o 4 do começo com o 18 que acabou de sair.",
+          "conta": "4 + 18 = 22"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Calcule 5² − 3². Digite apenas o resultado.",
+      "imagem": "pot-q-diferenca",
+      "dica": "Calcule cada potência separadamente e só então subtraia.",
+      "formato": "numero",
+      "resposta": 16,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é (5 − 3)², ou seja, subtrair primeiro e elevar depois. Não dá: cada expoente pertence ao seu próprio número, e sem parênteses a subtração fica por último."
+        },
+        {
+          "resposta": "34",
+          "porque": "34 é 25 + 9, a soma das duas potências. O sinal entre elas é de menos."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é 5 − 3, com os expoentes ignorados. Cada número está elevado ao quadrado antes de a subtração acontecer."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Resolva as duas potências",
+          "explicacao": "As duas estão na frente da subtração, então saem primeiro. Cada expoente vale só para o número embaixo dele.",
+          "conta": "5² = 25 · 3² = 9"
+        },
+        {
+          "titulo": "Agora subtraia",
+          "explicacao": "Com as potências já calculadas, sobrou uma subtração comum.",
+          "conta": "25 − 9 = 16"
+        },
+        {
+          "titulo": "Compare com o caminho errado",
+          "explicacao": "Se alguém fizesse 5 − 3 primeiro e elevasse ao quadrado, chegaria a 4. Elevar ao quadrado não passa por dentro da subtração.",
+          "conta": "(5 − 3)² = 4 ≠ 16"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Calcule 100 − 2 × 3³. Digite apenas o resultado.",
+      "imagem": "pot-q-ordem-3",
+      "dica": "Atenção ao expoente 3: são três fatores, não dois.",
+      "formato": "numero",
+      "resposta": 46,
+      "errosComuns": [
+        {
+          "resposta": "82",
+          "porque": "82 sai de usar 3² = 9 no lugar de 3³ = 27: 100 − 18. O expoente é 3, então são três fatores 3 multiplicados."
+        },
+        {
+          "resposta": "2646",
+          "porque": "2646 sai de fazer 100 − 2 = 98 primeiro e multiplicar por 27 depois. A subtração é a última da fila."
+        },
+        {
+          "resposta": "94",
+          "porque": "94 sai de trocar 3³ por 3 × 3 = 9 e depois esquecer o 2, ou de calcular 100 − 2 × 3. Vale reescrever a expressão com a potência já resolvida antes de continuar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Resolva a potência",
+          "explicacao": "Expoente 3 significa três fatores 3: primeiro 3 × 3 = 9, depois 9 × 3.",
+          "conta": "3³ = 3 × 3 × 3 = 27"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "A expressão virou 100 − 2 × 27, e a multiplicação vem antes da subtração.",
+          "conta": "2 × 27 = 54"
+        },
+        {
+          "titulo": "Subtraia no fim",
+          "explicacao": "Agora sim, tire 54 de 100. A subtração é a última da fila justamente porque precisa que todo o resto já esteja resolvido.",
+          "conta": "100 − 54 = 46"
+        }
+      ]
+    }
+  ]
+}

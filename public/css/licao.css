@@ -41,9 +41,29 @@
 .linha--feita .linha__num { color: var(--acerto); }
 .linha--feita .linha__num::after { content: " ✓"; }
 
+/* No celular a linha vira grade de duas colunas em vez de flex com quebra.
+
+   Com flex-wrap, o corpo tem flex-basis auto — ou seja, a largura do texto —
+   e a quebra passa a depender do tamanho da descricao: matéria de resumo
+   longo empurrava o marcador para uma linha propria (titulo colado na
+   margem) e matéria de resumo curto mantinha o marcador ao lado (titulo 38px
+   adentro). Duas linhas vizinhas ficavam desalinhadas entre si.
+
+   Na grade a coluna do texto e fixa, entao todo titulo comeca no mesmo x,
+   independentemente do texto. O rotulo do fim desce para a segunda linha da
+   mesma coluna, alinhado com o titulo — antes ele usava um padding de 44px
+   chutado, que nem batia com os 38px reais da coluna. */
 @media (max-width: 599px) {
-  .linha { align-items: flex-start; gap: var(--e-md); flex-wrap: wrap; }
-  .linha__fim { width: 100%; padding-left: 44px; }
+  .linha {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    column-gap: var(--e-md);
+    row-gap: var(--e-xs);
+    align-items: start;
+  }
+  .linha__num { grid-column: 1; }
+  .linha__corpo { grid-column: 2; }
+  .linha__fim { grid-column: 2; }
 }
 
 .metodo {
@@ -76,7 +96,14 @@
 .bloco .eyebrow { display: block; margin-bottom: var(--e-sm); }
 .bloco > h2 { margin-bottom: var(--e-xl); }
 
-.bloco__acoes { display: flex; flex-wrap: wrap; gap: var(--e-sm); margin-top: var(--e-lg); }
+/* O botao nu tem 8px de padding lateral. Ao lado de outro botao isso vira
+   respiro; quando a linha quebra no celular, vira um recuo de 8px que
+   desalinha o texto de todo o resto da coluna. Compensar com uma margem
+   negativa igual (e um gap maior, para o espacamento visual nao mudar no
+   desktop) deixa o rotulo alinhado nos dois casos. */
+.bloco__acoes { display: flex; flex-wrap: wrap; gap: var(--e-lg); margin-top: var(--e-lg); }
+.bloco__acoes > .botao--nu,
+.acoes > .botao--nu { margin-inline-start: calc(var(--e-sm) * -1); }
 
 /* A frase-síntese da ideia, no serif editorial do DESIGN.md.
    É o único lugar onde o Instrument Serif aparece — usar mais que isso
@@ -110,6 +137,41 @@
   height: auto;
 }
 .figura--questao { margin-block: var(--e-lg); background: var(--canvas); }
+
+/* No celular a figura vale mais que a moldura: o padding cai para 10px e o
+   desenho fica com a largura que sobrar. Com os paddings do container e do
+   card tambem reduzidos, uma figura de 440px que era exibida a 39% numa tela
+   de 320px passa a ser exibida a ~72%.
+
+   Um piso de escala com rolagem horizontal foi testado e descartado: o ganho
+   real era de 3 a 5 pontos percentuais e o preco era uma barra de rolagem com
+   a figura cortada. O overflow-x fica so como rede de seguranca — se um
+   desenho novo for largo demais, ele rola dentro da propria caixa em vez de
+   empurrar a pagina inteira para o lado. */
+@media (max-width: 599px) {
+  .figura {
+    padding: var(--e-md);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  /* Sangria ate a borda da tela. O recuo e a soma exata dos paddings dos
+     ancestrais nesta faixa (container 16 + card 16), entao a figura encosta
+     no limite do viewport sem usar 100vw — que somaria a barra de rolagem e
+     poderia criar rolagem horizontal na pagina inteira. Sem as bordas
+     laterais e sem raio, para ler como faixa e nao como caixa cortada. */
+  .bloco > .figura {
+    margin-inline: calc(var(--e-lg) * -1);
+    border-inline: 0;
+    border-radius: 0;
+  }
+  .enunciado > .figura,
+  .questao > .figura {
+    margin-inline: calc(var(--e-2xl) * -1);
+    border-inline: 0;
+    border-radius: 0;
+  }
+}
 
 /* ---------- Enunciado do exemplo resolvido ---------- */
 
@@ -156,6 +218,7 @@
   max-width: 100%;
 }
 .passos--compacto .passo { padding-block: var(--e-md); }
+@media (max-width: 599px) { .passo { padding-left: var(--e-lg); } }
 
 .fecho {
   max-width: 62ch;
@@ -183,6 +246,7 @@
 /* ---------- Questão ---------- */
 
 .questao { padding: var(--e-xl); }
+@media (max-width: 599px) { .questao { padding: var(--e-lg); } }
 .questao__topo {
   display: flex;
   flex-wrap: wrap;
@@ -198,7 +262,10 @@
 
 .alternativa {
   display: flex;
-  align-items: flex-start;
+  /* A letra e mono-sm (13px) e o texto e t-md (16px). Alinhar pelo topo
+     deixava a letra pairando acima da linha do texto; a primeira linha de
+     base e o alinhamento correto, e continua certo quando o texto quebra. */
+  align-items: baseline;
   gap: var(--e-md);
   width: 100%;
   padding: var(--e-md) var(--e-lg);
@@ -225,12 +292,12 @@
 
 @media (max-width: 767px) { .alternativa { min-height: 48px; } }
 
-.resposta-numero { display: flex; align-items: center; gap: var(--e-md); }
-.campo--numero { max-width: 220px; font-family: var(--fonte-mono); font-size: 16px; }
+.resposta-numero { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-md); }
+.campo--numero { flex: 1 1 150px; max-width: 220px; font-family: var(--fonte-mono); font-size: 16px; }
 
 /* ---------- Ações e retorno ---------- */
 
-.acoes { display: flex; flex-wrap: wrap; gap: var(--e-sm); margin-top: var(--e-xl); }
+.acoes { display: flex; flex-wrap: wrap; gap: var(--e-lg); margin-top: var(--e-xl); }
 .acoes__retorno:empty { display: none; }
 
 .retorno {

@@ -1,0 +1,237 @@
+{
+  "id": "parte-e-total",
+  "numero": 6,
+  "titulo": "Da parte para o total",
+  "pergunta": "Se 30% de um número é 45, que número é esse?",
+  "ideia": {
+    "paragrafos": [
+      "As lições anteriores partiam do total e procuravam a parte. Agora vamos no sentido contrário, e há duas perguntas de volta que aparecem o tempo todo.",
+      "A primeira é: X é quantos por cento de Y? Aqui você tem as duas quantidades e quer a taxa. Monte a fração parte sobre total e transforme em porcentagem. Se 15 é a parte e 60 é o total, então 15/60 = 1/4 = 25%.",
+      "A segunda é: se p% de um número é X, qual é o número? Aqui você tem a taxa e a parte, e falta o total. O caminho mais seguro é o mesmo de sempre, feito ao contrário: descubra quanto vale 1% e depois multiplique por 100. Se 30% valem 45, então 1% vale 45 ÷ 30 = 1,5, e o total é 1,5 × 100 = 150.",
+      "Repare que nas duas perguntas o total é sempre 100%. É esse o ponto fixo que permite ir e voltar: qualquer parte pode ser comparada com ele, e qualquer taxa pode ser esticada até ele.",
+      "E vale sempre conferir no fim, aplicando a taxa sobre o total encontrado para ver se a parte volta. É uma conferência de dez segundos que pega quase todo erro de sentido — quem divide onde devia multiplicar percebe na hora, porque o número dá absurdo."
+    ],
+    "destaque": "O total é sempre 100%. É esse ponto fixo que deixa a conta ir e voltar.",
+    "imagem": "por-ideia-volta"
+  },
+  "resolvido": {
+    "enunciado": "Sabendo que 30% de um número é 45, descubra qual é esse número.",
+    "imagem": "por-res-45",
+    "passos": [
+      {
+        "titulo": "Identifique o que você tem",
+        "explicacao": "Você conhece a taxa (30%) e a parte (45). O que falta é o total, que corresponde a 100%.",
+        "conta": "30% → 45 · 100% → ?"
+      },
+      {
+        "titulo": "Desça até 1%",
+        "explicacao": "Se trinta partes valem 45, uma parte vale 45 dividido por 30. Passar pelo 1% é o que torna o caminho de volta tão simples quanto o de ida.",
+        "conta": "45 ÷ 30 = 1,5"
+      },
+      {
+        "titulo": "Suba até 100%",
+        "explicacao": "O total é composto de cem dessas partes de 1,5.",
+        "conta": "1,5 × 100 = 150"
+      },
+      {
+        "titulo": "Confira aplicando a taxa",
+        "explicacao": "Se o total é mesmo 150, então 30% dele têm que dar exatamente os 45 do enunciado. Dez por cento de 150 são 15, então trinta por cento são 45.",
+        "conta": "0,3 × 150 = 45"
+      }
+    ],
+    "fecho": "Ida e volta usam a mesma escada. Só muda o degrau de onde você parte."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Sabendo que 25% de um número é 12, qual é esse número? Digite apenas o número.",
+      "imagem": "por-q-25-12",
+      "dica": "Vinte e cinco por cento é um quarto. Se um quarto vale 12, quanto valem os quatro quartos?",
+      "formato": "numero",
+      "resposta": 48,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é 25% de 12, ou seja, você aplicou a taxa em vez de desfazê-la. Aqui o 12 já É a parte; o que falta é o total, que tem que ser maior que 12."
+        },
+        {
+          "resposta": "37",
+          "porque": "37 é 12 mais 25, somando a taxa como se fosse uma quantidade. A taxa é uma proporção, não um número de unidades."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é o dobro de 12, o que responderia se a taxa fosse 50%. Como 25% é a metade de 50%, o total precisa ser o dobro disso."
+        },
+        {
+          "resposta": "300",
+          "porque": "300 é 12 × 25. Faltou dividir por 100 em algum ponto: se 25% valem 12, o total é só quatro vezes maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza a taxa",
+          "explicacao": "Vinte e cinco por cento é um quarto do total.",
+          "conta": "25% = 1/4"
+        },
+        {
+          "titulo": "Reconstrua o inteiro",
+          "explicacao": "Se um quarto vale 12, o inteiro é feito de quatro pedaços desse tamanho.",
+          "conta": "12 × 4 = 48"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Aplicando a taxa de volta sobre o total encontrado, tem que aparecer o 12 do enunciado.",
+          "conta": "48 ÷ 4 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O número 15 é quantos por cento de 60? Digite apenas o número.",
+      "imagem": "por-q-15-60",
+      "dica": "Monte a fração parte sobre total e simplifique. Que fração conhecida aparece?",
+      "formato": "numero",
+      "resposta": 25,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é quantas vezes o 15 cabe em 60 — é a fração de cabeça para baixo. A pergunta é que parte do 60 o 15 representa, então o 15 vai em cima."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é 60 menos 15, a parte que sobra. Além disso, a resposta pedida é uma taxa, e não uma quantidade."
+        },
+        {
+          "resposta": "75",
+          "porque": "75% é a porcentagem que os 45 restantes representam. Você calculou o complemento em vez da parte pedida."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 15% de 60. Isso responderia a pergunta ao contrário: aqui a taxa é o que se procura, não o que se aplica."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a fração",
+          "explicacao": "A parte vai em cima e o total vai embaixo. Trocar a ordem responde outra pergunta.",
+          "conta": "15/60"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "Dividindo os dois por 15, a fração fica na forma mais simples e vira uma das conhecidas.",
+          "conta": "15/60 = 1/4"
+        },
+        {
+          "titulo": "Traduza para porcentagem",
+          "explicacao": "Um quarto é 25%, uma das conversões que vale ter de cor.",
+          "conta": "1/4 = 25/100 = 25%"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa turma, 18 alunos gostam de matemática, e eles representam 60% da turma. Quantos alunos tem a turma? Digite apenas o número.",
+      "imagem": "por-q-turma",
+      "dica": "Se 60% valem 18, quanto vale 10%? A partir daí é fácil chegar a 100%.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "10.8",
+          "porque": "10,8 é 60% de 18, ou seja, a taxa aplicada de novo sobre a parte. Os 18 JÁ são os 60%; falta subir até 100%. E uma quantidade de alunos nunca é número quebrado."
+        },
+        {
+          "resposta": "78",
+          "porque": "78 é 18 mais 60, somando a taxa como se fosse gente. A taxa é uma proporção da turma, não um número de alunos."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 seriam os 40% que faltam, e não o total. Repare que o total tem que ser maior que 18, porque 18 é só uma parte dele."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é o dobro de 18, o que valeria se a taxa fosse 50%. Como 60% é mais que a metade, o total é menor que o dobro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desça até 10%",
+          "explicacao": "Sessenta por cento valem 18, então dez por cento valem a sexta parte disso.",
+          "conta": "18 ÷ 6 = 3"
+        },
+        {
+          "titulo": "Suba até 100%",
+          "explicacao": "A turma inteira é feita de dez pedaços de 10% cada.",
+          "conta": "3 × 10 = 30"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Sessenta por cento de 30 têm que dar os 18 do enunciado, e dão. Os outros 12 alunos são os 40% que não gostam.",
+          "conta": "0,6 × 30 = 18"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Diamantino colocou três litros de água e um litro de refresco num recipiente. O refresco é composto de 20% de suco de laranja e 80% de água. Depois de misturar tudo, que porcentagem do volume final representa o suco de laranja?",
+      "imagem": "por-q-suco",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 39 — O suco do Diamantino"
+      },
+      "dica": "Descubra quantos litros de suco existem de verdade. Depois compare com o volume TOTAL da mistura, e não com o litro de refresco.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5%" },
+        { "rotulo": "B", "texto": "7%" },
+        { "rotulo": "C", "texto": "8%" },
+        { "rotulo": "D", "texto": "20%" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "20%",
+          "porque": "20% é a concentração de suco DENTRO do refresco, antes de ele ser misturado. Depois de acrescentar três litros de água, a mesma quantidade de suco se espalha por um volume quatro vezes maior, então a porcentagem cai."
+        },
+        {
+          "resposta": "8%",
+          "porque": "Parece que os 80% de água do refresco entraram na conta no lugar do suco, ou que o total usado foi diferente do volume final. O suco é 0,2 litro num total de 4 litros."
+        },
+        {
+          "resposta": "7%",
+          "porque": "Nenhum caminho correto leva a 7%. Vale refazer com cuidado: 0,2 litro de suco dividido por 4 litros de mistura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto suco existe de verdade",
+          "explicacao": "O suco só está no litro de refresco, e ele é 20% desse litro. Vinte por cento de 1 litro é um quinto de litro.",
+          "conta": "20% de 1 L = 0,2 L de suco"
+        },
+        {
+          "titulo": "Qual é o volume final",
+          "explicacao": "Três litros de água mais um litro de refresco. A água que já vinha dentro do refresco não entra de novo: ela já está contada naquele litro.",
+          "conta": "3 + 1 = 4 litros"
+        },
+        {
+          "titulo": "Monte a fração",
+          "explicacao": "A parte é o suco, o total é a mistura inteira. O erro clássico aqui é comparar o suco com o litro de refresco em vez de com os 4 litros.",
+          "conta": "0,2/4"
+        },
+        {
+          "titulo": "Transforme em porcentagem",
+          "explicacao": "0,2 dividido por 4 dá 0,05, que é cinco centésimos.",
+          "conta": "0,2 ÷ 4 = 0,05 = 5/100 = 5%"
+        },
+        {
+          "titulo": "O resultado faz sentido?",
+          "explicacao": "O refresco foi diluído em quatro vezes o volume dele, então a concentração de suco caiu para um quarto dos 20% originais — exatamente 5%.",
+          "conta": "20% ÷ 4 = 5%"
+        }
+      ]
+    }
+  ]
+}

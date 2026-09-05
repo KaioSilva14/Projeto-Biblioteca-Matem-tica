@@ -1,0 +1,201 @@
+{
+  "id": "poligonos",
+  "numero": 1,
+  "titulo": "O que é um polígono",
+  "pergunta": "O que uma figura precisa ter para ganhar esse nome?",
+  "ideia": {
+    "paragrafos": [
+      "Polígono é uma figura plana, fechada e feita só de segmentos de reta. As três exigências contam, e cada uma exclui um tipo de figura.",
+      "Plana quer dizer que ela cabe inteira numa folha. Fechada quer dizer que o contorno volta ao ponto de partida, sem deixar buraco por onde escapar: um zigue-zague aberto não é polígono. E feita só de segmentos de reta exclui o círculo e qualquer figura com um lado curvo — por mais bonita que seja, ela não entra na família.",
+      "Todo polígono tem três coisas na mesma quantidade: lados, vértices e ângulos internos. Um pentágono tem 5 lados, 5 vértices e 5 ângulos. Isso não é coincidência: cada vez que dois lados se encontram, nasce um vértice, e nele mora um ângulo. Contar um é contar os três.",
+      "Os nomes vêm da quantidade de lados: triângulo (3), quadrilátero (4), pentágono (5), hexágono (6), heptágono (7), octógono (8), eneágono (9) e decágono (10). A partir daí a gente costuma dizer só 'polígono de 12 lados'.",
+      "Repare que o nome não diz nada sobre o formato. Um quadrilátero pode ser um quadrado bonitinho ou um trapézio torto — os dois têm quatro lados, e é só isso que o nome promete."
+    ],
+    "destaque": "Fechada, plana e só com lados retos. Falhou numa, não é polígono.",
+    "imagem": "fig-ideia-poligonos"
+  },
+  "resolvido": {
+    "enunciado": "Um hexágono foi desenhado. Quantos lados, quantos vértices e quantos ângulos internos ele tem?",
+    "imagem": "fig-res-hexagono",
+    "passos": [
+      {
+        "titulo": "Comece pelo nome",
+        "explicacao": "O prefixo 'hexa' significa seis, então o hexágono tem seis lados. É daí que sai todo o resto.",
+        "conta": "hexágono → 6 lados"
+      },
+      {
+        "titulo": "Conte os vértices",
+        "explicacao": "Cada vértice é o encontro de dois lados. Percorrendo o contorno, a cada lado que termina começa outro — e no ponto de encontro há um vértice. Como o contorno é fechado, sobra um vértice para cada lado.",
+        "conta": "6 lados → 6 vértices"
+      },
+      {
+        "titulo": "Conte os ângulos",
+        "explicacao": "Em cada vértice, os dois lados que se encontram formam um ângulo interno. Um ângulo por vértice.",
+        "conta": "6 vértices → 6 ângulos internos"
+      },
+      {
+        "titulo": "A regra geral",
+        "explicacao": "Vale para qualquer polígono: os três números são sempre iguais. Se você contar os lados, já contou tudo.",
+        "conta": "lados = vértices = ângulos"
+      }
+    ],
+    "fecho": "Contar lados de um polígono responde três perguntas de uma vez. É por isso que o nome é dado pelo número de lados."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destas figuras é um polígono?",
+      "imagem": "fig-q-poligono",
+      "dica": "Volte às três exigências: plana, fechada e só com lados retos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Um triângulo" },
+        { "rotulo": "B", "texto": "Um círculo" },
+        { "rotulo": "C", "texto": "Uma linha em zigue-zague que não se fecha" },
+        { "rotulo": "D", "texto": "Uma figura fechada com um dos lados curvo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Um círculo",
+          "porque": "O círculo é plano e fechado, mas o contorno dele é uma curva, e não segmentos de reta. Falha na terceira exigência — é justamente por isso que ele tem uma lição só para ele no fim desta matéria."
+        },
+        {
+          "resposta": "Uma linha em zigue-zague que não se fecha",
+          "porque": "Os lados são retos, mas o contorno não volta ao ponto de partida. Sem fechar não há região de dentro, e sem região de dentro não há polígono."
+        },
+        {
+          "resposta": "Uma figura fechada com um dos lados curvo",
+          "porque": "Ela é plana e fechada, mas basta UM lado curvo para sair da família. Todos os lados precisam ser segmentos de reta, sem exceção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste as três exigências",
+          "explicacao": "Plana, fechada e só com lados retos. Uma figura precisa passar nas três, e não em duas.",
+          "conta": "plana + fechada + lados retos"
+        },
+        {
+          "titulo": "Elimine",
+          "explicacao": "O círculo tem contorno curvo. O zigue-zague não fecha. A figura de lado curvo falha na mesma exigência do círculo.",
+          "conta": "só o triângulo passa nas três"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos vértices tem um octógono? Digite apenas o número.",
+      "imagem": "fig-q-octogono",
+      "dica": "O prefixo 'octo' diz quantos lados. E vértices são tantos quanto os lados.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "vértices",
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é o dobro. Cada vértice é compartilhado por DOIS lados — se você contasse duas pontas por lado, contaria cada vértice duas vezes."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o número de lados do hexágono. O prefixo 'octo' vale oito, como em outubro, que era o oitavo mês no calendário romano."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o heptágono. Num polígono fechado a contagem de vértices bate exatamente com a de lados — não fica um a menos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o prefixo",
+          "explicacao": "'Octo' significa oito, então o octógono tem oito lados.",
+          "conta": "octógono → 8 lados"
+        },
+        {
+          "titulo": "Traduza para vértices",
+          "explicacao": "Num polígono, lados e vértices andam em par: um vértice a cada encontro de dois lados, e o contorno fechado garante que a conta feche.",
+          "conta": "8 lados → 8 vértices"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Como se chama o polígono da figura, que tem 5 lados?",
+      "imagem": "fig-q-pentagono",
+      "dica": "O nome vem do prefixo grego para cinco.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Pentágono" },
+        { "rotulo": "B", "texto": "Hexágono" },
+        { "rotulo": "C", "texto": "Quadrilátero" },
+        { "rotulo": "D", "texto": "Octógono" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Hexágono",
+          "porque": "Hexágono tem SEIS lados, um a mais. Conte os lados da figura com o dedo: são cinco."
+        },
+        {
+          "resposta": "Quadrilátero",
+          "porque": "Quadrilátero tem quatro lados. É fácil errar por um quando se conta rápido — vale marcar um vértice e dar a volta a partir dele."
+        },
+        {
+          "resposta": "Octógono",
+          "porque": "Octógono tem oito lados, bem mais que os cinco da figura. É a forma da placa de PARE."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os lados",
+          "explicacao": "Escolha um vértice, vá contando os segmentos e pare quando voltar a ele. São cinco.",
+          "conta": "5 lados"
+        },
+        {
+          "titulo": "Ligue ao prefixo",
+          "explicacao": "'Penta' é cinco em grego, como no pentacampeonato.",
+          "conta": "5 lados → pentágono"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um polígono tem 7 lados. Quantos ângulos internos ele tem? Digite apenas o número.",
+      "imagem": "fig-q-sete",
+      "dica": "Cada vértice guarda um ângulo interno, e há um vértice por lado.",
+      "formato": "numero",
+      "resposta": 7,
+      "unidade": "ângulos",
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é o dobro de 7. Cada lado tem duas pontas, mas cada ponta é compartilhada com o lado vizinho — então não há dois ângulos por lado."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o número de triângulos em que um polígono de 7 lados pode ser dividido a partir de um vértice, que é assunto da lição 5. A quantidade de ângulos é outra coisa: é igual à de lados."
+        },
+        {
+          "resposta": "360",
+          "porque": "360 é a soma dos ângulos de um QUADRILÁTERO, em graus. A pergunta é quantos ângulos existem, e não quanto eles somam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Onde mora um ângulo interno",
+          "explicacao": "Ele nasce no vértice, entre os dois lados que ali se encontram. Um vértice, um ângulo.",
+          "conta": "1 vértice → 1 ângulo interno"
+        },
+        {
+          "titulo": "Quantos vértices existem",
+          "explicacao": "Num polígono fechado, a quantidade de vértices é igual à de lados.",
+          "conta": "7 lados → 7 vértices"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Como há um ângulo por vértice, os três números coincidem.",
+          "conta": "7 lados = 7 vértices = 7 ângulos"
+        }
+      ]
+    }
+  ]
+}

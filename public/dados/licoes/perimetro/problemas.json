@@ -1,0 +1,200 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Perímetro no mundo real",
+  "pergunta": "Quantos metros de arame para cercar um terreno com três voltas?",
+  "ideia": {
+    "paragrafos": [
+      "Fora da escola, o perímetro raramente aparece com esse nome. Ele aparece disfarçado de cerca, moldura, rodapé, fita de contorno, volta na quadra, arame farpado. Reconhecer o disfarce é metade do trabalho.",
+      "A pergunta que identifica o perímetro é sempre a mesma: isso acompanha a BORDA da figura? Se acompanha, é perímetro. Cerca acompanha a borda do terreno; tinta não acompanha, cobre o meio; grama não acompanha, cobre o meio. Cerca e rodapé são perímetro; tinta e grama são área.",
+      "Uma vez identificado, o problema costuma ter uma etapa a mais depois do perímetro. Cercar com três fios de arame é o perímetro multiplicado por 3. Dar quatro voltas na quadra é o perímetro multiplicado por 4. Calcular o preço da cerca é o perímetro multiplicado pelo preço por metro.",
+      "Por isso vale sempre separar em duas partes: primeiro o perímetro, depois o que se faz com ele. Misturar as duas etapas numa conta só é o que produz a maioria dos erros.",
+      "E há a etapa que quase todo mundo pula: conferir se o resultado é plausível. Uma quadra de 28 por 15 metros tem perímetro de 86 metros — se a sua conta der 400, alguma coisa saiu do lugar antes de chegar lá."
+    ],
+    "destaque": "Acompanha a borda? É perímetro. Depois disso, veja o que o problema pede a mais.",
+    "imagem": "per-ideia-problemas"
+  },
+  "resolvido": {
+    "enunciado": "Um terreno retangular mede 30 m por 20 m. Ele será cercado com arame passando três voltas em torno dele. Quantos metros de arame são necessários?",
+    "imagem": "per-res-problema",
+    "passos": [
+      {
+        "titulo": "Identifique a medida pedida",
+        "explicacao": "O arame acompanha a borda do terreno, então a base do cálculo é o perímetro. Se fosse plantar grama, seria outra medida.",
+        "conta": "arame → acompanha a borda → perímetro"
+      },
+      {
+        "titulo": "Calcule uma volta",
+        "explicacao": "Some comprimento e largura para achar a meia volta e dobre.",
+        "conta": "2 × (30 + 20) = 2 × 50 = 100 m"
+      },
+      {
+        "titulo": "Agora a etapa a mais",
+        "explicacao": "Uma volta gasta 100 metros. O enunciado pede três voltas, então multiplique.",
+        "conta": "3 × 100 = 300 m"
+      },
+      {
+        "titulo": "O resultado é plausível?",
+        "explicacao": "Trezentos metros de arame para um terreno de 30 por 20 metros, com três fios, faz sentido. Se tivesse dado 30 metros, não daria nem uma volta.",
+        "conta": "300 m de arame"
+      }
+    ],
+    "fecho": "Perímetro primeiro, o resto depois. Separar as duas etapas é o que mantém a conta sob controle."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um quadro retangular mede 40 cm por 60 cm. Quantos centímetros de moldura são necessários para contorná-lo? Digite apenas o número.",
+      "imagem": "per-q-moldura",
+      "dica": "A moldura acompanha a borda do quadro. Uma volta só.",
+      "formato": "numero",
+      "resposta": 200,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "2400",
+          "porque": "2.400 é 40 × 60, a ÁREA do quadro em centímetros quadrados. Isso responderia quanto papel cobre o quadro, e não quanta moldura contorna ele."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é 40 + 60, só a meia volta. A moldura precisa dar a volta completa, passando pelos quatro lados."
+        },
+        {
+          "resposta": "140",
+          "porque": "140 é 2 × 40 + 60, multiplicando antes de somar. Some 40 + 60 primeiro e depois dobre."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique",
+          "explicacao": "Moldura acompanha a borda, então é perímetro.",
+          "conta": "moldura = perímetro"
+        },
+        {
+          "titulo": "Meia volta e volta inteira",
+          "explicacao": "Some os dois lados vizinhos e dobre.",
+          "conta": "2 × (40 + 60) = 2 × 100 = 200 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma quadra retangular mede 28 m por 15 m. Um atleta dá 4 voltas completas em torno dela. Quantos metros ele percorre? Digite apenas o número.",
+      "imagem": "per-q-quadra",
+      "dica": "Calcule uma volta primeiro. Só depois multiplique pelo número de voltas.",
+      "formato": "numero",
+      "resposta": 344,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "86",
+          "porque": "86 metros é UMA volta. O atleta deu quatro, então falta a última etapa: multiplicar por 4."
+        },
+        {
+          "resposta": "172",
+          "porque": "172 metros são apenas DUAS voltas. Vale reler o enunciado com atenção: o atleta deu quatro voltas completas, então o valor de uma volta precisa ser multiplicado por 4."
+        },
+        {
+          "resposta": "1680",
+          "porque": "1.680 é 28 × 15 × 4, usando a área em vez do perímetro. Correr em volta da quadra acompanha a borda, e não o meio."
+        },
+        {
+          "resposta": "43",
+          "porque": "43 é 28 + 15, a meia volta. Ele não corre metade da quadra: dá a volta inteira, quatro vezes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Uma volta",
+          "explicacao": "Some comprimento e largura e dobre.",
+          "conta": "2 × (28 + 15) = 2 × 43 = 86 m"
+        },
+        {
+          "titulo": "Quatro voltas",
+          "explicacao": "Multiplique o valor de uma volta pelo número de voltas.",
+          "conta": "4 × 86 = 344 m"
+        },
+        {
+          "titulo": "Faz sentido?",
+          "explicacao": "Trezentos e quarenta e quatro metros é pouco menos de um terço de um quilômetro — plausível para quatro voltas numa quadra.",
+          "conta": "344 m"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um terreno retangular de 18 m por 12 m será cercado com 2 fios de arame. Quantos metros de arame serão gastos? Digite apenas o número.",
+      "imagem": "per-q-arame",
+      "dica": "Perímetro primeiro; a quantidade de fios depois.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 metros é uma volta, ou seja, um fio só. Como são dois fios, o arame precisa dar a volta duas vezes."
+        },
+        {
+          "resposta": "432",
+          "porque": "432 é 18 × 12 × 2, usando a área em vez do perímetro. Arame acompanha a borda do terreno."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é 18 + 12, a meia volta. Falta dobrar para completar o contorno, e depois multiplicar pelos dois fios."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Uma volta",
+          "explicacao": "Meia volta é 18 + 12; a volta inteira é o dobro.",
+          "conta": "2 × (18 + 12) = 2 × 30 = 60 m"
+        },
+        {
+          "titulo": "Dois fios",
+          "explicacao": "Cada fio dá uma volta completa em torno do terreno.",
+          "conta": "2 × 60 = 120 m"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um jardim quadrado foi cercado usando exatamente 32 metros de cerca. Quanto mede cada lado do jardim, em metros? Digite apenas o número.",
+      "imagem": "per-q-jardim",
+      "dica": "Este é o caminho de volta: você tem o perímetro e quer o lado. Quantos lados iguais um quadrado tem?",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é 32 ÷ 2, repartindo entre dois lados. O quadrado tem quatro lados iguais, então a divisão é por 4."
+        },
+        {
+          "resposta": "128",
+          "porque": "128 é 32 × 4. O perímetro já é o total do contorno, então cada lado é uma parte dele — menor, não maior."
+        },
+        {
+          "resposta": "64",
+          "porque": "64 é 8 × 8, a área do jardim em metros quadrados. A pergunta é pela medida do lado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantas partes iguais",
+          "explicacao": "O quadrado tem quatro lados de mesma medida, então a cerca se reparte em quatro pedaços idênticos.",
+          "conta": "4 lados iguais"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Trinta e dois metros repartidos em quatro.",
+          "conta": "32 ÷ 4 = 8 m"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Quatro lados de 8 metros somam os 32 metros de cerca do enunciado.",
+          "conta": "4 × 8 = 32 ✓"
+        }
+      ]
+    }
+  ]
+}

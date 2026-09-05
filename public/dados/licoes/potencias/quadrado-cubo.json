@@ -1,0 +1,205 @@
+{
+  "id": "quadrado-cubo",
+  "numero": 2,
+  "titulo": "Quadrado e cubo",
+  "pergunta": "Por que 5² se lê 'cinco ao quadrado'?",
+  "ideia": {
+    "paragrafos": [
+      "Os nomes não são enfeite: eles vêm da geometria. Desenhe um quadrado de lado 5 e divida em quadradinhos de lado 1. Você vai contar 5 fileiras de 5, ou seja, 5 × 5 = 25 quadradinhos. É por isso que 5 × 5 se chama 'cinco ao quadrado' — o resultado é literalmente a área de um quadrado de lado 5.",
+      "Suba um andar e a história se repete. Um cubo de aresta 4, feito de cubinhos de aresta 1, tem 4 camadas, e cada camada é um quadrado 4 × 4 com 16 cubinhos. Ao todo são 4 × 4 × 4 = 64. Daí o nome 'quatro ao cubo' para o expoente 3.",
+      "Os números que aparecem como área de um quadrado de lado inteiro ganham nome próprio: são os quadrados perfeitos. Os primeiros são 1, 4, 9, 16, 25, 36, 49, 64, 81 e 100. Vale conhecer essa lista de cor — ela vai ser o atalho da lição de raiz quadrada.",
+      "Repare em como eles crescem: de 1 para 4 aumenta 3, de 4 para 9 aumenta 5, de 9 para 16 aumenta 7. Os saltos são os ímpares em ordem. Isso acontece porque, para passar de um quadrado ao seguinte, você acrescenta uma fileira, uma coluna e um cantinho — e essas três peças sempre somam um número ímpar."
+    ],
+    "destaque": "Quadrado e cubo não são apelidos: são a forma que a conta desenha.",
+    "imagem": "pot-ideia-quadrado"
+  },
+  "resolvido": {
+    "enunciado": "Um quadrado de lado 7 foi dividido em quadradinhos de lado 1. Quantos quadradinhos há? E num cubo de aresta 4, quantos cubinhos de aresta 1 cabem?",
+    "imagem": "pot-res-7x7",
+    "passos": [
+      {
+        "titulo": "Conte por fileiras, não um por um",
+        "explicacao": "O quadrado de lado 7 tem 7 fileiras, e cada fileira tem 7 quadradinhos. Contar de sete em sete é mais rápido e menos sujeito a erro do que contar de um em um.",
+        "conta": "7 fileiras × 7 por fileira"
+      },
+      {
+        "titulo": "Escreva como potência",
+        "explicacao": "Multiplicar o lado por ele mesmo é elevar ao quadrado, e o resultado é a área.",
+        "conta": "7² = 7 × 7 = 49"
+      },
+      {
+        "titulo": "No cubo, comece por uma camada",
+        "explicacao": "Corte o cubo em camadas horizontais. Cada camada é um quadrado 4 × 4, então tem 16 cubinhos — a mesma conta de antes, um andar abaixo.",
+        "conta": "4² = 16 cubinhos por camada"
+      },
+      {
+        "titulo": "Empilhe as camadas",
+        "explicacao": "Um cubo de aresta 4 tem 4 camadas iguais empilhadas. Multiplique o que há numa camada pelo número de camadas.",
+        "conta": "16 × 4 = 64"
+      },
+      {
+        "titulo": "Junte tudo numa potência só",
+        "explicacao": "Fazer 4 × 4 e depois × 4 é a mesma coisa que escrever três fatores 4 de uma vez.",
+        "conta": "4³ = 4 × 4 × 4 = 64"
+      }
+    ],
+    "fecho": "Expoente 2 conta o que cabe numa superfície; expoente 3 conta o que cabe num espaço. É a mesma ideia com uma dimensão a mais."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destes números é um quadrado perfeito, ou seja, pode ser a área de um quadrado de lado inteiro?",
+      "imagem": "pot-q-quadrado-perfeito",
+      "dica": "Procure um número inteiro que, multiplicado por ele mesmo, dê exatamente o número da alternativa.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "36" },
+        { "rotulo": "B", "texto": "30" },
+        { "rotulo": "C", "texto": "40" },
+        { "rotulo": "D", "texto": "45" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "Não existe inteiro que multiplicado por ele mesmo dê 30: 5 × 5 é 25 e 6 × 6 é 36, e o 30 fica no meio dos dois sem cair em nenhum."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 está entre 36 (que é 6 × 6) e 49 (que é 7 × 7). Ser par ou terminar em 0 não tem relação com ser quadrado perfeito."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 também cai entre 36 e 49. Um jeito rápido de conferir: percorra a lista 1, 4, 9, 16, 25, 36, 49 e veja se o número aparece."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Percorra os quadrados",
+          "explicacao": "Vá multiplicando cada inteiro por ele mesmo e compare com as alternativas.",
+          "conta": "1, 4, 9, 16, 25, 36, 49"
+        },
+        {
+          "titulo": "Ache o que está na lista",
+          "explicacao": "Só o 36 aparece, e ele é 6 × 6. Os outros três caem nos vãos entre 25, 36 e 49.",
+          "conta": "36 = 6² · 25 < 30 < 36 < 40 < 45 < 49"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um quadrado tem 9 cm de lado. Qual é a área dele, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "pot-q-area-9",
+      "dica": "Área de quadrado é lado vezes lado — que é o mesmo que o lado ao quadrado.",
+      "formato": "numero",
+      "resposta": 81,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é o perímetro: 9 + 9 + 9 + 9, a volta do quadrado. A área conta o que cabe DENTRO, e a conta é 9 × 9."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 9 + 9, ou 9 × 2. Área não é somar dois lados: é multiplicar quantas fileiras existem pelo tamanho de cada fileira."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é 9³, ou 9 × 3. Expoente 3 vale para volume; a área de uma figura plana usa expoente 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a figura na cabeça",
+          "explicacao": "O quadrado de lado 9 tem 9 fileiras de quadradinhos, e cada fileira tem 9 deles.",
+          "conta": "9 fileiras × 9 por fileira"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Nove vezes nove é uma das contas que vale ter na ponta da língua.",
+          "conta": "9² = 81 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto vale 4³?",
+      "imagem": "pot-q-cubo-4",
+      "dica": "Expoente 3 são três fatores 4. Faça duas de cada vez.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "64" },
+        { "rotulo": "B", "texto": "12" },
+        { "rotulo": "C", "texto": "16" },
+        { "rotulo": "D", "texto": "43" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é 4 × 3, base vezes expoente. O 3 apenas conta quantos fatores 4 existem na multiplicação."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é 4², um fator a menos. Você parou no segundo 4 — falta multiplicar por mais um."
+        },
+        {
+          "resposta": "43",
+          "porque": "43 é a base e o expoente escritos lado a lado, como se fossem um número só. O expoente fica sobrescrito porque ele não é um algarismo do número: é uma instrução."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva os três fatores",
+          "explicacao": "O expoente 3 pede três números 4 multiplicados entre si.",
+          "conta": "4³ = 4 × 4 × 4"
+        },
+        {
+          "titulo": "Multiplique por etapas",
+          "explicacao": "Primeiro 4 × 4, que dá 16. Depois multiplique esse 16 pelo terceiro 4.",
+          "conta": "4 × 4 = 16 · 16 × 4 = 64"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um cubo de aresta 3 cm foi montado com cubinhos de aresta 1 cm. Quantos cubinhos foram usados? Digite apenas o número.",
+      "imagem": "pot-q-cubinhos-3",
+      "dica": "Conte quantos cubinhos há numa camada e depois quantas camadas o cubo tem.",
+      "formato": "numero",
+      "resposta": 27,
+      "unidade": "cubinhos",
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é o que cabe numa camada só, que é o quadrado 3 × 3. Falta empilhar as três camadas: o cubo tem profundidade além do que se vê de frente."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é 3 × 2, ou o número de faces do cubo. A pergunta é quantos cubinhos preenchem o volume, não quantas faces existem."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o número de arestas de um cubo, e também 3 × 4. Nenhuma das duas coisas responde quantos cubinhos couberam dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece por uma camada",
+          "explicacao": "A camada de baixo é um quadrado 3 × 3, então tem 9 cubinhos.",
+          "conta": "3² = 9 por camada"
+        },
+        {
+          "titulo": "Conte as camadas",
+          "explicacao": "Como a aresta mede 3 cm e cada cubinho tem 1 cm de altura, cabem 3 camadas empilhadas.",
+          "conta": "3 camadas"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Nove cubinhos em cada uma das três camadas.",
+          "conta": "3³ = 9 × 3 = 27"
+        }
+      ]
+    }
+  ]
+}

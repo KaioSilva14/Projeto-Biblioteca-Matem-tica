@@ -1,0 +1,224 @@
+{
+  "id": "soma-triangulo",
+  "numero": 6,
+  "titulo": "Os ângulos de um triângulo",
+  "pergunta": "Por que os três cantos de qualquer triângulo sempre somam a mesma coisa?",
+  "ideia": {
+    "paragrafos": [
+      "Desenhe um triângulo qualquer — pontudo, achatado, torto, não importa. Meça os três ângulos internos e some. Vai dar 180°. Desenhe outro, completamente diferente, e some de novo: 180° outra vez. Isso não é coincidência nem aproximação de medida: vale para todo triângulo que existe.",
+      "Há um jeito de ver isso sem fórmula nenhuma. Recorte um triângulo de papel e arranque os três cantos. Junte os três pedaços encostando os vértices num mesmo ponto, um ao lado do outro. Os três se encaixam formando uma linha reta — e linha reta é 180°. É a demonstração mais honesta possível: você não acredita, você vê.",
+      "Na prática, isso vira uma ferramenta poderosa: conhecendo dois ângulos de um triângulo, o terceiro sai por subtração. Some os dois que você tem e tire de 180.",
+      "Três consequências caem de graça dessa regra. Num triângulo equilátero os três ângulos são iguais, então cada um vale 180 ÷ 3 = 60°. Num triângulo retângulo, um ângulo já gasta 90°, então os outros dois precisam somar exatamente 90° — eles são complementares. E nenhum triângulo pode ter dois ângulos retos, porque dois deles já fechariam os 180° e não sobraria nada para o terceiro.",
+      "Essa última consequência é o tipo de raciocínio que a matemática usa o tempo todo: em vez de tentar desenhar o triângulo impossível e desistir, você mostra que a soma não fecha. Se não fecha, não existe."
+    ],
+    "destaque": "Os três cantos de qualquer triângulo, juntos, formam uma linha reta.",
+    "imagem": "ang-ideia-triangulo"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo tem um ângulo de 50° e outro de 60°. Quanto mede o terceiro ângulo?",
+    "imagem": "ang-res-triangulo",
+    "passos": [
+      {
+        "titulo": "Some os dois conhecidos",
+        "explicacao": "Junte o que você já tem antes de subtrair. Fazer numa etapa só é onde costuma escapar um erro de conta.",
+        "conta": "50° + 60° = 110°"
+      },
+      {
+        "titulo": "Tire do total",
+        "explicacao": "Os três juntos precisam dar 180°, então o terceiro é o que falta para completar.",
+        "conta": "180° − 110° = 70°"
+      },
+      {
+        "titulo": "Confira somando os três",
+        "explicacao": "A conferência é imediata: os três valores têm que fechar a meia volta cravada.",
+        "conta": "50 + 60 + 70 = 180 ✓"
+      },
+      {
+        "titulo": "O resultado faz sentido?",
+        "explicacao": "Os três ângulos ficaram próximos entre si, todos abaixo de 90°. É um triângulo de cantos parecidos, sem nenhum canto muito fechado nem muito escancarado — o que combina com um desenho equilibrado.",
+        "conta": "50°, 60° e 70°: todos agudos"
+      }
+    ],
+    "fecho": "Some os conhecidos, tire de 180, confira somando os três. É sempre esse o caminho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo, dois ângulos medem 40° e 75°. Quanto mede o terceiro? Digite apenas o número.",
+      "imagem": "ang-q-tri1",
+      "dica": "Some os dois que você conhece e tire de 180.",
+      "formato": "numero",
+      "resposta": 65,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "115",
+          "porque": "115 é a soma dos dois ângulos conhecidos, e não o terceiro. Falta o último passo: tirar esse valor de 180."
+        },
+        {
+          "resposta": "245",
+          "porque": "245 é 180 + 65 ou 360 − 115. O total dos ângulos internos de um triângulo é 180°, e não 360° — 360 é a volta completa."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 daria se a soma dos três fosse 150. Vale refazer: 40 + 75 = 115, e 180 − 115 = 65."
+        },
+        {
+          "resposta": "60",
+          "porque": "60° é o valor de cada ângulo num triângulo EQUILÁTERO. Este triângulo tem ângulos diferentes entre si, então não cai nesse caso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os conhecidos",
+          "explicacao": "Junte os dois ângulos que o enunciado deu.",
+          "conta": "40 + 75 = 115°"
+        },
+        {
+          "titulo": "Complete até 180°",
+          "explicacao": "O terceiro é exatamente o que falta para os três fecharem a meia volta.",
+          "conta": "180 − 115 = 65°"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Somando os três valores tem que dar 180 na mosca.",
+          "conta": "40 + 75 + 65 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo retângulo tem um ângulo de 35°, além do ângulo reto. Quanto mede o terceiro ângulo? Digite apenas o número.",
+      "imagem": "ang-q-tri-reto",
+      "dica": "Triângulo retângulo já tem um ângulo de 90°. Some com os 35° e veja o que falta.",
+      "formato": "numero",
+      "resposta": 55,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "145",
+          "porque": "145 é 180 − 35, esquecendo que o ângulo reto de 90° também ocupa lugar na soma. Num triângulo retângulo os três ângulos são 90, 35 e o que falta."
+        },
+        {
+          "resposta": "125",
+          "porque": "125 é 90 + 35. Essa soma é o que já está ocupado, e não o que sobra. Falta o passo de tirar esse total de 180."
+        },
+        {
+          "resposta": "35",
+          "porque": "Os dois ângulos agudos só seriam iguais se cada um medisse 45°. Como um deles é 35°, o outro precisa ser maior para os dois somarem 90."
+        },
+        {
+          "resposta": "90",
+          "porque": "90° é o ângulo reto, que o enunciado já deu. A pergunta é pelo terceiro, que é o único ainda desconhecido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste o que já se conhece",
+          "explicacao": "Ser retângulo significa ter um ângulo de exatamente 90°. Com os 35° do enunciado, dois dos três já estão dados.",
+          "conta": "90° e 35°"
+        },
+        {
+          "titulo": "Some e complete",
+          "explicacao": "Junte os dois conhecidos e tire de 180.",
+          "conta": "90 + 35 = 125 · 180 − 125 = 55°"
+        },
+        {
+          "titulo": "O atalho do triângulo retângulo",
+          "explicacao": "Como o ângulo reto sempre gasta 90 dos 180, os outros dois precisam somar 90 entre si — ou seja, são complementares. Dá para ir direto: 90 − 35.",
+          "conta": "90 − 35 = 55° ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num triângulo equilátero, os três lados são iguais e os três ângulos também. Quanto mede cada ângulo?",
+      "imagem": "ang-q-equilatero",
+      "dica": "Três ângulos iguais que somam 180°. Quanto vale cada um?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "60°" },
+        { "rotulo": "B", "texto": "90°" },
+        { "rotulo": "C", "texto": "45°" },
+        { "rotulo": "D", "texto": "120°" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "90°",
+          "porque": "Três ângulos de 90° somariam 270°, muito acima dos 180° que um triângulo comporta. Aliás, nem dois ângulos retos cabem no mesmo triângulo."
+        },
+        {
+          "resposta": "45°",
+          "porque": "Três ângulos de 45° somariam 135°, e faltariam 45° para fechar. O 45 aparece em triângulos retângulos com dois lados iguais, que é outro caso."
+        },
+        {
+          "resposta": "120°",
+          "porque": "Três ângulos de 120° dariam 360°, o dobro do permitido. Repare que 120° é o ângulo interno do HEXÁGONO regular, e não do triângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que 'equilátero' garante",
+          "explicacao": "Lados iguais implicam ângulos iguais, então os três cantos têm exatamente a mesma medida.",
+          "conta": "os três ângulos são iguais"
+        },
+        {
+          "titulo": "Reparta os 180°",
+          "explicacao": "Se três valores iguais somam 180, cada um é um terço desse total.",
+          "conta": "180 ÷ 3 = 60°"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Três vezes 60 fecha os 180 exatos, e 60° é agudo — o que combina com o desenho, que não tem nenhum canto aberto.",
+          "conta": "60 + 60 + 60 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo pode ter dois ângulos retos?",
+      "imagem": "ang-q-dois-retos",
+      "dica": "Some dois ângulos retos e veja quanto sobraria para o terceiro.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque os dois já somariam 180° e não sobraria nada para o terceiro" },
+        { "rotulo": "B", "texto": "Sim, basta o terceiro ângulo ser bem pequeno" },
+        { "rotulo": "C", "texto": "Sim, num triângulo bem grande" },
+        { "rotulo": "D", "texto": "Só se o triângulo for equilátero" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, basta o terceiro ângulo ser bem pequeno",
+          "porque": "Não basta: teria que ser ZERO, e um ângulo de 0° significa que os dois lados estão grudados um no outro. Aí não há canto nenhum, e portanto não há triângulo."
+        },
+        {
+          "resposta": "Sim, num triângulo bem grande",
+          "porque": "O tamanho do triângulo não muda a soma dos ângulos. Um triângulo enorme e um minúsculo têm exatamente os mesmos 180° — é a mesma ideia da lição 1, em que prolongar os lados não altera o ângulo."
+        },
+        {
+          "resposta": "Só se o triângulo for equilátero",
+          "porque": "O equilátero é justamente o caso mais distante disso: os ângulos dele valem 60° cada, e nenhum é reto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Suponha que desse certo",
+          "explicacao": "Imagine um triângulo com dois ângulos retos e veja aonde isso leva. Esse é o modo de provar que algo é impossível: aceitar por um momento e mostrar que a conta não fecha.",
+          "conta": "90° + 90° = 180°"
+        },
+        {
+          "titulo": "Veja o que sobra",
+          "explicacao": "Os três ângulos precisam somar 180°, e dois deles já consumiram tudo. Para o terceiro sobraria zero.",
+          "conta": "180 − 180 = 0°"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Um ângulo de 0° não existe num triângulo: significaria dois lados sobrepostos, sem abertura nenhuma entre eles. Logo, dois ângulos retos são impossíveis.",
+          "conta": "0° → não há vértice → não há triângulo"
+        }
+      ]
+    }
+  ]
+}

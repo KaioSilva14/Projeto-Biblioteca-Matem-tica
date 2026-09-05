@@ -1,0 +1,196 @@
+{
+  "id": "retangulo",
+  "numero": 3,
+  "titulo": "Perímetro do retângulo",
+  "pergunta": "Por que basta medir dois lados de um retângulo?",
+  "ideia": {
+    "paragrafos": [
+      "No retângulo os lados opostos são iguais. Isso significa que, medindo dois lados vizinhos — a base e a altura —, você já sabe os quatro.",
+      "Então o perímetro é base + altura + base + altura. Como cada medida aparece duas vezes, dá para agrupar: some a base com a altura e multiplique por 2. Em símbolos, P = 2 × (base + altura).",
+      "Vale entender o que esse agrupamento significa, porque assim a fórmula deixa de ser algo a decorar. Base mais altura é meia volta no retângulo: você sai de um canto, anda pela base e sobe pela altura, e chega ao canto oposto. A volta inteira é essa meia volta feita duas vezes.",
+      "Um cuidado com a ordem das operações, que você viu em Potências: os parênteses vêm primeiro. Some a base com a altura ANTES de multiplicar por 2. Quem faz 2 × base + altura calcula outra coisa completamente diferente.",
+      "O quadrado é um caso particular disso: nele a base e a altura são iguais, então P = 2 × (lado + lado) = 4 × lado — que é exatamente o atalho dos polígonos regulares da lição anterior. As duas fórmulas concordam porque são a mesma soma."
+    ],
+    "destaque": "Base mais altura é meia volta. O perímetro é essa meia volta duas vezes.",
+    "imagem": "per-ideia-retangulo"
+  },
+  "resolvido": {
+    "enunciado": "Um retângulo tem 12 cm de base e 5 cm de altura. Qual é o perímetro dele?",
+    "imagem": "per-res-retangulo",
+    "passos": [
+      {
+        "titulo": "Descubra os quatro lados",
+        "explicacao": "Os lados opostos são iguais, então há duas bases de 12 cm e duas alturas de 5 cm.",
+        "conta": "12 · 5 · 12 · 5"
+      },
+      {
+        "titulo": "Some a meia volta",
+        "explicacao": "Base mais altura é o caminho de um canto até o canto oposto, passando por dois lados.",
+        "conta": "12 + 5 = 17 cm"
+      },
+      {
+        "titulo": "Dobre",
+        "explicacao": "A volta completa é a meia volta feita duas vezes — uma de ida e outra de volta pelos lados opostos.",
+        "conta": "2 × 17 = 34 cm"
+      },
+      {
+        "titulo": "Confira pela soma direta",
+        "explicacao": "Somando os quatro lados um a um tem que dar o mesmo. Se der diferente, a ordem das operações escorregou em algum lugar.",
+        "conta": "12 + 5 + 12 + 5 = 34 ✓"
+      }
+    ],
+    "fecho": "A fórmula não substitui a soma: ela é a soma organizada. Na dúvida, some os quatro lados e siga em frente."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um retângulo tem 8 cm de base e 3 cm de altura. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-ret-8-3",
+      "dica": "Some base e altura primeiro, depois multiplique por 2.",
+      "formato": "numero",
+      "resposta": 22,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é 8 × 3, que é a ÁREA do retângulo. Perímetro soma os lados; área multiplica base por altura — são perguntas diferentes."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 é 8 + 3, apenas a meia volta. Falta dobrar, porque a volta completa passa pelos quatro lados."
+        },
+        {
+          "resposta": "19",
+          "porque": "19 é 2 × 8 + 3, multiplicando antes de somar. Os parênteses vêm primeiro: some 8 + 3 e só então multiplique por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meia volta",
+          "explicacao": "Base mais altura dá o caminho até o canto oposto, passando por dois lados.",
+          "conta": "8 + 3 = 11"
+        },
+        {
+          "titulo": "Volta inteira",
+          "explicacao": "Dobre a meia volta para fechar o contorno pelos dois lados opostos.",
+          "conta": "2 × 11 = 22 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um quadrado tem 9 cm de lado. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-quad-9",
+      "dica": "No quadrado a base e a altura são iguais. As duas fórmulas — a do retângulo e a do polígono regular — dão o mesmo.",
+      "formato": "numero",
+      "resposta": 36,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "81",
+          "porque": "81 é 9 × 9, a ÁREA do quadrado. O perímetro percorre a borda e vale 4 × 9."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 2 × 9, só a meia volta. Falta dobrar para percorrer os quatro lados."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é 3 × 9, três lados. O quadrado é quadrilátero e tem quatro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Pela fórmula do retângulo",
+          "explicacao": "Base e altura valem 9 cada, então a meia volta é 18.",
+          "conta": "2 × (9 + 9) = 2 × 18 = 36"
+        },
+        {
+          "titulo": "Pela fórmula do regular",
+          "explicacao": "Quatro lados iguais de 9 cm. As duas contas fecham no mesmo número, como tinham que fechar.",
+          "conta": "4 × 9 = 36 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um retângulo tem perímetro de 30 cm e base de 10 cm. Quanto mede a altura dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-ret-volta",
+      "dica": "Se o perímetro é o dobro da meia volta, quanto vale a meia volta? E o que sobra depois de tirar a base?",
+      "formato": "numero",
+      "resposta": 5,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é 30 − 10, tirando a base do perímetro inteiro. Mas a base aparece DUAS vezes no contorno, e as alturas também são duas — não dá para subtrair só uma vez."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é 30 ÷ 10. Dividir o perímetro pela base não tem significado aqui: o caminho é desfazer a fórmula por etapas."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 cm é a base, que o enunciado já deu. Se a altura também fosse 10, seria um quadrado e o perímetro daria 40, e não 30."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desfaça o dobro",
+          "explicacao": "O perímetro é a meia volta multiplicada por 2, então divida por 2 para recuperar a meia volta.",
+          "conta": "30 ÷ 2 = 15"
+        },
+        {
+          "titulo": "A meia volta é base mais altura",
+          "explicacao": "Agora é uma subtração simples: tire a base do valor da meia volta.",
+          "conta": "15 − 10 = 5 cm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Com base 10 e altura 5, a meia volta dá 15 e o perímetro dá 30 — o valor do enunciado.",
+          "conta": "2 × (10 + 5) = 30 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um terreno retangular mede 25 m de comprimento por 15 m de largura. Quantos metros de cerca são necessários para contorná-lo inteiro? Digite apenas o número.",
+      "imagem": "per-q-terreno",
+      "dica": "Cercar é percorrer o contorno inteiro, ou seja, calcular o perímetro.",
+      "formato": "numero",
+      "resposta": 80,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "375",
+          "porque": "375 é 25 × 15, a ÁREA do terreno em metros quadrados. Isso responderia quanta grama plantar, e não quanta cerca comprar."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é 25 + 15, só a meia volta. A cerca precisa dar a volta completa, passando pelos quatro lados."
+        },
+        {
+          "resposta": "65",
+          "porque": "65 é 2 × 25 + 15, multiplicando antes de somar. Os parênteses vêm primeiro: some 25 + 15 e depois dobre."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o problema",
+          "explicacao": "Cercar o terreno inteiro é acompanhar a borda dele, então a quantidade de cerca é o perímetro.",
+          "conta": "cerca = perímetro"
+        },
+        {
+          "titulo": "Meia volta",
+          "explicacao": "Comprimento mais largura dá o caminho de um canto do terreno até o canto oposto.",
+          "conta": "25 + 15 = 40 m"
+        },
+        {
+          "titulo": "Volta inteira",
+          "explicacao": "Dobre a meia volta: a cerca precisa passar também pelos dois lados opostos.",
+          "conta": "2 × 40 = 80 m"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "id": "o-que-e-area",
+  "numero": 1,
+  "titulo": "O que é área",
+  "pergunta": "Quantos quadradinhos cabem dentro?",
+  "ideia": {
+    "paragrafos": [
+      "Área é a medida do espaço que uma figura ocupa por dentro. Enquanto o perímetro percorre a borda, a área preenche o miolo — são duas perguntas diferentes sobre a mesma figura.",
+      "A ideia por trás dela é simples: escolha um quadradinho para servir de unidade e conte quantos cabem dentro da figura, sem sobrar espaço nem passar da borda. Se o quadradinho tiver 1 cm de lado, cada um vale 1 centímetro quadrado, escrito 1 cm². Um retângulo em que cabem 15 desses quadradinhos tem área de 15 cm².",
+      "É daí que vem o expoente 2 na unidade, e ele não é enfeite. Ele avisa que a medida é de duas dimensões: para cobrir uma região você precisa andar para o lado E para cima. Comprimento usa cm; área usa cm². Confundir os dois é o erro mais comum de toda a matéria.",
+      "Repare que a área não depende do formato: uma figura torta pode ter a mesma área de um retângulo bonitinho, desde que caiba nela a mesma quantidade de quadradinhos. E quando a figura não é retangular, os pedaços podem ser recortados e juntados — dois meios quadradinhos formam um inteiro.",
+      "Nas próximas lições você vai ver que para algumas figuras não é preciso contar um por um: existe um atalho. Mas o atalho é sempre uma forma rápida de fazer essa contagem, e nunca outra coisa."
+    ],
+    "destaque": "Área é quantos quadradinhos cabem dentro. A unidade leva o 2 por isso.",
+    "imagem": "are-ideia-malha"
+  },
+  "resolvido": {
+    "enunciado": "Um retângulo de 5 cm por 3 cm foi coberto por quadradinhos de 1 cm de lado. Qual é a área dele?",
+    "imagem": "are-res-5-3",
+    "passos": [
+      {
+        "titulo": "Escolha a unidade",
+        "explicacao": "Cada quadradinho tem 1 cm de lado, então cada um vale 1 cm². É essa a peça que vamos contar.",
+        "conta": "1 quadradinho = 1 cm²"
+      },
+      {
+        "titulo": "Conte por fileiras",
+        "explicacao": "A base mede 5 cm, então cabem 5 quadradinhos lado a lado numa fileira. Contar de fileira em fileira é bem mais rápido e seguro que contar um por um.",
+        "conta": "5 por fileira"
+      },
+      {
+        "titulo": "Conte as fileiras",
+        "explicacao": "A altura mede 3 cm, então há 3 fileiras empilhadas.",
+        "conta": "3 fileiras"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Três fileiras de cinco quadradinhos cada. Somar 5 + 5 + 5 daria o mesmo, só que mais devagar.",
+        "conta": "5 × 3 = 15 quadradinhos"
+      },
+      {
+        "titulo": "Escreva com a unidade certa",
+        "explicacao": "Como cada quadradinho vale 1 cm², a área é 15 cm². O expoente 2 avisa que a medida cobre uma região, e não um caminho.",
+        "conta": "área = 15 cm²"
+      }
+    ],
+    "fecho": "A contagem por fileiras é a origem de toda fórmula de área que virá depois. Vale entender ela bem agora."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos quadradinhos de 1 cm de lado cabem num retângulo de 6 cm por 4 cm? Digite apenas a quantidade.",
+      "imagem": "are-q-6-4",
+      "dica": "Conte quantos cabem numa fileira e quantas fileiras existem.",
+      "formato": "numero",
+      "resposta": 24,
+      "unidade": "quadradinhos",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o PERÍMETRO do retângulo, em centímetros: 2 × (6 + 4). Ele mede a borda; a pergunta é sobre o que cabe dentro."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 6 + 4, a meia volta. Somar os lados não conta quadradinhos — para isso é preciso multiplicar as fileiras pelo que cabe em cada uma."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o que cabe numa fileira só. Faltam as outras três: o retângulo tem 4 cm de altura, então são quatro fileiras."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantos por fileira",
+          "explicacao": "A base mede 6 cm, então cabem 6 quadradinhos de 1 cm lado a lado.",
+          "conta": "6 por fileira"
+        },
+        {
+          "titulo": "Quantas fileiras",
+          "explicacao": "A altura mede 4 cm, então são 4 fileiras empilhadas.",
+          "conta": "4 fileiras"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Quatro fileiras de seis quadradinhos cada.",
+          "conta": "6 × 4 = 24"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos quadradinhos de 1 cm de lado cabem num retângulo de 7 cm por 2 cm? Digite apenas a quantidade.",
+      "imagem": "are-q-7-2",
+      "dica": "Duas fileiras, e em cada uma cabem sete.",
+      "formato": "numero",
+      "resposta": 14,
+      "unidade": "quadradinhos",
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 é o perímetro do retângulo: 2 × (7 + 2). Contorno e miolo são medidas diferentes."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 7 + 2, a meia volta. A contagem de quadradinhos é uma multiplicação, e não uma soma dos lados."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o que cabe numa fileira. Falta a segunda fileira: o retângulo tem 2 cm de altura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Uma fileira",
+          "explicacao": "Sete quadradinhos lado a lado cobrem os 7 cm da base.",
+          "conta": "7 por fileira"
+        },
+        {
+          "titulo": "As fileiras",
+          "explicacao": "A altura de 2 cm permite empilhar duas fileiras.",
+          "conta": "7 × 2 = 14"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Em qual destas unidades se mede uma área?",
+      "imagem": "are-q-unidade",
+      "dica": "A unidade precisa dizer que a medida cobre uma região, e não um caminho.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Centímetros quadrados (cm²)"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Centímetros (cm)"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Graus (°)"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Centímetros cúbicos (cm³)"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Centímetros (cm)",
+          "porque": "cm mede comprimento, que é uma dimensão só — é a unidade do PERÍMETRO. A área cobre uma região e precisa do expoente 2."
+        },
+        {
+          "resposta": "Graus (°)",
+          "porque": "Graus medem abertura de ângulo. Nada a ver com o espaço que uma figura ocupa."
+        },
+        {
+          "resposta": "Centímetros cúbicos (cm³)",
+          "porque": "cm³ é unidade de VOLUME, com três dimensões — mede o que cabe dentro de uma caixa, e não de uma figura plana. O expoente conta quantas dimensões a medida tem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantas dimensões",
+          "explicacao": "Para cobrir uma região você anda para o lado e para cima: duas direções. Cada uma contribui com um centímetro na unidade.",
+          "conta": "cm × cm = cm²"
+        },
+        {
+          "titulo": "O que o expoente conta",
+          "explicacao": "Expoente 1 é comprimento, expoente 2 é área, expoente 3 é volume. O número diz quantas dimensões foram multiplicadas.",
+          "conta": "cm · cm² · cm³"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A figura em L do desenho está sobre uma malha de quadradinhos de 1 cm de lado. Qual é a área dela, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-L12",
+      "dica": "Conte os quadradinhos que estão dentro da figura. Se preferir, parta a figura em dois retângulos.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é a área do quadrado inteiro de 4 por 4 que envolve a figura. Falta descontar o canto recortado, que tem 4 quadradinhos."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é a área só do canto que foi recortado, ou seja, o pedaço que NÃO faz parte da figura."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é a área só do retângulo de baixo, de 4 por 2. Falta somar o retângulo de cima, que tem mais 4 quadradinhos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Parta em dois retângulos",
+          "explicacao": "A figura em L se divide num retângulo de baixo, de 4 por 2, e num de cima, de 2 por 2.",
+          "conta": "4 × 2 = 8 · 2 × 2 = 4"
+        },
+        {
+          "titulo": "Some as partes",
+          "explicacao": "As duas partes juntas cobrem a figura inteira, sem sobrepor nem deixar buraco.",
+          "conta": "8 + 4 = 12 cm²"
+        },
+        {
+          "titulo": "Confira pelo quadrado que envolve",
+          "explicacao": "O quadrado de 4 por 4 tem 16 quadradinhos, e o canto recortado tem 4. Tirando um do outro dá o mesmo resultado.",
+          "conta": "16 − 4 = 12 ✓"
+        }
+      ]
+    }
+  ]
+}

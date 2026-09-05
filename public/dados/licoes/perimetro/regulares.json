@@ -1,0 +1,196 @@
+{
+  "id": "regulares",
+  "numero": 2,
+  "titulo": "Perímetro de polígonos regulares",
+  "pergunta": "Dá para somar dez lados iguais sem somar dez vezes?",
+  "ideia": {
+    "paragrafos": [
+      "Quando todos os lados de um polígono têm a mesma medida — ou seja, quando ele é regular — somar um por um vira trabalho repetido. E somar parcelas iguais é exatamente o que a multiplicação faz.",
+      "Então o perímetro de um polígono regular é o número de lados multiplicado pela medida de um lado. Num hexágono regular de lado 5 cm, em vez de somar 5 + 5 + 5 + 5 + 5 + 5, faça 6 × 5 = 30 cm.",
+      "Isso não é uma regra nova: é a mesma soma da lição anterior, escrita de forma curta. E vale só quando os lados são todos iguais — num polígono qualquer, com lados diferentes, não há atalho: soma-se tudo.",
+      "O atalho também funciona ao contrário, e é aí que ele fica mais útil. Se você conhece o perímetro e quer saber quanto mede cada lado, divida pelo número de lados. Um octógono regular de perímetro 72 cm tem lados de 72 ÷ 8 = 9 cm.",
+      "Repare no par de operações: multiplicar para ir do lado até o perímetro, dividir para voltar. É o mesmo par que apareceu em raiz quadrada e em porcentagem — toda conta tem uma conta de volta."
+    ],
+    "destaque": "Lados todos iguais? Multiplique. Quer o lado a partir do perímetro? Divida.",
+    "imagem": "per-ideia-regular"
+  },
+  "resolvido": {
+    "enunciado": "Um pentágono regular tem 8 cm em cada lado. Qual é o perímetro dele?",
+    "imagem": "per-res-pentagono",
+    "passos": [
+      {
+        "titulo": "Quantos lados",
+        "explicacao": "Pentágono tem cinco lados. E como ele é regular, os cinco têm exatamente a mesma medida.",
+        "conta": "5 lados de 8 cm"
+      },
+      {
+        "titulo": "Escreva a soma",
+        "explicacao": "O perímetro continua sendo a soma de todos os lados — só que aqui todas as parcelas são iguais.",
+        "conta": "8 + 8 + 8 + 8 + 8"
+      },
+      {
+        "titulo": "Troque por multiplicação",
+        "explicacao": "Cinco parcelas iguais a 8. Multiplicar é a forma curta de somar repetido, e é bem mais difícil errar.",
+        "conta": "5 × 8 = 40"
+      },
+      {
+        "titulo": "Não esqueça a unidade",
+        "explicacao": "Os lados estavam em centímetros, então o perímetro também está.",
+        "conta": "perímetro = 40 cm"
+      }
+    ],
+    "fecho": "O atalho vale exatamente na medida em que os lados são iguais. Um lado diferente e ele deixa de funcionar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um hexágono regular tem lados de 6 cm. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-hexagono",
+      "dica": "Hexágono tem seis lados, e todos medem o mesmo.",
+      "formato": "numero",
+      "resposta": 36,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é 6 + 6, a soma de apenas dois lados. O hexágono tem seis, então a multiplicação é por 6."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 cm é a medida de um lado só, e também por coincidência o número de lados. O perímetro percorre todos eles."
+        },
+        {
+          "resposta": "720",
+          "porque": "720 é a soma dos ÂNGULOS internos do hexágono, em graus, que você viu em Figuras planas. Perímetro soma comprimentos, não ângulos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os lados",
+          "explicacao": "Hexágono tem seis lados, e ser regular garante que todos medem 6 cm.",
+          "conta": "6 lados × 6 cm"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Seis parcelas iguais a 6 cm — a soma repetida escrita de forma curta.",
+          "conta": "6 × 6 = 36 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um quadrado tem 15 cm de lado. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-quadrado",
+      "dica": "O quadrado é o quadrilátero regular: quatro lados, todos iguais.",
+      "formato": "numero",
+      "resposta": 60,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "225",
+          "porque": "225 é 15 × 15, que é a ÁREA do quadrado. O perímetro multiplica o lado pela quantidade de lados, que é 4."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é 15 × 2, ou seja, a soma de apenas dois lados. O contorno do quadrado passa pelos quatro."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é 15 × 3, três lados. Falta um: o quadrado é quadrilátero, então tem quatro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O quadrado é regular",
+          "explicacao": "Quatro lados, todos com a mesma medida — ele é o quadrilátero regular.",
+          "conta": "4 lados de 15 cm"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Quatro parcelas iguais a 15 cm, uma para cada lado do quadrado.",
+          "conta": "4 × 15 = 60 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um octógono regular tem perímetro de 72 cm. Quanto mede cada lado, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-octogono",
+      "dica": "Aqui é o caminho de volta: você tem o total e quer uma das partes iguais.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "576",
+          "porque": "576 é 72 × 8. Você multiplicou onde precisava dividir: o perímetro já é o total, então cada lado é uma parte dele, e portanto menor."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o número de LADOS do octógono, não a medida de cada um. A medida sai dividindo o perímetro por esse 8."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é 72 ÷ 6, dividindo pelo número de lados de um hexágono. 'Octo' é oito, então a divisão é por 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que você tem e o que quer",
+          "explicacao": "Você tem o total do contorno e quer o tamanho de uma das oito partes iguais.",
+          "conta": "total = 72 cm · 8 partes iguais"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Repartir o perímetro entre os lados iguais desfaz a multiplicação.",
+          "conta": "72 ÷ 8 = 9 cm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Multiplicando de volta tem que reaparecer o perímetro do enunciado.",
+          "conta": "8 × 9 = 72 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo equilátero tem perímetro de 45 cm. Quanto mede cada lado, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-tri-45",
+      "dica": "Equilátero tem três lados iguais. Reparta o perímetro entre eles.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "135",
+          "porque": "135 é 45 × 3. O perímetro é o total, então cada lado é menor que ele — a conta é uma divisão."
+        },
+        {
+          "resposta": "22.5",
+          "porque": "22,5 é 45 ÷ 2, repartindo entre dois lados. O triângulo tem três, então a divisão é por 3."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é o número de lados, e não a medida de cada um. Ele é o divisor da conta, não a resposta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantas partes iguais",
+          "explicacao": "Equilátero tem três lados de mesma medida, então o perímetro se reparte em três pedaços idênticos.",
+          "conta": "3 partes iguais"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Quarenta e cinco repartido em três.",
+          "conta": "45 ÷ 3 = 15 cm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Três lados de 15 cm somam o perímetro dado.",
+          "conta": "15 + 15 + 15 = 45 ✓"
+        }
+      ]
+    }
+  ]
+}

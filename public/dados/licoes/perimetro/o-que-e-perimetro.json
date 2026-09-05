@@ -1,0 +1,203 @@
+{
+  "id": "o-que-e-perimetro",
+  "numero": 1,
+  "titulo": "O que é perímetro",
+  "pergunta": "Quanto arame é preciso para cercar um terreno?",
+  "ideia": {
+    "paragrafos": [
+      "Perímetro é a medida do contorno de uma figura. É o quanto você anda se der uma volta completa por fora dela, seguindo a borda e voltando ao ponto de partida.",
+      "Calcular é simples: some o comprimento de todos os lados. Não há truque nem ordem certa — só não pode esquecer nenhum lado nem contar o mesmo duas vezes. Um jeito seguro é marcar um vértice, ir somando no sentido do relógio e parar quando voltar à marca.",
+      "A palavra vem do grego: 'peri' é em volta, 'metro' é medida. Medida em volta. É por isso que perímetro aparece em cerca, moldura, rodapé, fita de contorno, volta na pista — tudo que acompanha a borda de alguma coisa.",
+      "E preste atenção na unidade, porque ela conta uma história. Perímetro é comprimento, então se mede em centímetros, metros, quilômetros — as mesmas unidades de uma régua. Nunca em centímetros quadrados: cm² é unidade de área, que mede o que cabe DENTRO, e é assunto da próxima matéria.",
+      "Um detalhe que confunde: figuras de formatos muito diferentes podem ter o mesmo perímetro, e figuras parecidas podem ter perímetros bem diferentes. O contorno não diz nada sobre o que está dentro — a lição 5 volta a esse ponto."
+    ],
+    "destaque": "Perímetro é o caminho da volta. Some todos os lados, sem pular nenhum.",
+    "imagem": "per-ideia-contorno"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo tem lados de 5 cm, 7 cm e 9 cm. Qual é o perímetro dele?",
+    "imagem": "per-res-triangulo",
+    "passos": [
+      {
+        "titulo": "Liste todos os lados",
+        "explicacao": "Um triângulo tem três lados, e todos entram na conta. Escrever a lista antes de somar é o que impede de esquecer um.",
+        "conta": "5 cm · 7 cm · 9 cm"
+      },
+      {
+        "titulo": "Some os três lados",
+        "explicacao": "A ordem não importa: somar é somar. Vale juntar primeiro os que dão um número redondo, para facilitar de cabeça.",
+        "conta": "5 + 7 = 12 · 12 + 9 = 21"
+      },
+      {
+        "titulo": "Escreva com a unidade certa",
+        "explicacao": "Todos os lados estavam em centímetros, então o resultado também está. Perímetro é comprimento, então nunca leva o expoente 2.",
+        "conta": "perímetro = 21 cm"
+      },
+      {
+        "titulo": "Confira andando pela figura",
+        "explicacao": "Comece num vértice e siga a borda: 5, depois 7, depois 9, e você voltou ao ponto de partida. Três trechos, três parcelas.",
+        "conta": "5 + 7 + 9 = 21 cm"
+      }
+    ],
+    "fecho": "Não existe fórmula para o perímetro em geral: existe a soma dos lados. As fórmulas das próximas lições são só atalhos para casos especiais."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um quadrilátero tem lados de 3 cm, 4 cm, 5 cm e 6 cm. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-quadrilatero",
+      "dica": "Some os quatro lados, sem esquecer nenhum.",
+      "formato": "numero",
+      "resposta": 18,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é a soma de só três lados — provavelmente 3 + 4 + 5. O quadrilátero tem quatro lados, e o de 6 cm também entra na volta."
+        },
+        {
+          "resposta": "360",
+          "porque": "360 é a soma dos ÂNGULOS internos de um quadrilátero, em graus. Perímetro soma comprimentos de lados, não medidas de ângulo."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é a quantidade de lados da figura. A pergunta é pelo comprimento total do contorno, que é a soma das quatro medidas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os quatro lados",
+          "explicacao": "Um quadrilátero tem quatro lados, e todos participam da volta.",
+          "conta": "3 · 4 · 5 · 6"
+        },
+        {
+          "titulo": "Some os quatro lados",
+          "explicacao": "Juntando aos pares fica mais fácil: 3 + 6 dá 9, e 4 + 5 também dá 9.",
+          "conta": "9 + 9 = 18 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo equilátero tem 7 cm em cada lado. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-equilatero",
+      "dica": "Equilátero quer dizer três lados iguais. Some os três — ou multiplique.",
+      "formato": "numero",
+      "resposta": 21,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 cm é a medida de UM lado. O perímetro percorre os três, então é preciso somar as três medidas."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é a soma de apenas dois lados. O triângulo tem três, e o contorno passa por todos eles."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 é 7 × 7, que seria a área de um quadrado de lado 7. Perímetro é soma de lados, e não multiplicação de dois deles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantos lados iguais",
+          "explicacao": "Equilátero tem os três lados com a mesma medida, então os três valem 7 cm.",
+          "conta": "7 · 7 · 7"
+        },
+        {
+          "titulo": "Some ou multiplique",
+          "explicacao": "Somar três parcelas iguais é o mesmo que multiplicar pela quantidade delas.",
+          "conta": "7 + 7 + 7 = 3 × 7 = 21 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Em qual destas unidades se mede um perímetro?",
+      "imagem": "per-q-unidade",
+      "dica": "Perímetro é o comprimento de um caminho. Que unidade uma régua usa?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Centímetros (cm)"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Centímetros quadrados (cm²)"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Graus (°)"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Litros (L)"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Centímetros quadrados (cm²)",
+          "porque": "cm² é unidade de ÁREA, que mede o que cabe dentro da figura. O perímetro percorre a borda, então é comprimento puro, sem o expoente 2."
+        },
+        {
+          "resposta": "Graus (°)",
+          "porque": "Graus medem abertura de ângulo, que é giro. Perímetro mede distância percorrida, que é outra coisa."
+        },
+        {
+          "resposta": "Litros (L)",
+          "porque": "Litro é unidade de capacidade — mede o quanto cabe dentro de um recipiente, em três dimensões. O perímetro é uma medida de uma dimensão só."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que o perímetro mede",
+          "explicacao": "Ele mede o comprimento do caminho que dá a volta na figura. É a mesma coisa que esticar o contorno e medir com uma régua.",
+          "conta": "perímetro = comprimento"
+        },
+        {
+          "titulo": "A unidade correspondente",
+          "explicacao": "Comprimento se mede em milímetro, centímetro, metro, quilômetro. Todas essas servem; o que muda é só a escala.",
+          "conta": "mm · cm · m · km"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um pentágono tem lados de 4 cm, 4 cm, 6 cm, 6 cm e 5 cm. Qual é o perímetro dele, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-pentagono",
+      "dica": "Cinco lados, cinco parcelas. Repetições contam cada vez que aparecem.",
+      "formato": "numero",
+      "resposta": 25,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 é a soma dos valores DIFERENTES: 4 + 6 + 5. Lados repetidos entram na volta cada vez que aparecem — o contorno passa por todos os cinco."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 deixa um lado de fora da soma. Vale conferir contando as parcelas: precisam ser cinco, uma por lado."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a quantidade de lados do pentágono, e por coincidência também é a medida de um deles. O perímetro é a soma dos comprimentos, não a contagem dos lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as parcelas",
+          "explicacao": "São cinco lados, então a soma tem cinco parcelas — mesmo que alguns valores se repitam.",
+          "conta": "4 + 4 + 6 + 6 + 5"
+        },
+        {
+          "titulo": "Agrupe os repetidos",
+          "explicacao": "Os dois lados de 4 dão 8, e os dois de 6 dão 12. Sobrou o de 5.",
+          "conta": "8 + 12 = 20 · 20 + 5 = 25 cm"
+        }
+      ]
+    }
+  ]
+}

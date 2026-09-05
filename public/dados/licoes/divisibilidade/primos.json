@@ -1,0 +1,243 @@
+{
+  "id": "primos",
+  "numero": 3,
+  "titulo": "Primos e compostos",
+  "pergunta": "O que faz um número não poder ser quebrado em partes iguais?",
+  "ideia": {
+    "paragrafos": [
+      "Se você listar os divisores de vários números, vai perceber que a quantidade varia muito. O 12 tem seis divisores. O 36 tem nove. Mas alguns números têm exatamente dois — o 1 e eles mesmos — e nenhum a mais. Esses são os números primos.",
+      "É o mesmo que dizer: com 7 bolinhas você não consegue montar nenhum retângulo cheio além da fileira única de 7. Com 12, você monta três retângulos diferentes. Um número primo é um número que não se deixa repartir.",
+      "O 1 fica de fora, e não é implicância. Primo é quem tem exatamente DOIS divisores, e o 1 tem só um: ele mesmo. Essa exigência não é um capricho — se o 1 fosse primo, a próxima lição desmontaria, porque 12 poderia ser escrito como 2×2×3, ou 1×2×2×3, ou 1×1×2×2×3, e a decomposição deixaria de ser única.",
+      "O 2 merece uma nota: ele é o único primo par. Todo outro número par tem o 2 como divisor extra, além do 1 e dele mesmo, então já são três divisores — composto. Isso significa que, tirando o 2, todos os primos são ímpares.",
+      "E existe um atalho que economiza muito trabalho na hora de testar. Se um número n não é primo, ele é a×b com a menor ou igual a b — e então a nunca passa da raiz de n. Ou seja: se você testou todos os primos até a raiz quadrada de n e nenhum dividiu, pode parar. O número é primo."
+    ],
+    "destaque": "Primo é o número que só se deixa dividir por 1 e por ele mesmo.",
+    "imagem": "div-ideia-crivo"
+  },
+  "resolvido": {
+    "enunciado": "O número 91 é primo?",
+    "imagem": "div-res-91",
+    "passos": [
+      {
+        "titulo": "Até onde precisamos testar",
+        "explicacao": "10 × 10 = 100, que já passou de 91, então a raiz de 91 é um pouco menor que 10. Basta testar os primos até 9: 2, 3, 5 e 7. Se nenhum dividir, 91 é primo.",
+        "conta": "9 × 9 = 81 · 10 × 10 = 100 → testar 2, 3, 5 e 7"
+      },
+      {
+        "titulo": "Os três primeiros testes",
+        "explicacao": "91 é ímpar, então o 2 está fora. A soma dos algarismos é 9 + 1 = 10, que não é múltiplo de 3. E não termina em 0 nem 5, então o 5 também não divide.",
+        "conta": "ímpar · 9 + 1 = 10 · não termina em 0 ou 5"
+      },
+      {
+        "titulo": "Falta o 7",
+        "explicacao": "Aqui é onde a maioria desiste e chuta 'é primo'. Mas o 7 ainda não foi testado, e ele é justamente o que resolve.",
+        "conta": "91 ÷ 7 = 13"
+      },
+      {
+        "titulo": "A resposta",
+        "explicacao": "A divisão foi exata, então 91 tem o 7 e o 13 como divisores, além do 1 e dele mesmo. São quatro divisores: 91 é composto, não primo.",
+        "conta": "91 = 7 × 13"
+      }
+    ],
+    "fecho": "91 é o exemplo clássico de número que parece primo. A lição é ir até o fim da lista de testes — parar no 5 é o que produz o erro."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destes números é primo?",
+      "imagem": "div-q-primo-teste",
+      "dica": "Some os algarismos de cada um antes de qualquer outra coisa. O critério do 3 elimina vários de uma vez.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "51"
+        },
+        {
+          "rotulo": "B",
+          "texto": "53"
+        },
+        {
+          "rotulo": "C",
+          "texto": "57"
+        },
+        {
+          "rotulo": "D",
+          "texto": "87"
+        }
+      ],
+      "correta": 1,
+      "errosComuns": [
+        {
+          "resposta": "51",
+          "porque": "51 parece primo porque é ímpar e não termina em 5, mas a soma 5 + 1 = 6 é múltipla de 3. De fato 51 = 3 × 17, então ele é composto."
+        },
+        {
+          "resposta": "57",
+          "porque": "Mesma armadilha: 5 + 7 = 12, múltiplo de 3. Então 57 = 3 × 19. Ser ímpar não é garantia de ser primo — só descarta o divisor 2."
+        },
+        {
+          "resposta": "87",
+          "porque": "8 + 7 = 15, múltiplo de 3, então 87 = 3 × 29. Repare que os três números errados desta questão são todos múltiplos de 3: o critério do 3 é o teste que mais rende."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique o critério do 3 em todos",
+          "explicacao": "As somas dos algarismos são 6, 8, 12 e 15. Três delas são múltiplas de 3.",
+          "conta": "51 → 6 · 53 → 8 · 57 → 12 · 87 → 15"
+        },
+        {
+          "titulo": "Elimine os múltiplos de 3",
+          "explicacao": "51, 57 e 87 são divisíveis por 3, então têm pelo menos três divisores e não podem ser primos.",
+          "conta": "51 = 3×17 · 57 = 3×19 · 87 = 3×29"
+        },
+        {
+          "titulo": "Confirme o que sobrou",
+          "explicacao": "Sobrou o 53. Como 7 × 7 = 49 e 8 × 8 = 64, basta testar até o 7: ele é ímpar, a soma 8 não é múltipla de 3, não termina em 0 nem 5, e 53 ÷ 7 não é exato.",
+          "conta": "53 não é divisível por 2, 3, 5 nem 7 → primo"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que o número 1 não é considerado primo?",
+      "imagem": "div-q-conta-divisores",
+      "dica": "Releia a definição com cuidado: quantos divisores um primo precisa ter, exatamente?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Porque ele tem apenas um divisor, e primo precisa ter exatamente dois"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Porque ele é ímpar"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Porque ele é pequeno demais"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Porque ele é divisível por todos os números"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque ele é ímpar",
+          "porque": "Ser ímpar não impede nada: 3, 5, 7, 11 e quase todos os primos são ímpares. Aliás, o único primo par é o 2."
+        },
+        {
+          "resposta": "Porque ele é pequeno demais",
+          "porque": "Não existe tamanho mínimo para ser primo — o 2 é menor que quase tudo e é primo. O que exclui o 1 é a contagem de divisores, não o tamanho."
+        },
+        {
+          "resposta": "Porque ele é divisível por todos os números",
+          "porque": "Está invertido: o 1 DIVIDE todos os números, mas não é divisível por todos. O único número que divide o 1 é ele mesmo — e é justamente por isso que ele tem só um divisor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os divisores do 1",
+          "explicacao": "O único número que divide 1 sem deixar resto é o próprio 1.",
+          "conta": "divisores de 1: apenas o 1"
+        },
+        {
+          "titulo": "Compare com a definição",
+          "explicacao": "Primo é quem tem EXATAMENTE dois divisores: o 1 e ele mesmo. No caso do número 1 esses dois seriam a mesma coisa, então sobra um só.",
+          "conta": "1 divisor ≠ 2 divisores"
+        },
+        {
+          "titulo": "Por que isso importa",
+          "explicacao": "Se o 1 fosse primo, todo número teria infinitas decomposições diferentes, porque daria para grudar quantos 1 se quisesse. Deixar o 1 de fora é o que torna a decomposição única.",
+          "conta": "12 = 2×2×3, e só"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos números primos existem de 1 até 20? Digite apenas a quantidade.",
+      "imagem": "div-q-ate-20",
+      "dica": "Vá riscando: o 1 fica de fora, os pares acima de 2 também, e depois os múltiplos de 3 e de 5.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "primos",
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "Você contou o 1. Ele tem só um divisor, então não é primo — essa é a exclusão que quase todo mundo esquece na primeira vez."
+        },
+        {
+          "resposta": "7",
+          "porque": "Você deve ter deixado o 2 de fora por ser par. Mas o 2 é primo: os divisores dele são só o 1 e o 2. Ele é o único primo par que existe."
+        },
+        {
+          "resposta": "10",
+          "porque": "Provavelmente entraram o 1 e algum composto como o 9 (que é 3 × 3) ou o 15 (que é 3 × 5). Vale refazer riscando os múltiplos de 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece riscando",
+          "explicacao": "Fora o 1, risque todos os pares acima do 2: 4, 6, 8, 10, 12, 14, 16, 18 e 20.",
+          "conta": "sobram 2, 3, 5, 7, 9, 11, 13, 15, 17, 19"
+        },
+        {
+          "titulo": "Tire os múltiplos de 3 e de 5",
+          "explicacao": "Dos que sobraram, 9 é 3 × 3 e 15 é 3 × 5. Os dois saem.",
+          "conta": "9 = 3 × 3 · 15 = 3 × 5"
+        },
+        {
+          "titulo": "Conte a lista final",
+          "explicacao": "Restaram 2, 3, 5, 7, 11, 13, 17 e 19. Vale conferir um por um antes de contar: cada um desses só se deixa dividir por 1 e por ele mesmo.",
+          "conta": "2, 3, 5, 7, 11, 13, 17, 19 → 8 primos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é o maior número primo menor que 50? Digite apenas o número.",
+      "imagem": "div-q-maior-primo",
+      "dica": "Comece em 49 e vá descendo. Teste cada candidato pelos primos até 7, porque 7 × 7 = 49.",
+      "formato": "numero",
+      "resposta": 47,
+      "errosComuns": [
+        {
+          "resposta": "49",
+          "porque": "49 é a armadilha clássica: é ímpar, não é múltiplo de 3 e não termina em 5, mas 49 = 7 × 7. É o mesmo tipo de erro do 91 do exemplo resolvido — falta testar o 7."
+        },
+        {
+          "resposta": "48",
+          "porque": "48 é par, então tem o 2 como divisor além do 1 e dele mesmo. Nenhum número par acima do 2 pode ser primo."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 termina em 5, então é divisível por 5: 45 = 5 × 9. A soma dos algarismos também entrega, porque 4 + 5 = 9 é múltiplo de 3."
+        },
+        {
+          "resposta": "43",
+          "porque": "43 é primo mesmo, mas não é o MAIOR abaixo de 50 — o 47 também é primo e está acima dele. Vale conferir os candidatos de cima para baixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desça a partir de 49",
+          "explicacao": "Testar de cima para baixo é o caminho mais curto quando a pergunta pede o maior.",
+          "conta": "49, 48, 47, ..."
+        },
+        {
+          "titulo": "Elimine 49 e 48",
+          "explicacao": "49 é 7 × 7, então é composto. 48 é par, então também é composto.",
+          "conta": "49 = 7 × 7 · 48 = 2 × 24"
+        },
+        {
+          "titulo": "Teste o 47",
+          "explicacao": "Como 7 × 7 = 49 já passou de 47, basta testar 2, 3 e 5. É ímpar; a soma 4 + 7 = 11 não é múltipla de 3; não termina em 0 nem 5.",
+          "conta": "47 não é divisível por 2, 3 nem 5 → primo"
+        }
+      ]
+    }
+  ]
+}

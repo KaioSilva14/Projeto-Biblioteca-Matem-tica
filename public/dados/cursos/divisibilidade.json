@@ -1,0 +1,65 @@
+{
+  "id": "divisibilidade",
+  "titulo": "Divisibilidade e primos",
+  "ano": 6,
+  "descricao": "Por dentro dos números: quem cabe em quem, quais não se deixam quebrar e como usar isso para simplificar fração, somar denominadores diferentes e resolver problemas de encontro. Seis lições, da caça aos divisores até uma questão de olimpíada resolvida com MMC.",
+  "pergunta": "O que os números escondem quando a gente olha só para o tamanho deles?",
+  "videos": [
+    {
+      "id": "0QZVJFOE4cE",
+      "titulo": "MÚLTIPLOS E DIVISORES - RESUMÃO - 6º e 7º ano",
+      "canal": "Gis com Giz",
+      "descricao": "Retoma as duas palavras com muitos exemplos. Bom para quem terminou a lição 1 e quer ouvir a mesma ideia contada de outro jeito antes de seguir."
+    },
+    {
+      "id": "RAXp2qjhA1M",
+      "titulo": "CRITÉRIOS de DIVISIBILIDADE | REGRAS DE DIVISIBILIDADE |  Matemática Básica  \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Passa por todos os critérios, inclusive o do 8 e o do 7, que ficaram de fora da lição 2. Vale para quem quer a tabela completa na ponta da língua."
+    },
+    {
+      "id": "H4nOTvsv1JM",
+      "titulo": "Números Primos e o Crivo de Eratóstenes - Vivendo a Matemática com a Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Monta o crivo passo a passo, riscando os múltiplos na tela. Assista depois da lição 3 se quiser ver a peneira sendo construída em vez de já pronta."
+    },
+    {
+      "id": "PAwrTlW_cTw",
+      "titulo": "DECOMPOSIÇÃO de NÚMEROS em FATORES PRIMOS \\Prof. Gis/ MATEMÁTICA",
+      "canal": "Gis com Giz",
+      "descricao": "Vários números decompostos do começo ao fim, com o traço vertical. É repetição do método da lição 4, útil para quem quer ver mais casos antes de tentar sozinho."
+    },
+    {
+      "id": "3INDSaahHlg",
+      "titulo": "Mdc e mmc - decomposição em fatores primos - exercícios e exemplos - 6º ano",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Calcula MDC e MMC pelo caminho da decomposição, que é o atalho apresentado nas lições 5 e 6. Bom para quem quer largar as listas e ir direto pelos fatores."
+    }
+  ],
+  "licoes": [
+    {
+      "id": "multiplos-divisores",
+      "arquivo": "/dados/licoes/divisibilidade/multiplos-divisores.json"
+    },
+    {
+      "id": "criterios",
+      "arquivo": "/dados/licoes/divisibilidade/criterios.json"
+    },
+    {
+      "id": "primos",
+      "arquivo": "/dados/licoes/divisibilidade/primos.json"
+    },
+    {
+      "id": "fatoracao",
+      "arquivo": "/dados/licoes/divisibilidade/fatoracao.json"
+    },
+    {
+      "id": "mdc",
+      "arquivo": "/dados/licoes/divisibilidade/mdc.json"
+    },
+    {
+      "id": "mmc",
+      "arquivo": "/dados/licoes/divisibilidade/mmc.json"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "id": "converter",
+  "numero": 2,
+  "titulo": "Porcentagem, fração e decimal",
+  "pergunta": "Como trocar de roupa sem trocar de número?",
+  "ideia": {
+    "paragrafos": [
+      "25%, 1/4 e 0,25 são o mesmo número escrito de três jeitos. Nenhum é mais certo que o outro — cada um é mais prático numa situação. A porcentagem é boa para comparar e para conversar; a fração é boa para pensar; o decimal é bom para calcular.",
+      "De porcentagem para decimal, divida por 100. Como você viu na matéria de decimais, dividir por 100 anda com a vírgula duas casas para a esquerda: 35% vira 0,35, e 7% vira 0,07. Repare no zero do 7%: sem ele, o 7 cairia na casa dos décimos e o número ficaria dez vezes maior.",
+      "De decimal para porcentagem, é o caminho de volta: multiplique por 100, ou seja, ande com a vírgula duas casas para a direita. 0,6 vira 60%. Um erro clássico é ler 0,6 como 6% — mas 0,6 é seis décimos, e seis décimos são sessenta centésimos.",
+      "De fração para porcentagem, o melhor caminho depende do denominador. Quando ele é 'amigo' do 100 — 2, 4, 5, 10, 20, 25, 50 — dá para transformar a fração numa equivalente de denominador 100. Assim 3/4 vira 75/100, que é 75%. Quando o denominador não é amigo, divida o de cima pelo de baixo e multiplique o resultado por 100.",
+      "Vale decorar as conversões que mais aparecem, porque elas resolvem metade dos problemas na hora: 1/2 = 50%, 1/4 = 25%, 3/4 = 75%, 1/5 = 20%, 1/10 = 10%, 1/3 ≈ 33%."
+    ],
+    "destaque": "As três escritas são roupas do mesmo número. Escolha a que veste melhor a conta.",
+    "imagem": "por-ideia-tres"
+  },
+  "resolvido": {
+    "enunciado": "Escreva 3/4 na forma de porcentagem. Depois escreva 0,08 na forma de porcentagem.",
+    "imagem": "por-res-34",
+    "passos": [
+      {
+        "titulo": "O denominador vira 100?",
+        "explicacao": "Em 3/4, o denominador é 4. Multiplicando por 25 ele chega em 100 — então dá para usar o caminho da fração equivalente, que é o mais rápido.",
+        "conta": "4 × 25 = 100"
+      },
+      {
+        "titulo": "Multiplique os dois andares",
+        "explicacao": "O que se faz embaixo tem que ser feito em cima, senão o número muda. Multiplique o 3 pelo mesmo 25.",
+        "conta": "3/4 = 75/100"
+      },
+      {
+        "titulo": "Leia a porcentagem",
+        "explicacao": "Uma fração com denominador 100 já é uma porcentagem: o número de cima é a taxa.",
+        "conta": "75/100 = 75%"
+      },
+      {
+        "titulo": "Agora o decimal",
+        "explicacao": "Para ir de decimal para porcentagem, multiplique por 100, o que anda com a vírgula duas casas para a direita. Em 0,08 isso leva o 8 para a casa das unidades.",
+        "conta": "0,08 × 100 = 8 → 8%"
+      },
+      {
+        "titulo": "Confira pelo nome",
+        "explicacao": "0,08 lê-se 'oito centésimos', e 'oito centésimos' é literalmente oito a cada cem. A leitura em voz alta confirma a conversão sem nenhuma conta.",
+        "conta": "0,08 = 8/100 = 8%"
+      }
+    ],
+    "fecho": "Sempre que a conversão der dúvida, leia o número em voz alta. 'Centésimos' e 'por cento' são a mesma palavra em idiomas diferentes."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Como se escreve o número decimal 0,35 na forma de porcentagem?",
+      "imagem": "por-q-035",
+      "dica": "Multiplique por 100, ou seja, ande com a vírgula duas casas para a direita.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "35%" },
+        { "rotulo": "B", "texto": "3,5%" },
+        { "rotulo": "C", "texto": "0,35%" },
+        { "rotulo": "D", "texto": "350%" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3,5%",
+          "porque": "3,5% é dez vezes menos. Aqui a vírgula andou só uma casa — para virar porcentagem ela precisa andar duas."
+        },
+        {
+          "resposta": "0,35%",
+          "porque": "0,35% é cem vezes menos: seria menos de meio quadradinho num quadrado de cem. Nesse caso a vírgula não andou nenhuma casa."
+        },
+        {
+          "resposta": "350%",
+          "porque": "350% é três vezes e meia o todo. A vírgula andou três casas em vez de duas — e dá para perceber o exagero, porque 0,35 é menor que 1, então tem que ficar abaixo de 100%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia em voz alta",
+          "explicacao": "0,35 lê-se 'trinta e cinco centésimos'. A leitura já entrega a resposta, porque centésimos é a mesma coisa que 'por cento'.",
+          "conta": "0,35 = 35 centésimos"
+        },
+        {
+          "titulo": "Confirme pela conta",
+          "explicacao": "Multiplicar por 100 anda com a vírgula duas casas para a direita, e ela sai do número.",
+          "conta": "0,35 × 100 = 35 → 35%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos por cento é a fração 1/4? Digite apenas o número.",
+      "imagem": "por-q-um-quarto",
+      "dica": "Que número multiplica o 4 para chegar em 100? Faça o mesmo com o de cima.",
+      "formato": "numero",
+      "resposta": 25,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é o 1 e o 4 escritos lado a lado. Uma fração não é um número de dois algarismos: ela é uma divisão, e 1 dividido por 4 dá 0,25."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o denominador, e ele diz em quantas partes o todo foi cortado. A porcentagem responde outra coisa: quanto vale uma dessas partes a cada cem."
+        },
+        {
+          "resposta": "75",
+          "porque": "75% é a parte que SOBRA quando se tira um quarto. Você calculou o pedaço errado — 1/4 é o pedaço menor, o que foi tomado."
+        },
+        {
+          "resposta": "40",
+          "porque": "40% seria 2/5. Cuidado para não confundir os quartos com os quintos: um quarto é maior que um quinto, mas vale 25%, não 40%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leve o denominador a 100",
+          "explicacao": "O 4 chega em 100 multiplicado por 25.",
+          "conta": "4 × 25 = 100"
+        },
+        {
+          "titulo": "Faça o mesmo em cima",
+          "explicacao": "O 1 também é multiplicado por 25, para a fração continuar valendo o mesmo.",
+          "conta": "1/4 = 25/100"
+        },
+        {
+          "titulo": "Leia a taxa",
+          "explicacao": "Vinte e cinco a cada cem. Vale guardar de cor: um quarto é sempre 25%.",
+          "conta": "25/100 = 25%"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Como se escreve 7% na forma de número decimal?",
+      "imagem": "por-q-7-porcento",
+      "dica": "Dividir por 100 anda com a vírgula duas casas para a esquerda. Preste atenção em quem segura a casa vazia.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "0,07" },
+        { "rotulo": "B", "texto": "0,7" },
+        { "rotulo": "C", "texto": "7,0" },
+        { "rotulo": "D", "texto": "0,007" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,7",
+          "porque": "0,7 é sete décimos, ou seja, 70%. A vírgula andou só uma casa. É o zero depois da vírgula que segura o 7 na casa dos centésimos, que é onde a porcentagem mora."
+        },
+        {
+          "resposta": "7,0",
+          "porque": "7,0 são sete inteiros — sete vezes o todo, ou 700%. A vírgula não andou nenhuma casa."
+        },
+        {
+          "resposta": "0,007",
+          "porque": "0,007 são sete milésimos, o que corresponde a 0,7%. A vírgula andou três casas em vez de duas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva como fração",
+          "explicacao": "Sete por cento é sete a cada cem, e isso já é uma fração de denominador 100.",
+          "conta": "7% = 7/100"
+        },
+        {
+          "titulo": "Passe para decimal",
+          "explicacao": "Sete centésimos: o 7 vai para a segunda casa depois da vírgula, e o zero da primeira casa é quem o segura ali.",
+          "conta": "7/100 = 0,07"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos por cento é a fração 2/5? Digite apenas o número.",
+      "imagem": "por-q-dois-quintos",
+      "dica": "O 5 vira 100 multiplicado por 20. O de cima precisa acompanhar.",
+      "formato": "numero",
+      "resposta": 40,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25% é 1/4, não 2/5. Repare que 2/5 é maior que 1/4, porque dois quintos passam de um quarto do todo."
+        },
+        {
+          "resposta": "20",
+          "porque": "20% é 1/5, apenas um dos cinco pedaços. A fração pede dois deles, então é o dobro disso."
+        },
+        {
+          "resposta": "2.5",
+          "porque": "2,5 é o resultado de dividir 5 por 2, ou seja, a fração de cabeça para baixo. A ordem importa: 2/5 é 2 dividido por 5, que dá 0,4."
+        },
+        {
+          "resposta": "60",
+          "porque": "60% é 3/5, a parte que sobra depois de tirar dois quintos. Você calculou o pedaço complementar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leve o denominador a 100",
+          "explicacao": "O 5 chega em 100 multiplicado por 20.",
+          "conta": "5 × 20 = 100"
+        },
+        {
+          "titulo": "Multiplique o de cima também",
+          "explicacao": "O 2 vira 40, e a fração continua valendo exatamente o mesmo de antes.",
+          "conta": "2/5 = 40/100"
+        },
+        {
+          "titulo": "Confira pelo decimal",
+          "explicacao": "2 dividido por 5 dá 0,4, que é quarenta centésimos — o mesmo resultado por outro caminho.",
+          "conta": "2 ÷ 5 = 0,4 = 40%"
+        }
+      ]
+    }
+  ]
+}

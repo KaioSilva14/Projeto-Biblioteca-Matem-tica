@@ -1,0 +1,201 @@
+{
+  "id": "quadrado-triangulo",
+  "numero": 3,
+  "titulo": "Área do quadrado e do triângulo",
+  "pergunta": "Por que a área do triângulo tem um dividido por 2?",
+  "ideia": {
+    "paragrafos": [
+      "O quadrado é o caso mais fácil, porque nele a base e a altura são a mesma medida. Então a área é lado vezes lado, ou seja, o lado ao quadrado. É exatamente daí que vem o nome da operação que você viu em Potências: 'sete ao quadrado' é a área de um quadrado de lado 7.",
+      "O triângulo exige uma ideia a mais, e ela é bonita. Pegue um triângulo qualquer e faça uma cópia idêntica dele. Gire a cópia meia volta e encoste nele: as duas peças se encaixam formando um paralelogramo — que tem a mesma base e a mesma altura do triângulo original.",
+      "Ou seja: dois triângulos iguais formam uma figura de área base × altura. Então UM triângulo tem metade disso. É por isso que a fórmula é base × altura ÷ 2, e o 2 não é arbitrário: ele desfaz a duplicação.",
+      "O ponto que mais derruba gente aqui é o significado da altura. Altura NÃO é um dos lados inclinados: é a distância perpendicular da base até o vértice de cima. Nos desenhos ela aparece tracejada, com um quadradinho de ângulo reto marcando a perpendicularidade.",
+      "Num triângulo retângulo os dois lados que formam o ângulo reto servem como base e altura, porque já são perpendiculares entre si. Nos outros triângulos, a altura precisa ser traçada — e às vezes ela cai fora da figura."
+    ],
+    "destaque": "Dois triângulos iguais formam um paralelogramo. Por isso o dividido por 2.",
+    "imagem": "are-ideia-quadrado"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a área de um quadrado de lado 7 cm? E a de um triângulo de base 10 cm e altura 6 cm?",
+    "imagem": "are-res-tri",
+    "passos": [
+      {
+        "titulo": "O quadrado: base e altura iguais",
+        "explicacao": "Num quadrado os dois lados valem o mesmo, então a fórmula do retângulo vira lado vezes lado.",
+        "conta": "7 × 7 = 49 cm²"
+      },
+      {
+        "titulo": "Reconheça a potência",
+        "explicacao": "Multiplicar um número por ele mesmo é elevar ao quadrado. O nome da operação vem justamente desta figura.",
+        "conta": "7² = 49 cm²"
+      },
+      {
+        "titulo": "O triângulo: comece pelo retângulo",
+        "explicacao": "Um retângulo com a mesma base e a mesma altura do triângulo teria essa área. Ele é o dobro do que queremos.",
+        "conta": "10 × 6 = 60"
+      },
+      {
+        "titulo": "Divida por 2",
+        "explicacao": "O triângulo é metade dessa figura, porque duas cópias dele a formam. Aqui o 2 desfaz a duplicação.",
+        "conta": "60 ÷ 2 = 30 cm²"
+      },
+      {
+        "titulo": "Confira se faz sentido",
+        "explicacao": "O triângulo cabe dentro do retângulo de 10 por 6, ocupando metade dele. Trinta é menos que sessenta, como tinha que ser.",
+        "conta": "30 é metade de 60 ✓"
+      }
+    ],
+    "fecho": "Sempre que a fórmula do triângulo parecer estranha, desenhe o retângulo em volta dele. O 2 aparece sozinho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a área de um quadrado de 12 cm de lado, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-quad-12",
+      "dica": "No quadrado, base e altura são o mesmo número.",
+      "formato": "numero",
+      "resposta": 144,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 é o PERÍMETRO do quadrado: 4 × 12. Ele mede a borda; a área mede o miolo e vale 12 × 12."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 12 × 2, base vezes dois. A altura do quadrado é 12, e não 2 — os dois lados são iguais."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 12 × 3. A conta certa multiplica o lado por ele mesmo, e não por outro número."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Base e altura",
+          "explicacao": "No quadrado os dois lados medem o mesmo, então a fórmula do retângulo vira lado vezes lado.",
+          "conta": "12 × 12"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Doze ao quadrado é uma das potências que vale ter na ponta da língua.",
+          "conta": "12² = 144 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a área de um triângulo de base 8 cm e altura 5 cm, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-tri-8-5",
+      "dica": "Calcule a área do retângulo de mesma base e altura, e depois pegue a metade.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é 8 × 5, a área do RETÂNGULO de mesma base e altura. O triângulo é metade disso — falta dividir por 2."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é 8 + 5. Área é multiplicação de base por altura, e depois a divisão por 2. Somar não entra em nenhum momento."
+        },
+        {
+          "resposta": "6.5",
+          "porque": "6,5 é (8 + 5) ÷ 2, somando antes de dividir. A ordem é multiplicar primeiro e só então dividir pela metade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O retângulo correspondente",
+          "explicacao": "Um retângulo de base 8 e altura 5 cabe exatamente em volta do triângulo, e tem o dobro da área dele.",
+          "conta": "8 × 5 = 40"
+        },
+        {
+          "titulo": "Pegue a metade",
+          "explicacao": "Duas cópias do triângulo formam esse retângulo, então uma cópia sozinha vale metade da área dele.",
+          "conta": "40 ÷ 2 = 20 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a área de um triângulo de base 14 cm e altura 9 cm, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-tri-14-9",
+      "dica": "Base vezes altura, dividido por 2. Se der número quebrado no meio, tudo bem — o resultado fecha.",
+      "formato": "numero",
+      "resposta": 63,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "126",
+          "porque": "126 é 14 × 9, a área do retângulo de mesma base e altura. O triângulo ocupa metade dessa região."
+        },
+        {
+          "resposta": "23",
+          "porque": "23 é 14 + 9. Somar base e altura não tem significado em área — a conta é uma multiplicação."
+        },
+        {
+          "resposta": "11.5",
+          "porque": "11,5 é (14 + 9) ÷ 2, somando antes de dividir. Multiplique base por altura primeiro; só o produto é dividido por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique base por altura",
+          "explicacao": "Esse produto é a área do retângulo que envolve o triângulo.",
+          "conta": "14 × 9 = 126"
+        },
+        {
+          "titulo": "Divida por 2",
+          "explicacao": "O triângulo é metade desse retângulo.",
+          "conta": "126 ÷ 2 = 63 cm²"
+        },
+        {
+          "titulo": "Confira estimando",
+          "explicacao": "Sessenta e três é pouco menos da metade de 130, o que faz sentido para um triângulo de base 14 e altura 9.",
+          "conta": "63 × 2 = 126 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um quadrado tem área de 81 cm². Quanto mede o lado dele, em centímetros? Digite apenas o número.",
+      "imagem": "are-q-quad-81",
+      "dica": "Que número, multiplicado por ele mesmo, dá 81? É a raiz quadrada que você viu em Potências.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "40.5",
+          "porque": "40,5 é 81 dividido por 2. Metade não desfaz uma multiplicação de um número por ele mesmo — quem desfaz isso é a raiz quadrada."
+        },
+        {
+          "resposta": "20.25",
+          "porque": "20,25 é 81 dividido por 4, que seria o caso se a área fosse o perímetro. Área é lado × lado, e voltar dela é tirar a raiz."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 × 8 dá 64, e não 81. O quadrado perfeito que dá 81 é o do 9 — vale conferir multiplicando de volta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza a pergunta",
+          "explicacao": "A área de um quadrado é lado × lado. Se ela vale 81, procuramos o número que multiplicado por ele mesmo dá 81.",
+          "conta": "lado × lado = 81"
+        },
+        {
+          "titulo": "É a raiz quadrada",
+          "explicacao": "Esta é exatamente a operação da matéria de Potências: partir da área e voltar para o lado.",
+          "conta": "√81 = 9"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Nove vezes nove reconstrói a área do enunciado.",
+          "conta": "9 × 9 = 81 ✓"
+        }
+      ]
+    }
+  ]
+}

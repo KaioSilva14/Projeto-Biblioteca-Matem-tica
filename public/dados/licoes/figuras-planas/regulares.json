@@ -1,0 +1,210 @@
+{
+  "id": "regulares",
+  "numero": 5,
+  "titulo": "Polígonos regulares",
+  "pergunta": "Quanto somam os ângulos de um polígono de muitos lados?",
+  "ideia": {
+    "paragrafos": [
+      "Um polígono é regular quando cumpre duas exigências ao mesmo tempo: todos os lados iguais E todos os ângulos iguais. As duas, não uma. O losango tem os quatro lados iguais mas os ângulos diferentes, então não é regular; o retângulo tem os quatro ângulos iguais mas os lados diferentes, e também não é. O quadrado tem as duas coisas — ele é o quadrilátero regular.",
+      "Para trabalhar com os ângulos desses polígonos, existe um truque que funciona para qualquer quantidade de lados. Escolha um vértice e ligue ele a todos os outros que não sejam vizinhos. O polígono se parte em triângulos, e como cada triângulo soma 180°, basta contar quantos apareceram.",
+      "Faça isso num pentágono e vão aparecer 3 triângulos; num hexágono, 4; num octógono, 6. Sempre DOIS a menos que o número de lados — os dois vértices vizinhos ao escolhido não geram triângulo novo, porque já estão ligados a ele por lados.",
+      "Daí sai a regra: a soma dos ângulos internos de um polígono de n lados é (n − 2) × 180°. No triângulo dá (3−2) × 180 = 180, e no quadrilátero dá (4−2) × 180 = 360 — as duas regras que você já conhecia, agora como casos particulares da mesma conta.",
+      "E se o polígono for REGULAR, dá para ir além: como os ângulos são todos iguais, basta dividir a soma pelo número de lados para saber quanto vale cada um. É o que faz um hexágono regular ter sempre 120° em cada canto — o formato do favo de mel."
+    ],
+    "destaque": "Some (n − 2) triângulos de 180°. Se for regular, reparta igualmente.",
+    "imagem": "fig-ideia-regulares"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a soma dos ângulos internos de um pentágono? E quanto mede cada ângulo de um pentágono REGULAR?",
+    "imagem": "fig-res-pentagono",
+    "passos": [
+      {
+        "titulo": "Parta em triângulos",
+        "explicacao": "Escolha um vértice do pentágono e ligue ele aos dois vértices não vizinhos. Aparecem três triângulos, cobrindo a figura inteira sem sobrar pedaço.",
+        "conta": "5 lados → 3 triângulos"
+      },
+      {
+        "titulo": "Confira pela regra",
+        "explicacao": "A quantidade de triângulos é sempre dois a menos que o número de lados.",
+        "conta": "n − 2 = 5 − 2 = 3"
+      },
+      {
+        "titulo": "Some os triângulos",
+        "explicacao": "Cada triângulo contribui com 180°, e juntos eles cobrem exatamente os ângulos internos do pentágono.",
+        "conta": "3 × 180° = 540°"
+      },
+      {
+        "titulo": "Agora o caso regular",
+        "explicacao": "No pentágono REGULAR os cinco ângulos são iguais entre si, então cada um é a quinta parte do total.",
+        "conta": "540 ÷ 5 = 108°"
+      },
+      {
+        "titulo": "O resultado faz sentido?",
+        "explicacao": "108° é obtuso, um pouco acima do ângulo reto — e é isso mesmo que se vê num pentágono regular, cujos cantos são visivelmente mais abertos que os de um quadrado.",
+        "conta": "108° > 90° ✓"
+      }
+    ],
+    "fecho": "A mesma conta serve para qualquer polígono. Só o número de lados muda de lugar na fórmula."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a soma dos ângulos internos de um hexágono? Digite apenas o número.",
+      "imagem": "fig-q-hexagono",
+      "dica": "Em quantos triângulos um hexágono se parte? Multiplique por 180.",
+      "formato": "numero",
+      "resposta": 720,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "1080",
+          "porque": "1.080 é 6 × 180, usando o número de lados em vez do número de triângulos. Os triângulos são sempre DOIS a menos que os lados."
+        },
+        {
+          "resposta": "360",
+          "porque": "360° é a soma dos ângulos de um QUADRILÁTERO. O hexágono tem dois lados a mais, então soma mais dois triângulos."
+        },
+        {
+          "resposta": "120",
+          "porque": "120° é quanto mede CADA ângulo de um hexágono regular. A pergunta é pela soma dos seis, e não por um deles."
+        },
+        {
+          "resposta": "900",
+          "porque": "900 é 5 × 180, que seria a soma de um heptágono, de sete lados. Vale conferir a conta n − 2 com o número certo de lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os triângulos",
+          "explicacao": "Ligando um vértice aos não vizinhos, o hexágono se parte em quatro triângulos.",
+          "conta": "6 − 2 = 4 triângulos"
+        },
+        {
+          "titulo": "Multiplique por 180°",
+          "explicacao": "Cada triângulo contribui com 180°.",
+          "conta": "4 × 180 = 720°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto mede cada ângulo interno de um hexágono REGULAR? Digite apenas o número.",
+      "imagem": "fig-q-hex-regular",
+      "dica": "A soma dos seis é 720°. E num polígono regular todos os ângulos são iguais.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "720",
+          "porque": "720° é a SOMA dos seis ângulos. Falta repartir esse total entre eles, o que só é possível porque no polígono regular todos são iguais."
+        },
+        {
+          "resposta": "60",
+          "porque": "60° é o valor de cada ângulo de um triângulo equilátero. No hexágono os cantos são bem mais abertos — o dobro disso."
+        },
+        {
+          "resposta": "90",
+          "porque": "90° é o ângulo de cada canto do quadrado, que é o quadrilátero regular. Quanto mais lados o polígono regular tem, mais abertos ficam os ângulos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a soma",
+          "explicacao": "O hexágono se parte em quatro triângulos, então a soma é 4 × 180.",
+          "conta": "(6 − 2) × 180 = 720°"
+        },
+        {
+          "titulo": "Reparta igualmente",
+          "explicacao": "Ser regular garante que os seis ângulos são iguais, então cada um é a sexta parte do total.",
+          "conta": "720 ÷ 6 = 120°"
+        },
+        {
+          "titulo": "Onde isso aparece",
+          "explicacao": "É por isso que hexágonos regulares se encaixam perfeitamente sem deixar buraco: três deles em volta de um ponto fecham 3 × 120 = 360°. É o desenho do favo de mel.",
+          "conta": "3 × 120 = 360 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que um polígono precisa ter para ser chamado de REGULAR?",
+      "imagem": "fig-q-regular",
+      "dica": "São duas exigências, e as duas precisam valer ao mesmo tempo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Todos os lados iguais e todos os ângulos iguais" },
+        { "rotulo": "B", "texto": "Apenas todos os lados iguais" },
+        { "rotulo": "C", "texto": "Apenas todos os ângulos iguais" },
+        { "rotulo": "D", "texto": "Ter um número par de lados" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Apenas todos os lados iguais",
+          "porque": "Não basta: o losango tem os quatro lados iguais e não é regular, porque os ângulos dele são diferentes entre si — dois agudos e dois obtusos."
+        },
+        {
+          "resposta": "Apenas todos os ângulos iguais",
+          "porque": "Também não basta: o retângulo tem os quatro ângulos iguais a 90° e não é regular, porque os lados têm dois comprimentos diferentes."
+        },
+        {
+          "resposta": "Ter um número par de lados",
+          "porque": "A quantidade de lados não tem nada a ver com isso. O triângulo equilátero tem três lados, um número ímpar, e é regular."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "As duas exigências",
+          "explicacao": "Lados todos iguais e ângulos todos iguais. Faltando uma, o polígono não é regular.",
+          "conta": "lados iguais + ângulos iguais"
+        },
+        {
+          "titulo": "Os dois contraexemplos",
+          "explicacao": "O losango cumpre só a primeira e o retângulo cumpre só a segunda. Nenhum dos dois é regular — mas o quadrado, que cumpre as duas, é.",
+          "conta": "losango ✗ · retângulo ✗ · quadrado ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Ao ligar um vértice de um octógono a todos os vértices não vizinhos, em quantos triângulos ele se parte? Digite apenas a quantidade.",
+      "imagem": "fig-q-octogono-tri",
+      "dica": "É sempre dois a menos que o número de lados. Quantos lados tem um octógono?",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "triângulos",
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é o número de lados do octógono. Os dois vértices vizinhos ao escolhido não geram triângulo novo, porque já estão ligados a ele por um lado — por isso a conta é n − 2."
+        },
+        {
+          "resposta": "1080",
+          "porque": "1.080 é a SOMA dos ângulos internos do octógono, em graus: 6 × 180. A pergunta é quantos triângulos aparecem, e são seis."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é um a menos que os lados. São dois vizinhos que ficam de fora, e não um só — o vértice escolhido tem um vizinho de cada lado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantos lados",
+          "explicacao": "'Octo' é oito, então o octógono tem oito lados e oito vértices.",
+          "conta": "8 lados"
+        },
+        {
+          "titulo": "Aplique a regra",
+          "explicacao": "Os dois vértices vizinhos ao escolhido não formam triângulo novo, então sobram n − 2.",
+          "conta": "8 − 2 = 6 triângulos"
+        },
+        {
+          "titulo": "Confira pela soma",
+          "explicacao": "Seis triângulos de 180° dão 1.080°, que é mesmo a soma dos ângulos internos de um octógono.",
+          "conta": "6 × 180 = 1 080°"
+        }
+      ]
+    }
+  ]
+}

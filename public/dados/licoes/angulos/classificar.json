@@ -1,0 +1,251 @@
+{
+  "id": "classificar",
+  "numero": 2,
+  "titulo": "Agudo, reto, obtuso, raso",
+  "pergunta": "Por que o ângulo de 90° ganhou nome próprio?",
+  "ideia": {
+    "paragrafos": [
+      "Todo ângulo tem uma medida, mas alguns valores são tão importantes que ganharam nome. E os nomes não são decoração: eles servem para você dizer o tipo de abertura sem precisar medir.",
+      "O divisor de águas é o ângulo de 90°, o quarto de volta. Ele se chama ângulo reto, e é o ângulo do canto de uma folha, do encontro entre parede e chão, da quina de qualquer mesa. Quando duas retas formam um ângulo reto, dizemos que elas são perpendiculares. Na figura, o ângulo reto é marcado com um quadradinho no vértice em vez de um arquinho — é uma convenção, e vale a pena reconhecê-la.",
+      "A partir dele saem os outros nomes. Ângulo agudo é o que mede MENOS de 90°: é o ângulo fechado, pontudo. Ângulo obtuso é o que mede MAIS de 90° e menos de 180°: é o ângulo aberto, escancarado. E o ângulo de exatamente 180° — a meia volta, em que os dois lados formam uma linha reta — chama-se ângulo raso.",
+      "Repare que a classificação é feita por comparação, e não por medição exata. Você não precisa saber que um ângulo mede 47° para dizer que ele é agudo: basta ver que ele é mais fechado que o canto de uma folha.",
+      "Um cuidado: os limites não pertencem a ninguém por acaso. Exatamente 90° não é agudo nem obtuso — é reto. E um ângulo de 89° é agudo, mesmo parecendo reto a olho nu. Perto do limite, olhar não basta: só medindo."
+    ],
+    "destaque": "O ângulo reto é a régua: menos que ele é agudo, mais que ele é obtuso.",
+    "imagem": "ang-ideia-classes"
+  },
+  "resolvido": {
+    "enunciado": "Classifique cada um destes ângulos: 45°, 90°, 120° e 180°.",
+    "imagem": "ang-res-quatro",
+    "passos": [
+      {
+        "titulo": "Compare cada um com 90°",
+        "explicacao": "O ângulo reto é o ponto de referência. A primeira pergunta para qualquer ângulo é sempre: ele é menor, igual ou maior que 90°?",
+        "conta": "45 < 90 · 90 = 90 · 120 > 90 · 180 > 90"
+      },
+      {
+        "titulo": "Os menores que 90°",
+        "explicacao": "Só o 45° está abaixo do ângulo reto. Ele é agudo — repare que 45° é exatamente metade de um ângulo reto.",
+        "conta": "45° → agudo"
+      },
+      {
+        "titulo": "O que é exatamente 90°",
+        "explicacao": "Não é agudo nem obtuso: é reto, e tem nome próprio justamente por ser a fronteira entre os dois.",
+        "conta": "90° → reto"
+      },
+      {
+        "titulo": "Os maiores que 90°",
+        "explicacao": "Sobraram 120° e 180°. O 120° passa de 90° mas não chega a 180°, então é obtuso. O 180° é o caso especial em que os lados ficam alinhados.",
+        "conta": "120° → obtuso · 180° → raso"
+      }
+    ],
+    "fecho": "Toda classificação passa pela mesma pergunta: onde este ângulo cai em relação ao 90° e ao 180°?"
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um ângulo mede 130°. Como ele é classificado?",
+      "imagem": "ang-q-130",
+      "dica": "Compare com 90° e com 180°.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Obtuso"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Agudo"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Reto"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Raso"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Agudo",
+          "porque": "Agudo é o ângulo MENOR que 90°, o fechado. Como 130 passa de 90, este é do time dos abertos."
+        },
+        {
+          "resposta": "Reto",
+          "porque": "Reto é exatamente 90°, nem um grau a mais. 130° passou disso em 40 graus."
+        },
+        {
+          "resposta": "Raso",
+          "porque": "Raso é exatamente 180°, quando os dois lados formam uma linha reta. 130° ainda não chegou lá — falta bastante abertura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare com 90°",
+          "explicacao": "130 é maior que 90, então o ângulo não é agudo nem reto. Já sabemos que ele está do lado dos abertos.",
+          "conta": "130 > 90"
+        },
+        {
+          "titulo": "Compare com 180°",
+          "explicacao": "130 ainda é menor que 180, então também não é raso. Sobrou uma única classificação possível.",
+          "conta": "90 < 130 < 180 → obtuso"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas medidas corresponde a um ângulo AGUDO?",
+      "imagem": "ang-q-agudo",
+      "dica": "Agudo é o ângulo mais fechado que o canto de uma folha de papel.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "75°"
+        },
+        {
+          "rotulo": "B",
+          "texto": "90°"
+        },
+        {
+          "rotulo": "C",
+          "texto": "110°"
+        },
+        {
+          "rotulo": "D",
+          "texto": "180°"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "90°",
+          "porque": "90° é a fronteira, e a fronteira tem nome próprio: reto. Para ser agudo, o ângulo precisa ficar ESTRITAMENTE abaixo de 90."
+        },
+        {
+          "resposta": "110°",
+          "porque": "110° passa de 90°, então é obtuso. Repare que quanto maior o número, mais aberto o ângulo — e agudo é o fechado."
+        },
+        {
+          "resposta": "180°",
+          "porque": "180° é o ângulo raso, o mais aberto possível antes de a volta recomeçar. É o oposto de agudo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza a definição",
+          "explicacao": "Agudo é todo ângulo maior que 0° e menor que 90°. Os dois extremos ficam de fora.",
+          "conta": "0° < agudo < 90°"
+        },
+        {
+          "titulo": "Teste as alternativas",
+          "explicacao": "Só o 75 fica abaixo de 90. O 90 é a própria fronteira, e os outros dois passam dela.",
+          "conta": "75 < 90 · 90 = 90 · 110 > 90 · 180 > 90"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos ângulos retos cabem numa volta completa? Digite apenas a quantidade.",
+      "imagem": "ang-q-retos-volta",
+      "dica": "A volta tem 360° e o ângulo reto tem 90°. Quantas vezes um cabe no outro?",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "ângulos retos",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Dois ângulos retos fecham 180°, que é só MEIA volta. Para a volta completa é preciso o dobro disso."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 é a medida de UM ângulo reto, em graus. A pergunta é quantos deles cabem na volta, e a conta é 360 ÷ 90."
+        },
+        {
+          "resposta": "360",
+          "porque": "360 é a medida da volta inteira, em graus. Falta dividir pelo tamanho de cada ângulo reto."
+        },
+        {
+          "resposta": "3",
+          "porque": "Três ângulos retos dão 270°, que é três quartos de volta — ainda falta um pedaço para fechar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva as duas medidas",
+          "explicacao": "A volta completa vale 360° e cada ângulo reto vale 90°.",
+          "conta": "volta = 360° · reto = 90°"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Veja quantas vezes 90 cabe em 360. É a mesma pergunta que 'quantos cantos de folha cabem em volta de um ponto'.",
+          "conta": "360 ÷ 90 = 4"
+        },
+        {
+          "titulo": "Confira pela figura",
+          "explicacao": "Duas retas perpendiculares cortam o plano em quatro cantos iguais, e cada canto é um ângulo reto. É a imagem de uma cruz.",
+          "conta": "4 × 90° = 360°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um ângulo foi medido com cuidado e deu exatamente 89°. Como ele é classificado?",
+      "imagem": "ang-q-89",
+      "dica": "A fronteira do reto é 90°, sem arredondar. Onde 89 cai?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Agudo"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Reto"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Obtuso"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Quase reto, que é uma classificação própria"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Reto",
+          "porque": "Faltou um grau. A olho nu 89° e 90° são indistinguíveis, e é justamente por isso que a definição usa o número exato: reto é 90°, e nada além disso."
+        },
+        {
+          "resposta": "Obtuso",
+          "porque": "Obtuso é maior que 90°, e 89 é menor. O ângulo está do lado de baixo da fronteira, não do lado de cima."
+        },
+        {
+          "resposta": "Quase reto, que é uma classificação própria",
+          "porque": "Essa categoria não existe. Só há quatro nomes até aqui — agudo, reto, obtuso e raso — e todo ângulo cai em um deles pelo valor exato."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use o valor exato",
+          "explicacao": "A medida é 89°, e não 'quase 90'. Classificação não arredonda.",
+          "conta": "89 < 90"
+        },
+        {
+          "titulo": "Aplique a definição",
+          "explicacao": "Menor que 90° é agudo, por menos que seja a diferença. Um único grau já decide.",
+          "conta": "89° → agudo"
+        },
+        {
+          "titulo": "Por que isso importa",
+          "explicacao": "Em desenho técnico e construção, a diferença entre 89° e 90° é a diferença entre uma parede torta e uma parede no esquadro. Por isso o quadradinho no vértice só pode ser usado quando o ângulo é exatamente reto.",
+          "conta": "89° ≠ 90°"
+        }
+      ]
+    }
+  ]
+}

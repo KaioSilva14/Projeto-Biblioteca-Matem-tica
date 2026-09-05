@@ -1,0 +1,228 @@
+{
+  "id": "compostas",
+  "numero": 4,
+  "titulo": "Figuras com um pedaço faltando",
+  "pergunta": "E quando o desenho não mostra todas as medidas?",
+  "ideia": {
+    "paragrafos": [
+      "Muita figura da vida real não é retângulo nem triângulo: é um retângulo com um pedaço recortado, uma sala em L, uma peça com um degrau. O perímetro dessas figuras não tem fórmula — mas continua sendo a mesma coisa de sempre: a soma de todos os lados do contorno.",
+      "O primeiro cuidado é não pular lado nenhum. Numa figura em L existem seis lados, e é fácil contar só quatro olhando de longe. O método seguro é marcar um vértice, andar pelo contorno anotando cada trecho e parar quando voltar à marca.",
+      "O segundo cuidado é que nem sempre todas as medidas estão escritas. Quando falta uma, ela pode ser deduzida das outras — porque num contorno de cantos retos, o que sobe tem que descer a mesma coisa, e o que vai para a direita tem que voltar para a esquerda.",
+      "Numa figura em L, por exemplo, os dois trechos horizontais do lado de cima somados precisam dar o mesmo que o trecho horizontal de baixo. Se o de baixo mede 6 e um dos de cima mede 2, o outro mede 4. Nenhuma régua é necessária: a figura se fecha e isso obriga as contas a baterem.",
+      "E vale conhecer um resultado que surpreende: uma figura em L tem o MESMO perímetro do retângulo que a envolve. Empurrando os dois lados do recorte para fora, eles vão parar exatamente onde estariam os lados do retângulo — o contorno muda de forma sem mudar de comprimento."
+    ],
+    "destaque": "O que sobe tem que descer igual. É isso que revela a medida que falta.",
+    "imagem": "per-ideia-composta"
+  },
+  "resolvido": {
+    "enunciado": "Uma figura em L tem lados de 4 cm, 2 cm, 2 cm, 2 cm, 2 cm e 4 cm, nessa ordem ao redor do contorno. Qual é o perímetro dela?",
+    "imagem": "per-res-composta",
+    "passos": [
+      {
+        "titulo": "Conte os lados antes de somar",
+        "explicacao": "A figura em L tem seis lados, e não quatro. Contar primeiro evita a soma incompleta, que é o erro mais comum aqui.",
+        "conta": "6 lados no contorno"
+      },
+      {
+        "titulo": "Some percorrendo a borda",
+        "explicacao": "Comece num vértice e vá somando na ordem em que os lados aparecem, até voltar ao ponto de partida.",
+        "conta": "4 + 2 + 2 + 2 + 2 + 4"
+      },
+      {
+        "titulo": "Agrupe para facilitar",
+        "explicacao": "Os dois lados de 4 dão 8, e os quatro lados de 2 dão 8.",
+        "conta": "8 + 8 = 16 cm"
+      },
+      {
+        "titulo": "Confira pelo retângulo que envolve",
+        "explicacao": "A figura cabe num retângulo de 4 por 4. O perímetro dele é 2 × (4 + 4) = 16 cm — exatamente o mesmo. Isso confirma a soma e mostra o resultado da ideia.",
+        "conta": "2 × (4 + 4) = 16 ✓"
+      }
+    ],
+    "fecho": "Recortar um canto de um retângulo não muda o perímetro: os lados do recorte substituem exatamente os pedaços que sumiram."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A figura em L do desenho tem lados de 6 cm, 3 cm, 2 cm, 4 cm, 4 cm e 7 cm. Qual é o perímetro dela, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-comp-26",
+      "dica": "São seis lados. Some todos, sem pular nenhum.",
+      "formato": "numero",
+      "resposta": 26,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 soma só quatro dos seis lados. Numa figura em L é fácil enxergar só o contorno 'de fora' e esquecer os dois lados do recorte."
+        },
+        {
+          "resposta": "34",
+          "porque": "34 é a ÁREA da figura, em centímetros quadrados: 6 × 3 embaixo mais 4 × 4 em cima. O perímetro soma o contorno, e não o que cabe dentro."
+        },
+        {
+          "resposta": "22",
+          "porque": "22 deixa um lado de fora da soma. Vale contar as parcelas antes de somar: precisam ser seis."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os lados",
+          "explicacao": "O contorno em L tem seis trechos retos, e todos entram na volta.",
+          "conta": "6 lados"
+        },
+        {
+          "titulo": "Some na ordem",
+          "explicacao": "Percorra a borda somando um trecho de cada vez.",
+          "conta": "6 + 3 + 2 + 4 + 4 + 7"
+        },
+        {
+          "titulo": "Feche a conta",
+          "explicacao": "Agrupando: 6 + 7 dá 13, 3 + 4 dá 7, e 2 + 4 dá 6.",
+          "conta": "13 + 7 + 6 = 26 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa figura em L de cantos retos, o lado de baixo mede 6 cm. Os dois trechos horizontais da parte de cima medem 2 cm e um valor desconhecido. Quanto mede esse trecho, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-comp-falta",
+      "dica": "Tudo que a figura avança para a direita, ela precisa voltar para a esquerda. Some os trechos de cima e compare com o de baixo.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é 6 + 2, somando quando era para subtrair. Os dois trechos de cima JUNTOS precisam dar 6, então o que falta é menor que 6, e não maior."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o lado de baixo inteiro. Ele é a soma dos DOIS trechos de cima, e um deles já mede 2 — então sobram 4 para o outro."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 cm é o trecho que o enunciado já deu. O que se pede é o outro, e os dois não precisam ser iguais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O contorno tem que fechar",
+          "explicacao": "Andando pela figura, tudo que se avança para a direita precisa ser desfeito para a esquerda — senão o contorno não volta ao ponto de partida.",
+          "conta": "avanço = retorno"
+        },
+        {
+          "titulo": "Compare os trechos horizontais",
+          "explicacao": "O lado de baixo avança 6 cm. Os dois trechos de cima, somados, precisam desfazer exatamente esses 6 cm.",
+          "conta": "2 + ? = 6"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O que falta para completar os 6 é o trecho procurado.",
+          "conta": "6 − 2 = 4 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma figura em L tem lados de 5 cm, 2 cm, 2 cm, 3 cm, 3 cm e 5 cm. Qual é o perímetro dela, em centímetros? Digite apenas o número.",
+      "imagem": "per-q-comp-20",
+      "dica": "Seis parcelas. Agrupe os valores repetidos para somar mais rápido.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 soma só os valores diferentes: 5 + 2 + 3. Cada lado entra na volta uma vez, mesmo que a medida se repita."
+        },
+        {
+          "resposta": "19",
+          "porque": "19 é a ÁREA da figura, em centímetros quadrados: 5 × 2 embaixo mais 3 × 3 em cima. A pergunta é sobre o contorno."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 deixa lados de fora. Conte as parcelas: a figura em L tem seis, e a soma precisa ter seis também."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Agrupe os repetidos",
+          "explicacao": "São dois lados de 5, dois de 2 e dois de 3 — a figura em L sempre tem os lados em pares assim.",
+          "conta": "2×5 · 2×2 · 2×3"
+        },
+        {
+          "titulo": "Some as seis parcelas",
+          "explicacao": "Dez, mais quatro, mais seis. Agrupar os lados repetidos antes de somar reduz a chance de pular algum.",
+          "conta": "10 + 4 + 6 = 20 cm"
+        },
+        {
+          "titulo": "Confira pelo retângulo",
+          "explicacao": "A figura cabe num retângulo de 5 por 5, cujo perímetro é 2 × (5 + 5) = 20. Bateu.",
+          "conta": "2 × (5 + 5) = 20 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma figura em L cabe exatamente dentro de um quadrado de 4 cm de lado. O perímetro da figura em L é igual ao do quadrado que a envolve?",
+      "imagem": "per-q-comp-envolve",
+      "dica": "Imagine empurrar os dois lados do recorte para fora, até encostarem nos lados do quadrado. O comprimento total muda?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Sim, os dois medem 16 cm"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Não, o da figura em L é menor"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Não, o da figura em L é maior"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Não dá para saber sem medir cada lado"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, o da figura em L é menor",
+          "porque": "É o palpite natural, porque a figura em L tem ÁREA menor — falta um pedaço dela. Mas área e perímetro são medidas independentes: os dois lados do recorte substituem exatamente os pedaços que sumiram, e o contorno continua com o mesmo comprimento."
+        },
+        {
+          "resposta": "Não, o da figura em L é maior",
+          "porque": "A figura em L tem mais LADOS que o quadrado — seis contra quatro — mas isso não faz o contorno ser mais comprido. Mais lados repartidos no mesmo caminho continuam somando o mesmo."
+        },
+        {
+          "resposta": "Não dá para saber sem medir cada lado",
+          "porque": "Dá sim: como os cantos são retos, os trechos do recorte são obrigados a completar exatamente os lados do quadrado. A figura se fecha, e isso já determina a soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Perímetro do quadrado",
+          "explicacao": "Quatro lados de 4 cm cada, que é o atalho do polígono regular da lição 2.",
+          "conta": "4 × 4 = 16 cm"
+        },
+        {
+          "titulo": "Perímetro da figura em L",
+          "explicacao": "Ela tem seis lados: 4, 2, 2, 2, 2 e 4. Somando tudo dá o mesmo valor.",
+          "conta": "4 + 2 + 2 + 2 + 2 + 4 = 16 cm"
+        },
+        {
+          "titulo": "Por que dá igual",
+          "explicacao": "Empurre os dois lados do recorte para fora, cada um na sua direção, até encostarem nos lados do quadrado. Eles só mudam de lugar — o comprimento de cada um continua o mesmo, e juntos recompõem exatamente o contorno do quadrado.",
+          "conta": "mesmo comprimento, outro formato"
+        },
+        {
+          "titulo": "O que NÃO é igual",
+          "explicacao": "A área. O quadrado tem 16 quadradinhos e a figura em L tem 12, porque faltam os 4 do canto recortado. Contorno igual, interior diferente.",
+          "conta": "16 quadradinhos contra 12"
+        }
+      ]
+    }
+  ]
+}

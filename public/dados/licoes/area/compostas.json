@@ -1,0 +1,230 @@
+{
+  "id": "compostas",
+  "numero": 4,
+  "titulo": "Área de figuras compostas",
+  "pergunta": "E quando a figura não é nenhuma das que têm fórmula?",
+  "ideia": {
+    "paragrafos": [
+      "Uma sala em L, um terreno com um canto cortado, uma peça com um recorte — nada disso tem fórmula própria. Mas todas essas figuras são feitas de retângulos, e é isso que resolve o problema.",
+      "Existem dois caminhos, e os dois dão o mesmo resultado. O primeiro é SOMAR: parta a figura em retângulos que não se sobreponham, calcule a área de cada um e some tudo. O segundo é SUBTRAIR: imagine o retângulo inteiro que envolve a figura, calcule a área dele e tire o pedaço que falta.",
+      "Escolher entre os dois é questão de conveniência. Quando a figura é um retângulo com um buraco no meio, subtrair é muito mais rápido. Quando ela é feita de partes bem separadas, somar é mais natural.",
+      "O cuidado essencial no caminho da soma é não sobrepor os pedaços. Se dois retângulos compartilharem uma faixa, essa faixa entra duas vezes na conta e o resultado sai maior que a figura. Desenhar a linha de corte antes de calcular resolve isso.",
+      "E vale sempre fazer as duas contas quando for possível: se o caminho da soma e o da subtração derem o mesmo número, a chance de erro cai quase a zero. É a conferência mais barata desta lição."
+    ],
+    "destaque": "Parta em retângulos e some, ou envolva num retângulo e subtraia.",
+    "imagem": "are-ideia-composta"
+  },
+  "resolvido": {
+    "enunciado": "Uma figura em L cabe num quadrado de 4 cm por 4 cm, com um canto de 2 cm por 2 cm recortado. Qual é a área dela?",
+    "imagem": "are-res-composta",
+    "passos": [
+      {
+        "titulo": "Caminho 1 — parta em retângulos",
+        "explicacao": "Trace uma linha horizontal separando a figura em duas partes: um retângulo de baixo, de 4 por 2, e um de cima, de 2 por 2.",
+        "conta": "4 × 2 = 8 · 2 × 2 = 4"
+      },
+      {
+        "titulo": "Some as partes",
+        "explicacao": "As duas cobrem a figura inteira, sem sobrepor nem deixar buraco.",
+        "conta": "8 + 4 = 12 cm²"
+      },
+      {
+        "titulo": "Caminho 2 — envolva e subtraia",
+        "explicacao": "O quadrado que envolve a figura mede 4 por 4, e o canto que foi recortado mede 2 por 2.",
+        "conta": "4 × 4 = 16 · 2 × 2 = 4"
+      },
+      {
+        "titulo": "Subtraia o recorte",
+        "explicacao": "Tire do quadrado inteiro o pedaço que não faz parte da figura.",
+        "conta": "16 − 4 = 12 cm²"
+      },
+      {
+        "titulo": "Os dois batem",
+        "explicacao": "Como tinham que bater. Quando os dois caminhos dão o mesmo número, dá para confiar no resultado.",
+        "conta": "12 cm² pelos dois caminhos ✓"
+      }
+    ],
+    "fecho": "Repare que o perímetro desta figura é 16 cm, igual ao do quadrado. Mas a área é 12, e não 16 — as duas medidas seguem regras próprias."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A figura em L do desenho é formada por um retângulo de 6 cm por 3 cm embaixo e outro de 4 cm por 4 cm em cima. Qual é a área total, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-comp-34",
+      "dica": "Calcule a área de cada retângulo e some. Cuidado para não contar nenhuma parte duas vezes.",
+      "formato": "numero",
+      "resposta": 34,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "26",
+          "porque": "26 é o PERÍMETRO desta figura, em centímetros. Perímetro percorre a borda; área conta o que cabe dentro."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é só a área do retângulo de baixo: 6 × 3. Falta somar o de cima, que tem 16."
+        },
+        {
+          "resposta": "42",
+          "porque": "42 é 6 × 7, tratando a figura como se fosse o retângulo inteiro de 6 por 7 que a envolve. Falta descontar o canto que não faz parte dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área do retângulo de baixo",
+          "explicacao": "Seis quadradinhos por fileira, três fileiras.",
+          "conta": "6 × 3 = 18"
+        },
+        {
+          "titulo": "Área do de cima",
+          "explicacao": "Quatro por fileira, quatro fileiras.",
+          "conta": "4 × 4 = 16"
+        },
+        {
+          "titulo": "Some as duas áreas",
+          "explicacao": "Os dois retângulos não se sobrepõem, então as áreas se somam direto.",
+          "conta": "18 + 16 = 34 cm²"
+        },
+        {
+          "titulo": "Confira subtraindo",
+          "explicacao": "O retângulo que envolve mede 6 por 7, e o canto que falta mede 2 por 4. Quarenta e dois menos oito dá o mesmo.",
+          "conta": "42 − 8 = 34 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma figura em L é formada por um retângulo de 5 cm por 2 cm embaixo e um quadrado de 3 cm de lado em cima. Qual é a área total, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-comp-19",
+      "dica": "Calcule cada parte separadamente e some.",
+      "formato": "numero",
+      "resposta": 19,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o perímetro desta figura, em centímetros. É uma coincidência numérica próxima da área — mais um motivo para conferir sempre qual das duas a pergunta pede."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é só a área do retângulo de baixo: 5 × 2. Falta somar o quadrado de cima, que tem 9."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é 5 × 5, tratando a figura como o quadrado inteiro que a envolve. Falta descontar o canto recortado, que tem 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Retângulo de baixo",
+          "explicacao": "Cinco por fileira, duas fileiras.",
+          "conta": "5 × 2 = 10"
+        },
+        {
+          "titulo": "Quadrado de cima",
+          "explicacao": "Três de lado, então três por três.",
+          "conta": "3 × 3 = 9"
+        },
+        {
+          "titulo": "Some as duas áreas",
+          "explicacao": "As duas partes juntas formam a figura inteira.",
+          "conta": "10 + 9 = 19 cm²"
+        },
+        {
+          "titulo": "Confira subtraindo",
+          "explicacao": "O quadrado que envolve mede 5 por 5, e o pedaço que falta mede 2 por 3.",
+          "conta": "25 − 6 = 19 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma placa retangular mede 10 cm por 6 cm e tem um furo retangular de 3 cm por 2 cm no meio. Qual é a área da parte que sobrou, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-buraco",
+      "dica": "Aqui o caminho da subtração é muito mais rápido: calcule a placa inteira e tire o furo.",
+      "formato": "numero",
+      "resposta": 54,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 é a área da placa INTEIRA, antes do furo. Falta descontar os 6 cm² que foram retirados."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a área do FURO, ou seja, o pedaço que foi tirado. A pergunta é sobre o que sobrou."
+        },
+        {
+          "resposta": "66",
+          "porque": "66 é 60 + 6, somando o furo em vez de subtrair. Um buraco tira material, então a área final é menor que a da placa inteira."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da placa inteira",
+          "explicacao": "Dez por fileira, seis fileiras — como se não houvesse furo nenhum.",
+          "conta": "10 × 6 = 60"
+        },
+        {
+          "titulo": "Área do furo",
+          "explicacao": "O pedaço retirado também é retangular, então segue a mesma fórmula.",
+          "conta": "3 × 2 = 6"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O que sobrou é a placa menos o furo.",
+          "conta": "60 − 6 = 54 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "De um retângulo de 8 cm por 5 cm foi recortado um quadrado de 3 cm de lado. Qual é a área da parte que restou, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-recorte",
+      "dica": "Área do retângulo inteiro menos a área do quadrado recortado.",
+      "formato": "numero",
+      "resposta": 31,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é a área do retângulo inteiro, antes do recorte. Falta tirar os 9 cm² do quadrado retirado."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é a área do quadrado que SAIU. A pergunta é sobre o que ficou."
+        },
+        {
+          "resposta": "37",
+          "porque": "37 sai de tirar apenas 3 em vez de 9. O que se subtrai é a ÁREA do quadrado recortado, e não a medida do lado dele."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 é 40 + 9, somando o recorte. Recortar tira material: o resultado precisa ser menor que a área original."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Retângulo inteiro",
+          "explicacao": "Oito por fileira, cinco fileiras.",
+          "conta": "8 × 5 = 40"
+        },
+        {
+          "titulo": "Quadrado recortado",
+          "explicacao": "Lado 3, então área 3 × 3. Cuidado: o que se subtrai é a área, não o lado.",
+          "conta": "3 × 3 = 9"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O que restou é o retângulo menos o recorte.",
+          "conta": "40 − 9 = 31 cm²"
+        },
+        {
+          "titulo": "Confira se faz sentido",
+          "explicacao": "Trinta e um é um pouco menor que quarenta, como esperado para um recorte pequeno perto do tamanho da peça.",
+          "conta": "31 < 40 ✓"
+        }
+      ]
+    }
+  ]
+}

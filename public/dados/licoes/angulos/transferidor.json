@@ -1,0 +1,215 @@
+{
+  "id": "transferidor",
+  "numero": 3,
+  "titulo": "Usar o transferidor",
+  "pergunta": "Por que o transferidor tem duas numerações?",
+  "ideia": {
+    "paragrafos": [
+      "O transferidor é um meio círculo com a borda dividida em 180 partes. Usá-lo é simples e tem três passos: encaixe o centro do transferidor exatamente no vértice do ângulo, gire até que um dos lados passe pelo zero, e leia o número por onde o outro lado passa.",
+      "O detalhe que derruba quase todo mundo está na leitura. O transferidor tem DUAS numerações, uma crescendo da direita para a esquerda e outra da esquerda para a direita. Elas existem porque o ângulo pode estar virado para qualquer lado: às vezes é mais confortável apoiar o lado fixo à direita, às vezes à esquerda.",
+      "A regra para escolher é uma só: use a escala que marca ZERO no lado onde você apoiou. Se o lado fixo está no zero da numeração de fora, leia o outro lado na numeração de fora. Misturar as duas é o erro clássico — e ele não dá um resultado qualquer, dá exatamente o suplemento do ângulo certo, porque uma escala é sempre 180 menos a outra.",
+      "E existe uma conferência que custa dois segundos e salva sempre: antes de aceitar a leitura, classifique o ângulo de olho. Se ele é visivelmente fechado e você leu 130°, a leitura está na escala errada — o valor certo é 50°. Olhar antes de anotar é o que transforma o transferidor numa ferramenta confiável."
+    ],
+    "destaque": "Leia na escala que marca zero no lado em que você apoiou. A outra dá o suplemento.",
+    "imagem": "ang-ideia-transferidor"
+  },
+  "resolvido": {
+    "enunciado": "Um ângulo foi encaixado no transferidor com o lado fixo apoiado à direita, sobre o zero da numeração de fora. O outro lado passa pelas marcas 130 (por fora) e 50 (por dentro). Quanto mede o ângulo?",
+    "imagem": "ang-res-transf",
+    "passos": [
+      {
+        "titulo": "Identifique onde está o zero",
+        "explicacao": "O lado fixo foi apoiado à direita, e é ali que a numeração de fora marca zero. Então a escala de fora é a que vale para esta medição.",
+        "conta": "lado fixo → 0 da escala de fora"
+      },
+      {
+        "titulo": "Leia na mesma escala",
+        "explicacao": "O outro lado cruza a borda numa marca que a escala de fora chama de 130. Como foi essa escala que começou no zero, é esse o número.",
+        "conta": "leitura = 130°"
+      },
+      {
+        "titulo": "Confira classificando de olho",
+        "explicacao": "O ângulo desenhado é visivelmente aberto, bem mais escancarado que o canto de uma folha. Ângulo aberto é obtuso, e obtuso passa de 90°. O 130 combina; o 50 não combinaria de jeito nenhum.",
+        "conta": "obtuso → maior que 90° → 130° ✓"
+      },
+      {
+        "titulo": "Entenda o outro número",
+        "explicacao": "O 50 não é lixo: ele é o suplemento, ou seja, o ângulo que faltaria para completar a meia volta. Se o lado fixo tivesse sido apoiado do outro lado, seria ele o valor certo.",
+        "conta": "130° + 50° = 180°"
+      }
+    ],
+    "fecho": "As duas numerações somam sempre 180. É por isso que trocar de escala nunca dá um erro pequeno: dá o ângulo trocado pelo suplemento dele."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na figura, o lado fixo do ângulo está apoiado à direita, sobre o zero da escala de fora. Quanto mede o ângulo marcado?",
+      "imagem": "ang-q-t145",
+      "dica": "Leia na escala que começa no zero à direita. E confira: o ângulo desenhado é fechado ou aberto?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "145°" },
+        { "rotulo": "B", "texto": "35°" },
+        { "rotulo": "C", "texto": "55°" },
+        { "rotulo": "D", "texto": "215°" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "35°",
+          "porque": "35° é o número da OUTRA escala, a que começa no zero do lado esquerdo. Repare que 145 + 35 = 180: trocar de escala sempre entrega o suplemento. E o desenho mostra um ângulo bem aberto, que não pode medir 35°."
+        },
+        {
+          "resposta": "55°",
+          "porque": "55 não aparece em nenhuma das duas escalas nesta posição. Vale reler as marcas com calma antes de anotar."
+        },
+        {
+          "resposta": "215°",
+          "porque": "O transferidor comum só mede até 180°, porque é meio círculo. Qualquer leitura acima disso indica que algo foi somado por engano."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o zero",
+          "explicacao": "O lado fixo está apoiado à direita, e ali a escala de fora marca zero. É ela que manda nesta medição.",
+          "conta": "escala de fora"
+        },
+        {
+          "titulo": "Leia o outro lado",
+          "explicacao": "A semirreta cruza a borda no 145 da escala de fora.",
+          "conta": "leitura = 145°"
+        },
+        {
+          "titulo": "Confira de olho",
+          "explicacao": "O ângulo é claramente obtuso, quase raso. 145° combina com isso; 35° seria um ângulo bem fechado, o oposto do que se vê.",
+          "conta": "90° < 145° < 180° ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Na figura, o lado fixo está apoiado à direita, sobre o zero da escala de fora. Quanto mede este ângulo?",
+      "imagem": "ang-q-t45",
+      "dica": "Classifique o ângulo de olho antes de escolher entre os dois números que aparecem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "45°" },
+        { "rotulo": "B", "texto": "135°" },
+        { "rotulo": "C", "texto": "90°" },
+        { "rotulo": "D", "texto": "225°" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "135°",
+          "porque": "135° é a leitura da escala errada — e ela seria a certa se o lado fixo estivesse apoiado do outro lado. O desenho mostra um ângulo fechado, menor que o canto de uma folha, então a medida tem que ficar abaixo de 90°."
+        },
+        {
+          "resposta": "90°",
+          "porque": "Se o ângulo fosse reto, os dois lados formariam um canto perfeito e a semirreta apontaria para cima. Na figura ela está claramente inclinada."
+        },
+        {
+          "resposta": "225°",
+          "porque": "225° passa de 180°, e um transferidor de meio círculo não chega lá. Provavelmente as duas escalas foram somadas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Classifique primeiro",
+          "explicacao": "O ângulo é visivelmente agudo: mais fechado que o quarto de volta. Isso já elimina qualquer resposta acima de 90°.",
+          "conta": "agudo → menor que 90°"
+        },
+        {
+          "titulo": "Leia na escala do zero",
+          "explicacao": "Com o lado fixo à direita, vale a escala de fora, e nela a semirreta cruza no 45.",
+          "conta": "leitura = 45°"
+        },
+        {
+          "titulo": "Confira o suplemento",
+          "explicacao": "O outro número que aparece é 135, e 45 + 135 = 180. Isso confirma que os dois são leituras da mesma posição em escalas diferentes.",
+          "conta": "45° + 135° = 180°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Com o lado fixo apoiado no zero da escala de fora, a semirreta cruza a borda do transferidor no 110 dessa mesma escala. Quantos graus mede o ângulo? Digite apenas o número.",
+      "imagem": "ang-q-t110",
+      "dica": "A escala do zero é a que vale. Não é preciso fazer conta nenhuma.",
+      "formato": "numero",
+      "resposta": 110,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "70",
+          "porque": "70 é o que a outra escala marca no mesmo ponto: 180 − 110. Ele só seria a resposta se o lado fixo estivesse apoiado no zero daquela escala."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é a medida do transferidor inteiro, de ponta a ponta. O ângulo é apenas o pedaço entre o zero e a marca onde a semirreta passa."
+        },
+        {
+          "resposta": "290",
+          "porque": "290 é 180 + 110. Não há nada a somar aqui: a leitura na escala certa já é a resposta pronta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Onde está o zero",
+          "explicacao": "O enunciado diz que o lado fixo está no zero da escala de fora, então é nela que se lê.",
+          "conta": "escala de fora"
+        },
+        {
+          "titulo": "A leitura é a resposta",
+          "explicacao": "Quando o lado fixo está exatamente no zero, o número onde o outro lado cruza JÁ é a medida do ângulo — não há subtração nem soma para fazer.",
+          "conta": "110 − 0 = 110°"
+        },
+        {
+          "titulo": "Confira classificando",
+          "explicacao": "110° passa de 90° e não chega a 180°, então é obtuso — o que combina com uma semirreta inclinada para o lado esquerdo.",
+          "conta": "90 < 110 < 180 → obtuso ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Você mediu um ângulo e viu que a semirreta passa pelo 60 numa escala e pelo 120 na outra. Olhando o desenho, o ângulo é claramente obtuso. Qual é a medida correta? Digite apenas o número.",
+      "imagem": "ang-q-t-obtuso",
+      "dica": "Você não sabe onde apoiou o lado fixo — mas sabe que o ângulo é obtuso. Isso basta para escolher.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60° é um ângulo agudo, e o enunciado diz que o desenho mostra um ângulo obtuso. Esta é a leitura da escala errada — e é exatamente o tipo de erro que a conferência de olho pega."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é a soma das duas leituras, e não a medida do ângulo. As duas escalas sempre somam 180, o que confirma que uma é o suplemento da outra — mas a resposta é uma delas, não o total."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 é a média entre 60 e 120. Não existe média entre as duas escalas: uma delas está certa e a outra é o suplemento."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use a informação que você tem",
+          "explicacao": "Você não sabe de que lado o lado fixo foi apoiado, então as duas leituras são candidatas. Mas sabe que o ângulo é obtuso.",
+          "conta": "candidatos: 60° e 120°"
+        },
+        {
+          "titulo": "Aplique a definição de obtuso",
+          "explicacao": "Obtuso é maior que 90° e menor que 180°. Dos dois candidatos, só um cumpre isso.",
+          "conta": "60 < 90 (agudo) · 90 < 120 < 180 (obtuso)"
+        },
+        {
+          "titulo": "A classificação decide",
+          "explicacao": "Olhar a figura e classificar antes de anotar substitui a lembrança de onde ficava o zero. É a conferência mais barata que existe no transferidor.",
+          "conta": "resposta = 120°"
+        }
+      ]
+    }
+  ]
+}

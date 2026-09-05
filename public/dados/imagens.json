@@ -574,5 +574,1517 @@
     "alt": "Reta numérica de 3,4 a 3,5 dividida em 10 partes iguais, sem ponto marcado.",
     "largura": 520,
     "altura": 116
+  },
+  "div-ideia-arranjos": {
+    "arquivo": "/assets/licoes/div-ideia-arranjos.png",
+    "alt": "Três arranjos retangulares feitos com 12 pontos: uma fileira de 12, duas de 6 e três de 4.",
+    "largura": 440,
+    "altura": 104
+  },
+  "div-res-24": {
+    "arquivo": "/assets/licoes/div-res-24.png",
+    "alt": "Arranjos retangulares de 24 pontos: 2 por 12, 3 por 8 e 4 por 6.",
+    "largura": 504,
+    "altura": 120
+  },
+  "div-q-18-cadeiras": {
+    "arquivo": "/assets/questoes/div-q-18-cadeiras.png",
+    "alt": "Dezoito círculos soltos, sem arrumação em fileiras.",
+    "largura": 280,
+    "altura": 176
+  },
+  "div-q-multiplos-7": {
+    "arquivo": "/assets/questoes/div-q-multiplos-7.png",
+    "alt": "Reta de 0 a 35 com marcas de 7 em 7 assinaladas por círculos.",
+    "largura": 460,
+    "altura": 130
+  },
+  "div-q-pares-20": {
+    "arquivo": "/assets/questoes/div-q-pares-20.png",
+    "alt": "Dois arranjos retangulares de 20 pontos: 2 por 10 e 4 por 5.",
+    "largura": 296,
+    "altura": 120
+  },
+  "div-q-biscoitos": {
+    "arquivo": "/assets/questoes/div-q-biscoitos.png",
+    "alt": "Sessenta círculos organizados em seis fileiras de dez, representando a tarefa de cada um.",
+    "largura": 456,
+    "altura": 308
+  },
+  "div-ideia-ordens": {
+    "arquivo": "/assets/licoes/div-ideia-ordens.png",
+    "alt": "Quadro de ordens com as casas de milhar, centena, dezena e unidade preenchidas com 4, 3, 5 e 0.",
+    "largura": 400,
+    "altura": 142
+  },
+  "div-res-4128": {
+    "arquivo": "/assets/licoes/div-res-4128.png",
+    "alt": "Quadro de ordens com o número 4128 separado em milhar, centena, dezena e unidade.",
+    "largura": 400,
+    "altura": 142
+  },
+  "div-q-soma-471": {
+    "arquivo": "/assets/questoes/div-q-soma-471.png",
+    "alt": "Soma armada dos algarismos 4, 7 e 1, com resultado 12.",
+    "largura": 340,
+    "altura": 234
+  },
+  "div-q-algarismo-oculto": {
+    "arquivo": "/assets/questoes/div-q-algarismo-oculto.png",
+    "alt": "Quadro de ordens com centena 2, dezena vazia e unidade 6.",
+    "largura": 304,
+    "altura": 142
+  },
+  "div-q-multiplos-4": {
+    "arquivo": "/assets/questoes/div-q-multiplos-4.png",
+    "alt": "Reta de 0 a 40 com os múltiplos de 4 assinalados por círculos.",
+    "largura": 460,
+    "altura": 130
+  },
+  "div-q-99-centavos": {
+    "arquivo": "/assets/questoes/div-q-99-centavos.png",
+    "alt": "Subtração armada de R$ 4,00 menos R$ 0,01, resultando em R$ 3,99.",
+    "largura": 360,
+    "altura": 192
+  },
+  "div-ideia-crivo": {
+    "arquivo": "/assets/licoes/div-ideia-crivo.png",
+    "alt": "Grade com os números de 1 a 50: os primos aparecem destacados e os compostos, riscados.",
+    "largura": 356,
+    "altura": 210
+  },
+  "div-res-91": {
+    "arquivo": "/assets/licoes/div-res-91.png",
+    "alt": "Grade com os números de 1 a 100, com o 91 destacado e nenhum outro marcado.",
+    "largura": 356,
+    "altura": 380
+  },
+  "div-q-primo-teste": {
+    "arquivo": "/assets/questoes/div-q-primo-teste.png",
+    "alt": "Decomposição de 39 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 126
+  },
+  "div-q-conta-divisores": {
+    "arquivo": "/assets/questoes/div-q-conta-divisores.png",
+    "alt": "Três listas lado a lado com os divisores de 4, de 5 e de 6.",
+    "largura": 440,
+    "altura": 228
+  },
+  "div-q-ate-20": {
+    "arquivo": "/assets/questoes/div-q-ate-20.png",
+    "alt": "Grade com os números de 1 a 20, nenhum marcado.",
+    "largura": 356,
+    "altura": 108
+  },
+  "div-q-maior-primo": {
+    "arquivo": "/assets/questoes/div-q-maior-primo.png",
+    "alt": "Grade de 1 a 50 com os números pares acima de 2 riscados.",
+    "largura": 356,
+    "altura": 210
+  },
+  "div-ideia-fatorar": {
+    "arquivo": "/assets/licoes/div-ideia-fatorar.png",
+    "alt": "Decomposição de 90 em fatores primos pelo traço vertical das divisões sucessivas.",
+    "largura": 220,
+    "altura": 178
+  },
+  "div-res-metodo-12": {
+    "arquivo": "/assets/licoes/div-res-metodo-12.png",
+    "alt": "Decomposição de 12 em fatores primos, mostrando o formato do traço vertical.",
+    "largura": 220,
+    "altura": 152
+  },
+  "div-q-tabela-primos": {
+    "arquivo": "/assets/questoes/div-q-tabela-primos.png",
+    "alt": "Lista dos números primos menores que 20.",
+    "largura": 300,
+    "altura": 280
+  },
+  "div-q-fatorar-75": {
+    "arquivo": "/assets/questoes/div-q-fatorar-75.png",
+    "alt": "Decomposição de 75 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 152
+  },
+  "div-q-multiplos-3": {
+    "arquivo": "/assets/questoes/div-q-multiplos-3.png",
+    "alt": "Grade de 1 a 30 com os múltiplos de 3 destacados.",
+    "largura": 356,
+    "altura": 142
+  },
+  "div-q-contar-20": {
+    "arquivo": "/assets/questoes/div-q-contar-20.png",
+    "alt": "Decomposição de 20 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 152
+  },
+  "div-ideia-mdc": {
+    "arquivo": "/assets/licoes/div-ideia-mdc.png",
+    "alt": "Listas dos divisores de 20 e de 30 lado a lado, com os divisores comuns destacados.",
+    "largura": 460,
+    "altura": 332
+  },
+  "div-res-mdc-listas": {
+    "arquivo": "/assets/licoes/div-res-mdc-listas.png",
+    "alt": "Listas dos divisores de 48 e de 36 lado a lado, sem nenhum destaque.",
+    "largura": 460,
+    "altura": 410
+  },
+  "div-q-mdc-8-12": {
+    "arquivo": "/assets/questoes/div-q-mdc-8-12.png",
+    "alt": "Listas dos divisores de 8 e de 12, com os comuns destacados.",
+    "largura": 400,
+    "altura": 254
+  },
+  "div-q-fitas": {
+    "arquivo": "/assets/questoes/div-q-fitas.png",
+    "alt": "Listas dos divisores de 30 e de 45 lado a lado, sem destaque.",
+    "largura": 420,
+    "altura": 332
+  },
+  "div-q-primos-entre-si": {
+    "arquivo": "/assets/questoes/div-q-primos-entre-si.png",
+    "alt": "Listas dos divisores de 9, de 10 e de 14, mostrando que só o 1 é comum aos três.",
+    "largura": 440,
+    "altura": 280
+  },
+  "div-q-fatorar-72": {
+    "arquivo": "/assets/questoes/div-q-fatorar-72.png",
+    "alt": "Decomposição de 72 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 204
+  },
+  "div-ideia-mmc": {
+    "arquivo": "/assets/licoes/div-ideia-mmc.png",
+    "alt": "Reta de 0 a 24 com os múltiplos de 4 numa linha e os de 10 em outra, com o 20 destacado nas duas.",
+    "largura": 500,
+    "altura": 168
+  },
+  "div-res-mmc-saltos": {
+    "arquivo": "/assets/licoes/div-res-mmc-saltos.png",
+    "alt": "Reta de 0 a 32 com os múltiplos de 6 numa linha e os de 8 em outra, sem destaque.",
+    "largura": 500,
+    "altura": 168
+  },
+  "div-q-mmc-2-5": {
+    "arquivo": "/assets/questoes/div-q-mmc-2-5.png",
+    "alt": "Reta de 0 a 20 com os múltiplos de 2 e de 5, com o 10 destacado nas duas linhas.",
+    "largura": 440,
+    "altura": 168
+  },
+  "div-q-fatorar-12": {
+    "arquivo": "/assets/questoes/div-q-fatorar-12.png",
+    "alt": "Decomposição de 12 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 152
+  },
+  "div-q-somar-fracoes": {
+    "arquivo": "/assets/questoes/div-q-somar-fracoes.png",
+    "alt": "Duas barras: uma dividida em 6 partes com 5 preenchidas, outra em 8 partes com 3 preenchidas.",
+    "largura": 440,
+    "altura": 122
+  },
+  "div-q-promocoes": {
+    "arquivo": "/assets/questoes/div-q-promocoes.png",
+    "alt": "Seis círculos, cinco preenchidos e um vazio, representando a promoção pague 5 leve 6.",
+    "largura": 280,
+    "altura": 88
+  },
+  "pot-ideia-fatores": {
+    "arquivo": "/assets/licoes/pot-ideia-fatores.png",
+    "alt": "A potência 2 elevado a 4 escrita como quatro fatores 2 multiplicados, com o resultado 16.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-res-2a5": {
+    "arquivo": "/assets/licoes/pot-res-2a5.png",
+    "alt": "Duas potências abertas em fatores: 2 elevado a 5 e 5 elevado a 2, sem os resultados.",
+    "largura": 460,
+    "altura": 140
+  },
+  "pot-q-3a4": {
+    "arquivo": "/assets/questoes/pot-q-3a4.png",
+    "alt": "A potência 5 elevado a 3 escrita como três fatores 5, com o resultado 125.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-q-2a6": {
+    "arquivo": "/assets/questoes/pot-q-2a6.png",
+    "alt": "A potência 2 elevado a 3 escrita como três fatores 2, com o resultado 8.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-q-troca": {
+    "arquivo": "/assets/questoes/pot-q-troca.png",
+    "alt": "Comparação entre 3 elevado a 2, que dá 9, e 2 elevado a 3, que dá 8.",
+    "largura": 460,
+    "altura": 140
+  },
+  "pot-q-dobras": {
+    "arquivo": "/assets/questoes/pot-q-dobras.png",
+    "alt": "Barra dividida em 8 partes iguais, nenhuma preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "pot-ideia-quadrado": {
+    "arquivo": "/assets/licoes/pot-ideia-quadrado.png",
+    "alt": "Grade quadrada de 5 por 5 quadradinhos, toda preenchida.",
+    "largura": 212,
+    "altura": 242
+  },
+  "pot-res-7x7": {
+    "arquivo": "/assets/licoes/pot-res-7x7.png",
+    "alt": "Grade quadrada de 7 por 7 quadradinhos vazios.",
+    "largura": 292,
+    "altura": 322
+  },
+  "pot-q-quadrado-perfeito": {
+    "arquivo": "/assets/questoes/pot-q-quadrado-perfeito.png",
+    "alt": "Grade com os números de 1 a 25, com 1, 4, 9, 16 e 25 destacados.",
+    "largura": 356,
+    "altura": 142
+  },
+  "pot-q-area-9": {
+    "arquivo": "/assets/questoes/pot-q-area-9.png",
+    "alt": "Grade quadrada de 4 por 4 quadradinhos preenchidos.",
+    "largura": 172,
+    "altura": 202
+  },
+  "pot-q-cubo-4": {
+    "arquivo": "/assets/questoes/pot-q-cubo-4.png",
+    "alt": "Duas camadas quadradas de 2 por 2, lado a lado, formando um cubo de aresta 2.",
+    "largura": 246,
+    "altura": 110
+  },
+  "pot-q-cubinhos-3": {
+    "arquivo": "/assets/questoes/pot-q-cubinhos-3.png",
+    "alt": "Grade quadrada de 3 por 3, representando uma camada do cubo.",
+    "largura": 132,
+    "altura": 162
+  },
+  "pot-ideia-dez": {
+    "arquivo": "/assets/licoes/pot-ideia-dez.png",
+    "alt": "As potências de 10 com expoentes 1, 2 e 3, cada uma aberta em fatores e com o resultado.",
+    "largura": 480,
+    "altura": 184
+  },
+  "pot-res-10a6": {
+    "arquivo": "/assets/licoes/pot-res-10a6.png",
+    "alt": "A potência 10 elevado a 4 aberta em quatro fatores 10, sem o resultado.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-q-10a5": {
+    "arquivo": "/assets/questoes/pot-q-10a5.png",
+    "alt": "A potência 10 elevado a 2 aberta em fatores, com o resultado 100.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-q-7x10a3": {
+    "arquivo": "/assets/questoes/pot-q-7x10a3.png",
+    "alt": "Quadro de ordens com 2 no milhar e zeros nas demais casas.",
+    "largura": 400,
+    "altura": 142
+  },
+  "pot-q-zeros": {
+    "arquivo": "/assets/questoes/pot-q-zeros.png",
+    "alt": "A potência 10 elevado a 5 aberta em fatores, com o resultado 100000.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-q-distancia": {
+    "arquivo": "/assets/questoes/pot-q-distancia.png",
+    "alt": "A potência 10 elevado a 5 aberta em fatores, com o resultado 100000.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-ideia-ordem": {
+    "arquivo": "/assets/licoes/pot-ideia-ordem.png",
+    "alt": "Lista da ordem das operações: parênteses, potências, multiplicação e divisão, soma e subtração.",
+    "largura": 460,
+    "altura": 176
+  },
+  "pot-res-hierarquia": {
+    "arquivo": "/assets/licoes/pot-res-hierarquia.png",
+    "alt": "A potência 5 ao quadrado aberta em fatores, com o resultado 25.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-q-ordem-1": {
+    "arquivo": "/assets/questoes/pot-q-ordem-1.png",
+    "alt": "A potência 4 ao quadrado aberta em fatores, com o resultado 16.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-q-ordem-2": {
+    "arquivo": "/assets/questoes/pot-q-ordem-2.png",
+    "alt": "Três colunas indicando a ordem: primeiro potências, depois multiplicação e divisão, por último soma e subtração.",
+    "largura": 460,
+    "altura": 98
+  },
+  "pot-q-diferenca": {
+    "arquivo": "/assets/questoes/pot-q-diferenca.png",
+    "alt": "As potências 5 ao quadrado e 3 ao quadrado abertas em fatores, sem os resultados.",
+    "largura": 460,
+    "altura": 140
+  },
+  "pot-q-ordem-3": {
+    "arquivo": "/assets/questoes/pot-q-ordem-3.png",
+    "alt": "A potência 3 elevado ao cubo aberta em três fatores 3, sem o resultado.",
+    "largura": 460,
+    "altura": 96
+  },
+  "pot-ideia-raiz": {
+    "arquivo": "/assets/licoes/pot-ideia-raiz.png",
+    "alt": "Grade quadrada de 6 por 6 quadradinhos preenchidos.",
+    "largura": 252,
+    "altura": 282
+  },
+  "pot-res-144": {
+    "arquivo": "/assets/licoes/pot-res-144.png",
+    "alt": "Decomposição de 144 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 230
+  },
+  "pot-q-raiz-81": {
+    "arquivo": "/assets/questoes/pot-q-raiz-81.png",
+    "alt": "Grade quadrada de 4 por 4 quadradinhos preenchidos.",
+    "largura": 172,
+    "altura": 202
+  },
+  "pot-q-raiz-64": {
+    "arquivo": "/assets/questoes/pot-q-raiz-64.png",
+    "alt": "Decomposição de 100 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 178
+  },
+  "pot-q-area-121": {
+    "arquivo": "/assets/questoes/pot-q-area-121.png",
+    "alt": "Grade quadrada de 7 por 7 quadradinhos preenchidos.",
+    "largura": 292,
+    "altura": 322
+  },
+  "pot-q-raiz-225": {
+    "arquivo": "/assets/questoes/pot-q-raiz-225.png",
+    "alt": "Decomposição de 196 em fatores primos por divisões sucessivas.",
+    "largura": 220,
+    "altura": 178
+  },
+  "pot-ideia-espremer": {
+    "arquivo": "/assets/licoes/pot-ideia-espremer.png",
+    "alt": "Reta numérica de 40 a 70 com os quadrados perfeitos 49 e 64 marcados.",
+    "largura": 520,
+    "altura": 116
+  },
+  "pot-res-90": {
+    "arquivo": "/assets/licoes/pot-res-90.png",
+    "alt": "Os quadrados de 9 e de 10 abertos em fatores, com os resultados 81 e 100.",
+    "largura": 460,
+    "altura": 140
+  },
+  "pot-q-raiz-30": {
+    "arquivo": "/assets/questoes/pot-q-raiz-30.png",
+    "alt": "Os quadrados de 4 e de 7 abertos em fatores, com os resultados 16 e 49.",
+    "largura": 460,
+    "altura": 140
+  },
+  "pot-q-menor-200": {
+    "arquivo": "/assets/questoes/pot-q-menor-200.png",
+    "alt": "Os quadrados de 12 e de 13 abertos em fatores, com os resultados 144 e 169.",
+    "largura": 460,
+    "altura": 140
+  },
+  "pot-q-raiz-70": {
+    "arquivo": "/assets/questoes/pot-q-raiz-70.png",
+    "alt": "Reta numérica de 64 a 81, dividida de um em um, sem nenhum ponto marcado.",
+    "largura": 520,
+    "altura": 116
+  },
+  "pot-q-area-150": {
+    "arquivo": "/assets/questoes/pot-q-area-150.png",
+    "alt": "Reta numérica de 100 a 200 com o valor 150 marcado.",
+    "largura": 500,
+    "altura": 116
+  },
+  "por-ideia-grade": {
+    "arquivo": "/assets/licoes/por-ideia-grade.png",
+    "alt": "Quadrado dividido em 100 quadradinhos iguais, com 30 preenchidos.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-res-cem": {
+    "arquivo": "/assets/licoes/por-res-cem.png",
+    "alt": "Quadrado dividido em 100 quadradinhos iguais, nenhum preenchido.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-q-grade-25": {
+    "arquivo": "/assets/questoes/por-q-grade-25.png",
+    "alt": "Quadrado dividido em 100 quadradinhos iguais, com uma parte preenchida no canto superior.",
+    "largura": 412,
+    "altura": 412
+  },
+  "por-q-fracao": {
+    "arquivo": "/assets/questoes/por-q-fracao.png",
+    "alt": "Quadrado de 100 quadradinhos com 40 preenchidos.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-q-bombons": {
+    "arquivo": "/assets/questoes/por-q-bombons.png",
+    "alt": "Barra dividida em duas partes iguais, com uma delas preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-comparar": {
+    "arquivo": "/assets/questoes/por-q-comparar.png",
+    "alt": "Reta numérica de 0 a 1 dividida em dez partes iguais, sem nenhum ponto marcado.",
+    "largura": 460,
+    "altura": 116
+  },
+  "por-ideia-tres": {
+    "arquivo": "/assets/licoes/por-ideia-tres.png",
+    "alt": "Tabela com as mesmas quantidades escritas como fração, como decimal e como porcentagem.",
+    "largura": 480,
+    "altura": 202
+  },
+  "por-res-34": {
+    "arquivo": "/assets/licoes/por-res-34.png",
+    "alt": "Barra dividida em 4 partes iguais, com 3 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-035": {
+    "arquivo": "/assets/questoes/por-q-035.png",
+    "alt": "Quadro de ordens com 0 nas unidades, 3 nos décimos e 5 nos centésimos.",
+    "largura": 304,
+    "altura": 142
+  },
+  "por-q-um-quarto": {
+    "arquivo": "/assets/questoes/por-q-um-quarto.png",
+    "alt": "Roda dividida em 4 fatias iguais, com uma preenchida.",
+    "largura": 260,
+    "altura": 292
+  },
+  "por-q-7-porcento": {
+    "arquivo": "/assets/questoes/por-q-7-porcento.png",
+    "alt": "Quadrado de 100 quadradinhos com 7 preenchidos.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-q-dois-quintos": {
+    "arquivo": "/assets/questoes/por-q-dois-quintos.png",
+    "alt": "Barra dividida em 5 partes iguais, com 2 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-ideia-1porcento": {
+    "arquivo": "/assets/licoes/por-ideia-1porcento.png",
+    "alt": "Quadrado de 100 quadradinhos com 15 preenchidos.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-res-15-240": {
+    "arquivo": "/assets/licoes/por-res-15-240.png",
+    "alt": "Barra dividida em 10 partes iguais, com uma marcada por uma chave.",
+    "largura": 440,
+    "altura": 152
+  },
+  "por-q-20-350": {
+    "arquivo": "/assets/questoes/por-q-20-350.png",
+    "alt": "Barra dividida em 5 partes iguais, com uma preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-8-50": {
+    "arquivo": "/assets/questoes/por-q-8-50.png",
+    "alt": "Quadrado de 100 quadradinhos com 8 preenchidos.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-q-30-90": {
+    "arquivo": "/assets/questoes/por-q-30-90.png",
+    "alt": "Barra dividida em 10 partes iguais, com 3 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-gripe": {
+    "arquivo": "/assets/questoes/por-q-gripe.png",
+    "alt": "Quadrado de 100 quadradinhos, nenhum preenchido.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-ideia-atalhos": {
+    "arquivo": "/assets/licoes/por-ideia-atalhos.png",
+    "alt": "Lista dos atalhos mentais: 10 por cento é dividir por dez, 1 por cento por cem, 50 por cento é metade, 25 por cento é metade da metade, 5 por cento é metade de 10 por cento.",
+    "largura": 420,
+    "altura": 202
+  },
+  "por-res-35-60": {
+    "arquivo": "/assets/licoes/por-res-35-60.png",
+    "alt": "Barra dividida em 10 partes iguais, com uma marcada por uma chave.",
+    "largura": 440,
+    "altura": 152
+  },
+  "por-q-10-450": {
+    "arquivo": "/assets/questoes/por-q-10-450.png",
+    "alt": "Barra dividida em 10 partes iguais, com uma preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-25-80": {
+    "arquivo": "/assets/questoes/por-q-25-80.png",
+    "alt": "Roda dividida em 4 fatias iguais, com uma preenchida.",
+    "largura": 260,
+    "altura": 292
+  },
+  "por-q-15-200": {
+    "arquivo": "/assets/questoes/por-q-15-200.png",
+    "alt": "Barra dividida em 20 partes iguais, com 3 preenchidas.",
+    "largura": 460,
+    "altura": 118
+  },
+  "por-q-comunitario": {
+    "arquivo": "/assets/questoes/por-q-comunitario.png",
+    "alt": "Quarenta círculos organizados em quatro fileiras de dez, nenhum destacado.",
+    "largura": 456,
+    "altura": 220
+  },
+  "por-ideia-desconto": {
+    "arquivo": "/assets/licoes/por-ideia-desconto.png",
+    "alt": "Barra dividida em 10 partes iguais, com 8 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-res-camisa": {
+    "arquivo": "/assets/licoes/por-res-camisa.png",
+    "alt": "Barra dividida em 10 partes iguais, com uma marcada por uma chave.",
+    "largura": 440,
+    "altura": 152
+  },
+  "por-q-200-15": {
+    "arquivo": "/assets/questoes/por-q-200-15.png",
+    "alt": "Barra dividida em 20 partes iguais, com 17 preenchidas.",
+    "largura": 460,
+    "altura": 118
+  },
+  "por-q-aumento": {
+    "arquivo": "/assets/questoes/por-q-aumento.png",
+    "alt": "Quadrado de 100 quadradinhos, todos preenchidos.",
+    "largura": 412,
+    "altura": 442
+  },
+  "por-q-sobe-desce": {
+    "arquivo": "/assets/questoes/por-q-sobe-desce.png",
+    "alt": "Barra dividida em 5 partes iguais, com uma preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-farmacia": {
+    "arquivo": "/assets/questoes/por-q-farmacia.png",
+    "alt": "Barra dividida em 10 partes iguais, com 7 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-ideia-volta": {
+    "arquivo": "/assets/licoes/por-ideia-volta.png",
+    "alt": "Barra dividida em 10 partes iguais, com 3 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-res-45": {
+    "arquivo": "/assets/licoes/por-res-45.png",
+    "alt": "Barra dividida em 10 partes iguais, com 3 marcadas por uma chave que indica o valor 45.",
+    "largura": 440,
+    "altura": 152
+  },
+  "por-q-25-12": {
+    "arquivo": "/assets/questoes/por-q-25-12.png",
+    "alt": "Barra dividida em 4 partes iguais, com uma preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-15-60": {
+    "arquivo": "/assets/questoes/por-q-15-60.png",
+    "alt": "Barra dividida em 4 partes iguais, com uma preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-turma": {
+    "arquivo": "/assets/questoes/por-q-turma.png",
+    "alt": "Barra dividida em 5 partes iguais, com 3 preenchidas.",
+    "largura": 420,
+    "altura": 118
+  },
+  "por-q-suco": {
+    "arquivo": "/assets/questoes/por-q-suco.png",
+    "alt": "Dois recipientes cheios lado a lado, um alto rotulado água com 3 litros e um baixo rotulado refresco com 1 litro.",
+    "largura": 340,
+    "altura": 250
+  },
+  "ang-ideia-abertura": {
+    "arquivo": "/assets/licoes/ang-ideia-abertura.png",
+    "alt": "Dois ângulos com a mesma abertura, um desenhado com lados curtos e outro com lados bem mais longos.",
+    "largura": 300,
+    "altura": 168
+  },
+  "ang-res-relogio": {
+    "arquivo": "/assets/licoes/ang-res-relogio.png",
+    "alt": "Relógio marcando doze horas e quinze minutos, com o ponteiro dos minutos sobre o 3.",
+    "largura": 236,
+    "altura": 262
+  },
+  "ang-q-comparar": {
+    "arquivo": "/assets/questoes/ang-q-comparar.png",
+    "alt": "Dois ângulos lado a lado: o da esquerda com lados curtos e abertura larga, o da direita com lados longos e abertura estreita.",
+    "largura": 300,
+    "altura": 168
+  },
+  "ang-q-meia-volta": {
+    "arquivo": "/assets/questoes/ang-q-meia-volta.png",
+    "alt": "Ângulo raso: duas semirretas opostas formando uma linha reta a partir do vértice.",
+    "largura": 244,
+    "altura": 120
+  },
+  "ang-q-20min": {
+    "arquivo": "/assets/questoes/ang-q-20min.png",
+    "alt": "Relógio marcando doze horas em ponto, com os dois ponteiros sobre o 12.",
+    "largura": 236,
+    "altura": 262
+  },
+  "ang-q-prolongar": {
+    "arquivo": "/assets/questoes/ang-q-prolongar.png",
+    "alt": "Um ângulo agudo desenhado com lados de comprimento médio.",
+    "largura": 122,
+    "altura": 137
+  },
+  "ang-ideia-classes": {
+    "arquivo": "/assets/licoes/ang-ideia-classes.png",
+    "alt": "Quatro ângulos lado a lado com as medidas 40, 90, 130 e 180 graus, identificados como agudo, reto, obtuso e raso.",
+    "largura": 300,
+    "altura": 336
+  },
+  "ang-res-quatro": {
+    "arquivo": "/assets/licoes/ang-res-quatro.png",
+    "alt": "Quatro ângulos lado a lado medindo 45, 90, 120 e 180 graus, sem classificação escrita.",
+    "largura": 300,
+    "altura": 336
+  },
+  "ang-q-130": {
+    "arquivo": "/assets/questoes/ang-q-130.png",
+    "alt": "Um ângulo de 130 graus, com a medida indicada junto ao arco.",
+    "largura": 211,
+    "altura": 130
+  },
+  "ang-q-agudo": {
+    "arquivo": "/assets/questoes/ang-q-agudo.png",
+    "alt": "Um ângulo reto de 90 graus, marcado com o quadradinho no vértice.",
+    "largura": 152,
+    "altura": 178
+  },
+  "ang-q-retos-volta": {
+    "arquivo": "/assets/questoes/ang-q-retos-volta.png",
+    "alt": "Duas retas perpendiculares se cruzando e formando quatro cantos iguais.",
+    "largura": 420,
+    "altura": 260
+  },
+  "ang-q-89": {
+    "arquivo": "/assets/questoes/ang-q-89.png",
+    "alt": "Um ângulo reto de 90 graus com o quadradinho no vértice, sem medida escrita.",
+    "largura": 152,
+    "altura": 178
+  },
+  "ang-ideia-transferidor": {
+    "arquivo": "/assets/licoes/ang-ideia-transferidor.png",
+    "alt": "Transferidor com as duas numerações e uma semirreta apoiada em 60 graus na escala de fora.",
+    "largura": 324,
+    "altura": 238
+  },
+  "ang-res-transf": {
+    "arquivo": "/assets/licoes/ang-res-transf.png",
+    "alt": "Transferidor com uma semirreta que cruza a borda em 130 pela escala de fora e em 50 pela de dentro.",
+    "largura": 395,
+    "altura": 238
+  },
+  "ang-q-t145": {
+    "arquivo": "/assets/questoes/ang-q-t145.png",
+    "alt": "Transferidor com uma semirreta apoiada perto do extremo esquerdo da escala.",
+    "largura": 324,
+    "altura": 216
+  },
+  "ang-q-t45": {
+    "arquivo": "/assets/questoes/ang-q-t45.png",
+    "alt": "Transferidor com uma semirreta inclinada para a direita, formando um ângulo fechado com a base.",
+    "largura": 324,
+    "altura": 216
+  },
+  "ang-q-t110": {
+    "arquivo": "/assets/questoes/ang-q-t110.png",
+    "alt": "Transferidor com uma semirreta inclinada para a esquerda, um pouco acima da vertical.",
+    "largura": 324,
+    "altura": 216
+  },
+  "ang-q-t-obtuso": {
+    "arquivo": "/assets/questoes/ang-q-t-obtuso.png",
+    "alt": "Transferidor com uma semirreta claramente inclinada para a esquerda, formando um ângulo aberto com a base.",
+    "largura": 324,
+    "altura": 238
+  },
+  "ang-ideia-comp": {
+    "arquivo": "/assets/licoes/ang-ideia-comp.png",
+    "alt": "Um ângulo reto partido por uma semirreta em duas partes, de 55 e 35 graus.",
+    "largura": 300,
+    "altura": 168
+  },
+  "ang-res-35": {
+    "arquivo": "/assets/licoes/ang-res-35.png",
+    "alt": "Uma semirreta partindo de uma linha reta e formando 35 graus de um lado.",
+    "largura": 420,
+    "altura": 168
+  },
+  "ang-q-comp20": {
+    "arquivo": "/assets/questoes/ang-q-comp20.png",
+    "alt": "Um ângulo reto partido por uma semirreta, com 20 graus de um lado e o outro pedaço em branco.",
+    "largura": 300,
+    "altura": 168
+  },
+  "ang-q-sup115": {
+    "arquivo": "/assets/questoes/ang-q-sup115.png",
+    "alt": "Uma semirreta partindo de uma linha reta e formando 115 graus de um lado.",
+    "largura": 420,
+    "altura": 168
+  },
+  "ang-q-reta40": {
+    "arquivo": "/assets/questoes/ang-q-reta40.png",
+    "alt": "Uma semirreta partindo de uma linha reta e formando 40 graus de um lado.",
+    "largura": 420,
+    "altura": 168
+  },
+  "ang-q-dobro": {
+    "arquivo": "/assets/questoes/ang-q-dobro.png",
+    "alt": "Um ângulo reto partido em duas partes marcadas como x e 2x.",
+    "largura": 300,
+    "altura": 168
+  },
+  "ang-ideia-cruzadas": {
+    "arquivo": "/assets/licoes/ang-ideia-cruzadas.png",
+    "alt": "Duas retas se cruzando e formando quatro ângulos identificados como a, b, c e d.",
+    "largura": 420,
+    "altura": 260
+  },
+  "ang-res-70": {
+    "arquivo": "/assets/licoes/ang-res-70.png",
+    "alt": "Duas retas se cruzando, com um dos quatro ângulos marcado como 70 graus e os outros três em branco.",
+    "largura": 420,
+    "altura": 260
+  },
+  "ang-q-oposto40": {
+    "arquivo": "/assets/questoes/ang-q-oposto40.png",
+    "alt": "Duas retas se cruzando, com um ângulo marcado como 40 graus.",
+    "largura": 420,
+    "altura": 260
+  },
+  "ang-q-vizinho55": {
+    "arquivo": "/assets/questoes/ang-q-vizinho55.png",
+    "alt": "Duas retas se cruzando, com um ângulo marcado como 55 graus.",
+    "largura": 420,
+    "altura": 260
+  },
+  "ang-q-cruz90": {
+    "arquivo": "/assets/questoes/ang-q-cruz90.png",
+    "alt": "Duas retas perpendiculares se cruzando, com um ângulo marcado como 90 graus.",
+    "largura": 420,
+    "altura": 260
+  },
+  "ang-q-soma35": {
+    "arquivo": "/assets/questoes/ang-q-soma35.png",
+    "alt": "Duas retas se cruzando, com um ângulo marcado como 35 graus.",
+    "largura": 420,
+    "altura": 260
+  },
+  "ang-ideia-triangulo": {
+    "arquivo": "/assets/licoes/ang-ideia-triangulo.png",
+    "alt": "Um triângulo com os três ângulos internos identificados como a, b e c.",
+    "largura": 245,
+    "altura": 206
+  },
+  "ang-res-triangulo": {
+    "arquivo": "/assets/licoes/ang-res-triangulo.png",
+    "alt": "Um triângulo com dois ângulos marcados como 50 e 60 graus e o terceiro em branco.",
+    "largura": 245,
+    "altura": 180
+  },
+  "ang-q-tri1": {
+    "arquivo": "/assets/questoes/ang-q-tri1.png",
+    "alt": "Um triângulo com dois ângulos marcados como 40 e 75 graus e o terceiro em branco.",
+    "largura": 245,
+    "altura": 180
+  },
+  "ang-q-tri-reto": {
+    "arquivo": "/assets/questoes/ang-q-tri-reto.png",
+    "alt": "Um triângulo retângulo com o quadradinho no vértice do ângulo reto e um ângulo marcado como 35 graus.",
+    "largura": 216,
+    "altura": 180
+  },
+  "ang-q-equilatero": {
+    "arquivo": "/assets/questoes/ang-q-equilatero.png",
+    "alt": "Um triângulo equilátero, com os três lados de mesmo comprimento.",
+    "largura": 174,
+    "altura": 182
+  },
+  "ang-q-dois-retos": {
+    "arquivo": "/assets/questoes/ang-q-dois-retos.png",
+    "alt": "Um triângulo retângulo com o quadradinho marcando o único ângulo reto.",
+    "largura": 235,
+    "altura": 182
+  },
+  "fig-ideia-poligonos": {
+    "arquivo": "/assets/licoes/fig-ideia-poligonos.png",
+    "alt": "Quatro polígonos lado a lado: triângulo, quadrado, pentágono e hexágono.",
+    "largura": 305,
+    "altura": 340
+  },
+  "fig-res-hexagono": {
+    "arquivo": "/assets/licoes/fig-res-hexagono.png",
+    "alt": "Um hexágono regular, com os seis lados visíveis.",
+    "largura": 146,
+    "altura": 188
+  },
+  "fig-q-poligono": {
+    "arquivo": "/assets/questoes/fig-q-poligono.png",
+    "alt": "Um heptágono, com os sete lados retos e o contorno fechado.",
+    "largura": 344,
+    "altura": 182
+  },
+  "fig-q-octogono": {
+    "arquivo": "/assets/questoes/fig-q-octogono.png",
+    "alt": "Um hexágono regular usado como exemplo da contagem de lados e vértices.",
+    "largura": 264,
+    "altura": 188
+  },
+  "fig-q-pentagono": {
+    "arquivo": "/assets/questoes/fig-q-pentagono.png",
+    "alt": "Um polígono regular de cinco lados, sem nome escrito.",
+    "largura": 156,
+    "altura": 151
+  },
+  "fig-q-sete": {
+    "arquivo": "/assets/questoes/fig-q-sete.png",
+    "alt": "Um quadrado usado como exemplo da igualdade entre lados e ângulos.",
+    "largura": 257,
+    "altura": 188
+  },
+  "fig-ideia-tri-lados": {
+    "arquivo": "/assets/licoes/fig-ideia-tri-lados.png",
+    "alt": "Três triângulos lado a lado, identificados como equilátero, isósceles e escaleno.",
+    "largura": 450,
+    "altura": 170
+  },
+  "fig-res-tri-lados": {
+    "arquivo": "/assets/licoes/fig-res-tri-lados.png",
+    "alt": "Três triângulos lado a lado, sem classificação escrita.",
+    "largura": 450,
+    "altura": 170
+  },
+  "fig-q-tri-6610": {
+    "arquivo": "/assets/questoes/fig-q-tri-6610.png",
+    "alt": "Um triângulo com a base marcada como 10 cm e os dois outros lados como 6 cm cada.",
+    "largura": 233,
+    "altura": 160
+  },
+  "fig-q-tri-479": {
+    "arquivo": "/assets/questoes/fig-q-tri-479.png",
+    "alt": "Um triângulo com os lados marcados como 9 cm, 7 cm e 4 cm.",
+    "largura": 245,
+    "altura": 180
+  },
+  "fig-q-equilatero": {
+    "arquivo": "/assets/questoes/fig-q-equilatero.png",
+    "alt": "Um triângulo equilátero, com os três lados de mesmo comprimento.",
+    "largura": 235,
+    "altura": 182
+  },
+  "fig-q-desigualdade": {
+    "arquivo": "/assets/questoes/fig-q-desigualdade.png",
+    "alt": "Um triângulo com um lado bem mais comprido que os outros dois.",
+    "largura": 446,
+    "altura": 182
+  },
+  "fig-ideia-tri-angulos": {
+    "arquivo": "/assets/licoes/fig-ideia-tri-angulos.png",
+    "alt": "Três ângulos lado a lado, de 60, 90 e 120 graus, mostrando o maior ângulo de cada tipo de triângulo.",
+    "largura": 442,
+    "altura": 168
+  },
+  "fig-res-tri-angulos": {
+    "arquivo": "/assets/licoes/fig-res-tri-angulos.png",
+    "alt": "Três triângulos lado a lado: um equilátero, um retângulo e um obtusângulo.",
+    "largura": 450,
+    "altura": 170
+  },
+  "fig-q-tri-3060": {
+    "arquivo": "/assets/questoes/fig-q-tri-3060.png",
+    "alt": "Um triângulo retângulo com o quadradinho no vértice reto e os outros ângulos marcados como 30 e 60 graus.",
+    "largura": 216,
+    "altura": 180
+  },
+  "fig-q-tri-120": {
+    "arquivo": "/assets/questoes/fig-q-tri-120.png",
+    "alt": "Um triângulo com um ângulo bem aberto marcado como 120 graus e os outros como 20 e 40 graus.",
+    "largura": 304,
+    "altura": 115
+  },
+  "fig-q-acutangulo": {
+    "arquivo": "/assets/questoes/fig-q-acutangulo.png",
+    "alt": "Um ângulo reto de 90 graus, marcado com o quadradinho, servindo de limite.",
+    "largura": 152,
+    "altura": 178
+  },
+  "fig-q-equi-reto": {
+    "arquivo": "/assets/questoes/fig-q-equi-reto.png",
+    "alt": "Um triângulo equilátero com os três ângulos marcados como 60 graus.",
+    "largura": 198,
+    "altura": 180
+  },
+  "fig-ideia-quadrilateros": {
+    "arquivo": "/assets/licoes/fig-ideia-quadrilateros.png",
+    "alt": "Quatro quadriláteros lado a lado: quadrado, retângulo, losango e trapézio.",
+    "largura": 305,
+    "altura": 340
+  },
+  "fig-res-quadrilatero": {
+    "arquivo": "/assets/licoes/fig-res-quadrilatero.png",
+    "alt": "Um quadrilátero com três ângulos marcados como 100, 80 e 70 graus e o quarto em branco.",
+    "largura": 257,
+    "altura": 186
+  },
+  "fig-q-quad-90": {
+    "arquivo": "/assets/questoes/fig-q-quad-90.png",
+    "alt": "Um quadrilátero com três ângulos marcados como 90, 90 e 120 graus e o quarto em branco.",
+    "largura": 257,
+    "altura": 186
+  },
+  "fig-q-quadrado": {
+    "arquivo": "/assets/questoes/fig-q-quadrado.png",
+    "alt": "Um quadrado e um losango lado a lado, para comparar lados e ângulos.",
+    "largura": 305,
+    "altura": 170
+  },
+  "fig-q-paralelogramo": {
+    "arquivo": "/assets/questoes/fig-q-paralelogramo.png",
+    "alt": "Um paralelogramo, com os lados opostos paralelos dois a dois.",
+    "largura": 233,
+    "altura": 188
+  },
+  "fig-q-paralelo-70": {
+    "arquivo": "/assets/questoes/fig-q-paralelo-70.png",
+    "alt": "Um paralelogramo com um ângulo marcado como 70 graus e o vizinho em branco.",
+    "largura": 257,
+    "altura": 186
+  },
+  "fig-ideia-regulares": {
+    "arquivo": "/assets/licoes/fig-ideia-regulares.png",
+    "alt": "Quatro polígonos regulares lado a lado: triângulo, quadrado, pentágono e hexágono.",
+    "largura": 305,
+    "altura": 340
+  },
+  "fig-res-pentagono": {
+    "arquivo": "/assets/licoes/fig-res-pentagono.png",
+    "alt": "Um pentágono regular, com os cinco lados iguais.",
+    "largura": 279,
+    "altura": 177
+  },
+  "fig-q-hexagono": {
+    "arquivo": "/assets/questoes/fig-q-hexagono.png",
+    "alt": "Um hexágono regular, com os seis lados iguais.",
+    "largura": 146,
+    "altura": 162
+  },
+  "fig-q-hex-regular": {
+    "arquivo": "/assets/questoes/fig-q-hex-regular.png",
+    "alt": "Um hexágono regular, com os seis ângulos internos iguais entre si.",
+    "largura": 213,
+    "altura": 188
+  },
+  "fig-q-regular": {
+    "arquivo": "/assets/questoes/fig-q-regular.png",
+    "alt": "Um losango e um retângulo lado a lado, nenhum dos dois regular.",
+    "largura": 305,
+    "altura": 170
+  },
+  "fig-q-octogono-tri": {
+    "arquivo": "/assets/questoes/fig-q-octogono-tri.png",
+    "alt": "Um octógono regular, com os oito lados iguais.",
+    "largura": 191,
+    "altura": 188
+  },
+  "fig-ideia-circulo": {
+    "arquivo": "/assets/licoes/fig-ideia-circulo.png",
+    "alt": "Uma circunferência com o centro marcado, um raio e um diâmetro destacados.",
+    "largura": 268,
+    "altura": 290
+  },
+  "fig-res-circulo": {
+    "arquivo": "/assets/licoes/fig-res-circulo.png",
+    "alt": "Uma circunferência com o diâmetro destacado atravessando o centro.",
+    "largura": 293,
+    "altura": 290
+  },
+  "fig-q-raio9": {
+    "arquivo": "/assets/questoes/fig-q-raio9.png",
+    "alt": "Uma circunferência com o raio destacado, do centro até a borda.",
+    "largura": 268,
+    "altura": 290
+  },
+  "fig-q-diametro30": {
+    "arquivo": "/assets/questoes/fig-q-diametro30.png",
+    "alt": "Uma circunferência com o diâmetro destacado passando pelo centro.",
+    "largura": 268,
+    "altura": 290
+  },
+  "fig-q-circulo-linha": {
+    "arquivo": "/assets/questoes/fig-q-circulo-linha.png",
+    "alt": "Um círculo preenchido, mostrando a região interna além da linha do contorno.",
+    "largura": 308,
+    "altura": 290
+  },
+  "fig-q-roda": {
+    "arquivo": "/assets/questoes/fig-q-roda.png",
+    "alt": "Uma circunferência com o centro marcado e o raio indicado.",
+    "largura": 252,
+    "altura": 274
+  },
+  "per-ideia-contorno": {
+    "arquivo": "/assets/licoes/per-ideia-contorno.png",
+    "alt": "Um retângulo sem malha interna, com os quatro lados marcados como 6 cm e 4 cm.",
+    "largura": 288,
+    "altura": 230
+  },
+  "per-res-triangulo": {
+    "arquivo": "/assets/licoes/per-res-triangulo.png",
+    "alt": "Um triângulo com os lados marcados como 9 cm, 5 cm e 7 cm.",
+    "largura": 245,
+    "altura": 180
+  },
+  "per-q-quadrilatero": {
+    "arquivo": "/assets/questoes/per-q-quadrilatero.png",
+    "alt": "Um quadrilátero com os quatro lados marcados como 6 cm, 5 cm, 4 cm e 3 cm.",
+    "largura": 257,
+    "altura": 186
+  },
+  "per-q-equilatero": {
+    "arquivo": "/assets/questoes/per-q-equilatero.png",
+    "alt": "Um triângulo equilátero com os três lados marcados como 7 cm.",
+    "largura": 198,
+    "altura": 180
+  },
+  "per-q-unidade": {
+    "arquivo": "/assets/questoes/per-q-unidade.png",
+    "alt": "Um retângulo sem malha, com o contorno destacado e os lados medidos em centímetros.",
+    "largura": 256,
+    "altura": 198
+  },
+  "per-q-pentagono": {
+    "arquivo": "/assets/questoes/per-q-pentagono.png",
+    "alt": "Um pentágono com os cinco lados marcados como 4 cm, 4 cm, 6 cm, 6 cm e 5 cm.",
+    "largura": 180,
+    "altura": 175
+  },
+  "per-ideia-regular": {
+    "arquivo": "/assets/licoes/per-ideia-regular.png",
+    "alt": "Um hexágono regular com os seis lados marcados como 5 cm.",
+    "largura": 199,
+    "altura": 212
+  },
+  "per-res-pentagono": {
+    "arquivo": "/assets/licoes/per-res-pentagono.png",
+    "alt": "Um pentágono regular com os cinco lados marcados como 8 cm.",
+    "largura": 180,
+    "altura": 175
+  },
+  "per-q-hexagono": {
+    "arquivo": "/assets/questoes/per-q-hexagono.png",
+    "alt": "Um hexágono regular, com os seis lados de mesma medida.",
+    "largura": 146,
+    "altura": 188
+  },
+  "per-q-quadrado": {
+    "arquivo": "/assets/questoes/per-q-quadrado.png",
+    "alt": "Um quadrado com os quatro lados de mesma medida.",
+    "largura": 162,
+    "altura": 188
+  },
+  "per-q-octogono": {
+    "arquivo": "/assets/questoes/per-q-octogono.png",
+    "alt": "Um octógono regular, com os oito lados de mesma medida.",
+    "largura": 279,
+    "altura": 188
+  },
+  "per-q-tri-45": {
+    "arquivo": "/assets/questoes/per-q-tri-45.png",
+    "alt": "Um triângulo equilátero, com os três lados de mesma medida.",
+    "largura": 174,
+    "altura": 182
+  },
+  "per-ideia-retangulo": {
+    "arquivo": "/assets/licoes/per-ideia-retangulo.png",
+    "alt": "Um retângulo com a base marcada como base e a altura marcada como altura.",
+    "largura": 334,
+    "altura": 230
+  },
+  "per-res-retangulo": {
+    "arquivo": "/assets/licoes/per-res-retangulo.png",
+    "alt": "Um retângulo com base de 12 cm e altura de 5 cm, sem malha interna.",
+    "largura": 360,
+    "altura": 190
+  },
+  "per-q-ret-8-3": {
+    "arquivo": "/assets/questoes/per-q-ret-8-3.png",
+    "alt": "Um retângulo com base de 8 cm e altura de 3 cm.",
+    "largura": 320,
+    "altura": 164
+  },
+  "per-q-quad-9": {
+    "arquivo": "/assets/questoes/per-q-quad-9.png",
+    "alt": "Um quadrado com 9 cm de lado.",
+    "largura": 294,
+    "altura": 278
+  },
+  "per-q-ret-volta": {
+    "arquivo": "/assets/questoes/per-q-ret-volta.png",
+    "alt": "Um retângulo com a base marcada como 10 cm e a altura em branco.",
+    "largura": 320,
+    "altura": 200
+  },
+  "per-q-terreno": {
+    "arquivo": "/assets/questoes/per-q-terreno.png",
+    "alt": "Um retângulo com 25 m de comprimento e 15 m de largura.",
+    "largura": 356,
+    "altura": 236
+  },
+  "per-ideia-composta": {
+    "arquivo": "/assets/licoes/per-ideia-composta.png",
+    "alt": "Uma figura em L com os seis lados marcados: 6, 3, 2, 4, 4 e 7.",
+    "largura": 250,
+    "altura": 284
+  },
+  "per-res-composta": {
+    "arquivo": "/assets/licoes/per-res-composta.png",
+    "alt": "Uma figura em L com os seis lados marcados como 4, 2, 2, 2, 2 e 4 centímetros.",
+    "largura": 224,
+    "altura": 224
+  },
+  "per-q-comp-26": {
+    "arquivo": "/assets/questoes/per-q-comp-26.png",
+    "alt": "Uma figura em L com os lados marcados como 6, 3, 2, 4, 4 e 7 centímetros.",
+    "largura": 236,
+    "altura": 262
+  },
+  "per-q-comp-falta": {
+    "arquivo": "/assets/questoes/per-q-comp-falta.png",
+    "alt": "Uma figura em L com o lado de baixo marcado como 6 cm, um trecho de cima como 2 cm e o outro trecho em branco.",
+    "largura": 236,
+    "altura": 262
+  },
+  "per-q-comp-20": {
+    "arquivo": "/assets/questoes/per-q-comp-20.png",
+    "alt": "Uma figura em L com os lados marcados como 5, 2, 2, 3, 3 e 5 centímetros.",
+    "largura": 240,
+    "altura": 240
+  },
+  "per-q-comp-envolve": {
+    "arquivo": "/assets/questoes/per-q-comp-envolve.png",
+    "alt": "Uma figura em L desenhada sobre a malha, cabendo num quadrado de 4 por 4 quadradinhos.",
+    "largura": 257,
+    "altura": 222
+  },
+  "per-ideia-mesmo": {
+    "arquivo": "/assets/licoes/per-ideia-mesmo.png",
+    "alt": "Um retângulo bem comprido e fino, de 9 por 1 quadradinhos.",
+    "largura": 366,
+    "altura": 132
+  },
+  "per-res-mesmo": {
+    "arquivo": "/assets/licoes/per-res-mesmo.png",
+    "alt": "Um retângulo de 6 por 4 quadradinhos, todos preenchidos.",
+    "largura": 344,
+    "altura": 222
+  },
+  "per-q-mesmo-8-2": {
+    "arquivo": "/assets/questoes/per-q-mesmo-8-2.png",
+    "alt": "Um retângulo de 8 por 2 quadradinhos.",
+    "largura": 336,
+    "altura": 140
+  },
+  "per-q-mesmo-5-3": {
+    "arquivo": "/assets/questoes/per-q-mesmo-5-3.png",
+    "alt": "Um retângulo de 5 por 3 quadradinhos, sem preenchimento.",
+    "largura": 266,
+    "altura": 182
+  },
+  "per-q-mesmo-compara": {
+    "arquivo": "/assets/questoes/per-q-mesmo-compara.png",
+    "alt": "Um retângulo de 9 por 1 quadradinhos, bem comprido e fino.",
+    "largura": 366,
+    "altura": 132
+  },
+  "per-q-mesmo-16": {
+    "arquivo": "/assets/questoes/per-q-mesmo-16.png",
+    "alt": "Um retângulo de 1 por 7 quadradinhos, o mais fino possível com perímetro 16.",
+    "largura": 308,
+    "altura": 132
+  },
+  "per-ideia-problemas": {
+    "arquivo": "/assets/licoes/per-ideia-problemas.png",
+    "alt": "Um retângulo sem malha, com o contorno destacado, representando um terreno a cercar.",
+    "largura": 330,
+    "altura": 258
+  },
+  "per-res-problema": {
+    "arquivo": "/assets/licoes/per-res-problema.png",
+    "alt": "Um retângulo representando um terreno de 30 metros por 20 metros.",
+    "largura": 348,
+    "altura": 248
+  },
+  "per-q-moldura": {
+    "arquivo": "/assets/questoes/per-q-moldura.png",
+    "alt": "Um retângulo em pé, de 40 cm por 60 cm, representando um quadro.",
+    "largura": 231,
+    "altura": 272
+  },
+  "per-q-quadra": {
+    "arquivo": "/assets/questoes/per-q-quadra.png",
+    "alt": "Um retângulo representando uma quadra de 28 metros por 15 metros.",
+    "largura": 376,
+    "altura": 220
+  },
+  "per-q-arame": {
+    "arquivo": "/assets/questoes/per-q-arame.png",
+    "alt": "Um retângulo representando um terreno de 18 metros por 12 metros.",
+    "largura": 348,
+    "altura": 248
+  },
+  "per-q-jardim": {
+    "arquivo": "/assets/questoes/per-q-jardim.png",
+    "alt": "Um quadrado com os quatro lados em branco, representando um jardim.",
+    "largura": 260,
+    "altura": 282
+  },
+  "are-ideia-malha": {
+    "arquivo": "/assets/licoes/are-ideia-malha.png",
+    "alt": "Um retângulo de 5 por 3 quadradinhos, todos preenchidos.",
+    "largura": 266,
+    "altura": 204
+  },
+  "are-res-5-3": {
+    "arquivo": "/assets/licoes/are-res-5-3.png",
+    "alt": "Um retângulo de 5 por 3 quadradinhos, com a malha visível e nenhum preenchido.",
+    "largura": 266,
+    "altura": 182
+  },
+  "are-q-6-4": {
+    "arquivo": "/assets/questoes/are-q-6-4.png",
+    "alt": "Um retângulo de 6 por 4 quadradinhos, com a malha visível.",
+    "largura": 288,
+    "altura": 208
+  },
+  "are-q-7-2": {
+    "arquivo": "/assets/questoes/are-q-7-2.png",
+    "alt": "Um retângulo de 7 por 2 quadradinhos, com a malha visível.",
+    "largura": 320,
+    "altura": 144
+  },
+  "are-q-unidade": {
+    "arquivo": "/assets/questoes/are-q-unidade.png",
+    "alt": "Um único quadradinho de 1 cm de lado, a unidade de área.",
+    "largura": 322,
+    "altura": 156
+  },
+  "are-q-L12": {
+    "arquivo": "/assets/questoes/are-q-L12.png",
+    "alt": "Uma figura em L desenhada sobre a malha, dentro de um quadrado de 4 por 4 quadradinhos.",
+    "largura": 200,
+    "altura": 200
+  },
+  "are-ideia-retangulo": {
+    "arquivo": "/assets/licoes/are-ideia-retangulo.png",
+    "alt": "Um retângulo com a malha visível, a base marcada como base e a altura como altura.",
+    "largura": 410,
+    "altura": 230
+  },
+  "are-res-12-5": {
+    "arquivo": "/assets/licoes/are-res-12-5.png",
+    "alt": "Um retângulo de 12 por 5 quadradinhos, com a malha visível.",
+    "largura": 384,
+    "altura": 200
+  },
+  "are-q-9-4": {
+    "arquivo": "/assets/questoes/are-q-9-4.png",
+    "alt": "Um retângulo de 9 por 4, sem malha interna.",
+    "largura": 348,
+    "altura": 192
+  },
+  "are-q-7-6": {
+    "arquivo": "/assets/questoes/are-q-7-6.png",
+    "alt": "Um retângulo de 7 por 6, sem malha interna.",
+    "largura": 306,
+    "altura": 260
+  },
+  "are-q-altura": {
+    "arquivo": "/assets/questoes/are-q-altura.png",
+    "alt": "Um retângulo com a base marcada como 8 cm e a altura em branco.",
+    "largura": 304,
+    "altura": 270
+  },
+  "are-q-sala": {
+    "arquivo": "/assets/questoes/are-q-sala.png",
+    "alt": "Um retângulo de 5 por 4 quadrados de um metro, representando o piso de uma sala.",
+    "largura": 258,
+    "altura": 238
+  },
+  "are-ideia-quadrado": {
+    "arquivo": "/assets/licoes/are-ideia-quadrado.png",
+    "alt": "Um triângulo com a base e a altura marcadas, a altura tracejada e perpendicular à base.",
+    "largura": 381,
+    "altura": 220
+  },
+  "are-res-tri": {
+    "arquivo": "/assets/licoes/are-res-tri.png",
+    "alt": "Um triângulo de base 10 cm e altura 6 cm, com a altura tracejada.",
+    "largura": 328,
+    "altura": 224
+  },
+  "are-q-quad-12": {
+    "arquivo": "/assets/questoes/are-q-quad-12.png",
+    "alt": "Um quadrado de 12 por 12, sem malha interna.",
+    "largura": 319,
+    "altura": 296
+  },
+  "are-q-tri-8-5": {
+    "arquivo": "/assets/questoes/are-q-tri-8-5.png",
+    "alt": "Um triângulo de base 8 cm e altura 5 cm, com a altura tracejada.",
+    "largura": 276,
+    "altura": 198
+  },
+  "are-q-tri-14-9": {
+    "arquivo": "/assets/questoes/are-q-tri-14-9.png",
+    "alt": "Um triângulo de base 14 cm e altura 9 cm, com a altura tracejada.",
+    "largura": 432,
+    "altura": 302
+  },
+  "are-q-quad-81": {
+    "arquivo": "/assets/questoes/are-q-quad-81.png",
+    "alt": "Um quadrado com os lados em branco e a área indicada como 81 centímetros quadrados.",
+    "largura": 272,
+    "altura": 294
+  },
+  "are-ideia-composta": {
+    "arquivo": "/assets/licoes/are-ideia-composta.png",
+    "alt": "Uma figura em L sobre a malha, mostrando os quadradinhos que cabem dentro.",
+    "largura": 322,
+    "altura": 266
+  },
+  "are-res-composta": {
+    "arquivo": "/assets/licoes/are-res-composta.png",
+    "alt": "Uma figura em L sobre a malha, cabendo num quadrado de 4 por 4 quadradinhos.",
+    "largura": 200,
+    "altura": 200
+  },
+  "are-q-comp-34": {
+    "arquivo": "/assets/questoes/are-q-comp-34.png",
+    "alt": "Uma figura em L com o retângulo de baixo de 6 por 3 e o de cima de 4 por 4.",
+    "largura": 236,
+    "altura": 262
+  },
+  "are-q-comp-19": {
+    "arquivo": "/assets/questoes/are-q-comp-19.png",
+    "alt": "Uma figura em L com o retângulo de baixo de 5 por 2 e o quadrado de cima de 3 por 3.",
+    "largura": 240,
+    "altura": 240
+  },
+  "are-q-buraco": {
+    "arquivo": "/assets/questoes/are-q-buraco.png",
+    "alt": "Uma placa retangular de 10 por 6 quadradinhos, com a malha visível.",
+    "largura": 356,
+    "altura": 258
+  },
+  "are-q-recorte": {
+    "arquivo": "/assets/questoes/are-q-recorte.png",
+    "alt": "Um retângulo de 8 por 5 quadradinhos, com a malha visível.",
+    "largura": 336,
+    "altura": 252
+  },
+  "are-ideia-unidades": {
+    "arquivo": "/assets/licoes/are-ideia-unidades.png",
+    "alt": "Um quadrado dividido em 100 quadradinhos, ilustrando que o fator de conversão entra duas vezes.",
+    "largura": 412,
+    "altura": 442
+  },
+  "are-res-m2": {
+    "arquivo": "/assets/licoes/are-res-m2.png",
+    "alt": "Um quadrado com os lados marcados como 100 cm, representando um metro quadrado.",
+    "largura": 370,
+    "altura": 362
+  },
+  "are-q-3m2": {
+    "arquivo": "/assets/questoes/are-q-3m2.png",
+    "alt": "Três quadrados de um metro de lado, lado a lado.",
+    "largura": 268,
+    "altura": 162
+  },
+  "are-q-1m2": {
+    "arquivo": "/assets/questoes/are-q-1m2.png",
+    "alt": "Um quadrado de um metro de lado, com a malha mostrando as fileiras de centímetros.",
+    "largura": 348,
+    "altura": 340
+  },
+  "are-q-50000": {
+    "arquivo": "/assets/questoes/are-q-50000.png",
+    "alt": "Um quadrado de um metro de lado, usado como unidade de conversão.",
+    "largura": 328,
+    "altura": 342
+  },
+  "are-q-km2": {
+    "arquivo": "/assets/questoes/are-q-km2.png",
+    "alt": "Um quadrado com os lados marcados como 1 km, ou 1000 metros.",
+    "largura": 320,
+    "altura": 326
+  },
+  "are-ideia-problemas": {
+    "arquivo": "/assets/licoes/are-ideia-problemas.png",
+    "alt": "Um piso retangular coberto por ladrilhos quadrados, mostrando as fileiras.",
+    "largura": 350,
+    "altura": 294
+  },
+  "are-res-ladrilho": {
+    "arquivo": "/assets/licoes/are-res-ladrilho.png",
+    "alt": "Um piso retangular dividido em 10 colunas por 8 fileiras de ladrilhos.",
+    "largura": 370,
+    "altura": 288
+  },
+  "are-q-tinta": {
+    "arquivo": "/assets/questoes/are-q-tinta.png",
+    "alt": "Uma parede retangular de 4 metros por 3 metros.",
+    "largura": 264,
+    "altura": 222
+  },
+  "are-q-terreno": {
+    "arquivo": "/assets/questoes/are-q-terreno.png",
+    "alt": "Um terreno retangular de 40 metros por 25 metros.",
+    "largura": 336,
+    "altura": 230
+  },
+  "are-q-ladrilhos": {
+    "arquivo": "/assets/questoes/are-q-ladrilhos.png",
+    "alt": "Um piso retangular de 2 metros por 1 metro, sem a malha dos ladrilhos.",
+    "largura": 312,
+    "altura": 214
+  },
+  "are-q-jardim": {
+    "arquivo": "/assets/questoes/are-q-jardim.png",
+    "alt": "Um jardim retangular de 12 metros por 8 metros.",
+    "largura": 352,
+    "altura": 278
   }
 }

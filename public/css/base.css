@@ -159,6 +159,13 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   padding-inline: var(--e-xl);
 }
 
+/* Numa tela de 320px, 24px de cada lado aqui somados aos 24px do card e aos
+   24px da figura gastavam 144px — quase metade da tela — e empurravam os
+   desenhos para 39% do tamanho, com os rotulos ilegiveis. */
+@media (max-width: 599px) {
+  .container { padding-inline: var(--e-lg); }
+}
+
 .leitura { max-width: var(--largura-leitura); }
 
 .banda { padding-block: var(--e-5xl); }
@@ -300,6 +307,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border-radius: var(--r-md);
   padding: var(--e-xl);
 }
+@media (max-width: 599px) { .card { padding: var(--e-lg); } }
 
 .card--liso {
   background: transparent;

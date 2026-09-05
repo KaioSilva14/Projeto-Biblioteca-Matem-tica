@@ -32,6 +32,19 @@ function esc(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+/**
+ * Largura mínima para o rótulo centralizado do rodapé caber inteiro.
+ *
+ * Esse bug já apareceu em quatro geradores diferentes: a largura era
+ * calculada só a partir do desenho, e um rótulo mais comprido que ele saía
+ * cortado pelas duas bordas do SVG. Toda função que escreve rótulo embaixo
+ * deve passar a largura por aqui.
+ */
+function comRotulo(largura, rotulo, tamanho = 14) {
+  if (!rotulo) return largura;
+  return Math.max(largura, Math.round(String(rotulo).length * tamanho * 0.52) + 24);
+}
+
 // ---------- Roda dividida em fatias ----------
 
 export function roda({ partes, pintadas, rotulo = "" }) {
@@ -474,4 +487,855 @@ export function contaArmada({ linhas, operador, resultado = null, nota = "", lar
 
   if (nota) corpo += texto(largura / 2, A - 12, esc(nota), { tamanho: 13, cor: TRACO });
   return svg(largura, A, corpo);
+}
+
+// ---------- Arranjos retangulares de um número ----------
+//
+// Mostra por que divisor e múltiplo são o mesmo fato visto de dois lados:
+// 12 pontos só formam retângulo cheio nas medidas que dividem 12.
+
+export function arranjos({ pares, rotulo = "" }) {
+  const ponto = 9, passo = 16, folga = 32, mTopo = 10, mLado = 12;
+
+  const larguras = pares.map(([, c]) => Math.max(c * passo, 56));
+  const alturas = pares.map(([l]) => l * passo);
+  const alturaMax = Math.max(...alturas);
+  const L = mLado * 2 + larguras.reduce((s, w) => s + w, 0) + folga * (pares.length - 1);
+  const base = mTopo + alturaMax;
+  const A = base + 22 + (rotulo ? 24 : 4);
+
+  let corpo = "";
+  let x0 = mLado;
+  pares.forEach(([linhas, colunas], i) => {
+    const w = larguras[i];
+    const centro = x0 + w / 2;
+    const esq = centro - (colunas * passo) / 2;
+    // as bases ficam alinhadas: a comparação entre os arranjos é o ponto
+    for (let l = 0; l < linhas; l++) {
+      for (let c = 0; c < colunas; c++) {
+        const cx = esq + c * passo + passo / 2;
+        const cy = base - (linhas - l) * passo + passo / 2;
+        corpo += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${ponto / 2}" fill="${CHEIO}" stroke="${TRACO}" stroke-width="1.5"/>`;
+      }
+    }
+    corpo += texto(centro, base + 13, `${linhas} × ${colunas}`, { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+    x0 += w + folga;
+  });
+
+  if (rotulo) corpo += texto(L / 2, A - 10, esc(rotulo), { tamanho: 14 });
+  return svg(L, A, corpo);
+}
+
+// ---------- Crivo: números numa grade, destacados ou riscados ----------
+
+export function crivo({ ate = 50, porLinha = 10, destacados = [], riscados = [], rotulo = "" }) {
+  const cel = 34, m = 8;
+  const linhas = Math.ceil(ate / porLinha);
+  const L = porLinha * cel + m * 2;
+  const A = linhas * cel + m * 2 + (rotulo ? 24 : 0);
+  const dest = new Set(destacados), risc = new Set(riscados);
+  let corpo = "";
+
+  for (let n = 1; n <= ate; n++) {
+    const i = n - 1;
+    const c = i % porLinha, l = Math.floor(i / porLinha);
+    const x = m + c * cel, y = m + l * cel;
+    const marcado = dest.has(n);
+    corpo += `<rect x="${x}" y="${y}" width="${cel}" height="${cel}" fill="${marcado ? CHEIO : "none"}" stroke="${TRACO}" stroke-width="1.5"/>`;
+    const cor = marcado ? "#2b2622" : risc.has(n) ? TRACO : TRACO_FORTE;
+    corpo += texto(x + cel / 2, y + cel / 2, String(n), { tamanho: 13, cor, peso: marcado ? 500 : 400, fonte: FONTE_MONO });
+    if (risc.has(n)) {
+      corpo += `<line x1="${x + 7}" y1="${y + cel - 7}" x2="${x + cel - 7}" y2="${y + 7}" stroke="${TRACO}" stroke-width="1.5" stroke-linecap="round"/>`;
+    }
+  }
+  if (rotulo) corpo += texto(L / 2, A - 10, esc(rotulo), { tamanho: 14 });
+  return svg(L, A, corpo);
+}
+
+// ---------- Fatoração por divisões sucessivas ----------
+//
+// O traço vertical é como a decomposição é ensinada na escola brasileira.
+// A cadeia é calculada aqui dentro: o desenho não tem como discordar da
+// matemática do enunciado.
+
+export function fatoracao({ numero, largura = 220, rotulo = "" }) {
+  const passos = [];
+  let n = numero;
+  let p = 2;
+  while (n > 1) {
+    if (n % p === 0) { passos.push([n, p]); n /= p; }
+    else if (p * p > n) { passos.push([n, n]); n = 1; }
+    else { p += p === 2 ? 1 : 2; }
+  }
+  passos.push([1, null]);
+
+  const linha = 26, m = 12, meio = largura / 2;
+  const A = m * 2 + passos.length * linha + (rotulo ? 24 : 0);
+  let corpo = "";
+
+  corpo += `<line x1="${meio}" y1="${m}" x2="${meio}" y2="${m + passos.length * linha}" stroke="${TRACO_FORTE}" stroke-width="2"/>`;
+  passos.forEach(([esq, dir], i) => {
+    const y = m + i * linha + linha / 2;
+    corpo += texto(meio - 12, y, String(esq), { tamanho: 14, cor: TRACO_FORTE, ancora: "end", fonte: FONTE_MONO });
+    if (dir !== null) {
+      corpo += texto(meio + 12, y, String(dir), { tamanho: 14, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+    }
+  });
+
+  if (rotulo) corpo += texto(largura / 2, A - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, A, corpo);
+}
+
+// ---------- Saltos na reta: múltiplos, e o encontro de dois ritmos ----------
+
+export function saltos({ ate, ritmos, largura = 500, marcaCada = 5, rotulo = "" }) {
+  const y = 46, alturaRitmo = 38;
+  // O rotulo de cada ritmo e escrito a esquerda da reta, alinhado pela
+  // direita. A margem precisa caber o mais longo deles, senao ele sai
+  // pela borda do SVG e aparece cortado.
+  const maiorRotulo = Math.max(0, ...ritmos.map((r) => String(r.rotulo || "").length));
+  const mEsq = Math.max(40, Math.round(maiorRotulo * 7.8) + 20);
+  const mDir = 30;
+  const util = largura - mEsq - mDir;
+  const passo = util / ate;
+  const A = y + 24 + ritmos.length * alturaRitmo + (rotulo ? 22 : 6);
+  let corpo = "";
+
+  corpo += `<line x1="${mEsq}" y1="${y}" x2="${largura - mDir}" y2="${y}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  for (let i = 0; i <= ate; i++) {
+    const x = mEsq + passo * i;
+    const cheio = i % marcaCada === 0 || i === ate;
+    corpo += `<line x1="${x.toFixed(2)}" y1="${y - (cheio ? 8 : 5)}" x2="${x.toFixed(2)}" y2="${y + (cheio ? 8 : 5)}" stroke="${cheio ? TRACO_FORTE : TRACO}" stroke-width="${cheio ? 2 : 1.4}"/>`;
+    if (cheio) corpo += texto(x, y - 22, String(i), { tamanho: 12, cor: TRACO_FORTE, fonte: FONTE_MONO });
+  }
+
+  ritmos.forEach((r, k) => {
+    const yr = y + 24 + k * alturaRitmo + 10;
+    corpo += texto(mEsq - 12, yr, esc(r.rotulo), { tamanho: 13, cor: TRACO_FORTE, ancora: "end", fonte: FONTE_MONO });
+    for (let v = r.passo; v <= ate; v += r.passo) {
+      const x = mEsq + passo * v;
+      const forte = (r.destacar || []).includes(v);
+      corpo += `<circle cx="${x.toFixed(2)}" cy="${yr}" r="${forte ? 8 : 5.5}" fill="${forte ? DESTAQUE : CHEIO}" stroke="${TRACO}" stroke-width="1.5"/>`;
+    }
+  });
+
+  if (rotulo) corpo += texto(largura / 2, A - 8, esc(rotulo), { tamanho: 14 });
+  return svg(largura, A, corpo);
+}
+
+// ---------- Listas lado a lado, com os itens comuns em destaque ----------
+
+export function listasComuns({ colunas, largura = 460, rotulo = "" }) {
+  const m = 10, alturaTitulo = 28, linha = 26;
+  const larguraCol = (largura - m * 2) / colunas.length;
+
+  // As linhas sao indexadas pelo VALOR, nao pela posicao na lista: assim um
+  // numero que aparece em duas colunas cai na mesma altura nas duas, e a
+  // comparacao entre as listas vira leitura horizontal. Alinhar por posicao
+  // (o jeito ingenuo) espalha os comuns por alturas diferentes e desfaz
+  // justamente o que a figura precisa mostrar.
+  const numerico = colunas.every((c) => c.itens.every((v) => typeof v === "number"));
+  const universo = numerico
+    ? [...new Set(colunas.flatMap((c) => c.itens))].sort((a, b) => a - b)
+    : null;
+  const linhaDe = (col, item, i) => (numerico ? universo.indexOf(item) : i);
+  const totalLinhas = numerico ? universo.length : Math.max(...colunas.map((c) => c.itens.length));
+
+  const A = m * 2 + alturaTitulo + totalLinhas * linha + (rotulo ? 24 : 0);
+  let corpo = "";
+
+  colunas.forEach((col, k) => {
+    const x = m + k * larguraCol + larguraCol / 2;
+    corpo += texto(x, m + 12, esc(col.titulo), { tamanho: 13, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+    col.itens.forEach((item, i) => {
+      const y = m + alturaTitulo + linhaDe(col, item, i) * linha + linha / 2;
+      const comum = (col.comuns || []).includes(item);
+      if (comum) {
+        corpo += `<rect x="${(x - 27).toFixed(1)}" y="${(y - 11).toFixed(1)}" width="54" height="22" rx="3" fill="${CHEIO}" stroke="${TRACO}" stroke-width="1.5"/>`;
+      }
+      // Numero curto lê bem centralizado; item de texto, não — os inícios
+      // ficam ragged e a lista perde a cara de lista. Texto alinha à esquerda.
+      const alinhado = numerico
+        ? { x, ancora: "middle" }
+        : { x: x - larguraCol / 2 + 12, ancora: "start" };
+      corpo += texto(alinhado.x, y, String(item), {
+        tamanho: 13, cor: comum ? "#2b2622" : TRACO_FORTE,
+        peso: comum ? 500 : 400, ancora: alinhado.ancora, fonte: FONTE_MONO,
+      });
+    });
+  });
+
+  if (rotulo) corpo += texto(largura / 2, A - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, A, corpo);
+}
+
+// ---------- Potência escrita como fatores repetidos ----------
+//
+// Escreve "2⁵ = 2 × 2 × 2 × 2 × 2 = 32" com o expoente sobrescrito de
+// verdade. As posições são calculadas segmento a segmento: DM Mono tem
+// avanço fixo (≈0,6 em), então dá para montar a linha sem medir texto —
+// e é isso que mantém o expoente colado na base em qualquer tamanho.
+
+const AVANCO = 0.6;
+
+export function fatoresRepetidos({ linhas, largura = 460, rotulo = "" }) {
+  const corpoTam = 20, supTam = 13, alturaLinha = 44, m = 14;
+  const A = m * 2 + linhas.length * alturaLinha + (rotulo ? 24 : 0);
+  let corpo = "";
+
+  linhas.forEach((l, i) => {
+    const y = m + i * alturaLinha + alturaLinha / 2;
+    const base = String(l.base);
+    const exp = String(l.expoente);
+    const produto = " = " + Array.from({ length: l.expoente }, () => base).join(" × ");
+    const total = l.resultado === undefined ? "" : " = " + String(l.resultado);
+
+    const larg = (base.length + produto.length + total.length) * AVANCO * corpoTam
+      + exp.length * AVANCO * supTam + 5;
+    let x = largura / 2 - larg / 2;
+
+    const escreve = (txt, tam, dy, cor, peso) => {
+      corpo += `<text x="${x.toFixed(1)}" y="${(y + dy).toFixed(1)}" font-family="${FONTE_MONO}" font-size="${tam}" font-weight="${peso}" fill="${cor}" text-anchor="start" dominant-baseline="middle">${esc(txt)}</text>`;
+      x += txt.length * AVANCO * tam;
+    };
+
+    escreve(base, corpoTam, 0, DESTAQUE, 500);
+    escreve(exp, supTam, -9, DESTAQUE, 500);
+    // O expoente é menor e fica no alto: sem esta folga o "=" seguinte
+    // encosta nele e a linha lê como um número só.
+    x += 5;
+    escreve(produto, corpoTam, 0, TRACO_FORTE, 400);
+    if (total) escreve(total, corpoTam, 0, DESTAQUE, 500);
+
+    if (l.nota) corpo += texto(largura / 2, y + 17, esc(l.nota), { tamanho: 12, cor: TRACO });
+  });
+
+  if (rotulo) corpo += texto(largura / 2, A - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, A, corpo);
+}
+
+// ---------- Camadas de um cubo ----------
+//
+// Um cubo de aresta n é n camadas de n por n. Desenhar as camadas lado a
+// lado explica n³ = n² × n sem precisar de perspectiva, que numa figura
+// pequena atrapalha mais do que ajuda.
+
+export function camadas({ lado, quantas, rotulo = "" }) {
+  const cel = 22, folga = 26, m = 10;
+  const bloco = lado * cel;
+  // A largura e a maior entre a fileira de blocos e o rotulo: com poucas
+  // camadas pequenas o rotulo e mais largo que o desenho, e sem esta conta
+  // ele sai pela borda do SVG.
+  const larguraBlocos = m * 2 + quantas * bloco + (quantas - 1) * folga;
+  const L = Math.max(larguraBlocos, Math.round(rotulo.length * 7.4) + 24);
+  const A = m * 2 + bloco + 22 + (rotulo ? 24 : 0);
+  const deslocamento = (L - larguraBlocos) / 2;
+  let corpo = "";
+
+  for (let k = 0; k < quantas; k++) {
+    const x0 = deslocamento + m + k * (bloco + folga);
+    for (let l = 0; l < lado; l++) {
+      for (let c = 0; c < lado; c++) {
+        corpo += `<rect x="${x0 + c * cel}" y="${m + l * cel}" width="${cel}" height="${cel}" fill="${CHEIO}" fill-opacity="0.5" stroke="${TRACO}" stroke-width="1.5"/>`;
+      }
+    }
+    corpo += `<rect x="${x0}" y="${m}" width="${bloco}" height="${bloco}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.5"/>`;
+    corpo += texto(x0 + bloco / 2, m + bloco + 13, `camada ${k + 1}`, { tamanho: 12, cor: TRACO, fonte: FONTE_MONO });
+  }
+
+  if (rotulo) corpo += texto(L / 2, A - 10, esc(rotulo), { tamanho: 14 });
+  return svg(L, A, corpo);
+}
+
+// ═══════════════════ Geometria: ângulos e figuras planas ═══════════════════
+//
+// Todo desenho daqui calcula a própria caixa a partir dos pontos que gera,
+// em vez de usar largura fixa. Foi assim que os cortes de rótulo das
+// primeiras versões (barra de categorias, saltos, camadas) pararam de
+// acontecer: a moldura nasce do conteúdo, e não o contrário.
+
+const RAD = Math.PI / 180;
+
+/** Caixa que envolve uma lista de pontos, com folga. */
+function caixa(pontos, folga = 24) {
+  const xs = pontos.map((p) => p[0]);
+  const ys = pontos.map((p) => p[1]);
+  return {
+    minX: Math.min(...xs) - folga,
+    minY: Math.min(...ys) - folga,
+    maxX: Math.max(...xs) + folga,
+    maxY: Math.max(...ys) + folga,
+  };
+}
+
+/** Ponto a "graus" do eixo horizontal, medido no sentido anti-horário. */
+function polar(cx, cy, r, graus) {
+  return [cx + r * Math.cos(graus * RAD), cy - r * Math.sin(graus * RAD)];
+}
+
+/** Arco de a até b graus, para o SVG. */
+function arco(cx, cy, r, a, b) {
+  const [x1, y1] = polar(cx, cy, r, a);
+  const [x2, y2] = polar(cx, cy, r, b);
+  const grande = Math.abs(b - a) > 180 ? 1 : 0;
+  return `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${grande} 0 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+}
+
+// ---------- Um ângulo ----------
+//
+// Um lado sempre na horizontal e o outro aberto no ângulo pedido. O
+// comprimento dos lados é parâmetro justamente para o conteúdo poder mostrar
+// que ele NÃO muda a medida do ângulo — que é o erro central da lição 1.
+
+export function angulo({ graus, rotulo = "", medida = true, lado = 92, marcaReta = true }) {
+  const V = [0, 0];
+  const A = [lado, 0];
+  const B = polar(0, 0, lado, graus);
+  const c = caixa([V, A, B, [0, -34], [lado, 0]], 30);
+
+  const largura = Math.round(c.maxX - c.minX);
+  const alturaExtra = rotulo ? 26 : 0;
+  const altura = Math.round(c.maxY - c.minY) + alturaExtra;
+  const dx = -c.minX, dy = -c.minY;
+  const p = ([x, y]) => `${(x + dx).toFixed(2)} ${(y + dy).toFixed(2)}`;
+
+  let corpo = "";
+  // arco da abertura, ou o quadradinho do ângulo reto
+  const r = 30;
+  if (marcaReta && Math.abs(graus - 90) < 0.01) {
+    const q = 18;
+    corpo += `<path d="M ${p([q, 0])} L ${p([q, -q])} L ${p([0, -q])}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+  } else {
+    const [ax, ay] = polar(0, 0, r, 0);
+    const [bx, by] = polar(0, 0, r, graus);
+    const grande = graus > 180 ? 1 : 0;
+    corpo += `<path d="M ${p([ax, ay])} A ${r} ${r} 0 ${grande} 0 ${p([bx, by])}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+  }
+
+  const linha = (de, ate) =>
+    `<line x1="${(de[0] + dx).toFixed(2)}" y1="${(de[1] + dy).toFixed(2)}" x2="${(ate[0] + dx).toFixed(2)}" y2="${(ate[1] + dy).toFixed(2)}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  corpo += linha(V, A);
+  corpo += linha(V, B);
+  corpo += `<circle cx="${(V[0] + dx).toFixed(2)}" cy="${(V[1] + dy).toFixed(2)}" r="4" fill="${DESTAQUE}"/>`;
+
+  if (medida) {
+    const [tx, ty] = polar(0, 0, r + 24, graus / 2);
+    corpo += texto(tx + dx, ty + dy, `${graus}°`, { tamanho: 14, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  }
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Vários ângulos lado a lado ----------
+
+export function angulosComparados({ itens, lado = 72, medida = false, porLinha }) {
+  // Quatro ângulos numa fileira só dão um SVG de ~584px, que num celular de
+  // 320px é exibido a metade do tamanho e fica ilegível. A partir de quatro
+  // itens a figura quebra em duas linhas e a largura cai pela metade.
+  const colunas = porLinha ?? (itens.length <= 3 ? itens.length : Math.ceil(itens.length / 2));
+  const linhas = Math.ceil(itens.length / colunas);
+  const faixa = 142, alturaLinha = 168;
+  const largura = faixa * colunas + 16;
+  const altura = alturaLinha * linhas;
+  let corpo = "";
+
+  itens.forEach((item, i) => {
+    const col = i % colunas, lin = Math.floor(i / colunas);
+    const cx = 20 + faixa * col + 24;
+    const cy = alturaLinha * lin + 114;
+    const raio = item.lado ?? lado;
+    const A = polar(cx, cy, raio, 0);
+    const B = polar(cx, cy, raio, item.graus);
+    const r = 26;
+
+    if (Math.abs(item.graus - 90) < 0.01) {
+      corpo += `<path d="M ${cx + 16} ${cy} L ${cx + 16} ${cy - 16} L ${cx} ${cy - 16}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+    } else {
+      corpo += `<path d="${arco(cx, cy, r, 0, item.graus)}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+    }
+    corpo += `<line x1="${cx}" y1="${cy}" x2="${A[0].toFixed(2)}" y2="${A[1].toFixed(2)}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+    corpo += `<line x1="${cx}" y1="${cy}" x2="${B[0].toFixed(2)}" y2="${B[1].toFixed(2)}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+    corpo += `<circle cx="${cx}" cy="${cy}" r="3.5" fill="${DESTAQUE}"/>`;
+    if (medida) {
+      const [tx, ty] = polar(cx, cy, r + 22, item.graus / 2);
+      corpo += texto(tx, ty, `${item.graus}°`, { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+    }
+    if (item.rotulo) corpo += texto(cx + 24, alturaLinha * lin + 150, esc(item.rotulo), { tamanho: 13 });
+  });
+
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Dois ângulos sobre uma reta (suplementares) ----------
+
+export function angulosNaReta({ graus, total = 180, rotuloEsquerda, rotuloDireita, largura, nota }) {
+  // O caso de 90° ocupa só um quadrante, então não precisa da largura do
+  // caso da reta — deixar 420 ali sobrava um vão morto à direita.
+  largura = largura ?? (total === 180 ? 420 : 300);
+  const altura = 168;
+  const cy = 118, cx = total === 180 ? largura / 2 : 104;
+  const braco = total === 180 ? largura / 2 - 30 : 136;
+  let corpo = "";
+
+  // O "lado que fecha": na reta ele é a semirreta oposta; num ângulo reto,
+  // é a semirreta vertical. É o mesmo desenho com o fecho em outro lugar.
+  const fecho = polar(cx, cy, braco, total);
+  corpo += `<line x1="${cx}" y1="${cy}" x2="${(cx + braco).toFixed(2)}" y2="${cy}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  corpo += `<line x1="${cx}" y1="${cy}" x2="${fecho[0].toFixed(2)}" y2="${fecho[1].toFixed(2)}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  if (total === 90) {
+    corpo += `<path d="M ${cx + 16} ${cy} L ${cx + 16} ${cy - 16} L ${cx} ${cy - 16}" fill="none" stroke="${TRACO}" stroke-width="1.6"/>`;
+  }
+  const B = polar(cx, cy, 96, graus);
+  corpo += `<line x1="${cx}" y1="${cy}" x2="${B[0].toFixed(2)}" y2="${B[1].toFixed(2)}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  corpo += `<path d="${arco(cx, cy, 30, 0, graus)}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+  corpo += `<path d="${arco(cx, cy, 44, graus, total)}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+  corpo += `<circle cx="${cx}" cy="${cy}" r="4" fill="${DESTAQUE}"/>`;
+
+  const [dx, dy] = polar(cx, cy, 52, graus / 2);
+  corpo += texto(dx, dy, esc(rotuloDireita ?? `${graus}°`), { tamanho: 14, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  const [ex, ey] = polar(cx, cy, 66, (graus + total) / 2);
+  corpo += texto(ex, ey, esc(rotuloEsquerda ?? "?"), { tamanho: 14, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+
+  const padrao = total === 180 ? "os dois juntos fecham a meia-volta" : "os dois juntos fecham o ângulo reto";
+  corpo += texto(largura / 2, altura - 12, esc(nota ?? padrao), { tamanho: 13, cor: TRACO });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Duas retas que se cruzam ----------
+
+export function retasCruzadas({ graus, rotulos = {}, largura = 420 }) {
+  const altura = 260;
+  const cx = largura / 2, cy = 124, braco = 120;
+  let corpo = "";
+
+  const desenhaReta = (ang) => {
+    const a = polar(cx, cy, braco, ang);
+    const b = polar(cx, cy, braco, ang + 180);
+    corpo += `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  };
+  desenhaReta(0);
+  desenhaReta(graus);
+
+  // os quatro ângulos, em ordem a partir do eixo horizontal
+  const cantos = [
+    { de: 0, ate: graus, chave: "a" },
+    { de: graus, ate: 180, chave: "b" },
+    { de: 180, ate: 180 + graus, chave: "c" },
+    { de: 180 + graus, ate: 360, chave: "d" },
+  ];
+  cantos.forEach((c, i) => {
+    const r = 30 + (i % 2) * 12;
+    corpo += `<path d="${arco(cx, cy, r, c.de, c.ate)}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+    const [tx, ty] = polar(cx, cy, r + 22, (c.de + c.ate) / 2);
+    corpo += texto(tx, ty, esc(rotulos[c.chave] ?? "?"), { tamanho: 14, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  });
+  corpo += `<circle cx="${cx}" cy="${cy}" r="4" fill="${DESTAQUE}"/>`;
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Transferidor ----------
+//
+// Semicírculo com as duas numerações, que é justamente onde o aluno erra:
+// escolher a escala errada dá o suplemento em vez do ângulo.
+
+export function transferidor({ graus, rotulo = "" }) {
+  const R = 132, m = 30;
+  // A largura é a maior entre o transferidor e o rótulo: um rótulo mais
+  // comprido que o desenho sairia cortado pela borda do SVG.
+  const larguraDesenho = R * 2 + m * 2;
+  const largura = Math.max(larguraDesenho, Math.round(rotulo.length * 7.2) + 28);
+  const altura = R + 84 + (rotulo ? 22 : 0);
+  const cx = largura / 2, cy = R + 34;
+  let corpo = "";
+
+  // corpo do transferidor
+  const e = polar(cx, cy, R, 180), d = polar(cx, cy, R, 0);
+  corpo += `<path d="M ${e[0]} ${e[1]} A ${R} ${R} 0 0 1 ${d[0]} ${d[1]} Z" fill="${CHEIO}" fill-opacity="0.10" stroke="${TRACO_FORTE}" stroke-width="2.5"/>`;
+
+  for (let g = 0; g <= 180; g += 10) {
+    const grande = g % 30 === 0;
+    const a = polar(cx, cy, R, g);
+    const b = polar(cx, cy, R - (grande ? 16 : 9), g);
+    corpo += `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${grande ? TRACO_FORTE : TRACO}" stroke-width="${grande ? 2 : 1.3}"/>`;
+    if (grande) {
+      // Duas escalas, uma em cada anel. A folga radial entre elas precisa
+      // ser generosa: nas pontas (0° e 180°) os dois números caem na mesma
+      // horizontal e, se estiverem perto, leem como um número só.
+      const [tx, ty] = polar(cx, cy, R - 26, g);
+      corpo += texto(tx, ty, String(g), { tamanho: 11, cor: TRACO_FORTE, fonte: FONTE_MONO });
+      // Nas duas pontas (0° e 180°) os números das duas escalas caem na mesma
+      // horizontal e leem como um número só. Ali fica só a escala de fora —
+      // as marcas do meio (30/150, 60/120, 90/90) já mostram que são duas.
+      if (g !== 0 && g !== 180) {
+        const [ux, uy] = polar(cx, cy, R - 58, g);
+        corpo += texto(ux, uy, String(180 - g), { tamanho: 11, cor: TRACO, fonte: FONTE_MONO });
+      }
+    }
+  }
+
+  // a semirreta medida
+  const p = polar(cx, cy, R + 8, graus);
+  corpo += `<line x1="${cx}" y1="${cy}" x2="${p[0].toFixed(2)}" y2="${p[1].toFixed(2)}" stroke="${DESTAQUE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  corpo += `<line x1="${cx}" y1="${cy}" x2="${cx + R + 8}" y2="${cy}" stroke="${DESTAQUE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  corpo += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${DESTAQUE}"/>`;
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Figuras planas nomeadas ----------
+//
+// Os contornos vivem aqui, em coordenadas de 0 a 1, para o manifesto poder
+// pedir a figura pelo nome sem carregar geometria junto.
+
+const FORMAS = {
+  quadrado: [[0, 0], [1, 0], [1, 1], [0, 1]],
+  retangulo: [[0, 0], [1.6, 0], [1.6, 1], [0, 1]],
+  paralelogramo: [[0.28, 0], [1.6, 0], [1.32, 1], [0, 1]],
+  losango: [[0.6, 0], [1.2, 0.62], [0.6, 1.24], [0, 0.62]],
+  trapezio: [[0.3, 0], [1.3, 0], [1.6, 1], [0, 1]],
+  "triangulo-equilatero": [[0, 0], [1.1, 0], [0.55, 0.953]],
+  // As proporções importam: um "isósceles" com base e pernas quase iguais
+  // parece equilátero, e um "escaleno" com dois lados quase iguais parece
+  // isósceles. A figura tem que concordar com o nome que ela ilustra.
+  "triangulo-isosceles": [[0, 0], [1.4, 0], [0.7, 0.78]],
+  "triangulo-escaleno": [[0, 0], [1.5, 0], [1.05, 0.95]],
+  "triangulo-retangulo": [[0, 0], [1.25, 0], [0, 0.95]],
+  // Um obtusângulo de verdade: o vértice de cima abre ~126°, então a figura
+  // não desmente um enunciado que fala em ângulo obtuso.
+  "triangulo-obtusangulo": [[0, 0], [2.0, 0], [0.5, 0.4]],
+  // Quadrilátero sem simetria nenhuma, para quando os quatro ângulos do
+  // enunciado são diferentes entre si — num trapézio isósceles a figura
+  // mostraria dois ângulos visivelmente iguais com rótulos diferentes.
+  quadrilatero: [[0, 0], [1.6, 0], [1.35, 1.0], [0.25, 0.72]],
+};
+
+/** Polígono regular de n lados, em coordenadas de 0 a 1. */
+function regular(n) {
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    const a = 90 + (360 / n) * i;
+    pts.push([0.5 + 0.5 * Math.cos(a * RAD), 0.5 - 0.5 * Math.sin(a * RAD)]);
+  }
+  return pts;
+}
+
+export function figuraPlana({ tipo, lados, rotulo = "", rotulosLados = [], rotulosVertices = [], escala = 118, marcarReto = false }) {
+  const base = FORMAS[tipo] ?? regular(lados ?? 5);
+  // as formas nomeadas vêm com y para cima; o SVG tem y para baixo
+  const flip = FORMAS[tipo] ? true : false;
+  const pts = base.map(([x, y]) => [x * escala, (flip ? -y : y) * escala]);
+
+  const c = caixa(pts, rotulosLados.length || rotulosVertices.length ? 34 : 22);
+  const larguraDesenho = Math.round(c.maxX - c.minX);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = Math.round(c.maxY - c.minY) + (rotulo ? 26 : 0);
+  const dx = -c.minX + (largura - larguraDesenho) / 2, dy = -c.minY;
+  const P = pts.map(([x, y]) => [x + dx, y + dy]);
+
+  let corpo = "";
+  corpo += `<polygon points="${P.map(([x, y]) => `${x.toFixed(2)},${y.toFixed(2)}`).join(" ")}" fill="${CHEIO}" fill-opacity="0.18" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linejoin="round"/>`;
+
+  // marca de ângulo reto no primeiro vértice, quando pedida
+  if (marcarReto) {
+    const [v, a, b] = [P[0], P[1], P[P.length - 1]];
+    const u1 = normalizar(a, v), u2 = normalizar(b, v);
+    const q = 15;
+    corpo += `<path d="M ${(v[0] + u1[0] * q).toFixed(2)} ${(v[1] + u1[1] * q).toFixed(2)} L ${(v[0] + (u1[0] + u2[0]) * q).toFixed(2)} ${(v[1] + (u1[1] + u2[1]) * q).toFixed(2)} L ${(v[0] + u2[0] * q).toFixed(2)} ${(v[1] + u2[1] * q).toFixed(2)}" fill="none" stroke="${TRACO}" stroke-width="2"/>`;
+  }
+
+  // rótulos dos lados, no meio de cada aresta e empurrados para fora
+  rotulosLados.forEach((r, i) => {
+    if (!r) return;
+    const a = P[i], b = P[(i + 1) % P.length];
+    const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+    const centro = [P.reduce((s, p) => s + p[0], 0) / P.length, P.reduce((s, p) => s + p[1], 0) / P.length];
+    const fora = normalizar([mx, my], centro);
+    corpo += texto(mx + fora[0] * 18, my + fora[1] * 18, esc(r), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  });
+
+  // Rótulo de vértice fica DENTRO da figura, puxado na direção do centro:
+  // é onde o ângulo daquele canto está, e não confunde com o rótulo do lado.
+  if (rotulosVertices.length) {
+    const centro = [P.reduce((s, q) => s + q[0], 0) / P.length, P.reduce((s, q) => s + q[1], 0) / P.length];
+    rotulosVertices.forEach((r, i) => {
+      if (!r || !P[i]) return;
+      // Num canto agudo o rótulo encosta nas duas arestas se ficar perto do
+      // vértice: quanto mais fechado o canto, mais para dentro ele precisa ir.
+      const dentro = normalizar(centro, P[i]);
+      const recuo = 38;
+      corpo += texto(P[i][0] + dentro[0] * recuo, P[i][1] + dentro[1] * recuo, esc(r), {
+        tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/** Ponto dentro do polígono, pelo teste do raio (par/ímpar). */
+function dentroDoPoligono([x, y], P) {
+  let dentro = false;
+  for (let i = 0, j = P.length - 1; i < P.length; j = i++) {
+    const [xi, yi] = P[i], [xj, yj] = P[j];
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) dentro = !dentro;
+  }
+  return dentro;
+}
+
+function normalizar(p, origem) {
+  const dx = p[0] - origem[0], dy = p[1] - origem[1];
+  const n = Math.hypot(dx, dy) || 1;
+  return [dx / n, dy / n];
+}
+
+// ---------- Várias figuras planas lado a lado ----------
+
+export function figurasComparadas({ itens, escala = 72, porLinha }) {
+  // Mesma regra de angulosComparados: quatro figuras numa fileira dão um SVG
+  // de ~594px, exibido a 62% num celular de 390px. A partir de quatro itens a
+  // figura quebra em duas linhas e a escala volta para perto de 1.
+  const colunas = porLinha ?? (itens.length <= 3 ? itens.length : Math.ceil(itens.length / 2));
+  const linhasGrade = Math.ceil(itens.length / colunas);
+  const faixa = escala * 1.7 + 22, alturaLinha = escala * 1.5 + 62;
+  const largura = faixa * colunas + 16;
+  const altura = alturaLinha * linhasGrade;
+  let corpo = "";
+
+  itens.forEach((item, i) => {
+    const col = i % colunas, lin = Math.floor(i / colunas);
+    const base = FORMAS[item.tipo] ?? regular(item.lados ?? 5);
+    const flip = !!FORMAS[item.tipo];
+    const pts = base.map(([x, y]) => [x * escala, (flip ? -y : y) * escala]);
+    const c = caixa(pts, 0);
+    const larg = c.maxX - c.minX, alt = c.maxY - c.minY;
+    const ox = 8 + faixa * col + (faixa - larg) / 2 - c.minX;
+    const oy = alturaLinha * lin + 16 + (escala * 1.2 - alt) / 2 - c.minY;
+    const P = pts.map(([x, y]) => `${(x + ox).toFixed(2)},${(y + oy).toFixed(2)}`).join(" ");
+    corpo += `<polygon points="${P}" fill="${CHEIO}" fill-opacity="0.18" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    if (item.rotulo) {
+      corpo += texto(8 + faixa * col + faixa / 2, alturaLinha * (lin + 1) - 22, esc(item.rotulo), { tamanho: 13 });
+    }
+  });
+
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Relógio (ângulo entre ponteiros) ----------
+
+export function relogio({ hora, minuto, rotulo = "" }) {
+  const R = 96, m = 22;
+  const largura = R * 2 + m * 2;
+  const altura = R * 2 + m * 2 + (rotulo ? 26 : 0);
+  const cx = largura / 2, cy = R + m;
+  let corpo = "";
+
+  corpo += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.5"/>`;
+  for (let h = 0; h < 12; h++) {
+    const ang = 90 - h * 30;
+    const a = polar(cx, cy, R, ang), b = polar(cx, cy, R - 12, ang);
+    corpo += `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${TRACO}" stroke-width="2"/>`;
+    const [tx, ty] = polar(cx, cy, R - 28, ang);
+    corpo += texto(tx, ty, String(h === 0 ? 12 : h), { tamanho: 12, cor: TRACO_FORTE, fonte: FONTE_MONO });
+  }
+
+  // ponteiros: o das horas anda meio grau por minuto
+  const angMin = 90 - minuto * 6;
+  const angHora = 90 - (hora % 12) * 30 - minuto * 0.5;
+  const pm = polar(cx, cy, R - 34, angMin);
+  const ph = polar(cx, cy, R - 56, angHora);
+  corpo += `<line x1="${cx}" y1="${cy}" x2="${pm[0].toFixed(2)}" y2="${pm[1].toFixed(2)}" stroke="${DESTAQUE}" stroke-width="2.5" stroke-linecap="round"/>`;
+  corpo += `<line x1="${cx}" y1="${cy}" x2="${ph[0].toFixed(2)}" y2="${ph[1].toFixed(2)}" stroke="${DESTAQUE}" stroke-width="4" stroke-linecap="round"/>`;
+  corpo += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${DESTAQUE}"/>`;
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Circunferência e círculo ----------
+//
+// A distinção que a lição precisa mostrar: a circunferência é a LINHA, o
+// círculo é a região de dentro. Por isso o preenchimento é opcional.
+
+export function circulo({ raio = 88, mostrar = [], preenchido = false, rotulo = "" }) {
+  const m = 46;
+  const largura = comRotulo(raio * 2 + m * 2, rotulo);
+  const altura = raio * 2 + m * 2 + (rotulo ? 22 : 0);
+  const cx = largura / 2, cy = raio + m;
+  let corpo = "";
+
+  corpo += `<circle cx="${cx}" cy="${cy}" r="${raio}" fill="${preenchido ? CHEIO : "none"}" fill-opacity="0.18" stroke="${TRACO_FORTE}" stroke-width="2.5"/>`;
+
+  // Diâmetro na horizontal e raio para cima: separados o suficiente para os
+  // rótulos não se cruzarem, mesmo com os dois na mesma figura.
+  if (mostrar.includes("diametro")) {
+    const a = polar(cx, cy, raio, 180), b = polar(cx, cy, raio, 0);
+    corpo += `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${DESTAQUE}" stroke-width="2.5" stroke-linecap="round"/>`;
+    corpo += texto(cx + raio * 0.5, cy + 18, "diâmetro", { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  }
+  if (mostrar.includes("raio")) {
+    const b = polar(cx, cy, raio, 90);
+    corpo += `<line x1="${cx}" y1="${cy}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${DESTAQUE}" stroke-width="2.5" stroke-linecap="round"/>`;
+    corpo += texto(cx + 26, cy - raio * 0.5, "raio", { tamanho: 13, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+  }
+  if (mostrar.includes("corda")) {
+    const a = polar(cx, cy, raio, 235), b = polar(cx, cy, raio, 305);
+    corpo += `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${TRACO}" stroke-width="2" stroke-dasharray="5 4"/>`;
+    corpo += texto(cx, (a[1] + b[1]) / 2 + 16, "corda", { tamanho: 12, cor: TRACO, fonte: FONTE_MONO });
+  }
+
+  corpo += `<circle cx="${cx}" cy="${cy}" r="4" fill="${DESTAQUE}"/>`;
+  corpo += texto(cx - 14, cy - 16, "centro", { tamanho: 12, cor: TRACO, ancora: "end", fonte: FONTE_MONO });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Retângulo com malha de quadradinhos ----------
+//
+// O desenho que separa perímetro de área: a malha mostra o que se conta por
+// DENTRO, e os rótulos dos lados mostram o que se percorre por FORA.
+
+export function retanguloMalha({ colunas, linhas, pintadas = 0, malha = true, rotuloLargura, rotuloAltura, rotulo = "", cel = 32 }) {
+  const m = 40;
+  // O rótulo da altura fica à esquerda, alinhado pela direita: a margem
+  // precisa caber o texto inteiro, senão ele sai cortado pela borda.
+  const mEsq = Math.max(m, Math.round(String(rotuloAltura ?? "").length * 7.4) + 26);
+  const larg = colunas * cel, alt = linhas * cel;
+  const largura = comRotulo(larg + mEsq + m, rotulo);
+  const altura = alt + m * 2 + (rotulo ? 22 : 0);
+  const x0 = mEsq + (largura - (larg + mEsq + m)) / 2, y0 = m;
+  let corpo = "";
+
+  if (malha) {
+    for (let l = 0; l < linhas; l++) {
+      for (let c = 0; c < colunas; c++) {
+        const i = l * colunas + c;
+        corpo += `<rect x="${x0 + c * cel}" y="${y0 + l * cel}" width="${cel}" height="${cel}" fill="${i < pintadas ? CHEIO : "none"}" fill-opacity="${i < pintadas ? 0.55 : 1}" stroke="${TRACO}" stroke-width="1.4"/>`;
+      }
+    }
+  } else if (pintadas > 0) {
+    corpo += `<rect x="${x0}" y="${y0}" width="${larg}" height="${alt}" fill="${CHEIO}" fill-opacity="0.18"/>`;
+  }
+  corpo += `<rect x="${x0}" y="${y0}" width="${larg}" height="${alt}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.5"/>`;
+
+  if (rotuloLargura) corpo += texto(x0 + larg / 2, y0 - 18, esc(rotuloLargura), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  if (rotuloAltura) corpo += texto(x0 - 20, y0 + alt / 2, esc(rotuloAltura), { tamanho: 13, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Figura composta, descrita por movimentos ----------
+//
+// O contorno vem como uma lista de passos [dx, dy] em unidades de malha, a
+// partir do canto de baixo à esquerda. Assim o manifesto descreve a figura
+// andando por ela — que é como o aluno vai percorrer o perímetro.
+
+export function figuraComposta({ movimentos, escala = 30, malha = false, rotulosLados = [], rotulo = "" }) {
+  // caminha o contorno acumulando os vértices
+  const pontos = [[0, 0]];
+  for (const [dx, dy] of movimentos) {
+    const [x, y] = pontos[pontos.length - 1];
+    pontos.push([x + dx, y + dy]);
+  }
+  const fechou = Math.abs(pontos[pontos.length - 1][0]) < 1e-9 && Math.abs(pontos[pontos.length - 1][1]) < 1e-9;
+  if (!fechou) throw new Error("figuraComposta: o contorno não voltou ao ponto de partida");
+  pontos.pop();
+
+  const m = rotulosLados.length ? 40 : 24;
+  const xs = pontos.map((p) => p[0]), ys = pontos.map((p) => p[1]);
+  const minX = Math.min(...xs), maxX = Math.max(...xs);
+  const minY = Math.min(...ys), maxY = Math.max(...ys);
+  const larguraDesenho = (maxX - minX) * escala + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const recuo = (largura - larguraDesenho) / 2;
+  const altura = (maxY - minY) * escala + m * 2 + (rotulo ? 22 : 0);
+
+  // y do desenho cresce para baixo; o contorno foi descrito com y para cima
+  const P = pontos.map(([x, y]) => [
+    recuo + m + (x - minX) * escala,
+    m + (maxY - y) * escala,
+  ]);
+  const id = "malha-" + movimentos.length + "-" + Math.round((maxX - minX) * 10);
+  let corpo = "";
+
+  if (malha) {
+    corpo += `<defs><clipPath id="${id}"><polygon points="${P.map((p) => p.join(",")).join(" ")}"/></clipPath></defs>`;
+    corpo += `<g clip-path="url(#${id})">`;
+    for (let l = 0; l < maxY - minY; l++) {
+      for (let c = 0; c < maxX - minX; c++) {
+        corpo += `<rect x="${recuo + m + c * escala}" y="${m + l * escala}" width="${escala}" height="${escala}" fill="${CHEIO}" fill-opacity="0.16" stroke="${TRACO}" stroke-width="1.2"/>`;
+      }
+    }
+    corpo += `</g>`;
+  }
+
+  corpo += `<polygon points="${P.map((p) => p.map((v) => v.toFixed(1)).join(",")).join(" ")}" fill="${malha ? "none" : CHEIO}" fill-opacity="${malha ? 1 : 0.18}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linejoin="round"/>`;
+
+  // Rótulos no meio de cada lado, empurrados para FORA. A direção não pode
+  // vir do centroide: numa figura côncava (o L é o caso) o centroide fica do
+  // lado errado de alguns lados e o rótulo cai dentro da figura. Aqui a
+  // normal do lado é testada nos dois sentidos e fica a que sai do polígono.
+  const marcas = [];
+  rotulosLados.forEach((r, i) => {
+    if (!r) return;
+    const a = P[i], b = P[(i + 1) % P.length];
+    const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+    const [ux, uy] = normalizar(b, a);
+    const candidatos = [[uy, -ux], [-uy, ux]];
+    const fora = candidatos.find(([nx, ny]) => !dentroDoPoligono([mx + nx * 6, my + ny * 6], P)) ?? candidatos[0];
+    marcas.push({ texto: r, x: mx + fora[0] * 20, y: my + fora[1] * 20 });
+  });
+
+  // Num vértice côncavo as normais dos dois lados convergem e os rótulos se
+  // encavalam. Uma separação curta empurra os pares próximos para longe um do
+  // outro — é o bastante, porque a colisão só acontece aos pares.
+  for (let passe = 0; passe < 4; passe++) {
+    for (let i = 0; i < marcas.length; i++) {
+      for (let j = i + 1; j < marcas.length; j++) {
+        const dx = marcas[j].x - marcas[i].x, dy = marcas[j].y - marcas[i].y;
+        const dist = Math.hypot(dx, dy) || 0.01;
+        const minimo = (Math.max(marcas[i].texto.length, marcas[j].texto.length) * 7.2) / 2 + 14;
+        if (dist >= minimo) continue;
+        const empurra = (minimo - dist) / 2;
+        const ex = (dx / dist) * empurra, ey = (dy / dist) * empurra;
+        marcas[i].x -= ex; marcas[i].y -= ey;
+        marcas[j].x += ex; marcas[j].y += ey;
+      }
+    }
+  }
+  for (const marca of marcas) {
+    corpo += texto(marca.x, marca.y, esc(marca.texto), { tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Triângulo com a altura marcada ----------
+//
+// A altura é o que o aluno mais erra em área de triângulo: ele usa um lado
+// inclinado no lugar dela. Por isso a altura aparece tracejada, com o
+// quadradinho de ângulo reto na base — ela é sempre perpendicular.
+
+export function trianguloAltura({ base, altura, rotuloBase, rotuloAltura, apice = 0.35, rotulo = "" }) {
+  const escala = 26, m = 34;
+  const b = base * escala, h = altura * escala;
+  const larguraDesenho = b + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = h + m * 2 + (rotulo ? 22 : 0);
+  const x0 = (largura - b) / 2, y0 = m + h;
+  const xa = x0 + b * apice;
+  let corpo = "";
+
+  corpo += `<polygon points="${x0},${y0} ${x0 + b},${y0} ${xa},${m}" fill="${CHEIO}" fill-opacity="0.18" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  corpo += `<line x1="${xa}" y1="${m}" x2="${xa}" y2="${y0}" stroke="${TRACO}" stroke-width="2" stroke-dasharray="6 4"/>`;
+  corpo += `<path d="M ${xa + 13} ${y0} L ${xa + 13} ${y0 - 13} L ${xa} ${y0 - 13}" fill="none" stroke="${TRACO}" stroke-width="1.6"/>`;
+
+  if (rotuloBase) corpo += texto(x0 + b / 2, y0 + 20, esc(rotuloBase), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  if (rotuloAltura) corpo += texto(xa - 10, m + h / 2, esc(rotuloAltura), { tamanho: 13, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO });
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, alturaSvg, corpo);
 }

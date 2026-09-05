@@ -1,0 +1,41 @@
+{
+  "id": "porcentagem",
+  "titulo": "Porcentagem",
+  "ano": 6,
+  "descricao": "A fração de denominador 100 que está escondida em desconto, aumento, nota de prova e pesquisa eleitoral. Seis lições, da grade de cem quadradinhos até problemas de olimpíada — incluindo os atalhos que resolvem a conta de cabeça e a armadilha de achar que subir 20% e cair 20% devolve o preço original.",
+  "pergunta": "Por que o mundo inteiro combinou de comparar tudo usando o número 100?",
+  "videos": [
+    {
+      "id": "OjOyNmTt7Mw",
+      "titulo": "PORCENTAGEM | COMO CALCULAR PORCENTAGEM | \\Prof. Gis/ #01",
+      "canal": "Gis com Giz",
+      "descricao": "Retoma o conceito e o cálculo desde o começo, com muitos exemplos. Bom depois da lição 3, se a conta de 'porcentagem de um valor' ainda estiver custando."
+    },
+    {
+      "id": "ZeB4i1ns_ns",
+      "titulo": "Porcentagem, Acréscimo e Desconto - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Trata acréscimo e desconto lado a lado, que é exatamente o assunto da lição 5. Útil para ver mais casos de preço antes e depois."
+    },
+    {
+      "id": "1mmJUhH9sAA",
+      "titulo": "QUESTÕES DE  PORCENTAGEM | REAJUSTE E DESCONTO | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Uma aula inteira resolvendo questões de reajuste e desconto. É repetição deliberada: vale para quem quer treinar mais antes de encarar as questões da lição 5."
+    },
+    {
+      "id": "gnAIR_F_0aI",
+      "titulo": "Porcentagem- Resolução de situação problema - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Problemas em que a porcentagem está dentro de uma história, como os da lição 6. Bom para treinar a parte mais difícil: traduzir o enunciado antes de calcular."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e-porcentagem", "arquivo": "/dados/licoes/porcentagem/o-que-e-porcentagem.json" },
+    { "id": "converter", "arquivo": "/dados/licoes/porcentagem/converter.json" },
+    { "id": "calcular", "arquivo": "/dados/licoes/porcentagem/calcular.json" },
+    { "id": "mentalmente", "arquivo": "/dados/licoes/porcentagem/mentalmente.json" },
+    { "id": "desconto-aumento", "arquivo": "/dados/licoes/porcentagem/desconto-aumento.json" },
+    { "id": "parte-e-total", "arquivo": "/dados/licoes/porcentagem/parte-e-total.json" }
+  ]
+}

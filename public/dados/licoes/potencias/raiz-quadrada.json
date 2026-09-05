@@ -1,0 +1,230 @@
+{
+  "id": "raiz-quadrada",
+  "numero": 5,
+  "titulo": "Raiz quadrada exata",
+  "pergunta": "Se a área do quadrado é 144, quanto mede o lado?",
+  "ideia": {
+    "paragrafos": [
+      "Toda operação da matemática tem uma pergunta de volta. A soma tem a subtração, a multiplicação tem a divisão — e elevar ao quadrado tem a raiz quadrada. Se 7² = 49, então a raiz quadrada de 49 é 7. É a mesma informação lida ao contrário.",
+      "A leitura geométrica ajuda a nunca mais esquecer o que a raiz faz. Elevar ao quadrado é partir do lado e chegar na área. Tirar a raiz quadrada é partir da área e voltar para o lado. O símbolo √ pode ser lido como a pergunta: 'que número, multiplicado por ele mesmo, dá isto?'.",
+      "Para os quadrados perfeitos que você já conhece, é só reconhecer: √25 = 5, √81 = 9, √100 = 10. Vale a pena ter essa lista de cor, porque ela resolve a maioria dos casos na hora.",
+      "Quando o número é grande e não está na lista de cor, a decomposição em fatores primos resolve. Decomponha e forme pares iguais: cada par sai da raiz como um número só. Por exemplo, 324 = 2 × 2 × 3 × 3 × 3 × 3. Os pares são (2,2), (3,3) e (3,3), então saem um 2, um 3 e outro 3, e a raiz é 2 × 3 × 3 = 18.",
+      "Esse método também tem um efeito colateral útil: se sobrar algum fator sem par, o número não é quadrado perfeito e a raiz não é inteira. É um teste, e não só uma conta."
+    ],
+    "destaque": "Elevar ao quadrado vai do lado para a área. A raiz faz o caminho de volta.",
+    "imagem": "pot-ideia-raiz"
+  },
+  "resolvido": {
+    "enunciado": "Calcule a raiz quadrada de 144.",
+    "imagem": "pot-res-144",
+    "passos": [
+      {
+        "titulo": "Traduza a pergunta",
+        "explicacao": "Procuramos o número que, multiplicado por ele mesmo, dá 144. Dito de outro jeito: o lado de um quadrado cuja área é 144.",
+        "conta": "√144 = ? → ? × ? = 144"
+      },
+      {
+        "titulo": "Cerque antes de calcular",
+        "explicacao": "10 × 10 dá 100, que é pouco. 15 × 15 dá 225, que já passou. Então a resposta está entre 10 e 15 — e essa estimativa impede de aceitar um resultado absurdo mais adiante.",
+        "conta": "10² = 100 < 144 < 225 = 15²"
+      },
+      {
+        "titulo": "Decomponha em fatores primos",
+        "explicacao": "144 é par várias vezes seguidas, e o que sobra ainda quebra pelo 3. Este é o mesmo método das divisões sucessivas da matéria de divisibilidade.",
+        "conta": "144 = 2 × 2 × 2 × 2 × 3 × 3"
+      },
+      {
+        "titulo": "Forme pares iguais",
+        "explicacao": "Junte os fatores repetidos dois a dois. Cada par vira um único número que sai da raiz.",
+        "conta": "(2×2) (2×2) (3×3) → sai 2, 2 e 3"
+      },
+      {
+        "titulo": "Multiplique o que saiu",
+        "explicacao": "Nenhum fator ficou sem par, então 144 é quadrado perfeito e a raiz é inteira. O resultado cai dentro do cerco feito no começo.",
+        "conta": "2 × 2 × 3 = 12"
+      },
+      {
+        "titulo": "Confira ao contrário",
+        "explicacao": "A conferência de raiz é sempre a mesma: eleve o resultado ao quadrado e veja se volta ao número original.",
+        "conta": "12² = 144"
+      }
+    ],
+    "fecho": "Cercar antes e conferir depois custa dez segundos e elimina praticamente todo erro grosseiro de raiz."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale a raiz quadrada de 81? Digite apenas o número.",
+      "imagem": "pot-q-raiz-81",
+      "dica": "Procure o número que, multiplicado por ele mesmo, dá 81.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "40.5",
+          "porque": "40,5 é 81 dividido por 2. Raiz quadrada não é metade: é o número que multiplicado por ELE MESMO dá 81. Metade de 81 multiplicada por ela mesma daria mais de 1.600."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 × 8 é 64, não 81. Faltou um degrau: o próximo quadrado perfeito depois de 64 é 81, que é 9 × 9."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 9 × 2. Você achou o número certo e multiplicou por 2 sem precisar — a raiz de 81 é o próprio 9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Percorra os quadrados",
+          "explicacao": "Vá multiplicando cada inteiro por ele mesmo até bater no 81.",
+          "conta": "7² = 49 · 8² = 64 · 9² = 81"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Nove vezes nove volta exatamente ao número do enunciado, então a raiz é exata.",
+          "conta": "√81 = 9"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale a raiz quadrada de 64?",
+      "imagem": "pot-q-raiz-64",
+      "dica": "Que número multiplicado por ele mesmo dá 64? Teste os quadrados perfeitos.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "8"
+        },
+        {
+          "rotulo": "B",
+          "texto": "32"
+        },
+        {
+          "rotulo": "C",
+          "texto": "4"
+        },
+        {
+          "rotulo": "D",
+          "texto": "16"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "32",
+          "porque": "32 é metade de 64. Raiz quadrada não é dividir por 2 — repare que 32 × 32 daria 1.024, muito longe de 64."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 × 4 é 16, não 64. O 4 é a raiz QUARTA de 64, porque 4 × 4 × 4 = 64 usa três fatores. A raiz quadrada usa dois."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 × 16 é 256. Você provavelmente pensou em 64 ÷ 4. A pergunta é por um número que se multiplique por ele mesmo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste os quadrados",
+          "explicacao": "Vá subindo pelos quadrados perfeitos até bater no 64. Como a lista cresce rápido, poucos testes bastam.",
+          "conta": "6² = 36 · 7² = 49 · 8² = 64"
+        },
+        {
+          "titulo": "Confirme pela decomposição",
+          "explicacao": "64 é 2 multiplicado seis vezes. Formando três pares (2×2), sai um 2 de cada par.",
+          "conta": "64 = 2×2×2×2×2×2 → 2 × 2 × 2 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um quadrado tem área de 121 cm². Quantos centímetros mede o lado dele? Digite apenas o número.",
+      "imagem": "pot-q-area-121",
+      "dica": "Área de quadrado é lado × lado, então voltar da área para o lado é tirar a raiz quadrada.",
+      "formato": "numero",
+      "resposta": 11,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "30.25",
+          "porque": "30,25 é 121 dividido por 4, o que seria o caso se a área fosse a soma dos quatro lados. Área é lado × lado, e para voltar dela usamos a raiz."
+        },
+        {
+          "resposta": "60.5",
+          "porque": "60,5 é metade de 121. Metade não desfaz uma multiplicação de um número por ele mesmo."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 × 12 é 144, e não 121. O quadrado que dá 121 é o do 11 — vale conferir multiplicando de volta antes de responder."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza para raiz",
+          "explicacao": "Se lado × lado = 121, então o lado é a raiz quadrada de 121.",
+          "conta": "lado = √121"
+        },
+        {
+          "titulo": "Cerque",
+          "explicacao": "10² dá 100 e 12² dá 144, então o lado está entre 10 e 12. Sobrou testar o 11.",
+          "conta": "100 < 121 < 144"
+        },
+        {
+          "titulo": "Confirme",
+          "explicacao": "Onze vezes onze fecha exatamente com a área dada.",
+          "conta": "11 × 11 = 121 → lado = 11 cm"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quanto vale a raiz quadrada de 225? Digite apenas o número.",
+      "imagem": "pot-q-raiz-225",
+      "dica": "O número é grande demais para adivinhar. Decomponha em fatores primos e forme pares.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 × 25 é 625, bem acima de 225. O 25 aparece porque 225 termina em 25, mas o final do número não indica a raiz."
+        },
+        {
+          "resposta": "112.5",
+          "porque": "112,5 é metade de 225. Raiz quadrada nunca é metade — e daria para perceber na hora, porque 112,5 × 112,5 passa de doze mil."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 × 14 é 196, um pouco abaixo de 225. Você chegou bem perto: o degrau seguinte, 15 × 15, é que fecha certo."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é 225 ÷ 5. Dividir por 5 não desfaz um quadrado, e 45 × 45 daria 2.025."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Cerque primeiro",
+          "explicacao": "10² é 100 e 20² é 400, então a raiz está entre 10 e 20. Como 225 termina em 5, o candidato natural também termina em 5.",
+          "conta": "100 < 225 < 400"
+        },
+        {
+          "titulo": "Decomponha",
+          "explicacao": "225 é ímpar, então comece pelo 3: a soma dos algarismos é 9. Depois sobra o 25, que quebra em 5 × 5.",
+          "conta": "225 = 3 × 3 × 5 × 5"
+        },
+        {
+          "titulo": "Forme os pares",
+          "explicacao": "Há um par de 3 e um par de 5, e nenhum fator sobrou sozinho — sinal de que 225 é quadrado perfeito.",
+          "conta": "(3×3) (5×5) → sai 3 e 5"
+        },
+        {
+          "titulo": "Multiplique e confira",
+          "explicacao": "Três vezes cinco, e o resultado cai dentro do cerco feito no primeiro passo.",
+          "conta": "3 × 5 = 15 · 15² = 225"
+        }
+      ]
+    }
+  ]
+}

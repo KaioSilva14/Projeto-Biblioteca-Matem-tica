@@ -1,0 +1,220 @@
+{
+  "id": "multiplos-divisores",
+  "numero": 1,
+  "titulo": "Múltiplos e divisores",
+  "pergunta": "Por que duas palavras diferentes para o mesmo fato?",
+  "ideia": {
+    "paragrafos": [
+      "Pegue 12 bolinhas e tente arrumá-las num retângulo cheio, sem sobrar nenhuma e sem faltar lugar. Dá para fazer de três jeitos: uma fileira de 12, duas de 6, ou três de 4. Não existe um quarto jeito — cinco fileiras deixariam buracos, e sete também.",
+      "Os números que funcionam nessa brincadeira têm nome: são os divisores de 12. Divisor é o número que cabe uma quantidade inteira de vezes no outro, sem deixar resto. E olhando a mesma figura pelo lado de fora, dizemos que 12 é múltiplo de 3, de 4, de 6 — porque 12 é o que você obtém repetindo esses números.",
+      "Repare que não são dois fatos: é um fato só, lido de dois lugares. Sempre que 3 × 4 = 12, as duas frases nascem juntas — 3 e 4 são divisores de 12, e 12 é múltiplo de 3 e de 4. Trocar de palavra é só trocar de ponto de vista.",
+      "Há uma diferença importante entre os dois lados, e ela é prática. Os múltiplos de um número não acabam nunca: 3, 6, 9, 12, 15... você continua somando 3 para sempre. Já os divisores acabam, e acabam rápido: eles moram todos entre o 1 e o próprio número. Por isso dá para listar TODOS os divisores de um número, mas não todos os múltiplos."
+    ],
+    "destaque": "Divisor e múltiplo são o mesmo fato, lido de lados opostos.",
+    "imagem": "div-ideia-arranjos"
+  },
+  "resolvido": {
+    "enunciado": "Liste todos os divisores de 24, sem esquecer nenhum.",
+    "imagem": "div-res-24",
+    "passos": [
+      {
+        "titulo": "Procure aos pares, não um por um",
+        "explicacao": "Toda vez que você acha um divisor, ganha outro de brinde: o parceiro dele. Se 2 divide 24, então 24 ÷ 2 = 12 também divide. Caçar de par em par é o que impede de esquecer algum.",
+        "conta": "24 ÷ 2 = 12 → o par (2, 12)"
+      },
+      {
+        "titulo": "Comece do 1 e vá subindo",
+        "explicacao": "O 1 sempre divide, e o parceiro dele é o próprio número. Depois teste 2, 3, 4... na ordem, anotando o par sempre que a divisão for exata.",
+        "conta": "(1, 24) · (2, 12) · (3, 8) · (4, 6)"
+      },
+      {
+        "titulo": "Saiba onde parar",
+        "explicacao": "Teste o 5: 24 ÷ 5 não é exato, então 5 fica de fora. Teste o 6: ele divide, mas 6 já apareceu como parceiro do 4. Quando os dois números do par se cruzam, a lista acabou — daí para frente você só repetiria o que já tem.",
+        "conta": "5 não divide · 6 já está na lista → parou"
+      },
+      {
+        "titulo": "Junte tudo em ordem",
+        "explicacao": "Abra os pares e escreva do menor para o maior. Contar quantos são no fim é uma boa conferência.",
+        "conta": "1, 2, 3, 4, 6, 8, 12, 24 → são 8 divisores"
+      }
+    ],
+    "fecho": "Caçar divisores aos pares tem duas vantagens: você não esquece nenhum e sabe exatamente a hora de parar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma professora quer arrumar 18 cadeiras em fileiras com a mesma quantidade de cadeiras, sem sobrar nenhuma. Quais são TODOS os números de cadeiras que podem ficar em cada fileira?",
+      "imagem": "div-q-18-cadeiras",
+      "dica": "São os divisores de 18. Cace aos pares: comece em 1 × 18 e vá subindo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1, 2, 3, 6, 9 e 18" },
+        { "rotulo": "B", "texto": "1, 2, 3, 9 e 18" },
+        { "rotulo": "C", "texto": "1, 3, 9 e 18" },
+        { "rotulo": "D", "texto": "1, 2, 3, 4, 6, 9 e 18" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1, 2, 3, 9 e 18",
+          "porque": "Faltou o 6. Ele entra como parceiro do 3: se 3 divide 18, então 18 ÷ 3 = 6 também divide. É esse par esquecido que a caça em pares evita."
+        },
+        {
+          "resposta": "1, 3, 9 e 18",
+          "porque": "Você listou só os divisores ímpares. Mas 18 é par, então 2 divide, e junto com o 2 vem o parceiro 9. Faltaram o 2 e o 6."
+        },
+        {
+          "resposta": "1, 2, 3, 4, 6, 9 e 18",
+          "porque": "O 4 não cabe: 18 ÷ 4 dá 4 com resto 2. Quatro fileiras de 4 são 16 cadeiras e sobram 2 — e sobrar já elimina o candidato."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece pelo par de fora",
+          "explicacao": "Uma fileira só com as 18, ou 18 fileiras de 1. Esse par existe para qualquer número.",
+          "conta": "1 × 18"
+        },
+        {
+          "titulo": "Suba testando",
+          "explicacao": "2 divide 18 e o parceiro é 9. 3 divide e o parceiro é 6. O 4 e o 5 não dividem.",
+          "conta": "2 × 9 · 3 × 6"
+        },
+        {
+          "titulo": "Pare quando cruzar",
+          "explicacao": "O próximo candidato seria o 6, mas ele já apareceu como parceiro do 3. Os pares se cruzaram, então a lista está completa.",
+          "conta": "1, 2, 3, 6, 9, 18"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destes números NÃO é múltiplo de 7?",
+      "imagem": "div-q-multiplos-7",
+      "dica": "Múltiplo de 7 é resultado de 7 vezes um número inteiro. Continue a tabuada além do 35.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "63" },
+        { "rotulo": "B", "texto": "56" },
+        { "rotulo": "C", "texto": "68" },
+        { "rotulo": "D", "texto": "49" }
+      ],
+      "correta": 2,
+      "errosComuns": [
+        {
+          "resposta": "63",
+          "porque": "63 é múltiplo sim: 7 × 9 = 63. Um jeito rápido de ver é que 63 = 70 − 7, e tirar um 7 de um múltiplo de 7 dá outro múltiplo de 7."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 é múltiplo: 7 × 7 = 49. Ele é o quadrado do 7, o que às vezes confunde — mas ser quadrado não impede de ser múltiplo."
+        },
+        {
+          "resposta": "56",
+          "porque": "56 é múltiplo: 7 × 8 = 56. Se ajudar, 56 = 49 + 7, e somar 7 a um múltiplo de 7 dá o múltiplo seguinte."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Passe da tabuada conhecida",
+          "explicacao": "Depois de 35 vêm 42, 49, 56, 63, 70. Basta ir somando 7.",
+          "conta": "35, 42, 49, 56, 63, 70"
+        },
+        {
+          "titulo": "Compare com a lista",
+          "explicacao": "49, 56 e 63 aparecem na lista. O 68 fica entre 63 e 70, sem cair em nenhum degrau.",
+          "conta": "63 < 68 < 70"
+        },
+        {
+          "titulo": "Confirme dividindo",
+          "explicacao": "68 ÷ 7 dá 9 e sobram 5. Como sobra resto, 68 não é múltiplo de 7.",
+          "conta": "68 = 7 × 9 + 5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos divisores tem o número 36? Digite apenas a quantidade.",
+      "imagem": "div-q-pares-20",
+      "dica": "Cace aos pares, do 1 para cima. Atenção especial ao par em que os dois números são iguais.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "divisores",
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "Você provavelmente montou os pares (1,36), (2,18), (3,12), (4,9) e parou, esquecendo do 6. E o 6 é especial: 6 × 6 = 36, então ele é parceiro dele mesmo e entra uma vez só. É por isso que 36 tem uma quantidade ímpar de divisores."
+        },
+        {
+          "resposta": "10",
+          "porque": "Você chegou ao 6 mas contou ele duas vezes, uma para cada lado do par. Como 6 × 6 = 36, os dois lados são o mesmo número: ele conta uma vez."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é o número em questão, não a quantidade de divisores dele. A pergunta é quantos números diferentes dividem 36 sem deixar resto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte os pares",
+          "explicacao": "Testando do 1 para cima: 1 e 36, 2 e 18, 3 e 12, 4 e 9.",
+          "conta": "(1,36) (2,18) (3,12) (4,9)"
+        },
+        {
+          "titulo": "O par que se fecha sozinho",
+          "explicacao": "O 5 não divide. O 6 divide, e o parceiro dele é o próprio 6. Aqui os dois lados se encontraram, então a lista acabou e o 6 entra uma única vez.",
+          "conta": "6 × 6 = 36"
+        },
+        {
+          "titulo": "Conte",
+          "explicacao": "São quatro pares completos, que dão oito números, mais o 6 sozinho.",
+          "conta": "1, 2, 3, 4, 6, 9, 12, 18, 36 → 9 divisores"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sílvia e Renato vão fazer 60 biscoitos cada um. Eles começam a fazer os biscoitos ao mesmo tempo. A cada minuto Sílvia faz 5 biscoitos, enquanto Renato faz 3. Quantos biscoitos Renato ainda deverá fazer depois que Sílvia terminar sua tarefa?",
+      "imagem": "div-q-biscoitos",
+      "fonte": {
+        "prova": "OBMEP · 1ª Fase, Nível 1",
+        "ano": 2018,
+        "referencia": "Questão 6"
+      },
+      "dica": "Descubra primeiro em quantos minutos Sílvia termina. Nesse mesmo tempo, quantos Renato já fez?",
+      "formato": "numero",
+      "resposta": 24,
+      "unidade": "biscoitos",
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é quanto Renato JÁ FEZ quando Sílvia terminou, não quanto falta. A pergunta é o que ainda resta: 60 − 36."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o número de minutos que Sílvia levou, não uma quantidade de biscoitos. Esse 12 é só o meio do caminho — falta usá-lo para descobrir quantos Renato fez."
+        },
+        {
+          "resposta": "20",
+          "porque": "Parece que você dividiu 60 por 3 e achou 20, que é o tempo total de Renato em minutos. Mas a pergunta congela o relógio no minuto 12, quando Sílvia parou."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quando Sílvia termina?",
+          "explicacao": "Ela faz 5 por minuto e precisa de 60. Como a divisão é exata, ela termina num minuto redondo.",
+          "conta": "60 ÷ 5 = 12 minutos"
+        },
+        {
+          "titulo": "O que Renato fez nesse tempo",
+          "explicacao": "Renato fez 3 por minuto durante os mesmos 12 minutos. O total dele é um múltiplo de 3.",
+          "conta": "3 × 12 = 36 biscoitos"
+        },
+        {
+          "titulo": "Quanto ainda falta",
+          "explicacao": "A tarefa dele também é 60. Tire o que já saiu do forno.",
+          "conta": "60 − 36 = 24 biscoitos"
+        }
+      ]
+    }
+  ]
+}

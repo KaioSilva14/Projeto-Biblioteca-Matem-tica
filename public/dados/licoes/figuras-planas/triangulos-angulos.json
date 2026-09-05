@@ -1,0 +1,226 @@
+{
+  "id": "triangulos-angulos",
+  "numero": 3,
+  "titulo": "Triângulos pelos ângulos",
+  "pergunta": "Por que um triângulo nunca tem dois cantos abertos?",
+  "ideia": {
+    "paragrafos": [
+      "A segunda forma de classificar um triângulo olha para os cantos, e não para os lados. São três casos, e o nome de cada um vem do ângulo mais aberto que ele tem.",
+      "Acutângulo é o triângulo em que os TRÊS ângulos são agudos, ou seja, todos abaixo de 90°. Retângulo é o que tem um ângulo reto, de exatamente 90°. Obtusângulo é o que tem um ângulo obtuso, acima de 90°.",
+      "Repare que os nomes falam de UM ângulo, no singular, e isso não é descuido. Um triângulo nunca pode ter dois ângulos retos, nem dois obtusos, nem um de cada. O motivo você já viu na matéria de Ângulos: os três somam 180°. Dois ângulos de 90° já gastam tudo; dois obtusos passariam de 180° antes mesmo do terceiro entrar na conta.",
+      "Então todo triângulo tem no mínimo dois ângulos agudos, sempre. O que muda de caso para caso é só o terceiro: se ele também for agudo, o triângulo é acutângulo; se for reto, é retângulo; se for obtuso, é obtusângulo.",
+      "As duas classificações — por lados e por ângulos — são independentes e valem ao mesmo tempo. Um triângulo pode ser isósceles e retângulo, ou escaleno e obtusângulo. A única combinação impossível é equilátero com retângulo ou obtusângulo, porque no equilátero os três ângulos valem 60°."
+    ],
+    "destaque": "O nome vem do maior ângulo — e maior aberto só pode haver um.",
+    "imagem": "fig-ideia-tri-angulos"
+  },
+  "resolvido": {
+    "enunciado": "Classifique quanto aos ângulos os triângulos de ângulos 60-60-60, 90-45-45 e 100-50-30.",
+    "imagem": "fig-res-tri-angulos",
+    "passos": [
+      {
+        "titulo": "Confira se cada trio fecha 180°",
+        "explicacao": "Antes de classificar, some os três. Se não der 180°, o triângulo descrito não existe e não há o que nomear.",
+        "conta": "60+60+60 = 180 ✓ · 90+45+45 = 180 ✓ · 100+50+30 = 180 ✓"
+      },
+      {
+        "titulo": "Ache o maior ângulo de cada um",
+        "explicacao": "É ele que decide o nome. Os outros dois serão agudos de qualquer jeito.",
+        "conta": "maiores: 60° · 90° · 100°"
+      },
+      {
+        "titulo": "O de 60-60-60",
+        "explicacao": "O maior ângulo é 60°, que é agudo. Como o maior já é agudo, os outros dois também são — os três estão abaixo de 90°.",
+        "conta": "maior = 60° < 90° → acutângulo"
+      },
+      {
+        "titulo": "O de 90-45-45",
+        "explicacao": "Tem um ângulo de exatamente 90°, o que já dá o nome.",
+        "conta": "tem um ângulo de 90° → retângulo"
+      },
+      {
+        "titulo": "O de 100-50-30",
+        "explicacao": "O maior passa de 90° sem chegar a 180°, ou seja, é obtuso.",
+        "conta": "maior = 100° > 90° → obtusângulo"
+      }
+    ],
+    "fecho": "Olhe só para o maior ângulo. Se ele é agudo, reto ou obtuso, o triângulo leva o nome correspondente."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo tem ângulos de 30°, 60° e 90°. Como ele é classificado quanto aos ângulos?",
+      "imagem": "fig-q-tri-3060",
+      "dica": "Procure o maior dos três e veja como ele se compara com 90°.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Retângulo" },
+        { "rotulo": "B", "texto": "Acutângulo" },
+        { "rotulo": "C", "texto": "Obtusângulo" },
+        { "rotulo": "D", "texto": "Equilátero" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Acutângulo",
+          "porque": "Acutângulo exige os três ângulos abaixo de 90°. Aqui um deles é exatamente 90°, e a fronteira pertence ao caso do retângulo."
+        },
+        {
+          "resposta": "Obtusângulo",
+          "porque": "Obtusângulo precisa de um ângulo MAIOR que 90°. O maior aqui é exatamente 90°, sem passar."
+        },
+        {
+          "resposta": "Equilátero",
+          "porque": "Equilátero é classificação por LADOS, não por ângulos — e ele teria os três ângulos de 60°. Este triângulo tem ângulos diferentes entre si."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a soma",
+          "explicacao": "Os três precisam fechar 180° para o triângulo existir.",
+          "conta": "30 + 60 + 90 = 180 ✓"
+        },
+        {
+          "titulo": "Ache o maior",
+          "explicacao": "É o de 90°, exatamente na medida do ângulo reto.",
+          "conta": "maior = 90°"
+        },
+        {
+          "titulo": "Dê o nome",
+          "explicacao": "Ter um ângulo reto é a definição de triângulo retângulo. Repare que os outros dois somam 90° — eles são complementares, como acontece em todo retângulo.",
+          "conta": "30 + 60 = 90 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo tem ângulos de 20°, 40° e 120°. Como ele é classificado quanto aos ângulos?",
+      "imagem": "fig-q-tri-120",
+      "dica": "O maior ângulo passa de 90°?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Obtusângulo" },
+        { "rotulo": "B", "texto": "Retângulo" },
+        { "rotulo": "C", "texto": "Acutângulo" },
+        { "rotulo": "D", "texto": "Escaleno" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Retângulo",
+          "porque": "Retângulo precisa de um ângulo de exatamente 90°, e aqui não há nenhum: o maior é 120°, que passou disso."
+        },
+        {
+          "resposta": "Acutângulo",
+          "porque": "Acutângulo exige os três abaixo de 90°. O ângulo de 120° é obtuso e derruba essa condição sozinho."
+        },
+        {
+          "resposta": "Escaleno",
+          "porque": "Escaleno é a classificação pelos LADOS — e este triângulo é escaleno mesmo. Mas a pergunta é sobre os ângulos, e as duas classificações valem ao mesmo tempo sem se substituir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a soma",
+          "explicacao": "Sem os 180° não há triângulo para classificar.",
+          "conta": "20 + 40 + 120 = 180 ✓"
+        },
+        {
+          "titulo": "Compare o maior com 90°",
+          "explicacao": "O de 120° passa de 90° e não chega a 180°, então é obtuso.",
+          "conta": "90 < 120 < 180"
+        },
+        {
+          "titulo": "Dê o nome",
+          "explicacao": "Um ângulo obtuso faz o triângulo obtusângulo. E não poderia haver outro: 120 + 120 já passaria de 180.",
+          "conta": "obtusângulo"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num triângulo acutângulo, qual é o maior valor INTEIRO que um dos ângulos pode ter, em graus? Digite apenas o número.",
+      "imagem": "fig-q-acutangulo",
+      "dica": "Acutângulo exige todos os ângulos abaixo de 90°, sem incluir o 90.",
+      "formato": "numero",
+      "resposta": 89,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "90",
+          "porque": "90° é reto, e não agudo. Um triângulo com um ângulo de 90° passa a ser retângulo — a fronteira pertence ao outro caso."
+        },
+        {
+          "resposta": "180",
+          "porque": "180° é a soma dos TRÊS ângulos. Um único ângulo de 180° não deixaria nada para os outros dois e nem seria um canto."
+        },
+        {
+          "resposta": "60",
+          "porque": "60° é o valor de cada ângulo no triângulo equilátero, que é acutângulo. Mas ele não é o máximo: um acutângulo pode ter ângulos bem maiores, desde que todos fiquem abaixo de 90."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que 'acutângulo' exige",
+          "explicacao": "Os três ângulos precisam ser agudos, e agudo é estritamente menor que 90°.",
+          "conta": "todos < 90°"
+        },
+        {
+          "titulo": "O maior inteiro abaixo de 90",
+          "explicacao": "Como o 90 está fora, o maior valor inteiro permitido é o anterior.",
+          "conta": "89°"
+        },
+        {
+          "titulo": "Isso cabe num triângulo?",
+          "explicacao": "Cabe: com 89°, sobram 91° para dividir entre os outros dois, e dá para repartir mantendo os dois abaixo de 90 — por exemplo 46° e 45°.",
+          "conta": "89 + 46 + 45 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo pode ser equilátero e retângulo ao mesmo tempo?",
+      "imagem": "fig-q-equi-reto",
+      "dica": "Quanto mede cada ângulo de um triângulo equilátero? Algum deles chega a 90°?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque no equilátero os três ângulos medem 60°" },
+        { "rotulo": "B", "texto": "Sim, basta que os lados sejam iguais" },
+        { "rotulo": "C", "texto": "Sim, se ele for grande o suficiente" },
+        { "rotulo": "D", "texto": "Não, porque equilátero e retângulo são a mesma classificação" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, basta que os lados sejam iguais",
+          "porque": "Lados iguais forçam ângulos iguais, e três ângulos iguais que somam 180° só podem valer 60° cada. Nenhum chega a 90°, então o triângulo nunca será retângulo."
+        },
+        {
+          "resposta": "Sim, se ele for grande o suficiente",
+          "porque": "O tamanho não muda ângulo nenhum. Um equilátero minúsculo e um enorme têm exatamente os mesmos 60° em cada canto."
+        },
+        {
+          "resposta": "Não, porque equilátero e retângulo são a mesma classificação",
+          "porque": "São classificações DIFERENTES: equilátero fala dos lados e retângulo fala dos ângulos. Elas costumam valer ao mesmo tempo — isósceles e retângulo, por exemplo, combinam bem. É só esta combinação específica que é impossível."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache os ângulos do equilátero",
+          "explicacao": "Lados iguais implicam ângulos iguais, e três valores iguais que somam 180° valem um terço disso cada.",
+          "conta": "180 ÷ 3 = 60°"
+        },
+        {
+          "titulo": "Compare com o que o retângulo exige",
+          "explicacao": "Ser retângulo é ter um ângulo de exatamente 90°. No equilátero, o maior ângulo é 60°.",
+          "conta": "60° ≠ 90°"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Não existe brecha: todo equilátero é acutângulo, sempre. É a única combinação proibida entre as duas classificações.",
+          "conta": "equilátero → sempre acutângulo"
+        }
+      ]
+    }
+  ]
+}

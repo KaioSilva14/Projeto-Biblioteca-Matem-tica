@@ -1,0 +1,41 @@
+{
+  "id": "area",
+  "titulo": "Área",
+  "ano": 6,
+  "descricao": "Quanto espaço uma figura ocupa por dentro. Seis lições que começam contando quadradinhos na malha, mostram de onde vem cada fórmula — inclusive o dividido por 2 do triângulo — e terminam desarmando a armadilha mais comum de todas: 1 m² não é 100 cm², é dez mil.",
+  "pergunta": "Quantos quadradinhos cabem dentro de uma figura?",
+  "videos": [
+    {
+      "id": "aIKxhaxynJ8",
+      "titulo": "ÁREA DO RETÂNGULO | ÁREA DE FIGURAS PLANAS | MATEMÁTICA | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Retoma a área do retângulo com muitos exemplos. Bom depois da lição 2, se a fórmula ainda parecer uma regra decorada em vez da contagem por fileiras."
+    },
+    {
+      "id": "22LSwbJOS6Y",
+      "titulo": "Calcular ÁREA e PERÍMETRO na malha quadriculada - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Trabalha as duas medidas na malha, contando quadradinho a quadradinho. É o vídeo mais próximo do espírito da lição 1."
+    },
+    {
+      "id": "kPKWlkQJgbA",
+      "titulo": "Aula 16 - Área de figuras planas | Matemática 6º ano | Tempo de Estudar",
+      "canal": "MultiRio",
+      "descricao": "Uma aula completa de área de figuras planas, incluindo o triângulo. Complementa a lição 3 para quem quer ver a dedução de novo."
+    },
+    {
+      "id": "b9CQcu3N-so",
+      "titulo": "PERÍMETRO E ÁREA - 6º ANO",
+      "canal": "Professora Mari Calhau",
+      "descricao": "Trata as duas medidas juntas, com e sem malha. Útil para quem ainda troca uma pela outra na hora de resolver problema."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e-area", "arquivo": "/dados/licoes/area/o-que-e-area.json" },
+    { "id": "retangulo", "arquivo": "/dados/licoes/area/retangulo.json" },
+    { "id": "quadrado-triangulo", "arquivo": "/dados/licoes/area/quadrado-triangulo.json" },
+    { "id": "compostas", "arquivo": "/dados/licoes/area/compostas.json" },
+    { "id": "unidades", "arquivo": "/dados/licoes/area/unidades.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/area/problemas.json" }
+  ]
+}

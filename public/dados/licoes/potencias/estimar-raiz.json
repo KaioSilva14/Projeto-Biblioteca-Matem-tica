@@ -1,0 +1,233 @@
+{
+  "id": "estimar-raiz",
+  "numero": 6,
+  "titulo": "Estimar uma raiz que não é exata",
+  "pergunta": "E quando o número não é quadrado perfeito?",
+  "ideia": {
+    "paragrafos": [
+      "Quadrados perfeitos são a minoria. Entre 49 e 64 existem catorze números inteiros, e nenhum deles tem raiz quadrada inteira. Isso não é um beco sem saída: quase sempre o que se precisa não é o valor exato, e sim saber entre quais inteiros a raiz cai.",
+      "O método é espremer o número entre dois quadrados perfeitos vizinhos. Para √50, repare que 49 é 7² e 64 é 8². Como 50 está entre 49 e 64, a raiz de 50 está entre 7 e 8. E como 50 está quase colado no 49, a raiz é pouco maior que 7.",
+      "Essa segunda parte — para qual lado o número puxa — é o que transforma o cerco em estimativa. Compare as distâncias: de 50 até 49 há 1, e de 50 até 64 há 14. O número está muito mais perto do quadrado de baixo, então a raiz está muito mais perto do 7.",
+      "Estimar não é uma versão pobre de calcular. É o que permite dizer na hora se um resultado faz sentido: quem sabe que √50 fica entre 7 e 8 nunca vai aceitar 25 como resposta. Conferir a ordem de grandeza antes de confiar num número é um hábito que serve para o resto da matemática."
+    ],
+    "destaque": "Aperte o número entre dois quadrados perfeitos e o cerco se fecha sozinho.",
+    "imagem": "pot-ideia-espremer"
+  },
+  "resolvido": {
+    "enunciado": "Entre quais dois números inteiros está a raiz quadrada de 90? E de qual dos dois ela está mais perto?",
+    "imagem": "pot-res-90",
+    "passos": [
+      {
+        "titulo": "Procure o quadrado perfeito abaixo",
+        "explicacao": "Suba pela lista dos quadrados até passar do 90. O último que ainda cabe é o 81, que é 9 × 9.",
+        "conta": "81 = 9² · 81 < 90"
+      },
+      {
+        "titulo": "E o de cima",
+        "explicacao": "O quadrado seguinte é 100, que é 10 × 10 e já passou do 90.",
+        "conta": "100 = 10² · 90 < 100"
+      },
+      {
+        "titulo": "Feche o cerco",
+        "explicacao": "Como 90 está entre 81 e 100, a raiz de 90 está entre as raízes desses dois, ou seja, entre 9 e 10.",
+        "conta": "81 < 90 < 100 → 9 < √90 < 10"
+      },
+      {
+        "titulo": "Meça as distâncias",
+        "explicacao": "De 90 até 81 são 9. De 90 até 100 são 10. As duas distâncias são parecidas, mas a de baixo é um pouco menor.",
+        "conta": "90 − 81 = 9 · 100 − 90 = 10"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "Então a raiz de 90 fica entre 9 e 10, um pouco mais perto do 9 — quase no meio do caminho, puxando levemente para baixo.",
+        "conta": "√90 está entre 9 e 10, mais perto de 9"
+      }
+    ],
+    "fecho": "Sem calculadora e em poucos segundos, você já sabe o suficiente sobre √90 para não aceitar uma resposta absurda."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Entre quais dois números inteiros consecutivos está a raiz quadrada de 30?",
+      "imagem": "pot-q-raiz-30",
+      "dica": "Procure o maior quadrado perfeito abaixo de 30 e o menor acima dele.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Entre 5 e 6" },
+        { "rotulo": "B", "texto": "Entre 3 e 4" },
+        { "rotulo": "C", "texto": "Entre 6 e 7" },
+        { "rotulo": "D", "texto": "Entre 14 e 16" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Entre 3 e 4",
+          "porque": "3² é 9 e 4² é 16, e o 30 está bem acima dos dois. Se a raiz fosse menor que 4, o número teria que ser menor que 16."
+        },
+        {
+          "resposta": "Entre 6 e 7",
+          "porque": "6² já é 36, que passou do 30. Como 30 é menor que 36, a raiz tem que ser menor que 6 — o cerco fecha um degrau abaixo."
+        },
+        {
+          "resposta": "Entre 14 e 16",
+          "porque": "14 e 16 vêm de dividir 30 por 2, não de elevar ao quadrado. E 14 × 14 já daria 196, muito acima de 30."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Suba pelos quadrados",
+          "explicacao": "Multiplique cada inteiro por ele mesmo até ultrapassar o 30.",
+          "conta": "4² = 16 · 5² = 25 · 6² = 36"
+        },
+        {
+          "titulo": "Ache os vizinhos do 30",
+          "explicacao": "O 30 fica entre 25 e 36, que são os quadrados de 5 e de 6.",
+          "conta": "25 < 30 < 36"
+        },
+        {
+          "titulo": "Traduza para a raiz",
+          "explicacao": "Se o número está entre esses dois quadrados, a raiz dele está entre as duas bases.",
+          "conta": "5 < √30 < 6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o maior número inteiro cujo quadrado ainda é menor que 200? Digite apenas o número.",
+      "imagem": "pot-q-menor-200",
+      "dica": "Vá subindo os quadrados até passar de 200, e volte um degrau.",
+      "formato": "numero",
+      "resposta": 14,
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15² é 225, que já passou de 200. O enunciado pede o maior cujo quadrado ainda seja MENOR que 200, então o 15 fica de fora por 25."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é metade de 200. Mas 100 × 100 dá dez mil, cinquenta vezes maior que o limite pedido."
+        },
+        {
+          "resposta": "13",
+          "porque": "13² é 169, que é menor que 200 — mas não é o MAIOR possível. O 14 ainda cabe, porque 14² = 196."
+        },
+        {
+          "resposta": "196",
+          "porque": "196 é o quadrado, não o número que foi elevado. A pergunta é por qual inteiro foi elevado ao quadrado, e esse inteiro é o 14."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Suba os quadrados",
+          "explicacao": "Comece por volta de 12 e vá subindo, porque 10² = 100 já é claramente pouco.",
+          "conta": "12² = 144 · 13² = 169 · 14² = 196"
+        },
+        {
+          "titulo": "Passe do limite e volte um",
+          "explicacao": "O próximo é 15² = 225, que ultrapassa 200. Então o último que ainda cabe é o anterior.",
+          "conta": "196 < 200 < 225"
+        },
+        {
+          "titulo": "Responda",
+          "explicacao": "O maior inteiro com quadrado abaixo de 200 é o 14, com folga de apenas 4.",
+          "conta": "14² = 196 → resposta 14"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A raiz quadrada de 70 está mais perto de qual número inteiro?",
+      "imagem": "pot-q-raiz-70",
+      "dica": "Ache os dois quadrados perfeitos que cercam o 70 e compare as distâncias até cada um.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "8" },
+        { "rotulo": "B", "texto": "9" },
+        { "rotulo": "C", "texto": "7" },
+        { "rotulo": "D", "texto": "35" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9² é 81, e de 70 até 81 há 11 de distância. Já de 70 até 64 há só 6. O 70 está mais perto do quadrado de baixo, então a raiz está mais perto do 8."
+        },
+        {
+          "resposta": "7",
+          "porque": "7² é 49, que fica bem longe do 70 — a distância é de 21. O 8 é o vizinho mais próximo por baixo."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é metade de 70. Raiz quadrada não é metade: 35 × 35 daria 1.225."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Cerque o 70",
+          "explicacao": "Os quadrados vizinhos são 64, que é 8², e 81, que é 9².",
+          "conta": "64 < 70 < 81"
+        },
+        {
+          "titulo": "Meça as duas distâncias",
+          "explicacao": "É essa comparação que decide para qual lado a raiz puxa.",
+          "conta": "70 − 64 = 6 · 81 − 70 = 11"
+        },
+        {
+          "titulo": "Escolha o mais próximo",
+          "explicacao": "A distância até 64 é quase metade da distância até 81, então a raiz de 70 fica claramente mais perto do 8.",
+          "conta": "6 < 11 → mais perto de 8"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um quadrado tem área de 150 cm². Qual destes valores é a melhor estimativa, em centímetros, para o lado dele?",
+      "imagem": "pot-q-area-150",
+      "dica": "O lado é a raiz de 150. Cerque entre dois quadrados perfeitos e veja de qual o 150 está mais perto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "12 cm" },
+        { "rotulo": "B", "texto": "15 cm" },
+        { "rotulo": "C", "texto": "75 cm" },
+        { "rotulo": "D", "texto": "37,5 cm" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "15 cm",
+          "porque": "Um quadrado de lado 15 teria área 225, bem acima de 150. O 15 aparece porque 150 lembra 15, mas o zero muda tudo."
+        },
+        {
+          "resposta": "75 cm",
+          "porque": "75 é metade de 150. Um quadrado de lado 75 teria área de 5.625 cm² — trinta e sete vezes maior que a área dada."
+        },
+        {
+          "resposta": "37,5 cm",
+          "porque": "37,5 é 150 dividido por 4, o que valeria se a área fosse a soma dos quatro lados. Área é lado × lado, e desfazer isso é tirar a raiz."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O lado é a raiz da área",
+          "explicacao": "Como área de quadrado é lado × lado, voltar da área para o lado é tirar a raiz quadrada.",
+          "conta": "lado = √150"
+        },
+        {
+          "titulo": "Cerque",
+          "explicacao": "12² dá 144 e 13² dá 169, então o lado está entre 12 e 13 cm.",
+          "conta": "144 < 150 < 169"
+        },
+        {
+          "titulo": "Veja para que lado puxa",
+          "explicacao": "De 150 até 144 são só 6, enquanto até 169 são 19. O lado está bem mais perto de 12.",
+          "conta": "150 − 144 = 6 · 169 − 150 = 19"
+        },
+        {
+          "titulo": "Escolha entre as opções",
+          "explicacao": "Das alternativas, só o 12 cm cai perto do intervalo encontrado. As outras três dariam áreas muito maiores.",
+          "conta": "12² = 144 ≈ 150"
+        }
+      ]
+    }
+  ]
+}

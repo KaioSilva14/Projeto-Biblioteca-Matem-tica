@@ -1,0 +1,258 @@
+{
+  "id": "criterios",
+  "numero": 2,
+  "titulo": "Critérios de divisibilidade",
+  "pergunta": "Dá para saber se 4.128 é divisível por 3 sem fazer a divisão?",
+  "ideia": {
+    "paragrafos": [
+      "Dividir números grandes só para descobrir se a divisão é exata é trabalho jogado fora. Existem atalhos, e eles não são truques de mágica: cada um vem de uma propriedade do nosso jeito de escrever números.",
+      "Comece pelos mais fáceis. Para saber se um número é divisível por 2, por 5 ou por 10, basta olhar o último algarismo. O motivo é que toda dezena — 10, 20, 30, 400, 7.000 — já é divisível por 2, por 5 e por 10. Se o número inteiro fosse feito só de dezenas, estaria resolvido. O único pedaço que pode estragar a conta é a sobra das unidades. Por isso o último algarismo decide sozinho.",
+      "O critério do 3 e do 9 parece mais estranho, mas tem a mesma origem. Repare que 10 = 9 + 1, que 100 = 99 + 1 e que 1000 = 999 + 1. Então 435 = 4×99 + 3×9 + (4 + 3 + 5). Todos os pedaços com 9, 99 e 999 são divisíveis por 9 — e portanto também por 3. O que sobra para decidir é exatamente a soma dos algarismos.",
+      "O critério do 4 segue a mesma lógica um andar acima: 100 é divisível por 4, então centenas, milhares e tudo que vem depois já estão resolvidos. Só os dois últimos algarismos podem estragar. E o do 6 não é um critério novo: 6 = 2 × 3, então um número é divisível por 6 quando passa nos dois testes ao mesmo tempo."
+    ],
+    "destaque": "Os atalhos existem porque 10, 100 e 1.000 já são amigos de certos números.",
+    "imagem": "div-ideia-ordens"
+  },
+  "resolvido": {
+    "enunciado": "Por quais destes números 4.128 é divisível: 2, 3, 4, 5, 6, 9 ou 10?",
+    "imagem": "div-res-4128",
+    "passos": [
+      {
+        "titulo": "Os que dependem só do último algarismo",
+        "explicacao": "O número termina em 8. Oito é par, então passa no teste do 2. Mas não termina em 0 nem em 5, então não é divisível por 5; e não termina em 0, então não é divisível por 10.",
+        "conta": "termina em 8 → sim para 2 · não para 5 e 10"
+      },
+      {
+        "titulo": "Some os algarismos",
+        "explicacao": "Some 4 + 1 + 2 + 8 e olhe o resultado. Se der múltiplo de 3, o número é divisível por 3; se der múltiplo de 9, é divisível por 9.",
+        "conta": "4 + 1 + 2 + 8 = 15"
+      },
+      {
+        "titulo": "Leia a soma",
+        "explicacao": "15 é múltiplo de 3, então 4.128 é divisível por 3. Mas 15 não é múltiplo de 9 — entre 9 e 18 não há nenhum. Então não é divisível por 9.",
+        "conta": "15 = 3 × 5 → sim para 3 · não para 9"
+      },
+      {
+        "titulo": "Os dois últimos algarismos, e o 6 de brinde",
+        "explicacao": "Para o 4, olhe só o final: 28. Como 28 ÷ 4 = 7, passa. E o 6 não precisa de teste próprio: o número já passou no 2 e no 3, e isso basta.",
+        "conta": "28 ÷ 4 = 7 → sim para 4 · passou em 2 e 3 → sim para 6"
+      }
+    ],
+    "fecho": "4.128 é divisível por 2, 3, 4 e 6, e não é divisível por 5, 9 nem 10 — tudo isso sem fazer uma única divisão longa."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destes números é divisível por 3 mas NÃO é divisível por 9?",
+      "imagem": "div-q-soma-471",
+      "dica": "Some os algarismos de cada um. A soma decide os dois critérios de uma vez.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "123"
+        },
+        {
+          "rotulo": "B",
+          "texto": "234"
+        },
+        {
+          "rotulo": "C",
+          "texto": "405"
+        },
+        {
+          "rotulo": "D",
+          "texto": "918"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "234",
+          "porque": "A soma dos algarismos de 234 é 2 + 3 + 4 = 9. Nove é múltiplo de 9, então 234 passa nos DOIS testes — e a pergunta pede um número que falhe no do 9."
+        },
+        {
+          "resposta": "405",
+          "porque": "4 + 0 + 5 = 9. Assim como o 234, este número é divisível por 9 também. O zero no meio não muda nada: ele só não acrescenta nada à soma."
+        },
+        {
+          "resposta": "918",
+          "porque": "9 + 1 + 8 = 18, que é múltiplo de 9. Cuidado com a armadilha: uma soma grande não significa 'não é múltiplo de 9' — o que importa é se ela cai na tabuada do 9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os algarismos de cada candidato",
+          "explicacao": "É um cálculo curto e resolve os dois critérios ao mesmo tempo.",
+          "conta": "123 → 6 · 234 → 9 · 405 → 9 · 918 → 18"
+        },
+        {
+          "titulo": "Separe quem passa em cada teste",
+          "explicacao": "Todas as quatro somas são múltiplas de 3, então os quatro números são divisíveis por 3. A diferença está no 9.",
+          "conta": "6, 9, 9 e 18 são todos múltiplos de 3"
+        },
+        {
+          "titulo": "Ache o que falha no 9",
+          "explicacao": "Das somas, 9, 9 e 18 são múltiplos de 9. Só a soma 6 não é — e ela é a de 123.",
+          "conta": "123 ÷ 3 = 41 · 123 ÷ 9 não é exato"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "No número 2■6, o ■ é um algarismo que foi apagado. Qual algarismo deve entrar no lugar dele para que o número seja divisível por 9?",
+      "imagem": "div-q-algarismo-oculto",
+      "dica": "Some o que você já conhece e pergunte quanto falta para chegar no próximo múltiplo de 9.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "1"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0"
+        },
+        {
+          "rotulo": "C",
+          "texto": "4"
+        },
+        {
+          "rotulo": "D",
+          "texto": "7"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0",
+          "porque": "Com o 0, a soma fica 2 + 0 + 6 = 8. Oito não é múltiplo de 9 — falta exatamente 1 para chegar no 9, e é esse 1 que resolve."
+        },
+        {
+          "resposta": "4",
+          "porque": "Com o 4 a soma dá 12, que é múltiplo de 3 mas não de 9. Esse é o erro mais comum aqui: aplicar o critério do 3 quando a pergunta é sobre o 9."
+        },
+        {
+          "resposta": "7",
+          "porque": "Com o 7 a soma dá 15, também múltiplo de 3 e não de 9. Entre 9 e 18 não existe nenhum múltiplo de 9, então nem 12 nem 15 servem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some o que já se conhece",
+          "explicacao": "Os algarismos visíveis são o 2 das centenas e o 6 das unidades. Some só esses dois primeiro: o que faltar para completar um múltiplo de 9 é exatamente o algarismo apagado.",
+          "conta": "2 + 6 = 8"
+        },
+        {
+          "titulo": "Quanto falta para um múltiplo de 9?",
+          "explicacao": "O múltiplo de 9 mais próximo acima de 8 é o próprio 9. Falta 1.",
+          "conta": "9 − 8 = 1"
+        },
+        {
+          "titulo": "O próximo serviria?",
+          "explicacao": "Para chegar em 18 seria preciso somar 10, e 10 não é um algarismo. Então a única resposta possível é 1.",
+          "conta": "216 ÷ 9 = 24"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos números de 1 até 100 são divisíveis por 4? Digite apenas a quantidade.",
+      "imagem": "div-q-multiplos-4",
+      "dica": "O maior deles é 100. Quantos passos de 4 cabem de 0 até 100?",
+      "formato": "numero",
+      "resposta": 25,
+      "unidade": "números",
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "Você esqueceu do 100. Ele entra: 100 ÷ 4 = 25, divisão exata. Como o enunciado diz 'até 100', o 100 está incluído."
+        },
+        {
+          "resposta": "20",
+          "porque": "Parece que você dividiu 100 por 5 em vez de por 4. Cada múltiplo de 4 está a 4 passos do anterior, então o total é 100 ÷ 4."
+        },
+        {
+          "resposta": "26",
+          "porque": "Você contou um a mais, provavelmente incluindo o zero. O enunciado começa no 1, e o primeiro múltiplo de 4 nesse intervalo é o próprio 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quem são eles",
+          "explicacao": "São 4, 8, 12, 16... até o último que não passa de 100.",
+          "conta": "4, 8, 12, ..., 96, 100"
+        },
+        {
+          "titulo": "O último da lista",
+          "explicacao": "100 é divisível por 4, então ele é o último e entra na conta.",
+          "conta": "100 ÷ 4 = 25"
+        },
+        {
+          "titulo": "Contar sem listar",
+          "explicacao": "Como o primeiro é 4 × 1 e o último é 4 × 25, os multiplicadores vão de 1 a 25. São 25 números.",
+          "conta": "4×1, 4×2, ..., 4×25 → 25 números"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Em uma loja, os preços dos produtos terminam sempre em 99 centavos. Por exemplo, R$ 0,99, R$ 1,99, R$ 2,99, ... Juca pagou R$ 41,71 por uma compra nessa loja. Quantos produtos Juca comprou?",
+      "imagem": "div-q-99-centavos",
+      "fonte": {
+        "prova": "OBMEP · 1ª Fase, Nível 1",
+        "ano": 2018,
+        "referencia": "Questão 18"
+      },
+      "dica": "Todo preço é um número redondo de reais menos 1 centavo. Se ele comprou Q produtos, quantos centavos foram descontados no total?",
+      "formato": "numero",
+      "resposta": 29,
+      "unidade": "produtos",
+      "errosComuns": [
+        {
+          "resposta": "41",
+          "porque": "Você usou a parte inteira do valor pago. Mas o preço de cada produto não é R$ 1,00 — é um valor qualquer terminado em 99 centavos, então 41 reais não corresponde a 41 produtos."
+        },
+        {
+          "resposta": "42",
+          "porque": "Você deve ter arredondado R$ 41,71 para R$ 42,00 e dividido por 1. O caminho é outro: descobrir quantos centavos de desconto foram acumulados para o total terminar em 71."
+        },
+        {
+          "resposta": "71",
+          "porque": "71 é o número de centavos que sobrou, não a quantidade de produtos. Com 71 produtos o gasto mínimo já seria 71 × R$ 0,99 = R$ 70,29, muito acima do que Juca pagou."
+        },
+        {
+          "resposta": "129",
+          "porque": "129 também deixaria o total terminado em 71 centavos, e por isso aparece no raciocínio. Mas 129 produtos custariam no mínimo R$ 127,71 — bem mais que os R$ 41,71 pagos. Por isso só o 29 serve."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reescreva o preço de um produto",
+          "explicacao": "Qualquer valor terminado em 99 centavos é um número inteiro de reais menos um centavo. R$ 3,99 é R$ 4,00 − R$ 0,01.",
+          "conta": "R$ 3,99 = R$ 4,00 − R$ 0,01"
+        },
+        {
+          "titulo": "Some Q produtos",
+          "explicacao": "Se Juca levou Q produtos, ele pagou um número inteiro de reais menos Q centavos. Os centavos que aparecem no total vêm só desse desconto.",
+          "conta": "total = (inteiro de reais) − Q × R$ 0,01"
+        },
+        {
+          "titulo": "Quantos centavos foram descontados",
+          "explicacao": "O total terminou em 71 centavos. Para um valor inteiro cair em 71 centavos depois de perder Q centavos, é preciso ter perdido 29 centavos: 100 − 29 = 71. Ou seja, Q termina em 29.",
+          "conta": "R$ 42,00 − R$ 0,29 = R$ 41,71"
+        },
+        {
+          "titulo": "Elimine as outras possibilidades",
+          "explicacao": "Q poderia ser 29, 129, 229... Mas 129 produtos custariam pelo menos 129 × R$ 0,99 = R$ 127,71, muito acima do valor pago. Só sobra o 29.",
+          "conta": "29 × R$ 0,99 = R$ 28,71 ≤ R$ 41,71 < R$ 127,71"
+        },
+        {
+          "titulo": "Confira que fecha",
+          "explicacao": "Com 29 produtos, R$ 41,71 + R$ 0,29 = R$ 42,00, um valor inteiro de reais. Os R$ 42,00 se repartem entre os 29 produtos como preços redondos, e cada um perde 1 centavo na etiqueta.",
+          "conta": "R$ 41,71 + 29 × R$ 0,01 = R$ 42,00"
+        }
+      ]
+    }
+  ]
+}

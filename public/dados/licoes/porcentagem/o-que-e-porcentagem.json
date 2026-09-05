@@ -1,0 +1,220 @@
+{
+  "id": "o-que-e-porcentagem",
+  "numero": 1,
+  "titulo": "O que é porcentagem",
+  "pergunta": "Por que o mundo inteiro combinou de usar sempre o número 100?",
+  "ideia": {
+    "paragrafos": [
+      "'Por cento' quer dizer 'a cada cem'. Quando alguém diz que 30% dos alunos vão de ônibus, está dizendo que, a cada 100 alunos, 30 vão de ônibus. Escrito como fração, 30% é 30/100 — nada mais que isso.",
+      "Então porcentagem é uma fração com o denominador já combinado de antemão. E é justamente essa combinação que a torna útil. Compare: Ana acertou 40 de 50 questões, João acertou 17 de 20. Quem foi melhor? Olhando assim, ninguém sabe — os totais são diferentes. Mas se os dois forem convertidos para 'a cada cem', a resposta salta aos olhos.",
+      "É o mesmo problema das frações com denominadores diferentes, resolvido de um jeito definitivo: em vez de procurar um denominador comum a cada comparação, o mundo escolheu um só, para sempre, e ele é o 100. Por isso porcentagem aparece em desconto, em juros, em pesquisa eleitoral, em nota de prova.",
+      "A imagem mental que ajuda é um quadrado dividido em 100 quadradinhos. Cada quadradinho é 1%. O quadrado inteiro é 100%, ou seja, o todo. Metade dele é 50%. E dá para passar de 100%: se um preço dobra, ele virou 200% do que era — porcentagem não tem teto quando fala de aumento."
+    ],
+    "destaque": "Porcentagem é fração com o denominador já combinado: sempre 100.",
+    "imagem": "por-ideia-grade"
+  },
+  "resolvido": {
+    "enunciado": "Ana acertou 40 questões de uma prova de 50. João acertou 17 de uma prova de 20. Qual é a porcentagem de acerto de cada um, e quem foi melhor?",
+    "imagem": "por-res-cem",
+    "passos": [
+      {
+        "titulo": "Escreva cada resultado como fração",
+        "explicacao": "O que foi acertado vai em cima, o total de questões vai embaixo. Assim cada resultado vira um número que não depende do tamanho da prova.",
+        "conta": "Ana: 40/50 · João: 17/20"
+      },
+      {
+        "titulo": "Leve os dois para centésimos",
+        "explicacao": "Para transformar em porcentagem, o denominador tem que virar 100. No caso de Ana, 50 vira 100 multiplicando por 2 — e o de cima acompanha, senão a fração muda de valor.",
+        "conta": "40/50 = 80/100 → 80%"
+      },
+      {
+        "titulo": "Agora o de João",
+        "explicacao": "20 vira 100 multiplicando por 5. O 17 de cima também é multiplicado por 5.",
+        "conta": "17/20 = 85/100 → 85%"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Agora os dois estão na mesma régua e a comparação é direta. João acertou mais por cada cem questões, mesmo tendo acertado menos questões no total.",
+        "conta": "85% > 80% → João foi melhor"
+      }
+    ],
+    "fecho": "Repare no detalhe que engana: Ana acertou 40 e João acertou 17. Quem olha só a quantidade erra a comparação."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O quadrado da figura foi dividido em 100 quadradinhos iguais e alguns foram preenchidos. Que porcentagem do quadrado está preenchida?",
+      "imagem": "por-q-grade-25",
+      "dica": "Cada quadradinho vale 1%, porque o quadrado inteiro tem cem deles.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "25%" },
+        { "rotulo": "B", "texto": "2,5%" },
+        { "rotulo": "C", "texto": "75%" },
+        { "rotulo": "D", "texto": "250%" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2,5%",
+          "porque": "2,5% seriam dois quadradinhos e meio — quase nada da figura. Como cada quadradinho vale 1%, vinte e cinco deles valem 25%."
+        },
+        {
+          "resposta": "75%",
+          "porque": "75% é a parte que ficou VAZIA. A pergunta é sobre a parte preenchida, que é o pedaço menor."
+        },
+        {
+          "resposta": "250%",
+          "porque": "250% é duas vezes e meia o quadrado inteiro. Como a parte pintada é menor que a figura toda, a resposta tem que ser menor que 100%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto vale cada quadradinho",
+          "explicacao": "O quadrado inteiro é 100% e foi cortado em cem partes iguais, então cada parte vale exatamente 1%.",
+          "conta": "1 quadradinho = 1%"
+        },
+        {
+          "titulo": "Conte os preenchidos",
+          "explicacao": "São duas fileiras cheias de dez, mais meia fileira — ou seja, vinte e cinco quadradinhos.",
+          "conta": "25 quadradinhos = 25%"
+        },
+        {
+          "titulo": "Confira pela fração",
+          "explicacao": "Vinte e cinco de cem é 25/100, que simplificado dá um quarto. Bate com a figura: o pedaço pintado é mesmo um quarto do quadrado.",
+          "conta": "25/100 = 1/4 = 25%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Como se escreve 60% na forma de fração?",
+      "imagem": "por-q-fracao",
+      "dica": "'Por cento' significa 'a cada cem'. O número que acompanha o símbolo vai em cima.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "60/100" },
+        { "rotulo": "B", "texto": "6/100" },
+        { "rotulo": "C", "texto": "60/10" },
+        { "rotulo": "D", "texto": "100/60" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6/100",
+          "porque": "6/100 é 6%, dez vezes menos. O número que vem antes do símbolo % é o de cima inteiro, sem tirar o zero."
+        },
+        {
+          "resposta": "60/10",
+          "porque": "60/10 é 6 inteiros — seis vezes o todo. Porcentagem sempre usa 100 embaixo, porque 'por cento' quer dizer 'a cada cem'."
+        },
+        {
+          "resposta": "100/60",
+          "porque": "Você inverteu. O 100 é o total, então ele fica embaixo; o 60 é a parte, e vai em cima. Repare que 100/60 é maior que 1, mas 60% é menos que o todo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o símbolo",
+          "explicacao": "O sinal % é uma abreviação de 'a cada cem'. Ele já diz qual será o denominador.",
+          "conta": "60% = 60 a cada 100"
+        },
+        {
+          "titulo": "Monte a fração",
+          "explicacao": "A parte vai em cima, o total vai embaixo.",
+          "conta": "60/100"
+        },
+        {
+          "titulo": "Vale simplificar?",
+          "explicacao": "Dividindo os dois por 20, dá 3/5 — o mesmo número escrito menor. As duas escritas estão certas, mas a que mostra diretamente o 'por cento' é 60/100.",
+          "conta": "60/100 = 3/5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa caixa com 200 bombons, exatamente 100 são de morango. Que porcentagem dos bombons é de morango? Digite apenas o número.",
+      "imagem": "por-q-bombons",
+      "dica": "Cem de duzentos é exatamente metade. E metade corresponde a quantos por cento?",
+      "formato": "numero",
+      "resposta": 50,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "100",
+          "porque": "100 é a QUANTIDADE de bombons de morango, não a porcentagem. Se fosse 100%, todos os 200 bombons seriam de morango."
+        },
+        {
+          "resposta": "200",
+          "porque": "200 é o total de bombons da caixa. A porcentagem compara a parte com o total, e nunca é o próprio total."
+        },
+        {
+          "resposta": "2",
+          "porque": "Parece que você dividiu 200 por 100. A conta certa é comparar a parte com o todo: 100 de 200 é metade, e metade é 50%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva como fração",
+          "explicacao": "A parte de morango em cima, o total da caixa embaixo.",
+          "conta": "100/200"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "Dividindo os dois por 100, sobra 1/2 — ou seja, exatamente metade da caixa.",
+          "conta": "100/200 = 1/2"
+        },
+        {
+          "titulo": "Traduza para porcentagem",
+          "explicacao": "Metade de cem é cinquenta, então metade de qualquer coisa é 50%. Vale guardar: 1/2 e 50% são o mesmo número.",
+          "conta": "1/2 = 50/100 = 50%"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é maior: 40% ou 1/3?",
+      "imagem": "por-q-comparar",
+      "dica": "Coloque as duas no mesmo formato antes de decidir. Quanto é um terço em centésimos, mais ou menos?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "40%" },
+        { "rotulo": "B", "texto": "1/3" },
+        { "rotulo": "C", "texto": "São iguais" },
+        { "rotulo": "D", "texto": "Não dá para comparar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/3",
+          "porque": "Um terço é pouco mais de 33%, então fica abaixo de 40%. É comum achar que a fração é maior porque parece 'mais arredondada', mas o valor é menor."
+        },
+        {
+          "resposta": "São iguais",
+          "porque": "Não são: 1/3 daria 33,33...%, e 40% seria 4/10. Os dois estão perto, mas 40% é maior."
+        },
+        {
+          "resposta": "Não dá para comparar",
+          "porque": "Dá sim, e é exatamente para isso que a porcentagem existe. Basta colocar os dois no mesmo formato — em centésimos ou em decimal — e comparar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza 40%",
+          "explicacao": "Quarenta a cada cem, que em decimal é quatro décimos.",
+          "conta": "40% = 40/100 = 0,4"
+        },
+        {
+          "titulo": "Traduza 1/3",
+          "explicacao": "Um dividido por três dá 0,333... — um número que não fecha, mas que já dá para comparar nas primeiras casas.",
+          "conta": "1/3 = 0,333..."
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "0,4 é maior que 0,333. Em porcentagem, é 40% contra pouco mais de 33%.",
+          "conta": "0,4 > 0,333 → 40% é maior"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "id": "mentalmente",
+  "numero": 4,
+  "titulo": "Porcentagens de cabeça",
+  "pergunta": "Dá para calcular a gorjeta sem pegar o celular?",
+  "ideia": {
+    "paragrafos": [
+      "Algumas porcentagens aparecem tanto no dia a dia que vale ter o atalho na ponta da língua. Elas não exigem conta armada — só uma divisão simples.",
+      "Comece pelos três básicos. 10% é dividir por 10, o que significa andar com a vírgula uma casa para a esquerda: 10% de 450 é 45. 50% é a metade. E 1% é dividir por 100, andando duas casas.",
+      "Dos básicos saem os outros por combinação. 25% é metade de 50%, ou seja, metade da metade. 5% é metade de 10%. 20% é o dobro de 10%. 30% é três vezes 10%.",
+      "E as taxas 'quebradas' viram somas: 15% é 10% mais 5%. 35% é 30% mais 5%. 110% é o total inteiro mais 10% dele. Quebrar a taxa em pedaços fáceis é mais rápido e muito menos sujeito a erro do que multiplicar decimais de cabeça.",
+      "Isso não é truque de mágica nem substituto do método da lição anterior: é o mesmo cálculo, organizado numa ordem que a cabeça aguenta. E serve para uma coisa que a calculadora não faz — perceber na hora quando um desconto anunciado não fecha."
+    ],
+    "destaque": "10% é dividir por dez. Quase toda porcentagem se monta a partir daí.",
+    "imagem": "por-ideia-atalhos"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 35% de 60 sem armar nenhuma conta.",
+    "imagem": "por-res-35-60",
+    "passos": [
+      {
+        "titulo": "Comece pelos 10%",
+        "explicacao": "Dez por cento de 60 é 60 dividido por 10. Esse número vai ser a base de todo o resto da conta.",
+        "conta": "10% de 60 = 6"
+      },
+      {
+        "titulo": "Quebre a taxa em pedaços fáceis",
+        "explicacao": "Trinta e cinco por cento não é um dos atalhos, mas é a soma de dois deles: 30% mais 5%. Assim a conta some.",
+        "conta": "35% = 30% + 5%"
+      },
+      {
+        "titulo": "Monte cada pedaço",
+        "explicacao": "Trinta por cento são três vezes os dez por cento. E cinco por cento é a metade dos dez por cento.",
+        "conta": "30% = 6 × 3 = 18 · 5% = 6 ÷ 2 = 3"
+      },
+      {
+        "titulo": "Some os dois pedaços",
+        "explicacao": "Juntando os dois pedaços você tem os 35% completos, sem nunca ter multiplicado um decimal.",
+        "conta": "18 + 3 = 21"
+      },
+      {
+        "titulo": "Confira pelo caminho longo",
+        "explicacao": "Multiplicando a taxa em decimal pelo total, o resultado tem que bater. Vale fazer isso algumas vezes até confiar no atalho.",
+        "conta": "0,35 × 60 = 21"
+      }
+    ],
+    "fecho": "Quem sabe achar 10% e tirar metade dele resolve de cabeça quase toda porcentagem que aparece numa conta de restaurante."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto é 10% de 450? Digite apenas o número.",
+      "imagem": "por-q-10-450",
+      "dica": "Dez por cento é a décima parte. Ande com a vírgula uma casa para a esquerda.",
+      "formato": "numero",
+      "resposta": 45,
+      "errosComuns": [
+        {
+          "resposta": "4.5",
+          "porque": "4,5 é 1% de 450, com a vírgula andando duas casas. Para 10% ela anda só uma."
+        },
+        {
+          "resposta": "4500",
+          "porque": "4.500 é 450 × 10. A vírgula andou para o lado errado: 10% é uma parte pequena do total, então o resultado tem que diminuir."
+        },
+        {
+          "resposta": "440",
+          "porque": "440 é 450 menos 10. A taxa não é uma quantidade a subtrair — ela é uma fração do total."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Dez por cento é a décima parte",
+          "explicacao": "Dividir por 10 anda com a vírgula uma casa para a esquerda, então o último algarismo passa a ser decimal.",
+          "conta": "450 ÷ 10 = 45"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Se 45 é uma décima parte, dez delas têm que reconstruir o total.",
+          "conta": "45 × 10 = 450"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto é 25% de 80? Digite apenas o número.",
+      "imagem": "por-q-25-80",
+      "dica": "Vinte e cinco por cento é metade da metade. Divida por 2 duas vezes.",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é a metade de 80, ou seja, 50%. Faltou dividir por 2 de novo: 25% é metade de 50%."
+        },
+        {
+          "resposta": "2000",
+          "porque": "2.000 é 25 × 80, sem dividir por 100. O símbolo % já carrega essa divisão por cem."
+        },
+        {
+          "resposta": "3.2",
+          "porque": "3,2 sai de dividir 80 por 25. A taxa não divide o total: 25% de 80 é um quarto de 80."
+        },
+        {
+          "resposta": "55",
+          "porque": "55 é 80 menos 25. A taxa não é uma quantidade a ser tirada — ela precisa ser aplicada sobre o total."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Metade",
+          "explicacao": "Cinquenta por cento de 80 é a metade dele.",
+          "conta": "80 ÷ 2 = 40"
+        },
+        {
+          "titulo": "Metade de novo",
+          "explicacao": "Vinte e cinco por cento é metade de cinquenta por cento, então divida esse 40 por 2.",
+          "conta": "40 ÷ 2 = 20"
+        },
+        {
+          "titulo": "Confira pela fração",
+          "explicacao": "25% é um quarto, e um quarto de 80 é 80 dividido por 4. O resultado bate.",
+          "conta": "80 ÷ 4 = 20"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto é 15% de 200? Digite apenas o número.",
+      "imagem": "por-q-15-200",
+      "dica": "Quinze por cento é 10% mais 5%. Ache os 10% primeiro.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é 10% de 200. Falta somar os 5%, que valem a metade disso."
+        },
+        {
+          "resposta": "3000",
+          "porque": "3.000 é 15 × 200, sem dividir por 100. Daria para desconfiar na hora: o resultado ficou quinze vezes maior que o total."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 5% de 200, só a metade dos 10%. Você somou os pedaços na ordem errada ou parou no meio do caminho."
+        },
+        {
+          "resposta": "185",
+          "porque": "185 é 200 menos 15. Não há nada a subtrair aqui: a pergunta é só quanto vale a taxa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Dez por cento",
+          "explicacao": "Divida o total por 10. Esse número vira a peça com que todos os outros pedaços da taxa são montados.",
+          "conta": "200 ÷ 10 = 20"
+        },
+        {
+          "titulo": "Cinco por cento",
+          "explicacao": "É a metade dos dez por cento — nunca precisa de conta nova, só de dividir o resultado anterior por dois.",
+          "conta": "20 ÷ 2 = 10"
+        },
+        {
+          "titulo": "Some os dois pedaços",
+          "explicacao": "Dez por cento mais cinco por cento fecham os quinze por cento pedidos.",
+          "conta": "20 + 10 = 30"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma classe tem 22 alunos e 18 alunas. Durante as férias, 60% dos estudantes dessa classe foram prestar trabalho comunitário. No mínimo, quantas alunas participaram desse trabalho?",
+      "imagem": "por-q-comunitario",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 177 — Trabalho comunitário"
+      },
+      "dica": "Calcule quantos estudantes foram no total. Depois pense: para o número de alunas ser o MENOR possível, quantos alunos teriam ido?",
+      "formato": "numero",
+      "resposta": 2,
+      "unidade": "alunas",
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é o total de estudantes que participaram, contando alunos e alunas juntos. A pergunta é só quantas ALUNAS, e no mínimo."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é o número total de alunas da classe, participando ou não. O enunciado pede o mínimo que precisou participar, não quantas existem."
+        },
+        {
+          "resposta": "12",
+          "porque": "Parece que você calculou 60% só das 18 alunas. Mas os 60% valem sobre a classe inteira, e o enunciado ainda pede o mínimo possível."
+        },
+        {
+          "resposta": "10.8",
+          "porque": "10,8 é 60% de 18. Além de os 60% se aplicarem à classe toda, uma quantidade de pessoas nunca pode ser um número quebrado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o total da classe",
+          "explicacao": "A taxa vale sobre a classe inteira, então some alunos e alunas antes de qualquer coisa.",
+          "conta": "22 + 18 = 40 estudantes"
+        },
+        {
+          "titulo": "Calcule os 60%",
+          "explicacao": "Dez por cento de 40 são 4, então sessenta por cento são seis vezes isso.",
+          "conta": "4 × 6 = 24 participaram"
+        },
+        {
+          "titulo": "Como fazer o número de alunas ser o menor possível",
+          "explicacao": "Os 24 lugares são preenchidos por alunos e alunas. Quanto mais alunos participarem, menos alunas serão necessárias — então imagine que TODOS os 22 alunos foram.",
+          "conta": "no máximo 22 alunos"
+        },
+        {
+          "titulo": "O que sobra é o mínimo de alunas",
+          "explicacao": "Se 22 dos 24 lugares foram ocupados por alunos, sobram dois lugares, e eles só podem ser de alunas.",
+          "conta": "24 − 22 = 2 alunas"
+        }
+      ]
+    }
+  ]
+}

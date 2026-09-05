@@ -1,0 +1,196 @@
+{
+  "id": "retangulo",
+  "numero": 2,
+  "titulo": "Área do retângulo",
+  "pergunta": "Por que a área é base vezes altura?",
+  "ideia": {
+    "paragrafos": [
+      "Contar quadradinhos um por um funciona, mas fica insuportável quando a figura cresce. Num retângulo de 12 por 5 seriam 60 quadradinhos para contar — e a chance de errar a contagem é enorme.",
+      "O atalho vem direto da organização deles. Numa fileira cabem tantos quadradinhos quanto a base mede. E cabem tantas fileiras quanto a altura mede. Então o total é base multiplicada pela altura.",
+      "É importante ver que isso NÃO é uma regra nova: é a contagem por fileiras da lição anterior, escrita de forma curta. A fórmula A = base × altura é só o nome que a gente dá para essa organização.",
+      "E a fórmula funciona ao contrário também, que é onde ela fica mais útil. Se você conhece a área e um dos lados, divida para achar o outro. Um retângulo de área 48 cm² e base 8 cm tem altura de 48 ÷ 8 = 6 cm.",
+      "Um cuidado com as unidades: base e altura precisam estar na MESMA unidade antes de multiplicar. Se uma está em metros e a outra em centímetros, o resultado não significa nada. E o resultado sai sempre com o expoente 2: metros vezes metros dão metros quadrados."
+    ],
+    "destaque": "Base é quantos cabem por fileira; altura é quantas fileiras. Multiplique.",
+    "imagem": "are-ideia-retangulo"
+  },
+  "resolvido": {
+    "enunciado": "Um retângulo tem 12 cm de base e 5 cm de altura. Qual é a área dele?",
+    "imagem": "are-res-12-5",
+    "passos": [
+      {
+        "titulo": "Quantos por fileira",
+        "explicacao": "A base mede 12 cm, então cabem 12 quadradinhos de 1 cm lado a lado.",
+        "conta": "12 por fileira"
+      },
+      {
+        "titulo": "Quantas fileiras",
+        "explicacao": "A altura mede 5 cm, então são 5 fileiras empilhadas até o topo.",
+        "conta": "5 fileiras"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Cinco fileiras de doze quadradinhos cada. É mais rápido do que contar os sessenta um a um, e menos sujeito a erro.",
+        "conta": "12 × 5 = 60"
+      },
+      {
+        "titulo": "A unidade",
+        "explicacao": "Base e altura estavam em centímetros, então a área sai em centímetros quadrados.",
+        "conta": "área = 60 cm²"
+      },
+      {
+        "titulo": "Compare com o perímetro",
+        "explicacao": "O perímetro deste mesmo retângulo é 2 × (12 + 5) = 34 cm. Área 60 cm² e perímetro 34 cm são números diferentes e unidades diferentes — as duas medidas não se confundem.",
+        "conta": "área 60 cm² · perímetro 34 cm"
+      }
+    ],
+    "fecho": "A fórmula não é um atalho misterioso: é a contagem por fileiras, escrita em duas letras."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a área de um retângulo de 9 cm de base por 4 cm de altura, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-9-4",
+      "dica": "Base vezes altura — ou seja, quantos quadradinhos cabem por fileira vezes quantas fileiras existem.",
+      "formato": "numero",
+      "resposta": 36,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "26",
+          "porque": "26 é o PERÍMETRO: 2 × (9 + 4). Perímetro soma os lados e mede a borda; área multiplica base por altura e mede o miolo."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é 9 + 4, a soma de dois lados. Somar não conta quadradinhos: para isso é preciso multiplicar as fileiras pelo que cabe em cada uma."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 9 × 2, como se o retângulo tivesse só duas fileiras. A altura é 4 cm, então são quatro fileiras."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a fórmula",
+          "explicacao": "Nove quadradinhos por fileira, quatro fileiras. A fórmula A = base × altura é justamente essa contagem.",
+          "conta": "9 × 4 = 36"
+        },
+        {
+          "titulo": "A unidade",
+          "explicacao": "As duas medidas estavam em centímetros, então o resultado sai em centímetros quadrados — comprimento vezes comprimento.",
+          "conta": "36 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a área de um retângulo de 7 cm por 6 cm, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "are-q-7-6",
+      "dica": "Sete quadradinhos por fileira, seis fileiras.",
+      "formato": "numero",
+      "resposta": 42,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "26",
+          "porque": "26 é o perímetro: 2 × (7 + 6). Vale reparar que as duas medidas quase nunca coincidem, e nunca têm a mesma unidade."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é 7 + 6, a meia volta do retângulo. Área é multiplicação de base por altura, e não soma dos lados — somar responderia uma pergunta sobre o contorno."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 é 7 × 7, como se a figura fosse um quadrado de lado 7. A altura aqui é 6 cm, e não 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Sete por fileira, seis fileiras. Fazer 7 × 6 é a contagem organizada dos 42 quadradinhos.",
+          "conta": "7 × 6 = 42 cm²"
+        },
+        {
+          "titulo": "Confira estimando",
+          "explicacao": "O retângulo é quase um quadrado de lado 7, cuja área seria 49. Um pouco menos que isso faz sentido.",
+          "conta": "42 é pouco menos de 49 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um retângulo tem área de 48 cm² e base de 8 cm. Quanto mede a altura dele, em centímetros? Digite apenas o número.",
+      "imagem": "are-q-altura",
+      "dica": "Se área é base vezes altura, como se acha a altura tendo a área e a base?",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "384",
+          "porque": "384 é 48 × 8. Você multiplicou onde precisava dividir: a área já é o total de quadradinhos, então a altura é uma parte dela."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é 48 − 8. Área não é uma soma, então tirar a base dela não desfaz nada. O que desfaz uma multiplicação é a divisão."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 seria a altura se a área fosse 128. Vale conferir multiplicando de volta: 8 × 16 dá 128, e não 48."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o que se sabe",
+          "explicacao": "A área é base vezes altura, e você conhece a área e a base.",
+          "conta": "8 × altura = 48"
+        },
+        {
+          "titulo": "Desfaça a multiplicação",
+          "explicacao": "Dividir a área pela base devolve a altura — é a mesma ideia de achar uma parte a partir do total.",
+          "conta": "48 ÷ 8 = 6 cm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Multiplicando de volta tem que reaparecer a área do enunciado.",
+          "conta": "8 × 6 = 48 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma sala retangular mede 5 m por 4 m. Qual é a área do piso dela, em metros quadrados? Digite apenas o número.",
+      "imagem": "are-q-sala",
+      "dica": "Mesma fórmula, outra unidade. Metro vezes metro dá metro quadrado.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "m²",
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 é o PERÍMETRO da sala, em metros: 2 × (5 + 4). Ele responderia quanto rodapé comprar, e não quanto piso."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 5 + 4, a meia volta. Para cobrir o chão é preciso multiplicar: cinco quadrados de 1 m por fileira, quatro fileiras."
+        },
+        {
+          "resposta": "200000",
+          "porque": "200.000 é a área em CENTÍMETROS quadrados, convertendo antes de multiplicar. O enunciado pede em metros quadrados, então basta multiplicar as medidas em metros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A mesma contagem, outra unidade",
+          "explicacao": "Imagine o chão coberto por quadrados de 1 metro de lado. Cabem 5 numa fileira e há 4 fileiras.",
+          "conta": "5 por fileira · 4 fileiras"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cinco vezes quatro. Como as medidas estavam em metros, cada quadrado vale 1 m².",
+          "conta": "5 × 4 = 20 m²"
+        }
+      ]
+    }
+  ]
+}

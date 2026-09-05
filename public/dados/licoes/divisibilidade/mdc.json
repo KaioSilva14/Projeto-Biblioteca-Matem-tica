@@ -1,0 +1,244 @@
+{
+  "id": "mdc",
+  "numero": 5,
+  "titulo": "Máximo divisor comum",
+  "pergunta": "Qual é o maior pedaço que serve para os dois ao mesmo tempo?",
+  "ideia": {
+    "paragrafos": [
+      "Você tem uma fita de 20 cm e outra de 30 cm e quer cortar as duas em pedaços do mesmo tamanho, sem sobrar nada. Qual é o maior tamanho possível para esses pedaços?",
+      "O tamanho do pedaço precisa dividir 20 — senão sobra fita na primeira — e precisa dividir 30, pela mesma razão. Ou seja, ele tem que ser divisor dos dois. Os divisores comuns de 20 e 30 são 1, 2, 5 e 10, e o maior deles é o 10. Esse é o máximo divisor comum, escrito MDC(20, 30) = 10.",
+      "O jeito mais direto de achar é o que acabamos de fazer: listar os divisores dos dois, ver quais aparecem nas duas listas e pegar o maior. Funciona sempre e é honesto — só fica lento quando os números crescem.",
+      "Com a decomposição em fatores primos fica mais rápido. Escreva os dois números como produto de primos e fique com os primos que aparecem nos DOIS, cada um na menor quantidade de vezes em que apareceu. É natural: um fator só serve para os dois enquanto tem estoque nos dois.",
+      "Quando o MDC de dois números é 1, eles não têm nenhum divisor em comum além do 1 e se chamam primos entre si. Repare que nenhum dos dois precisa ser primo — 8 e 15 são compostos e mesmo assim são primos entre si, porque não compartilham nenhum fator."
+    ],
+    "destaque": "O MDC é o maior pedaço que serve para os dois ao mesmo tempo.",
+    "imagem": "div-ideia-mdc"
+  },
+  "resolvido": {
+    "enunciado": "Calcule o MDC de 48 e 36.",
+    "imagem": "div-res-mdc-listas",
+    "passos": [
+      {
+        "titulo": "Liste os divisores de cada um",
+        "explicacao": "Cace aos pares, como na primeira lição, para não esquecer nenhum.",
+        "conta": "48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48"
+      },
+      {
+        "titulo": "Agora os do 36",
+        "explicacao": "Mesmo método. Lembre que 36 é quadrado, então o 6 é parceiro dele mesmo e aparece uma vez só.",
+        "conta": "36: 1, 2, 3, 4, 6, 9, 12, 18, 36"
+      },
+      {
+        "titulo": "Marque os que estão nas duas listas",
+        "explicacao": "Compare item a item. Os que aparecem nos dois lados são os divisores comuns.",
+        "conta": "comuns: 1, 2, 3, 4, 6, 12"
+      },
+      {
+        "titulo": "Pegue o maior",
+        "explicacao": "O maior dos divisores comuns é o 12. Então o maior pedaço que corta 48 e 36 sem sobra mede 12.",
+        "conta": "MDC(48, 36) = 12"
+      },
+      {
+        "titulo": "Confira pelo outro caminho",
+        "explicacao": "Pelas decomposições: 48 = 2×2×2×2×3 e 36 = 2×2×3×3. O 2 aparece quatro vezes num e duas no outro — vale o menor, duas. O 3 aparece uma vez num e duas no outro — vale uma.",
+        "conta": "2 × 2 × 3 = 12"
+      }
+    ],
+    "fecho": "Os dois caminhos dão o mesmo número, como tinha que ser. A lista é mais segura quando os números são pequenos; a decomposição, quando eles crescem."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o MDC de 12 e 18? Digite apenas o número.",
+      "imagem": "div-q-mdc-8-12",
+      "dica": "Liste os divisores dos dois e procure o maior que aparece nas duas listas.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é o MENOR MÚLTIPLO comum de 12 e 18, não o maior divisor comum. Um divisor comum nunca pode ser maior que os próprios números — ele tem que caber dentro dos dois."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é divisor comum, mas não é o maior. O 6 também divide os dois: 12 ÷ 6 = 2 e 18 ÷ 6 = 3. A palavra 'máximo' pede o maior de todos."
+        },
+        {
+          "resposta": "3",
+          "porque": "Mesma coisa do 2: o 3 divide os dois, mas o 6 também divide e é maior. Repare que 6 = 2 × 3 — quando dois divisores comuns não têm fator em comum entre si, o produto deles também é divisor comum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divisores de 12",
+          "explicacao": "Cace aos pares, como na primeira lição: (1, 12), (2, 6) e (3, 4). O próximo candidato seria o 4, que já apareceu — sinal de que a lista fechou.",
+          "conta": "1, 2, 3, 4, 6, 12"
+        },
+        {
+          "titulo": "Divisores de 18",
+          "explicacao": "Mesmo método: (1, 18), (2, 9) e (3, 6). O 4 e o 5 não dividem 18, e o 6 já entrou como parceiro do 3, então acabou.",
+          "conta": "1, 2, 3, 6, 9, 18"
+        },
+        {
+          "titulo": "Os comuns, e o maior deles",
+          "explicacao": "Aparecem nas duas listas o 1, o 2, o 3 e o 6.",
+          "conta": "MDC(12, 18) = 6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma fita de 30 cm e outra de 45 cm serão cortadas em pedaços iguais, do maior tamanho possível, sem sobrar nada de nenhuma das duas. Quantos centímetros terá cada pedaço?",
+      "imagem": "div-q-fitas",
+      "dica": "O tamanho do pedaço precisa dividir 30 e dividir 45 ao mesmo tempo — e você quer o maior que consiga isso.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "Com pedaços de 5 cm realmente não sobra nada, mas não é o maior tamanho possível: 15 cm também corta as duas fitas certinho e dá pedaços três vezes maiores."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 é o menor múltiplo comum de 30 e 45 — serve para responder 'qual o menor comprimento que dá para montar com as duas', não 'qual o maior pedaço'. Um pedaço de 90 cm nem caberia na fita de 30."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 divide as duas fitas, mas está longe de ser o maior. Tanto o 5 quanto o 15 também dividem, e 15 é o limite."
+        },
+        {
+          "resposta": "75",
+          "porque": "75 é a soma de 30 com 45. Somar os comprimentos não responde nada aqui — a pergunta é sobre o tamanho do corte, que precisa caber dentro de cada fita."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o problema",
+          "explicacao": "O tamanho do pedaço tem que ser divisor de 30 e de 45, e a palavra 'maior' pede o máximo. É exatamente o MDC.",
+          "conta": "pedaço = MDC(30, 45)"
+        },
+        {
+          "titulo": "Liste os divisores",
+          "explicacao": "30 e 45 têm listas curtas, dá para escrever inteiras.",
+          "conta": "30: 1,2,3,5,6,10,15,30 · 45: 1,3,5,9,15,45"
+        },
+        {
+          "titulo": "Pegue o maior comum",
+          "explicacao": "Compare as duas colunas e separe quem aparece nas duas: 1, 3, 5 e 15. Desses, o maior é o 15 — e é ele que dá o corte mais econômico, com o menor número de pedaços em cada fita.",
+          "conta": "MDC(30, 45) = 15"
+        },
+        {
+          "titulo": "Confira que fecha",
+          "explicacao": "A fita de 30 dá 2 pedaços e a de 45 dá 3, sem sobra nenhuma nas duas.",
+          "conta": "30 ÷ 15 = 2 · 45 ÷ 15 = 3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Dois números são chamados primos entre si quando o MDC deles é 1. Qual destes pares é formado por números primos entre si?",
+      "imagem": "div-q-primos-entre-si",
+      "dica": "Procure o par que não compartilha NENHUM fator: nem 2, nem 3, nem 5.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "8 e 15"
+        },
+        {
+          "rotulo": "B",
+          "texto": "6 e 9"
+        },
+        {
+          "rotulo": "C",
+          "texto": "10 e 15"
+        },
+        {
+          "rotulo": "D",
+          "texto": "12 e 18"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6 e 9",
+          "porque": "Os dois são divisíveis por 3, então MDC(6, 9) = 3, não 1. Um jeito rápido de ver: as somas dos algarismos, 6 e 9, são as dos próprios números, e ambas são múltiplas de 3."
+        },
+        {
+          "resposta": "10 e 15",
+          "porque": "Os dois terminam em 0 ou 5, então os dois são divisíveis por 5. MDC(10, 15) = 5."
+        },
+        {
+          "resposta": "12 e 18",
+          "porque": "Este par compartilha bastante: os dois são pares e os dois são múltiplos de 3. O MDC é 6, o mesmo da primeira questão desta lição."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decomponha cada par",
+          "explicacao": "Fica fácil de ver quem compartilha o quê.",
+          "conta": "8 = 2×2×2 · 15 = 3×5 · 6 = 2×3 · 9 = 3×3"
+        },
+        {
+          "titulo": "Procure fator repetido entre os dois lados",
+          "explicacao": "6 e 9 dividem o 3. 10 e 15 dividem o 5. 12 e 18 dividem o 2 e o 3.",
+          "conta": "MDC: 3 · 5 · 6"
+        },
+        {
+          "titulo": "O par que não compartilha nada",
+          "explicacao": "8 só tem o fator 2; 15 só tem 3 e 5. Não existe primo nos dois ao mesmo tempo.",
+          "conta": "MDC(8, 15) = 1"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Para simplificar a fração 72/120 até o menor termo de uma vez só, por qual número devemos dividir o de cima e o de baixo?",
+      "imagem": "div-q-fatorar-72",
+      "dica": "Você quer o maior número que divide 72 e 120 ao mesmo tempo — senão a fração ainda dá para simplificar mais.",
+      "formato": "numero",
+      "resposta": 24,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Dividir por 2 funciona, mas não termina o serviço: 72/120 vira 36/60, que ainda dá para simplificar bastante. O enunciado pede o número que resolve de uma vez."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 divide os dois, mas 72/120 viraria 6/10 — e 6/10 ainda simplifica por 2. Faltou perceber que o MDC é o dobro disso."
+        },
+        {
+          "resposta": "8",
+          "porque": "Com o 8 a fração vira 9/15, que ainda simplifica por 3. O 8 pegou só os fatores 2 e deixou o 3 para trás."
+        },
+        {
+          "resposta": "48",
+          "porque": "48 divide o 72? Não: 72 ÷ 48 = 1,5. Um divisor comum não pode ser maior que o menor dos dois números na hora de dividir exato."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O número procurado é o MDC",
+          "explicacao": "Simplificar de uma vez só é dividir pelo maior divisor comum. Qualquer coisa menor deixa serviço pela metade.",
+          "conta": "MDC(72, 120)"
+        },
+        {
+          "titulo": "Decomponha os dois",
+          "explicacao": "72 é par três vezes e sobra 9; 120 é par três vezes e sobra 15.",
+          "conta": "72 = 2×2×2×3×3 · 120 = 2×2×2×3×5"
+        },
+        {
+          "titulo": "Fique com o que há nos dois",
+          "explicacao": "O 2 aparece três vezes nos dois, então entram três 2. O 3 aparece duas vezes num e uma no outro: vale a menor quantidade, uma. O 5 só existe no 120, então fica fora.",
+          "conta": "2 × 2 × 2 × 3 = 24"
+        },
+        {
+          "titulo": "Confira o resultado da simplificação",
+          "explicacao": "Dividindo em cima e embaixo por 24 a fração chega ao menor termo, e 3 e 5 não têm mais nada em comum.",
+          "conta": "72 ÷ 24 = 3 · 120 ÷ 24 = 5 → 3/5"
+        }
+      ]
+    }
+  ]
+}

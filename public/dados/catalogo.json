@@ -23,43 +23,50 @@
           "id": "divisibilidade",
           "titulo": "Divisibilidade e primos",
           "resumo": "Múltiplos, divisores, números primos, MDC e MMC — e para que servem.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/divisibilidade.json"
         },
         {
           "id": "potencias",
           "titulo": "Potências e raiz quadrada",
           "resumo": "Multiplicar um número por ele mesmo, e o caminho de volta.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/potencias.json"
         },
         {
           "id": "porcentagem",
           "titulo": "Porcentagem",
           "resumo": "Desconto, aumento e a fração de denominador 100 escondida em tudo.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/porcentagem.json"
         },
         {
           "id": "angulos",
           "titulo": "Ângulos",
           "resumo": "Medir giro: agudo, reto, obtuso, e como usar o transferidor.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/angulos.json"
         },
         {
           "id": "figuras-planas",
           "titulo": "Figuras planas",
           "resumo": "Polígonos, triângulos e quadriláteros: como reconhecer e nomear.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/figuras-planas.json"
         },
         {
           "id": "perimetro",
           "titulo": "Perímetro",
           "resumo": "O contorno de uma figura, e por que ele não diz nada sobre a área.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/perimetro.json"
         },
         {
           "id": "area",
           "titulo": "Área",
           "resumo": "Quanto espaço uma figura ocupa, do quadradinho até a fórmula.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/area.json"
         },
         {
           "id": "solidos-volume",

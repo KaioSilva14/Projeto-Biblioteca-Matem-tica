@@ -1,0 +1,215 @@
+{
+  "id": "complementar-suplementar",
+  "numero": 4,
+  "titulo": "Ângulos que se completam",
+  "pergunta": "Se um ângulo mede 35°, quanto falta para fechar o canto? E para fechar a reta?",
+  "ideia": {
+    "paragrafos": [
+      "Dois ângulos que, juntos, fecham exatamente um ângulo reto são chamados de complementares. Como o reto vale 90°, isso quer dizer que a soma dos dois é 90°. O complemento de 35°, por exemplo, é 55° — porque 35 + 55 fecha o canto.",
+      "Dois ângulos que juntos fecham a meia volta são chamados de suplementares, e a soma deles é 180°. O suplemento de 35° é 145°.",
+      "As palavras ajudam a não trocar: complementar vem de completar o CANTO (90°); suplementar vem de completar a linha reta (180°). Se a lembrança falhar, o desenho resolve — basta imaginar se o que falta fecha um esquadro ou uma reta.",
+      "A situação em que isso mais aparece é uma semirreta saindo de uma linha reta. Ela parte a meia volta em dois pedaços, e por isso esses dois ângulos são sempre suplementares. Não é uma coincidência do exercício: é o que acontece toda vez que algo se apoia numa reta.",
+      "E como toda conta de ângulo aqui é uma subtração simples, vale sempre conferir somando de volta. Se você achou que o suplemento de 115° é 65°, some: 115 + 65 = 180. Fechou, está certo."
+    ],
+    "destaque": "Complementar fecha o canto (90°). Suplementar fecha a reta (180°).",
+    "imagem": "ang-ideia-comp"
+  },
+  "resolvido": {
+    "enunciado": "Um ângulo mede 35°. Qual é o complemento dele? E o suplemento?",
+    "imagem": "ang-res-35",
+    "passos": [
+      {
+        "titulo": "Complemento: quanto falta para 90°",
+        "explicacao": "O complemento é o pedaço que falta para completar o ângulo reto. Então é uma subtração a partir de 90.",
+        "conta": "90° − 35° = 55°"
+      },
+      {
+        "titulo": "Confira somando",
+        "explicacao": "Os dois juntos têm que fechar exatamente o canto. Somar de volta é a conferência mais rápida que existe.",
+        "conta": "35° + 55° = 90°"
+      },
+      {
+        "titulo": "Suplemento: quanto falta para 180°",
+        "explicacao": "O suplemento é o pedaço que falta para completar a meia volta, então a subtração parte de 180.",
+        "conta": "180° − 35° = 145°"
+      },
+      {
+        "titulo": "Confira de novo",
+        "explicacao": "Somando os dois tem que dar a meia volta. Repare que o suplemento é sempre 90° maior que o complemento do mesmo ângulo — porque a diferença entre 180 e 90 é essa.",
+        "conta": "35° + 145° = 180° · 145 − 55 = 90"
+      }
+    ],
+    "fecho": "Ângulo pequeno tem complemento grande e suplemento maior ainda. Se a sua resposta não seguir esse padrão, refaça."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o complemento de um ângulo de 20°? Digite apenas o número.",
+      "imagem": "ang-q-comp20",
+      "dica": "Complemento fecha o canto. Quanto falta de 20 até 90?",
+      "formato": "numero",
+      "resposta": 70,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "160",
+          "porque": "160 é o SUPLEMENTO de 20°, ou seja, o que falta para fechar a meia volta. O complemento parte de 90, e não de 180."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é o próprio ângulo do enunciado. O complemento é o outro pedaço, o que ainda falta para completar o ângulo reto."
+        },
+        {
+          "resposta": "110",
+          "porque": "110 é 90 + 20 em vez de 90 − 20. Complemento é o que FALTA, então a conta é uma subtração."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "De onde partir",
+          "explicacao": "Complementares somam 90°, porque juntos fecham um ângulo reto.",
+          "conta": "complemento = 90° − ângulo"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Tire os 20° que já existem do total de 90°.",
+          "conta": "90 − 20 = 70°"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Os dois juntos precisam fechar o canto exato.",
+          "conta": "20 + 70 = 90 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o suplemento de um ângulo de 115°? Digite apenas o número.",
+      "imagem": "ang-q-sup115",
+      "dica": "Suplemento fecha a reta. Quanto falta de 115 até 180?",
+      "formato": "numero",
+      "resposta": 65,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "295",
+          "porque": "295 é 180 + 115. Suplemento é o que FALTA para chegar a 180, então a conta é 180 menos o ângulo."
+        },
+        {
+          "resposta": "25",
+          "porque": "Parece que a conta partiu de 90 em vez de 180 — e 90 − 115 nem seria possível, porque daria negativo. Um ângulo de 115° já passou do reto, então ele não tem complemento; só suplemento."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 daria se o total fosse 160. A meia volta vale 180°, então a subtração é 180 − 115."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "De onde partir",
+          "explicacao": "Suplementares somam 180°, porque juntos fecham a meia volta.",
+          "conta": "suplemento = 180° − ângulo"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Tire os 115° do total de 180°. O que sobra é o pedaço que falta para completar a linha reta.",
+          "conta": "180 − 115 = 65°"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "A soma dos dois tem que dar a meia volta cravada.",
+          "conta": "115 + 65 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma semirreta parte de uma linha reta e forma um ângulo de 40° de um lado. Quanto mede o ângulo do outro lado? Digite apenas o número.",
+      "imagem": "ang-q-reta40",
+      "dica": "Os dois ângulos juntos precisam recompor a linha reta inteira.",
+      "formato": "numero",
+      "resposta": 140,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "50",
+          "porque": "50 é o complemento de 40, o que fecharia um ângulo reto. Mas aqui os dois ângulos se apoiam numa linha RETA, que vale 180° e não 90°."
+        },
+        {
+          "resposta": "40",
+          "porque": "Os dois só seriam iguais se cada um medisse 90°. Como um deles é 40°, o outro precisa ser bem maior para a soma dar 180."
+        },
+        {
+          "resposta": "320",
+          "porque": "320 é 360 − 40, ou seja, o que falta para a volta INTEIRA. A semirreta se apoia numa reta, que é só meia volta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que a reta vale",
+          "explicacao": "Uma linha reta corresponde a uma meia volta, que mede 180°. A semirreta apenas parte esse total em dois pedaços.",
+          "conta": "reta = 180°"
+        },
+        {
+          "titulo": "Subtraia o pedaço conhecido",
+          "explicacao": "Um dos pedaços mede 40°, então o outro é o que sobra.",
+          "conta": "180 − 40 = 140°"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Os dois pedaços têm que recompor a reta inteira. E faz sentido: 40° é fechado, então o que sobra é bem aberto.",
+          "conta": "40 + 140 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois ângulos são complementares, e um deles é o dobro do outro. Quantos graus mede o MENOR deles? Digite apenas o número.",
+      "imagem": "ang-q-dobro",
+      "dica": "Se o menor vale uma parte, o maior vale duas. Quantas partes iguais formam os 90°?",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60° é o MAIOR dos dois, o dobro. A pergunta pede o menor. Vale conferir: 30 + 60 = 90, e 60 é mesmo o dobro de 30."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 daria se os dois fossem IGUAIS, cada um com metade dos 90°. Mas o enunciado diz que um é o dobro do outro, então eles têm tamanhos diferentes."
+        },
+        {
+          "resposta": "22.5",
+          "porque": "22,5 sai de dividir 90 por 4. Os dois ângulos juntos valem três partes (uma do menor e duas do maior), e não quatro."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é o total dos SUPLEMENTARES. Aqui os ângulos são complementares, então o total é 90°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Pense em partes iguais",
+          "explicacao": "Chame o menor de uma parte. Como o maior é o dobro, ele vale duas partes do mesmo tamanho.",
+          "conta": "menor = 1 parte · maior = 2 partes"
+        },
+        {
+          "titulo": "Quantas partes ao todo",
+          "explicacao": "Juntando os dois, são três partes iguais — e elas precisam fechar exatamente o ângulo reto.",
+          "conta": "1 + 2 = 3 partes = 90°"
+        },
+        {
+          "titulo": "Ache o valor de uma parte",
+          "explicacao": "Divida os 90° pelas três partes.",
+          "conta": "90 ÷ 3 = 30°"
+        },
+        {
+          "titulo": "Confira as duas condições",
+          "explicacao": "O menor é 30° e o maior é 60°. Eles somam 90°, e 60 é realmente o dobro de 30 — as duas exigências do enunciado batem.",
+          "conta": "30 + 60 = 90 · 60 = 2 × 30 ✓"
+        }
+      ]
+    }
+  ]
+}

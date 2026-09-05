@@ -1,0 +1,207 @@
+{
+  "id": "o-que-e-potencia",
+  "numero": 1,
+  "titulo": "O que é uma potência",
+  "pergunta": "Por que 2³ não é 6?",
+  "ideia": {
+    "paragrafos": [
+      "Escrever 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 dá trabalho e é fácil errar a contagem. A potência é só uma abreviação disso: escrevemos 2¹⁰ e pronto. O número de baixo, a base, é quem se repete. O número pequeno lá em cima, o expoente, diz quantas vezes ele aparece na multiplicação.",
+      "Repare que o expoente conta FATORES, não é um fator. Em 2³, o 3 não entra na conta como número: ele manda escrever três 2 e multiplicar. Por isso 2³ é 8, e não 6. Trocar 2³ por 2 × 3 é o erro mais comum de toda esta matéria, e ele nasce de ler o expoente como se fosse mais um número a multiplicar.",
+      "A ordem também importa, e muito. Em 2⁵ o 2 se repete cinco vezes e dá 32. Em 5² o 5 se repete duas vezes e dá 25. São os mesmos dois algarismos em posições trocadas, e resultados diferentes. Em multiplicação a ordem não muda nada; em potência, muda tudo — porque base e expoente fazem trabalhos diferentes.",
+      "Dois casos merecem nome. Expoente 1 significa 'aparece uma vez só', então 7¹ é o próprio 7. E expoente 0 dá sempre 1, o que parece estranho até você olhar a escada descendo: 2³ = 8, 2² = 4, 2¹ = 2 — cada degrau para baixo divide por 2. O degrau seguinte é 2 ÷ 2, que é 1."
+    ],
+    "destaque": "O expoente não é um fator: ele conta quantos fatores existem.",
+    "imagem": "pot-ideia-fatores"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 2⁵ e 5². Os dois dão o mesmo resultado?",
+    "imagem": "pot-res-2a5",
+    "passos": [
+      {
+        "titulo": "Abra a primeira potência",
+        "explicacao": "Em 2⁵ a base é 2 e o expoente é 5, então o 2 aparece cinco vezes na multiplicação. Escrever os fatores antes de calcular evita perder a conta.",
+        "conta": "2⁵ = 2 × 2 × 2 × 2 × 2"
+      },
+      {
+        "titulo": "Multiplique de dois em dois",
+        "explicacao": "Vá dobrando: 2 × 2 dá 4, vezes 2 dá 8, vezes 2 dá 16, vezes 2 dá 32. Fazer aos poucos é mais seguro do que tentar tudo de uma vez.",
+        "conta": "2 × 2 × 2 × 2 × 2 = 32"
+      },
+      {
+        "titulo": "Agora a segunda",
+        "explicacao": "Em 5² a base é 5 e o expoente é 2, então são dois fatores 5. Bem menos trabalho — e é justamente aí que está a diferença.",
+        "conta": "5² = 5 × 5 = 25"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "32 e 25 não são iguais. Trocar base e expoente de lugar mudou o resultado, porque cada um dos dois tem uma função própria na conta.",
+        "conta": "2⁵ = 32 · 5² = 25 · 32 ≠ 25"
+      }
+    ],
+    "fecho": "Nem 2⁵ nem 5² dão 10. Quem multiplica base por expoente está resolvendo outra conta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale 3⁴?",
+      "imagem": "pot-q-3a4",
+      "dica": "O expoente 4 manda escrever quatro fatores 3 e multiplicar todos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "81" },
+        { "rotulo": "B", "texto": "12" },
+        { "rotulo": "C", "texto": "64" },
+        { "rotulo": "D", "texto": "27" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é 3 × 4, ou seja, base vezes expoente. Mas o expoente não entra na multiplicação: ele só diz que o 3 aparece quatro vezes. A conta é 3 × 3 × 3 × 3."
+        },
+        {
+          "resposta": "64",
+          "porque": "64 é 4³ — você trocou a base pelo expoente. Em 3⁴ quem se repete é o 3, e ele se repete quatro vezes."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é 3³, um fator 3 a menos. Vale contar os fatores no papel antes de multiplicar: 3 × 3 × 3 × 3 são quatro números."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva os fatores",
+          "explicacao": "O expoente 4 diz que o 3 aparece quatro vezes. Escrever primeiro e calcular depois é o que impede de perder ou inventar um fator.",
+          "conta": "3⁴ = 3 × 3 × 3 × 3"
+        },
+        {
+          "titulo": "Multiplique aos pares",
+          "explicacao": "3 × 3 dá 9. Sobrou outro 3 × 3, que também dá 9. Agora é só multiplicar os dois resultados.",
+          "conta": "3 × 3 = 9 · 9 × 9 = 81"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale 2⁶? Digite apenas o número.",
+      "imagem": "pot-q-2a6",
+      "dica": "Cada fator 2 a mais dobra o resultado anterior. Comece pequeno e vá dobrando.",
+      "formato": "numero",
+      "resposta": 64,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é 2 × 6, base vezes expoente. O 6 não é um fator da conta: ele conta quantos 2 devem ser multiplicados."
+        },
+        {
+          "resposta": "32",
+          "porque": "32 é 2⁵, um fator a menos. Conte com o dedo: 2, 4, 8, 16, 32, 64 — são seis dobras, e a sexta é a que resolve."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 6², a base e o expoente trocados. Em 2⁶ quem se repete é o 2, seis vezes."
+        },
+        {
+          "resposta": "128",
+          "porque": "128 é 2⁷, uma dobra a mais. É fácil passar do ponto quando se dobra de cabeça — vale escrever a sequência inteira."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Vá dobrando",
+          "explicacao": "Cada novo fator 2 dobra o resultado anterior. Comece em 2 e conte quantas dobras você já fez.",
+          "conta": "2, 4, 8, 16, 32, 64"
+        },
+        {
+          "titulo": "Confira a quantidade de fatores",
+          "explicacao": "A sequência acima tem seis números, e o sexto é o resultado de multiplicar seis 2.",
+          "conta": "2⁶ = 2 × 2 × 2 × 2 × 2 × 2 = 64"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual destas expressões vale 16?",
+      "imagem": "pot-q-troca",
+      "dica": "Abra cada uma em fatores repetidos antes de decidir. Só uma delas chega a 16.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2⁴" },
+        { "rotulo": "B", "texto": "2 × 4" },
+        { "rotulo": "C", "texto": "4⁴" },
+        { "rotulo": "D", "texto": "8²" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2 × 4",
+          "porque": "2 × 4 é 8, não 16. Essa é exatamente a conta que a gente faz por engano quando lê o expoente como um fator — e o resultado fica bem menor."
+        },
+        {
+          "resposta": "4⁴",
+          "porque": "4⁴ é 4 × 4 × 4 × 4 = 256, muito acima de 16. Repare que 4 × 4 já dá 16, e ainda faltariam dois fatores."
+        },
+        {
+          "resposta": "8²",
+          "porque": "8² é 8 × 8 = 64. O 8 é grande demais para chegar em 16 quando multiplicado por ele mesmo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Abra cada uma",
+          "explicacao": "Escrever os fatores tira a dúvida na hora, sem precisar decorar tabela de potências.",
+          "conta": "2⁴ = 2×2×2×2 · 4⁴ = 4×4×4×4 · 8² = 8×8"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Só a primeira chega em 16. As outras passam longe, uma para baixo e duas para cima.",
+          "conta": "16 · 8 · 256 · 64"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma folha de papel é dobrada ao meio. Depois é dobrada ao meio de novo, e assim por diante, 7 vezes no total. Ao desdobrar, em quantas partes iguais a folha estará dividida?",
+      "imagem": "pot-q-dobras",
+      "dica": "Cada dobra transforma cada parte existente em duas. Escreva quantas partes há depois de 1, 2 e 3 dobras e procure o padrão.",
+      "formato": "numero",
+      "resposta": 128,
+      "unidade": "partes",
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é 7 × 2. Mas as dobras não somam partes de duas em duas: cada dobra DOBRA o que já existia, e dobrar sete vezes cresce muito mais rápido que multiplicar por 2."
+        },
+        {
+          "resposta": "64",
+          "porque": "64 é 2⁶, o resultado depois de 6 dobras. Falta a sétima. É fácil errar por um quando se conta dobras de cabeça."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 é 7², base e expoente trocados. Aqui quem se repete é o 2 (cada dobra multiplica por 2), e ele se repete 7 vezes."
+        },
+        {
+          "resposta": "256",
+          "porque": "256 é 2⁸, uma dobra a mais do que o enunciado pede. Provavelmente você contou a folha inteira como se já fosse uma dobra."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que uma dobra faz",
+          "explicacao": "Cada dobra corta ao meio TODAS as partes que já existiam, então a quantidade de partes dobra a cada vez.",
+          "conta": "1 dobra → 2 · 2 dobras → 4 · 3 dobras → 8"
+        },
+        {
+          "titulo": "Reconheça a potência",
+          "explicacao": "Depois de n dobras há 2 multiplicado por ele mesmo n vezes. Sete dobras dão 2⁷.",
+          "conta": "7 dobras → 2⁷"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Continue dobrando a partir do 8, com cuidado para não pular nenhum degrau.",
+          "conta": "2, 4, 8, 16, 32, 64, 128"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "figuras-planas",
+  "titulo": "Figuras planas",
+  "ano": 6,
+  "descricao": "Reconhecer e nomear o que está desenhado. Seis lições que vão do que faz uma figura ser polígono até a família dos quadriláteros e a fórmula que dá a soma dos ângulos de qualquer um deles — terminando na figura que não é polígono nenhum: o círculo.",
+  "pergunta": "Por que vale a pena dar nome a cada formato?",
+  "videos": [
+    {
+      "id": "ywXgpzXVGNI",
+      "titulo": "Polígonos – Triângulos e Quadriláteros - 6 Ano |Geometria | Matemática Básica |",
+      "canal": "Compartilhando Matemática - Prof. Anderson Diniz (Prof. Diniz)",
+      "descricao": "Passa por polígonos, triângulos e quadriláteros numa aula só. Bom para ter a visão geral antes de começar, ou para revisar tudo depois da lição 5."
+    },
+    {
+      "id": "9IiLZICTjKI",
+      "titulo": "Classificação dos triângulos quanto aos lados e quanto aos ângulos - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Trata as duas classificações lado a lado, que é exatamente o assunto das lições 2 e 3. Ajuda quem ainda confunde isósceles com retângulo."
+    },
+    {
+      "id": "Y9CKv5GjlJU",
+      "titulo": "Quadriláteros - AULA 6 - Curso de Polígonos - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Detalha a família dos quadriláteros com mais exemplos que a lição 4. Útil para quem quer entender melhor por que o quadrado é retângulo e losango ao mesmo tempo."
+    },
+    {
+      "id": "UbIqbnofgxE",
+      "titulo": "TRIÂNGULOS - Classificação dos Triângulos - Exercícios e Exemplos - 6º Ano - AULA 69",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Uma aula inteira resolvendo exercícios de classificação. É repetição deliberada, para treinar antes de encarar as questões das lições 2 e 3."
+    }
+  ],
+  "licoes": [
+    { "id": "poligonos", "arquivo": "/dados/licoes/figuras-planas/poligonos.json" },
+    { "id": "triangulos-lados", "arquivo": "/dados/licoes/figuras-planas/triangulos-lados.json" },
+    { "id": "triangulos-angulos", "arquivo": "/dados/licoes/figuras-planas/triangulos-angulos.json" },
+    { "id": "quadrilateros", "arquivo": "/dados/licoes/figuras-planas/quadrilateros.json" },
+    { "id": "regulares", "arquivo": "/dados/licoes/figuras-planas/regulares.json" },
+    { "id": "circulo", "arquivo": "/dados/licoes/figuras-planas/circulo.json" }
+  ]
+}

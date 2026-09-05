@@ -1,0 +1,47 @@
+{
+  "id": "potencias",
+  "titulo": "Potências e raiz quadrada",
+  "ano": 6,
+  "descricao": "Multiplicar um número por ele mesmo, e o caminho de volta. Seis lições que começam desmontando o erro de achar que 2³ é 6, passam pela geometria que dá nome ao quadrado e ao cubo, e terminam sabendo estimar uma raiz sem calculadora.",
+  "pergunta": "O que um número pequeno escrito lá em cima consegue fazer com o número de baixo?",
+  "videos": [
+    {
+      "id": "EqSiqXyfaqA",
+      "titulo": "POTENCIAÇÃO COM NÚMEROS NATURAIS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Retoma base, expoente e o cálculo passo a passo, com muitos exemplos. Bom depois da lição 1, se a diferença entre 2³ e 2 × 3 ainda estiver escorregando."
+    },
+    {
+      "id": "W2mEF5RQtkA",
+      "titulo": "POTENCIAÇÃO - PASSO A PASSO - Professora Angela Matemática",
+      "canal": "Professora Angela Matemática",
+      "descricao": "A mesma matéria contada por outra voz e com outro ritmo. Vale quando uma explicação não pegou e você quer ouvir de novo, diferente."
+    },
+    {
+      "id": "dGOhsZqCJKc",
+      "titulo": "POTÊNCIAS e PROPRIEDADES das potências | Matemática Básica | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Vai além do site: mostra as propriedades de produto e quociente de potências de mesma base. É o próximo passo natural para quem quer se adiantar ao 7º ano."
+    },
+    {
+      "id": "5Or_670aF9c",
+      "titulo": "RAIZ QUADRADA 6 ANO| RAIZ QUADRADA EXATA |  \\Prof.Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Raiz exata com o método da decomposição em fatores primos, o mesmo da lição 5. Útil para ver mais números decompostos antes de tentar sozinho."
+    },
+    {
+      "id": "aDHOsGniCuU",
+      "titulo": "RAIZ QUADRADA NÃO EXATA \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Trata do caso da lição 6, quando a raiz não dá um número inteiro. Complementa a estimativa por cerco com o cálculo aproximado."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e-potencia", "arquivo": "/dados/licoes/potencias/o-que-e-potencia.json" },
+    { "id": "quadrado-cubo", "arquivo": "/dados/licoes/potencias/quadrado-cubo.json" },
+    { "id": "potencias-de-10", "arquivo": "/dados/licoes/potencias/potencias-de-10.json" },
+    { "id": "ordem-operacoes", "arquivo": "/dados/licoes/potencias/ordem-operacoes.json" },
+    { "id": "raiz-quadrada", "arquivo": "/dados/licoes/potencias/raiz-quadrada.json" },
+    { "id": "estimar-raiz", "arquivo": "/dados/licoes/potencias/estimar-raiz.json" }
+  ]
+}

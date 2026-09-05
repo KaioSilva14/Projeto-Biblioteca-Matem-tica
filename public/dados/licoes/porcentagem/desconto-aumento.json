@@ -1,0 +1,273 @@
+{
+  "id": "desconto-aumento",
+  "numero": 5,
+  "titulo": "Desconto e aumento",
+  "pergunta": "Quanto se paga numa camisa de R$ 60 com 30% de desconto?",
+  "ideia": {
+    "paragrafos": [
+      "Aqui a porcentagem sai do papel e vira preço. E existem dois caminhos, os dois certos, mas com riscos diferentes.",
+      "O caminho de dois passos é o mais óbvio: calcule o desconto e subtraia do preço. Num produto de R$ 60 com 30% de desconto, o desconto é R$ 18, então se paga R$ 42. O risco desse caminho é parar no meio — muita gente calcula os R$ 18 e responde 18, esquecendo que a pergunta era quanto se PAGA.",
+      "O caminho de um passo é mais rápido e não tem esse risco. Se o desconto é de 30%, você paga os outros 70%. Então 0,7 × 60 = 42 direto, sem subtração nenhuma. O mesmo vale para aumento: se algo sobe 15%, o novo valor é 115% do antigo, ou seja, 1,15 vezes o valor.",
+      "E há uma armadilha que aparece o tempo todo em propaganda: descontos e aumentos NÃO se cancelam. Um produto de R$ 50 que sobe 20% vai para R$ 60. Se depois cair 20%, cai 20% de 60, que são R$ 12 — e ele vai parar em R$ 48, não em R$ 50.",
+      "O motivo é o que a lição 3 já avisava: porcentagem é sempre porcentagem DE alguma coisa. O aumento foi calculado sobre 50 e a queda foi calculada sobre 60. Como as bases são diferentes, os dois pedaços têm tamanhos diferentes e não se anulam."
+    ],
+    "destaque": "Tirar 30% é pagar 70%. Fazer em um passo é mais rápido e esquece menos.",
+    "imagem": "por-ideia-desconto"
+  },
+  "resolvido": {
+    "enunciado": "Uma camisa custa R$ 60,00 e está com 30% de desconto. Quanto se paga por ela?",
+    "imagem": "por-res-camisa",
+    "passos": [
+      {
+        "titulo": "Caminho 1 — calcule o desconto",
+        "explicacao": "Dez por cento de 60 são 6, então trinta por cento são três vezes isso. Esse é o valor que sai do preço.",
+        "conta": "10% de 60 = 6 · 30% = 6 × 3 = 18"
+      },
+      {
+        "titulo": "Não pare aqui",
+        "explicacao": "Os R$ 18 são o desconto, não o preço final. A pergunta é quanto se paga, então falta tirar o desconto do preço original.",
+        "conta": "60 − 18 = 42"
+      },
+      {
+        "titulo": "Caminho 2 — pense no que sobra",
+        "explicacao": "Se 30% saem, 70% ficam. Então dá para ir direto ao preço final, sem calcular o desconto e sem subtrair nada.",
+        "conta": "100% − 30% = 70%"
+      },
+      {
+        "titulo": "Aplique a taxa que sobrou",
+        "explicacao": "Setenta por cento de 60. Dez por cento são 6, então setenta por cento são sete vezes isso.",
+        "conta": "6 × 7 = 42"
+      },
+      {
+        "titulo": "Os dois batem",
+        "explicacao": "Como tinha que ser. O primeiro caminho mostra o tamanho do desconto; o segundo vai direto ao que interessa na hora de pagar.",
+        "conta": "0,7 × 60 = 42"
+      }
+    ],
+    "fecho": "Quando a pergunta é 'quanto vou pagar', o caminho de um passo é o melhor: ele não deixa você responder o desconto por engano."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um produto custa R$ 200,00 e está com 15% de desconto. Quantos reais se paga por ele? Digite apenas o número.",
+      "imagem": "por-q-200-15",
+      "dica": "Se o desconto é de 15%, você paga 85%. Ou calcule o desconto e subtraia — mas não pare no desconto.",
+      "formato": "numero",
+      "resposta": 170,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é o valor do DESCONTO, e não o preço a pagar. Esse é o erro mais comum da lição: a conta estava certa, mas parou um passo antes do fim."
+        },
+        {
+          "resposta": "185",
+          "porque": "185 é 200 menos 15, tratando a taxa como se fossem 15 reais. Mas 15% de 200 são 30 reais, e não 15."
+        },
+        {
+          "resposta": "230",
+          "porque": "230 é o preço com um AUMENTO de 15%. O enunciado fala em desconto, então o valor final tem que ser menor que 200."
+        },
+        {
+          "resposta": "3000",
+          "porque": "3.000 é 15 × 200, sem dividir por 100. Além disso, um desconto nunca deixa o preço maior que o original."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Descubra a taxa que sobra",
+          "explicacao": "Se 15% saem, ficam 85%. Trabalhar com o que sobra evita a subtração no fim.",
+          "conta": "100% − 15% = 85%"
+        },
+        {
+          "titulo": "Aplique sobre o preço",
+          "explicacao": "Dez por cento de 200 são 20, então oitenta por cento são 160 e cinco por cento são 10.",
+          "conta": "160 + 10 = 170"
+        },
+        {
+          "titulo": "Confira pelo outro caminho",
+          "explicacao": "Calculando o desconto e subtraindo, o resultado precisa ser o mesmo.",
+          "conta": "15% de 200 = 30 · 200 − 30 = 170"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um salário de R$ 1.500,00 recebeu um aumento de 8%. Qual passou a ser o salário, em reais? Digite apenas o número.",
+      "imagem": "por-q-aumento",
+      "dica": "Depois de um aumento de 8%, o salário vale 108% do que valia. Ou calcule o aumento e some.",
+      "formato": "numero",
+      "resposta": 1620,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "120",
+          "porque": "120 é o valor do AUMENTO, não o novo salário. Falta somar esse aumento ao salário antigo."
+        },
+        {
+          "resposta": "1508",
+          "porque": "1.508 é 1.500 mais 8, tratando a taxa como se fossem 8 reais. Mas 8% de 1.500 são 120 reais."
+        },
+        {
+          "resposta": "1380",
+          "porque": "1.380 é o salário com um desconto de 8%. O enunciado fala em aumento, então o novo valor tem que ser maior que 1.500."
+        },
+        {
+          "resposta": "12000",
+          "porque": "12.000 é 8 × 1.500, sem dividir por 100. Um aumento de 8% não multiplica o salário por oito."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto vale 1%",
+          "explicacao": "Divida o salário por 100. Com o valor de 1% na mão, qualquer taxa vira uma multiplicação simples.",
+          "conta": "1 500 ÷ 100 = 15"
+        },
+        {
+          "titulo": "Calcule o aumento",
+          "explicacao": "Oito partes de 15 reais cada. Esse é o valor que ENTRA no salário — ele ainda não é o salário novo.",
+          "conta": "15 × 8 = 120"
+        },
+        {
+          "titulo": "Some ao salário antigo",
+          "explicacao": "Aumento se soma. Repare que o salário novo tem que ficar acima do antigo.",
+          "conta": "1 500 + 120 = 1 620"
+        },
+        {
+          "titulo": "Confira em um passo",
+          "explicacao": "Cento e oito por cento do salário antigo dá o mesmo resultado, sem soma nenhuma.",
+          "conta": "1,08 × 1 500 = 1 620"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um produto custa R$ 50,00. O preço sobe 20% e, algum tempo depois, cai 20%. Qual passa a ser o preço final?",
+      "imagem": "por-q-sobe-desce",
+      "dica": "Faça um passo de cada vez. Preste atenção em qual valor cada porcentagem está sendo calculada.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "R$ 48,00"
+        },
+        {
+          "rotulo": "B",
+          "texto": "R$ 50,00"
+        },
+        {
+          "rotulo": "C",
+          "texto": "R$ 52,00"
+        },
+        {
+          "rotulo": "D",
+          "texto": "R$ 60,00"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "R$ 50,00",
+          "porque": "Parece justo que subir 20% e cair 20% devolva o preço original, mas não devolve. A subida foi calculada sobre 50 (e valeu 10 reais) e a queda foi calculada sobre 60 (e valeu 12 reais). Como as bases são diferentes, os dois não se cancelam."
+        },
+        {
+          "resposta": "R$ 60,00",
+          "porque": "R$ 60,00 é o preço depois só da subida. Falta aplicar a queda de 20%, que agora incide sobre esses 60."
+        },
+        {
+          "resposta": "R$ 52,00",
+          "porque": "Não há caminho que leve a 52 aqui. Vale refazer os dois passos separados, anotando o preço depois de cada um."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Primeiro passo: a subida",
+          "explicacao": "Vinte por cento de 50 são 10 reais, e eles se somam ao preço.",
+          "conta": "50 + 10 = 60"
+        },
+        {
+          "titulo": "Segundo passo: a queda",
+          "explicacao": "Agora os 20% incidem sobre o preço NOVO, que é 60. Vinte por cento de 60 são 12 reais, e não 10.",
+          "conta": "20% de 60 = 12"
+        },
+        {
+          "titulo": "Aplique a queda",
+          "explicacao": "Tirando 12 de 60, o preço final fica abaixo do original.",
+          "conta": "60 − 12 = 48"
+        },
+        {
+          "titulo": "Por que não voltou",
+          "explicacao": "A subida valeu 10 reais e a queda valeu 12, porque foram calculadas sobre bases diferentes. Toda vez que uma sequência de porcentagens é aplicada, cada uma incide sobre o resultado da anterior.",
+          "conta": "subiu 10 · caiu 12 · saldo −2"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma farmácia dá desconto de 30% sobre o preço de tabela de todos os medicamentos que vende. Ao adquirir um remédio cujo preço de tabela é R$ 120,00, quantos reais uma pessoa irá pagar?",
+      "imagem": "por-q-farmacia",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 7 — Descontos e descontos"
+      },
+      "dica": "Com 30% de desconto, a pessoa paga 70% do preço de tabela.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "84"
+        },
+        {
+          "rotulo": "B",
+          "texto": "36"
+        },
+        {
+          "rotulo": "C",
+          "texto": "64"
+        },
+        {
+          "rotulo": "D",
+          "texto": "94"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é o valor do desconto — 30% de 120. A pergunta é quanto a pessoa PAGA, que é o que sobra depois de tirar esse desconto."
+        },
+        {
+          "resposta": "64",
+          "porque": "64 não sai de nenhum caminho correto aqui. Vale refazer: 10% de 120 são 12, então 30% são 36, e 120 − 36 dá 84."
+        },
+        {
+          "resposta": "94",
+          "porque": "94 seria o preço com um desconto de aproximadamente 22%. Provavelmente a conta do desconto ficou pela metade — 30% de 120 são 36, e não 26."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece pelos 10%",
+          "explicacao": "Dez por cento de 120 é 120 dividido por 10.",
+          "conta": "120 ÷ 10 = 12"
+        },
+        {
+          "titulo": "Ache o desconto",
+          "explicacao": "Trinta por cento são três vezes os dez por cento.",
+          "conta": "12 × 3 = 36"
+        },
+        {
+          "titulo": "Subtraia do preço de tabela",
+          "explicacao": "O desconto sai do preço, e o que resta é o que se paga no caixa.",
+          "conta": "120 − 36 = 84"
+        },
+        {
+          "titulo": "Confira em um passo só",
+          "explicacao": "Pagar com 30% de desconto é pagar 70% do preço — e setenta por cento são sete vezes os dez por cento.",
+          "conta": "12 × 7 = 84"
+        }
+      ]
+    }
+  ]
+}

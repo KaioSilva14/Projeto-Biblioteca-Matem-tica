@@ -1,0 +1,215 @@
+{
+  "id": "opostos-pelo-vertice",
+  "numero": 5,
+  "titulo": "Retas que se cruzam",
+  "pergunta": "Duas retas se cruzam. Sabendo um ângulo, dá para saber os outros três?",
+  "ideia": {
+    "paragrafos": [
+      "Quando duas retas se cruzam, elas formam quatro ângulos em volta do ponto de encontro. À primeira vista parecem quatro medidas independentes — mas basta conhecer uma delas para saber todas as outras.",
+      "Os ângulos que ficam frente a frente, um de cada lado do cruzamento, são chamados de opostos pelo vértice, e eles são sempre IGUAIS. Os que ficam lado a lado são adjacentes, e eles sempre somam 180°, porque juntos se apoiam numa das retas.",
+      "A igualdade dos opostos não é uma regra decorada: ela sai da outra propriedade. Se o ângulo a e o ângulo b são vizinhos, a + b = 180°. Se b e c também são vizinhos, b + c = 180°. Como as duas somas dão o mesmo total e as duas têm o b, sobra a = c. Os opostos são iguais porque compartilham o mesmo vizinho.",
+      "Na prática, isso quer dizer que os quatro ângulos são só dois valores, repetidos em diagonal. Sabendo que um deles vale 70°, o oposto também vale 70°, e os outros dois valem 110° cada. E os quatro juntos fecham a volta completa: 70 + 110 + 70 + 110 = 360.",
+      "Um caso especial vale destacar: se um dos ângulos for reto, o oposto também é reto, e os vizinhos valem 180 − 90 = 90. Os quatro ficam iguais. É por isso que duas retas perpendiculares formam quatro cantos idênticos."
+    ],
+    "destaque": "Opostos são iguais; vizinhos somam 180°. Um ângulo entrega os quatro.",
+    "imagem": "ang-ideia-cruzadas"
+  },
+  "resolvido": {
+    "enunciado": "Duas retas se cruzam e um dos quatro ângulos mede 70°. Quanto medem os outros três?",
+    "imagem": "ang-res-70",
+    "passos": [
+      {
+        "titulo": "Comece pelo vizinho",
+        "explicacao": "O ângulo de 70° e o que fica ao lado dele se apoiam na mesma reta, então os dois juntos fecham a meia volta.",
+        "conta": "180° − 70° = 110°"
+      },
+      {
+        "titulo": "O oposto do primeiro",
+        "explicacao": "O ângulo que fica de frente para o de 70°, do outro lado do cruzamento, é oposto pelo vértice — e opostos são iguais.",
+        "conta": "oposto de 70° = 70°"
+      },
+      {
+        "titulo": "O oposto do vizinho",
+        "explicacao": "Pelo mesmo motivo, o ângulo de frente para o de 110° também mede 110°.",
+        "conta": "oposto de 110° = 110°"
+      },
+      {
+        "titulo": "Confira fechando a volta",
+        "explicacao": "Os quatro ângulos em torno do cruzamento têm que completar a volta inteira. Se a soma não der 360°, algum valor está errado.",
+        "conta": "70 + 110 + 70 + 110 = 360°"
+      }
+    ],
+    "fecho": "Só existem dois valores, alternados em torno do vértice. Descobriu um, descobriu todos."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Duas retas se cruzam. Um dos ângulos mede 40°. Quanto mede o ângulo OPOSTO pelo vértice a ele? Digite apenas o número.",
+      "imagem": "ang-q-oposto40",
+      "dica": "Oposto pelo vértice é o que fica de frente, do outro lado do cruzamento.",
+      "formato": "numero",
+      "resposta": 40,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "140",
+          "porque": "140° é o ângulo VIZINHO, o que fica ao lado e completa a meia volta. O oposto fica de frente, e tem sempre a mesma medida do original."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é o complemento de 40, o que fecharia um ângulo reto. Aqui não há ângulo reto envolvido: as retas se cruzam formando 40° e 140°."
+        },
+        {
+          "resposta": "320",
+          "porque": "320 é 360 − 40, ou seja, todo o resto da volta somado. O oposto é apenas UM dos quatro ângulos, não a soma dos outros três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique quem é o oposto",
+          "explicacao": "É o ângulo que fica exatamente de frente, do outro lado do ponto de cruzamento — não o que está ao lado.",
+          "conta": "oposto = de frente"
+        },
+        {
+          "titulo": "Aplique a propriedade",
+          "explicacao": "Ângulos opostos pelo vértice são sempre iguais, qualquer que seja a inclinação das retas.",
+          "conta": "oposto de 40° = 40°"
+        },
+        {
+          "titulo": "Confira pelos vizinhos",
+          "explicacao": "Os outros dois medem 140° cada, e a volta fecha certinho.",
+          "conta": "40 + 140 + 40 + 140 = 360 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Duas retas se cruzam e um dos ângulos mede 55°. Quanto mede um ângulo VIZINHO a ele? Digite apenas o número.",
+      "imagem": "ang-q-vizinho55",
+      "dica": "O ângulo e o vizinho dele se apoiam na mesma reta.",
+      "formato": "numero",
+      "resposta": 125,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "55",
+          "porque": "55° é o valor do ângulo OPOSTO, o que fica de frente. O vizinho é o que está ao lado, e ele completa a meia volta em vez de repeti-la."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é o complemento de 55, que fecharia 90°. Mas o ângulo e o vizinho dele se apoiam numa reta inteira, que vale 180°."
+        },
+        {
+          "resposta": "305",
+          "porque": "305 é 360 − 55. A volta completa é a soma dos QUATRO ângulos, e não de apenas dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Onde os dois se apoiam",
+          "explicacao": "O ângulo dado e o vizinho dele ficam do mesmo lado de uma das retas, e juntos cobrem essa reta inteira.",
+          "conta": "vizinhos → somam 180°"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Tire o ângulo conhecido da meia volta.",
+          "conta": "180 − 55 = 125°"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Os quatro ângulos são 55, 125, 55 e 125, e eles fecham a volta.",
+          "conta": "55 + 125 + 55 + 125 = 360 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Duas retas se cruzam formando um ângulo de 90°. Quanto medem os outros três ângulos?",
+      "imagem": "ang-q-cruz90",
+      "dica": "Calcule o vizinho e depois use a propriedade dos opostos. Veja no que dá.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Todos medem 90°" },
+        { "rotulo": "B", "texto": "Dois medem 90° e dois medem 180°" },
+        { "rotulo": "C", "texto": "Um mede 90° e os outros dois medem 135°" },
+        { "rotulo": "D", "texto": "Não dá para saber sem medir" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Dois medem 90° e dois medem 180°",
+          "porque": "Um ângulo de 180° é uma linha reta inteira — ele não caberia como um dos quatro cantos. O vizinho de 90° é 180 − 90, que dá 90 também."
+        },
+        {
+          "resposta": "Um mede 90° e os outros dois medem 135°",
+          "porque": "135 seria o vizinho de 45°, não de 90°. Some para conferir: 90 + 135 daria 225, e vizinhos precisam somar exatamente 180."
+        },
+        {
+          "resposta": "Não dá para saber sem medir",
+          "porque": "Dá sim, e é justamente essa a utilidade da lição: conhecendo um ângulo do cruzamento, os outros três saem por conta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule o vizinho",
+          "explicacao": "Vizinhos somam 180°, então tire o ângulo conhecido desse total.",
+          "conta": "180 − 90 = 90°"
+        },
+        {
+          "titulo": "Use os opostos",
+          "explicacao": "O oposto do primeiro também vale 90°, e o oposto do vizinho também. Todos os quatro caem no mesmo valor.",
+          "conta": "90, 90, 90 e 90"
+        },
+        {
+          "titulo": "O que isso significa",
+          "explicacao": "É o caso das retas perpendiculares: os quatro cantos ficam idênticos. É por isso que uma cruz de retas perpendiculares parece a mesma coisa de qualquer lado que se olhe.",
+          "conta": "4 × 90 = 360 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Duas retas se cruzam e um dos quatro ângulos mede 35°. Qual é a SOMA dos outros três? Digite apenas o número.",
+      "imagem": "ang-q-soma35",
+      "dica": "Não precisa calcular cada um. Quanto valem os quatro juntos?",
+      "formato": "numero",
+      "resposta": 325,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "360",
+          "porque": "360 é a soma dos QUATRO ângulos, incluindo o de 35°. A pergunta pede só os outros três, então falta descontar o que já se conhece."
+        },
+        {
+          "resposta": "145",
+          "porque": "145 é 180 − 35, ou seja, apenas o ângulo vizinho. Ainda faltam dois ângulos na soma."
+        },
+        {
+          "resposta": "290",
+          "porque": "290 é 145 + 145, a soma só dos dois vizinhos. Falta somar também o ângulo oposto, que mede 35°."
+        },
+        {
+          "resposta": "105",
+          "porque": "105 é 3 × 35, como se os três ângulos restantes fossem iguais ao dado. Só um deles é: os outros dois medem 145° cada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto valem os quatro juntos",
+          "explicacao": "Os quatro ângulos em torno do ponto de cruzamento cobrem toda a volta, sem sobrar nem faltar nada.",
+          "conta": "soma dos quatro = 360°"
+        },
+        {
+          "titulo": "Tire o que já se conhece",
+          "explicacao": "A pergunta pede a soma dos outros três, então basta descontar o ângulo dado do total.",
+          "conta": "360 − 35 = 325°"
+        },
+        {
+          "titulo": "Confira somando um a um",
+          "explicacao": "Os outros três são 145° (vizinho), 35° (oposto) e 145° (o outro vizinho). O caminho longo confirma o atalho.",
+          "conta": "145 + 35 + 145 = 325 ✓"
+        }
+      ]
+    }
+  ]
+}

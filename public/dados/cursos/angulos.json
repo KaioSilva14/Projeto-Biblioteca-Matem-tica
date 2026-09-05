@@ -1,0 +1,41 @@
+{
+  "id": "angulos",
+  "titulo": "Ângulos",
+  "ano": 6,
+  "descricao": "Medir giro, e não tamanho. Seis lições que começam desmontando a ideia de que lado comprido é ângulo grande, passam pelo transferidor e pelas duas escalas que confundem todo mundo, e terminam mostrando por que os três cantos de qualquer triângulo somam sempre a mesma coisa.",
+  "pergunta": "Como se mede uma abertura, se ela não tem comprimento nem peso?",
+  "videos": [
+    {
+      "id": "AYD1Hu-eV7w",
+      "titulo": "O que é ângulo e a sua classificação. -  Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Retoma a definição e os quatro nomes com calma e muitos desenhos. Bom depois da lição 2, se agudo e obtuso ainda estiverem trocando de lugar na cabeça."
+    },
+    {
+      "id": "nAvqZSglTmA",
+      "titulo": "ÂNGULOS - DEFINIÇÃO E TIPOS DE ÂNGULOS  | RETO, NULO, AGUDO, ABTUSO… \\ Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Vai além do site: inclui o ângulo nulo e o de volta inteira, que ficaram de fora das lições. Vale para quem quer a classificação completa."
+    },
+    {
+      "id": "MGKDo7L8j84",
+      "titulo": "Construir e medir ângulos utilizando o transferidor - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Mostra o transferidor sendo encaixado e girado de verdade, o que um desenho parado não consegue mostrar. É o complemento natural da lição 3."
+    },
+    {
+      "id": "AsFErmxt46c",
+      "titulo": "ÂNGULOS - RESOLUÇÃO DE EXERCÍCIOS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Uma aula inteira resolvendo exercícios de complementar, suplementar e opostos pelo vértice. Útil para treinar mais depois das lições 4 e 5."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e-angulo", "arquivo": "/dados/licoes/angulos/o-que-e-angulo.json" },
+    { "id": "classificar", "arquivo": "/dados/licoes/angulos/classificar.json" },
+    { "id": "transferidor", "arquivo": "/dados/licoes/angulos/transferidor.json" },
+    { "id": "complementar-suplementar", "arquivo": "/dados/licoes/angulos/complementar-suplementar.json" },
+    { "id": "opostos-pelo-vertice", "arquivo": "/dados/licoes/angulos/opostos-pelo-vertice.json" },
+    { "id": "soma-triangulo", "arquivo": "/dados/licoes/angulos/soma-triangulo.json" }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "perimetro",
+  "titulo": "Perímetro",
+  "ano": 6,
+  "descricao": "A medida do contorno — cerca, moldura, rodapé, volta na quadra. Seis lições que vão da soma dos lados até figuras com um pedaço recortado, e terminam mostrando a coisa mais surpreendente do assunto: duas figuras com a mesma cerca podem guardar quantidades bem diferentes dentro.",
+  "pergunta": "Quanto se anda dando uma volta completa por fora de uma figura?",
+  "videos": [
+    {
+      "id": "ws8xoT9E6Ls",
+      "titulo": "Perímetro de Figuras Geométricas - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Retoma a ideia com exemplos simples e desenhos passo a passo. Bom depois da lição 1, se ainda parecer que existe uma fórmula única para tudo."
+    },
+    {
+      "id": "p2XN2D15QAU",
+      "titulo": "PERÍMETRO - Definição e propriedades - Exercícios e exemplos - 6º Ano - AULA 76",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Uma aula inteira resolvendo exercícios, inclusive de figuras compostas. Útil para treinar mais antes das questões da lição 4."
+    },
+    {
+      "id": "22LSwbJOS6Y",
+      "titulo": "Calcular ÁREA e PERÍMETRO na malha quadriculada - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Mostra as duas medidas lado a lado na malha, que é exatamente o assunto da lição 5. É o vídeo que melhor separa contorno de miolo."
+    },
+    {
+      "id": "b9CQcu3N-so",
+      "titulo": "PERÍMETRO E ÁREA - 6º ANO",
+      "canal": "Professora Mari Calhau",
+      "descricao": "Trata perímetro e área juntos, com e sem malha. Vale como ponte para a próxima matéria, que retoma a área do começo."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e-perimetro", "arquivo": "/dados/licoes/perimetro/o-que-e-perimetro.json" },
+    { "id": "regulares", "arquivo": "/dados/licoes/perimetro/regulares.json" },
+    { "id": "retangulo", "arquivo": "/dados/licoes/perimetro/retangulo.json" },
+    { "id": "compostas", "arquivo": "/dados/licoes/perimetro/compostas.json" },
+    { "id": "mesmo-perimetro", "arquivo": "/dados/licoes/perimetro/mesmo-perimetro.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/perimetro/problemas.json" }
+  ]
+}

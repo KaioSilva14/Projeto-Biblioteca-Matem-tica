@@ -1,0 +1,218 @@
+{
+  "id": "circulo",
+  "numero": 6,
+  "titulo": "Circunferência e círculo",
+  "pergunta": "A pista de corrida é a linha ou o campo inteiro?",
+  "ideia": {
+    "paragrafos": [
+      "Depois de cinco lições sobre polígonos, chega a figura que não é polígono nenhum: ela não tem lados retos, não tem vértices e não tem ângulos internos. Mas é talvez a figura mais presente no mundo — roda, moeda, prato, relógio.",
+      "E aqui duas palavras que a gente usa como sinônimo na conversa significam coisas diferentes na matemática. A circunferência é a LINHA: o conjunto de todos os pontos que estão à mesma distância de um ponto central. O círculo é a REGIÃO: a linha mais tudo que está dentro dela.",
+      "A pista de atletismo é a circunferência; o campo cercado por ela é o círculo. Um elástico esticado num prego é uma circunferência; a moeda inteira é um círculo. Quando alguém pergunta o comprimento, está falando da linha; quando pergunta a área, está falando da região.",
+      "O ponto central se chama centro, e a distância dele até qualquer ponto da linha se chama raio. Como todos os pontos estão à mesma distância, todos os raios de uma mesma circunferência são iguais — é isso que faz a figura ser perfeitamente redonda.",
+      "Um segmento que atravessa a figura passando pelo centro se chama diâmetro, e ele vale exatamente dois raios, porque é feito de um raio para cada lado. Então diâmetro = 2 × raio, e raio = diâmetro ÷ 2. É a conta mais usada de toda esta lição."
+    ],
+    "destaque": "A circunferência é a linha. O círculo é a linha mais o que está dentro.",
+    "imagem": "fig-ideia-circulo"
+  },
+  "resolvido": {
+    "enunciado": "Uma tampa redonda tem 14 cm de diâmetro. Quanto mede o raio dela?",
+    "imagem": "fig-res-circulo",
+    "passos": [
+      {
+        "titulo": "Do que cada medida está falando",
+        "explicacao": "O raio vai do centro até a borda. O diâmetro atravessa a figura inteira, de borda a borda, passando pelo centro.",
+        "conta": "raio: centro → borda · diâmetro: borda → borda"
+      },
+      {
+        "titulo": "Como os dois se relacionam",
+        "explicacao": "O diâmetro é formado por um raio de cada lado do centro. Então ele é sempre o dobro do raio.",
+        "conta": "diâmetro = 2 × raio"
+      },
+      {
+        "titulo": "Desfaça a multiplicação",
+        "explicacao": "Se o diâmetro é o dobro do raio, o raio é a metade do diâmetro. Como você tem o diâmetro, a conta é uma divisão.",
+        "conta": "14 ÷ 2 = 7 cm"
+      },
+      {
+        "titulo": "Confira ao contrário",
+        "explicacao": "Dobre o raio encontrado e veja se volta ao diâmetro do enunciado.",
+        "conta": "2 × 7 = 14 ✓"
+      }
+    ],
+    "fecho": "Raio para diâmetro, multiplique por 2. Diâmetro para raio, divida por 2. Errar o sentido é o único jeito de errar aqui."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma circunferência tem raio de 9 cm. Quanto mede o diâmetro dela? Digite apenas o número.",
+      "imagem": "fig-q-raio9",
+      "dica": "O diâmetro atravessa a figura inteira: é um raio de cada lado do centro.",
+      "formato": "numero",
+      "resposta": 18,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "4.5",
+          "porque": "4,5 é METADE do raio. O diâmetro é maior que o raio, e não menor — ele atravessa a figura toda, enquanto o raio vai só até o centro."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o próprio raio. O diâmetro é outro segmento, e vale o dobro desse valor."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é o triplo do raio. O diâmetro é formado por exatamente DOIS raios, um de cada lado do centro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o diâmetro",
+          "explicacao": "Saindo de um ponto da borda até o centro é um raio; seguindo do centro até a borda oposta é outro raio.",
+          "conta": "diâmetro = raio + raio"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Dois raios de 9 cm cada, um de cada lado do centro. O diâmetro é sempre maior que o raio, nunca menor.",
+          "conta": "2 × 9 = 18 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma moeda tem 30 mm de diâmetro. Quanto mede o raio dela, em milímetros? Digite apenas o número.",
+      "imagem": "fig-q-diametro30",
+      "dica": "O caminho de volta: se o diâmetro é o dobro do raio, o raio é a metade do diâmetro.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "mm",
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 é o dobro do diâmetro. A conta foi feita no sentido errado: aqui o valor conhecido já é o maior dos dois, então é preciso dividir."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é o próprio diâmetro. O raio é a metade dele, porque vai só do centro até a borda."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 30 dividido por 3. A relação entre diâmetro e raio é de dobro e metade, então a divisão é por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o que você tem",
+          "explicacao": "O enunciado deu o diâmetro, que é a medida maior, e pede o raio, que é a menor.",
+          "conta": "tenho o diâmetro, quero o raio"
+        },
+        {
+          "titulo": "Divida por 2",
+          "explicacao": "O raio é metade do diâmetro, porque o diâmetro é feito de dois raios.",
+          "conta": "30 ÷ 2 = 15 mm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Dobrando o raio encontrado, tem que voltar ao diâmetro dado.",
+          "conta": "2 × 15 = 30 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a diferença entre circunferência e círculo?",
+      "imagem": "fig-q-circulo-linha",
+      "dica": "Pense numa pista de corrida e no campo que ela cerca.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "A circunferência é a linha; o círculo é a linha mais a região de dentro"
+        },
+        {
+          "rotulo": "B",
+          "texto": "São a mesma coisa, com nomes diferentes"
+        },
+        {
+          "rotulo": "C",
+          "texto": "A circunferência é maior que o círculo"
+        },
+        {
+          "rotulo": "D",
+          "texto": "O círculo é a linha; a circunferência é a região de dentro"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "São a mesma coisa, com nomes diferentes",
+          "porque": "Na conversa do dia a dia a gente troca as duas palavras à vontade, mas na matemática elas são coisas diferentes: uma é uma linha, sem largura nenhuma; a outra é uma região com área."
+        },
+        {
+          "resposta": "A circunferência é maior que o círculo",
+          "porque": "Não é questão de tamanho: as duas têm o mesmo raio e o mesmo centro. A diferença é de natureza — linha versus região."
+        },
+        {
+          "resposta": "O círculo é a linha; a circunferência é a região de dentro",
+          "porque": "Está invertido. Um jeito de lembrar: a palavra circunferência tem 'circun', de circundar, contornar — e o contorno é a linha."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A circunferência",
+          "explicacao": "É o conjunto dos pontos que estão à mesma distância do centro. Só a linha, sem nada dentro — como um elástico esticado.",
+          "conta": "circunferência = a linha"
+        },
+        {
+          "titulo": "O círculo",
+          "explicacao": "É a linha mais toda a região que ela cerca. Como uma moeda inteira, e não só a borda dela.",
+          "conta": "círculo = linha + interior"
+        },
+        {
+          "titulo": "Por que isso importa",
+          "explicacao": "Comprimento é medida de linha, então pertence à circunferência. Área é medida de região, então pertence ao círculo. Trocar as palavras troca a pergunta.",
+          "conta": "comprimento → linha · área → região"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A roda de uma bicicleta tem 60 cm de diâmetro. Do centro da roda até o aro, quantos centímetros existem? Digite apenas o número.",
+      "imagem": "fig-q-roda",
+      "dica": "A distância do centro até a borda tem um nome. Qual é, e como ele se relaciona com o diâmetro?",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 cm é o diâmetro, que atravessa a roda inteira de um lado ao outro. Do centro até o aro é só metade desse caminho."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é o dobro do diâmetro. Você multiplicou onde precisava dividir: a distância pedida é menor que o diâmetro, não maior."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a metade da metade, ou seja, 60 dividido por 4. O raio é o diâmetro dividido por 2, uma vez só."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Que medida está sendo pedida",
+          "explicacao": "Do centro até a borda é exatamente a definição de raio. O enunciado descreve o raio sem usar a palavra.",
+          "conta": "centro → aro = raio"
+        },
+        {
+          "titulo": "Use o diâmetro dado",
+          "explicacao": "O raio é a metade do diâmetro, porque o diâmetro é feito de dois raios encostados no centro. Como o valor conhecido é o maior, a conta é uma divisão.",
+          "conta": "60 ÷ 2 = 30 cm"
+        },
+        {
+          "titulo": "Confira se faz sentido",
+          "explicacao": "Trinta centímetros do centro até o aro, e outros trinta do centro até o lado oposto, fecham os 60 cm de ponta a ponta da roda.",
+          "conta": "30 + 30 = 60 ✓"
+        }
+      ]
+    }
+  ]
+}

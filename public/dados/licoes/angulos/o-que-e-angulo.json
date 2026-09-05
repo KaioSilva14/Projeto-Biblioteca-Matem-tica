@@ -1,0 +1,210 @@
+{
+  "id": "o-que-e-angulo",
+  "numero": 1,
+  "titulo": "O que é um ângulo",
+  "pergunta": "Por que dois desenhos de tamanhos diferentes podem ter o mesmo ângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Duas semirretas que partem do mesmo ponto formam um ângulo. Esse ponto é o vértice, e as semirretas são os lados. Mas o ângulo não é o desenho: é a ABERTURA entre os dois lados.",
+      "É aí que mora o engano mais comum de toda a matéria. Se você desenhar um ângulo e depois prolongar os dois lados até o fim da folha, a abertura continua exatamente a mesma. O desenho ficou maior, o ângulo não. Lado comprido não é ângulo grande.",
+      "Um jeito melhor de pensar é como giro. Imagine uma porta: ela parte encostada na parede e vai girando. O ângulo mede o quanto ela girou — e isso não tem nada a ver com o tamanho da porta. Uma porta pequena e uma porta enorme podem ter girado exatamente o mesmo tanto.",
+      "Para medir esse giro, dividimos a volta completa em 360 partes iguais, e cada parte é um grau, escrito 1°. Então a volta inteira tem 360°, meia volta tem 180° e um quarto de volta tem 90°.",
+      "Por que 360, e não 100? Porque 360 é divisível por muita coisa: 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20... Isso faz com que os pedaços mais usados da volta caiam sempre em números inteiros. Com 100 graus na volta, um terço de volta daria 33,33... — e a conta mais simples do mundo já viraria um número quebrado."
+    ],
+    "destaque": "Ângulo é abertura, não é tamanho. Prolongar os lados não muda nada.",
+    "imagem": "ang-ideia-abertura"
+  },
+  "resolvido": {
+    "enunciado": "O ponteiro dos minutos de um relógio sai do 12 e para no 3. Quantos graus ele girou?",
+    "imagem": "ang-res-relogio",
+    "passos": [
+      {
+        "titulo": "Quanto vale a volta inteira",
+        "explicacao": "O ponteiro dos minutos leva 60 minutos para dar uma volta completa, e uma volta completa é 360°. Esse é o ponto de partida de qualquer conta com relógio.",
+        "conta": "60 minutos = 360°"
+      },
+      {
+        "titulo": "Que fração da volta ele andou",
+        "explicacao": "Do 12 até o 3 são 15 minutos. Quinze de sessenta é um quarto da volta — a mesma fração que você já estudou em Frações.",
+        "conta": "15/60 = 1/4 da volta"
+      },
+      {
+        "titulo": "Aplique a fração sobre 360°",
+        "explicacao": "Um quarto de 360 é 360 dividido por 4.",
+        "conta": "360° ÷ 4 = 90°"
+      },
+      {
+        "titulo": "Confira pelo caminho do minuto",
+        "explicacao": "Se 60 minutos valem 360°, cada minuto vale 6°. Quinze minutos valem quinze vezes isso, e o resultado bate.",
+        "conta": "360 ÷ 60 = 6° por minuto · 6 × 15 = 90°"
+      }
+    ],
+    "fecho": "Repare que o tamanho do relógio não entrou em nenhum momento da conta. Num relógio de pulso ou num de torre, o giro é o mesmo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A figura mostra dois ângulos. O da esquerda tem lados curtos; o da direita tem lados bem mais compridos. Qual dos dois é o MAIOR ângulo?",
+      "imagem": "ang-q-comparar",
+      "dica": "Olhe para a abertura entre os lados, e não para até onde eles vão.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O da esquerda" },
+        { "rotulo": "B", "texto": "O da direita" },
+        { "rotulo": "C", "texto": "São iguais" },
+        { "rotulo": "D", "texto": "Não dá para saber sem medir o comprimento dos lados" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O da direita",
+          "porque": "Você comparou o comprimento dos lados, não a abertura. O da direita tem lados mais compridos, mas as duas semirretas dele estão MENOS afastadas uma da outra — e é o afastamento que define o ângulo."
+        },
+        {
+          "resposta": "São iguais",
+          "porque": "As aberturas são visivelmente diferentes: uma é bem mais fechada que a outra. Se fossem iguais, os lados formariam a mesma 'boca' nos dois desenhos."
+        },
+        {
+          "resposta": "Não dá para saber sem medir o comprimento dos lados",
+          "porque": "O comprimento dos lados não entra na medida do ângulo. Você pode apagar metade de cada lado que a abertura continua a mesma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Esqueça o comprimento",
+          "explicacao": "O tamanho do traço é escolha de quem desenhou. Se ajudar, imagine os dois ângulos com lados do mesmo comprimento antes de comparar.",
+          "conta": "lado comprido ≠ ângulo grande"
+        },
+        {
+          "titulo": "Compare as aberturas",
+          "explicacao": "O da esquerda tem os lados bem mais afastados um do outro; o da direita é mais fechado, apesar de ocupar mais espaço na folha.",
+          "conta": "esquerda: 70° · direita: 40°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos graus tem meia volta completa? Digite apenas o número.",
+      "imagem": "ang-q-meia-volta",
+      "dica": "A volta inteira tem 360°. Metade disso é quanto?",
+      "formato": "numero",
+      "resposta": 180,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "90",
+          "porque": "90° é um QUARTO de volta, e não a metade. Meia volta é o dobro disso: os dois lados ficam em linha reta."
+        },
+        {
+          "resposta": "360",
+          "porque": "360° é a volta INTEIRA, quando o lado móvel volta para o lugar de onde saiu. A metade dela é 180°."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 seria a metade se a volta tivesse 100 graus. Mas a volta foi dividida em 360 partes, e não em 100 — é por isso que a conta dá 180."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Parta da volta inteira",
+          "explicacao": "A volta completa vale 360°, porque foi assim que a divisão do círculo foi combinada.",
+          "conta": "1 volta = 360°"
+        },
+        {
+          "titulo": "Divida por 2",
+          "explicacao": "Na meia volta, os dois lados ficam alinhados e formam uma linha reta. Esse ângulo tem nome próprio: raso.",
+          "conta": "360° ÷ 2 = 180°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O ponteiro dos minutos de um relógio parte do 12 e anda 20 minutos. Quantos graus ele girou? Digite apenas o número.",
+      "imagem": "ang-q-20min",
+      "dica": "Descubra primeiro quantos graus valem um minuto. A volta inteira são 60 minutos e 360 graus.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é a quantidade de MINUTOS, não de graus. Cada minuto vale 6°, então falta multiplicar."
+        },
+        {
+          "resposta": "90",
+          "porque": "90° corresponde a 15 minutos, um quarto de volta. Vinte minutos é mais que isso: é um terço da volta."
+        },
+        {
+          "resposta": "60",
+          "porque": "Parece que os 60 minutos da volta entraram como resposta. O que se pede é o giro dos 20 minutos, e cada um deles vale 6°."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 sai de dividir 360 por 20. A conta é ao contrário: descubra quanto vale um minuto (360 ÷ 60) e multiplique pelos 20."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quanto vale um minuto",
+          "explicacao": "A volta tem 360° e leva 60 minutos, então cada minuto corresponde a uma fatia igual da volta.",
+          "conta": "360° ÷ 60 = 6° por minuto"
+        },
+        {
+          "titulo": "Multiplique pelos minutos andados",
+          "explicacao": "Vinte minutos são vinte fatias de 6°.",
+          "conta": "6° × 20 = 120°"
+        },
+        {
+          "titulo": "Confira pela fração",
+          "explicacao": "Vinte de sessenta minutos é um terço da volta, e um terço de 360 é 120. Os dois caminhos fecham.",
+          "conta": "360° ÷ 3 = 120°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um ângulo foi desenhado numa folha. Em seguida, os dois lados dele foram prolongados até a borda do papel. O que acontece com a medida do ângulo?",
+      "imagem": "ang-q-prolongar",
+      "dica": "Pense na porta girando: o que mede o ângulo é o giro, não o tamanho da porta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não muda nada: continua a mesma medida" },
+        { "rotulo": "B", "texto": "Dobra de tamanho" },
+        { "rotulo": "C", "texto": "Aumenta, mas não dá para saber quanto" },
+        { "rotulo": "D", "texto": "Diminui" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Dobra de tamanho",
+          "porque": "Dobrar o comprimento dos lados não dobra o ângulo. A abertura entre as duas semirretas é exatamente a mesma perto do vértice e longe dele."
+        },
+        {
+          "resposta": "Aumenta, mas não dá para saber quanto",
+          "porque": "Não aumenta nada. Um ângulo é definido pelo giro entre os lados, e prolongar um lado não gira coisa nenhuma."
+        },
+        {
+          "resposta": "Diminui",
+          "porque": "Também não. Nem para mais nem para menos: prolongar os lados é só desenhar mais tinta na mesma direção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que define o ângulo",
+          "explicacao": "As duas semirretas partem do mesmo vértice e apontam para direções fixas. O ângulo é o giro de uma direção até a outra.",
+          "conta": "ângulo = giro entre as direções"
+        },
+        {
+          "titulo": "O que o prolongamento faz",
+          "explicacao": "Prolongar um lado é continuar na MESMA direção. Como as direções não mudaram, o giro entre elas também não mudou.",
+          "conta": "direções iguais → mesmo ângulo"
+        },
+        {
+          "titulo": "A consequência prática",
+          "explicacao": "Por isso o transferidor tem tamanho fixo e funciona em qualquer desenho: para medir, basta ver por onde os lados passam, e não até onde eles vão.",
+          "conta": "medida independe do desenho"
+        }
+      ]
+    }
+  ]
+}

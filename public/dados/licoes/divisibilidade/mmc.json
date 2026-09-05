@@ -1,0 +1,275 @@
+{
+  "id": "mmc",
+  "numero": 6,
+  "titulo": "Mínimo múltiplo comum",
+  "pergunta": "Quando dois ritmos diferentes voltam a bater juntos?",
+  "ideia": {
+    "paragrafos": [
+      "Dois ônibus saem do mesmo ponto às 8 horas. Um passa de 4 em 4 minutos, o outro de 10 em 10. Daqui a quanto tempo eles voltam a sair juntos?",
+      "O instante do reencontro precisa ser múltiplo de 4, porque só nesses momentos o primeiro ônibus está no ponto. E precisa ser múltiplo de 10, pela mesma razão. Ou seja, tem que ser múltiplo comum dos dois. Como a pergunta é 'daqui a quanto tempo', queremos o primeiro deles: o mínimo múltiplo comum, escrito MMC(4, 10) = 20.",
+      "Compare com a lição anterior e a diferença fica clara. O MDC olha para dentro dos números e procura o maior pedaço que cabe nos dois. O MMC olha para fora e procura o primeiro ponto em que os dois alcançam o mesmo lugar. Um encolhe, o outro estica.",
+      "Pela decomposição também há um método rápido, e ele é o espelho do MDC: pegue TODOS os primos que aparecem em qualquer um dos números, cada um na MAIOR quantidade de vezes em que apareceu. Faz sentido — o resultado precisa conter os dois números inteiros dentro dele, então não pode faltar fator para nenhum dos lados.",
+      "Você já usou MMC sem saber o nome. Somar 1/6 com 1/8 exige colocar as duas frações no mesmo denominador, e o menor denominador que serve é justamente o MMC de 6 e 8. Todo 'mínimo múltiplo comum' é uma resposta para a pergunta: qual é o menor tamanho onde os dois cabem certinho?"
+    ],
+    "destaque": "O MMC é a primeira vez que os dois ritmos se encontram.",
+    "imagem": "div-ideia-mmc"
+  },
+  "resolvido": {
+    "enunciado": "Calcule o MMC de 6 e 8.",
+    "imagem": "div-res-mmc-saltos",
+    "passos": [
+      {
+        "titulo": "Escreva os múltiplos de cada um",
+        "explicacao": "Vá somando o próprio número, e não precisa ir longe: pare assim que aparecer um repetido nas duas listas.",
+        "conta": "6: 6, 12, 18, 24, 30 · 8: 8, 16, 24, 32"
+      },
+      {
+        "titulo": "Ache o primeiro que aparece nos dois",
+        "explicacao": "O 24 está nas duas listas, e é o primeiro que está. Qualquer outro encontro depois dele — 48, 72 — já vem tarde demais.",
+        "conta": "MMC(6, 8) = 24"
+      },
+      {
+        "titulo": "Confira pela decomposição",
+        "explicacao": "6 = 2 × 3 e 8 = 2 × 2 × 2. Os primos que aparecem são o 2 e o 3. O 2 aparece uma vez no 6 e três vezes no 8 — vale a maior quantidade, três. O 3 aparece só uma vez.",
+        "conta": "2 × 2 × 2 × 3 = 24"
+      },
+      {
+        "titulo": "Um cuidado que evita erro",
+        "explicacao": "Multiplicar 6 por 8 dá 48, que também é múltiplo comum — mas não é o mínimo. Multiplicar só dá o resultado certo quando os dois números são primos entre si.",
+        "conta": "6 × 8 = 48, mas 48 não é o menor"
+      }
+    ],
+    "fecho": "Quando os dois números compartilham fatores, o produto exagera. É por isso que o MMC existe como conta própria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o MMC de 4 e 6? Digite apenas o número.",
+      "imagem": "div-q-mmc-2-5",
+      "dica": "Escreva os múltiplos dos dois e pare no primeiro que aparecer nas duas listas.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é múltiplo comum de 4 e de 6, mas não é o menor: o 12 vem antes e também serve. Você provavelmente multiplicou 4 × 6, e multiplicar só dá o MMC quando os números não compartilham fatores — e estes compartilham o 2."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o MDC de 4 e 6, o maior divisor comum. O MMC é a outra ponta: o menor múltiplo comum, que tem que ser maior ou igual aos dois números."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é a soma de 4 com 6. Somar não resolve aqui — 10 nem é múltiplo de 4, porque 10 ÷ 4 deixa resto 2."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é múltiplo de 4, mas não é múltiplo de 6: 8 ÷ 6 deixa resto 2. Precisa estar nas duas tabuadas ao mesmo tempo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Múltiplos de 4",
+          "explicacao": "Some 4 de cada vez e vá anotando. Não precisa ir longe: dá para parar assim que aparecer um número que também esteja na outra lista.",
+          "conta": "4, 8, 12, 16, 20"
+        },
+        {
+          "titulo": "Múltiplos de 6",
+          "explicacao": "Some 6 de cada vez, do mesmo jeito. Como o 6 é maior, essa lista anda mais rápido e alcança a outra em poucos passos.",
+          "conta": "6, 12, 18, 24"
+        },
+        {
+          "titulo": "O primeiro encontro",
+          "explicacao": "O 12 aparece nas duas listas e é o menor que faz isso.",
+          "conta": "MMC(4, 6) = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num ponto, um ônibus passa a cada 12 minutos e outro a cada 18 minutos. Os dois acabaram de passar juntos. Daqui a quantos minutos eles vão passar juntos de novo?",
+      "imagem": "div-q-fatorar-12",
+      "dica": "O instante do reencontro tem que ser múltiplo de 12 e de 18 ao mesmo tempo — e você quer o primeiro.",
+      "formato": "numero",
+      "resposta": 36,
+      "unidade": "minutos",
+      "errosComuns": [
+        {
+          "resposta": "216",
+          "porque": "216 é 12 × 18. É múltiplo comum, mas está muito longe do primeiro encontro — eles já teriam se cruzado várias vezes antes. Multiplicar só acerta quando os números não compartilham fatores, e 12 e 18 compartilham 2 e 3."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o MDC de 12 e 18, e daqui a 6 minutos nenhum dos dois ônibus passou ainda. O reencontro tem que ser pelo menos tão grande quanto o intervalo maior, que é 18."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é a soma de 12 com 18. Além de somar não ser o caminho, 30 nem é múltiplo de 12: 30 ÷ 12 deixa resto 6."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é múltiplo de 12, mas não de 18 — aos 24 minutos só o primeiro ônibus está no ponto. O próximo múltiplo de 12 é o 36, e esse serve para os dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza",
+          "explicacao": "O reencontro acontece num minuto que é múltiplo dos dois intervalos, e a pergunta pede o primeiro. É o MMC.",
+          "conta": "reencontro = MMC(12, 18)"
+        },
+        {
+          "titulo": "Decomponha os dois",
+          "explicacao": "Escreva cada um como produto de primos: 12 é 2 × 2 × 3 e 18 é 2 × 3 × 3. Assim dá para comparar de quanto de cada primo cada número precisa.",
+          "conta": "12 = 2×2×3 · 18 = 2×3×3"
+        },
+        {
+          "titulo": "Pegue cada primo na maior quantidade",
+          "explicacao": "O 2 aparece duas vezes no 12 e uma no 18 — vale duas. O 3 aparece uma vez no 12 e duas no 18 — vale duas.",
+          "conta": "2 × 2 × 3 × 3 = 36"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Aos 36 minutos os dois estão no ponto: o primeiro fez 3 voltas e o segundo, 2.",
+          "conta": "36 ÷ 12 = 3 · 36 ÷ 18 = 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Para somar 5/6 + 3/8, é preciso colocar as duas frações no mesmo denominador. Qual é o MENOR denominador comum que serve?",
+      "imagem": "div-q-somar-fracoes",
+      "dica": "O denominador novo precisa ser múltiplo de 6 e de 8 ao mesmo tempo — e quanto menor, mais simples fica a conta.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "24"
+        },
+        {
+          "rotulo": "B",
+          "texto": "48"
+        },
+        {
+          "rotulo": "C",
+          "texto": "14"
+        },
+        {
+          "rotulo": "D",
+          "texto": "2"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 funciona — a conta sai certa com ele — mas não é o menor. É o produto 6 × 8, e como 6 e 8 compartilham o fator 2, o produto dá o dobro do necessário. Usar 48 obriga a simplificar tudo no final."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é a soma dos denominadores, e somar denominadores não produz nada útil. Além disso 14 não é múltiplo de 6 nem de 8, então nenhuma das duas frações caberia nele."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o MDC de 6 e 8. Um denominador comum precisa ser múltiplo dos dois, não divisor: ele tem que ser maior, para caber mais pedaços dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que o denominador novo precisa ser",
+          "explicacao": "Ele precisa ser múltiplo de 6, para 5/6 poder ser reescrita nele, e múltiplo de 8, pelo mesmo motivo com 3/8.",
+          "conta": "múltiplo de 6 e de 8"
+        },
+        {
+          "titulo": "Ache o menor",
+          "explicacao": "É o MMC de 6 e 8, calculado no exemplo desta lição.",
+          "conta": "MMC(6, 8) = 24"
+        },
+        {
+          "titulo": "Veja a soma ficar fácil",
+          "explicacao": "6 × 4 = 24 e 8 × 3 = 24, então cada fração é reescrita multiplicando em cima e embaixo pelo mesmo número.",
+          "conta": "5/6 = 20/24 · 3/8 = 9/24 · soma = 29/24"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um supermercado vende rolos idênticos de papel higiênico e faz as promoções abaixo. Promoção 1: pague 5 e leve 6. Promoção 2: pague 11 e leve 12. Promoção 3: pague 14 e leve 18. Promoção 4: pague 21 e leve 24. Promoção 5: pague 31 e leve 36. Qual é a promoção mais vantajosa?",
+      "imagem": "div-q-promocoes",
+      "fonte": {
+        "prova": "OBMEP · 1ª Fase, Nível 1",
+        "ano": 2018,
+        "referencia": "Questão 15"
+      },
+      "dica": "Não dá para comparar promoções de tamanhos diferentes direto. Escolha uma quantidade de rolos que sirva para as cinco ao mesmo tempo — é para isso que existe o MMC.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Promoção 1"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Promoção 2"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Promoção 3"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Promoção 4"
+        },
+        {
+          "rotulo": "E",
+          "texto": "Promoção 5"
+        }
+      ],
+      "correta": 2,
+      "errosComuns": [
+        {
+          "resposta": "Promoção 5",
+          "porque": "A promoção 5 dá 5 rolos de graça, o maior número de grátis por pacote — e é por isso que ela atrai. Mas é preciso pagar 31 para conseguir isso. Comparando na mesma quantidade de rolos, ela rende 10 grátis a cada 72, contra 16 da promoção 3."
+        },
+        {
+          "resposta": "Promoção 1",
+          "porque": "A promoção 1 tem a melhor cara à primeira vista porque é a menor: leva 6 pagando 5. Ela é boa mesmo — 12 grátis a cada 72 rolos — mas a promoção 3 dá 16."
+        },
+        {
+          "resposta": "Promoção 4",
+          "porque": "Levar 24 pagando 21 dá 3 rolos de graça por pacote. Em 72 rolos são 3 pacotes, ou 9 grátis — menos que os 16 da promoção 3."
+        },
+        {
+          "resposta": "Promoção 2",
+          "porque": "Esta é a pior das cinco: só 1 rolo de graça a cada 12. Em 72 rolos, 6 grátis. Um único rolo grátis rende muito mais quando o pacote é pequeno, como na promoção 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Por que não dá para comparar direto",
+          "explicacao": "As promoções vêm em pacotes de tamanhos diferentes: 6, 12, 18, 24 e 36 rolos. Comparar 'quantos vêm de graça' entre pacotes diferentes não diz nada.",
+          "conta": "pacotes de 6, 12, 18, 24 e 36"
+        },
+        {
+          "titulo": "Escolha uma quantidade que sirva para todas",
+          "explicacao": "Se você comprar uma quantidade que seja múltipla de todos os pacotes, cada promoção pode ser usada sem sobrar rolo quebrado. O menor número assim é o MMC dos cinco.",
+          "conta": "MMC(6, 12, 18, 24, 36) = 72"
+        },
+        {
+          "titulo": "Quantos pacotes de cada, em 72 rolos",
+          "explicacao": "Divida 72 pelo tamanho do pacote de cada promoção.",
+          "conta": "72÷6=12 · 72÷12=6 · 72÷18=4 · 72÷24=3 · 72÷36=2"
+        },
+        {
+          "titulo": "Quantos rolos grátis cada pacote dá",
+          "explicacao": "É a diferença entre o que se leva e o que se paga.",
+          "conta": "1 · 1 · 4 · 3 · 5 grátis por pacote"
+        },
+        {
+          "titulo": "Multiplique e compare",
+          "explicacao": "Agora todas as promoções estão medidas na mesma régua de 72 rolos, e dá para escolher.",
+          "conta": "12 · 6 · 16 · 9 · 10 → a maior é 16"
+        }
+      ]
+    }
+  ]
+}

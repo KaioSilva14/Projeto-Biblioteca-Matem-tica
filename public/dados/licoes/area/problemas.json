@@ -1,0 +1,224 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Área no mundo real",
+  "pergunta": "Quantos ladrilhos para cobrir o piso de uma sala?",
+  "ideia": {
+    "paragrafos": [
+      "Fora da escola, a área aparece disfarçada de piso, tinta, grama, tecido, terreno. E a pergunta que identifica é sempre a mesma: isso COBRE a região, ou acompanha a borda? Se cobre, é área; se acompanha, é perímetro.",
+      "Ladrilho cobre o chão: área. Rodapé acompanha a parede: perímetro. Tinta cobre a parede: área. Fita de contorno acompanha: perímetro. Grama cobre o terreno: área. Cerca acompanha: perímetro. Reconhecer isso resolve metade do problema antes de qualquer conta.",
+      "Depois de calcular a área, quase sempre há uma segunda etapa. Quantos ladrilhos são necessários? Divida a área do piso pela área de um ladrilho. Quantas latas de tinta? Divida a área da parede pelo rendimento de uma lata.",
+      "Nos problemas de ladrilho existe um caminho ainda mais seguro que dividir áreas: conte por fileiras. Se o piso tem 500 cm de comprimento e cada ladrilho tem 50 cm, cabem 10 ladrilhos numa fileira. Se o piso tem 400 cm de largura, cabem 8 fileiras. Total: 80. Esse caminho evita erros de unidade e ainda mostra quando os ladrilhos não encaixam certinho.",
+      "E a conferência de sempre: o resultado é plausível? Uma sala de 5 por 4 metros tem 20 m². Se a sua conta der 2 m² ou 2000 m², alguma coisa saiu do lugar antes."
+    ],
+    "destaque": "Cobre a região? É área. Acompanha a borda? É perímetro.",
+    "imagem": "are-ideia-problemas"
+  },
+  "resolvido": {
+    "enunciado": "O piso de uma sala mede 500 cm por 400 cm. Ele será coberto com ladrilhos quadrados de 50 cm de lado. Quantos ladrilhos são necessários?",
+    "imagem": "are-res-ladrilho",
+    "passos": [
+      {
+        "titulo": "Identifique a medida",
+        "explicacao": "Os ladrilhos cobrem o chão inteiro, então o problema é de área. Se fosse rodapé, seria perímetro.",
+        "conta": "ladrilho cobre → área"
+      },
+      {
+        "titulo": "Quantos ladrilhos numa fileira",
+        "explicacao": "O comprimento do piso é 500 cm e cada ladrilho ocupa 50 cm. Divida um pelo outro.",
+        "conta": "500 ÷ 50 = 10 por fileira"
+      },
+      {
+        "titulo": "Quantas fileiras",
+        "explicacao": "A largura é 400 cm, e cada fileira de ladrilhos ocupa 50 cm dela.",
+        "conta": "400 ÷ 50 = 8 fileiras"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Oito fileiras de dez ladrilhos cada. É a mesma contagem por fileiras da primeira lição, agora com quadradinhos maiores.",
+        "conta": "10 × 8 = 80 ladrilhos"
+      },
+      {
+        "titulo": "Confira pelas áreas",
+        "explicacao": "O piso tem 500 × 400 = 200 000 cm² e cada ladrilho tem 50 × 50 = 2 500 cm². Dividindo, dá o mesmo.",
+        "conta": "200 000 ÷ 2 500 = 80 ✓"
+      }
+    ],
+    "fecho": "Contar por fileiras e conferir pelas áreas: dois caminhos independentes que precisam concordar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma parede mede 4 m por 3 m. Cada lata de tinta cobre 6 m². Quantas latas são necessárias para pintar a parede inteira? Digite apenas o número.",
+      "imagem": "are-q-tinta",
+      "dica": "Calcule a área da parede e veja quantas latas cabem nela.",
+      "formato": "numero",
+      "resposta": 2,
+      "unidade": "latas",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 m² é a ÁREA da parede, e não a quantidade de latas. Falta a segunda etapa: dividir pelo rendimento de cada lata."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 m² é o rendimento de UMA lata, que o enunciado já deu. Ele é o divisor da conta, não a resposta."
+        },
+        {
+          "resposta": "72",
+          "porque": "72 é 12 × 6, multiplicando onde precisava dividir. Cada lata cobre uma parte da parede, então o número de latas é bem menor que a área."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é o PERÍMETRO da parede, em metros: 2 × (4 + 3). Tinta cobre a região, então o cálculo é de área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique",
+          "explicacao": "Tinta cobre a parede, então o cálculo é de área.",
+          "conta": "tinta cobre → área"
+        },
+        {
+          "titulo": "Área da parede",
+          "explicacao": "Base vezes altura, como em qualquer retângulo. O resultado sai em metros quadrados porque as duas medidas estavam em metros.",
+          "conta": "4 × 3 = 12 m²"
+        },
+        {
+          "titulo": "Quantas latas",
+          "explicacao": "Cada lata cobre 6 m², então veja quantas vezes 6 cabe em 12.",
+          "conta": "12 ÷ 6 = 2 latas"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um terreno retangular mede 40 m por 25 m. Qual é a área dele, em metros quadrados? Digite apenas o número.",
+      "imagem": "are-q-terreno",
+      "dica": "Área é comprimento vezes largura.",
+      "formato": "numero",
+      "resposta": 1000,
+      "unidade": "m²",
+      "errosComuns": [
+        {
+          "resposta": "130",
+          "porque": "130 é o PERÍMETRO do terreno, em metros: 2 × (40 + 25). Ele responderia quanta cerca comprar, e não qual o tamanho do terreno."
+        },
+        {
+          "resposta": "65",
+          "porque": "65 é 40 + 25, a meia volta. Área é multiplicação de comprimento por largura."
+        },
+        {
+          "resposta": "10000",
+          "porque": "10.000 é dez vezes o resultado. Vale refazer a multiplicação com calma: 40 × 25 é o mesmo que 4 × 25 × 10, que dá 1.000."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique as medidas",
+          "explicacao": "Quarenta quadrados de 1 metro por fileira, vinte e cinco fileiras.",
+          "conta": "40 × 25"
+        },
+        {
+          "titulo": "Calcule com um atalho",
+          "explicacao": "Quatro vezes vinte e cinco dá cem; multiplicando pelo dez que sobrou, dá mil.",
+          "conta": "4 × 25 = 100 · 100 × 10 = 1 000 m²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um piso retangular mede 2 m por 1 m e será coberto com ladrilhos quadrados de 20 cm de lado. Quantos ladrilhos são necessários? Digite apenas o número.",
+      "imagem": "are-q-ladrilhos",
+      "dica": "Converta tudo para a mesma unidade primeiro. Depois conte por fileiras.",
+      "formato": "numero",
+      "resposta": 50,
+      "unidade": "ladrilhos",
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é quantos ladrilhos cabem numa fileira ao longo dos 2 metros. Faltam as outras fileiras: a largura de 1 metro comporta cinco delas."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é a área do piso em metros quadrados. Ela é o ponto de partida, mas cada ladrilho é bem menor que 1 m² — então cabem muitos."
+        },
+        {
+          "resposta": "5000",
+          "porque": "5.000 sai de dividir 20.000 cm² por 4 cm, misturando área com comprimento. Cada ladrilho tem 20 × 20 = 400 cm² de área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Deixe tudo na mesma unidade",
+          "explicacao": "O piso está em metros e o ladrilho em centímetros. Converta antes de qualquer conta.",
+          "conta": "2 m = 200 cm · 1 m = 100 cm"
+        },
+        {
+          "titulo": "Quantos por fileira",
+          "explicacao": "Ao longo dos 200 cm, cada ladrilho ocupa 20 cm.",
+          "conta": "200 ÷ 20 = 10 por fileira"
+        },
+        {
+          "titulo": "Quantas fileiras",
+          "explicacao": "Ao longo dos 100 cm da outra direção, cada fileira ocupa 20 cm.",
+          "conta": "100 ÷ 20 = 5 fileiras"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cinco fileiras de dez ladrilhos cada.",
+          "conta": "10 × 5 = 50 ladrilhos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um jardim retangular mede 12 m por 8 m. O dono quer gramar exatamente metade dele. Quantos metros quadrados de grama ele precisa comprar? Digite apenas o número.",
+      "imagem": "are-q-jardim",
+      "dica": "Calcule a área inteira primeiro e só depois pegue a metade.",
+      "formato": "numero",
+      "resposta": 48,
+      "unidade": "m²",
+      "errosComuns": [
+        {
+          "resposta": "96",
+          "porque": "96 m² é a área INTEIRA do jardim. O enunciado pede metade dela — falta o último passo."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 12 + 8, a meia volta. Área é multiplicação, e além disso ainda falta dividir por 2."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é metade do PERÍMETRO: 2 × (12 + 8) dá 40, e metade disso seria 20. De todo modo, grama cobre a região, então o cálculo é de área."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 sai de dividir por 4 em vez de por 2, ou de calcular metade de cada lado antes de multiplicar. Metade da área não é a área das metades dos lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique",
+          "explicacao": "Grama cobre o terreno, então é área.",
+          "conta": "grama cobre → área"
+        },
+        {
+          "titulo": "Área inteira",
+          "explicacao": "Doze por oito, contando os quadrados de 1 metro que cobrem o jardim todo. Só depois é que entra a metade.",
+          "conta": "12 × 8 = 96 m²"
+        },
+        {
+          "titulo": "Metade",
+          "explicacao": "O enunciado pede só metade do jardim gramado.",
+          "conta": "96 ÷ 2 = 48 m²"
+        },
+        {
+          "titulo": "Por que não dividir os lados",
+          "explicacao": "Metade de 12 por metade de 8 daria 6 × 4 = 24, que é um QUARTO do jardim. Dividir os dois lados pela metade divide a área por quatro — vale desenhar para ver.",
+          "conta": "6 × 4 = 24 ≠ 48"
+        }
+      ]
+    }
+  ]
+}
