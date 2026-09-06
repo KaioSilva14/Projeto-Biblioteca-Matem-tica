@@ -1,0 +1,214 @@
+{
+  "id": "entre-extremos",
+  "numero": 3,
+  "titulo": "A média fica no meio",
+  "pergunta": "Como saber se a média que você calculou é possível?",
+  "ideia": {
+    "paragrafos": [
+      "A média tem uma propriedade que serve de conferência gratuita: ela nunca é menor que o menor valor da lista, nem maior que o maior. Sempre fica entre os dois extremos.",
+      "A razão é a própria ideia de repartir. Se todo mundo recebesse mais que o maior valor, faltaria coisa para distribuir — não havia tudo isso. E se todo mundo recebesse menos que o menor, sobraria, e a repartição não teria acabado.",
+      "Na prática isso vira um teste rápido. Calculou a média de 6, 7 e 20 e achou 25? Está errado, porque 25 passa do maior valor. Achou 4? Também está, porque 4 é menor que o menor. A resposta certa, 11, está no meio da faixa, como tem de estar.",
+      "O único caso em que a média encosta num extremo é quando todos os valores são iguais. Aí o menor e o maior são o mesmo número, a faixa tem tamanho zero e a média é obrigada a ser esse valor.",
+      "Uma coisa que a propriedade NÃO garante: que a média fique no meio exato entre o menor e o maior. Em 6, 7 e 20 o meio exato seria 13, e a média deu 11 — porque a média leva em conta todos os valores, e não só os dois extremos."
+    ],
+    "destaque": "A média fica sempre entre o menor e o maior valor. Se saiu fora, a conta está errada.",
+    "imagem": "med-ideia-faixa"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a média de 4, 9 e 11? E como conferir se o resultado é possível?",
+    "imagem": "med-res-faixa",
+    "passos": [
+      {
+        "titulo": "Antes de somar, olhe os extremos",
+        "explicacao": "O menor valor é 4 e o maior é 11, então a média vai cair em algum ponto entre esses dois. Saber disso antes já elimina resposta absurda.",
+        "conta": "entre 4 e 11"
+      },
+      {
+        "titulo": "Some os três",
+        "explicacao": "Quatro mais nove dá treze, e mais onze dá vinte e quatro.",
+        "conta": "4 + 9 + 11 = 24"
+      },
+      {
+        "titulo": "Divida pela quantidade",
+        "explicacao": "São três valores, então a soma se reparte em três partes iguais.",
+        "conta": "24 ÷ 3 = 8"
+      },
+      {
+        "titulo": "Confira a faixa",
+        "explicacao": "O 8 está entre 4 e 11, então o resultado passa no teste. Se tivesse dado 3 ou 12, haveria erro em algum passo da conta.",
+        "conta": "4 < 8 < 11 ✓"
+      }
+    ],
+    "fecho": "A conferência não prova que a média está certa. Mas ela pega quase todo erro grosseiro."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Sem calcular, é possível que a média de 6, 7 e 20 seja 25?",
+      "imagem": "med-q-possivel",
+      "dica": "Compare o 25 com o maior valor da lista.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque a média nunca passa do maior valor" },
+        { "rotulo": "B", "texto": "Sim, porque a soma dos três é maior que 25" },
+        { "rotulo": "C", "texto": "Sim, se o 20 for muito grande" },
+        { "rotulo": "D", "texto": "Só dá para saber calculando" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque a soma dos três é maior que 25",
+          "porque": "A soma realmente é 33, mas quem se compara com os valores é a média, e não a soma. Depois de repartir entre três, o resultado cai para dentro da faixa dos valores."
+        },
+        {
+          "resposta": "Sim, se o 20 for muito grande",
+          "porque": "Um valor grande puxa a média para cima, mas nunca além dele mesmo. O 20 é o teto: com esses três números, a média fica entre 6 e 20."
+        },
+        {
+          "resposta": "Só dá para saber calculando",
+          "porque": "Dá para saber antes: 25 é maior que o maior valor da lista, e isso já é impossível. Calcular serve para achar o valor certo, e não para descartar o absurdo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache os extremos",
+          "explicacao": "O menor valor da lista é 6 e o maior é 20.",
+          "conta": "de 6 a 20"
+        },
+        {
+          "titulo": "Compare com o 25",
+          "explicacao": "Vinte e cinco está fora dessa faixa, acima do teto.",
+          "conta": "25 > 20"
+        },
+        {
+          "titulo": "Confirme calculando",
+          "explicacao": "A soma é 33 e a divisão é por 3, o que dá 11 — dentro da faixa, como tinha de ser.",
+          "conta": "33 ÷ 3 = 11"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a média dos números 2, 4, 6, 8 e 10? Digite apenas o número.",
+      "imagem": "med-q-cinco",
+      "dica": "Some os cinco e divida por cinco. Depois confira se o resultado ficou entre 2 e 10.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é a soma dos cinco números. Além de faltar a divisão, o 30 está muito acima do maior valor da lista, o que já denuncia o erro."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a quantidade de números, e não a média deles. Confundir os dois papéis é comum quando a lista tem cinco valores."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o maior valor. A média só pode ser igual ao maior se todos os números forem iguais, o que não é o caso aqui."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os cinco",
+          "explicacao": "Somar os extremos em pares ajuda: 2 com 10 dá 12, 4 com 8 dá 12, e sobra o 6.",
+          "conta": "12 + 12 + 6 = 30"
+        },
+        {
+          "titulo": "Divida por cinco",
+          "explicacao": "São cinco valores na lista, contando todos.",
+          "conta": "30 ÷ 5 = 6"
+        },
+        {
+          "titulo": "Confira a faixa",
+          "explicacao": "Seis está entre 2 e 10, então o resultado é possível.",
+          "conta": "2 < 6 < 10 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Sem fazer a conta, qual destes números PODE ser a média de 10, 12 e 14?",
+      "imagem": "med-q-qual-pode",
+      "dica": "Descarte os que ficam fora da faixa entre o menor e o maior valor.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "12" },
+        { "rotulo": "B", "texto": "9" },
+        { "rotulo": "C", "texto": "15" },
+        { "rotulo": "D", "texto": "36" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "Nove é menor que o menor valor da lista, que é 10. Depois de repartir, ninguém pode ficar com menos do que o menor tinha."
+        },
+        {
+          "resposta": "15",
+          "porque": "Quinze passa do maior valor, que é 14. Não havia tanto para distribuir entre os três."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é a SOMA dos três números, e não a média. A média é essa soma repartida entre eles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Delimite a faixa",
+          "explicacao": "O menor valor é 10 e o maior é 14, então a média está entre esses dois.",
+          "conta": "de 10 a 14"
+        },
+        {
+          "titulo": "Descarte o que está fora",
+          "explicacao": "Nove fica abaixo do piso; quinze e trinta e seis ficam acima do teto.",
+          "conta": "9 ✗ · 15 ✗ · 36 ✗"
+        },
+        {
+          "titulo": "Confirme o que sobrou",
+          "explicacao": "Doze é o único dentro da faixa, e a conta confirma: 36 dividido por 3 dá 12.",
+          "conta": "36 ÷ 3 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a média dos números 5, 5, 5 e 17? Digite apenas o número.",
+      "imagem": "med-q-um-diferente",
+      "dica": "Some os quatro valores, lembrando que o cinco aparece três vezes, e divida por quatro.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 é o meio exato entre 5 e 17. A média não é o meio dos extremos: ela leva em conta todos os valores, e aqui há três cincos puxando o resultado para baixo."
+        },
+        {
+          "resposta": "32",
+          "porque": "32 é a soma dos quatro números. Ela ainda precisa ser repartida entre eles, e o resultado tem de cair entre 5 e 17."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 sai de somar apenas 5 e 17 e dividir por 2, ou seja, de contar o cinco uma vez só. Cada repetição conta na soma e na quantidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os quatro",
+          "explicacao": "Os três cincos somam quinze, e mais dezessete dá trinta e dois.",
+          "conta": "5 + 5 + 5 + 17 = 32"
+        },
+        {
+          "titulo": "Divida por quatro",
+          "explicacao": "São quatro valores na lista, mesmo com três deles repetidos.",
+          "conta": "32 ÷ 4 = 8"
+        },
+        {
+          "titulo": "Repare onde a média caiu",
+          "explicacao": "Ela ficou dentro da faixa, mas bem perto do 5, porque a maioria dos valores está lá embaixo. A média não é o meio dos extremos.",
+          "conta": "5 < 8 < 17 ✓"
+        }
+      ]
+    }
+  ]
+}

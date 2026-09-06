@@ -1,0 +1,215 @@
+{
+  "id": "ler-marcar",
+  "numero": 2,
+  "titulo": "Ler e marcar pontos",
+  "pergunta": "Como ir do desenho para o par de números, e do par para o desenho?",
+  "ideia": {
+    "paragrafos": [
+      "Localizar no plano tem dois sentidos, e os dois aparecem o tempo todo. Ler é olhar um ponto desenhado e descobrir as coordenadas dele. Marcar é receber as coordenadas e colocar o ponto no lugar certo.",
+      "Para LER, comece no ponto e desça em linha reta até o eixo horizontal: o número que você encontra é o x. Depois volte ao ponto e ande em linha reta até o eixo vertical: aquele número é o y. Ler é sempre projetar o ponto nos dois eixos.",
+      "Para MARCAR, o caminho é o contrário e começa sempre na origem. Ande na horizontal o valor de x, pare, e daí suba o valor de y. Onde você parar, ali está o ponto.",
+      "Vale insistir num detalhe: conte os ESPAÇOS entre os tracinhos, e não os tracinhos. O primeiro tracinho depois do zero já é o fim do primeiro passo. É o mesmo cuidado da reta numérica das primeiras matérias, e é onde nasce quase todo erro por um.",
+      "Pontos que caem sobre um eixo têm uma das coordenadas igual a zero. Se o ponto está sobre o eixo horizontal, ele não subiu nada, então y = 0. Se está sobre o vertical, não andou para o lado, então x = 0."
+    ],
+    "destaque": "Ler é projetar nos dois eixos. Marcar é andar na horizontal e depois subir.",
+    "imagem": "pla-ideia-ler"
+  },
+  "resolvido": {
+    "enunciado": "No plano da figura estão marcados três pontos: A, B e C. Quais são as coordenadas de cada um?",
+    "imagem": "pla-res-tres",
+    "passos": [
+      {
+        "titulo": "Projete o ponto A",
+        "explicacao": "Descendo de A até o eixo horizontal, chega-se ao 1. Indo de A até o eixo vertical, chega-se ao 3.",
+        "conta": "A(1, 3)"
+      },
+      {
+        "titulo": "Agora o ponto B",
+        "explicacao": "Mesma coisa: desça até o eixo x e ande até o eixo y, anotando os dois números na ordem.",
+        "conta": "B(4, 1)"
+      },
+      {
+        "titulo": "E o ponto C",
+        "explicacao": "Este está mais longe da origem nas duas direções, então os dois números são maiores.",
+        "conta": "C(5, 5)"
+      },
+      {
+        "titulo": "Confira marcando de volta",
+        "explicacao": "Pegue um dos pares e refaça o caminho a partir da origem: ande o x, suba o y. Se você cair no ponto original, a leitura estava certa.",
+        "conta": "(4, 1) → 4 à direita, 1 acima ✓"
+      }
+    ],
+    "fecho": "Ler e marcar são o mesmo caminho percorrido em sentidos opostos. Um confere o outro."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quais são as coordenadas do ponto marcado na figura?",
+      "imagem": "pla-q-ler-42",
+      "dica": "Desça do ponto até o eixo horizontal e depois ande dele até o vertical.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(4, 2)" },
+        { "rotulo": "B", "texto": "(2, 4)" },
+        { "rotulo": "C", "texto": "(4, 4)" },
+        { "rotulo": "D", "texto": "(6, 2)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(2, 4)",
+          "porque": "Os números estão trocados. O ponto está mais afastado na horizontal do que na vertical: andou 4 para a direita e subiu só 2."
+        },
+        {
+          "resposta": "(4, 4)",
+          "porque": "A horizontal está certa, mas o ponto não subiu 4: subiu 2. Vale conferir contando os espaços no eixo vertical."
+        },
+        {
+          "resposta": "(6, 2)",
+          "porque": "Seis seria dois quadradinhos mais à direita. Conte os espaços entre os tracinhos, e não os tracinhos — é aí que se erra por dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Projete no eixo x",
+          "explicacao": "Descendo do ponto em linha reta, chega-se ao 4.",
+          "conta": "x = 4"
+        },
+        {
+          "titulo": "Projete no eixo y",
+          "explicacao": "Indo do ponto até o eixo vertical, chega-se ao 2.",
+          "conta": "y = 2"
+        },
+        {
+          "titulo": "Escreva na ordem",
+          "explicacao": "Primeiro o número da horizontal, depois o da vertical, entre parênteses e separados por vírgula.",
+          "conta": "(4, 2)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quais são as coordenadas do ponto marcado nesta outra figura?",
+      "imagem": "pla-q-ler-15",
+      "dica": "Ele está bem perto do eixo vertical e bem alto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(1, 5)" },
+        { "rotulo": "B", "texto": "(5, 1)" },
+        { "rotulo": "C", "texto": "(0, 5)" },
+        { "rotulo": "D", "texto": "(1, 1)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(5, 1)",
+          "porque": "Trocado. O ponto está encostado no eixo vertical, então o x é pequeno; e está bem alto, então o y é grande."
+        },
+        {
+          "resposta": "(0, 5)",
+          "porque": "(0, 5) ficaria EM CIMA do eixo vertical. Este ponto está um quadradinho à direita dele, então x = 1."
+        },
+        {
+          "resposta": "(1, 1)",
+          "porque": "A horizontal está certa, mas o ponto subiu cinco quadradinhos, e não um."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Projete no eixo x",
+          "explicacao": "O ponto está a um quadradinho do eixo vertical.",
+          "conta": "x = 1"
+        },
+        {
+          "titulo": "Projete no eixo y",
+          "explicacao": "E a cinco quadradinhos do eixo horizontal.",
+          "conta": "y = 5"
+        },
+        {
+          "titulo": "Monte o par",
+          "explicacao": "Sempre horizontal primeiro. Repare como esse ponto é bem diferente do (5, 1).",
+          "conta": "(1, 5)"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No ponto de coordenadas (3, 6), qual é o valor de y? Digite apenas o número.",
+      "imagem": "pla-q-valor-y",
+      "dica": "O y é o segundo número, e diz quanto o ponto subiu.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o valor de x, o primeiro número do par. O y é o segundo, e mede o deslocamento vertical."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é a soma dos dois. As coordenadas não se somam — cada uma responde por um eixo."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é o produto dos dois. Multiplicar coordenadas daria a área de um retângulo, e não o valor de y."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique a ordem",
+          "explicacao": "No par ordenado, o segundo número é sempre o y.",
+          "conta": "(x, y) = (3, 6)"
+        },
+        {
+          "titulo": "Leia o y",
+          "explicacao": "É o 6, e ele diz que o ponto subiu seis unidades a partir do eixo horizontal.",
+          "conta": "y = 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual destes pontos está sobre o eixo horizontal (o eixo x)?",
+      "imagem": "pla-q-eixo-x",
+      "dica": "Um ponto sobre o eixo horizontal não subiu nada. Quanto vale o y dele?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(4, 0)" },
+        { "rotulo": "B", "texto": "(0, 4)" },
+        { "rotulo": "C", "texto": "(4, 4)" },
+        { "rotulo": "D", "texto": "(1, 2)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(0, 4)",
+          "porque": "(0, 4) está sobre o eixo VERTICAL: ele não andou para o lado, mas subiu 4. É o caso espelhado deste."
+        },
+        {
+          "resposta": "(4, 4)",
+          "porque": "Este ponto andou 4 e subiu 4, então está no meio do plano, longe dos dois eixos."
+        },
+        {
+          "resposta": "(1, 2)",
+          "porque": "Também está solto no meio do plano: subiu 2, então não encosta no eixo horizontal."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que significa estar sobre o eixo x",
+          "explicacao": "O eixo horizontal é a linha em que a altura é zero. Um ponto sobre ele não subiu nada.",
+          "conta": "no eixo x → y = 0"
+        },
+        {
+          "titulo": "Procure o y igual a zero",
+          "explicacao": "Entre as opções, só (4, 0) tem o segundo número igual a zero.",
+          "conta": "(4, 0)"
+        },
+        {
+          "titulo": "O caso espelhado",
+          "explicacao": "No eixo vertical acontece o contrário: o x é que vale zero, como em (0, 4).",
+          "conta": "no eixo y → x = 0"
+        }
+      ]
+    }
+  ]
+}

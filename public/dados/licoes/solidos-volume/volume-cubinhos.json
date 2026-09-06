@@ -1,0 +1,211 @@
+{
+  "id": "volume-cubinhos",
+  "numero": 4,
+  "titulo": "Volume contando cubinhos",
+  "pergunta": "Quantos cubinhos cabem dentro de uma caixa?",
+  "ideia": {
+    "paragrafos": [
+      "Volume é a medida do espaço que um sólido ocupa por dentro. É a mesma ideia da área, com uma dimensão a mais: em vez de cobrir uma região com quadradinhos, você preenche um espaço com cubinhos.",
+      "A unidade é o centímetro cúbico, escrito 1 cm³: um cubinho de 1 cm de aresta. Se numa caixa cabem 24 desses cubinhos, o volume dela é 24 cm³. O expoente 3 avisa que a medida tem três dimensões — comprimento, largura E altura.",
+      "Repare na escada das unidades. Comprimento usa cm, uma dimensão. Área usa cm², duas. Volume usa cm³, três. O expoente conta quantas medidas foram multiplicadas, e trocar um pelo outro é o erro mais comum de toda a matéria.",
+      "Para contar sem se perder, use camadas. Encha primeiro a camada de baixo: ela é um retângulo, então cabem comprimento × largura cubinhos nela. Depois veja quantas camadas iguais a essa empilham até o topo — e são tantas quanto a altura.",
+      "É exatamente a contagem por fileiras da matéria de Área, com um passo a mais. Lá você contava fileiras dentro de uma camada; aqui você conta camadas dentro da caixa."
+    ],
+    "destaque": "Encha uma camada e conte quantas camadas empilham. O expoente 3 é isso.",
+    "imagem": "sol-ideia-volume"
+  },
+  "resolvido": {
+    "enunciado": "Uma caixa mede 4 cm de comprimento, 3 cm de largura e 2 cm de altura. Quantos cubinhos de 1 cm de aresta cabem dentro dela?",
+    "imagem": "sol-res-volume",
+    "passos": [
+      {
+        "titulo": "Comece pela camada de baixo",
+        "explicacao": "O fundo da caixa é um retângulo de 4 cm por 3 cm. Cobrindo ele com cubinhos, é a mesma contagem por fileiras da matéria de Área.",
+        "conta": "4 por fileira · 3 fileiras"
+      },
+      {
+        "titulo": "Quantos cubinhos numa camada",
+        "explicacao": "Doze cubinhos preenchem o fundo inteiro, formando uma camada de 1 cm de altura.",
+        "conta": "4 × 3 = 12 por camada"
+      },
+      {
+        "titulo": "Quantas camadas",
+        "explicacao": "A caixa tem 2 cm de altura e cada camada tem 1 cm. Então cabem duas camadas empilhadas.",
+        "conta": "2 camadas"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Duas camadas de doze cubinhos cada.",
+        "conta": "12 × 2 = 24 cubinhos"
+      },
+      {
+        "titulo": "Escreva a unidade",
+        "explicacao": "Cada cubinho vale 1 cm³, então o volume é 24 cm³. O expoente 3 é o que distingue essa medida da área.",
+        "conta": "volume = 24 cm³"
+      }
+    ],
+    "fecho": "Camada por camada é o caminho mais seguro. Contar cubinho a cubinho num desenho perde os que estão escondidos atrás."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos cubinhos de 1 cm de aresta cabem numa caixa de 5 cm por 2 cm por 3 cm? Digite apenas a quantidade.",
+      "imagem": "sol-q-vol-5-2-3",
+      "dica": "Conte uma camada primeiro e depois quantas camadas empilham.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "cubinhos",
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é o que cabe numa CAMADA só: 5 × 2. Faltam as outras duas camadas — a caixa tem 3 cm de altura."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é 5 × 3, usando só duas das três medidas. O volume precisa das três — comprimento, largura E altura — porque preenche um espaço, e não uma superfície."
+        },
+        {
+          "resposta": "62",
+          "porque": "62 é a ÁREA total das faces da caixa, em centímetros quadrados. Ela mede a superfície de fora, e não o que cabe dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Uma camada",
+          "explicacao": "O fundo é um retângulo de 5 por 2, então cabem dez cubinhos nele.",
+          "conta": "5 × 2 = 10 por camada"
+        },
+        {
+          "titulo": "Quantas camadas",
+          "explicacao": "A altura é 3 cm e cada camada tem 1 cm.",
+          "conta": "3 camadas"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Três camadas de dez cubinhos cada.",
+          "conta": "10 × 3 = 30 cubinhos"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um cubo tem 3 cm de aresta. Quantos cubinhos de 1 cm cabem dentro dele? Digite apenas a quantidade.",
+      "imagem": "sol-q-vol-cubo3",
+      "dica": "No cubo as três medidas são iguais. Camada de 3 por 3, e quantas camadas?",
+      "formato": "numero",
+      "resposta": 27,
+      "unidade": "cubinhos",
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é o que cabe numa camada só: 3 × 3. Faltam as outras duas camadas — o cubo tem 3 cm de altura também."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o número de FACES do cubo. Faces são superfícies de fora; a pergunta é sobre o que cabe dentro."
+        },
+        {
+          "resposta": "54",
+          "porque": "54 é a ÁREA total das seis faces, em centímetros quadrados: 6 × 9. Área cobre a superfície; volume preenche o interior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Uma camada",
+          "explicacao": "O fundo do cubo é um quadrado de 3 por 3.",
+          "conta": "3 × 3 = 9 por camada"
+        },
+        {
+          "titulo": "Quantas camadas",
+          "explicacao": "A aresta mede 3 cm, então empilham três camadas.",
+          "conta": "3 camadas"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Três camadas de nove. Repare que é 3 × 3 × 3, ou seja, três ao cubo — é daí que vem o nome da potência.",
+          "conta": "3³ = 27 cubinhos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa caixa de 5 cm por 4 cm de base, quantos cubinhos de 1 cm cabem numa ÚNICA camada? Digite apenas a quantidade.",
+      "imagem": "sol-q-vol-camada",
+      "dica": "Uma camada é só o fundo da caixa preenchido — nem precisa saber a altura.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "cubinhos",
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é 5 + 4, a soma das medidas do fundo. Para saber quantos cubinhos cabem é preciso multiplicar, e não somar."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é o PERÍMETRO do fundo, em centímetros: 2 × (5 + 4). Ele mede a borda do fundo, e não o que cabe sobre ele."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o que cabe numa fileira da camada. Faltam as outras três fileiras: o fundo tem 4 cm na outra direção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A camada é um retângulo",
+          "explicacao": "Uma camada de 1 cm de altura cobre o fundo da caixa. Contar os cubinhos dela é contar quadradinhos numa área.",
+          "conta": "fundo = 5 por 4"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cinco cubinhos por fileira, quatro fileiras.",
+          "conta": "5 × 4 = 20 cubinhos"
+        },
+        {
+          "titulo": "Por que a altura não entra",
+          "explicacao": "A pergunta é sobre UMA camada. A altura só diria quantas camadas dessas caberiam empilhadas.",
+          "conta": "20 por camada"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos cubinhos de 1 cm cabem numa caixa de 6 cm por 4 cm por 2 cm? Digite apenas a quantidade.",
+      "imagem": "sol-q-vol-6-4-2",
+      "dica": "Camada primeiro, camadas depois.",
+      "formato": "numero",
+      "resposta": 48,
+      "unidade": "cubinhos",
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é o que cabe numa camada só: 6 × 4. Falta a segunda camada — a caixa tem 2 cm de altura."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é 6 + 4 + 2, somando as três medidas. Volume é multiplicação das três, e não soma."
+        },
+        {
+          "resposta": "88",
+          "porque": "88 é a área total das faces da caixa, em centímetros quadrados. Ela mede a superfície, e não o interior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Uma camada",
+          "explicacao": "O fundo é um retângulo de 6 por 4.",
+          "conta": "6 × 4 = 24 por camada"
+        },
+        {
+          "titulo": "Quantas camadas",
+          "explicacao": "A altura é 2 cm e cada camada de cubinhos tem 1 cm, então empilham duas camadas iguais.",
+          "conta": "2 camadas"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Duas camadas de vinte e quatro cubinhos cada.",
+          "conta": "24 × 2 = 48 cubinhos"
+        }
+      ]
+    }
+  ]
+}

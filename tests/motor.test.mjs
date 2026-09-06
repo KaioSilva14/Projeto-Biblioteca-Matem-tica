@@ -17,6 +17,7 @@ const { paraNumero } = await import(new URL("../public/js/util.js", import.meta.
 const {
   lerTudo, lerCurso, lerLicao, registrarResposta, reiniciarLicao, reiniciarCurso,
   resumirCurso, proximaLicao, lerCertificado, emitirCertificado, listarCertificados,
+  resumirAno, lerCertificadoAno, emitirCertificadoAno, removerCertificadoAno, listarCertificadosAno,
 } = await import(new URL("../public/js/progresso.js", import.meta.url));
 const { desenharCertificado, nomeArquivo } = await import(new URL("../public/js/certificado.js", import.meta.url));
 
@@ -355,6 +356,125 @@ teste("o nome do arquivo remove acento, espaço e caractere de caminho", () => {
     "certificado-numeros-decimais-etc-passwd.png",
     "barras e pontos não podem virar caminho de arquivo"
   );
+});
+
+// ---------- Certificado de ano ----------
+
+grupo("Certificado de ano");
+
+/** Emite o certificado de uma matéria com números controlados. */
+const materia = (id, titulo, licoes, questoes, acertos, data = "2026-09-04T12:00:00.000Z") =>
+  emitirCertificado({
+    cursoId: id, cursoTitulo: titulo, ano: 6, nome: "Maria Souza",
+    data, questoes, acertosDePrimeira: acertos, licoes,
+  });
+
+teste("o ano só fecha quando TODAS as matérias publicadas têm certificado", () => {
+  materia("fracoes", "Frações", 8, 32, 27);
+  materia("decimais", "Números decimais", 6, 24, 20);
+
+  const parcial = resumirAno(["fracoes", "decimais", "angulos"]);
+  assert.equal(parcial.concluidas, 2);
+  assert.equal(parcial.totalMaterias, 3);
+  assert.equal(parcial.concluido, false, "faltando uma matéria, o ano não fecha");
+
+  materia("angulos", "Ângulos", 6, 24, 18);
+  assert.equal(resumirAno(["fracoes", "decimais", "angulos"]).concluido, true);
+});
+
+teste("o resumo do ano soma lições, questões e acertos das matérias", () => {
+  materia("fracoes", "Frações", 8, 32, 27);
+  materia("decimais", "Números decimais", 6, 24, 20);
+  materia("angulos", "Ângulos", 6, 24, 18);
+
+  const r = resumirAno(["fracoes", "decimais", "angulos"]);
+  assert.equal(r.licoes, 8 + 6 + 6);
+  assert.equal(r.questoes, 32 + 24 + 24);
+  assert.equal(r.acertosDePrimeira, 27 + 20 + 18);
+  assert.deepEqual(r.materias, ["Frações", "Números decimais", "Ângulos"], "na ordem do catálogo");
+});
+
+teste("a data do ano é a da matéria concluída por último", () => {
+  materia("a", "A", 1, 4, 4, "2026-02-10T00:00:00.000Z");
+  materia("b", "B", 1, 4, 4, "2026-08-30T00:00:00.000Z");
+  materia("c", "C", 1, 4, 4, "2026-05-01T00:00:00.000Z");
+  assert.equal(resumirAno(["a", "b", "c"]).ultimaData, "2026-08-30T00:00:00.000Z");
+});
+
+teste("matéria sem certificado não entra na soma", () => {
+  materia("fracoes", "Frações", 8, 32, 27);
+  const r = resumirAno(["fracoes", "decimais"]);
+  assert.equal(r.questoes, 32, "a matéria sem certificado não pode somar nada");
+  assert.equal(r.materias.length, 1);
+});
+
+teste("ano sem matéria nenhuma não conta como concluído", () => {
+  assert.equal(resumirAno([]).concluido, false);
+});
+
+const certAno = {
+  ano: 6, anoTitulo: "6º ano", nome: "Maria Souza", data: "2026-09-06T12:00:00.000Z",
+  materias: ["Frações", "Ângulos"], licoes: 14, questoes: 56, acertosDePrimeira: 45,
+};
+
+teste("emitir e reler o certificado de ano", () => {
+  assert.equal(lerCertificadoAno(6), null);
+  emitirCertificadoAno(certAno);
+  const salvo = lerCertificadoAno(6);
+  assert.equal(salvo.nome, "Maria Souza");
+  assert.equal(salvo.questoes, 56);
+  assert.equal(lerCertificadoAno(7), null, "um ano não pode responder pelo outro");
+});
+
+teste("reemitir o ano com outro nome substitui, sem duplicar", () => {
+  emitirCertificadoAno(certAno);
+  emitirCertificadoAno({ ...certAno, nome: "Maria S. Souza" });
+  assert.equal(listarCertificadosAno().length, 1);
+  assert.equal(lerCertificadoAno(6).nome, "Maria S. Souza");
+});
+
+teste("o certificado de ano convive com os de matéria no mesmo armazenamento", () => {
+  materia("fracoes", "Frações", 8, 32, 27);
+  emitirCertificadoAno(certAno);
+  assert.equal(listarCertificados().length, 1, "o de matéria continua lá");
+  assert.equal(listarCertificadosAno().length, 1);
+  assert.ok(lerCertificado("fracoes"));
+});
+
+teste("remover o certificado de ano não mexe nos de matéria", () => {
+  materia("fracoes", "Frações", 8, 32, 27);
+  emitirCertificadoAno(certAno);
+  removerCertificadoAno(6);
+  assert.equal(lerCertificadoAno(6), null);
+  assert.equal(listarCertificados().length, 1, "apagar o ano não pode apagar a matéria");
+});
+
+teste("certificado de ano com formato inválido é ignorado na leitura", () => {
+  window.localStorage.setItem(
+    "biblioteca_matematica_v3",
+    JSON.stringify({ cursos: {}, anos: { 6: { ano: "seis" } } })
+  );
+  assert.deepEqual(listarCertificadosAno(), []);
+});
+
+teste("progresso antigo, sem a chave dos anos, continua sendo lido", () => {
+  // Quem já usava o site antes do certificado de ano não pode perder nada.
+  window.localStorage.setItem(
+    "biblioteca_matematica_v3",
+    JSON.stringify({
+      cursos: {
+        fracoes: {
+          cursoId: "fracoes",
+          licoes: { "o-que-e": { licaoId: "o-que-e", respondidas: ["q1"], acertadas: ["q1"], concluida: true } },
+          certificado: { cursoId: "fracoes", cursoTitulo: "Frações", ano: 6, nome: "Ana", data: "2026-01-01T00:00:00.000Z", questoes: 32, acertosDePrimeira: 30 },
+        },
+      },
+    })
+  );
+  assert.equal(lerCertificado("fracoes").nome, "Ana");
+  assert.equal(lerCertificado("fracoes").licoes, 0, "registro antigo não tem o campo, e vale 0");
+  assert.deepEqual(listarCertificadosAno(), []);
+  assert.equal(lerLicao("fracoes", "o-que-e").concluida, true);
 });
 
 console.log(`\n${total - falhas}/${total} testes passaram.`);

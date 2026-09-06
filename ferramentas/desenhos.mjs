@@ -1339,3 +1339,344 @@ export function trianguloAltura({ base, altura, rotuloBase, rotuloAltura, apice 
   if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
   return svg(largura, alturaSvg, corpo);
 }
+
+// ═════════════════ Sólidos, planificações e plano cartesiano ═════════════════
+
+// ---------- Bloco em projeção oblíqua ----------
+//
+// Perspectiva de verdade encolheria as arestas do fundo e o aluno mediria
+// errado. Na projeção oblíqua a face da frente sai em tamanho real e a
+// profundidade vai num ângulo fixo — é como o livro didático desenha, e é o
+// que deixa as três medidas legíveis ao mesmo tempo.
+
+export function bloco({ c, l, a, escala = 30, cubinhos = false, rotulos = {}, rotulo = "" }) {
+  const p = l * escala * 0.5;          // recuo da profundidade
+  const w = c * escala, h = a * escala;
+  const mEsq = rotulos.altura ? 46 : 26;
+  const larguraDesenho = w + p + mEsq + 26;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = h + p + 30 + (rotulos.comprimento ? 24 : 0) + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = recuo + mEsq, Y = p + 16;   // canto superior esquerdo da face da frente
+
+  const face = (pts, opacidade) =>
+    `<polygon points="${pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ")}" fill="${CHEIO}" fill-opacity="${opacidade}" stroke="${TRACO_FORTE}" stroke-width="2.2" stroke-linejoin="round"/>`;
+
+  let corpo = "";
+  // topo e lateral primeiro, para a face da frente ficar por cima
+  corpo += face([[X, Y], [X + w, Y], [X + w + p, Y - p], [X + p, Y - p]], 0.10);
+  corpo += face([[X + w, Y], [X + w + p, Y - p], [X + w + p, Y + h - p], [X + w, Y + h]], 0.16);
+  corpo += face([[X, Y], [X + w, Y], [X + w, Y + h], [X, Y + h]], 0.24);
+
+  if (cubinhos) {
+    const linha = (x1, y1, x2, y2) =>
+      `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${TRACO}" stroke-width="1.1"/>`;
+    for (let i = 1; i < c; i++) {
+      corpo += linha(X + i * escala, Y, X + i * escala, Y + h);                    // frente, vertical
+      corpo += linha(X + i * escala, Y, X + i * escala + p, Y - p);                // topo, profundidade
+    }
+    for (let i = 1; i < a; i++) {
+      corpo += linha(X, Y + i * escala, X + w, Y + i * escala);                    // frente, horizontal
+      corpo += linha(X + w, Y + i * escala, X + w + p, Y + i * escala - p);        // lateral, profundidade
+    }
+    for (let i = 1; i < l; i++) {
+      const d = (i * escala) / 2;
+      corpo += linha(X + d, Y - d, X + w + d, Y - d);                              // topo, paralela à frente
+      corpo += linha(X + w + d, Y - d, X + w + d, Y + h - d);                      // lateral, vertical
+    }
+  }
+
+  if (rotulos.comprimento) corpo += texto(X + w / 2, Y + h + 18, esc(rotulos.comprimento), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  if (rotulos.altura) corpo += texto(X - 10, Y + h / 2, esc(rotulos.altura), { tamanho: 13, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO });
+  if (rotulos.largura) corpo += texto(X + w + p / 2 + 16, Y + h - p / 2 + 4, esc(rotulos.largura), { tamanho: 13, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Sólidos nomeados, lado a lado ----------
+
+function desenhaSolido(tipo, cx, cy, s) {
+  const p = s * 0.34;
+  const cara = (pts, op) => `<polygon points="${pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ")}" fill="${CHEIO}" fill-opacity="${op}" stroke="${TRACO_FORTE}" stroke-width="2.2" stroke-linejoin="round"/>`;
+  const X = cx - s / 2, Y = cy - s / 2;
+  let d = "";
+
+  if (tipo === "cubo" || tipo === "bloco" || tipo === "prisma-retangular") {
+    const w = tipo === "cubo" ? s : s * 1.25, h = s * (tipo === "cubo" ? 1 : 0.8);
+    const x = cx - (w + p) / 2, y = cy - (h - p) / 2;
+    d += cara([[x, y], [x + w, y], [x + w + p, y - p], [x + p, y - p]], 0.10);
+    d += cara([[x + w, y], [x + w + p, y - p], [x + w + p, y + h - p], [x + w, y + h]], 0.16);
+    d += cara([[x, y], [x + w, y], [x + w, y + h], [x, y + h]], 0.24);
+  } else if (tipo === "piramide") {
+    const b = s * 1.1, y = cy + s * 0.42;
+    d += cara([[cx - b / 2, y], [cx + b / 2, y], [cx + b / 2 + p, y - p], [cx - b / 2 + p, y - p]], 0.10);
+    d += cara([[cx - b / 2, y], [cx + b / 2, y], [cx + p * 0.5, cy - s * 0.5]], 0.24);
+    d += `<line x1="${cx + b / 2 + p}" y1="${y - p}" x2="${cx + p * 0.5}" y2="${cy - s * 0.5}" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+  } else if (tipo === "prisma-triangular") {
+    const b = s, y = cy + s * 0.4, topo = cy - s * 0.42;
+    d += cara([[cx - b / 2, y], [cx + b / 2, y], [cx, topo]], 0.24);
+    d += cara([[cx + b / 2, y], [cx + b / 2 + p, y - p], [cx + p, topo - p], [cx, topo]], 0.14);
+    d += `<line x1="${cx - b / 2}" y1="${y}" x2="${cx - b / 2 + p}" y2="${y - p}" stroke="${TRACO}" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+  } else if (tipo === "cilindro") {
+    const r = s * 0.42, h = s * 0.86, y = cy - h / 2;
+    d += `<path d="M ${cx - r} ${y} L ${cx - r} ${y + h} A ${r} ${r * 0.32} 0 0 0 ${cx + r} ${y + h} L ${cx + r} ${y} Z" fill="${CHEIO}" fill-opacity="0.2" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+    d += `<ellipse cx="${cx}" cy="${y}" rx="${r}" ry="${r * 0.32}" fill="${CHEIO}" fill-opacity="0.1" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+  } else if (tipo === "cone") {
+    const r = s * 0.44, y = cy + s * 0.4;
+    d += `<path d="M ${cx - r} ${y} L ${cx} ${cy - s * 0.46} L ${cx + r} ${y}" fill="${CHEIO}" fill-opacity="0.2" stroke="${TRACO_FORTE}" stroke-width="2.2" stroke-linejoin="round"/>`;
+    d += `<ellipse cx="${cx}" cy="${y}" rx="${r}" ry="${r * 0.3}" fill="${CHEIO}" fill-opacity="0.12" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+  } else if (tipo === "esfera") {
+    const r = s * 0.46;
+    d += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${CHEIO}" fill-opacity="0.2" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+    d += `<ellipse cx="${cx}" cy="${cy}" rx="${r}" ry="${r * 0.3}" fill="none" stroke="${TRACO}" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+  }
+  return d;
+}
+
+export function solidos({ itens, escala = 74, porLinha }) {
+  const colunas = porLinha ?? (itens.length <= 3 ? itens.length : Math.ceil(itens.length / 2));
+  const linhas = Math.ceil(itens.length / colunas);
+  // As dimensões do SVG viram os atributos width/height do <img>, então
+  // precisam ser inteiras — o índice de imagens não guarda fração.
+  const faixa = Math.round(escala * 1.9), alturaLinha = Math.round(escala * 1.85);
+  const largura = faixa * colunas + 16;
+  const altura = alturaLinha * linhas;
+  let corpo = "";
+
+  itens.forEach((item, i) => {
+    const col = i % colunas, lin = Math.floor(i / colunas);
+    const cx = 8 + faixa * col + faixa / 2;
+    const cy = alturaLinha * lin + escala * 0.78;
+    corpo += desenhaSolido(item.tipo, cx, cy, escala);
+    if (item.rotulo) corpo += texto(cx, alturaLinha * (lin + 1) - 20, esc(item.rotulo), { tamanho: 13 });
+  });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Planificações ----------
+//
+// A planificação vive numa malha de quadrados: cada peça é uma casa dessa
+// malha. Descrever a figura por casas [coluna, linha] deixa o manifesto
+// pedir o molde sem carregar coordenada nenhuma.
+
+// Cada peça é um retângulo [x, y, largura, altura] em unidades de face.
+// Um molde de bloco NÃO pode ser seis retângulos iguais: a caixa tem três
+// formatos de face, cada um repetido duas vezes, e um molde uniforme só
+// fecharia se fosse um cubo. Por isso as peças vêm com medida própria.
+const MOLDES = {
+  cubo: [
+    [1, 0, 1, 1],
+    [0, 1, 1, 1], [1, 1, 1, 1], [2, 1, 1, 1], [3, 1, 1, 1],
+    [1, 2, 1, 1],
+  ],
+  // c = 1.6 (comprimento), l = 1 (largura), a = 1.1 (altura)
+  bloco: [
+    [0, 0, 1.6, 1],                                   // topo: c × l
+    [0, 1, 1.6, 1.1], [1.6, 1, 1, 1.1],               // frente: c × a · lateral: l × a
+    [2.6, 1, 1.6, 1.1], [4.2, 1, 1, 1.1],             // fundo: c × a · lateral: l × a
+    [0, 2.1, 1.6, 1],                                 // base: c × l
+  ],
+};
+
+export function planificacao({ tipo = "cubo", escala = 46, rotulo = "" }) {
+  const pecas = MOLDES[tipo] ?? MOLDES.cubo;
+  const m = 16;
+  const larguraUnid = Math.max(...pecas.map((r) => r[0] + r[2]));
+  const alturaUnid = Math.max(...pecas.map((r) => r[1] + r[3]));
+  const larguraDesenho = Math.round(larguraUnid * escala) + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = Math.round(alturaUnid * escala) + m * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  let corpo = "";
+
+  for (const [x, y, w, h] of pecas) {
+    corpo += `<rect x="${(recuo + m + x * escala).toFixed(1)}" y="${(m + y * escala).toFixed(1)}" width="${(w * escala).toFixed(1)}" height="${(h * escala).toFixed(1)}" fill="${CHEIO}" fill-opacity="0.18" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+  }
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Plano cartesiano ----------
+
+export function planoCartesiano({ ate = 6, pontos = [], escala = 34, ligar = false, caminho = [], rotulo = "" }) {
+  const m = 34;
+  // O rótulo de um ponto é escrito à direita dele. Um ponto encostado na
+  // borda do plano jogaria o texto para fora do SVG, então a folga da
+  // direita cresce com o rótulo mais largo que passa do último eixo.
+  const folgaRotulo = Math.max(0, ...pontos.map((pt) => {
+    const sobra = ate - pt.em[0];
+    const largura = String(pt.rotulo ?? "").length * 7.2 + 14;
+    return Math.max(0, largura - sobra * escala);
+  }));
+  const larguraDesenho = Math.round(ate * escala + m * 2 + folgaRotulo);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = ate * escala + m * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const O = [recuo + m, m + ate * escala];          // origem, em coordenadas do SVG
+  const X = (x) => O[0] + x * escala;
+  const Y = (y) => O[1] - y * escala;
+  let corpo = "";
+
+  // malha
+  for (let i = 0; i <= ate; i++) {
+    corpo += `<line x1="${X(i)}" y1="${Y(0)}" x2="${X(i)}" y2="${Y(ate)}" stroke="${TRACO}" stroke-width="1" stroke-opacity="0.55"/>`;
+    corpo += `<line x1="${X(0)}" y1="${Y(i)}" x2="${X(ate)}" y2="${Y(i)}" stroke="${TRACO}" stroke-width="1" stroke-opacity="0.55"/>`;
+  }
+  // eixos, com a seta no fim
+  corpo += `<line x1="${X(0)}" y1="${Y(0)}" x2="${X(ate) + 10}" y2="${Y(0)}" stroke="${TRACO_FORTE}" stroke-width="2.4"/>`;
+  corpo += `<line x1="${X(0)}" y1="${Y(0)}" x2="${X(0)}" y2="${Y(ate) - 10}" stroke="${TRACO_FORTE}" stroke-width="2.4"/>`;
+  corpo += `<polygon points="${X(ate) + 16},${Y(0)} ${X(ate) + 8},${Y(0) - 4} ${X(ate) + 8},${Y(0) + 4}" fill="${TRACO_FORTE}"/>`;
+  corpo += `<polygon points="${X(0)},${Y(ate) - 16} ${X(0) - 4},${Y(ate) - 8} ${X(0) + 4},${Y(ate) - 8}" fill="${TRACO_FORTE}"/>`;
+
+  for (let i = 1; i <= ate; i++) {
+    corpo += texto(X(i), Y(0) + 15, String(i), { tamanho: 11, cor: TRACO_FORTE, fonte: FONTE_MONO });
+    corpo += texto(X(0) - 13, Y(i), String(i), { tamanho: 11, cor: TRACO_FORTE, fonte: FONTE_MONO });
+  }
+  corpo += texto(X(0) - 13, Y(0) + 15, "0", { tamanho: 11, cor: TRACO_FORTE, fonte: FONTE_MONO });
+
+  // O contorno é desenhado antes dos pontos, para que os círculos fiquem por
+  // cima das linhas e não pareçam furados.
+  if (ligar && pontos.length > 2) {
+    const vertices = pontos.map((pt) => `${X(pt.em[0])},${Y(pt.em[1])}`).join(" ");
+    corpo += `<polygon points="${vertices}" fill="${CHEIO}" fill-opacity="0.14" stroke="${DESTAQUE}" stroke-width="2.2" stroke-linejoin="round"/>`;
+  }
+  // O caminho é tracejado de propósito: ele mostra um trajeto possível, e não
+  // uma figura. Nos mapas, outra ordem de trechos daria o mesmo comprimento.
+  if (caminho.length > 1) {
+    const passos = caminho.map(([cx, cy]) => `${X(cx)},${Y(cy)}`).join(" ");
+    corpo += `<polyline points="${passos}" fill="none" stroke="${DESTAQUE}" stroke-width="2.6" stroke-dasharray="7 5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  }
+
+  for (const ponto of pontos) {
+    const [px, py] = ponto.em;
+    corpo += `<circle cx="${X(px)}" cy="${Y(py)}" r="5.5" fill="${DESTAQUE}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+    if (ponto.rotulo) corpo += texto(X(px) + 12, Y(py) - 12, esc(ponto.rotulo), { tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ═════════════════════════ Gráficos e tabelas ═════════════════════════
+
+// ---------- Gráfico de colunas ou de barras ----------
+//
+// O eixo dos valores começa no zero por padrão. A ÚNICA razão para pedir
+// outra base é a lição sobre gráficos enganosos: não dá para ensinar o aluno
+// a desconfiar de um eixo cortado sem mostrar um. Quem passa `base` está
+// desenhando o truque de propósito, e o alt da figura tem que dizer isso.
+
+export function grafico({ dados, orientacao = "colunas", passo, base = 0, referencia, mostrarValores = true, rotulo = "" }) {
+  const maximo = Math.max(...dados.map((d) => d.valor));
+  const marca = passo ?? Math.max(1, Math.ceil((maximo - base) / 5));
+  const topo = Math.ceil(maximo / marca) * marca;
+  // O corte de eixo só existe no gráfico de colunas — é lá que ele engana.
+  if (base && orientacao !== "colunas") throw new Error("base cortada só vale para colunas");
+  if (base > 0 && base >= Math.min(...dados.map((d) => d.valor))) throw new Error("a base cortada some com alguma barra");
+
+  if (orientacao === "colunas") {
+    // A partir de cinco categorias a coluna afina: com a largura fixa, o
+    // gráfico passava de 400px e caía para 0,71 do tamanho num celular de
+    // 320px — o mesmo aperto que já obrigou `angulosComparados` a quebrar
+    // em duas linhas.
+    const estreito = dados.length >= 5;
+    const larguraCol = estreito ? 38 : 46, folga = estreito ? 18 : 22;
+    const mEsq = 44, mDir = 20, alturaEixo = 190;
+    const larguraDesenho = mEsq + dados.length * (larguraCol + folga) + mDir;
+    const largura = comRotulo(larguraDesenho, rotulo);
+    const altura = alturaEixo + 62 + (rotulo ? 22 : 0);
+    const recuo = (largura - larguraDesenho) / 2;
+    const piso = alturaEixo + 16;
+    const Y = (v) => piso - ((v - base) / (topo - base)) * alturaEixo;
+    let corpo = "";
+
+    for (let v = base; v <= topo; v += marca) {
+      corpo += `<line x1="${recuo + mEsq - 6}" y1="${Y(v).toFixed(1)}" x2="${recuo + larguraDesenho - mDir}" y2="${Y(v).toFixed(1)}" stroke="${TRACO}" stroke-width="1" stroke-opacity="${v === base ? 1 : 0.5}"/>`;
+      corpo += texto(recuo + mEsq - 12, Y(v), String(v), { tamanho: 11, cor: TRACO_FORTE, ancora: "end", fonte: FONTE_MONO });
+    }
+    corpo += `<line x1="${recuo + mEsq}" y1="${piso}" x2="${recuo + mEsq}" y2="${Y(topo) - 8}" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+
+    dados.forEach((d, i) => {
+      const x = recuo + mEsq + folga / 2 + i * (larguraCol + folga);
+      const y = Y(d.valor);
+      corpo += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${larguraCol}" height="${(piso - y).toFixed(1)}" fill="${CHEIO}" fill-opacity="0.55" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+      if (mostrarValores) corpo += texto(x + larguraCol / 2, y - 11, String(d.valor), { tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+      corpo += texto(x + larguraCol / 2, piso + 18, esc(d.rotulo), { tamanho: 12 });
+    });
+
+    // A linha de referência atravessa o gráfico na altura de um valor — é
+    // assim que a média aparece como um patamar, e não como mais uma coluna.
+    // Ela não vai nas questões que PEDEM esse valor: entregaria a resposta.
+    if (referencia) {
+      const yRef = Y(referencia.valor);
+      corpo += `<line x1="${recuo + mEsq}" y1="${yRef.toFixed(1)}" x2="${recuo + larguraDesenho - mDir}" y2="${yRef.toFixed(1)}" stroke="${DESTAQUE}" stroke-width="2.2" stroke-dasharray="7 5"/>`;
+      // O rótulo fica encostado no eixo, à esquerda: a direita do gráfico é
+      // justamente onde costuma estar a coluna alta que a média denuncia.
+      // Acima ou abaixo da linha, o que estiver mais longe do valor escrito
+      // na primeira coluna — uma coluna na altura exata da média fazia os
+      // dois textos se sobreporem.
+      if (referencia.rotulo) {
+        const yValor = mostrarValores ? Y(dados[0].valor) - 11 : -999;
+        const candidatos = [yRef - 11, yRef + 13];
+        const yTexto = candidatos.reduce((a, b) => (Math.abs(b - yValor) > Math.abs(a - yValor) ? b : a));
+        corpo += texto(recuo + mEsq + 6, yTexto, esc(referencia.rotulo), { tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+      }
+    }
+
+    if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+    return svg(largura, altura, corpo);
+  }
+
+  // barras horizontais
+  const alturaBarra = 30, folga = 16, mTopo = 16;
+  const rotuloMax = Math.max(...dados.map((d) => String(d.rotulo).length));
+  const mEsq = Math.round(rotuloMax * 7) + 18;
+  const comprimento = 230;
+  const larguraDesenho = mEsq + comprimento + 52;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = mTopo + dados.length * (alturaBarra + folga) + 26 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  let corpo = "";
+
+  corpo += `<line x1="${recuo + mEsq}" y1="${mTopo - 4}" x2="${recuo + mEsq}" y2="${mTopo + dados.length * (alturaBarra + folga)}" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+  dados.forEach((d, i) => {
+    const y = mTopo + i * (alturaBarra + folga);
+    const w = (d.valor / topo) * comprimento;
+    corpo += `<rect x="${recuo + mEsq}" y="${y}" width="${w.toFixed(1)}" height="${alturaBarra}" fill="${CHEIO}" fill-opacity="0.55" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+    corpo += texto(recuo + mEsq - 10, y + alturaBarra / 2, esc(d.rotulo), { tamanho: 12, ancora: "end" });
+    if (mostrarValores) corpo += texto(recuo + mEsq + w + 10, y + alturaBarra / 2, String(d.valor), { tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ---------- Tabela de dados ----------
+
+export function tabela({ cabecalho, linhas, rotulo = "", larguraCol = 108 }) {
+  const alturaLinha = 34, m = 12;
+  const colunas = cabecalho.length;
+  const larguraDesenho = colunas * larguraCol + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = (linhas.length + 1) * alturaLinha + m * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = (c) => recuo + m + c * larguraCol;
+  let corpo = "";
+
+  cabecalho.forEach((titulo, c) => {
+    corpo += `<rect x="${X(c)}" y="${m}" width="${larguraCol}" height="${alturaLinha}" fill="${CHEIO}" fill-opacity="0.16" stroke="${TRACO}" stroke-width="1.4"/>`;
+    corpo += texto(X(c) + larguraCol / 2, m + alturaLinha / 2, esc(titulo), { tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+  });
+
+  linhas.forEach((linha, l) => {
+    linha.forEach((celula, c) => {
+      const y = m + (l + 1) * alturaLinha;
+      corpo += `<rect x="${X(c)}" y="${y}" width="${larguraCol}" height="${alturaLinha}" fill="none" stroke="${TRACO}" stroke-width="1.4"/>`;
+      corpo += texto(X(c) + larguraCol / 2, y + alturaLinha / 2, esc(celula), { tamanho: 13, cor: DESTAQUE, fonte: FONTE_MONO });
+    });
+  });
+
+  corpo += `<rect x="${recuo + m}" y="${m}" width="${colunas * larguraCol}" height="${(linhas.length + 1) * alturaLinha}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.4"/>`;
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}

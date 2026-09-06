@@ -84,10 +84,22 @@
       "dica": "Conte em quantas partes cada barra foi dividida e quantas estão pintadas em cada uma.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "1/2 = 3/6" },
-        { "rotulo": "B", "texto": "1/2 = 1/6" },
-        { "rotulo": "C", "texto": "1/2 = 6/3" },
-        { "rotulo": "D", "texto": "2/1 = 6/3" }
+        {
+          "rotulo": "A",
+          "texto": "1/2 = 3/6"
+        },
+        {
+          "rotulo": "B",
+          "texto": "1/2 = 1/6"
+        },
+        {
+          "rotulo": "C",
+          "texto": "1/2 = 6/3"
+        },
+        {
+          "rotulo": "D",
+          "texto": "2/1 = 6/3"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -98,6 +110,10 @@
         {
           "resposta": "1/2 = 6/3",
           "porque": "6/3 é maior que 1 — são dois inteiros. A barra de baixo tem só metade pintada, então o de cima tem que ser menor que o de baixo."
+        },
+        {
+          "resposta": "2/1 = 6/3",
+          "porque": "A igualdade em si é verdadeira: 2/1 e 6/3 valem 2. Só que nenhuma das duas descreve a figura, porque nas barras a parte pintada é MENOR que o todo — então o número de cima tem de ser o menor dos dois."
         }
       ],
       "resolucao": [
@@ -160,10 +176,22 @@
       "dica": "Tente juntar os pedaços de dois em dois e ver em quantos grupos a barra fica.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "3/5" },
-        { "rotulo": "B", "texto": "6/5" },
-        { "rotulo": "C", "texto": "3/10" },
-        { "rotulo": "D", "texto": "5/3" }
+        {
+          "rotulo": "A",
+          "texto": "3/5"
+        },
+        {
+          "rotulo": "B",
+          "texto": "6/5"
+        },
+        {
+          "rotulo": "C",
+          "texto": "3/10"
+        },
+        {
+          "rotulo": "D",
+          "texto": "5/3"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -174,6 +202,10 @@
         {
           "resposta": "6/5",
           "porque": "6/5 é maior que 1 inteiro, e a figura tem parte da barra vazia. O de cima nunca pode passar o de baixo numa figura que não está cheia."
+        },
+        {
+          "resposta": "5/3",
+          "porque": "5/3 é o 3/5 de cabeça para baixo, e vale mais que 1 — impossível para uma barra que não está toda pintada. Ao simplificar 6/10 por 2, o 6 de cima vira 3 e o 10 de baixo vira 5."
         }
       ],
       "resolucao": [

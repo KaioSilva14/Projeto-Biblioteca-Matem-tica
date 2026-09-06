@@ -20,6 +20,8 @@ import {
   angulo, angulosComparados, angulosNaReta, retasCruzadas, transferidor,
   figuraPlana, figurasComparadas, relogio,
   circulo, retanguloMalha, figuraComposta, trianguloAltura,
+  bloco, solidos, planificacao, planoCartesiano,
+  grafico, tabela,
 } from "./desenhos.mjs";
 
 /** Colunas do quadro de ordens usadas nas licoes de decimais. */
@@ -2400,4 +2402,1086 @@ export const MANIFESTO = [
     alt: "Um jardim retangular de 12 metros por 8 metros.",
     desenho: () => retanguloMalha({ colunas: 12, linhas: 8, cel: 22, rotuloLargura: "12 m", rotuloAltura: "8 m", rotulo: "cada quadradinho é 1 m² de jardim" }),
   },
+  // ═════════════════════════ Sólidos e volume ═════════════════════════
+
+  // ───────────────────────── Lição 1 — Sólidos geométricos
+  {
+    id: "sol-ideia-solidos", pasta: "licoes",
+    alt: "Seis sólidos lado a lado: cubo, bloco, pirâmide, cilindro, cone e esfera.",
+    desenho: () => solidos({
+      itens: [
+        { tipo: "cubo", rotulo: "cubo" }, { tipo: "bloco", rotulo: "bloco" }, { tipo: "piramide", rotulo: "pirâmide" },
+        { tipo: "cilindro", rotulo: "cilindro" }, { tipo: "cone", rotulo: "cone" }, { tipo: "esfera", rotulo: "esfera" },
+      ],
+    }),
+  },
+  {
+    id: "sol-res-cubo", pasta: "licoes",
+    alt: "Um cubo desenhado em projeção oblíqua, com as três dimensões iguais.",
+    desenho: () => bloco({ c: 3, l: 3, a: 3, escala: 34, rotulo: "as arestas de trás também contam" }),
+  },
+  {
+    id: "sol-q-poliedro", pasta: "questoes",
+    alt: "Três sólidos com superfície curva lado a lado: cilindro, cone e esfera.",
+    desenho: () => solidos({
+      itens: [{ tipo: "cilindro", rotulo: "cilindro" }, { tipo: "cone", rotulo: "cone" }, { tipo: "esfera", rotulo: "esfera" }],
+      escala: 70,
+    }),
+  },
+  {
+    id: "sol-q-arestas", pasta: "questoes",
+    alt: "Um cubo em projeção oblíqua, com as arestas visíveis.",
+    desenho: () => bloco({ c: 3, l: 3, a: 3, escala: 34, rotulo: "conte por grupos: cima, baixo e verticais" }),
+  },
+  {
+    id: "sol-q-piramide", pasta: "questoes",
+    alt: "Uma pirâmide de base quadrada.",
+    desenho: () => solidos({ itens: [{ tipo: "piramide", rotulo: "base quadrada" }], escala: 92 }),
+  },
+  {
+    id: "sol-q-bloco", pasta: "questoes",
+    alt: "Um bloco retangular em projeção oblíqua, como uma caixa de sapato.",
+    desenho: () => bloco({ c: 4, l: 3, a: 2, escala: 32, rotulo: "os quatro cantos de trás também contam" }),
+  },
+
+  // ───────────────────────── Lição 2 — Prismas e pirâmides
+  {
+    id: "sol-ideia-familias", pasta: "licoes",
+    alt: "Quatro sólidos lado a lado: bloco, prisma triangular, pirâmide e cilindro.",
+    desenho: () => solidos({
+      itens: [
+        { tipo: "bloco", rotulo: "prisma retangular" }, { tipo: "prisma-triangular", rotulo: "prisma triangular" },
+        { tipo: "piramide", rotulo: "pirâmide" }, { tipo: "cilindro", rotulo: "cilindro" },
+      ],
+    }),
+  },
+  {
+    id: "sol-res-prisma", pasta: "licoes",
+    alt: "Um prisma de base triangular, com as duas bases iguais e paralelas.",
+    desenho: () => solidos({ itens: [{ tipo: "prisma-triangular", rotulo: "duas bases triangulares" }], escala: 96 }),
+  },
+  {
+    id: "sol-q-cilindro", pasta: "questoes",
+    alt: "Um cilindro, um cone e uma esfera lado a lado.",
+    desenho: () => solidos({
+      itens: [{ tipo: "cilindro", rotulo: "" }, { tipo: "cone", rotulo: "" }, { tipo: "esfera", rotulo: "" }],
+      escala: 70,
+    }),
+  },
+  {
+    id: "sol-q-piramide-def", pasta: "questoes",
+    alt: "Uma pirâmide e um prisma lado a lado, para comparar as bases.",
+    desenho: () => solidos({
+      itens: [{ tipo: "piramide", rotulo: "uma base" }, { tipo: "bloco", rotulo: "duas bases" }],
+      escala: 78,
+    }),
+  },
+  {
+    id: "sol-q-piramide-5", pasta: "questoes",
+    alt: "Um pentágono, a base de uma pirâmide pentagonal.",
+    desenho: () => figuraPlana({ lados: 5, rotulo: "a base: cada lado dela vira um triângulo" }),
+  },
+  {
+    id: "sol-q-prisma-tri", pasta: "questoes",
+    alt: "Um prisma de base triangular em perspectiva.",
+    desenho: () => solidos({ itens: [{ tipo: "prisma-triangular", rotulo: "" }], escala: 96 }),
+  },
+
+  // ───────────────────────── Lição 3 — Planificação
+  {
+    id: "sol-ideia-planificacao", pasta: "licoes",
+    alt: "Planificação do cubo em forma de cruz, com seis quadrados.",
+    desenho: () => planificacao({ tipo: "cubo", rotulo: "o cubo aberto e deitado no plano" }),
+  },
+  {
+    id: "sol-res-planificacao", pasta: "licoes",
+    alt: "Molde em cruz formado por seis quadrados iguais.",
+    desenho: () => planificacao({ tipo: "cubo" }),
+  },
+  {
+    id: "sol-q-plan-cubo", pasta: "questoes",
+    alt: "Um cubo fechado, antes de ser aberto.",
+    desenho: () => bloco({ c: 3, l: 3, a: 3, escala: 34, rotulo: "quantas peças o molde dele vai ter?" }),
+  },
+  {
+    id: "sol-q-plan-bloco", pasta: "questoes",
+    alt: "Molde de um bloco retangular, com seis retângulos.",
+    desenho: () => planificacao({ tipo: "bloco", escala: 40, rotulo: "as faces opostas são iguais duas a duas" }),
+  },
+  {
+    id: "sol-q-plan-piramide", pasta: "questoes",
+    alt: "Uma pirâmide de base quadrada, antes de ser aberta.",
+    desenho: () => solidos({ itens: [{ tipo: "piramide", rotulo: "" }], escala: 92 }),
+  },
+  {
+    id: "sol-q-plan-prisma", pasta: "questoes",
+    alt: "Um prisma de base triangular, antes de ser aberto.",
+    desenho: () => solidos({ itens: [{ tipo: "prisma-triangular", rotulo: "" }], escala: 92 }),
+  },
+
+  // ───────────────────────── Lição 4 — Volume contando cubinhos
+  {
+    id: "sol-ideia-volume", pasta: "licoes",
+    alt: "Um bloco de 4 por 3 por 2 preenchido por cubinhos de 1 cm.",
+    desenho: () => bloco({ c: 4, l: 3, a: 2, escala: 30, cubinhos: true, rotulo: "cada cubinho é 1 cm³" }),
+  },
+  {
+    id: "sol-res-volume", pasta: "licoes",
+    alt: "Um bloco de 4 cm por 3 cm por 2 cm, com as três medidas marcadas e os cubinhos visíveis.",
+    desenho: () => bloco({
+      c: 4, l: 3, a: 2, escala: 30, cubinhos: true,
+      rotulos: { comprimento: "4 cm", largura: "3 cm", altura: "2 cm" },
+    }),
+  },
+  {
+    id: "sol-q-vol-5-2-3", pasta: "questoes",
+    alt: "Um bloco de 5 por 2 por 3 com os cubinhos visíveis.",
+    desenho: () => bloco({
+      c: 5, l: 2, a: 3, escala: 28, cubinhos: true,
+      rotulos: { comprimento: "5 cm", largura: "2 cm", altura: "3 cm" },
+    }),
+  },
+  {
+    id: "sol-q-vol-cubo3", pasta: "questoes",
+    alt: "Um cubo de 3 cm de aresta com os cubinhos visíveis.",
+    desenho: () => bloco({
+      c: 3, l: 3, a: 3, escala: 32, cubinhos: true,
+      rotulos: { comprimento: "3 cm", largura: "3 cm", altura: "3 cm" },
+    }),
+  },
+  {
+    id: "sol-q-vol-camada", pasta: "questoes",
+    alt: "Uma camada de cubinhos de 5 por 4, com um centímetro de altura.",
+    desenho: () => bloco({
+      c: 5, l: 4, a: 1, escala: 30, cubinhos: true,
+      rotulos: { comprimento: "5 cm", largura: "4 cm" },
+      rotulo: "uma camada de 1 cm de altura",
+    }),
+  },
+  {
+    id: "sol-q-vol-6-4-2", pasta: "questoes",
+    alt: "Um bloco de 6 por 4 por 2 com os cubinhos visíveis.",
+    desenho: () => bloco({
+      c: 6, l: 4, a: 2, escala: 26, cubinhos: true,
+      rotulos: { comprimento: "6 cm", largura: "4 cm", altura: "2 cm" },
+    }),
+  },
+
+  // ───────────────────────── Lição 5 — Volume do bloco
+  {
+    id: "sol-ideia-formula", pasta: "licoes",
+    alt: "Um bloco com a camada de baixo destacada por cubinhos.",
+    desenho: () => bloco({ c: 5, l: 3, a: 3, escala: 28, cubinhos: true, rotulo: "área da base × altura" }),
+  },
+  {
+    id: "sol-res-formula", pasta: "licoes",
+    alt: "Uma caixa de 10 cm por 6 cm por 4 cm, com as três medidas marcadas.",
+    desenho: () => bloco({
+      c: 10, l: 6, a: 4, escala: 18,
+      rotulos: { comprimento: "10 cm", largura: "6 cm", altura: "4 cm" },
+    }),
+  },
+  {
+    id: "sol-q-form-8-5-3", pasta: "questoes",
+    alt: "Uma caixa de 8 cm por 5 cm por 3 cm.",
+    desenho: () => bloco({
+      c: 8, l: 5, a: 3, escala: 22,
+      rotulos: { comprimento: "8 cm", largura: "5 cm", altura: "3 cm" },
+    }),
+  },
+  {
+    id: "sol-q-form-cubo5", pasta: "questoes",
+    alt: "Um cubo de 5 cm de aresta.",
+    desenho: () => bloco({
+      c: 5, l: 5, a: 5, escala: 26,
+      rotulos: { comprimento: "5 cm", largura: "5 cm", altura: "5 cm" },
+    }),
+  },
+  {
+    id: "sol-q-form-altura", pasta: "questoes",
+    alt: "Uma caixa com a base de 5 cm por 4 cm marcada e a altura em branco.",
+    desenho: () => bloco({
+      c: 5, l: 4, a: 3, escala: 28,
+      rotulos: { comprimento: "5 cm", largura: "4 cm", altura: "?" },
+      rotulo: "o volume todo vale 60 cm³",
+    }),
+  },
+  {
+    id: "sol-q-form-20-15-10", pasta: "questoes",
+    alt: "Uma caixa de papelão de 20 cm por 15 cm por 10 cm.",
+    desenho: () => bloco({
+      c: 8, l: 6, a: 4, escala: 22,
+      rotulos: { comprimento: "20 cm", largura: "15 cm", altura: "10 cm" },
+    }),
+  },
+
+  // ───────────────────────── Lição 6 — Volume e capacidade
+  {
+    id: "sol-ideia-capacidade", pasta: "licoes",
+    alt: "Um cubo de 10 cm de aresta, o volume que define um litro.",
+    desenho: () => bloco({
+      c: 10, l: 10, a: 10, escala: 16,
+      rotulos: { comprimento: "10 cm", largura: "10 cm", altura: "10 cm" },
+      rotulo: "este cubo é exatamente 1 litro",
+    }),
+  },
+  {
+    id: "sol-res-capacidade", pasta: "licoes",
+    alt: "Uma caixa de 20 cm por 10 cm por 5 cm.",
+    desenho: () => bloco({
+      c: 8, l: 4, a: 2, escala: 26,
+      rotulos: { comprimento: "20 cm", largura: "10 cm", altura: "5 cm" },
+    }),
+  },
+  {
+    id: "sol-q-cap-2l", pasta: "questoes",
+    alt: "Dois recipientes cheios, representando dois litros.",
+    desenho: () => recipientes({
+      largura: 300,
+      itens: [{ fracao: 1, altura: 120, rotulo: "garrafa", nota: "1 litro" }, { fracao: 1, altura: 120, rotulo: "garrafa", nota: "1 litro" }],
+    }),
+  },
+  {
+    id: "sol-q-cap-cubo", pasta: "questoes",
+    alt: "Um cubo de 10 cm de aresta, com as três medidas marcadas.",
+    desenho: () => bloco({
+      c: 10, l: 10, a: 10, escala: 16,
+      rotulos: { comprimento: "10 cm", largura: "10 cm", altura: "10 cm" },
+    }),
+  },
+  {
+    id: "sol-q-cap-500", pasta: "questoes",
+    alt: "Um recipiente pela metade, representando 500 mililitros de um litro.",
+    desenho: () => recipientes({
+      largura: 260,
+      itens: [{ fracao: 0.5, altura: 130, rotulo: "garrafa de 1 L", nota: "500 mL dentro" }],
+    }),
+  },
+  {
+    id: "sol-q-cap-aquario", pasta: "questoes",
+    alt: "Um aquário de 40 cm por 20 cm por 25 cm.",
+    desenho: () => bloco({
+      c: 8, l: 4, a: 5, escala: 24,
+      rotulos: { comprimento: "40 cm", largura: "20 cm", altura: "25 cm" },
+    }),
+  },
+  // ═════════════════════════ Grandezas e medidas ═════════════════════════
+
+  // ───────────────────────── Lição 1 — O que é medir
+  {
+    id: "gra-ideia-grandezas", pasta: "licoes",
+    alt: "Tabela com as quatro grandezas e as unidades de cada uma: comprimento, massa, capacidade e tempo.",
+    desenho: () => listasComuns({
+      largura: 520,
+      colunas: [
+        { titulo: "comprimento", itens: ["km", "m", "cm", "mm"] },
+        { titulo: "massa", itens: ["t", "kg", "g", "mg"] },
+        { titulo: "capacidade", itens: ["L", "mL", "", ""] },
+        { titulo: "tempo", itens: ["h", "min", "s", ""] },
+      ],
+      rotulo: "cada grandeza tem a sua família de unidades",
+    }),
+  },
+  {
+    id: "gra-res-unidades", pasta: "licoes",
+    alt: "Tabela com objetos e a unidade adequada para medir cada um.",
+    desenho: () => listasComuns({
+      largura: 480,
+      colunas: [
+        { titulo: "o que medir", itens: ["porta", "caminhão", "colher"] },
+        { titulo: "grandeza", itens: ["comprimento", "massa", "capacidade"] },
+        { titulo: "unidade", itens: ["metro", "tonelada", "mililitro"] },
+      ],
+    }),
+  },
+  {
+    id: "gra-q-altura", pasta: "questoes",
+    alt: "Reta numérica de 0 a 2 metros, dividida de dez em dez centímetros.",
+    desenho: () => retaDecimal({ inicio: 0, fim: 2, divisoes: 20, casas: 0, largura: 460, marcados: [{ valor: 1.7, rotulo: "1,70" }] }),
+  },
+  {
+    id: "gra-q-caminhao", pasta: "questoes",
+    alt: "Tabela com as unidades de massa da maior para a menor: tonelada, quilograma, grama e miligrama.",
+    desenho: () => listasComuns({
+      largura: 380,
+      colunas: [
+        { titulo: "unidade", itens: ["tonelada", "quilograma", "grama", "miligrama"] },
+        { titulo: "vale", itens: ["1 000 kg", "1 000 g", "1 000 mg", "-"] },
+      ],
+      rotulo: "a escada da massa salta de mil em mil",
+    }),
+  },
+  {
+    id: "gra-q-garrafa", pasta: "questoes",
+    alt: "Dois recipientes cheios lado a lado, uma garrafa grande e um copo.",
+    desenho: () => recipientes({
+      largura: 300,
+      itens: [
+        { fracao: 1, altura: 130, rotulo: "garrafa", nota: "2 L" },
+        { fracao: 1, altura: 52, rotulo: "copo", nota: "200 mL" },
+      ],
+    }),
+  },
+  {
+    id: "gra-q-distancia", pasta: "questoes",
+    alt: "Tabela com as unidades de comprimento da maior para a menor.",
+    desenho: () => listasComuns({
+      largura: 380,
+      colunas: [
+        { titulo: "unidade", itens: ["quilômetro", "metro", "centímetro", "milímetro"] },
+        { titulo: "vale", itens: ["1 000 m", "100 cm", "10 mm", "-"] },
+      ],
+      rotulo: "escolha a que deixa o número legível",
+    }),
+  },
+
+  // ───────────────────────── Lição 2 — Comprimento
+  {
+    id: "gra-ideia-comprimento", pasta: "licoes",
+    alt: "A escada das unidades de comprimento, do quilômetro ao milímetro.",
+    desenho: () => listasComuns({
+      largura: 460,
+      colunas: [{ titulo: "a escada do comprimento", itens: ["km", "hm", "dam", "m", "dm", "cm", "mm"] }],
+      rotulo: "cada degrau vale 10",
+    }),
+  },
+  {
+    id: "gra-res-comprimento", pasta: "licoes",
+    alt: "Multiplicação armada de 3,5 por 100, resultando em 350.",
+    desenho: () => contaArmada({ linhas: ["3,5", "100"], operador: "×", resultado: "350", nota: "dois degraus na escada: multiplicar por 100", largura: 340 }),
+  },
+  {
+    id: "gra-q-7m", pasta: "questoes",
+    alt: "Reta numérica de 0 a 1 metro dividida em 100 centímetros, mostrando a relação entre as duas unidades.",
+    desenho: () => retaDecimal({ inicio: 0, fim: 1, divisoes: 10, casas: 0, largura: 460, marcados: [{ valor: 1, rotulo: "100 cm" }] }),
+  },
+  {
+    id: "gra-q-250cm", pasta: "questoes",
+    alt: "Divisão armada de 250 por 100, resultando em 2,5.",
+    desenho: () => contaArmada({ linhas: ["250", "100"], operador: "÷", resultado: "2,5", nota: "cm para m: unidade maior, número menor", largura: 340 }),
+  },
+  {
+    id: "gra-q-3km", pasta: "questoes",
+    alt: "Tabela com as três equivalências mais usadas de comprimento.",
+    desenho: () => listasComuns({
+      largura: 340,
+      colunas: [{ titulo: "de cor", itens: ["1 km = 1 000 m", "1 m = 100 cm", "1 cm = 10 mm"] }],
+    }),
+  },
+  {
+    id: "gra-q-45mm", pasta: "questoes",
+    alt: "Divisão armada de 45 por 10, resultando em 4,5.",
+    desenho: () => contaArmada({ linhas: ["45", "10"], operador: "÷", resultado: "4,5", nota: "mm e cm são vizinhos: um degrau só", largura: 320 }),
+  },
+
+  // ───────────────────────── Lição 3 — Massa
+  {
+    id: "gra-ideia-massa", pasta: "licoes",
+    alt: "Tabela das unidades de massa com os saltos de mil entre elas.",
+    desenho: () => listasComuns({
+      largura: 400,
+      colunas: [{ titulo: "a escada da massa", itens: ["1 t = 1 000 kg", "1 kg = 1 000 g", "1 g = 1 000 mg"] }],
+      rotulo: "aqui os saltos são de mil",
+    }),
+  },
+  {
+    id: "gra-res-massa", pasta: "licoes",
+    alt: "Multiplicação armada de 2,5 por 1000, resultando em 2500.",
+    desenho: () => contaArmada({ linhas: ["2,5", "1000"], operador: "×", resultado: "2500", nota: "quilo significa mil", largura: 340 }),
+  },
+  {
+    id: "gra-q-4kg", pasta: "questoes",
+    alt: "Multiplicação armada de 4 por 1000.",
+    desenho: () => contaArmada({ linhas: ["4", "1000"], operador: "×", nota: "kg para g: unidade menor, número maior", largura: 320 }),
+  },
+  {
+    id: "gra-q-3000g", pasta: "questoes",
+    alt: "Divisão armada de 3000 por 1000.",
+    desenho: () => contaArmada({ linhas: ["3000", "1000"], operador: "÷", nota: "g para kg: unidade maior, número menor", largura: 340 }),
+  },
+  {
+    id: "gra-q-2t", pasta: "questoes",
+    alt: "Tabela com as equivalências entre tonelada, quilograma e grama.",
+    desenho: () => listasComuns({
+      largura: 360,
+      colunas: [{ titulo: "de cor", itens: ["1 t = 1 000 kg", "1 kg = 1 000 g"] }],
+    }),
+  },
+  {
+    id: "gra-q-soma-massa", pasta: "questoes",
+    alt: "Dois pacotes representados por barras, um de 500 g e outro de 1,5 kg.",
+    desenho: () => barrasEmpilhadas({
+      largura: 440, rotuloEsquerda: true,
+      itens: [{ partes: 4, pintadas: 1, rotulo: "500 g" }, { partes: 4, pintadas: 3, rotulo: "1,5 kg" }],
+    }),
+  },
+
+  // ───────────────────────── Lição 4 — Capacidade
+  {
+    id: "gra-ideia-capacidade", pasta: "licoes",
+    alt: "Tabela com as equivalências entre litro, mililitro e centímetro cúbico.",
+    desenho: () => listasComuns({
+      largura: 420,
+      colunas: [{ titulo: "as pontes", itens: ["1 L = 1 000 mL", "1 mL = 1 cm³", "1 L = 1 000 cm³"] }],
+      rotulo: "capacidade e volume medem a mesma coisa",
+    }),
+  },
+  {
+    id: "gra-res-capacidade", pasta: "licoes",
+    alt: "Um recipiente cheio representando dois litros e meio.",
+    desenho: () => recipientes({
+      largura: 240,
+      itens: [{ fracao: 1, altura: 132, rotulo: "garrafão", nota: "2,5 L" }],
+    }),
+  },
+  {
+    id: "gra-q-3l", pasta: "questoes",
+    alt: "Três recipientes cheios de um litro cada.",
+    desenho: () => recipientes({
+      largura: 340,
+      itens: [
+        { fracao: 1, altura: 110, rotulo: "", nota: "1 L" },
+        { fracao: 1, altura: 110, rotulo: "", nota: "1 L" },
+        { fracao: 1, altura: 110, rotulo: "", nota: "1 L" },
+      ],
+    }),
+  },
+  {
+    id: "gra-q-1500ml", pasta: "questoes",
+    alt: "Divisão armada de 1500 por 1000.",
+    desenho: () => contaArmada({ linhas: ["1500", "1000"], operador: "÷", nota: "mL para L: unidade maior, número menor", largura: 340 }),
+  },
+  {
+    id: "gra-q-copos", pasta: "questoes",
+    alt: "Um copo com a marcação de 250 mililitros.",
+    desenho: () => recipientes({
+      largura: 240,
+      itens: [{ fracao: 1, altura: 76, rotulo: "um copo", nota: "250 mL" }],
+    }),
+  },
+  {
+    id: "gra-q-garrafa-copos", pasta: "questoes",
+    alt: "Uma garrafa de dois litros ao lado de um copo de duzentos mililitros.",
+    desenho: () => recipientes({
+      largura: 300,
+      itens: [
+        { fracao: 1, altura: 136, rotulo: "garrafa", nota: "2 L" },
+        { fracao: 1, altura: 48, rotulo: "copo", nota: "200 mL" },
+      ],
+    }),
+  },
+
+  // ───────────────────────── Lição 5 — Tempo
+  {
+    id: "gra-ideia-tempo", pasta: "licoes",
+    alt: "Tabela com os saltos do tempo: sessenta segundos no minuto, sessenta minutos na hora e vinte e quatro horas no dia.",
+    desenho: () => listasComuns({
+      largura: 400,
+      colunas: [{ titulo: "aqui não é dez", itens: ["1 min = 60 s", "1 h = 60 min", "1 dia = 24 h"] }],
+      rotulo: "o tempo é a exceção da matéria",
+    }),
+  },
+  {
+    id: "gra-res-tempo", pasta: "licoes",
+    alt: "Um relógio marcando duas horas e trinta minutos.",
+    desenho: () => relogio({ hora: 2, minuto: 30, rotulo: "duas horas e meia: 30 minutos, não 50" }),
+  },
+  {
+    id: "gra-q-3h", pasta: "questoes",
+    alt: "Um relógio marcando três horas.",
+    desenho: () => relogio({ hora: 3, minuto: 0, rotulo: "cada volta do ponteiro grande é 1 hora" }),
+  },
+  {
+    id: "gra-q-240min", pasta: "questoes",
+    alt: "Divisão armada de 240 por 60.",
+    desenho: () => contaArmada({ linhas: ["240", "60"], operador: "÷", nota: "min para h: o divisor é 60", largura: 320 }),
+  },
+  {
+    id: "gra-q-2min", pasta: "questoes",
+    alt: "Um relógio marcando doze horas em ponto, com o ponteiro dos minutos no topo.",
+    desenho: () => relogio({ hora: 12, minuto: 0, rotulo: "uma volta do ponteiro grande: 60 minutos" }),
+  },
+  {
+    id: "gra-q-aula", pasta: "questoes",
+    alt: "Um relógio marcando oito horas e quinze minutos.",
+    desenho: () => relogio({ hora: 8, minuto: 15, rotulo: "o começo da aula: 8h15" }),
+  },
+
+  // ───────────────────────── Lição 6 — Converter antes de calcular
+  {
+    id: "gra-ideia-problemas", pasta: "licoes",
+    alt: "Tabela lembrando os três fatores de conversão mais usados.",
+    desenho: () => listasComuns({
+      largura: 400,
+      colunas: [{ titulo: "converta primeiro", itens: ["1 m = 100 cm", "1 kg = 1 000 g", "1 L = 1 000 mL"] }],
+      rotulo: "misturar unidades na mesma conta não funciona",
+    }),
+  },
+  {
+    id: "gra-res-problemas", pasta: "licoes",
+    alt: "Soma armada de 120 com 45, resultando em 165.",
+    desenho: () => contaArmada({ linhas: ["120", "45"], operador: "+", resultado: "165", nota: "só depois de tudo em centímetros", largura: 320 }),
+  },
+  {
+    id: "gra-q-cordas", pasta: "questoes",
+    alt: "Duas barras representando cordas de comprimentos diferentes.",
+    desenho: () => barrasEmpilhadas({
+      largura: 440, rotuloEsquerda: true,
+      itens: [{ partes: 10, pintadas: 10, rotulo: "2 m" }, { partes: 10, pintadas: 2, rotulo: "30 cm" }],
+    }),
+  },
+  {
+    id: "gra-q-farinha", pasta: "questoes",
+    alt: "Uma barra dividida em quatro partes, com uma delas destacada.",
+    desenho: () => barra({ partes: 4, pintadas: 1, rotulo: "do pacote de 1 kg, foram usados 250 g" }),
+  },
+  {
+    id: "gra-q-jarra", pasta: "questoes",
+    alt: "Um recipiente parcialmente cheio, representando a jarra com suco.",
+    desenho: () => recipientes({
+      largura: 260,
+      itens: [{ fracao: 0.75, altura: 130, rotulo: "jarra", nota: "havia 1,5 L" }],
+    }),
+  },
+  {
+    id: "gra-q-corrida", pasta: "questoes",
+    alt: "Uma barra dividida em dez partes, com metade delas preenchida.",
+    desenho: () => barra({ partes: 10, pintadas: 5, rotulo: "a prova de 5 km, e o que já foi percorrido" }),
+  },
+
+  // ───────────────────────── Plano cartesiano ─────────────────────────
+  //
+  // Numa questão que pede a leitura de um ponto, o ponto vai SEM rótulo:
+  // escrever o par ao lado dele responderia a pergunta. Nas questões
+  // conceituais, o plano aparece vazio, só para lembrar o cenário.
+
+  {
+    id: "pla-ideia-eixos", pasta: "licoes",
+    alt: "Plano cartesiano com os dois eixos, a origem e um ponto marcado, identificado pelo par (3, 4).",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [3, 4], rotulo: "(3, 4)" }], rotulo: "3 na horizontal, 4 na vertical" }),
+  },
+  {
+    id: "pla-res-ponto", pasta: "licoes",
+    alt: "Plano cartesiano com um ponto marcado e identificado pela letra A.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [3, 4], rotulo: "A" }] }),
+  },
+  {
+    id: "pla-q-ler-25", pasta: "questoes",
+    alt: "Plano cartesiano com um ponto marcado, sem indicação das coordenadas dele.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [2, 5] }] }),
+  },
+  {
+    id: "pla-q-origem", pasta: "questoes",
+    alt: "Plano cartesiano com o ponto de encontro dos dois eixos destacado e chamado de origem.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [0, 0], rotulo: "origem" }] }),
+  },
+  {
+    id: "pla-q-primeiro", pasta: "questoes",
+    alt: "Plano cartesiano com o ponto (7, 2) marcado e identificado pelo par de números.",
+    desenho: () => planoCartesiano({ ate: 8, pontos: [{ em: [7, 2], rotulo: "(7, 2)" }] }),
+  },
+  {
+    id: "pla-q-valor-x", pasta: "questoes",
+    alt: "Plano cartesiano com o ponto (6, 2) marcado e identificado pelo par de números.",
+    desenho: () => planoCartesiano({ ate: 7, pontos: [{ em: [6, 2], rotulo: "(6, 2)" }] }),
+  },
+
+  {
+    id: "pla-ideia-ler", pasta: "licoes",
+    alt: "Plano cartesiano com um ponto marcado, sem indicação das coordenadas.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [4, 3] }], rotulo: "desça até o eixo x, ande até o eixo y" }),
+  },
+  {
+    id: "pla-res-tres", pasta: "licoes",
+    alt: "Plano cartesiano com três pontos marcados e identificados pelas letras A, B e C.",
+    desenho: () => planoCartesiano({
+      ate: 6,
+      pontos: [{ em: [1, 3], rotulo: "A" }, { em: [4, 1], rotulo: "B" }, { em: [5, 5], rotulo: "C" }],
+    }),
+  },
+  {
+    id: "pla-q-ler-42", pasta: "questoes",
+    alt: "Plano cartesiano com um ponto marcado, sem indicação das coordenadas dele.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [4, 2] }] }),
+  },
+  {
+    id: "pla-q-ler-15", pasta: "questoes",
+    alt: "Plano cartesiano com um ponto marcado perto do eixo vertical, sem indicação das coordenadas.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [1, 5] }] }),
+  },
+  {
+    id: "pla-q-valor-y", pasta: "questoes",
+    alt: "Plano cartesiano com o ponto (3, 6) marcado e identificado pelo par de números.",
+    desenho: () => planoCartesiano({ ate: 7, pontos: [{ em: [3, 6], rotulo: "(3, 6)" }] }),
+  },
+  {
+    id: "pla-q-eixo-x", pasta: "questoes",
+    alt: "Plano cartesiano vazio, com os dois eixos e a origem.",
+    desenho: () => planoCartesiano({ ate: 6, rotulo: "o eixo x é a linha horizontal" }),
+  },
+
+  {
+    id: "pla-ideia-ordem", pasta: "licoes",
+    alt: "Plano cartesiano com dois pontos marcados, identificados pelos pares (3, 5) e (5, 3).",
+    desenho: () => planoCartesiano({
+      ate: 6,
+      pontos: [{ em: [3, 5], rotulo: "(3, 5)" }, { em: [5, 3], rotulo: "(5, 3)" }],
+      rotulo: "os mesmos números, em lugares diferentes",
+    }),
+  },
+  {
+    id: "pla-res-ordem", pasta: "licoes",
+    alt: "Plano cartesiano com os pontos (3, 5) e (5, 3) marcados e identificados.",
+    desenho: () => planoCartesiano({
+      ate: 6,
+      pontos: [{ em: [3, 5], rotulo: "(3, 5)" }, { em: [5, 3], rotulo: "(5, 3)" }],
+    }),
+  },
+  {
+    id: "pla-q-dois-pontos", pasta: "questoes",
+    alt: "Plano cartesiano vazio, para marcar os dois pares do enunciado.",
+    desenho: () => planoCartesiano({ ate: 7, rotulo: "marque (2, 6) e (6, 2) e compare" }),
+  },
+  {
+    id: "pla-q-direita", pasta: "questoes",
+    alt: "Plano cartesiano com o ponto (7, 1) marcado e identificado pelo par de números.",
+    desenho: () => planoCartesiano({ ate: 8, pontos: [{ em: [7, 1], rotulo: "(7, 1)" }] }),
+  },
+  {
+    id: "pla-q-eixo-y", pasta: "questoes",
+    alt: "Plano cartesiano vazio, com os dois eixos e a origem.",
+    desenho: () => planoCartesiano({ ate: 6, rotulo: "o eixo y é a linha vertical" }),
+  },
+  {
+    id: "pla-q-mais-direita", pasta: "questoes",
+    alt: "Plano cartesiano com dois pontos marcados, sem indicação das coordenadas de cada um.",
+    desenho: () => planoCartesiano({ ate: 7, pontos: [{ em: [2, 6] }, { em: [5, 1] }] }),
+  },
+
+  {
+    id: "pla-ideia-distancia", pasta: "licoes",
+    alt: "Plano cartesiano com dois pontos de mesma altura, ligados por um traço horizontal.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 3], rotulo: "(2, 3)" }, { em: [6, 3], rotulo: "(6, 3)" }],
+      caminho: [[2, 3], [6, 3]],
+      rotulo: "mesma altura: compare os x",
+    }),
+  },
+  {
+    id: "pla-res-distancia", pasta: "licoes",
+    alt: "Plano cartesiano com os pontos A e B na mesma altura, ligados por um traço horizontal.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 3], rotulo: "A" }, { em: [6, 3], rotulo: "B" }],
+      caminho: [[2, 3], [6, 3]],
+    }),
+  },
+  {
+    id: "pla-q-dist-h", pasta: "questoes",
+    alt: "Plano cartesiano com dois pontos de mesma altura, ligados por um traço horizontal.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [1, 2] }, { em: [5, 2] }], caminho: [[1, 2], [5, 2]] }),
+  },
+  {
+    id: "pla-q-dist-v", pasta: "questoes",
+    alt: "Plano cartesiano com dois pontos na mesma coluna, ligados por um traço vertical.",
+    desenho: () => planoCartesiano({ ate: 8, pontos: [{ em: [3, 1] }, { em: [3, 7] }], caminho: [[3, 1], [3, 7]] }),
+  },
+  {
+    id: "pla-q-dist-origem", pasta: "questoes",
+    alt: "Plano cartesiano com um traço sobre o eixo horizontal, da origem até um ponto marcado.",
+    desenho: () => planoCartesiano({ ate: 6, pontos: [{ em: [0, 0] }, { em: [5, 0] }], caminho: [[0, 0], [5, 0]] }),
+  },
+  {
+    id: "pla-q-dist-29", pasta: "questoes",
+    alt: "Plano cartesiano com dois pontos na mesma coluna, ligados por um traço vertical.",
+    desenho: () => planoCartesiano({ ate: 10, escala: 30, pontos: [{ em: [2, 4] }, { em: [2, 9] }], caminho: [[2, 4], [2, 9]] }),
+  },
+
+  {
+    id: "pla-ideia-retangulo", pasta: "licoes",
+    alt: "Retângulo desenhado no plano cartesiano, com os quatro vértices identificados pelos pares de números.",
+    desenho: () => planoCartesiano({
+      ate: 6, ligar: true,
+      pontos: [
+        { em: [1, 1], rotulo: "(1, 1)" }, { em: [5, 1], rotulo: "(5, 1)" },
+        { em: [5, 4], rotulo: "(5, 4)" }, { em: [1, 4], rotulo: "(1, 4)" },
+      ],
+      rotulo: "cada coordenada aparece duas vezes",
+    }),
+  },
+  {
+    id: "pla-res-retangulo", pasta: "licoes",
+    alt: "Plano cartesiano com apenas três vértices marcados e identificados, e o quarto canto em aberto.",
+    desenho: () => planoCartesiano({
+      ate: 6,
+      pontos: [{ em: [1, 1], rotulo: "(1, 1)" }, { em: [5, 1], rotulo: "(5, 1)" }, { em: [5, 4], rotulo: "(5, 4)" }],
+    }),
+  },
+  {
+    id: "pla-q-quarto", pasta: "questoes",
+    alt: "Plano cartesiano com três vértices marcados e identificados, e o quarto canto em aberto.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 2], rotulo: "(2, 2)" }, { em: [6, 2], rotulo: "(6, 2)" }, { em: [6, 5], rotulo: "(6, 5)" }],
+    }),
+  },
+  {
+    id: "pla-q-lado-h", pasta: "questoes",
+    alt: "Retângulo desenhado no plano cartesiano, sem medidas escritas nos lados.",
+    desenho: () => planoCartesiano({
+      ate: 6, ligar: true,
+      pontos: [{ em: [1, 1] }, { em: [5, 1] }, { em: [5, 4] }, { em: [1, 4] }],
+      rotulo: "o retângulo do enunciado",
+    }),
+  },
+  {
+    id: "pla-q-area-ret", pasta: "questoes",
+    alt: "O mesmo retângulo no plano cartesiano, sobre a malha quadriculada.",
+    desenho: () => planoCartesiano({
+      ate: 6, ligar: true,
+      pontos: [{ em: [1, 1] }, { em: [5, 1] }, { em: [5, 4] }, { em: [1, 4] }],
+      rotulo: "o que está dentro do contorno",
+    }),
+  },
+  {
+    id: "pla-q-perim-ret", pasta: "questoes",
+    alt: "O mesmo retângulo no plano cartesiano, com o contorno destacado.",
+    desenho: () => planoCartesiano({
+      ate: 6, ligar: true,
+      pontos: [{ em: [1, 1] }, { em: [5, 1] }, { em: [5, 4] }, { em: [1, 4] }],
+      rotulo: "a volta inteira do contorno",
+    }),
+  },
+
+  {
+    id: "pla-ideia-mapa", pasta: "licoes",
+    alt: "Plano cartesiano usado como mapa de quadras, com a escola e a casa marcadas e um trajeto tracejado entre elas.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 5], rotulo: "escola" }, { em: [6, 2], rotulo: "casa" }],
+      caminho: [[2, 5], [6, 5], [6, 2]],
+      rotulo: "anda-se pelas ruas, não em linha reta",
+    }),
+  },
+  {
+    id: "pla-res-mapa", pasta: "licoes",
+    alt: "Mapa de quadras com a escola e a casa marcadas e um trajeto tracejado ligando as duas.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 5], rotulo: "escola" }, { em: [6, 2], rotulo: "casa" }],
+      caminho: [[2, 5], [6, 5], [6, 2]],
+    }),
+  },
+  {
+    id: "pla-q-mapa-h", pasta: "questoes",
+    alt: "Mapa de quadras com a escola e a casa marcadas, sem trajeto desenhado.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 5], rotulo: "escola" }, { em: [6, 2], rotulo: "casa" }],
+    }),
+  },
+  {
+    id: "pla-q-mapa-total", pasta: "questoes",
+    alt: "Mapa de quadras com a escola e a casa marcadas e um trajeto tracejado que desce depois de andar para o lado.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 5], rotulo: "escola" }, { em: [6, 2], rotulo: "casa" }],
+      caminho: [[2, 5], [6, 5], [6, 2]],
+    }),
+  },
+  {
+    id: "pla-q-praca", pasta: "questoes",
+    alt: "Mapa de quadras com apenas a escola marcada.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 5], rotulo: "escola" }],
+      rotulo: "3 quadras à direita e 1 acima",
+    }),
+  },
+  {
+    id: "pla-q-mesma-rua", pasta: "questoes",
+    alt: "Mapa de quadras com apenas a escola marcada.",
+    desenho: () => planoCartesiano({
+      ate: 7,
+      pontos: [{ em: [2, 5], rotulo: "escola" }],
+      rotulo: "onde fica a escola",
+    }),
+  },
+
+  // ───────────────────────── Gráficos e tabelas ─────────────────────────
+  //
+  // Aqui o dado É a figura: uma tabela sem os números não ensina a ler tabela.
+  // O que as questões não podem receber de graça é o RESULTADO, então os
+  // gráficos das questões vão sem o valor escrito no topo da coluna — quem
+  // responde tem de usar o eixo, que é justamente a habilidade em jogo.
+
+  ...(() => {
+    const LIVROS = {
+      cabecalho: ["turma", "março", "abril"],
+      linhas: [["6º A", "12", "15"], ["6º B", "9", "20"], ["6º C", "14", "11"]],
+    };
+    const TRANSPORTE = [
+      { rotulo: "a pé", valor: 8 }, { rotulo: "ônibus", valor: 12 },
+      { rotulo: "bicicleta", valor: 6 }, { rotulo: "carro", valor: 4 },
+    ];
+    const ESPORTES = [
+      { rotulo: "vôlei", valor: 7 }, { rotulo: "futebol", valor: 14 },
+      { rotulo: "basquete", valor: 5 }, { rotulo: "natação", valor: 4 },
+    ];
+    const SUCOS_DIAS = [
+      { rotulo: "segunda", valor: 20 }, { rotulo: "terça", valor: 35 },
+      { rotulo: "quarta", valor: 25 }, { rotulo: "quinta", valor: 40 },
+    ];
+    const VOTOS = [
+      { rotulo: "uva", valor: 52 }, { rotulo: "laranja", valor: 56 },
+      { rotulo: "manga", valor: 54 },
+    ];
+    const GOLS = [
+      { rotulo: "abril", valor: 6 }, { rotulo: "maio", valor: 9 },
+      { rotulo: "junho", valor: 4 }, { rotulo: "julho", valor: 11 },
+    ];
+
+    const tabLivros = (rotulo) => tabela({ ...LIVROS, rotulo, larguraCol: 92 });
+    const colTransporte = (extra = {}) => grafico({ dados: TRANSPORTE, passo: 2, mostrarValores: false, ...extra });
+    const barEsportes = (rotulo) => grafico({ dados: ESPORTES, orientacao: "barras", rotulo });
+    const colSucos = (rotulo) => grafico({ dados: SUCOS_DIAS, passo: 5, mostrarValores: false, rotulo });
+    const tabSucos = (rotulo) => tabela({
+      cabecalho: ["dia", "sucos"],
+      linhas: SUCOS_DIAS.map((d) => [d.rotulo, String(d.valor)]),
+      rotulo,
+    });
+    const colGols = (rotulo) => grafico({ dados: GOLS, passo: 1, mostrarValores: false, rotulo });
+
+    return [
+      { id: "grf-ideia-tabela", pasta: "licoes", alt: "Tabela de livros lidos por três turmas em dois meses.", desenho: () => tabLivros("cada número está num cruzamento") },
+      { id: "grf-res-tabela", pasta: "licoes", alt: "Tabela de livros lidos por três turmas em março e abril.", desenho: () => tabLivros("livros lidos por turma") },
+      { id: "grf-q-cruzar", pasta: "questoes", alt: "Tabela de livros lidos por três turmas em março e abril.", desenho: () => tabLivros("livros lidos por turma") },
+      { id: "grf-q-linha", pasta: "questoes", alt: "A mesma tabela de livros lidos, com as três turmas e os dois meses.", desenho: () => tabLivros("livros lidos por turma") },
+      { id: "grf-q-maior", pasta: "questoes", alt: "A mesma tabela de livros lidos, com as três turmas e os dois meses.", desenho: () => tabLivros("livros lidos por turma") },
+      { id: "grf-q-diferenca", pasta: "questoes", alt: "A mesma tabela de livros lidos, com as três turmas e os dois meses.", desenho: () => tabLivros("livros lidos por turma") },
+
+      { id: "grf-ideia-colunas", pasta: "licoes", alt: "Gráfico de colunas do meio de transporte usado pelos alunos, com o valor escrito no topo de cada coluna.", desenho: () => grafico({ dados: TRANSPORTE, passo: 2, rotulo: "a altura da coluna é a quantidade" }) },
+      { id: "grf-res-colunas", pasta: "licoes", alt: "Gráfico de colunas do meio de transporte usado pelos alunos, com a escala no eixo da esquerda.", desenho: () => colTransporte({ rotulo: "como os alunos vão à escola" }) },
+      { id: "grf-q-onibus", pasta: "questoes", alt: "Gráfico de colunas do meio de transporte usado pelos alunos.", desenho: () => colTransporte({ rotulo: "como os alunos vão à escola" }) },
+      { id: "grf-q-menos", pasta: "questoes", alt: "O mesmo gráfico de colunas dos meios de transporte da turma.", desenho: () => colTransporte({ rotulo: "como os alunos vão à escola" }) },
+      { id: "grf-q-total-alunos", pasta: "questoes", alt: "O mesmo gráfico de colunas dos meios de transporte da turma.", desenho: () => colTransporte({ rotulo: "como os alunos vão à escola" }) },
+      { id: "grf-q-a-mais", pasta: "questoes", alt: "O mesmo gráfico de colunas dos meios de transporte da turma.", desenho: () => colTransporte({ rotulo: "como os alunos vão à escola" }) },
+
+      { id: "grf-ideia-barras", pasta: "licoes", alt: "Gráfico de barras deitadas com o nome de cada esporte à esquerda da barra.", desenho: () => barEsportes("o comprimento da barra é a quantidade") },
+      { id: "grf-res-barras", pasta: "licoes", alt: "Gráfico de barras deitadas do esporte preferido da turma.", desenho: () => barEsportes("esporte preferido da turma") },
+      { id: "grf-q-esportes-total", pasta: "questoes", alt: "Gráfico de barras deitadas do esporte preferido da turma.", desenho: () => barEsportes("esporte preferido da turma") },
+      { id: "grf-q-esportes-dif", pasta: "questoes", alt: "O mesmo gráfico de barras do esporte preferido da turma.", desenho: () => barEsportes("esporte preferido da turma") },
+      {
+        id: "grf-q-qual-grafico", pasta: "questoes",
+        alt: "Gráfico de barras deitadas com nomes compridos de profissões, cada um numa linha.",
+        desenho: () => grafico({
+          orientacao: "barras",
+          dados: [
+            { rotulo: "veterinária", valor: 9 }, { rotulo: "medicina", valor: 7 },
+            { rotulo: "programação", valor: 8 }, { rotulo: "arquitetura", valor: 5 },
+            { rotulo: "engenharia", valor: 6 }, { rotulo: "jornalismo", valor: 4 },
+          ],
+          rotulo: "seis profissões, alguns nomes compridos",
+        }),
+      },
+      { id: "grf-q-esportes-juntos", pasta: "questoes", alt: "O mesmo gráfico de barras do esporte preferido da turma.", desenho: () => barEsportes("esporte preferido da turma") },
+
+      { id: "grf-ideia-duas-formas", pasta: "licoes", alt: "Tabela com os sucos vendidos pela cantina em cada dia da semana.", desenho: () => tabSucos("os mesmos dados, em forma de tabela") },
+      { id: "grf-res-sucos", pasta: "licoes", alt: "Gráfico de colunas com os sucos vendidos pela cantina em cada dia.", desenho: () => colSucos("os mesmos dados, em forma de gráfico") },
+      { id: "grf-q-sucos-total", pasta: "questoes", alt: "Gráfico de colunas com os sucos vendidos pela cantina em cada dia.", desenho: () => colSucos("sucos vendidos na cantina") },
+      { id: "grf-q-sucos-dia", pasta: "questoes", alt: "O mesmo gráfico de colunas das vendas da cantina.", desenho: () => colSucos("sucos vendidos na cantina") },
+      { id: "grf-q-sucos-dif", pasta: "questoes", alt: "O mesmo gráfico de colunas das vendas da cantina.", desenho: () => colSucos("sucos vendidos na cantina") },
+      { id: "grf-q-mesma-info", pasta: "questoes", alt: "Tabela com os mesmos dados das vendas da cantina, dia a dia.", desenho: () => tabSucos("sucos vendidos na cantina") },
+
+      // As duas figuras do par enganoso. A da lição 5 é a única do site que
+      // usa `base`: é impossível ensinar a desconfiar de um eixo cortado sem
+      // mostrar um, e o alt avisa que o eixo não começa no zero.
+      { id: "grf-ideia-corte", pasta: "licoes", alt: "Gráfico de colunas dos votos em três sucos, com o eixo começando no zero.", desenho: () => grafico({ dados: VOTOS, passo: 10, mostrarValores: false, rotulo: "eixo começando no zero" }) },
+      { id: "grf-res-corte", pasta: "licoes", alt: "O mesmo gráfico dos votos em três sucos, mas com o eixo começando em 50 em vez de zero.", desenho: () => grafico({ dados: VOTOS, base: 50, passo: 2, mostrarValores: false, rotulo: "eixo começando em 50" }) },
+      { id: "grf-q-corte-ler", pasta: "questoes", alt: "Gráfico de colunas dos votos em três sucos, com o eixo começando em 50.", desenho: () => grafico({ dados: VOTOS, base: 50, passo: 2, mostrarValores: false, rotulo: "eixo começando em 50" }) },
+      { id: "grf-q-corte-dif", pasta: "questoes", alt: "O mesmo gráfico dos votos com o eixo começando em 50.", desenho: () => grafico({ dados: VOTOS, base: 50, passo: 2, mostrarValores: false, rotulo: "eixo começando em 50" }) },
+      { id: "grf-q-corte-porque", pasta: "questoes", alt: "Gráfico dos mesmos votos com o eixo começando no zero, para comparação.", desenho: () => grafico({ dados: VOTOS, passo: 10, mostrarValores: false, rotulo: "eixo começando no zero" }) },
+      { id: "grf-q-corte-total", pasta: "questoes", alt: "O mesmo gráfico dos votos com o eixo começando em 50.", desenho: () => grafico({ dados: VOTOS, base: 50, passo: 2, mostrarValores: false, rotulo: "eixo começando em 50" }) },
+
+      { id: "grf-ideia-gols", pasta: "licoes", alt: "Gráfico de colunas com os gols de um time em quatro meses.", desenho: () => colGols("gols por mês") },
+      { id: "grf-res-gols", pasta: "licoes", alt: "Gráfico de colunas com os gols de um time em abril, maio, junho e julho.", desenho: () => colGols("gols por mês") },
+      { id: "grf-q-gols-total", pasta: "questoes", alt: "Gráfico de colunas com os gols do time em quatro meses.", desenho: () => colGols("gols por mês") },
+      { id: "grf-q-gols-meses", pasta: "questoes", alt: "O mesmo gráfico de colunas dos gols do time por mês.", desenho: () => colGols("gols por mês") },
+      { id: "grf-q-gols-dif", pasta: "questoes", alt: "O mesmo gráfico de colunas dos gols do time por mês.", desenho: () => colGols("gols por mês") },
+      { id: "grf-q-gols-afirmacao", pasta: "questoes", alt: "O mesmo gráfico de colunas dos gols do time por mês.", desenho: () => colGols("gols por mês") },
+    ];
+  })(),
+
+  // ───────────────────────── Média aritmética ─────────────────────────
+  //
+  // A linha tracejada da média só entra onde ela JÁ é conhecida — na ideia,
+  // no exemplo resolvido e nas questões que perguntam outra coisa. Numa
+  // questão que pede a média, desenhar o patamar seria dar a resposta.
+
+  ...(() => {
+    const col = (dados, extra = {}) => grafico({ dados, mostrarValores: true, ...extra });
+    const lista = (valores, extra = {}) => col(valores.map((valor, i) => ({ rotulo: `${i + 1}º`, valor })), extra);
+    const LEITURAS = [
+      { rotulo: "Ana", valor: 2 }, { rotulo: "Beto", valor: 4 }, { rotulo: "Cau", valor: 2 },
+      { rotulo: "Dan", valor: 4 }, { rotulo: "Eli", valor: 38 },
+    ];
+    const leituras = (extra = {}) => col(LEITURAS, { passo: 10, ...extra });
+
+    return [
+      {
+        id: "med-ideia-figurinhas", pasta: "licoes",
+        alt: "Gráfico de colunas com as figurinhas de quatro amigos e uma linha tracejada no valor da média.",
+        desenho: () => col(
+          [{ rotulo: "Ana", valor: 5 }, { rotulo: "Bia", valor: 8 }, { rotulo: "Caio", valor: 3 }, { rotulo: "Duda", valor: 4 }],
+          { passo: 2, referencia: { valor: 5, rotulo: "média 5" }, rotulo: "repartidas igualmente, 5 para cada" },
+        ),
+      },
+      {
+        id: "med-res-notas", pasta: "licoes",
+        alt: "Gráfico de colunas com as quatro notas de Ana no bimestre.",
+        desenho: () => lista([7, 8, 6, 7], { passo: 2, rotulo: "as quatro provas de Ana" }),
+      },
+      { id: "med-q-quatro", pasta: "questoes", alt: "Gráfico de colunas com os quatro números da lista.", desenho: () => lista([4, 6, 8, 10], { passo: 2, rotulo: "os quatro números" }) },
+      {
+        id: "med-q-iguais", pasta: "questoes",
+        alt: "Gráfico de colunas com os livros lidos por três amigos, todas as colunas do mesmo tamanho.",
+        desenho: () => col([{ rotulo: "1º", valor: 10 }, { rotulo: "2º", valor: 10 }, { rotulo: "3º", valor: 10 }], { passo: 5, rotulo: "livros lidos por cada amigo" }),
+      },
+      {
+        id: "med-q-significado", pasta: "questoes",
+        alt: "Gráfico de colunas com as figurinhas de quatro amigos, sem a linha da média.",
+        desenho: () => col(
+          [{ rotulo: "Ana", valor: 5 }, { rotulo: "Bia", valor: 8 }, { rotulo: "Caio", valor: 3 }, { rotulo: "Duda", valor: 4 }],
+          { passo: 2, rotulo: "juntar tudo e repartir igualmente" },
+        ),
+      },
+      { id: "med-q-tres", pasta: "questoes", alt: "Gráfico de colunas com os três números da lista.", desenho: () => lista([3, 5, 7], { passo: 1, rotulo: "os três números" }) },
+
+      {
+        id: "med-ideia-jogos", pasta: "licoes",
+        alt: "Gráfico de colunas com os gols de cada jogo, e um jogo sem coluna nenhuma por não ter tido gol.",
+        desenho: () => lista([2, 0, 3, 1, 4], { passo: 1, rotulo: "o jogo de zero gol também conta" }),
+      },
+      { id: "med-res-gols", pasta: "licoes", alt: "Gráfico de colunas com os gols do time em cada um dos cinco jogos.", desenho: () => lista([2, 0, 3, 1, 4], { passo: 1, rotulo: "gols em cada jogo" }) },
+      { id: "med-q-tres-valores", pasta: "questoes", alt: "Gráfico de colunas com os três números da lista.", desenho: () => lista([12, 15, 9], { passo: 5, rotulo: "os três números" }) },
+      {
+        id: "med-q-com-zero", pasta: "questoes",
+        alt: "Gráfico de colunas com os bolos vendidos em cada dia da feira, incluindo o dia sem venda.",
+        desenho: () => col(
+          [{ rotulo: "1º dia", valor: 6 }, { rotulo: "2º dia", valor: 6 }, { rotulo: "3º dia", valor: 8 }, { rotulo: "4º dia", valor: 0 }],
+          { passo: 2, rotulo: "bolos vendidos por dia" },
+        ),
+      },
+      {
+        id: "med-q-soma-45", pasta: "questoes",
+        alt: "Tabela com os dois dados do problema: a soma dos números e a quantidade deles.",
+        desenho: () => tabela({ cabecalho: ["soma", "quantidade"], linhas: [["45", "5"]], rotulo: "o que o problema dá" }),
+      },
+      { id: "med-q-quatro-pares", pasta: "questoes", alt: "Gráfico de colunas com os quatro números da lista.", desenho: () => lista([14, 16, 18, 20], { passo: 5, rotulo: "os quatro números" }) },
+
+      {
+        id: "med-ideia-faixa", pasta: "licoes",
+        alt: "Gráfico de colunas com três valores e a linha tracejada da média entre o menor e o maior deles.",
+        desenho: () => lista([6, 7, 20], { passo: 5, referencia: { valor: 11, rotulo: "média 11" }, rotulo: "a média cai dentro da faixa" }),
+      },
+      { id: "med-res-faixa", pasta: "licoes", alt: "Gráfico de colunas com os números 4, 9 e 11.", desenho: () => lista([4, 9, 11], { passo: 2, rotulo: "os três valores" }) },
+      { id: "med-q-possivel", pasta: "questoes", alt: "Gráfico de colunas com os números 6, 7 e 20.", desenho: () => lista([6, 7, 20], { passo: 5, rotulo: "os três valores" }) },
+      { id: "med-q-cinco", pasta: "questoes", alt: "Gráfico de colunas com os cinco números da lista.", desenho: () => lista([2, 4, 6, 8, 10], { passo: 2, rotulo: "os cinco números" }) },
+      { id: "med-q-qual-pode", pasta: "questoes", alt: "Gráfico de colunas com os números 10, 12 e 14.", desenho: () => lista([10, 12, 14], { passo: 2, rotulo: "os três valores" }) },
+      { id: "med-q-um-diferente", pasta: "questoes", alt: "Gráfico de colunas com três valores iguais e um bem maior.", desenho: () => lista([5, 5, 5, 17], { passo: 5, rotulo: "os quatro números" }) },
+
+      {
+        id: "med-ideia-inversa", pasta: "licoes",
+        alt: "Tabela relacionando média, quantidade e soma em três exemplos.",
+        desenho: () => tabela({
+          cabecalho: ["média", "quantidade", "soma"],
+          linhas: [["7", "4", "28"], ["9", "3", "27"], ["5", "10", "50"]],
+          rotulo: "média × quantidade = soma", larguraCol: 96,
+        }),
+      },
+      {
+        id: "med-res-falta", pasta: "licoes",
+        alt: "Tabela com as três notas já obtidas e a quarta em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["prova", "nota"],
+          linhas: [["1ª", "6"], ["2ª", "8"], ["3ª", "7"], ["4ª", "?"]],
+          rotulo: "média desejada: 7",
+        }),
+      },
+      {
+        id: "med-q-soma-total", pasta: "questoes",
+        alt: "Tabela com os dois dados do problema: a média e a quantidade de números.",
+        desenho: () => tabela({ cabecalho: ["média", "quantidade"], linhas: [["12", "5"]], rotulo: "o que o problema dá" }),
+      },
+      {
+        id: "med-q-quarta-nota", pasta: "questoes",
+        alt: "Tabela com três notas conhecidas e a quarta em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["prova", "nota"],
+          linhas: [["1ª", "7"], ["2ª", "9"], ["3ª", "8"], ["4ª", "?"]],
+          rotulo: "média desejada: 8",
+        }),
+      },
+      {
+        id: "med-q-total-gols", pasta: "questoes",
+        alt: "Tabela com a média de gols por jogo e o número de jogos.",
+        desenho: () => tabela({ cabecalho: ["dado", "valor"], linhas: [["média de gols", "3"], ["jogos", "6"]], rotulo: "o que o problema dá", larguraCol: 118 }),
+      },
+      {
+        id: "med-q-subir", pasta: "questoes",
+        alt: "Tabela com o número de provas já feitas e a média atual.",
+        desenho: () => tabela({ cabecalho: ["dado", "valor"], linhas: [["provas feitas", "3"], ["média atual", "7"]], rotulo: "e ainda falta a quarta prova", larguraCol: 118 }),
+      },
+
+      { id: "med-ideia-extremo", pasta: "licoes", alt: "Gráfico de colunas com os livros lidos por cinco pessoas e a linha tracejada da média.", desenho: () => leituras({ referencia: { valor: 10, rotulo: "média 10" }, rotulo: "um valor sozinho puxa a média" }) },
+      { id: "med-res-extremo", pasta: "licoes", alt: "Gráfico de colunas com os livros lidos por cinco pessoas e a linha da média em dez.", desenho: () => leituras({ referencia: { valor: 10, rotulo: "média 10" }, rotulo: "livros lidos por pessoa" }) },
+      { id: "med-q-extremo-media", pasta: "questoes", alt: "Gráfico de colunas com os livros lidos por cinco pessoas, sem a linha da média.", desenho: () => leituras({ rotulo: "livros lidos por pessoa" }) },
+      { id: "med-q-abaixo", pasta: "questoes", alt: "O mesmo gráfico dos livros lidos, com a linha tracejada da média em dez.", desenho: () => leituras({ referencia: { valor: 10, rotulo: "média 10" }, rotulo: "livros lidos por pessoa" }) },
+      { id: "med-q-porque-engana", pasta: "questoes", alt: "O mesmo gráfico dos livros lidos, com a linha tracejada da média em dez.", desenho: () => leituras({ referencia: { valor: 10, rotulo: "média 10" }, rotulo: "livros lidos por pessoa" }) },
+      {
+        id: "med-q-sem-extremo", pasta: "questoes",
+        alt: "Gráfico de colunas com os livros lidos pelas quatro pessoas que sobraram.",
+        desenho: () => col(LEITURAS.slice(0, 4), { passo: 1, rotulo: "sem quem leu 38 livros" }),
+      },
+
+      {
+        id: "med-ideia-decidir", pasta: "licoes",
+        alt: "Tabela relacionando o que o problema fornece com a operação a fazer.",
+        desenho: () => tabela({
+          cabecalho: ["o problema dá", "você faz"],
+          linhas: [["todos os valores", "some e divida"], ["média e quantidade", "multiplique"], ["falta um valor", "multiplique e subtraia"]],
+          rotulo: "escolher a conta antes de fazê-la", larguraCol: 170,
+        }),
+      },
+      {
+        id: "med-res-tabela", pasta: "licoes",
+        alt: "Tabela com as quatro notas de Bia no bimestre.",
+        desenho: () => tabela({ cabecalho: ["prova", "nota"], linhas: [["1ª", "6"], ["2ª", "9"], ["3ª", "7"], ["4ª", "10"]], rotulo: "as notas do bimestre" }),
+      },
+      {
+        id: "med-q-temperaturas", pasta: "questoes",
+        alt: "Gráfico de colunas com a temperatura máxima de cada um dos cinco dias.",
+        desenho: () => col(
+          [{ rotulo: "1º", valor: 24 }, { rotulo: "2º", valor: 22 }, { rotulo: "3º", valor: 26 }, { rotulo: "4º", valor: 23 }, { rotulo: "5º", valor: 25 }],
+          { passo: 5, rotulo: "temperatura máxima, em graus" },
+        ),
+      },
+      {
+        id: "med-q-irmaos", pasta: "questoes",
+        alt: "Tabela com as idades de dois irmãos e a do terceiro em aberto.",
+        desenho: () => tabela({ cabecalho: ["irmão", "idade"], linhas: [["1º", "9"], ["2º", "11"], ["3º", "?"]], rotulo: "média das idades: 12 anos" }),
+      },
+      {
+        id: "med-q-campeonato", pasta: "questoes",
+        alt: "Tabela com a média de gols por jogo e o número de jogos do campeonato.",
+        desenho: () => tabela({ cabecalho: ["dado", "valor"], linhas: [["média de gols", "2"], ["jogos", "9"]], rotulo: "o que o problema dá", larguraCol: 118 }),
+      },
+      {
+        id: "med-q-dois-grupos", pasta: "questoes",
+        alt: "Tabela com as três notas de cada um dos dois grupos.",
+        desenho: () => tabela({ cabecalho: ["grupo", "notas"], linhas: [["A", "5, 5, 5"], ["B", "1, 5, 9"]], rotulo: "dois grupos, três notas cada" }),
+      },
+    ];
+  })(),
 ];

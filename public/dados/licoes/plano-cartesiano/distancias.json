@@ -1,0 +1,191 @@
+{
+  "id": "distancias",
+  "numero": 4,
+  "titulo": "Distância entre dois pontos",
+  "pergunta": "Quantas quadras separam dois pontos alinhados?",
+  "ideia": {
+    "paragrafos": [
+      "Quando dois pontos estão na mesma linha horizontal, a distância entre eles é fácil de achar: basta comparar os x. Os pontos (2, 3) e (6, 3) têm a mesma altura, então o caminho entre eles é só horizontal, e mede 6 − 2 = 4 unidades.",
+      "O mesmo vale na vertical. Os pontos (3, 1) e (3, 7) estão na mesma coluna, porque compartilham o x. A distância é a diferença entre os y: 7 − 1 = 6.",
+      "Repare no padrão: quando as duas coordenadas de um tipo são iguais, a distância é a diferença das outras. Se os y são iguais, a distância é a diferença dos x; se os x são iguais, a diferença dos y.",
+      "Sempre subtraia o menor do maior, para o resultado não sair negativo. Distância é comprimento, e comprimento não é negativo: de (2, 3) até (6, 3) e de (6, 3) até (2, 3) o caminho é o mesmo.",
+      "Quando os pontos NÃO estão alinhados, a distância em linha reta exige uma ferramenta que só chega no 8º ano. Mas dá para responder outra pergunta útil desde já: quantas quadras se anda indo primeiro na horizontal e depois na vertical. É só somar as duas diferenças — e é assim que se conta caminho num mapa de ruas."
+    ],
+    "destaque": "Mesma altura? Diferença dos x. Mesma coluna? Diferença dos y. Sempre maior menos menor.",
+    "imagem": "pla-ideia-distancia"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a distância entre os pontos A(2, 3) e B(6, 3)?",
+    "imagem": "pla-res-distancia",
+    "passos": [
+      {
+        "titulo": "Veja o que eles têm em comum",
+        "explicacao": "Os dois têm y = 3, ou seja, estão na mesma altura. Isso significa que o caminho entre eles é uma linha horizontal, sem subida nem descida.",
+        "conta": "y igual nos dois → alinhados na horizontal"
+      },
+      {
+        "titulo": "Compare os x",
+        "explicacao": "Como só a horizontal muda, a distância é a diferença entre os dois valores de x.",
+        "conta": "x de A = 2 · x de B = 6"
+      },
+      {
+        "titulo": "Maior menos menor",
+        "explicacao": "Subtrair nessa ordem garante um resultado positivo. Distância não tem sinal.",
+        "conta": "6 − 2 = 4"
+      },
+      {
+        "titulo": "Confira contando",
+        "explicacao": "Do 2 até o 6 no eixo horizontal são quatro espaços entre tracinhos. Bate com a subtração.",
+        "conta": "distância = 4 unidades"
+      }
+    ],
+    "fecho": "Subtrair funciona porque um dos deslocamentos é zero. Quando os dois mudam, a conta é outra — e ela chega no 8º ano."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a distância entre os pontos (1, 2) e (5, 2)? Digite apenas o número.",
+      "imagem": "pla-q-dist-h",
+      "dica": "Os dois têm a mesma altura. Compare os primeiros números.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é a SOMA dos dois valores de x. Distância é diferença, não soma — some e o resultado fica maior que o próprio plano."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é a diferença entre os y, que realmente são iguais. Mas é justamente por serem iguais que a distância vem dos x."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o x do segundo ponto. A distância não é a coordenada de um deles: é o quanto os dois se afastam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Estão alinhados?",
+          "explicacao": "Os dois têm y = 2, então estão na mesma linha horizontal.",
+          "conta": "mesma altura"
+        },
+        {
+          "titulo": "Diferença dos x",
+          "explicacao": "Maior menos menor, para o resultado ser positivo.",
+          "conta": "5 − 1 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a distância entre os pontos (3, 1) e (3, 7)? Digite apenas o número.",
+      "imagem": "pla-q-dist-v",
+      "dica": "Agora são os x que são iguais. Compare os segundos números.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é a soma dos dois valores de y. Distância é a diferença entre eles."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é a diferença entre os x, que são iguais nos dois pontos. Como eles estão na mesma coluna, quem dá a distância são os y."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 seria a distância se os pontos fossem (3, 1) e (3, 5). Vale conferir os números do enunciado: o segundo ponto está na altura 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Estão alinhados?",
+          "explicacao": "Os dois têm x = 3, então estão na mesma coluna vertical.",
+          "conta": "mesma coluna"
+        },
+        {
+          "titulo": "Diferença dos y",
+          "explicacao": "Como eles estão na mesma coluna, a distância é a diferença entre as duas alturas: sete menos um.",
+          "conta": "7 − 1 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a distância entre a origem (0, 0) e o ponto (5, 0)? Digite apenas o número.",
+      "imagem": "pla-q-dist-origem",
+      "dica": "Os dois pontos estão sobre o eixo horizontal.",
+      "formato": "numero",
+      "resposta": 5,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "0",
+          "porque": "0 é a diferença entre os y, que são iguais — os dois pontos estão sobre o eixo horizontal. A distância vem da diferença dos x."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o dobro. A distância é 5 − 0, e não a soma nem o dobro de nada."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 junta os algarismos do par (5, 0). O par é formado por duas informações separadas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Os dois estão no eixo x",
+          "explicacao": "Ambos têm y = 0, então estão sobre a linha horizontal.",
+          "conta": "y = 0 nos dois"
+        },
+        {
+          "titulo": "Diferença dos x",
+          "explicacao": "Cinco menos zero. Quando um dos pontos é a origem, a distância é simplesmente a coordenada do outro.",
+          "conta": "5 − 0 = 5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a distância entre os pontos (2, 4) e (2, 9)? Digite apenas o número.",
+      "imagem": "pla-q-dist-29",
+      "dica": "Repare qual das duas coordenadas se repete nos dois pontos.",
+      "formato": "numero",
+      "resposta": 5,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "13",
+          "porque": "13 é a soma dos dois valores de y. Distância é a diferença entre eles, sempre maior menos menor."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 sai de somar ou subtrair coordenadas trocadas. Como os x são iguais, a conta certa usa só os y: 9 − 4."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o valor de x, igual nos dois pontos. É justamente por ser igual que ele não entra na conta da distância."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual coordenada se repete",
+          "explicacao": "Os dois têm x = 2, então estão empilhados na mesma coluna.",
+          "conta": "x igual → alinhados na vertical"
+        },
+        {
+          "titulo": "Diferença dos y",
+          "explicacao": "Basta subtrair as duas alturas, sempre a maior menos a menor: nove menos quatro.",
+          "conta": "9 − 4 = 5"
+        },
+        {
+          "titulo": "Confira contando",
+          "explicacao": "Do 4 até o 9 no eixo vertical são cinco espaços entre tracinhos.",
+          "conta": "5 unidades"
+        }
+      ]
+    }
+  ]
+}

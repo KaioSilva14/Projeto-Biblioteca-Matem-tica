@@ -237,6 +237,55 @@ teste("nenhum 'erro comum' aponta para a resposta certa", () => {
   }
 });
 
+teste("todo diagnóstico é ALCANÇÁVEL pelo motor de correção", () => {
+  // Um diagnóstico que o motor nunca consegue mostrar é uma promessa vazia no
+  // conteúdo. Aconteceu duas vezes em Números decimais: um erro previsto que o
+  // motor aceitava como resposta certa ("8,0" numa questão de resposta 8) e
+  // dois erros que eram o mesmo número escrito de dois jeitos ("6" e "6,0"),
+  // com o segundo inalcançável. O motor casa erro por VALOR, e não por texto.
+  for (const q of todasQuestoes) {
+    if (q.formato !== "numero") continue;
+    const tolerancia = q.tolerancia ?? 0.001;
+    const vistos = [];
+    q.errosComuns.forEach((erro, i) => {
+      const valor = Number(String(erro.resposta).replace(",", "."));
+      assert.ok(
+        !Number.isNaN(valor),
+        `${q.curso}/${q.licao}/${q.id}: erro ${i} não é número numa questão numérica ("${erro.resposta}")`
+      );
+      assert.ok(
+        Math.abs(valor - q.resposta) > tolerancia,
+        `${q.curso}/${q.licao}/${q.id}: o erro "${erro.resposta}" é aceito como CERTO — o diagnóstico nunca apareceria`
+      );
+      for (const anterior of vistos) {
+        assert.ok(
+          Math.abs(valor - anterior) > tolerancia,
+          `${q.curso}/${q.licao}/${q.id}: o erro "${erro.resposta}" repete um valor anterior — só o primeiro seria mostrado`
+        );
+      }
+      vistos.push(valor);
+    });
+  }
+});
+
+teste("TODA alternativa errada tem diagnóstico próprio", () => {
+  // Sem diagnóstico o aluno recebe "Ainda não." e a dica genérica — que é
+  // exatamente o defeito da v2. Frações e Números decimais foram escritas
+  // antes de a regra se firmar e tinham 27 alternativas descobertas.
+  for (const q of todasQuestoes) {
+    if (q.formato !== "alternativas") continue;
+    const semDiagnostico = q.alternativas
+      .filter((_, i) => i !== q.correta)
+      .map((a) => a.texto)
+      .filter((texto) => !q.errosComuns.some((e) => e.resposta === texto));
+    assert.deepEqual(
+      semDiagnostico,
+      [],
+      `${q.curso}/${q.licao}/${q.id}: alternativa errada sem diagnóstico`
+    );
+  }
+});
+
 teste("todo erro comum explica o raciocínio, não só corrige", () => {
   for (const q of todasQuestoes) {
     for (const erro of q.errosComuns ?? []) {
@@ -1590,6 +1639,665 @@ teste("área · lição 6 — problemas", () => {
 
   // o exemplo resolvido: piso de 500 por 400 com ladrilhos de 50
   assert.equal((500 / 50) * (400 / 50), 80);
+});
+
+// ---------- Sólidos e volume ----------
+//
+// O volume é recontado empilhando camadas num laço, e não pela fórmula que a
+// lição ensina — assim o teste confere a fórmula em vez de repeti-la.
+
+const porCamadas = (c, l, a) => {
+  let total = 0;
+  for (let camada = 0; camada < a; camada++) {
+    for (let i = 0; i < l; i++) for (let j = 0; j < c; j++) total += 1;
+  }
+  return total;
+};
+/** Faces, arestas e vértices de um prisma de base com n lados. */
+const prisma = (n) => ({ faces: n + 2, arestas: 3 * n, vertices: 2 * n });
+/** Idem para uma pirâmide de base com n lados. */
+const piramide = (n) => ({ faces: n + 1, arestas: 2 * n, vertices: n + 1 });
+
+teste("sólidos · lição 1 — faces, arestas e vértices", () => {
+  // o cubo é o prisma de base quadrada
+  const cubo = prisma(4);
+  assert.deepEqual(cubo, { faces: 6, arestas: 12, vertices: 8 });
+  // e a relação de Euler tem que fechar em todo poliedro convexo
+  assert.equal(cubo.faces + cubo.vertices - cubo.arestas, 2, "Euler não fecha no cubo");
+
+  alt("solidos-volume", "solidos", "q1", "A esfera");
+  num("solidos-volume", "solidos", "q2", cubo.arestas);
+  num("solidos-volume", "solidos", "q3", piramide(4).faces);
+  num("solidos-volume", "solidos", "q4", cubo.vertices);
+});
+
+teste("sólidos · lição 2 — prismas e pirâmides", () => {
+  const p3 = prisma(3);
+  assert.deepEqual(p3, { faces: 5, arestas: 9, vertices: 6 });
+  assert.equal(p3.faces + p3.vertices - p3.arestas, 2, "Euler não fecha no prisma triangular");
+
+  alt("solidos-volume", "prismas-piramides", "q1", "O cilindro");
+  alt("solidos-volume", "prismas-piramides", "q2", "A pirâmide");
+  num("solidos-volume", "prismas-piramides", "q3", piramide(5).faces);
+  num("solidos-volume", "prismas-piramides", "q4", p3.arestas);
+  // Euler também na pirâmide pentagonal
+  const pi5 = piramide(5);
+  assert.equal(pi5.faces + pi5.vertices - pi5.arestas, 2);
+});
+
+teste("sólidos · lição 3 — planificação", () => {
+  // as peças do molde são as faces do sólido
+  num("solidos-volume", "planificacao", "q1", prisma(4).faces);
+  num("solidos-volume", "planificacao", "q2", prisma(4).faces);
+  alt("solidos-volume", "planificacao", "q3", "Um quadrado e quatro triângulos");
+  num("solidos-volume", "planificacao", "q4", prisma(3).faces);
+
+  // o molde do cubo tem seis peças iguais; o do bloco, três formatos
+  const conta = (svg) => {
+    const p = [...svg.matchAll(/width="([\d.]+)" height="([\d.]+)" fill/g)].map((m) => `${m[1]}x${m[2]}`);
+    return { pecas: p.length, formatos: new Set(p).size };
+  };
+  const cubo = conta(desenhos.planificacao({ tipo: "cubo" }));
+  assert.deepEqual(cubo, { pecas: 6, formatos: 1 }, "o molde do cubo deveria ter 6 peças iguais");
+  const bloco = conta(desenhos.planificacao({ tipo: "bloco" }));
+  assert.equal(bloco.pecas, 6);
+  assert.equal(bloco.formatos, 3, "um bloco tem três formatos de face, e não um só");
+});
+
+teste("sólidos · lição 4 — volume contando cubinhos", () => {
+  assert.equal(porCamadas(4, 3, 2), 24, "o exemplo resolvido não fecha");
+  num("solidos-volume", "volume-cubinhos", "q1", porCamadas(5, 2, 3));
+  num("solidos-volume", "volume-cubinhos", "q2", porCamadas(3, 3, 3));
+  num("solidos-volume", "volume-cubinhos", "q3", porCamadas(5, 4, 1));
+  num("solidos-volume", "volume-cubinhos", "q4", porCamadas(6, 4, 2));
+});
+
+teste("sólidos · lição 5 — fórmula do volume", () => {
+  // a fórmula conferida contra a contagem por camadas
+  for (const [c, l, a] of [[10, 6, 4], [8, 5, 3], [5, 5, 5], [8, 6, 4]]) {
+    assert.equal(c * l * a, porCamadas(c, l, a), `${c}×${l}×${a}: fórmula e contagem discordam`);
+  }
+  num("solidos-volume", "formula", "q1", 8 * 5 * 3);
+  num("solidos-volume", "formula", "q2", 5 * 5 * 5);
+  // altura a partir do volume e da base
+  const altura = (v, c, l) => v / (c * l);
+  assert.equal(altura(60, 5, 4), 3);
+  assert.equal(5 * 4 * altura(60, 5, 4), 60, "a volta não reconstrói o volume");
+  num("solidos-volume", "formula", "q3", altura(60, 5, 4));
+  num("solidos-volume", "formula", "q4", 20 * 15 * 10);
+});
+
+teste("sólidos · lição 6 — volume e capacidade", () => {
+  // as pontes entre as unidades
+  assert.equal(10 * 10 * 10, 1000, "o cubo de 10 cm de aresta tem 1000 cm³");
+  const litros = (cm3) => cm3 / 1000;
+  assert.equal(litros(1000), 1);
+
+  num("solidos-volume", "capacidade", "q1", 2 * 1000);
+  num("solidos-volume", "capacidade", "q2", litros(10 * 10 * 10));
+  num("solidos-volume", "capacidade", "q3", 500);   // 1 mL = 1 cm³
+  num("solidos-volume", "capacidade", "q4", litros(40 * 20 * 25));
+  assert.equal(40 * 20 * 25, 20000);
+  // a caixa do exemplo resolvido tem o mesmo volume do cubo de 10
+  assert.equal(20 * 10 * 5, 10 * 10 * 10);
+});
+
+// ---------- Grandezas e medidas ----------
+
+/** Converte entre unidades de uma escada, dado o fator entre elas. */
+const converte = (valor, fator, paraMenor) => (paraMenor ? valor * fator : valor / fator);
+
+teste("medidas · lição 1 — escolher a unidade", () => {
+  alt("medidas", "medir", "q1", "Metro (m)");
+  alt("medidas", "medir", "q2", "Tonelada (t)");
+  alt("medidas", "medir", "q3", "Litro (L)");
+  alt("medidas", "medir", "q4", "Quilômetro (km)");
+});
+
+teste("medidas · lição 2 — comprimento", () => {
+  // a escada tem sete degraus de 10; os fatores usados saem dela
+  const escada = ["km", "hm", "dam", "m", "dm", "cm", "mm"];
+  const fator = (de, para) => 10 ** (escada.indexOf(para) - escada.indexOf(de));
+  assert.equal(fator("m", "cm"), 100);
+  assert.equal(fator("km", "m"), 1000);
+  assert.equal(fator("mm", "cm"), 0.1);
+
+  num("medidas", "comprimento", "q1", 7 * fator("m", "cm"));
+  num("medidas", "comprimento", "q2", arred(250 / fator("m", "cm"), 6));
+  num("medidas", "comprimento", "q3", 3 * fator("km", "m"));
+  num("medidas", "comprimento", "q4", arred(45 * fator("mm", "cm"), 6));
+});
+
+teste("medidas · lição 3 — massa", () => {
+  num("medidas", "massa", "q1", converte(4, 1000, true));
+  num("medidas", "massa", "q2", converte(3000, 1000, false));
+  num("medidas", "massa", "q3", converte(2, 1000, true));
+  // soma com unidades diferentes: converter antes
+  const total = 500 + converte(1.5, 1000, true);
+  assert.equal(total, 2000);
+  assert.equal(converte(total, 1000, false), 2, "o total em quilos não fecha");
+  num("medidas", "massa", "q4", total);
+});
+
+teste("medidas · lição 4 — capacidade", () => {
+  num("medidas", "capacidade", "q1", converte(3, 1000, true));
+  num("medidas", "capacidade", "q2", arred(converte(1500, 1000, false), 6));
+  num("medidas", "capacidade", "q3", 250 * 6);
+  assert.equal(250 * 6, 1500);
+  // quantos copos numa garrafa: converter e dividir
+  const copos = converte(2, 1000, true) / 200;
+  assert.equal(copos, 10);
+  assert.equal(copos * 200, 2000, "os copos não reconstroem a garrafa");
+  num("medidas", "capacidade", "q4", copos);
+});
+
+teste("medidas · lição 5 — tempo (o salto é 60, não 10)", () => {
+  num("medidas", "tempo", "q1", 3 * 60);
+  num("medidas", "tempo", "q2", 240 / 60);
+  num("medidas", "tempo", "q3", 2 * 60);
+
+  // 2,5 h são 150 min, e não 250 — a armadilha central da lição
+  assert.equal(2 * 60 + 30, 150);
+  assert.notEqual(2 * 60 + 30, 2 * 100 + 50);
+
+  // duração entre dois horários, contada em minutos desde a meia-noite
+  const emMinutos = (h, m) => h * 60 + m;
+  const duracao = emMinutos(9, 50) - emMinutos(8, 15);
+  assert.equal(duracao, 95);
+  assert.equal(Math.floor(duracao / 60), 1, "uma hora inteira");
+  assert.equal(duracao % 60, 35, "e mais 35 minutos");
+  num("medidas", "tempo", "q4", duracao);
+});
+
+teste("medidas · lição 6 — converter antes de calcular", () => {
+  num("medidas", "problemas", "q1", converte(2, 100, true) + 30);
+  num("medidas", "problemas", "q2", converte(1, 1000, true) - 250);
+  num("medidas", "problemas", "q3", converte(1.5, 1000, true) + 400);
+  num("medidas", "problemas", "q4", converte(5, 1000, true) - 2500);
+
+  // somar sem converter dá números sem significado — o ponto da lição
+  assert.notEqual(2 + 30, converte(2, 100, true) + 30);
+  assert.equal(converte(1.2, 100, true) + 45, 165, "o exemplo resolvido não fecha");
+});
+
+// ---------- Plano cartesiano ----------
+
+/**
+ * Lê de volta as coordenadas dos pontos desenhados num plano cartesiano.
+ *
+ * A conversão não usa as constantes internas do gerador: ela se orienta pelos
+ * próprios números escritos nos eixos. Se o desenho colocar o ponto numa
+ * esquina diferente da que o enunciado afirma, a leitura acusa — que é o mesmo
+ * cuidado que os testes de ângulo já tomam com as figuras de geometria.
+ */
+function lerPlano(svg) {
+  const textos = [...svg.matchAll(/<text x="([\d.]+)" y="([\d.]+)"[^>]*font-size="11"[^>]*>(\d+)</g)]
+    .map((m) => ({ x: Number(m[1]), y: Number(m[2]), n: Number(m[3]) }));
+
+  // O rótulo do eixo x fica embaixo (y máximo); o do eixo y, à esquerda
+  // (x mínimo). O "0" do canto pertence aos dois e é escrito deslocado, então
+  // fica de fora dos dois grupos.
+  const yBase = Math.max(...textos.map((t) => t.y));
+  const xBase = Math.min(...textos.map((t) => t.x));
+  const eixoX = textos.filter((t) => t.y === yBase && t.n > 0).sort((a, b) => a.n - b.n);
+  const eixoY = textos.filter((t) => t.x === xBase && t.n > 0).sort((a, b) => a.n - b.n);
+  assert.ok(eixoX.length >= 2 && eixoY.length >= 2, "eixos sem numeração suficiente para medir");
+
+  const escalaX = (eixoX.at(-1).x - eixoX[0].x) / (eixoX.at(-1).n - eixoX[0].n);
+  const escalaY = (eixoY[0].y - eixoY.at(-1).y) / (eixoY.at(-1).n - eixoY[0].n);
+  const zeroX = eixoX[0].x - eixoX[0].n * escalaX;
+  const zeroY = eixoY[0].y + eixoY[0].n * escalaY;
+
+  return [...svg.matchAll(/<circle cx="([\d.]+)" cy="([\d.]+)"/g)].map((m) => [
+    Math.round((Number(m[1]) - zeroX) / escalaX),
+    Math.round((zeroY - Number(m[2])) / escalaY),
+  ]);
+}
+
+teste("plano cartesiano · lição 1 — o par ordenado", () => {
+  // Um par ordenado é uma função do ponto: dois números, na ordem combinada.
+  const par = ([x, y]) => `(${x}, ${y})`;
+  assert.equal(par([2, 5]), "(2, 5)");
+  alt("plano-cartesiano", "localizar", "q1", par([2, 5]));
+  alt("plano-cartesiano", "localizar", "q2", par([0, 0]));
+  num("plano-cartesiano", "localizar", "q4", [6, 2][0]);
+
+  // e a figura da questão 1 marca de fato o ponto que a alternativa afirma
+  const pontos = lerPlano(desenhos.planoCartesiano({ ate: 6, pontos: [{ em: [2, 5] }] }));
+  assert.deepEqual(pontos, [[2, 5]], "o desenho de pla-q-ler-25 não bate com a resposta");
+});
+
+teste("plano cartesiano · lição 2 — ler é projetar nos dois eixos", () => {
+  const par = ([x, y]) => `(${x}, ${y})`;
+  alt("plano-cartesiano", "ler-marcar", "q1", par([4, 2]));
+  alt("plano-cartesiano", "ler-marcar", "q2", par([1, 5]));
+  num("plano-cartesiano", "ler-marcar", "q3", [3, 6][1]);
+  alt("plano-cartesiano", "ler-marcar", "q4", par([4, 0]));
+
+  // as duas figuras de leitura conferem com as respostas
+  assert.deepEqual(lerPlano(desenhos.planoCartesiano({ ate: 6, pontos: [{ em: [4, 2] }] })), [[4, 2]]);
+  assert.deepEqual(lerPlano(desenhos.planoCartesiano({ ate: 6, pontos: [{ em: [1, 5] }] })), [[1, 5]]);
+
+  // um ponto sobre o eixo x tem y = 0; sobre o eixo y, x = 0
+  const noEixoX = ([, y]) => y === 0;
+  assert.ok(noEixoX([4, 0]));
+  assert.ok(!noEixoX([0, 4]) && !noEixoX([4, 4]) && !noEixoX([1, 2]));
+});
+
+teste("plano cartesiano · lição 3 — trocar a ordem move o ponto", () => {
+  const mesmoPonto = (a, b) => a[0] === b[0] && a[1] === b[1];
+  assert.ok(!mesmoPonto([2, 6], [6, 2]), "(2, 6) e (6, 2) não podem coincidir");
+  assert.ok(mesmoPonto([4, 4], [4, 4]), "só coincidem quando os dois números são iguais");
+  alt("plano-cartesiano", "ordem-importa", "q1", "Não, são pontos diferentes");
+
+  num("plano-cartesiano", "ordem-importa", "q2", [7, 1][0]);
+  alt("plano-cartesiano", "ordem-importa", "q3", "(0, 4)");
+
+  // quem está mais à direita é quem tem o maior x — e a figura desenha isso
+  const a = [2, 6], b = [5, 1];
+  const maisDireita = a[0] > b[0] ? a : b;
+  assert.deepEqual(maisDireita, [5, 1]);
+  alt("plano-cartesiano", "ordem-importa", "q4", "(5, 1)");
+  const desenhados = lerPlano(desenhos.planoCartesiano({ ate: 7, pontos: [{ em: a }, { em: b }] }));
+  assert.deepEqual(desenhados, [a, b], "a figura de comparação não marca os pontos do enunciado");
+  assert.ok(desenhados[1][0] > desenhados[0][0], "no desenho, (5, 1) tem que aparecer mais à direita");
+});
+
+teste("plano cartesiano · lição 4 — distância entre pontos alinhados", () => {
+  /** Distância só quando os pontos compartilham uma das coordenadas. */
+  const distancia = ([xa, ya], [xb, yb]) => {
+    if (ya === yb) return Math.abs(xb - xa);
+    if (xa === xb) return Math.abs(yb - ya);
+    return null;                      // caso geral: ferramenta do 8º ano
+  };
+
+  assert.equal(distancia([2, 3], [6, 3]), 4, "o exemplo resolvido não fecha");
+  assert.equal(distancia([6, 3], [2, 3]), 4, "distância não pode depender da ordem");
+  assert.equal(distancia([1, 4], [5, 2]), null, "pontos não alinhados não têm essa conta");
+
+  num("plano-cartesiano", "distancias", "q1", distancia([1, 2], [5, 2]));
+  num("plano-cartesiano", "distancias", "q2", distancia([3, 1], [3, 7]));
+  num("plano-cartesiano", "distancias", "q3", distancia([0, 0], [5, 0]));
+  num("plano-cartesiano", "distancias", "q4", distancia([2, 4], [2, 9]));
+});
+
+teste("plano cartesiano · lição 5 — figuras medidas por coordenadas", () => {
+  /**
+   * Acha o vértice que falta procurando a coordenada que aparece uma vez só.
+   * Nada aqui recebe a resposta pronta: a função recalcula dos três pontos.
+   */
+  const quartoVertice = (tres) => {
+    const solitario = (valores) => valores.find((v) => valores.filter((o) => o === v).length === 1);
+    return [solitario(tres.map((p) => p[0])), solitario(tres.map((p) => p[1]))];
+  };
+
+  assert.deepEqual(quartoVertice([[1, 1], [5, 1], [5, 4]]), [1, 4], "o exemplo resolvido não fecha");
+  assert.deepEqual(quartoVertice([[2, 2], [6, 2], [6, 5]]), [2, 5]);
+  alt("plano-cartesiano", "figuras", "q1", "(2, 5)");
+
+  const retangulo = [[1, 1], [5, 1], [5, 4], [1, 4]];
+  const largura = Math.max(...retangulo.map((p) => p[0])) - Math.min(...retangulo.map((p) => p[0]));
+  const altura = Math.max(...retangulo.map((p) => p[1])) - Math.min(...retangulo.map((p) => p[1]));
+  assert.equal(largura, 4);
+  assert.equal(altura, 3);
+  num("plano-cartesiano", "figuras", "q2", largura);
+  num("plano-cartesiano", "figuras", "q3", largura * altura);
+  num("plano-cartesiano", "figuras", "q4", 2 * (largura + altura));
+
+  // a área também conferida contando os quadradinhos da malha, um a um
+  let quadradinhos = 0;
+  for (let x = 1; x < 5; x++) for (let y = 1; y < 4; y++) quadradinhos += 1;
+  assert.equal(quadradinhos, largura * altura);
+
+  // e o desenho marca os quatro cantos certos, na ordem do contorno
+  const svg = desenhos.planoCartesiano({ ate: 6, ligar: true, pontos: retangulo.map((em) => ({ em })) });
+  assert.deepEqual(lerPlano(svg), retangulo, "os vértices desenhados não são os do enunciado");
+  assert.match(svg, /<polygon points="[^"]+" fill/, "o retângulo precisa aparecer fechado");
+});
+
+teste("plano cartesiano · lição 6 — caminho pelas ruas de um mapa", () => {
+  /** Comprimento do trajeto que anda só na horizontal e na vertical. */
+  const quadras = ([xa, ya], [xb, yb]) => Math.abs(xb - xa) + Math.abs(yb - ya);
+
+  const escola = [2, 5], casa = [6, 2];
+  assert.equal(Math.abs(casa[0] - escola[0]), 4, "trecho horizontal");
+  assert.equal(Math.abs(casa[1] - escola[1]), 3, "trecho vertical");
+  assert.equal(quadras(escola, casa), 7, "o exemplo resolvido não fecha");
+  assert.equal(quadras(casa, escola), 7, "o caminho não pode depender do sentido");
+
+  num("plano-cartesiano", "problemas", "q1", Math.abs(casa[0] - escola[0]));
+  num("plano-cartesiano", "problemas", "q2", quadras(escola, casa));
+
+  // andar em L, nas duas ordens possíveis, dá o mesmo comprimento
+  const porFora = quadras(escola, [casa[0], escola[1]]) + quadras([casa[0], escola[1]], casa);
+  const porBaixo = quadras(escola, [escola[0], casa[1]]) + quadras([escola[0], casa[1]], casa);
+  assert.equal(porFora, 7);
+  assert.equal(porBaixo, 7);
+
+  // deslocar um endereço soma nas coordenadas, e não substitui
+  const anda = ([x, y], dx, dy) => [x + dx, y + dy];
+  assert.deepEqual(anda(escola, 3, 1), [5, 6]);
+  alt("plano-cartesiano", "problemas", "q3", "(5, 6)");
+
+  // mesma rua horizontal é mesma altura
+  const opcoes = { "Padaria, em (6, 5)": [6, 5], "Casa, em (2, 1)": [2, 1], "Mercado, em (5, 2)": [5, 2], "Praça, em (5, 6)": [5, 6] };
+  const naMesmaRua = Object.entries(opcoes).filter(([, p]) => p[1] === escola[1]);
+  assert.equal(naMesmaRua.length, 1, "só uma alternativa pode estar na mesma rua");
+  alt("plano-cartesiano", "problemas", "q4", naMesmaRua[0][0]);
+});
+
+// ---------- Gráficos e tabelas ----------
+
+/**
+ * Mede as colunas de um gráfico gerado e devolve o valor que cada uma
+ * representa, lendo a escala pelos próprios números escritos no eixo.
+ *
+ * Serve para o mesmo que a leitura do plano cartesiano: se o desenho puser
+ * uma coluna numa altura que não corresponde ao dado, o teste acusa. E é o
+ * único jeito de conferir a lição do eixo cortado, onde a altura desenhada
+ * DEVERIA discordar da proporção entre os valores.
+ */
+function lerColunas(svg) {
+  const marcas = [...svg.matchAll(/<text x="([\d.]+)" y="([\d.]+)"[^>]*font-size="11"[^>]*text-anchor="end"[^>]*>(\d+)</g)]
+    .map((m) => ({ y: Number(m[2]), n: Number(m[3]) }))
+    .sort((a, b) => a.n - b.n);
+  assert.ok(marcas.length >= 2, "eixo sem marcas suficientes");
+
+  const base = marcas[0];
+  const topo = marcas.at(-1);
+  const porPixel = (topo.n - base.n) / (base.y - topo.y);
+  const alturas = [...svg.matchAll(/<rect x="[\d.]+" y="([\d.]+)" width="[\d.]+" height="([\d.]+)"/g)]
+    .map((m) => Number(m[2]));
+
+  return { valores: alturas.map((h) => base.n + h * porPixel), alturas, baseEixo: base.n };
+}
+
+teste("gráficos e tabelas · lição 1 — cruzar linha com coluna", () => {
+  // A tabela é o dado; tudo o mais é recalculado a partir dela.
+  const LIVROS = { "6º A": { março: 12, abril: 15 }, "6º B": { março: 9, abril: 20 }, "6º C": { março: 14, abril: 11 } };
+
+  num("graficos-tabelas", "tabela", "q1", LIVROS["6º C"]["março"]);
+
+  const totalDaLinha = (turma) => Object.values(LIVROS[turma]).reduce((a, b) => a + b, 0);
+  assert.equal(totalDaLinha("6º A"), 27);
+  num("graficos-tabelas", "tabela", "q2", totalDaLinha("6º A"));
+
+  // a turma que mais leu no total não é a que mais leu em março
+  const totais = Object.keys(LIVROS).map((t) => [t, totalDaLinha(t)]);
+  const campea = totais.reduce((a, b) => (b[1] > a[1] ? b : a));
+  assert.deepEqual(totais.map(([, v]) => v), [27, 29, 25]);
+  assert.equal(campea[0], "6º B");
+  const campeaEmMarco = Object.keys(LIVROS).reduce((a, b) => (LIVROS[b]["março"] > LIVROS[a]["março"] ? b : a));
+  assert.equal(campeaEmMarco, "6º C", "ganhar um mês não pode ser o mesmo que ganhar o total");
+  alt("graficos-tabelas", "tabela", "q3", campea[0]);
+
+  num("graficos-tabelas", "tabela", "q4", LIVROS["6º B"]["abril"] - LIVROS["6º C"]["abril"]);
+});
+
+teste("gráficos e tabelas · lição 2 — altura de coluna lida no eixo", () => {
+  const TRANSPORTE = { "a pé": 8, "ônibus": 12, bicicleta: 6, carro: 4 };
+
+  num("graficos-tabelas", "colunas", "q1", TRANSPORTE["ônibus"]);
+  const menor = Object.keys(TRANSPORTE).reduce((a, b) => (TRANSPORTE[b] < TRANSPORTE[a] ? b : a));
+  assert.equal(menor, "carro");
+  alt("graficos-tabelas", "colunas", "q2", "Carro");
+  num("graficos-tabelas", "colunas", "q3", Object.values(TRANSPORTE).reduce((a, b) => a + b, 0));
+  num("graficos-tabelas", "colunas", "q4", TRANSPORTE["ônibus"] - TRANSPORTE["a pé"]);
+
+  // e o desenho põe cada coluna na altura que o dado manda
+  const dados = Object.entries(TRANSPORTE).map(([rotulo, valor]) => ({ rotulo, valor }));
+  const lido = lerColunas(desenhos.grafico({ dados, passo: 2, mostrarValores: false }));
+  assert.equal(lido.baseEixo, 0, "sem `base`, o eixo tem de começar no zero");
+  lido.valores.forEach((v, i) => {
+    assert.ok(Math.abs(v - dados[i].valor) < 0.05, `coluna ${dados[i].rotulo} desenhada como ${v.toFixed(2)}`);
+  });
+});
+
+teste("gráficos e tabelas · lição 3 — barras deitadas", () => {
+  const ESPORTES = { "vôlei": 7, futebol: 14, basquete: 5, "natação": 4 };
+
+  num("graficos-tabelas", "barras", "q1", Object.values(ESPORTES).reduce((a, b) => a + b, 0));
+  num("graficos-tabelas", "barras", "q2", ESPORTES.futebol - ESPORTES["vôlei"]);
+  alt("graficos-tabelas", "barras", "q3", "De barras deitadas, porque cada nome ganha uma linha inteira");
+  num("graficos-tabelas", "barras", "q4", ESPORTES.basquete + ESPORTES["natação"]);
+
+  // o exemplo resolvido afirma que o futebol é o dobro do vôlei
+  assert.equal(ESPORTES.futebol, 2 * ESPORTES["vôlei"]);
+
+  // e no desenho o comprimento acompanha o valor, sem exceção
+  const dados = Object.entries(ESPORTES).map(([rotulo, valor]) => ({ rotulo, valor }));
+  const svg = desenhos.grafico({ dados, orientacao: "barras" });
+  const larguras = [...svg.matchAll(/<rect x="[\d.]+" y="[\d.]+" width="([\d.]+)"/g)].map((m) => Number(m[1]));
+  assert.equal(larguras.length, dados.length);
+  assert.ok(Math.abs(larguras[1] / larguras[0] - 2) < 0.02, "a barra do futebol tem de ser o dobro da do vôlei");
+  assert.throws(() => desenhos.grafico({ dados, orientacao: "barras", base: 3 }), /só vale para colunas/);
+});
+
+teste("gráficos e tabelas · lição 4 — tabela e gráfico dizem o mesmo", () => {
+  const SUCOS = { segunda: 20, "terça": 35, quarta: 25, quinta: 40 };
+  const valores = Object.values(SUCOS);
+
+  const total = valores.reduce((a, b) => a + b, 0);
+  assert.equal(total, 120);
+  num("graficos-tabelas", "duas-formas", "q1", total);
+
+  const maior = Object.keys(SUCOS).reduce((a, b) => (SUCOS[b] > SUCOS[a] ? b : a));
+  const menor = Object.keys(SUCOS).reduce((a, b) => (SUCOS[b] < SUCOS[a] ? b : a));
+  assert.equal(maior, "quinta");
+  assert.equal(menor, "segunda");
+  alt("graficos-tabelas", "duas-formas", "q2", "Quinta");
+  num("graficos-tabelas", "duas-formas", "q3", SUCOS[maior] - SUCOS[menor]);
+  alt("graficos-tabelas", "duas-formas", "q4", "Os dois mostram a mesma informação, em formas diferentes");
+
+  // o total tem de bater somando a tabela e somando as alturas do gráfico
+  const dados = Object.entries(SUCOS).map(([rotulo, valor]) => ({ rotulo, valor }));
+  const lido = lerColunas(desenhos.grafico({ dados, passo: 5, mostrarValores: false }));
+  const somaDesenhada = lido.valores.reduce((a, b) => a + b, 0);
+  assert.ok(Math.abs(somaDesenhada - total) < 0.2, `gráfico soma ${somaDesenhada.toFixed(1)}, tabela soma ${total}`);
+});
+
+teste("gráficos e tabelas · lição 5 — o eixo cortado exagera a diferença", () => {
+  const VOTOS = { uva: 52, laranja: 56, manga: 54 };
+  const dados = Object.entries(VOTOS).map(([rotulo, valor]) => ({ rotulo, valor }));
+
+  num("graficos-tabelas", "enganosos", "q1", VOTOS.laranja);
+  num("graficos-tabelas", "enganosos", "q2", VOTOS.laranja - VOTOS.uva);
+  alt("graficos-tabelas", "enganosos", "q3", "Porque o eixo não começa no zero");
+  num("graficos-tabelas", "enganosos", "q4", Object.values(VOTOS).reduce((a, b) => a + b, 0));
+
+  // Com o eixo no zero, as colunas ficam quase iguais: nenhuma passa de 8%
+  // de diferença para outra. É o que o texto chama de "quase empatados".
+  const honesto = lerColunas(desenhos.grafico({ dados, passo: 10, mostrarValores: false }));
+  assert.equal(honesto.baseEixo, 0);
+  const razaoHonesta = Math.max(...honesto.alturas) / Math.min(...honesto.alturas);
+  assert.ok(razaoHonesta < 1.1, `no eixo do zero as colunas deviam ficar parecidas, deu ${razaoHonesta.toFixed(2)}`);
+
+  // Com a base em 50, a coluna da laranja fica exatamente o triplo da uva —
+  // que é a afirmação escrita na lição, e a razão de o gráfico enganar.
+  const cortado = lerColunas(desenhos.grafico({ dados, base: 50, passo: 2, mostrarValores: false }));
+  assert.equal(cortado.baseEixo, 50);
+  const razaoCortada = cortado.alturas[1] / cortado.alturas[0];
+  assert.ok(Math.abs(razaoCortada - 3) < 0.02, `a lição afirma o triplo, o desenho deu ${razaoCortada.toFixed(2)}`);
+
+  // e mesmo cortado, o valor lido na escala continua sendo o verdadeiro
+  cortado.valores.forEach((v, i) => {
+    assert.ok(Math.abs(v - dados[i].valor) < 0.05, `coluna ${dados[i].rotulo} lida como ${v.toFixed(2)}`);
+  });
+
+  // o gerador recusa uma base que engoliria alguma barra inteira
+  assert.throws(() => desenhos.grafico({ dados, base: 52 }), /some com alguma barra/);
+});
+
+teste("gráficos e tabelas · lição 6 — ler, anotar e só então calcular", () => {
+  const GOLS = { abril: 6, maio: 9, junho: 4, julho: 11 };
+  const valores = Object.values(GOLS);
+
+  assert.equal(GOLS.julho - GOLS.junho, 7, "o exemplo resolvido não fecha");
+  num("graficos-tabelas", "problemas", "q1", valores.reduce((a, b) => a + b, 0));
+
+  // "em quantos meses" é uma contagem de categorias, não uma soma de valores
+  const acimaDe5 = valores.filter((v) => v > 5);
+  assert.deepEqual(acimaDe5, [6, 9, 11]);
+  assert.equal(acimaDe5.length, 3);
+  assert.notEqual(acimaDe5.length, acimaDe5.reduce((a, b) => a + b, 0));
+  num("graficos-tabelas", "problemas", "q2", acimaDe5.length);
+
+  num("graficos-tabelas", "problemas", "q3", GOLS.maio - GOLS.abril);
+
+  // a afirmação marcada como certa é a única que os números sustentam
+  const mes = Object.keys(GOLS).reduce((a, b) => (GOLS[b] > GOLS[a] ? b : a));
+  assert.equal(mes, "julho");
+  assert.ok(GOLS.maio > GOLS.abril, "a alternativa sobre maio e abril é falsa");
+  assert.notEqual(GOLS.junho, Math.max(...valores), "junho não pode ser o maior");
+  alt("graficos-tabelas", "problemas", "q4", "Julho foi o mês de mais gols dos quatro");
+});
+
+// ---------- Média aritmética ----------
+
+/** Média recalculada do zero: soma dividida pela quantidade de valores. */
+const media = (valores) => valores.reduce((a, b) => a + b, 0) / valores.length;
+
+teste("média · lição 1 — juntar e repartir igualmente", () => {
+  // A ideia é repartir: a média multiplicada pela quantidade devolve o total.
+  const figurinhas = [5, 8, 3, 4];
+  assert.equal(media(figurinhas), 5);
+  assert.equal(media(figurinhas) * figurinhas.length, figurinhas.reduce((a, b) => a + b, 0));
+
+  assert.equal(media([7, 8, 6, 7]), 7, "o exemplo resolvido não fecha");
+
+  num("media", "o-que-e", "q1", media([4, 6, 8, 10]));
+  num("media", "o-que-e", "q2", media([10, 10, 10]));
+  alt("media", "o-que-e", "q3", "Quanto cada um teria se tudo fosse repartido igualmente");
+  num("media", "o-que-e", "q4", media([3, 5, 7]));
+
+  // valores todos iguais devolvem o próprio valor
+  assert.equal(media([6, 6, 6, 6]), 6);
+});
+
+teste("média · lição 2 — dividir pela quantidade certa", () => {
+  const gols = [2, 0, 3, 1, 4];
+  assert.equal(media(gols), 2, "o exemplo resolvido não fecha");
+  // ignorar o zero inflaria o resultado — é o que a lição denuncia
+  assert.equal(media(gols.filter((g) => g > 0)), 2.5);
+
+  num("media", "calcular", "q1", media([12, 15, 9]));
+
+  const bolos = [6, 6, 8, 0];
+  assert.equal(media(bolos), 5);
+  assert.equal(media(bolos.filter((b) => b > 0)), 20 / 3, "sem o zero a média sobe");
+  num("media", "calcular", "q2", media(bolos));
+
+  // a média depende só da soma e da quantidade, e não de quais são os valores
+  const somaConhecida = (soma, quantos) => soma / quantos;
+  assert.equal(somaConhecida(45, 5), 9);
+  assert.equal(media([9, 9, 9, 9, 9]), somaConhecida(45, 5));
+  assert.equal(media([1, 2, 3, 4, 35]), somaConhecida(45, 5), "listas diferentes, mesma soma, mesma média");
+  num("media", "calcular", "q3", somaConhecida(45, 5));
+
+  num("media", "calcular", "q4", media([14, 16, 18, 20]));
+});
+
+teste("média · lição 3 — a média fica entre o menor e o maior", () => {
+  // A propriedade é conferida por força bruta, e não afirmada: cem listas
+  // aleatórias, e em nenhuma a média pode escapar da faixa dos valores.
+  let semente = 20260906;
+  const sorteia = (max) => { semente = (semente * 1103515245 + 12345) % 2147483648; return semente % max; };
+  for (let i = 0; i < 100; i++) {
+    const lista = Array.from({ length: 2 + sorteia(6) }, () => sorteia(50));
+    const m = media(lista);
+    assert.ok(m >= Math.min(...lista) - 1e-9, `média ${m} abaixo do menor de ${lista}`);
+    assert.ok(m <= Math.max(...lista) + 1e-9, `média ${m} acima do maior de ${lista}`);
+  }
+
+  assert.equal(media([4, 9, 11]), 8, "o exemplo resolvido não fecha");
+
+  // 25 não pode ser a média de 6, 7 e 20: passa do maior valor
+  assert.ok(25 > Math.max(6, 7, 20));
+  assert.equal(media([6, 7, 20]), 11);
+  alt("media", "entre-extremos", "q1", "Não, porque a média nunca passa do maior valor");
+
+  num("media", "entre-extremos", "q2", media([2, 4, 6, 8, 10]));
+
+  // entre as opções, só uma cai dentro da faixa — e é a média mesmo
+  const lista = [10, 12, 14];
+  const possiveis = [12, 9, 15, 36].filter((v) => v >= Math.min(...lista) && v <= Math.max(...lista));
+  assert.deepEqual(possiveis, [12]);
+  assert.equal(media(lista), 12);
+  alt("media", "entre-extremos", "q3", "12");
+
+  // a média não é o meio dos extremos: com três cincos ela cai perto do 5
+  const quatro = [5, 5, 5, 17];
+  assert.equal(media(quatro), 8);
+  assert.equal((Math.min(...quatro) + Math.max(...quatro)) / 2, 11);
+  assert.notEqual(media(quatro), 11);
+  num("media", "entre-extremos", "q4", media(quatro));
+});
+
+teste("média · lição 4 — o problema inverso", () => {
+  const somaDe = (m, quantos) => m * quantos;
+  assert.equal(somaDe(7, 4), 28, "o exemplo resolvido não fecha");
+  assert.equal(28 - (6 + 8 + 7), 7);
+  assert.equal(media([6, 8, 7, 7]), 7, "a nota achada tem de devolver a média pedida");
+
+  num("media", "com-media", "q1", somaDe(12, 5));
+
+  const quarta = somaDe(8, 4) - (7 + 9 + 8);
+  assert.equal(quarta, 8);
+  assert.equal(media([7, 9, 8, quarta]), 8);
+  num("media", "com-media", "q2", quarta);
+
+  num("media", "com-media", "q3", somaDe(3, 6));
+
+  // nota acima da média sobe, igual mantém, abaixo desce — conferido nos três
+  const atual = 7, provas = 3;
+  const depois = (nota) => (somaDe(atual, provas) + nota) / (provas + 1);
+  assert.ok(depois(9) > atual, "nota acima da média tem de subir o resultado");
+  assert.equal(depois(7), atual, "nota igual à média mantém");
+  assert.ok(depois(6) < atual, "nota abaixo da média derruba");
+  alt("media", "com-media", "q4", "Mais que 7");
+});
+
+teste("média · lição 5 — um valor distante puxa a média sozinho", () => {
+  const livros = [2, 4, 2, 4, 38];
+
+  assert.equal(media(livros), 10);
+  num("media", "quando-mente", "q1", media(livros));
+
+  // a média não é o valor de ninguém, e quase todos ficam abaixo dela
+  assert.ok(!livros.includes(media(livros)), "nenhuma pessoa do grupo leu exatamente a média");
+  const abaixo = livros.filter((v) => v < media(livros));
+  assert.equal(abaixo.length, 4);
+  num("media", "quando-mente", "q2", abaixo.length);
+
+  alt("media", "quando-mente", "q3", "Porque um valor muito maior que os outros puxou a média para cima");
+
+  const semExtremo = livros.filter((v) => v !== 38);
+  assert.equal(semExtremo.length, 4, "sai o valor e sai também o lugar dele na divisão");
+  assert.equal(media(semExtremo), 3);
+  num("media", "quando-mente", "q4", media(semExtremo));
+
+  // o tamanho do estrago: um único número mudou a média de 3 para 10
+  assert.ok(media(livros) > 3 * media(semExtremo));
+});
+
+teste("média · lição 6 — escolher a conta certa", () => {
+  num("media", "problemas", "q1", media([24, 22, 26, 23, 25]));
+  assert.equal(media([6, 9, 7, 10]), 8, "o exemplo resolvido não fecha");
+
+  const terceiro = 12 * 3 - (9 + 11);
+  assert.equal(terceiro, 16);
+  assert.equal(media([9, 11, terceiro]), 12);
+  num("media", "problemas", "q2", terceiro);
+
+  num("media", "problemas", "q3", 2 * 9);
+
+  // dois grupos com a mesma média e distribuições bem diferentes
+  const A = [5, 5, 5], B = [1, 5, 9];
+  assert.equal(media(A), media(B));
+  assert.notDeepEqual(A, B);
+  assert.equal(Math.max(...A) - Math.min(...A), 0);
+  assert.equal(Math.max(...B) - Math.min(...B), 8);
+  alt("media", "problemas", "q4", "Os dois grupos têm média 5, mas notas bem diferentes");
 });
 
 teste("as igualdades escritas nas contas são verdadeiras", () => {

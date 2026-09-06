@@ -1,0 +1,41 @@
+{
+  "id": "solidos-volume",
+  "titulo": "Sólidos e volume",
+  "ano": 6,
+  "descricao": "Do plano para o espaço: cubos, blocos, pirâmides e o quanto cabe dentro deles. Seis lições que vão de faces, arestas e vértices até a ponte que liga o centímetro cúbico ao litro — e explicam por que um cubo de 10 cm de aresta é exatamente 1 litro.",
+  "pergunta": "O que muda quando a figura sai do papel e ocupa espaço?",
+  "videos": [
+    {
+      "id": "lPjBRuqcea4",
+      "titulo": "SÓLIDOS GEOMÉTRICOS | POLIEDROS E NÃO POLIEDROS | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Retoma a separação entre poliedros e não poliedros com muitos exemplos de objetos reais. Bom depois da lição 1, se a exigência das faces planas ainda parecer abstrata."
+    },
+    {
+      "id": "UbGevL3sp6U",
+      "titulo": "POLIEDROS | GEOMETRIA ESPACIAL|  \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Detalha faces, arestas e vértices em vários sólidos, contando cada um na tela. Útil para treinar a contagem por grupos da lição 2."
+    },
+    {
+      "id": "b31jJ7BKjAE",
+      "titulo": "PLANIFICAÇÃO DE SÓLIDOS GEOMÉTRICOS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Mostra os moldes sendo abertos e dobrados de volta, que é a parte da lição 3 mais difícil de imaginar só com desenho parado."
+    },
+    {
+      "id": "Hwry6jKIAp0",
+      "titulo": "Sólidos geométricos: classificação e planificação - Matemática - 6º ano - Ensino Fundamental",
+      "canal": "Canal Futura",
+      "descricao": "Junta classificação e planificação numa aula só. Vale como revisão das três primeiras lições antes de entrar no volume."
+    }
+  ],
+  "licoes": [
+    { "id": "solidos", "arquivo": "/dados/licoes/solidos-volume/solidos.json" },
+    { "id": "prismas-piramides", "arquivo": "/dados/licoes/solidos-volume/prismas-piramides.json" },
+    { "id": "planificacao", "arquivo": "/dados/licoes/solidos-volume/planificacao.json" },
+    { "id": "volume-cubinhos", "arquivo": "/dados/licoes/solidos-volume/volume-cubinhos.json" },
+    { "id": "formula", "arquivo": "/dados/licoes/solidos-volume/formula.json" },
+    { "id": "capacidade", "arquivo": "/dados/licoes/solidos-volume/capacidade.json" }
+  ]
+}

@@ -9,16 +9,21 @@
 // Não há roteador. curso.html serve qualquer matéria e licao.html qualquer
 // lição: adicionar conteúdo é escrever JSON e citá-lo no catálogo.
 
-import type { Catalogo, Certificado, Curso, Licao, Questao, ProgressoLicao } from "./tipos.js";
+import type {
+  Catalogo, Certificado, CertificadoAno, Curso, Licao, Questao, ProgressoLicao,
+} from "./tipos.js";
 import { corrigir, respostaCorreta } from "./correcao.js";
 import {
   lerLicao, registrarResposta, reiniciarLicao, reiniciarCurso, lerCurso,
   proximaLicao, resumirCurso, lerCertificado, emitirCertificado, listarCertificados,
+  resumirAno, lerCertificadoAno, emitirCertificadoAno, removerCertificadoAno, listarCertificadosAno,
 } from "./progresso.js";
-import { desenharCertificado, baixarCertificado } from "./certificado.js";
+import {
+  desenharCertificado, baixarCertificado, desenharCertificadoAno, baixarCertificadoAno,
+} from "./certificado.js";
 import {
   renderResolvido, renderQuestao, renderAcerto, renderErro, renderResolucao,
-  renderProgressoLicao, renderImagem, renderVideo, renderCertificado,
+  renderProgressoLicao, renderImagem, renderVideo, renderCertificado, renderCertificadoAno,
   type IndiceImagens,
 } from "./ui.js";
 import { qs, el, limpar, rolarAte, parametro } from "./util.js";
@@ -83,43 +88,71 @@ async function iniciarHome(): Promise<void> {
     grade.appendChild(card);
   }
 
-  // Certificados já conquistados nesta máquina.
+  // Certificados já conquistados nesta máquina. Os de ano vêm primeiro: são
+  // o feito maior, e cada um deles resume quatorze dos outros.
   const areaCert = qs<HTMLElement>("[data-certificados]");
   if (areaCert) {
+    const anos = listarCertificadosAno();
     const certificados = listarCertificados();
     limpar(areaCert);
-    if (certificados.length === 0) {
+    if (anos.length === 0 && certificados.length === 0) {
       areaCert.hidden = true;
     } else {
       areaCert.hidden = false;
       areaCert.appendChild(el("h2", { classe: "d-md secao__titulo", texto: "Seus certificados" }));
       const lista = el("div", { classe: "lista" });
+
+      for (const c of anos) {
+        lista.appendChild(
+          linhaCertificado({
+            href: `/ano.html?a=${c.ano}#certificado`,
+            titulo: `${c.ano}º ano completo`,
+            nota: `${c.nome.trim() || "Aluno(a)"} · ${c.materias.length} matérias · ${c.acertosDePrimeira} de ${c.questoes} de primeira`,
+            data: c.data,
+            destaque: true,
+          })
+        );
+      }
+
       for (const c of certificados) {
-        const linha = el("a", {
-          classe: "linha linha--licao",
-          atributos: { href: `/curso.html?c=${c.cursoId}#certificado` },
-        });
-        linha.appendChild(el("span", { classe: "linha__num", texto: "✓" }));
-        const corpo = el("div", { classe: "linha__corpo" });
-        corpo.appendChild(el("span", { classe: "linha__titulo", texto: c.cursoTitulo }));
-        corpo.appendChild(
-          el("p", {
-            classe: "linha__nota",
-            texto: `${c.nome.trim() || "Aluno(a)"} · ${c.acertosDePrimeira} de ${c.questoes} de primeira`,
+        lista.appendChild(
+          linhaCertificado({
+            href: `/curso.html?c=${c.cursoId}#certificado`,
+            titulo: c.cursoTitulo,
+            nota: `${c.nome.trim() || "Aluno(a)"} · ${c.acertosDePrimeira} de ${c.questoes} de primeira`,
+            data: c.data,
+            destaque: false,
           })
         );
-        linha.appendChild(corpo);
-        linha.appendChild(
-          el("span", {
-            classe: "linha__fim mono-sm",
-            texto: new Date(c.data).toLocaleDateString("pt-BR"),
-          })
-        );
-        lista.appendChild(linha);
       }
       areaCert.appendChild(lista);
     }
   }
+}
+
+function linhaCertificado(dados: {
+  href: string;
+  titulo: string;
+  nota: string;
+  data: string;
+  destaque: boolean;
+}): HTMLElement {
+  const linha = el("a", {
+    classe: `linha linha--licao${dados.destaque ? " linha--concluida" : ""}`,
+    atributos: { href: dados.href },
+  });
+  linha.appendChild(el("span", { classe: "linha__num", texto: dados.destaque ? "★" : "✓" }));
+  const corpo = el("div", { classe: "linha__corpo" });
+  corpo.appendChild(el("span", { classe: "linha__titulo", texto: dados.titulo }));
+  corpo.appendChild(el("p", { classe: "linha__nota", texto: dados.nota }));
+  linha.appendChild(corpo);
+  linha.appendChild(
+    el("span", {
+      classe: "linha__fim mono-sm",
+      texto: new Date(dados.data).toLocaleDateString("pt-BR"),
+    })
+  );
+  return linha;
 }
 
 // ---------- Página de ano ----------
@@ -142,6 +175,11 @@ async function iniciarAno(): Promise<void> {
     cabecalho.appendChild(el("p", { classe: "t-lg cor-body leitura", texto: ano.descricao }));
   }
 
+  // O aviso do rodapé sobre "em breve" some quando o ano inteiro fica pronto:
+  // com o 6º ano completo, ele passou a explicar uma marca que não existe.
+  const nota = qs<HTMLElement>("[data-nota-embreve]");
+  if (nota) nota.hidden = ano.cursos.every((c) => c.disponivel);
+
   limpar(alvo);
   for (const item of ano.cursos) {
     const disponivel = item.disponivel;
@@ -155,7 +193,7 @@ async function iniciarAno(): Promise<void> {
       const resumo = lerCurso(item.id);
       const temCertificado = Boolean(resumo.certificado);
       marca.textContent = temCertificado ? "✓" : "→";
-      if (temCertificado) linha.classList.add("linha--feita");
+      if (temCertificado) linha.classList.add("linha--concluida");
     } else {
       marca.textContent = "·";
     }
@@ -174,6 +212,70 @@ async function iniciarAno(): Promise<void> {
     );
     alvo.appendChild(linha);
   }
+
+  montarBlocoDoAno(ano);
+}
+
+/**
+ * O bloco do certificado de ano, no pé da página.
+ *
+ * Ele só existe quando o ano inteiro já está publicado. Num ano com matéria
+ * "em breve", mostrar "faltam 6 matérias" cobraria do aluno uma coisa que
+ * ninguém escreveu ainda.
+ */
+function montarBlocoDoAno(ano: Catalogo["anos"][number]): void {
+  const area = qs<HTMLElement>("[data-certificado-ano]");
+  if (!area) return;
+
+  limpar(area);
+  const publicadas = ano.cursos.filter((c) => c.disponivel);
+  if (publicadas.length !== ano.cursos.length || publicadas.length === 0) {
+    area.hidden = true;
+    return;
+  }
+  area.hidden = false;
+
+  const desenhar = (): void => {
+    limpar(area);
+    const resumo = resumirAno(publicadas.map((c) => c.id));
+    const salvo = lerCertificadoAno(ano.ano);
+
+    // Nome já digitado em qualquer certificado desta máquina — o aluno não
+    // deveria ter de escrever o próprio nome de novo aos quatorze.
+    const nomeSugerido =
+      salvo?.nome ?? listarCertificados().find((c) => c.nome.trim() !== "")?.nome ?? "";
+
+    const montar = (nome: string): CertificadoAno => ({
+      ano: ano.ano,
+      anoTitulo: ano.titulo,
+      nome,
+      data: salvo?.data ?? resumo.ultimaData ?? new Date().toISOString(),
+      materias: resumo.materias,
+      licoes: resumo.licoes,
+      questoes: resumo.questoes,
+      acertosDePrimeira: resumo.acertosDePrimeira,
+    });
+
+    if (resumo.concluido && !salvo) emitirCertificadoAno(montar(nomeSugerido));
+
+    area.appendChild(
+      renderCertificadoAno({
+        ano: ano.ano,
+        concluido: resumo.concluido,
+        materiasConcluidas: resumo.concluidas,
+        totalMaterias: resumo.totalMaterias,
+        licoes: resumo.licoes,
+        questoes: resumo.questoes,
+        acertosDePrimeira: resumo.acertosDePrimeira,
+        nomeSalvo: nomeSugerido,
+        aoEmitir: (nome) => emitirCertificadoAno(montar(nome)),
+        desenhar: (nome) => desenharCertificadoAno(montar(nome)),
+        aoBaixar: (nome) => baixarCertificadoAno(montar(nome)),
+      })
+    );
+  };
+
+  desenhar();
 }
 
 // ---------- Página de curso ----------
@@ -268,7 +370,16 @@ async function iniciarCurso(): Promise<void> {
     alvo.appendChild(secaoLicoes);
 
     // --- certificado ---
+    // A conquista é registrada assim que a matéria fica concluída, mesmo sem
+    // o aluno digitar o nome. Sem isso o certificado do ano nunca fecharia
+    // para quem terminou tudo e não parou para se nomear — e é desses
+    // registros que a página do ano soma o percurso, sem buscar curso nenhum.
     const salvo = lerCertificado(curso.id);
+    if (resumo.concluido) {
+      emitirCertificado(
+        montarCertificado(curso, salvo?.nome ?? "", totalQuestoes, resumo.acertosDePrimeira, salvo)
+      );
+    }
     const areaCert = el("div", { atributos: { id: "certificado" } });
     areaCert.appendChild(
       renderCertificado({
@@ -318,6 +429,8 @@ async function iniciarCurso(): Promise<void> {
       zerar.addEventListener("click", () => {
         if (window.confirm(`Isso apaga seu progresso e o certificado de ${curso.titulo}. Continuar?`)) {
           reiniciarCurso(curso.id);
+          // O ano deixou de estar completo, então o certificado dele também cai.
+          removerCertificadoAno(curso.ano);
           desenhar();
         }
       });
@@ -345,6 +458,7 @@ function montarCertificado(
     data: anterior?.data ?? new Date().toISOString(),
     questoes,
     acertosDePrimeira: acertos,
+    licoes: curso.licoes.length,
   };
 }
 

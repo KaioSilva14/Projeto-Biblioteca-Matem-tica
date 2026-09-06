@@ -98,14 +98,33 @@
       "dica": "Descubra primeiro quanto da caneca grande cabe na pequena. Depois some com o que a média representa.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "Ela ficará totalmente cheia, sem transbordar." },
-        { "rotulo": "B", "texto": "Ela ficará preenchida em 7/8 de sua capacidade." },
-        { "rotulo": "C", "texto": "Ela ficará preenchida em 8/13 de sua capacidade." },
-        { "rotulo": "D", "texto": "Ela ficará preenchida em 5/8 de sua capacidade." },
-        { "rotulo": "E", "texto": "Ela vai transbordar." }
+        {
+          "rotulo": "A",
+          "texto": "Ela ficará totalmente cheia, sem transbordar."
+        },
+        {
+          "rotulo": "B",
+          "texto": "Ela ficará preenchida em 7/8 de sua capacidade."
+        },
+        {
+          "rotulo": "C",
+          "texto": "Ela ficará preenchida em 8/13 de sua capacidade."
+        },
+        {
+          "rotulo": "D",
+          "texto": "Ela ficará preenchida em 5/8 de sua capacidade."
+        },
+        {
+          "rotulo": "E",
+          "texto": "Ela vai transbordar."
+        }
       ],
       "correta": 0,
       "errosComuns": [
+        {
+          "resposta": "Ela ficará preenchida em 7/8 de sua capacidade.",
+          "porque": "7/8 sai de contar a caneca pequena como 2/8 da grande em vez de 3/8. A pequena vale 3/5 da média, e a média vale 5/8 da grande: 3/5 de 5/8 dá exatamente 3/8."
+        },
         {
           "resposta": "Ela ficará preenchida em 8/13 de sua capacidade.",
           "porque": "Você somou 3/5 + 5/8 somando em cima e embaixo (3+5=8 e 5+8=13). Além de a soma de denominadores não valer, as duas frações nem se referem à mesma coisa: 3/5 é da caneca média, e 5/8 é da grande."
@@ -194,13 +213,29 @@
       "dica": "É uma subtração: o que havia menos o que saiu. Iguale os pedaços antes.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "7/20" },
-        { "rotulo": "B", "texto": "1/1" },
-        { "rotulo": "C", "texto": "1/20" },
-        { "rotulo": "D", "texto": "5/9" }
+        {
+          "rotulo": "A",
+          "texto": "7/20"
+        },
+        {
+          "rotulo": "B",
+          "texto": "1/1"
+        },
+        {
+          "rotulo": "C",
+          "texto": "1/20"
+        },
+        {
+          "rotulo": "D",
+          "texto": "5/9"
+        }
       ],
       "correta": 0,
       "errosComuns": [
+        {
+          "resposta": "1/1",
+          "porque": "1/1 é a jarra cheia, o oposto do que aconteceu. Foi servido suco, então o que resta é menos que os 3/4 que havia no começo."
+        },
         {
           "resposta": "5/9",
           "porque": "Você somou em vez de subtrair, e ainda somou os de baixo. Servir suco diminui o que resta, então o resultado tem que ser menor que 3/4."

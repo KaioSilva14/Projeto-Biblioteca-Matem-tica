@@ -1,0 +1,199 @@
+{
+  "id": "com-media",
+  "numero": 4,
+  "titulo": "Usar a média para descobrir",
+  "pergunta": "Sabendo a média, dá para achar o que falta?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui a média foi o resultado. Agora ela vira o dado do problema: sabendo a média e a quantidade, dá para descobrir o total — e, com o total, qualquer valor que esteja faltando.",
+      "A chave é ler a divisão ao contrário. Se a soma dividida pela quantidade dá a média, então a média multiplicada pela quantidade devolve a soma. Média 7 em 4 provas significa soma 28, sempre.",
+      "Com o total na mão, achar o valor que falta é subtrair. Se a soma tem de ser 28 e as três primeiras notas já somam 21, a quarta é obrigatoriamente 7. Não há escolha: qualquer outro número mudaria a média.",
+      "Esse raciocínio responde também a pergunta mais útil da matéria escolar: quanto preciso tirar para subir a média? Uma nota igual à média atual mantém tudo como está; uma nota acima dela puxa a média para cima; uma abaixo puxa para baixo. Isso vale sempre, sem precisar refazer a conta.",
+      "Vale notar por que a média se comporta assim: ela é um patamar, e cada valor novo empurra esse patamar na direção de si mesmo, com força proporcional a quanto ele se afasta."
+    ],
+    "destaque": "Média × quantidade = soma. É essa volta que resolve todo problema inverso.",
+    "imagem": "med-ideia-inversa"
+  },
+  "resolvido": {
+    "enunciado": "Beto quer fechar o bimestre com média 7 nas quatro provas. Ele já tirou 6, 8 e 7. Quanto precisa na última?",
+    "imagem": "med-res-falta",
+    "passos": [
+      {
+        "titulo": "Descubra a soma necessária",
+        "explicacao": "A média desejada multiplicada pela quantidade de provas dá o total de pontos que ele precisa somar.",
+        "conta": "7 × 4 = 28"
+      },
+      {
+        "titulo": "Some o que ele já tem",
+        "explicacao": "Junte as três notas que já saíram.",
+        "conta": "6 + 8 + 7 = 21"
+      },
+      {
+        "titulo": "Subtraia",
+        "explicacao": "O que falta para chegar ao total necessário é exatamente a nota da última prova.",
+        "conta": "28 − 21 = 7"
+      },
+      {
+        "titulo": "Confira refazendo",
+        "explicacao": "Com as quatro notas 6, 8, 7 e 7, a soma dá 28 e a divisão por 4 dá 7. A média pedida bate.",
+        "conta": "28 ÷ 4 = 7 ✓"
+      }
+    ],
+    "fecho": "Multiplicar para achar o total, subtrair para achar o que falta. É sempre esse par."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A média de cinco números é 12. Qual é a soma deles? Digite apenas o número.",
+      "imagem": "med-q-soma-total",
+      "dica": "Se a soma dividida por cinco dá 12, a soma é 12 multiplicado por cinco.",
+      "formato": "numero",
+      "resposta": 60,
+      "errosComuns": [
+        {
+          "resposta": "17",
+          "porque": "17 soma a média com a quantidade. As duas se relacionam por multiplicação e divisão, e nunca por soma."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a própria média, que é quanto cada um teria depois de repartir. O total é esse valor multiplicado pela quantidade de números."
+        },
+        {
+          "resposta": "2.4",
+          "porque": "2,4 sai de dividir 12 por 5, ou seja, de aplicar a média de novo. Aqui a operação é a volta da divisão: a multiplicação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a divisão ao contrário",
+          "explicacao": "Se soma dividida por 5 dá 12, então 12 multiplicado por 5 devolve a soma.",
+          "conta": "soma ÷ 5 = 12"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "A média multiplicada pela quantidade recupera o total.",
+          "conta": "12 × 5 = 60"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A média de quatro notas é 8. Três delas são 7, 9 e 8. Qual é a quarta nota? Digite apenas o número.",
+      "imagem": "med-q-quarta-nota",
+      "dica": "Ache primeiro a soma que as quatro notas precisam ter, depois desconte as três conhecidas.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é a soma das três notas conhecidas. Ela é um passo da conta: falta subtraí-la do total necessário, que é 32."
+        },
+        {
+          "resposta": "32",
+          "porque": "32 é a soma que as QUATRO notas precisam ter. A quarta nota é o que falta para chegar lá, e não o total."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 sai de usar 30 como total, ou seja, de multiplicar a média por uma quantidade errada. São quatro notas, então o total é 8 × 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a soma necessária",
+          "explicacao": "A média desejada vezes a quantidade de notas dá o total de pontos.",
+          "conta": "8 × 4 = 32"
+        },
+        {
+          "titulo": "Some as três conhecidas",
+          "explicacao": "Sete mais nove dá dezesseis, e mais oito dá vinte e quatro.",
+          "conta": "7 + 9 + 8 = 24"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O que falta para completar o total é a nota que estava escondida.",
+          "conta": "32 − 24 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um time fez média de 3 gols por jogo em 6 jogos. Quantos gols ele fez no total? Digite apenas o número.",
+      "imagem": "med-q-total-gols",
+      "dica": "A média multiplicada pela quantidade de jogos devolve o total de gols.",
+      "formato": "numero",
+      "resposta": 18,
+      "unidade": "gols",
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 soma a média com o número de jogos. A relação entre elas é de multiplicação: cada jogo contribui, em média, com 3 gols."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 sai de dividir 6 por 3. A divisão é o caminho de ida, que parte do total; aqui o total é justamente o que se procura."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a média, ou seja, os gols de um jogo típico. O total junta os seis jogos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Entenda o que a média diz",
+          "explicacao": "Média 3 significa que, repartidos igualmente, cada jogo ficaria com 3 gols.",
+          "conta": "3 gols por jogo"
+        },
+        {
+          "titulo": "Multiplique pela quantidade",
+          "explicacao": "Seis jogos com 3 gols cada, na repartição igual, recompõem o total real.",
+          "conta": "3 × 6 = 18 gols"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Lia tem média 7 depois de três provas. Para a média SUBIR, quanto ela precisa tirar na quarta prova?",
+      "imagem": "med-q-subir",
+      "dica": "Pense no que acontece com o patamar quando entra um valor acima dele, e quando entra um valor igual a ele.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Mais que 7" },
+        { "rotulo": "B", "texto": "Exatamente 7" },
+        { "rotulo": "C", "texto": "Menos que 7" },
+        { "rotulo": "D", "texto": "Qualquer nota faz a média subir" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Exatamente 7",
+          "porque": "Uma nota igual à média MANTÉM a média. Com 7, 7, 7 e mais um 7, a soma vira 28 e a divisão por 4 devolve 7 — nada mudou."
+        },
+        {
+          "resposta": "Menos que 7",
+          "porque": "Uma nota abaixo da média puxa o patamar para baixo. Com 6 na quarta prova a soma seria 27, e a média cairia para 6,75."
+        },
+        {
+          "resposta": "Qualquer nota faz a média subir",
+          "porque": "Só sobe com nota acima da média atual. Uma nota baixa entra na conta como todas as outras e derruba o resultado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que ela tem",
+          "explicacao": "Média 7 em três provas significa 21 pontos somados.",
+          "conta": "7 × 3 = 21"
+        },
+        {
+          "titulo": "Teste a nota igual à média",
+          "explicacao": "Com mais um 7, a soma vai a 28 e a média continua exatamente 7.",
+          "conta": "28 ÷ 4 = 7"
+        },
+        {
+          "titulo": "Teste uma nota acima",
+          "explicacao": "Com 9, a soma vai a 30 e a média sobe para 7,5. Qualquer valor maior que a média empurra o patamar para cima.",
+          "conta": "30 ÷ 4 = 7,5"
+        }
+      ]
+    }
+  ]
+}

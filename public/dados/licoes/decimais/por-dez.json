@@ -172,10 +172,22 @@
       "dica": "Conte quantas casas o algarismo 7 precisa subir para sair dos centésimos e chegar nas dezenas.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "1000" },
-        { "rotulo": "B", "texto": "10" },
-        { "rotulo": "C", "texto": "100" },
-        { "rotulo": "D", "texto": "10000" }
+        {
+          "rotulo": "A",
+          "texto": "1000"
+        },
+        {
+          "rotulo": "B",
+          "texto": "10"
+        },
+        {
+          "rotulo": "C",
+          "texto": "100"
+        },
+        {
+          "rotulo": "D",
+          "texto": "10000"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -186,6 +198,10 @@
         {
           "resposta": "10",
           "porque": "Multiplicar por 10 move uma casa só, levando 0,07 até 0,7. Ainda falta um bocado para chegar em 70 — são três casas no total, não uma."
+        },
+        {
+          "resposta": "10000",
+          "porque": "Multiplicar por 10 000 anda quatro casas com a vírgula e leva 0,07 até 700, dez vezes além do alvo. De 0,07 até 70 são três casas, ou seja, 1 000."
         }
       ],
       "resolucao": [

@@ -149,6 +149,129 @@ export function desenharCertificado(dados) {
     ctx.fillText("biblioteca matemática · estudo sem cadastro", LARGURA / 2, 1268);
     return canvas;
 }
+/**
+ * Certificado do ano inteiro.
+ *
+ * Ele não é o de matéria com outro título: o que ele tem de próprio é a
+ * LISTA das matérias concluídas. É essa lista que mostra o tamanho do
+ * percurso — quatorze nomes ocupando um terço da folha dizem mais do que
+ * qualquer frase que eu escrevesse ali.
+ */
+export function desenharCertificadoAno(dados) {
+    const canvas = document.createElement("canvas");
+    canvas.width = LARGURA;
+    canvas.height = ALTURA;
+    const ctx = canvas.getContext("2d");
+    if (!ctx)
+        return canvas;
+    const nome = dados.nome.trim() === "" ? "Aluno(a)" : dados.nome.trim();
+    ctx.fillStyle = CANVAS;
+    ctx.fillRect(0, 0, LARGURA, ALTURA);
+    ctx.fillStyle = CANVAS_SOFT;
+    ctx.fillRect(80, 80, LARGURA - 160, ALTURA - 160);
+    ctx.strokeStyle = HAIRLINE;
+    ctx.lineWidth = 3;
+    ctx.strokeRect(80, 80, LARGURA - 160, ALTURA - 160);
+    ctx.strokeStyle = MUTE;
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(112, 112, LARGURA - 224, ALTURA - 224);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
+    // ---- Marca ----
+    desenharMarca(ctx, LARGURA / 2 - 210, 196, 4.2);
+    ctx.fillStyle = INK;
+    ctx.font = fonte(40, 500);
+    ctx.textAlign = "left";
+    ctx.fillText("Biblioteca Matemática", LARGURA / 2 - 152, 210);
+    ctx.textAlign = "center";
+    ctx.fillStyle = MUTE;
+    ctx.font = fonte(26, 400, MONO);
+    textoEspacado(ctx, "CERTIFICADO DE CONCLUSÃO DE ANO", 312, 9);
+    ctx.strokeStyle = HAIRLINE;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(LARGURA / 2 - 340, 350);
+    ctx.lineTo(LARGURA / 2 + 340, 350);
+    ctx.stroke();
+    // ---- Corpo ----
+    ctx.fillStyle = BODY;
+    ctx.font = fonte(34, 400);
+    ctx.fillText("Certificamos que", LARGURA / 2, 424);
+    ctx.fillStyle = INK;
+    ajustado(ctx, nome, 534, 92, 400, LARGURA - 460);
+    ctx.strokeStyle = HAIRLINE;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(LARGURA / 2 - 440, 578);
+    ctx.lineTo(LARGURA / 2 + 440, 578);
+    ctx.stroke();
+    ctx.fillStyle = BODY;
+    ctx.font = fonte(34, 400);
+    ctx.fillText(`concluiu as ${dados.materias.length} matérias de Matemática do`, LARGURA / 2, 642);
+    ctx.fillStyle = INK;
+    ajustado(ctx, `${dados.ano}º ano`, 744, 90, 400, LARGURA - 420, SERIF);
+    ctx.fillStyle = MUTE;
+    ctx.font = fonte(28, 400);
+    ctx.fillText("do Ensino Fundamental", LARGURA / 2, 798);
+    // ---- Números do percurso ----
+    const pct = dados.questoes > 0 ? Math.round((dados.acertosDePrimeira / dados.questoes) * 100) : 0;
+    ctx.fillStyle = BODY;
+    ctx.font = fonte(26, 400, MONO);
+    ctx.fillText(`${dados.licoes} lições · ${dados.questoes} questões · ${dados.acertosDePrimeira} acertadas de primeira · ${pct}%`, LARGURA / 2, 866);
+    // ---- A lista de matérias ----
+    ctx.fillStyle = MUTE;
+    ctx.font = fonte(20, 400, MONO);
+    textoEspacado(ctx, "MATÉRIAS CONCLUÍDAS", 936, 7);
+    desenharMaterias(ctx, dados.materias, 992);
+    // ---- Rodapé ----
+    ctx.fillStyle = MUTE;
+    ctx.textAlign = "center";
+    ctx.font = fonte(26, 400);
+    ctx.fillText(dataPorExtenso(dados.data), LARGURA / 2, 1224);
+    ctx.font = fonte(22, 400, MONO);
+    ctx.fillText("biblioteca matemática · estudo sem cadastro", LARGURA / 2, 1272);
+    return canvas;
+}
+/**
+ * Escreve as matérias em três colunas.
+ *
+ * Duas medidas, e as duas importam. A altura da lista é fixa — ela tem de
+ * caber entre os números e a data —, então quem cede é a entrelinha: um ano
+ * com mais matérias aperta as linhas em vez de invadir o rodapé.
+ *
+ * E a largura de cada coluna é MEDIDA, não dividida em três partes iguais. Com
+ * colunas de largura fixa, a terceira acaba antes das outras (os títulos são
+ * mais curtos) e o bloco inteiro parece torto, encostado à esquerda. Medindo,
+ * o conjunto fica centrado de verdade.
+ */
+function desenharMaterias(ctx, materias, topo) {
+    const COLUNAS = 3;
+    const ALTURA_MAX = 172;
+    const GOTEIRA = 74; // espaço entre uma coluna e a seguinte
+    const RECUO_MARCA = 22; // do "·" até o texto
+    const linhas = Math.ceil(materias.length / COLUNAS);
+    const entrelinha = Math.min(42, Math.floor(ALTURA_MAX / Math.max(1, linhas)));
+    ctx.font = fonte(Math.min(26, entrelinha - 10), 400, MONO);
+    ctx.textAlign = "left";
+    // Preenche coluna a coluna: a leitura de cima para baixo é a ordem do ano.
+    const colunas = [];
+    for (let c = 0; c < COLUNAS; c++)
+        colunas.push(materias.slice(c * linhas, (c + 1) * linhas));
+    const larguras = colunas.map((col) => RECUO_MARCA + Math.max(0, ...col.map((t) => ctx.measureText(t).width)));
+    const total = larguras.reduce((a, w) => a + w, 0) + GOTEIRA * (COLUNAS - 1);
+    let x = (LARGURA - total) / 2;
+    colunas.forEach((col, c) => {
+        col.forEach((materia, linha) => {
+            const y = topo + linha * entrelinha;
+            ctx.fillStyle = MUTE;
+            ctx.fillText("·", x, y);
+            ctx.fillStyle = INK;
+            ctx.fillText(materia, x + RECUO_MARCA, y);
+        });
+        x += larguras[c] + GOTEIRA;
+    });
+    ctx.textAlign = "center";
+}
 /** Nome de arquivo seguro: sem acento, espaço ou caractere de caminho. */
 export function nomeArquivo(nome, curso) {
     const limpar = (t) => t
@@ -159,20 +282,27 @@ export function nomeArquivo(nome, curso) {
         .toLowerCase();
     return `certificado-${limpar(curso)}-${limpar(nome) || "aluno"}.png`;
 }
-/** Dispara o download do certificado como PNG. */
-export function baixarCertificado(dados) {
-    const canvas = desenharCertificado(dados);
+/** Salva um canvas como PNG na máquina do aluno. */
+function baixarCanvas(canvas, arquivo) {
     canvas.toBlob((blob) => {
         if (!blob)
             return;
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = nomeArquivo(dados.nome, dados.cursoTitulo);
+        link.download = arquivo;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
         window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     }, "image/png");
+}
+/** Dispara o download do certificado da matéria como PNG. */
+export function baixarCertificado(dados) {
+    baixarCanvas(desenharCertificado(dados), nomeArquivo(dados.nome, dados.cursoTitulo));
+}
+/** Dispara o download do certificado de ano como PNG. */
+export function baixarCertificadoAno(dados) {
+    baixarCanvas(desenharCertificadoAno(dados), nomeArquivo(dados.nome, `${dados.ano}-ano-completo`));
 }
 //# sourceMappingURL=certificado.js.map

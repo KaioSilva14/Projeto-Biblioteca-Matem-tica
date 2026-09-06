@@ -9,7 +9,7 @@
 // clique estraga o número. Lista de ids é idempotente por construção.
 const CHAVE = "biblioteca_matematica_v3";
 function vazio() {
-    return { cursos: {} };
+    return { cursos: {}, anos: {} };
 }
 function licaoVazia(licaoId) {
     return { licaoId, respondidas: [], acertadas: [], concluida: false };
@@ -30,6 +30,17 @@ function ehCertificadoValido(valor) {
     return (typeof r.cursoId === "string" &&
         typeof r.nome === "string" &&
         typeof r.data === "string" &&
+        typeof r.questoes === "number" &&
+        typeof r.acertosDePrimeira === "number");
+}
+function ehCertificadoAnoValido(valor) {
+    if (typeof valor !== "object" || valor === null)
+        return false;
+    const r = valor;
+    return (typeof r.ano === "number" &&
+        typeof r.nome === "string" &&
+        typeof r.data === "string" &&
+        Array.isArray(r.materias) &&
         typeof r.questoes === "number" &&
         typeof r.acertosDePrimeira === "number");
 }
@@ -63,13 +74,22 @@ export function lerTudo() {
                     };
                 }
             }
-            cursos[cursoId] = {
-                cursoId,
-                licoes,
-                certificado: ehCertificadoValido(registro.certificado) ? registro.certificado : undefined,
-            };
+            // `licoes` entrou depois no certificado; registro antigo não tem o
+            // campo, e vale 0 em vez de derrubar o progresso inteiro.
+            const certificado = ehCertificadoValido(registro.certificado)
+                ? { ...registro.certificado, licoes: Number(registro.certificado.licoes) || 0 }
+                : undefined;
+            cursos[cursoId] = { cursoId, licoes, certificado };
         }
-        return { cursos };
+        const anos = {};
+        const crusAnos = dados.anos;
+        if (typeof crusAnos === "object" && crusAnos !== null) {
+            for (const [chave, valor] of Object.entries(crusAnos)) {
+                if (ehCertificadoAnoValido(valor))
+                    anos[chave] = valor;
+            }
+        }
+        return { cursos, anos };
     }
     catch {
         return vazio();
@@ -186,5 +206,54 @@ export function listarCertificados() {
         .map((c) => c.certificado)
         .filter((c) => c !== undefined)
         .sort((a, b) => b.data.localeCompare(a.data));
+}
+/**
+ * Resume o ano a partir dos certificados de matéria guardados.
+ *
+ * `cursosDoAno` são os ids das matérias PUBLICADAS daquele ano, na ordem do
+ * catálogo. Matéria ainda não escrita não entra na conta: senão nenhum ano
+ * fecharia enquanto o catálogo inteiro não estivesse pronto.
+ */
+export function resumirAno(cursosDoAno) {
+    const geral = lerTudo();
+    const certificados = cursosDoAno
+        .map((id) => geral.cursos[id]?.certificado)
+        .filter((c) => c !== undefined);
+    const soma = (campo) => certificados.reduce((total, c) => total + (c[campo] || 0), 0);
+    return {
+        concluidas: certificados.length,
+        totalMaterias: cursosDoAno.length,
+        concluido: cursosDoAno.length > 0 && certificados.length === cursosDoAno.length,
+        materias: certificados.map((c) => c.cursoTitulo),
+        licoes: soma("licoes"),
+        questoes: soma("questoes"),
+        acertosDePrimeira: soma("acertosDePrimeira"),
+        ultimaData: certificados.map((c) => c.data).sort().at(-1) ?? "",
+    };
+}
+export function lerCertificadoAno(ano) {
+    return lerTudo().anos[String(ano)] ?? null;
+}
+export function emitirCertificadoAno(certificado) {
+    const geral = lerTudo();
+    geral.anos[String(certificado.ano)] = certificado;
+    gravar(geral);
+    return certificado;
+}
+/**
+ * Some o certificado de ano.
+ *
+ * Chamado quando o aluno apaga o progresso de alguma matéria daquele ano: o
+ * ano deixou de estar completo, e deixar o certificado guardado seria dizer
+ * que ele terminou uma coisa que já não está terminada.
+ */
+export function removerCertificadoAno(ano) {
+    const geral = lerTudo();
+    delete geral.anos[String(ano)];
+    gravar(geral);
+}
+/** Todos os certificados de ano, do mais novo para o mais antigo. */
+export function listarCertificadosAno() {
+    return Object.values(lerTudo().anos).sort((a, b) => b.data.localeCompare(a.data));
 }
 //# sourceMappingURL=progresso.js.map

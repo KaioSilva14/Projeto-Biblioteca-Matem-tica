@@ -1,0 +1,213 @@
+{
+  "id": "planificacao",
+  "numero": 3,
+  "titulo": "Planificação",
+  "pergunta": "Como é o molde de uma caixa aberta?",
+  "ideia": {
+    "paragrafos": [
+      "Pegue uma caixa de papelão, corte algumas arestas e abra ela até deitar tudo numa mesa. O que sobra é a planificação do sólido: o molde plano que, dobrado de volta, reconstrói a caixa.",
+      "A planificação é uma ponte entre as duas matérias anteriores e esta. Cada face do sólido vira um polígono no plano, então contar as peças do molde é contar as faces do sólido. Um cubo abre em seis quadrados; um bloco retangular abre em seis retângulos.",
+      "E os formatos das peças seguem a família do sólido. O prisma abre nas duas bases mais um retângulo para cada lado delas. A pirâmide abre em uma base mais um triângulo para cada lado dela. O cilindro abre em dois círculos mais um retângulo — sim, um retângulo: é a lateral desenrolada, e o comprimento dele é o contorno do círculo.",
+      "Um detalhe que confunde: o mesmo sólido tem VÁRIAS planificações diferentes, porque dá para escolher quais arestas cortar. O cubo tem onze moldes distintos que funcionam. O mais conhecido é o em forma de cruz, mas ele não é o único certo.",
+      "O que não muda de um molde para o outro é a quantidade e o formato das peças. Se um molde de cubo tiver sete quadrados ou cinco, ele está errado — independentemente de como as peças estejam arrumadas."
+    ],
+    "destaque": "Cada peça do molde é uma face do sólido. Contar peças é contar faces.",
+    "imagem": "sol-ideia-planificacao"
+  },
+  "resolvido": {
+    "enunciado": "Um cubo foi aberto e deitado no plano. Quantas peças tem o molde, e de que formato elas são?",
+    "imagem": "sol-res-planificacao",
+    "passos": [
+      {
+        "titulo": "Cada face vira uma peça",
+        "explicacao": "Abrir o sólido não cria nem destrói face nenhuma: só desdobra o que já existia. Então o molde tem tantas peças quantas forem as faces.",
+        "conta": "peças do molde = faces do sólido"
+      },
+      {
+        "titulo": "Quantas faces tem o cubo",
+        "explicacao": "Uma em cima, uma embaixo e quatro em volta, como você contou na lição 1.",
+        "conta": "6 faces"
+      },
+      {
+        "titulo": "De que formato",
+        "explicacao": "No cubo todas as faces são quadrados do mesmo tamanho, então as seis peças do molde são quadrados iguais.",
+        "conta": "6 quadrados iguais"
+      },
+      {
+        "titulo": "Um molde entre vários",
+        "explicacao": "O desenho mostra o molde em cruz, que é o mais comum. Mas existem outros dez arranjos diferentes que também fecham um cubo — o que todos têm em comum são as seis peças quadradas.",
+        "conta": "11 moldes possíveis, sempre com 6 quadrados"
+      }
+    ],
+    "fecho": "Para saber se um molde fecha, comece contando as peças. Número errado de peças já elimina o molde sem precisar dobrar nada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos quadrados tem a planificação de um cubo? Digite apenas o número.",
+      "imagem": "sol-q-plan-cubo",
+      "dica": "Cada peça do molde corresponde a uma face do sólido.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "quadrados",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 são as faces LATERAIS do cubo, as que ficam em volta. Faltam a de cima e a de baixo, que também viram peças do molde."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o número de ARESTAS do cubo. As arestas viram as dobras e os cortes do molde, e não as peças dele."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o número de VÉRTICES do cubo. Os vértices viram cantos das peças, mas não são peças."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Peças e faces",
+          "explicacao": "Abrir o sólido desdobra as faces sem criar nem destruir nenhuma.",
+          "conta": "peças = faces"
+        },
+        {
+          "titulo": "Conte as faces do cubo",
+          "explicacao": "Seis, todas quadradas e do mesmo tamanho.",
+          "conta": "6 quadrados"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos retângulos tem a planificação de um bloco retangular, como uma caixa de sapato? Digite apenas o número.",
+      "imagem": "sol-q-plan-bloco",
+      "dica": "O bloco tem a mesma quantidade de faces do cubo — só que elas não são todas iguais.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "retângulos",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o número de formatos DIFERENTES de face no bloco: frente, lateral e topo. Mas cada um aparece duas vezes, porque as faces opostas são iguais."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o número de arestas do bloco. As arestas viram as linhas de dobra do molde, não as peças."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 são as faces laterais. Faltam a base e o topo, que também precisam estar no molde para a caixa fechar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantas faces o bloco tem",
+          "explicacao": "Seis, como o cubo: frente e fundo, duas laterais, topo e base.",
+          "conta": "6 faces"
+        },
+        {
+          "titulo": "Quantos formatos diferentes",
+          "explicacao": "Três formatos, cada um repetido duas vezes, porque as faces opostas de um bloco são iguais.",
+          "conta": "3 formatos × 2 = 6 peças"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Como é a planificação de uma pirâmide de base quadrada?",
+      "imagem": "sol-q-plan-piramide",
+      "dica": "Uma peça para a base e uma para cada face lateral. De que formato é cada uma?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Um quadrado e quatro triângulos"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Seis quadrados"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Quatro triângulos apenas"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Dois quadrados e quatro retângulos"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Seis quadrados",
+          "porque": "Seis quadrados é o molde do CUBO. A pirâmide tem uma base só, e as faces laterais dela são triângulos, não quadrados."
+        },
+        {
+          "resposta": "Quatro triângulos apenas",
+          "porque": "Os quatro triângulos são as laterais, mas sem a base o molde não fecha: sobraria um buraco embaixo da pirâmide."
+        },
+        {
+          "resposta": "Dois quadrados e quatro retângulos",
+          "porque": "Esse é o molde de um PRISMA de base quadrada. O prisma tem duas bases; a pirâmide tem uma e termina numa ponta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A base",
+          "explicacao": "Base quadrada quer dizer uma peça quadrada no molde.",
+          "conta": "1 quadrado"
+        },
+        {
+          "titulo": "As laterais",
+          "explicacao": "De cada lado do quadrado sobe um triângulo até o ápice. Quatro lados, quatro triângulos.",
+          "conta": "4 triângulos"
+        },
+        {
+          "titulo": "Confira com as faces",
+          "explicacao": "Cinco peças ao todo, que é exatamente o número de faces que você contou na lição 1.",
+          "conta": "1 + 4 = 5 peças"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantas peças tem a planificação de um prisma de base triangular? Digite apenas o número.",
+      "imagem": "sol-q-plan-prisma",
+      "dica": "Duas bases mais um retângulo para cada lado da base.",
+      "formato": "numero",
+      "resposta": 5,
+      "unidade": "peças",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 são só os retângulos laterais, um para cada lado do triângulo. Faltam as duas bases triangulares."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o número de ARESTAS deste prisma, calculado na lição 2. As arestas viram as dobras e os cortes do molde, não as peças."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o número de VÉRTICES deste prisma. Também seria o número de peças de um molde de cubo, mas este sólido tem base triangular."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "As bases",
+          "explicacao": "Todo prisma tem duas bases iguais. Aqui elas são triângulos.",
+          "conta": "2 triângulos"
+        },
+        {
+          "titulo": "As laterais",
+          "explicacao": "Cada lado da base vira um retângulo. O triângulo tem três lados.",
+          "conta": "3 retângulos"
+        },
+        {
+          "titulo": "Some as peças",
+          "explicacao": "Cinco peças, que é o mesmo número de faces contado na lição 2.",
+          "conta": "2 + 3 = 5 peças"
+        }
+      ]
+    }
+  ]
+}

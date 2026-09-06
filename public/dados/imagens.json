@@ -2086,5 +2086,1085 @@
     "alt": "Um jardim retangular de 12 metros por 8 metros.",
     "largura": 352,
     "altura": 278
+  },
+  "sol-ideia-solidos": {
+    "arquivo": "/assets/licoes/sol-ideia-solidos.png",
+    "alt": "Seis sólidos lado a lado: cubo, bloco, pirâmide, cilindro, cone e esfera.",
+    "largura": 439,
+    "altura": 274
+  },
+  "sol-res-cubo": {
+    "arquivo": "/assets/licoes/sol-res-cubo.png",
+    "alt": "Um cubo desenhado em projeção oblíqua, com as três dimensões iguais.",
+    "largura": 257,
+    "altura": 205
+  },
+  "sol-q-poliedro": {
+    "arquivo": "/assets/questoes/sol-q-poliedro.png",
+    "alt": "Três sólidos com superfície curva lado a lado: cilindro, cone e esfera.",
+    "largura": 415,
+    "altura": 130
+  },
+  "sol-q-arestas": {
+    "arquivo": "/assets/questoes/sol-q-arestas.png",
+    "alt": "Um cubo em projeção oblíqua, com as arestas visíveis.",
+    "largura": 322,
+    "altura": 205
+  },
+  "sol-q-piramide": {
+    "arquivo": "/assets/questoes/sol-q-piramide.png",
+    "alt": "Uma pirâmide de base quadrada.",
+    "largura": 191,
+    "altura": 170
+  },
+  "sol-q-bloco": {
+    "arquivo": "/assets/questoes/sol-q-bloco.png",
+    "alt": "Um bloco retangular em projeção oblíqua, como uma caixa de sapato.",
+    "largura": 301,
+    "altura": 164
+  },
+  "sol-ideia-familias": {
+    "arquivo": "/assets/licoes/sol-ideia-familias.png",
+    "alt": "Quatro sólidos lado a lado: bloco, prisma triangular, pirâmide e cilindro.",
+    "largura": 298,
+    "altura": 274
+  },
+  "sol-res-prisma": {
+    "arquivo": "/assets/licoes/sol-res-prisma.png",
+    "alt": "Um prisma de base triangular, com as duas bases iguais e paralelas.",
+    "largura": 198,
+    "altura": 178
+  },
+  "sol-q-cilindro": {
+    "arquivo": "/assets/questoes/sol-q-cilindro.png",
+    "alt": "Um cilindro, um cone e uma esfera lado a lado.",
+    "largura": 415,
+    "altura": 130
+  },
+  "sol-q-piramide-def": {
+    "arquivo": "/assets/questoes/sol-q-piramide-def.png",
+    "alt": "Uma pirâmide e um prisma lado a lado, para comparar as bases.",
+    "largura": 312,
+    "altura": 144
+  },
+  "sol-q-piramide-5": {
+    "arquivo": "/assets/questoes/sol-q-piramide-5.png",
+    "alt": "Um pentágono, a base de uma pirâmide pentagonal.",
+    "largura": 315,
+    "altura": 177
+  },
+  "sol-q-prisma-tri": {
+    "arquivo": "/assets/questoes/sol-q-prisma-tri.png",
+    "alt": "Um prisma de base triangular em perspectiva.",
+    "largura": 198,
+    "altura": 178
+  },
+  "sol-ideia-planificacao": {
+    "arquivo": "/assets/licoes/sol-ideia-planificacao.png",
+    "alt": "Planificação do cubo em forma de cruz, com seis quadrados.",
+    "largura": 257,
+    "altura": 192
+  },
+  "sol-res-planificacao": {
+    "arquivo": "/assets/licoes/sol-res-planificacao.png",
+    "alt": "Molde em cruz formado por seis quadrados iguais.",
+    "largura": 216,
+    "altura": 170
+  },
+  "sol-q-plan-cubo": {
+    "arquivo": "/assets/questoes/sol-q-plan-cubo.png",
+    "alt": "Um cubo fechado, antes de ser aberto.",
+    "largura": 279,
+    "altura": 205
+  },
+  "sol-q-plan-bloco": {
+    "arquivo": "/assets/questoes/sol-q-plan-bloco.png",
+    "alt": "Molde de um bloco retangular, com seis retângulos.",
+    "largura": 308,
+    "altura": 178
+  },
+  "sol-q-plan-piramide": {
+    "arquivo": "/assets/questoes/sol-q-plan-piramide.png",
+    "alt": "Uma pirâmide de base quadrada, antes de ser aberta.",
+    "largura": 191,
+    "altura": 170
+  },
+  "sol-q-plan-prisma": {
+    "arquivo": "/assets/questoes/sol-q-plan-prisma.png",
+    "alt": "Um prisma de base triangular, antes de ser aberto.",
+    "largura": 191,
+    "altura": 170
+  },
+  "sol-ideia-volume": {
+    "arquivo": "/assets/licoes/sol-ideia-volume.png",
+    "alt": "Um bloco de 4 por 3 por 2 preenchido por cubinhos de 1 cm.",
+    "largura": 217,
+    "altura": 157
+  },
+  "sol-res-volume": {
+    "arquivo": "/assets/licoes/sol-res-volume.png",
+    "alt": "Um bloco de 4 cm por 3 cm por 2 cm, com as três medidas marcadas e os cubinhos visíveis.",
+    "largura": 237,
+    "altura": 159
+  },
+  "sol-q-vol-5-2-3": {
+    "arquivo": "/assets/questoes/sol-q-vol-5-2-3.png",
+    "alt": "Um bloco de 5 por 2 por 3 com os cubinhos visíveis.",
+    "largura": 240,
+    "altura": 166
+  },
+  "sol-q-vol-cubo3": {
+    "arquivo": "/assets/questoes/sol-q-vol-cubo3.png",
+    "alt": "Um cubo de 3 cm de aresta com os cubinhos visíveis.",
+    "largura": 216,
+    "altura": 198
+  },
+  "sol-q-vol-camada": {
+    "arquivo": "/assets/questoes/sol-q-vol-camada.png",
+    "alt": "Uma camada de cubinhos de 5 por 4, com um centímetro de altura.",
+    "largura": 262,
+    "altura": 166
+  },
+  "sol-q-vol-6-4-2": {
+    "arquivo": "/assets/questoes/sol-q-vol-6-4-2.png",
+    "alt": "Um bloco de 6 por 4 por 2 com os cubinhos visíveis.",
+    "largura": 280,
+    "altura": 158
+  },
+  "sol-ideia-formula": {
+    "arquivo": "/assets/licoes/sol-ideia-formula.png",
+    "alt": "Um bloco com a camada de baixo destacada por cubinhos.",
+    "largura": 234,
+    "altura": 178
+  },
+  "sol-res-formula": {
+    "arquivo": "/assets/licoes/sol-res-formula.png",
+    "alt": "Uma caixa de 10 cm por 6 cm por 4 cm, com as três medidas marcadas.",
+    "largura": 306,
+    "altura": 180
+  },
+  "sol-q-form-8-5-3": {
+    "arquivo": "/assets/questoes/sol-q-form-8-5-3.png",
+    "alt": "Uma caixa de 8 cm por 5 cm por 3 cm.",
+    "largura": 303,
+    "altura": 175
+  },
+  "sol-q-form-cubo5": {
+    "arquivo": "/assets/questoes/sol-q-form-cubo5.png",
+    "alt": "Um cubo de 5 cm de aresta.",
+    "largura": 267,
+    "altura": 249
+  },
+  "sol-q-form-altura": {
+    "arquivo": "/assets/questoes/sol-q-form-altura.png",
+    "alt": "Uma caixa com a base de 5 cm por 4 cm marcada e a altura em branco.",
+    "largura": 268,
+    "altura": 216
+  },
+  "sol-q-form-20-15-10": {
+    "arquivo": "/assets/questoes/sol-q-form-20-15-10.png",
+    "alt": "Uma caixa de papelão de 20 cm por 15 cm por 10 cm.",
+    "largura": 314,
+    "altura": 208
+  },
+  "sol-ideia-capacidade": {
+    "arquivo": "/assets/licoes/sol-ideia-capacidade.png",
+    "alt": "Um cubo de 10 cm de aresta, o volume que define um litro.",
+    "largura": 312,
+    "altura": 316
+  },
+  "sol-res-capacidade": {
+    "arquivo": "/assets/licoes/sol-res-capacidade.png",
+    "alt": "Uma caixa de 20 cm por 10 cm por 5 cm.",
+    "largura": 332,
+    "altura": 158
+  },
+  "sol-q-cap-2l": {
+    "arquivo": "/assets/questoes/sol-q-cap-2l.png",
+    "alt": "Dois recipientes cheios, representando dois litros.",
+    "largura": 300,
+    "altura": 250
+  },
+  "sol-q-cap-cubo": {
+    "arquivo": "/assets/questoes/sol-q-cap-cubo.png",
+    "alt": "Um cubo de 10 cm de aresta, com as três medidas marcadas.",
+    "largura": 312,
+    "altura": 294
+  },
+  "sol-q-cap-500": {
+    "arquivo": "/assets/questoes/sol-q-cap-500.png",
+    "alt": "Um recipiente pela metade, representando 500 mililitros de um litro.",
+    "largura": 260,
+    "altura": 250
+  },
+  "sol-q-cap-aquario": {
+    "arquivo": "/assets/questoes/sol-q-cap-aquario.png",
+    "alt": "Um aquário de 40 cm por 20 cm por 25 cm.",
+    "largura": 312,
+    "altura": 222
+  },
+  "gra-ideia-grandezas": {
+    "arquivo": "/assets/licoes/gra-ideia-grandezas.png",
+    "alt": "Tabela com as quatro grandezas e as unidades de cada uma: comprimento, massa, capacidade e tempo.",
+    "largura": 520,
+    "altura": 176
+  },
+  "gra-res-unidades": {
+    "arquivo": "/assets/licoes/gra-res-unidades.png",
+    "alt": "Tabela com objetos e a unidade adequada para medir cada um.",
+    "largura": 480,
+    "altura": 126
+  },
+  "gra-q-altura": {
+    "arquivo": "/assets/questoes/gra-q-altura.png",
+    "alt": "Reta numérica de 0 a 2 metros, dividida de dez em dez centímetros.",
+    "largura": 460,
+    "altura": 116
+  },
+  "gra-q-caminhao": {
+    "arquivo": "/assets/questoes/gra-q-caminhao.png",
+    "alt": "Tabela com as unidades de massa da maior para a menor: tonelada, quilograma, grama e miligrama.",
+    "largura": 380,
+    "altura": 176
+  },
+  "gra-q-garrafa": {
+    "arquivo": "/assets/questoes/gra-q-garrafa.png",
+    "alt": "Dois recipientes cheios lado a lado, uma garrafa grande e um copo.",
+    "largura": 300,
+    "altura": 250
+  },
+  "gra-q-distancia": {
+    "arquivo": "/assets/questoes/gra-q-distancia.png",
+    "alt": "Tabela com as unidades de comprimento da maior para a menor.",
+    "largura": 380,
+    "altura": 176
+  },
+  "gra-ideia-comprimento": {
+    "arquivo": "/assets/licoes/gra-ideia-comprimento.png",
+    "alt": "A escada das unidades de comprimento, do quilômetro ao milímetro.",
+    "largura": 460,
+    "altura": 254
+  },
+  "gra-res-comprimento": {
+    "arquivo": "/assets/licoes/gra-res-comprimento.png",
+    "alt": "Multiplicação armada de 3,5 por 100, resultando em 350.",
+    "largura": 340,
+    "altura": 192
+  },
+  "gra-q-7m": {
+    "arquivo": "/assets/questoes/gra-q-7m.png",
+    "alt": "Reta numérica de 0 a 1 metro dividida em 100 centímetros, mostrando a relação entre as duas unidades.",
+    "largura": 460,
+    "altura": 116
+  },
+  "gra-q-250cm": {
+    "arquivo": "/assets/questoes/gra-q-250cm.png",
+    "alt": "Divisão armada de 250 por 100, resultando em 2,5.",
+    "largura": 340,
+    "altura": 192
+  },
+  "gra-q-3km": {
+    "arquivo": "/assets/questoes/gra-q-3km.png",
+    "alt": "Tabela com as três equivalências mais usadas de comprimento.",
+    "largura": 340,
+    "altura": 126
+  },
+  "gra-q-45mm": {
+    "arquivo": "/assets/questoes/gra-q-45mm.png",
+    "alt": "Divisão armada de 45 por 10, resultando em 4,5.",
+    "largura": 320,
+    "altura": 192
+  },
+  "gra-ideia-massa": {
+    "arquivo": "/assets/licoes/gra-ideia-massa.png",
+    "alt": "Tabela das unidades de massa com os saltos de mil entre elas.",
+    "largura": 400,
+    "altura": 150
+  },
+  "gra-res-massa": {
+    "arquivo": "/assets/licoes/gra-res-massa.png",
+    "alt": "Multiplicação armada de 2,5 por 1000, resultando em 2500.",
+    "largura": 340,
+    "altura": 192
+  },
+  "gra-q-4kg": {
+    "arquivo": "/assets/questoes/gra-q-4kg.png",
+    "alt": "Multiplicação armada de 4 por 1000.",
+    "largura": 320,
+    "altura": 150
+  },
+  "gra-q-3000g": {
+    "arquivo": "/assets/questoes/gra-q-3000g.png",
+    "alt": "Divisão armada de 3000 por 1000.",
+    "largura": 340,
+    "altura": 150
+  },
+  "gra-q-2t": {
+    "arquivo": "/assets/questoes/gra-q-2t.png",
+    "alt": "Tabela com as equivalências entre tonelada, quilograma e grama.",
+    "largura": 360,
+    "altura": 100
+  },
+  "gra-q-soma-massa": {
+    "arquivo": "/assets/questoes/gra-q-soma-massa.png",
+    "alt": "Dois pacotes representados por barras, um de 500 g e outro de 1,5 kg.",
+    "largura": 440,
+    "altura": 122
+  },
+  "gra-ideia-capacidade": {
+    "arquivo": "/assets/licoes/gra-ideia-capacidade.png",
+    "alt": "Tabela com as equivalências entre litro, mililitro e centímetro cúbico.",
+    "largura": 420,
+    "altura": 150
+  },
+  "gra-res-capacidade": {
+    "arquivo": "/assets/licoes/gra-res-capacidade.png",
+    "alt": "Um recipiente cheio representando dois litros e meio.",
+    "largura": 240,
+    "altura": 250
+  },
+  "gra-q-3l": {
+    "arquivo": "/assets/questoes/gra-q-3l.png",
+    "alt": "Três recipientes cheios de um litro cada.",
+    "largura": 340,
+    "altura": 250
+  },
+  "gra-q-1500ml": {
+    "arquivo": "/assets/questoes/gra-q-1500ml.png",
+    "alt": "Divisão armada de 1500 por 1000.",
+    "largura": 340,
+    "altura": 150
+  },
+  "gra-q-copos": {
+    "arquivo": "/assets/questoes/gra-q-copos.png",
+    "alt": "Um copo com a marcação de 250 mililitros.",
+    "largura": 240,
+    "altura": 250
+  },
+  "gra-q-garrafa-copos": {
+    "arquivo": "/assets/questoes/gra-q-garrafa-copos.png",
+    "alt": "Uma garrafa de dois litros ao lado de um copo de duzentos mililitros.",
+    "largura": 300,
+    "altura": 250
+  },
+  "gra-ideia-tempo": {
+    "arquivo": "/assets/licoes/gra-ideia-tempo.png",
+    "alt": "Tabela com os saltos do tempo: sessenta segundos no minuto, sessenta minutos na hora e vinte e quatro horas no dia.",
+    "largura": 400,
+    "altura": 150
+  },
+  "gra-res-tempo": {
+    "arquivo": "/assets/licoes/gra-res-tempo.png",
+    "alt": "Um relógio marcando duas horas e trinta minutos.",
+    "largura": 236,
+    "altura": 262
+  },
+  "gra-q-3h": {
+    "arquivo": "/assets/questoes/gra-q-3h.png",
+    "alt": "Um relógio marcando três horas.",
+    "largura": 236,
+    "altura": 262
+  },
+  "gra-q-240min": {
+    "arquivo": "/assets/questoes/gra-q-240min.png",
+    "alt": "Divisão armada de 240 por 60.",
+    "largura": 320,
+    "altura": 150
+  },
+  "gra-q-2min": {
+    "arquivo": "/assets/questoes/gra-q-2min.png",
+    "alt": "Um relógio marcando doze horas em ponto, com o ponteiro dos minutos no topo.",
+    "largura": 236,
+    "altura": 262
+  },
+  "gra-q-aula": {
+    "arquivo": "/assets/questoes/gra-q-aula.png",
+    "alt": "Um relógio marcando oito horas e quinze minutos.",
+    "largura": 236,
+    "altura": 262
+  },
+  "gra-ideia-problemas": {
+    "arquivo": "/assets/licoes/gra-ideia-problemas.png",
+    "alt": "Tabela lembrando os três fatores de conversão mais usados.",
+    "largura": 400,
+    "altura": 150
+  },
+  "gra-res-problemas": {
+    "arquivo": "/assets/licoes/gra-res-problemas.png",
+    "alt": "Soma armada de 120 com 45, resultando em 165.",
+    "largura": 320,
+    "altura": 192
+  },
+  "gra-q-cordas": {
+    "arquivo": "/assets/questoes/gra-q-cordas.png",
+    "alt": "Duas barras representando cordas de comprimentos diferentes.",
+    "largura": 440,
+    "altura": 122
+  },
+  "gra-q-farinha": {
+    "arquivo": "/assets/questoes/gra-q-farinha.png",
+    "alt": "Uma barra dividida em quatro partes, com uma delas destacada.",
+    "largura": 420,
+    "altura": 118
+  },
+  "gra-q-jarra": {
+    "arquivo": "/assets/questoes/gra-q-jarra.png",
+    "alt": "Um recipiente parcialmente cheio, representando a jarra com suco.",
+    "largura": 260,
+    "altura": 250
+  },
+  "gra-q-corrida": {
+    "arquivo": "/assets/questoes/gra-q-corrida.png",
+    "alt": "Uma barra dividida em dez partes, com metade delas preenchida.",
+    "largura": 420,
+    "altura": 118
+  },
+  "pla-ideia-eixos": {
+    "arquivo": "/assets/licoes/pla-ideia-eixos.png",
+    "alt": "Plano cartesiano com os dois eixos, a origem e um ponto marcado, identificado pelo par (3, 4).",
+    "largura": 272,
+    "altura": 294
+  },
+  "pla-res-ponto": {
+    "arquivo": "/assets/licoes/pla-res-ponto.png",
+    "alt": "Plano cartesiano com um ponto marcado e identificado pela letra A.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-ler-25": {
+    "arquivo": "/assets/questoes/pla-q-ler-25.png",
+    "alt": "Plano cartesiano com um ponto marcado, sem indicação das coordenadas dele.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-origem": {
+    "arquivo": "/assets/questoes/pla-q-origem.png",
+    "alt": "Plano cartesiano com o ponto de encontro dos dois eixos destacado e chamado de origem.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-primeiro": {
+    "arquivo": "/assets/questoes/pla-q-primeiro.png",
+    "alt": "Plano cartesiano com o ponto (7, 2) marcado e identificado pelo par de números.",
+    "largura": 363,
+    "altura": 340
+  },
+  "pla-q-valor-x": {
+    "arquivo": "/assets/questoes/pla-q-valor-x.png",
+    "alt": "Plano cartesiano com o ponto (6, 2) marcado e identificado pelo par de números.",
+    "largura": 329,
+    "altura": 306
+  },
+  "pla-ideia-ler": {
+    "arquivo": "/assets/licoes/pla-ideia-ler.png",
+    "alt": "Plano cartesiano com um ponto marcado, sem indicação das coordenadas.",
+    "largura": 293,
+    "altura": 294
+  },
+  "pla-res-tres": {
+    "arquivo": "/assets/licoes/pla-res-tres.png",
+    "alt": "Plano cartesiano com três pontos marcados e identificados pelas letras A, B e C.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-ler-42": {
+    "arquivo": "/assets/questoes/pla-q-ler-42.png",
+    "alt": "Plano cartesiano com um ponto marcado, sem indicação das coordenadas dele.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-ler-15": {
+    "arquivo": "/assets/questoes/pla-q-ler-15.png",
+    "alt": "Plano cartesiano com um ponto marcado perto do eixo vertical, sem indicação das coordenadas.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-valor-y": {
+    "arquivo": "/assets/questoes/pla-q-valor-y.png",
+    "alt": "Plano cartesiano com o ponto (3, 6) marcado e identificado pelo par de números.",
+    "largura": 306,
+    "altura": 306
+  },
+  "pla-q-eixo-x": {
+    "arquivo": "/assets/questoes/pla-q-eixo-x.png",
+    "alt": "Plano cartesiano vazio, com os dois eixos e a origem.",
+    "largura": 272,
+    "altura": 294
+  },
+  "pla-ideia-ordem": {
+    "arquivo": "/assets/licoes/pla-ideia-ordem.png",
+    "alt": "Plano cartesiano com dois pontos marcados, identificados pelos pares (3, 5) e (5, 3).",
+    "largura": 315,
+    "altura": 294
+  },
+  "pla-res-ordem": {
+    "arquivo": "/assets/licoes/pla-res-ordem.png",
+    "alt": "Plano cartesiano com os pontos (3, 5) e (5, 3) marcados e identificados.",
+    "largura": 295,
+    "altura": 272
+  },
+  "pla-q-dois-pontos": {
+    "arquivo": "/assets/questoes/pla-q-dois-pontos.png",
+    "alt": "Plano cartesiano vazio, para marcar os dois pares do enunciado.",
+    "largura": 306,
+    "altura": 328
+  },
+  "pla-q-direita": {
+    "arquivo": "/assets/questoes/pla-q-direita.png",
+    "alt": "Plano cartesiano com o ponto (7, 1) marcado e identificado pelo par de números.",
+    "largura": 363,
+    "altura": 340
+  },
+  "pla-q-eixo-y": {
+    "arquivo": "/assets/questoes/pla-q-eixo-y.png",
+    "alt": "Plano cartesiano vazio, com os dois eixos e a origem.",
+    "largura": 272,
+    "altura": 294
+  },
+  "pla-q-mais-direita": {
+    "arquivo": "/assets/questoes/pla-q-mais-direita.png",
+    "alt": "Plano cartesiano com dois pontos marcados, sem indicação das coordenadas de cada um.",
+    "largura": 306,
+    "altura": 306
+  },
+  "pla-ideia-distancia": {
+    "arquivo": "/assets/licoes/pla-ideia-distancia.png",
+    "alt": "Plano cartesiano com dois pontos de mesma altura, ligados por um traço horizontal.",
+    "largura": 329,
+    "altura": 328
+  },
+  "pla-res-distancia": {
+    "arquivo": "/assets/licoes/pla-res-distancia.png",
+    "alt": "Plano cartesiano com os pontos A e B na mesma altura, ligados por um traço horizontal.",
+    "largura": 306,
+    "altura": 306
+  },
+  "pla-q-dist-h": {
+    "arquivo": "/assets/questoes/pla-q-dist-h.png",
+    "alt": "Plano cartesiano com dois pontos de mesma altura, ligados por um traço horizontal.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-dist-v": {
+    "arquivo": "/assets/questoes/pla-q-dist-v.png",
+    "alt": "Plano cartesiano com dois pontos na mesma coluna, ligados por um traço vertical.",
+    "largura": 340,
+    "altura": 340
+  },
+  "pla-q-dist-origem": {
+    "arquivo": "/assets/questoes/pla-q-dist-origem.png",
+    "alt": "Plano cartesiano com um traço sobre o eixo horizontal, da origem até um ponto marcado.",
+    "largura": 272,
+    "altura": 272
+  },
+  "pla-q-dist-29": {
+    "arquivo": "/assets/questoes/pla-q-dist-29.png",
+    "alt": "Plano cartesiano com dois pontos na mesma coluna, ligados por um traço vertical.",
+    "largura": 368,
+    "altura": 368
+  },
+  "pla-ideia-retangulo": {
+    "arquivo": "/assets/licoes/pla-ideia-retangulo.png",
+    "alt": "Retângulo desenhado no plano cartesiano, com os quatro vértices identificados pelos pares de números.",
+    "largura": 295,
+    "altura": 294
+  },
+  "pla-res-retangulo": {
+    "arquivo": "/assets/licoes/pla-res-retangulo.png",
+    "alt": "Plano cartesiano com apenas três vértices marcados e identificados, e o quarto canto em aberto.",
+    "largura": 295,
+    "altura": 272
+  },
+  "pla-q-quarto": {
+    "arquivo": "/assets/questoes/pla-q-quarto.png",
+    "alt": "Plano cartesiano com três vértices marcados e identificados, e o quarto canto em aberto.",
+    "largura": 329,
+    "altura": 306
+  },
+  "pla-q-lado-h": {
+    "arquivo": "/assets/questoes/pla-q-lado-h.png",
+    "alt": "Retângulo desenhado no plano cartesiano, sem medidas escritas nos lados.",
+    "largura": 272,
+    "altura": 294
+  },
+  "pla-q-area-ret": {
+    "arquivo": "/assets/questoes/pla-q-area-ret.png",
+    "alt": "O mesmo retângulo no plano cartesiano, sobre a malha quadriculada.",
+    "largura": 272,
+    "altura": 294
+  },
+  "pla-q-perim-ret": {
+    "arquivo": "/assets/questoes/pla-q-perim-ret.png",
+    "alt": "O mesmo retângulo no plano cartesiano, com o contorno destacado.",
+    "largura": 272,
+    "altura": 294
+  },
+  "pla-ideia-mapa": {
+    "arquivo": "/assets/licoes/pla-ideia-mapa.png",
+    "alt": "Plano cartesiano usado como mapa de quadras, com a escola e a casa marcadas e um trajeto tracejado entre elas.",
+    "largura": 315,
+    "altura": 328
+  },
+  "pla-res-mapa": {
+    "arquivo": "/assets/licoes/pla-res-mapa.png",
+    "alt": "Mapa de quadras com a escola e a casa marcadas e um trajeto tracejado ligando as duas.",
+    "largura": 315,
+    "altura": 306
+  },
+  "pla-q-mapa-h": {
+    "arquivo": "/assets/questoes/pla-q-mapa-h.png",
+    "alt": "Mapa de quadras com a escola e a casa marcadas, sem trajeto desenhado.",
+    "largura": 315,
+    "altura": 306
+  },
+  "pla-q-mapa-total": {
+    "arquivo": "/assets/questoes/pla-q-mapa-total.png",
+    "alt": "Mapa de quadras com a escola e a casa marcadas e um trajeto tracejado que desce depois de andar para o lado.",
+    "largura": 315,
+    "altura": 306
+  },
+  "pla-q-praca": {
+    "arquivo": "/assets/questoes/pla-q-praca.png",
+    "alt": "Mapa de quadras com apenas a escola marcada.",
+    "largura": 306,
+    "altura": 328
+  },
+  "pla-q-mesma-rua": {
+    "arquivo": "/assets/questoes/pla-q-mesma-rua.png",
+    "alt": "Mapa de quadras com apenas a escola marcada.",
+    "largura": 306,
+    "altura": 328
+  },
+  "grf-ideia-tabela": {
+    "arquivo": "/assets/licoes/grf-ideia-tabela.png",
+    "alt": "Tabela de livros lidos por três turmas em dois meses.",
+    "largura": 300,
+    "altura": 182
+  },
+  "grf-res-tabela": {
+    "arquivo": "/assets/licoes/grf-res-tabela.png",
+    "alt": "Tabela de livros lidos por três turmas em março e abril.",
+    "largura": 300,
+    "altura": 182
+  },
+  "grf-q-cruzar": {
+    "arquivo": "/assets/questoes/grf-q-cruzar.png",
+    "alt": "Tabela de livros lidos por três turmas em março e abril.",
+    "largura": 300,
+    "altura": 182
+  },
+  "grf-q-linha": {
+    "arquivo": "/assets/questoes/grf-q-linha.png",
+    "alt": "A mesma tabela de livros lidos, com as três turmas e os dois meses.",
+    "largura": 300,
+    "altura": 182
+  },
+  "grf-q-maior": {
+    "arquivo": "/assets/questoes/grf-q-maior.png",
+    "alt": "A mesma tabela de livros lidos, com as três turmas e os dois meses.",
+    "largura": 300,
+    "altura": 182
+  },
+  "grf-q-diferenca": {
+    "arquivo": "/assets/questoes/grf-q-diferenca.png",
+    "alt": "A mesma tabela de livros lidos, com as três turmas e os dois meses.",
+    "largura": 300,
+    "altura": 182
+  },
+  "grf-ideia-colunas": {
+    "arquivo": "/assets/licoes/grf-ideia-colunas.png",
+    "alt": "Gráfico de colunas do meio de transporte usado pelos alunos, com o valor escrito no topo de cada coluna.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-res-colunas": {
+    "arquivo": "/assets/licoes/grf-res-colunas.png",
+    "alt": "Gráfico de colunas do meio de transporte usado pelos alunos, com a escala no eixo da esquerda.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-onibus": {
+    "arquivo": "/assets/questoes/grf-q-onibus.png",
+    "alt": "Gráfico de colunas do meio de transporte usado pelos alunos.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-menos": {
+    "arquivo": "/assets/questoes/grf-q-menos.png",
+    "alt": "O mesmo gráfico de colunas dos meios de transporte da turma.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-total-alunos": {
+    "arquivo": "/assets/questoes/grf-q-total-alunos.png",
+    "alt": "O mesmo gráfico de colunas dos meios de transporte da turma.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-a-mais": {
+    "arquivo": "/assets/questoes/grf-q-a-mais.png",
+    "alt": "O mesmo gráfico de colunas dos meios de transporte da turma.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-ideia-barras": {
+    "arquivo": "/assets/licoes/grf-ideia-barras.png",
+    "alt": "Gráfico de barras deitadas com o nome de cada esporte à esquerda da barra.",
+    "largura": 356,
+    "altura": 248
+  },
+  "grf-res-barras": {
+    "arquivo": "/assets/licoes/grf-res-barras.png",
+    "alt": "Gráfico de barras deitadas do esporte preferido da turma.",
+    "largura": 356,
+    "altura": 248
+  },
+  "grf-q-esportes-total": {
+    "arquivo": "/assets/questoes/grf-q-esportes-total.png",
+    "alt": "Gráfico de barras deitadas do esporte preferido da turma.",
+    "largura": 356,
+    "altura": 248
+  },
+  "grf-q-esportes-dif": {
+    "arquivo": "/assets/questoes/grf-q-esportes-dif.png",
+    "alt": "O mesmo gráfico de barras do esporte preferido da turma.",
+    "largura": 356,
+    "altura": 248
+  },
+  "grf-q-qual-grafico": {
+    "arquivo": "/assets/questoes/grf-q-qual-grafico.png",
+    "alt": "Gráfico de barras deitadas com nomes compridos de profissões, cada um numa linha.",
+    "largura": 377,
+    "altura": 340
+  },
+  "grf-q-esportes-juntos": {
+    "arquivo": "/assets/questoes/grf-q-esportes-juntos.png",
+    "alt": "O mesmo gráfico de barras do esporte preferido da turma.",
+    "largura": 356,
+    "altura": 248
+  },
+  "grf-ideia-duas-formas": {
+    "arquivo": "/assets/licoes/grf-ideia-duas-formas.png",
+    "alt": "Tabela com os sucos vendidos pela cantina em cada dia da semana.",
+    "largura": 279,
+    "altura": 216
+  },
+  "grf-res-sucos": {
+    "arquivo": "/assets/licoes/grf-res-sucos.png",
+    "alt": "Gráfico de colunas com os sucos vendidos pela cantina em cada dia.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-sucos-total": {
+    "arquivo": "/assets/questoes/grf-q-sucos-total.png",
+    "alt": "Gráfico de colunas com os sucos vendidos pela cantina em cada dia.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-sucos-dia": {
+    "arquivo": "/assets/questoes/grf-q-sucos-dia.png",
+    "alt": "O mesmo gráfico de colunas das vendas da cantina.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-sucos-dif": {
+    "arquivo": "/assets/questoes/grf-q-sucos-dif.png",
+    "alt": "O mesmo gráfico de colunas das vendas da cantina.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-mesma-info": {
+    "arquivo": "/assets/questoes/grf-q-mesma-info.png",
+    "alt": "Tabela com os mesmos dados das vendas da cantina, dia a dia.",
+    "largura": 240,
+    "altura": 216
+  },
+  "grf-ideia-corte": {
+    "arquivo": "/assets/licoes/grf-ideia-corte.png",
+    "alt": "Gráfico de colunas dos votos em três sucos, com o eixo começando no zero.",
+    "largura": 268,
+    "altura": 274
+  },
+  "grf-res-corte": {
+    "arquivo": "/assets/licoes/grf-res-corte.png",
+    "alt": "O mesmo gráfico dos votos em três sucos, mas com o eixo começando em 50 em vez de zero.",
+    "largura": 268,
+    "altura": 274
+  },
+  "grf-q-corte-ler": {
+    "arquivo": "/assets/questoes/grf-q-corte-ler.png",
+    "alt": "Gráfico de colunas dos votos em três sucos, com o eixo começando em 50.",
+    "largura": 268,
+    "altura": 274
+  },
+  "grf-q-corte-dif": {
+    "arquivo": "/assets/questoes/grf-q-corte-dif.png",
+    "alt": "O mesmo gráfico dos votos com o eixo começando em 50.",
+    "largura": 268,
+    "altura": 274
+  },
+  "grf-q-corte-porque": {
+    "arquivo": "/assets/questoes/grf-q-corte-porque.png",
+    "alt": "Gráfico dos mesmos votos com o eixo começando no zero, para comparação.",
+    "largura": 268,
+    "altura": 274
+  },
+  "grf-q-corte-total": {
+    "arquivo": "/assets/questoes/grf-q-corte-total.png",
+    "alt": "O mesmo gráfico dos votos com o eixo começando em 50.",
+    "largura": 268,
+    "altura": 274
+  },
+  "grf-ideia-gols": {
+    "arquivo": "/assets/licoes/grf-ideia-gols.png",
+    "alt": "Gráfico de colunas com os gols de um time em quatro meses.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-res-gols": {
+    "arquivo": "/assets/licoes/grf-res-gols.png",
+    "alt": "Gráfico de colunas com os gols de um time em abril, maio, junho e julho.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-gols-total": {
+    "arquivo": "/assets/questoes/grf-q-gols-total.png",
+    "alt": "Gráfico de colunas com os gols do time em quatro meses.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-gols-meses": {
+    "arquivo": "/assets/questoes/grf-q-gols-meses.png",
+    "alt": "O mesmo gráfico de colunas dos gols do time por mês.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-gols-dif": {
+    "arquivo": "/assets/questoes/grf-q-gols-dif.png",
+    "alt": "O mesmo gráfico de colunas dos gols do time por mês.",
+    "largura": 336,
+    "altura": 274
+  },
+  "grf-q-gols-afirmacao": {
+    "arquivo": "/assets/questoes/grf-q-gols-afirmacao.png",
+    "alt": "O mesmo gráfico de colunas dos gols do time por mês.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-ideia-figurinhas": {
+    "arquivo": "/assets/licoes/med-ideia-figurinhas.png",
+    "alt": "Gráfico de colunas com as figurinhas de quatro amigos e uma linha tracejada no valor da média.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-res-notas": {
+    "arquivo": "/assets/licoes/med-res-notas.png",
+    "alt": "Gráfico de colunas com as quatro notas de Ana no bimestre.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-q-quatro": {
+    "arquivo": "/assets/questoes/med-q-quatro.png",
+    "alt": "Gráfico de colunas com os quatro números da lista.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-q-iguais": {
+    "arquivo": "/assets/questoes/med-q-iguais.png",
+    "alt": "Gráfico de colunas com os livros lidos por três amigos, todas as colunas do mesmo tamanho.",
+    "largura": 268,
+    "altura": 274
+  },
+  "med-q-significado": {
+    "arquivo": "/assets/questoes/med-q-significado.png",
+    "alt": "Gráfico de colunas com as figurinhas de quatro amigos, sem a linha da média.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-q-tres": {
+    "arquivo": "/assets/questoes/med-q-tres.png",
+    "alt": "Gráfico de colunas com os três números da lista.",
+    "largura": 268,
+    "altura": 274
+  },
+  "med-ideia-jogos": {
+    "arquivo": "/assets/licoes/med-ideia-jogos.png",
+    "alt": "Gráfico de colunas com os gols de cada jogo, e um jogo sem coluna nenhuma por não ter tido gol.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-res-gols": {
+    "arquivo": "/assets/licoes/med-res-gols.png",
+    "alt": "Gráfico de colunas com os gols do time em cada um dos cinco jogos.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-q-tres-valores": {
+    "arquivo": "/assets/questoes/med-q-tres-valores.png",
+    "alt": "Gráfico de colunas com os três números da lista.",
+    "largura": 268,
+    "altura": 274
+  },
+  "med-q-com-zero": {
+    "arquivo": "/assets/questoes/med-q-com-zero.png",
+    "alt": "Gráfico de colunas com os bolos vendidos em cada dia da feira, incluindo o dia sem venda.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-q-soma-45": {
+    "arquivo": "/assets/questoes/med-q-soma-45.png",
+    "alt": "Tabela com os dois dados do problema: a soma dos números e a quantidade deles.",
+    "largura": 240,
+    "altura": 114
+  },
+  "med-q-quatro-pares": {
+    "arquivo": "/assets/questoes/med-q-quatro-pares.png",
+    "alt": "Gráfico de colunas com os quatro números da lista.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-ideia-faixa": {
+    "arquivo": "/assets/licoes/med-ideia-faixa.png",
+    "alt": "Gráfico de colunas com três valores e a linha tracejada da média entre o menor e o maior deles.",
+    "largura": 268,
+    "altura": 274
+  },
+  "med-res-faixa": {
+    "arquivo": "/assets/licoes/med-res-faixa.png",
+    "alt": "Gráfico de colunas com os números 4, 9 e 11.",
+    "largura": 268,
+    "altura": 274
+  },
+  "med-q-possivel": {
+    "arquivo": "/assets/questoes/med-q-possivel.png",
+    "alt": "Gráfico de colunas com os números 6, 7 e 20.",
+    "largura": 268,
+    "altura": 274
+  },
+  "med-q-cinco": {
+    "arquivo": "/assets/questoes/med-q-cinco.png",
+    "alt": "Gráfico de colunas com os cinco números da lista.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-q-qual-pode": {
+    "arquivo": "/assets/questoes/med-q-qual-pode.png",
+    "alt": "Gráfico de colunas com os números 10, 12 e 14.",
+    "largura": 268,
+    "altura": 274
+  },
+  "med-q-um-diferente": {
+    "arquivo": "/assets/questoes/med-q-um-diferente.png",
+    "alt": "Gráfico de colunas com três valores iguais e um bem maior.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-ideia-inversa": {
+    "arquivo": "/assets/licoes/med-ideia-inversa.png",
+    "alt": "Tabela relacionando média, quantidade e soma em três exemplos.",
+    "largura": 312,
+    "altura": 182
+  },
+  "med-res-falta": {
+    "arquivo": "/assets/licoes/med-res-falta.png",
+    "alt": "Tabela com as três notas já obtidas e a quarta em aberto.",
+    "largura": 240,
+    "altura": 216
+  },
+  "med-q-soma-total": {
+    "arquivo": "/assets/questoes/med-q-soma-total.png",
+    "alt": "Tabela com os dois dados do problema: a média e a quantidade de números.",
+    "largura": 240,
+    "altura": 114
+  },
+  "med-q-quarta-nota": {
+    "arquivo": "/assets/questoes/med-q-quarta-nota.png",
+    "alt": "Tabela com três notas conhecidas e a quarta em aberto.",
+    "largura": 240,
+    "altura": 216
+  },
+  "med-q-total-gols": {
+    "arquivo": "/assets/questoes/med-q-total-gols.png",
+    "alt": "Tabela com a média de gols por jogo e o número de jogos.",
+    "largura": 260,
+    "altura": 148
+  },
+  "med-q-subir": {
+    "arquivo": "/assets/questoes/med-q-subir.png",
+    "alt": "Tabela com o número de provas já feitas e a média atual.",
+    "largura": 260,
+    "altura": 148
+  },
+  "med-ideia-extremo": {
+    "arquivo": "/assets/licoes/med-ideia-extremo.png",
+    "alt": "Gráfico de colunas com os livros lidos por cinco pessoas e a linha tracejada da média.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-res-extremo": {
+    "arquivo": "/assets/licoes/med-res-extremo.png",
+    "alt": "Gráfico de colunas com os livros lidos por cinco pessoas e a linha da média em dez.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-q-extremo-media": {
+    "arquivo": "/assets/questoes/med-q-extremo-media.png",
+    "alt": "Gráfico de colunas com os livros lidos por cinco pessoas, sem a linha da média.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-q-abaixo": {
+    "arquivo": "/assets/questoes/med-q-abaixo.png",
+    "alt": "O mesmo gráfico dos livros lidos, com a linha tracejada da média em dez.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-q-porque-engana": {
+    "arquivo": "/assets/questoes/med-q-porque-engana.png",
+    "alt": "O mesmo gráfico dos livros lidos, com a linha tracejada da média em dez.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-q-sem-extremo": {
+    "arquivo": "/assets/questoes/med-q-sem-extremo.png",
+    "alt": "Gráfico de colunas com os livros lidos pelas quatro pessoas que sobraram.",
+    "largura": 336,
+    "altura": 274
+  },
+  "med-ideia-decidir": {
+    "arquivo": "/assets/licoes/med-ideia-decidir.png",
+    "alt": "Tabela relacionando o que o problema fornece com a operação a fazer.",
+    "largura": 364,
+    "altura": 182
+  },
+  "med-res-tabela": {
+    "arquivo": "/assets/licoes/med-res-tabela.png",
+    "alt": "Tabela com as quatro notas de Bia no bimestre.",
+    "largura": 240,
+    "altura": 216
+  },
+  "med-q-temperaturas": {
+    "arquivo": "/assets/questoes/med-q-temperaturas.png",
+    "alt": "Gráfico de colunas com a temperatura máxima de cada um dos cinco dias.",
+    "largura": 344,
+    "altura": 274
+  },
+  "med-q-irmaos": {
+    "arquivo": "/assets/questoes/med-q-irmaos.png",
+    "alt": "Tabela com as idades de dois irmãos e a do terceiro em aberto.",
+    "largura": 240,
+    "altura": 182
+  },
+  "med-q-campeonato": {
+    "arquivo": "/assets/questoes/med-q-campeonato.png",
+    "alt": "Tabela com a média de gols por jogo e o número de jogos do campeonato.",
+    "largura": 260,
+    "altura": 148
+  },
+  "med-q-dois-grupos": {
+    "arquivo": "/assets/questoes/med-q-dois-grupos.png",
+    "alt": "Tabela com as três notas de cada um dos dois grupos.",
+    "largura": 240,
+    "altura": 148
   }
 }

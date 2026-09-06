@@ -1,0 +1,201 @@
+{
+  "id": "enganosos",
+  "numero": 5,
+  "titulo": "Quando o gráfico engana",
+  "pergunta": "Como um gráfico pode estar certo e mentir ao mesmo tempo?",
+  "ideia": {
+    "paragrafos": [
+      "Um gráfico não precisa errar nenhum número para dar uma impressão falsa. Basta mexer no eixo. E como quase ninguém olha o eixo, o truque funciona — está em propaganda, em rede social e até em jornal.",
+      "O caso mais comum é o eixo cortado: em vez de começar no zero, ele começa em 50, em 90, no valor que der mais efeito. As colunas continuam com as alturas certas em relação às marcas, mas a comparação visual vira outra coisa.",
+      "Veja o exemplo desta lição. Numa pesquisa, o suco de uva teve 52 votos, o de laranja 56 e o de manga 54 — três resultados quase empatados. Com o eixo começando no zero, as três colunas ficam praticamente do mesmo tamanho, que é a verdade. Com o eixo começando em 50, a coluna da laranja fica TRÊS VEZES a da uva, e o empate some.",
+      "Repare no que aconteceu: os números não mudaram. A laranja continua com 4 votos a mais que a uva, e não com o triplo. O que mudou foi a régua, e a régua é que faz a altura significar alguma coisa.",
+      "A defesa é simples e cabe em três olhadas: veja onde o eixo começa, veja de quanto em quanto vão as marcas e leia os números de verdade antes de acreditar no tamanho do desenho. Se o eixo não começa no zero, a diferença entre as colunas está sendo exagerada."
+    ],
+    "destaque": "Olhe onde o eixo começa. Se não é no zero, a diferença está sendo aumentada.",
+    "imagem": "grf-ideia-corte"
+  },
+  "resolvido": {
+    "enunciado": "O gráfico abaixo traz a mesma pesquisa de sucos da figura anterior, mas com o eixo começando em 50, e não no zero. Por que ele dá outra impressão?",
+    "imagem": "grf-res-corte",
+    "passos": [
+      {
+        "titulo": "Leia os números nos dois",
+        "explicacao": "Nas duas figuras desta lição, a uva tem 52 votos, a laranja 56 e a manga 54. Nenhum valor foi alterado de uma para a outra.",
+        "conta": "52, 56, 54 nos dois"
+      },
+      {
+        "titulo": "Veja onde cada eixo começa",
+        "explicacao": "O da figura anterior parte do zero, então a altura de cada coluna representa o total de votos. Este parte de 50, então a altura representa só o que passa de 50.",
+        "conta": "0 no primeiro · 50 no segundo"
+      },
+      {
+        "titulo": "Calcule o que sobra de 50",
+        "explicacao": "É esse pedaço que o segundo gráfico desenha, e ele é minúsculo perto do total, o que faz as diferenças parecerem enormes.",
+        "conta": "2, 6 e 4 acima de 50"
+      },
+      {
+        "titulo": "Compare a impressão com o fato",
+        "explicacao": "Aqui a coluna da laranja parece o triplo da uva, porque 6 é o triplo de 2. Mas em votos a diferença é de 4 num total de 52.",
+        "conta": "56 − 52 = 4 votos"
+      }
+    ],
+    "fecho": "O gráfico cortado não mente nos números. Ele mente na régua — e é a régua que a gente lê sem perceber."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No gráfico de eixo cortado, cujas marcas vão de 50 a 56, quantos votos teve o suco de laranja? Digite apenas o número.",
+      "imagem": "grf-q-corte-ler",
+      "dica": "Siga o topo da coluna até o eixo e leia a marca, sem se deixar levar pela altura da coluna.",
+      "formato": "numero",
+      "resposta": 56,
+      "unidade": "votos",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o quanto a coluna sobe acima da base cortada, e não o total de votos. Como o eixo começa em 50, é preciso somar: 50 + 6 = 56."
+        },
+        {
+          "resposta": "54",
+          "porque": "54 é a marca imediatamente abaixo do topo da coluna. As marcas vão de dois em dois, e a coluna da laranja para na seguinte."
+        },
+        {
+          "resposta": "52",
+          "porque": "52 é a coluna da uva, a mais baixa das três. A laranja é a mais alta do gráfico."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a coluna da laranja",
+          "explicacao": "Os rótulos ficam embaixo das colunas. A da laranja é a do meio, e é a mais alta das três.",
+          "conta": "coluna do meio"
+        },
+        {
+          "titulo": "Leia no eixo cortado",
+          "explicacao": "O topo dela para na última marca desenhada, que vale 56 — e não em 6, porque o eixo já começa em 50.",
+          "conta": "56 votos"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos votos o suco de laranja teve a mais que o de uva? Digite apenas o número.",
+      "imagem": "grf-q-corte-dif",
+      "dica": "Use os valores reais, 56 e 52, e não a impressão que o gráfico cortado passa.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "votos",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é quantas vezes a coluna da laranja parece maior que a da uva no gráfico cortado. Essa impressão vem do eixo, e não dos votos: a diferença real é 56 − 52."
+        },
+        {
+          "resposta": "108",
+          "porque": "108 é a soma dos dois, 56 + 52. Quantos a mais pede subtração."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o espaço entre duas marcas do eixo. Entre 52 e 56 cabem dois desses espaços, ou seja, 4 votos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia os dois valores reais",
+          "explicacao": "Laranja com 56 votos e uva com 52, lendo as marcas do eixo e não a altura aparente.",
+          "conta": "56 e 52"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "A diferença verdadeira é pequena perto do total, mesmo que o desenho sugira o contrário.",
+          "conta": "56 − 52 = 4 votos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que o gráfico de eixo cortado faz a diferença entre os sucos parecer maior do que ela é?",
+      "imagem": "grf-q-corte-porque",
+      "dica": "Compare o ponto de partida dos dois eixos, o desta figura e o do gráfico cortado, antes de olhar para as colunas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o eixo não começa no zero" },
+        { "rotulo": "B", "texto": "Porque os votos foram contados errado" },
+        { "rotulo": "C", "texto": "Porque as colunas são mais largas" },
+        { "rotulo": "D", "texto": "Porque tem menos sucos no segundo gráfico" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os votos foram contados errado",
+          "porque": "Os votos são os mesmos nos dois gráficos: 52, 56 e 54. O engano não está nos dados, e sim na régua usada para desenhá-los."
+        },
+        {
+          "resposta": "Porque as colunas são mais largas",
+          "porque": "A largura da coluna não representa quantidade nenhuma — quem representa é a altura. Mudar a largura não muda a comparação."
+        },
+        {
+          "resposta": "Porque tem menos sucos no segundo gráfico",
+          "porque": "Os dois gráficos mostram os mesmos três sucos. Nenhuma categoria foi retirada; o que mudou foi o ponto de partida do eixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os dois eixos",
+          "explicacao": "Um começa em 0 e o outro em 50, e é essa diferença que muda tudo no desenho.",
+          "conta": "0 e 50"
+        },
+        {
+          "titulo": "Veja o que sobra da base",
+          "explicacao": "Com base em 50, as colunas passam a desenhar só 2, 6 e 4 — números pequenos e com diferenças grandes entre si.",
+          "conta": "2, 6 e 4"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Cortar o eixo aumenta a diferença aparente sem alterar um único número. É o truque mais comum em gráfico enganoso.",
+          "conta": "o eixo não começa no zero"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos votos foram dados ao todo na pesquisa dos três sucos? Digite apenas o número.",
+      "imagem": "grf-q-corte-total",
+      "dica": "Some os três valores reais lidos no eixo, e não as alturas aparentes.",
+      "formato": "numero",
+      "resposta": 162,
+      "unidade": "votos",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é a soma do que passa de 50 em cada coluna: 2 + 6 + 4. Esse é o pedaço desenhado no gráfico cortado, e não o total de votos."
+        },
+        {
+          "resposta": "56",
+          "porque": "56 é só o suco mais votado. O total soma as três categorias, porque cada pessoa votou uma vez."
+        },
+        {
+          "resposta": "108",
+          "porque": "108 é a soma de apenas dois sucos, 56 + 52. Faltou incluir a manga, com 54 votos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia os três valores",
+          "explicacao": "Uva 52, laranja 56 e manga 54, lidos no eixo com atenção à base cortada.",
+          "conta": "52, 56, 54"
+        },
+        {
+          "titulo": "Some os dois primeiros",
+          "explicacao": "Começar pelos dois maiores facilita a conta.",
+          "conta": "52 + 56 = 108"
+        },
+        {
+          "titulo": "Some o terceiro",
+          "explicacao": "O total é a soma das três categorias, e ele não depende de como o gráfico foi desenhado.",
+          "conta": "108 + 54 = 162 votos"
+        }
+      ]
+    }
+  ]
+}

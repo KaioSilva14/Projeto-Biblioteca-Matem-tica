@@ -1,0 +1,200 @@
+{
+  "id": "tempo",
+  "numero": 5,
+  "titulo": "Unidades de tempo",
+  "pergunta": "Por que 1,5 hora não é 1 hora e 50 minutos?",
+  "ideia": {
+    "paragrafos": [
+      "O tempo é a exceção da matéria, e é por isso que ele merece uma lição só. Todas as outras grandezas andam de dez em dez: comprimento, massa, capacidade. O tempo não.",
+      "Aqui os saltos são: 1 minuto = 60 segundos, 1 hora = 60 minutos, 1 dia = 24 horas. Nada de 10, nada de 1000. Essa herança vem dos babilônios, que contavam de sessenta em sessenta, e ficou.",
+      "A consequência prática é grande: não dá para andar com a vírgula. Em 2,5 metros a vírgula vira 250 centímetros direto. Mas 2,5 horas NÃO são 2 horas e 50 minutos — são 2 horas e 30 minutos, porque meia hora é metade de 60, e não metade de 100.",
+      "É o erro mais comum do assunto, e ele aparece o tempo todo: 1,5 h é 1 h 30 min; 0,25 h é 15 minutos. Quando aparecer vírgula numa medida de tempo, converta usando 60, e nunca 100.",
+      "Para transformar horas e minutos em minutos, multiplique as horas por 60 e some os minutos que sobraram. Para o caminho de volta, divida por 60: o quociente são as horas e o resto são os minutos."
+    ],
+    "destaque": "Aqui o salto é 60, e não 10. Meia hora é 30 minutos, não 50.",
+    "imagem": "gra-ideia-tempo"
+  },
+  "resolvido": {
+    "enunciado": "Quantos minutos há em 2 horas e 30 minutos?",
+    "imagem": "gra-res-tempo",
+    "passos": [
+      {
+        "titulo": "Converta as horas",
+        "explicacao": "Cada hora tem 60 minutos, e são duas horas inteiras.",
+        "conta": "2 × 60 = 120 min"
+      },
+      {
+        "titulo": "Some o que sobrou",
+        "explicacao": "Os 30 minutos já estão na unidade certa, então entram direto na soma.",
+        "conta": "120 + 30 = 150 min"
+      },
+      {
+        "titulo": "Compare com o erro comum",
+        "explicacao": "Duas horas e meia também se escreve 2,5 h. Quem tratasse a vírgula como nas outras grandezas escreveria 2 h 50 min, e erraria por 20 minutos.",
+        "conta": "2,5 h = 2 h 30 min, e não 2 h 50 min"
+      },
+      {
+        "titulo": "Confira pelo caminho de volta",
+        "explicacao": "Dividindo 150 por 60 dá 2 e sobram 30 — as duas horas e os trinta minutos do enunciado.",
+        "conta": "150 ÷ 60 = 2 resto 30 ✓"
+      }
+    ],
+    "fecho": "Sempre que houver vírgula em hora, pergunte: metade de 60 ou metade de 100? A resposta é 60."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos minutos há em 3 horas? Digite apenas o número.",
+      "imagem": "gra-q-3h",
+      "dica": "Cada hora tem 60 minutos.",
+      "formato": "numero",
+      "resposta": 180,
+      "unidade": "minutos",
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 sai de multiplicar por 100. O tempo é a exceção da matéria: aqui o fator é 60, e não 100."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 sai de multiplicar por 10. Nenhum salto do tempo vale 10 — entre hora e minuto o fator é 60."
+        },
+        {
+          "resposta": "0.05",
+          "porque": "0,05 sai de dividir por 60. O minuto é menor que a hora, então o número precisa aumentar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O fator do tempo",
+          "explicacao": "Uma hora tem sessenta minutos — não dez nem cem.",
+          "conta": "1 h = 60 min"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Três horas, cada uma com sessenta minutos.",
+          "conta": "3 × 60 = 180 min"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantas horas há em 240 minutos? Digite apenas o número.",
+      "imagem": "gra-q-240min",
+      "dica": "Caminho de volta: quantas vezes 60 cabe em 240?",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "horas",
+      "errosComuns": [
+        {
+          "resposta": "2.4",
+          "porque": "2,4 sai de dividir por 100. Entre minuto e hora o divisor é 60, e não 100 — é a exceção do tempo."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 sai de dividir por 10. Também é o número de horas de um DIA, mas essa é outra conversão."
+        },
+        {
+          "resposta": "14400",
+          "porque": "14.400 sai de multiplicar por 60. A hora é maior que o minuto, então o número precisa diminuir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido",
+          "explicacao": "Hora é maior que minuto, então o número diminui.",
+          "conta": "min → h · dividir"
+        },
+        {
+          "titulo": "Divida por 60",
+          "explicacao": "Sessenta cabe quatro vezes em duzentos e quarenta, sem sobrar resto.",
+          "conta": "240 ÷ 60 = 4 h"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos segundos há em 2 minutos? Digite apenas o número.",
+      "imagem": "gra-q-2min",
+      "dica": "O salto entre minuto e segundo é o mesmo entre hora e minuto.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "segundos",
+      "errosComuns": [
+        {
+          "resposta": "200",
+          "porque": "200 sai de multiplicar por 100. Entre minuto e segundo o fator também é 60."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 sai de multiplicar por 10. O tempo não anda de dez em dez em nenhum degrau."
+        },
+        {
+          "resposta": "3600",
+          "porque": "3.600 é o número de segundos de uma HORA: 60 × 60. Aqui são dois minutos, e não uma hora."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O fator",
+          "explicacao": "Um minuto tem sessenta segundos — o mesmo salto que existe entre hora e minuto.",
+          "conta": "1 min = 60 s"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Dois minutos, cada um com sessenta segundos.",
+          "conta": "2 × 60 = 120 s"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma aula começa às 8h15 e termina às 9h50. Quantos minutos ela dura? Digite apenas o número.",
+      "imagem": "gra-q-aula",
+      "dica": "Conte quanto falta para fechar a hora cheia e depois some o que passou dela.",
+      "formato": "numero",
+      "resposta": 95,
+      "unidade": "minutos",
+      "errosComuns": [
+        {
+          "resposta": "135",
+          "porque": "135 sai de subtrair 9h50 menos 8h15 tratando os números como decimais: 950 − 815. Como o tempo anda de sessenta em sessenta, a subtração direta dos algarismos não funciona."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é a diferença só entre os minutos: 50 − 15. Falta contar a hora inteira que passou entre 8h e 9h."
+        },
+        {
+          "resposta": "1.35",
+          "porque": "1,35 seria 'uma hora e trinta e cinco' escrito com vírgula, o que confunde: 1,35 h na verdade valeria 81 minutos. A duração certa é 1 h 35 min, ou 95 minutos."
+        },
+        {
+          "resposta": "155",
+          "porque": "155 sai de somar 60 + 95 ou de contar uma hora a mais. Entre 8h15 e 9h50 passa uma hora inteira e mais 35 minutos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Feche a hora primeiro",
+          "explicacao": "De 8h15 até 9h15 passa exatamente uma hora, que são 60 minutos.",
+          "conta": "8h15 → 9h15 = 60 min"
+        },
+        {
+          "titulo": "Conte o que sobrou",
+          "explicacao": "De 9h15 até 9h50 são mais trinta e cinco minutos.",
+          "conta": "9h15 → 9h50 = 35 min"
+        },
+        {
+          "titulo": "Some as duas partes",
+          "explicacao": "A duração total é a hora cheia mais os minutos que sobraram.",
+          "conta": "60 + 35 = 95 min"
+        },
+        {
+          "titulo": "Confira em horas e minutos",
+          "explicacao": "Noventa e cinco minutos dividido por 60 dá 1 e sobram 35 — ou seja, 1 h 35 min, que é o intervalo entre os dois horários.",
+          "conta": "95 ÷ 60 = 1 resto 35 ✓"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas com média",
+  "pergunta": "Como decidir, no meio do problema, o que a média resolve?",
+  "ideia": {
+    "paragrafos": [
+      "Fora da lista de exercícios, ninguém avisa qual conta usar. O que aparece é uma tabela de notas, uma sequência de temperaturas, um grupo de idades — e uma pergunta. Decidir o que fazer é parte do trabalho.",
+      "Três perguntas resolvem a maioria dos casos. Se o enunciado dá todos os valores e pede o resumo, é média direta: some e divida. Se dá a média e pede o total, é multiplicação. Se dá a média e quase todos os valores, é o valor que falta: multiplique, some o que tem, subtraia.",
+      "Vale sempre reler qual é a quantidade. Num problema com quatro provas e três notas conhecidas, a quantidade é 4, e não 3 — o erro de dividir pelo que se conhece, e não pelo que existe, é o mais comum de todos.",
+      "E vale conferir a faixa no fim. Se a média deu abaixo do menor valor ou acima do maior, algum passo saiu errado, e é mais rápido refazer do que procurar o engano.",
+      "Por fim, lembre da lição anterior: dois grupos bem diferentes podem ter exatamente a mesma média. Quando a pergunta é sobre como as pessoas se distribuem, e não sobre o resumo, a média sozinha não responde."
+    ],
+    "destaque": "Todos os valores e quer o resumo? Divida. Tem a média e quer o total? Multiplique.",
+    "imagem": "med-ideia-decidir"
+  },
+  "resolvido": {
+    "enunciado": "A tabela mostra as notas de Bia em quatro provas: 6, 9, 7 e 10. Qual foi a média do bimestre dela?",
+    "imagem": "med-res-tabela",
+    "passos": [
+      {
+        "titulo": "Veja o que o problema dá",
+        "explicacao": "Ele dá todas as quatro notas e pede o resumo delas, então é o caso da média direta: somar e dividir.",
+        "conta": "4 notas, pede a média"
+      },
+      {
+        "titulo": "Some as notas",
+        "explicacao": "Somar em pares ajuda: 6 com 10 dá 16, e 9 com 7 dá outros 16.",
+        "conta": "16 + 16 = 32"
+      },
+      {
+        "titulo": "Divida pela quantidade de provas",
+        "explicacao": "São quatro provas, todas com o mesmo peso.",
+        "conta": "32 ÷ 4 = 8"
+      },
+      {
+        "titulo": "Confira a faixa",
+        "explicacao": "As notas foram de 6 a 10, e a média deu 8, dentro dessa faixa. O resultado é possível.",
+        "conta": "6 < 8 < 10 ✓"
+      }
+    ],
+    "fecho": "Ler o que o problema dá antes de escolher a conta poupa quase todo o retrabalho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As temperaturas máximas de cinco dias foram 24, 22, 26, 23 e 25 graus. Qual foi a média? Digite apenas o número.",
+      "imagem": "med-q-temperaturas",
+      "dica": "Todos os valores estão dados e a pergunta pede o resumo: some e divida pela quantidade de dias.",
+      "formato": "numero",
+      "resposta": 24,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "120",
+          "porque": "120 é a soma das cinco temperaturas. Ela é o primeiro passo, e ainda falta repartir pelos cinco dias."
+        },
+        {
+          "resposta": "26",
+          "porque": "26 é a maior temperatura da lista. A média fica entre a menor e a maior, e aqui caiu bem no meio da faixa."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a quantidade de dias, que é por quanto se divide. O resultado da divisão é outro número."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as cinco",
+          "explicacao": "Vinte e quatro com vinte e dois dá quarenta e seis; mais vinte e seis dá setenta e dois; mais vinte e três dá noventa e cinco; mais vinte e cinco dá cento e vinte.",
+          "conta": "24 + 22 + 26 + 23 + 25 = 120"
+        },
+        {
+          "titulo": "Divida por cinco",
+          "explicacao": "Foram cinco dias medidos, todos contando igual.",
+          "conta": "120 ÷ 5 = 24 graus"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A média das idades de três irmãos é 12 anos. Dois deles têm 9 e 11 anos. Qual é a idade do terceiro? Digite apenas o número.",
+      "imagem": "med-q-irmaos",
+      "dica": "Ache primeiro a soma das três idades e depois desconte as duas que você já sabe.",
+      "formato": "numero",
+      "resposta": 16,
+      "unidade": "anos",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é a soma das duas idades conhecidas. Ela é um passo do caminho: falta subtraí-la do total de 36 anos."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é a soma das TRÊS idades, achada multiplicando a média por três. A idade que falta é o que resta depois de tirar as outras duas."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a média das três idades, e não a idade de nenhum dos irmãos em particular. Aqui ela é o dado do problema, não a resposta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a soma das idades",
+          "explicacao": "A média multiplicada pela quantidade de irmãos devolve o total de anos.",
+          "conta": "12 × 3 = 36"
+        },
+        {
+          "titulo": "Some as duas conhecidas",
+          "explicacao": "Junte as idades que o enunciado deu: nove mais onze dá vinte anos.",
+          "conta": "9 + 11 = 20"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O que falta para completar o total é a idade do terceiro irmão.",
+          "conta": "36 − 20 = 16 anos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num campeonato, um time fez média de 2 gols por jogo em 9 jogos. Quantos gols ele fez ao todo? Digite apenas o número.",
+      "imagem": "med-q-campeonato",
+      "dica": "O problema dá a média e pede o total: essa é a hora de multiplicar.",
+      "formato": "numero",
+      "resposta": 18,
+      "unidade": "gols",
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 soma a média com o número de jogos. Elas se relacionam por multiplicação: cada jogo contribui, em média, com 2 gols."
+        },
+        {
+          "resposta": "4.5",
+          "porque": "4,5 sai de dividir 9 por 2. A divisão é o caminho que parte do total para achar a média; aqui o total é o que se procura."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o número de jogos. Como o time fez, em média, 2 gols em cada um, o total é bem maior que isso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o caso",
+          "explicacao": "O problema dá a média e a quantidade, e pede o total. É o problema inverso da lição 4.",
+          "conta": "média 2 · 9 jogos"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "A média vezes a quantidade recompõe a soma original.",
+          "conta": "2 × 9 = 18 gols"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O grupo A tirou 5, 5 e 5. O grupo B tirou 1, 5 e 9. O que se pode afirmar?",
+      "imagem": "med-q-dois-grupos",
+      "dica": "Calcule a média dos dois antes de comparar, e depois olhe como os valores se espalham em cada um.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os dois grupos têm média 5, mas notas bem diferentes" },
+        { "rotulo": "B", "texto": "O grupo B tem média maior, porque tem o 9" },
+        { "rotulo": "C", "texto": "O grupo A tem média maior, porque é mais parelho" },
+        { "rotulo": "D", "texto": "Não dá para comparar grupos diferentes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O grupo B tem média maior, porque tem o 9",
+          "porque": "O 9 é compensado pelo 1: a soma do grupo B é 15, igual à do A, e as duas médias dão 5. Ter o maior valor não garante a maior média."
+        },
+        {
+          "resposta": "O grupo A tem média maior, porque é mais parelho",
+          "porque": "Ser parelho não muda a média — muda só o quanto ela representa o grupo. As duas médias são iguais a 5."
+        },
+        {
+          "resposta": "Não dá para comparar grupos diferentes",
+          "porque": "Dá sim: os dois têm três notas cada, e a média resume os dois do mesmo jeito. O que a média não conta é como as notas se espalham dentro de cada grupo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Média do grupo A",
+          "explicacao": "As três notas iguais somam quinze, e a média volta a ser o próprio valor.",
+          "conta": "15 ÷ 3 = 5"
+        },
+        {
+          "titulo": "Média do grupo B",
+          "explicacao": "Um mais cinco mais nove também dá quinze, e a divisão é pela mesma quantidade.",
+          "conta": "15 ÷ 3 = 5"
+        },
+        {
+          "titulo": "Compare os grupos",
+          "explicacao": "As médias são iguais, mas o grupo B vai de 1 a 9 e o A não sai do 5. É a distribuição que a média não mostra.",
+          "conta": "mesma média, grupos diferentes"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas com mapas",
+  "pergunta": "Quantas quadras se anda de um endereço até o outro?",
+  "ideia": {
+    "paragrafos": [
+      "O plano cartesiano não nasceu como exercício de escola: ele é a ideia por trás de todo mapa com endereço. Uma cidade de ruas em quadras é um plano cartesiano disfarçado — cada esquina é um par de números.",
+      "Num mapa desses, ir de um ponto a outro quase nunca é uma linha reta. Anda-se pelas ruas: um trecho na horizontal e outro na vertical. E é justamente isso que as coordenadas contam bem.",
+      "Da escola em (2, 5) até a casa em (6, 2), o deslocamento horizontal é 6 − 2 = 4 quadras, e o vertical é 5 − 2 = 3 quadras. O caminho pelas ruas tem 4 + 3 = 7 quadras.",
+      "Repare que a ordem em que se anda não muda o total. Quatro para o lado e três para baixo, ou três para baixo e quatro para o lado: dá 7 dos dois jeitos. Qualquer caminho que só avance na direção certa tem esse mesmo comprimento — por isso o aplicativo de mapas costuma oferecer rotas diferentes com a mesma distância.",
+      "Vale reforçar o que a lição anterior deixou pendente: 7 é o caminho PELAS RUAS. A distância em linha reta, cortando por dentro do quarteirão, é menor, e calculá-la depende de uma ferramenta do 8º ano."
+    ],
+    "destaque": "Num mapa de quadras, o caminho é a soma dos dois deslocamentos.",
+    "imagem": "pla-ideia-mapa"
+  },
+  "resolvido": {
+    "enunciado": "No mapa, a escola fica na esquina (2, 5) e a casa de Lia na esquina (6, 2). Andando só pelas ruas, quantas quadras Lia percorre da escola até em casa?",
+    "imagem": "pla-res-mapa",
+    "passos": [
+      {
+        "titulo": "Deslocamento horizontal",
+        "explicacao": "Compare os dois valores de x para saber quantas quadras ela anda para o lado.",
+        "conta": "6 − 2 = 4 quadras"
+      },
+      {
+        "titulo": "Deslocamento vertical",
+        "explicacao": "Agora compare os y. A escola está mais alta, então ela desce essa diferença.",
+        "conta": "5 − 2 = 3 quadras"
+      },
+      {
+        "titulo": "Some os dois trechos",
+        "explicacao": "O caminho pelas ruas é um trecho na horizontal mais um na vertical.",
+        "conta": "4 + 3 = 7 quadras"
+      },
+      {
+        "titulo": "A ordem não muda o total",
+        "explicacao": "Descer primeiro e depois andar para o lado dá exatamente as mesmas 7 quadras. Muda o trajeto, não o comprimento.",
+        "conta": "3 + 4 = 7 quadras"
+      }
+    ],
+    "fecho": "Sete quadras é o caminho pelas ruas. Cortando em linha reta seria menos — e essa conta chega no 8º ano."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No mapa, a escola está em (2, 5) e a casa de Lia em (6, 2). Quantas quadras ela anda na HORIZONTAL? Digite apenas o número.",
+      "imagem": "pla-q-mapa-h",
+      "dica": "O deslocamento horizontal sai da diferença entre os dois valores de x.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "quadras",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o deslocamento VERTICAL, dado pela diferença dos y: 5 − 2. O horizontal usa os primeiros números de cada par."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o caminho inteiro, somando os dois trechos. A questão pede só o pedaço horizontal."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é a soma 6 + 2 dos dois valores de x. Deslocamento é a diferença entre eles, e não a soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe os x",
+          "explicacao": "A escola tem x = 2 e a casa tem x = 6.",
+          "conta": "x: 2 e 6"
+        },
+        {
+          "titulo": "Diferença",
+          "explicacao": "Maior menos menor, porque quadra andada não é negativa.",
+          "conta": "6 − 2 = 4 quadras"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ainda no mesmo mapa, da escola em (2, 5) até a casa em (6, 2), quantas quadras Lia percorre ao todo, andando só pelas ruas? Digite apenas o número.",
+      "imagem": "pla-q-mapa-total",
+      "dica": "Some o trecho horizontal com o vertical.",
+      "formato": "numero",
+      "resposta": 7,
+      "unidade": "quadras",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é só o trecho horizontal. Depois de andar para o lado, ainda faltam 3 quadras para descer até a casa."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é 4 × 3, o produto dos dois deslocamentos. Multiplicar daria a área do retângulo entre os dois pontos; o caminho é a soma."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a distância em linha reta, cortando por dentro do quarteirão. Como Lia anda pelas ruas, o caminho dela é maior: 4 + 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Trecho horizontal",
+          "explicacao": "Quantas quadras ela anda para o lado: a diferença entre os dois valores de x.",
+          "conta": "6 − 2 = 4"
+        },
+        {
+          "titulo": "Trecho vertical",
+          "explicacao": "Quantas quadras ela desce: a diferença entre os dois valores de y.",
+          "conta": "5 − 2 = 3"
+        },
+        {
+          "titulo": "Some os dois trechos",
+          "explicacao": "O caminho pelas ruas é a soma dos dois trechos, em qualquer ordem que ela ande.",
+          "conta": "4 + 3 = 7 quadras"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A escola fica em (2, 5). A praça fica 3 quadras à direita e 1 quadra acima da escola. Qual é a coordenada da praça?",
+      "imagem": "pla-q-praca",
+      "dica": "Andar para a direita muda o primeiro número; subir muda o segundo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(5, 6)" },
+        { "rotulo": "B", "texto": "(3, 1)" },
+        { "rotulo": "C", "texto": "(6, 5)" },
+        { "rotulo": "D", "texto": "(5, 4)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(3, 1)",
+          "porque": "(3, 1) é o deslocamento, e não o endereço. Os 3 e o 1 dizem quanto ANDAR a partir da escola — é preciso somá-los às coordenadas dela."
+        },
+        {
+          "resposta": "(6, 5)",
+          "porque": "As duas coordenadas estão trocadas de papel: 2 + 3 = 5 na horizontal e 5 + 1 = 6 na vertical. O par certo é (5, 6)."
+        },
+        {
+          "resposta": "(5, 4)",
+          "porque": "A horizontal está certa, mas a praça está ACIMA da escola, então o y aumenta: 5 + 1 = 6. Subtrair levaria para baixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Parta do endereço da escola",
+          "explicacao": "O ponto de partida é o endereço da escola, que o enunciado dá como (2, 5).",
+          "conta": "(2, 5)"
+        },
+        {
+          "titulo": "Ande para a direita",
+          "explicacao": "Três quadras à direita aumentam o primeiro número.",
+          "conta": "2 + 3 = 5"
+        },
+        {
+          "titulo": "Suba uma quadra",
+          "explicacao": "Uma quadra acima aumenta o segundo número.",
+          "conta": "5 + 1 = 6"
+        },
+        {
+          "titulo": "Monte o par",
+          "explicacao": "Horizontal primeiro, vertical depois.",
+          "conta": "praça = (5, 6)"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A escola fica em (2, 5). Qual destes lugares está na MESMA rua horizontal que a escola?",
+      "imagem": "pla-q-mesma-rua",
+      "dica": "Dois lugares estão na mesma rua horizontal quando têm a mesma altura.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Padaria, em (6, 5)" },
+        { "rotulo": "B", "texto": "Casa, em (2, 1)" },
+        { "rotulo": "C", "texto": "Mercado, em (5, 2)" },
+        { "rotulo": "D", "texto": "Praça, em (5, 6)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Casa, em (2, 1)",
+          "porque": "A casa compartilha o x com a escola, então elas estão na mesma rua VERTICAL, uma acima da outra. A rua horizontal é a das alturas iguais."
+        },
+        {
+          "resposta": "Mercado, em (5, 2)",
+          "porque": "O mercado não repete nenhuma das duas coordenadas da escola: nem o x nem o y. Ele está numa esquina totalmente diferente."
+        },
+        {
+          "resposta": "Praça, em (5, 6)",
+          "porque": "A praça está uma quadra acima da altura da escola: o y dela é 6, e não 5. Perto não é o mesmo que na mesma rua."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que define a mesma rua horizontal",
+          "explicacao": "Estar na mesma altura, ou seja, ter o mesmo valor de y.",
+          "conta": "escola: y = 5"
+        },
+        {
+          "titulo": "Procure o y igual a 5",
+          "explicacao": "Entre as opções, só a padaria tem 5 como segundo número.",
+          "conta": "padaria = (6, 5)"
+        },
+        {
+          "titulo": "Confira a distância",
+          "explicacao": "Como estão na mesma rua, a distância entre elas é a diferença dos x.",
+          "conta": "6 − 2 = 4 quadras"
+        }
+      ]
+    }
+  ]
+}

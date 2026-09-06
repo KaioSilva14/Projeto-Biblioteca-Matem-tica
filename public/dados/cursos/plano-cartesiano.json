@@ -1,0 +1,41 @@
+{
+  "id": "plano-cartesiano",
+  "titulo": "Plano cartesiano",
+  "ano": 6,
+  "descricao": "Dois números que localizam um ponto — e por que a ordem deles muda tudo. Seis lições que vão da leitura de um par ordenado até medir figuras e contar quadras num mapa, que é onde essa ideia realmente vive fora da escola.",
+  "pergunta": "Por que um número só não basta para dizer onde uma coisa está?",
+  "videos": [
+    {
+      "id": "EAeTBeEHSD4",
+      "titulo": "PLANO CARTESIANO  | Aprenda de uma forma diferente \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Apresenta os eixos, a origem e o par ordenado com bastante calma no quadro. Vale como reforço da lição 1, para quem quiser ver a montagem do plano do zero."
+    },
+    {
+      "id": "-4J55d39QOg",
+      "titulo": "Plano Cartesiano - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Uma segunda explicação da mesma ideia, com outra didática. Útil depois da lição 2, se a leitura de um ponto ainda estiver confusa."
+    },
+    {
+      "id": "Kpn82kN5zHE",
+      "titulo": "PLANO CARTESIANO - APRENDA COM EXERCÍCIOS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Uma lista de exercícios resolvidos passo a passo. Bom para treinar mais depois da lição 3, quando marcar e ler pontos já estiver dominado."
+    },
+    {
+      "id": "qySmGYTlbMs",
+      "titulo": "Plano cartesiano",
+      "canal": "Matemática no Papel",
+      "descricao": "Aula curta e direta, sem rodeios. Serve como revisão rápida antes das lições 5 e 6, que usam o plano para medir figuras e contar quadras."
+    }
+  ],
+  "licoes": [
+    { "id": "localizar", "arquivo": "/dados/licoes/plano-cartesiano/localizar.json" },
+    { "id": "ler-marcar", "arquivo": "/dados/licoes/plano-cartesiano/ler-marcar.json" },
+    { "id": "ordem-importa", "arquivo": "/dados/licoes/plano-cartesiano/ordem-importa.json" },
+    { "id": "distancias", "arquivo": "/dados/licoes/plano-cartesiano/distancias.json" },
+    { "id": "figuras", "arquivo": "/dados/licoes/plano-cartesiano/figuras.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/plano-cartesiano/problemas.json" }
+  ]
+}

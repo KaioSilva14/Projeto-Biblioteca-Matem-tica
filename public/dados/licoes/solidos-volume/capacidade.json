@@ -1,0 +1,200 @@
+{
+  "id": "capacidade",
+  "numero": 6,
+  "titulo": "Volume e capacidade",
+  "pergunta": "Quantos litros cabem numa caixa de 20 por 10 por 5 centímetros?",
+  "ideia": {
+    "paragrafos": [
+      "Volume e capacidade medem quase a mesma coisa por caminhos diferentes. Volume é o espaço que o sólido ocupa, medido em centímetros cúbicos. Capacidade é quanto líquido cabe dentro dele, medida em litros e mililitros. E existe uma ponte exata entre as duas.",
+      "A ponte é esta: 1 litro é exatamente o que cabe num cubo de 10 cm de aresta. Esse cubo tem 10 × 10 × 10 = 1000 cm³. Então 1 L = 1000 cm³ — e, como 1 L também é 1000 mL, cada mililitro corresponde a exatamente 1 cm³.",
+      "Guardar essas duas equivalências resolve quase todo problema do assunto: 1 mL = 1 cm³ e 1 L = 1000 cm³. Com elas, dá para responder em litros uma pergunta que veio em centímetros, e vice-versa.",
+      "Um cubo de 10 cm de aresta também se chama decímetro cúbico, escrito 1 dm³, porque 10 cm são 1 dm. Então as três escritas — 1 L, 1 dm³ e 1000 cm³ — são o mesmo tamanho de espaço, com nomes diferentes.",
+      "Na prática, o caminho é sempre o mesmo: calcule o volume em centímetros cúbicos e converta no fim. Uma caixa de 20 × 10 × 5 tem 1000 cm³, ou seja, exatamente 1 litro — mesmo tendo formato bem diferente de um cubo."
+    ],
+    "destaque": "1 mL é 1 cm³. E 1 litro é o cubo de 10 cm de aresta: 1000 cm³.",
+    "imagem": "sol-ideia-capacidade"
+  },
+  "resolvido": {
+    "enunciado": "Uma caixa mede 20 cm por 10 cm por 5 cm. Quantos litros de água cabem dentro dela?",
+    "imagem": "sol-res-capacidade",
+    "passos": [
+      {
+        "titulo": "Calcule o volume primeiro",
+        "explicacao": "Antes de pensar em litros, ache quantos centímetros cúbicos a caixa tem. Multiplique as três medidas.",
+        "conta": "20 × 10 × 5"
+      },
+      {
+        "titulo": "Faça por etapas",
+        "explicacao": "Vinte por dez dá a área da base; multiplicando pela altura, sai o volume.",
+        "conta": "20 × 10 = 200 · 200 × 5 = 1 000 cm³"
+      },
+      {
+        "titulo": "Use a ponte",
+        "explicacao": "Mil centímetros cúbicos é exatamente um litro — o mesmo espaço de um cubo de 10 cm de aresta, ainda que o formato desta caixa seja outro.",
+        "conta": "1 000 cm³ = 1 L"
+      },
+      {
+        "titulo": "O formato não importa",
+        "explicacao": "Um cubo de 10 × 10 × 10 e esta caixa de 20 × 10 × 5 têm formatos bem diferentes e o mesmo volume. Capacidade mede espaço, não formato.",
+        "conta": "10 × 10 × 10 = 20 × 10 × 5 = 1 000"
+      }
+    ],
+    "fecho": "Calcule sempre em centímetros cúbicos e converta no fim. Tentar trabalhar em litros no meio da conta só atrapalha."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos mililitros há em 2 litros? Digite apenas o número.",
+      "imagem": "sol-q-cap-2l",
+      "dica": "Um litro tem mil mililitros.",
+      "formato": "numero",
+      "resposta": 2000,
+      "unidade": "mL",
+      "errosComuns": [
+        {
+          "resposta": "200",
+          "porque": "200 sai de multiplicar por 100. Entre litro e mililitro o fator é 1000, não 100 — o prefixo 'mili' significa milésima parte."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 sai de multiplicar por 10. O mililitro é mil vezes menor que o litro, então o número precisa crescer mil vezes."
+        },
+        {
+          "resposta": "0.002",
+          "porque": "0,002 sai de dividir por 1000. Indo de uma unidade grande para uma pequena o número AUMENTA, porque cabem mais pedaços pequenos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual é o fator",
+          "explicacao": "O prefixo 'mili' quer dizer milésima parte, então cada litro comporta mil mililitros.",
+          "conta": "1 L = 1 000 mL"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Indo do litro para o mililitro o número cresce, porque a unidade ficou menor.",
+          "conta": "2 × 1 000 = 2 000 mL"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um cubo tem 10 cm de aresta. Quantos litros cabem dentro dele? Digite apenas o número.",
+      "imagem": "sol-q-cap-cubo",
+      "dica": "Calcule o volume em centímetros cúbicos e use a ponte com o litro.",
+      "formato": "numero",
+      "resposta": 1,
+      "unidade": "litro",
+      "errosComuns": [
+        {
+          "resposta": "1000",
+          "porque": "1.000 é o volume em CENTÍMETROS CÚBICOS, que está certo. Falta o último passo: converter para litros, e mil centímetros cúbicos são um litro só."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é 10 × 10, a área de uma face do cubo, em centímetros quadrados. Falta a terceira medida para chegar ao volume."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 cm é a medida da aresta. Volume é o produto das três dimensões, e não uma delas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volume em centímetros cúbicos",
+          "explicacao": "As três medidas do cubo são iguais a 10 cm.",
+          "conta": "10 × 10 × 10 = 1 000 cm³"
+        },
+        {
+          "titulo": "Converta",
+          "explicacao": "Este cubo é justamente o que define o litro: mil centímetros cúbicos.",
+          "conta": "1 000 cm³ = 1 L"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma garrafa contém 500 mL de suco. A quantos centímetros cúbicos isso corresponde? Digite apenas o número.",
+      "imagem": "sol-q-cap-500",
+      "dica": "A conversão entre mililitro e centímetro cúbico é a mais simples de todas.",
+      "formato": "numero",
+      "resposta": 500,
+      "unidade": "cm³",
+      "errosComuns": [
+        {
+          "resposta": "0.5",
+          "porque": "0,5 é o valor em LITROS, e não em centímetros cúbicos. A pergunta pede cm³, e cada mililitro vale exatamente 1 cm³."
+        },
+        {
+          "resposta": "500000",
+          "porque": "500.000 sai de multiplicar por 1000. Esse fator vale entre litro e mililitro; entre mililitro e centímetro cúbico o fator é 1."
+        },
+        {
+          "resposta": "5000",
+          "porque": "5.000 sai de multiplicar por 10. Mililitro e centímetro cúbico são exatamente o mesmo tamanho, então o número não muda."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A equivalência",
+          "explicacao": "Um mililitro é a milésima parte do litro, e o litro tem 1000 cm³. Então cada mililitro vale exatamente um centímetro cúbico.",
+          "conta": "1 mL = 1 cm³"
+        },
+        {
+          "titulo": "Converta",
+          "explicacao": "Como o fator é 1, o número simplesmente não muda — só o nome da unidade.",
+          "conta": "500 mL = 500 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um aquário tem 40 cm de comprimento, 20 cm de largura e 25 cm de altura. Quantos litros de água cabem nele? Digite apenas o número.",
+      "imagem": "sol-q-cap-aquario",
+      "dica": "Volume em centímetros cúbicos primeiro. Depois divida por 1000.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "litros",
+      "errosComuns": [
+        {
+          "resposta": "20000",
+          "porque": "20.000 é o volume em CENTÍMETROS CÚBICOS, que está certo. Falta dividir por 1000 para responder em litros."
+        },
+        {
+          "resposta": "800",
+          "porque": "800 é 40 × 20, a área da base em centímetros quadrados. Falta multiplicar pelos 25 cm de altura."
+        },
+        {
+          "resposta": "85",
+          "porque": "85 é 40 + 20 + 25, somando as três medidas. Volume é o produto delas."
+        },
+        {
+          "resposta": "2000",
+          "porque": "2.000 sai de dividir os 20.000 cm³ por 10 em vez de por 1000. Cada litro comporta mil centímetros cúbicos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "Quarenta por vinte dá quantos centímetros quadrados cobrem o fundo do aquário — é a camada de baixo.",
+          "conta": "40 × 20 = 800 cm²"
+        },
+        {
+          "titulo": "Volume",
+          "explicacao": "Vinte e cinco camadas de oitocentos centímetros cúbicos cada.",
+          "conta": "800 × 25 = 20 000 cm³"
+        },
+        {
+          "titulo": "Converta para litros",
+          "explicacao": "Cada mil centímetros cúbicos é um litro.",
+          "conta": "20 000 ÷ 1 000 = 20 L"
+        },
+        {
+          "titulo": "Faz sentido?",
+          "explicacao": "Vinte litros é cerca de dois baldes cheios — plausível para um aquário desse tamanho. Se tivesse dado 20.000 litros, daria para desconfiar na hora.",
+          "conta": "20 L"
+        }
+      ]
+    }
+  ]
+}

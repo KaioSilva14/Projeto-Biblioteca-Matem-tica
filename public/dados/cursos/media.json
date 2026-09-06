@@ -1,0 +1,41 @@
+{
+  "id": "media",
+  "titulo": "Média aritmética",
+  "ano": 6,
+  "descricao": "O número que representa um conjunto — e quando ele mente. Seis lições que vão de repartir figurinhas igualmente até o problema inverso das notas, passando pelo caso em que um único valor distante puxa a média e ela deixa de descrever o grupo.",
+  "pergunta": "Qual número representa um grupo inteiro?",
+  "videos": [
+    {
+      "id": "ZMFo1lLFTc8",
+      "titulo": "Média Aritmética Simples - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Explica o cálculo com calma e vários exemplos escolares. Vale como reforço das lições 1 e 2, para quem ainda erra por quanto dividir."
+    },
+    {
+      "id": "wMjNqebDLu4",
+      "titulo": "MÉDIA ARITMÉTICA SIMPLES | MEDIANA E MODA |  \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Vai além do site e apresenta a mediana e a moda, dois outros resumos de conjunto. É a continuação natural da lição 5, sobre o que a média não conta."
+    },
+    {
+      "id": "mNcTQ0SVDZg",
+      "titulo": "MÉDIA ARITMÉTICA - EXERCÍCIOS RESOLVIDOS - PARTE 1",
+      "canal": "Saber Matemática",
+      "descricao": "Uma lista inteira de exercícios resolvidos passo a passo. Bom para treinar mais depois da lição 4, que é a das contas invertidas."
+    },
+    {
+      "id": "2sRWaVJh7_o",
+      "titulo": "Matemática Básica - Aula 31 - Média Aritmética",
+      "canal": "Professor Ferretto | ENEM e Vestibulares",
+      "descricao": "Aula pensada para o vestibular, então o nível é bem acima do 6º ano. Serve para quem terminou a matéria e quer ver até onde esse assunto vai."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/media/o-que-e.json" },
+    { "id": "calcular", "arquivo": "/dados/licoes/media/calcular.json" },
+    { "id": "entre-extremos", "arquivo": "/dados/licoes/media/entre-extremos.json" },
+    { "id": "com-media", "arquivo": "/dados/licoes/media/com-media.json" },
+    { "id": "quando-mente", "arquivo": "/dados/licoes/media/quando-mente.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/media/problemas.json" }
+  ]
+}

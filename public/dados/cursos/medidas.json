@@ -1,0 +1,41 @@
+{
+  "id": "medidas",
+  "titulo": "Grandezas e medidas",
+  "ano": 6,
+  "descricao": "Comprimento, massa, capacidade e tempo — e como trocar de unidade sem errar a casa. Seis lições que organizam as escadas de conversão e dedicam uma inteira à exceção da matéria: o tempo, que anda de sessenta em sessenta e não de dez em dez.",
+  "pergunta": "Por que ninguém mede a distância entre cidades em centímetros?",
+  "videos": [
+    {
+      "id": "ZyUvMK-vQdg",
+      "titulo": "Conversão de Unidades de Medida de Comprimento - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Percorre a escada do comprimento degrau por degrau. Bom depois da lição 2, se o sentido da conversão ainda estiver escapando."
+    },
+    {
+      "id": "ckKKOzX8QwU",
+      "titulo": "Conversão de Unidades de Medida de Massa - Vivendo a Matemática - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "A mesma escada aplicada à massa, com exemplos de balança. Complementa a lição 3."
+    },
+    {
+      "id": "I5vAo9hSdS0",
+      "titulo": "Medidas de Tempo - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Trata a exceção do assunto: por que o tempo anda de sessenta em sessenta. Vale ver depois da lição 5, junto com o erro de tratar 1,5 h como 1 h 50 min."
+    },
+    {
+      "id": "krZgRoJsV_A",
+      "titulo": "Aula COMPLETA sobre MEDIDAS DE MASSA - definição, unidades, conversão, EXERCÍCIOS - 6º Ano - AULA 85",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Uma aula inteira de massa, da definição aos exercícios. É repetição deliberada, para treinar mais antes das questões da lição 3."
+    }
+  ],
+  "licoes": [
+    { "id": "medir", "arquivo": "/dados/licoes/medidas/medir.json" },
+    { "id": "comprimento", "arquivo": "/dados/licoes/medidas/comprimento.json" },
+    { "id": "massa", "arquivo": "/dados/licoes/medidas/massa.json" },
+    { "id": "capacidade", "arquivo": "/dados/licoes/medidas/capacidade.json" },
+    { "id": "tempo", "arquivo": "/dados/licoes/medidas/tempo.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/medidas/problemas.json" }
+  ]
+}

@@ -72,31 +72,36 @@
           "id": "solidos-volume",
           "titulo": "Sólidos e volume",
           "resumo": "Do plano para o espaço: cubos, blocos e quanto cabe dentro.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/solidos-volume.json"
         },
         {
           "id": "medidas",
           "titulo": "Grandezas e medidas",
           "resumo": "Comprimento, massa, capacidade e tempo — e como trocar de unidade.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/medidas.json"
         },
         {
           "id": "plano-cartesiano",
           "titulo": "Plano cartesiano",
           "resumo": "Dois números que localizam qualquer ponto.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/plano-cartesiano.json"
         },
         {
           "id": "graficos-tabelas",
           "titulo": "Gráficos e tabelas",
           "resumo": "Ler dados sem ser enganado por eles.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/graficos-tabelas.json"
         },
         {
           "id": "media",
           "titulo": "Média aritmética",
           "resumo": "O número que representa um conjunto — e quando ele mente.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/media.json"
         }
       ]
     },

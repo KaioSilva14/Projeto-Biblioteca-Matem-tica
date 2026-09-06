@@ -1,0 +1,213 @@
+{
+  "id": "solidos",
+  "numero": 1,
+  "titulo": "Sólidos geométricos",
+  "pergunta": "O que muda quando a figura sai do papel?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui todas as figuras eram planas: cabiam inteiras numa folha. Agora entram as que ocupam espaço — a caixa, a lata, a bola. Elas se chamam sólidos geométricos, e o primeiro corte é entre dois grupos.",
+      "Poliedros são os sólidos feitos SÓ de faces planas, todas polígonos. O cubo, a caixa de sapato, a pirâmide. Não poliedros são os que têm alguma superfície curva: o cilindro, o cone e a esfera. É a mesma exigência dos polígonos, um andar acima — lá o contorno tinha que ser reto, aqui as faces têm que ser planas.",
+      "Todo poliedro tem três elementos, e vale saber o nome de cada um. As faces são as superfícies planas que fecham o sólido. As arestas são os segmentos onde duas faces se encontram. Os vértices são os pontos onde as arestas se encontram — os 'bicos' do sólido.",
+      "Num cubo, por exemplo, são 6 faces (todas quadradas), 12 arestas e 8 vértices. Vale conferir contando no desenho: 4 arestas em cima, 4 embaixo e 4 em pé ligando as duas — 12 no total.",
+      "Diferente do que acontecia com os polígonos, aqui os três números NÃO são iguais. Contar faces não conta arestas. Cada sólido tem a sua combinação, e é isso que a próxima lição organiza por famílias."
+    ],
+    "destaque": "Só faces planas? É poliedro. Alguma superfície curva? Não é.",
+    "imagem": "sol-ideia-solidos"
+  },
+  "resolvido": {
+    "enunciado": "Quantas faces, quantas arestas e quantos vértices tem um cubo?",
+    "imagem": "sol-res-cubo",
+    "passos": [
+      {
+        "titulo": "Conte as faces",
+        "explicacao": "Um cubo é como um dado: tem uma face em cima, uma embaixo e quatro em volta. Todas são quadrados iguais.",
+        "conta": "1 + 1 + 4 = 6 faces"
+      },
+      {
+        "titulo": "Conte as arestas por grupos",
+        "explicacao": "Contar uma por uma no desenho leva a erro, porque algumas ficam escondidas atrás. Separe em grupos: as quatro do quadrado de cima, as quatro do de baixo e as quatro verticais que ligam os dois.",
+        "conta": "4 + 4 + 4 = 12 arestas"
+      },
+      {
+        "titulo": "Conte os vértices",
+        "explicacao": "São os cantos. Quatro no quadrado de cima e quatro no de baixo — inclusive os que ficam atrás e não aparecem no desenho.",
+        "conta": "4 + 4 = 8 vértices"
+      },
+      {
+        "titulo": "Guarde a diferença",
+        "explicacao": "Seis, doze e oito. Diferente do que acontecia com os polígonos planos, aqui os três números são distintos — e é assim em todo sólido.",
+        "conta": "6 faces · 12 arestas · 8 vértices"
+      }
+    ],
+    "fecho": "Contar por grupos — em cima, embaixo, em volta — evita perder as arestas escondidas do desenho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destes sólidos NÃO é um poliedro?",
+      "imagem": "sol-q-poliedro",
+      "dica": "Poliedro precisa ter todas as faces planas. Alguma das opções tem superfície curva?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "A esfera"
+        },
+        {
+          "rotulo": "B",
+          "texto": "O cubo"
+        },
+        {
+          "rotulo": "C",
+          "texto": "A pirâmide"
+        },
+        {
+          "rotulo": "D",
+          "texto": "O bloco retangular"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O cubo",
+          "porque": "O cubo é o poliedro mais conhecido de todos: as seis faces dele são quadrados planos, sem nenhuma curva."
+        },
+        {
+          "resposta": "A pirâmide",
+          "porque": "A pirâmide é poliedro: a base é um polígono e as faces laterais são triângulos — todas planas."
+        },
+        {
+          "resposta": "O bloco retangular",
+          "porque": "O bloco, ou paralelepípedo, tem seis faces retangulares planas. É a caixa de sapato, e é poliedro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A exigência do poliedro",
+          "explicacao": "Todas as faces precisam ser planas e polígonos. Basta uma superfície curva para o sólido sair da família.",
+          "conta": "todas as faces planas"
+        },
+        {
+          "titulo": "Teste cada um",
+          "explicacao": "Cubo, pirâmide e bloco têm só faces planas. A esfera não tem face nenhuma: a superfície dela é curva por inteiro.",
+          "conta": "esfera → superfície curva → não é poliedro"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantas arestas tem um cubo? Digite apenas o número.",
+      "imagem": "sol-q-arestas",
+      "dica": "Conte por grupos: as de cima, as de baixo e as verticais. Não esqueça as que ficam escondidas atrás.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "arestas",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o número de FACES do cubo. Aresta é o segmento onde duas faces se encontram, e há bem mais delas que faces."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o número de VÉRTICES, ou seja, os cantos. As arestas são os segmentos que ligam esses cantos."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é quantas arestas dá para ver de frente num desenho de cubo. Três ficam escondidas atrás — por isso vale contar por grupos, e não pelo desenho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe em grupos",
+          "explicacao": "O quadrado de cima tem quatro arestas, o de baixo tem quatro, e há quatro verticais ligando os dois.",
+          "conta": "4 em cima · 4 embaixo · 4 em pé"
+        },
+        {
+          "titulo": "Some os três grupos",
+          "explicacao": "Contar assim garante que as arestas escondidas do desenho entrem na conta.",
+          "conta": "4 + 4 + 4 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantas faces tem uma pirâmide de base quadrada? Digite apenas o número.",
+      "imagem": "sol-q-piramide",
+      "dica": "Conte a base e depois as faces laterais. Quantos triângulos saem de um quadrado?",
+      "formato": "numero",
+      "resposta": 5,
+      "unidade": "faces",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 são só as faces LATERAIS, os triângulos. A base quadrada também é uma face e entra na conta."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o número de faces do CUBO. A pirâmide tem uma base só, e não duas — por isso ela tem uma face a menos que o cubo."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o número de ARESTAS desta pirâmide: quatro na base e quatro subindo até o topo. A pergunta é sobre faces."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A base",
+          "explicacao": "A base é um quadrado, e ela conta como uma face.",
+          "conta": "1 base"
+        },
+        {
+          "titulo": "As faces laterais",
+          "explicacao": "De cada lado do quadrado sobe um triângulo até o topo. Como o quadrado tem quatro lados, são quatro triângulos.",
+          "conta": "4 triângulos"
+        },
+        {
+          "titulo": "Some a base e as laterais",
+          "explicacao": "A base mais as laterais fecham o sólido.",
+          "conta": "1 + 4 = 5 faces"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos vértices tem um bloco retangular, como uma caixa de sapato? Digite apenas o número.",
+      "imagem": "sol-q-bloco",
+      "dica": "Vértices são os cantos. Conte os de cima e os de baixo, incluindo os que ficam escondidos.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "vértices",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o número de FACES do bloco. Vértice é o canto onde três arestas se encontram, e há mais cantos que faces."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o número de ARESTAS. Os vértices são os pontos, e as arestas são os segmentos que os ligam."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 são os cantos que aparecem de frente no desenho. Os outros quatro estão atrás, escondidos — o bloco tem duas faces de quatro cantos cada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe a face de cima",
+          "explicacao": "Ela é um retângulo, então tem quatro cantos.",
+          "conta": "4 em cima"
+        },
+        {
+          "titulo": "E a de baixo",
+          "explicacao": "Também é um retângulo, com mais quatro cantos — dois deles escondidos no desenho.",
+          "conta": "4 embaixo"
+        },
+        {
+          "titulo": "Some as duas faces",
+          "explicacao": "Oito ao todo, exatamente como no cubo. O bloco é um cubo esticado, então tem a mesma contagem.",
+          "conta": "4 + 4 = 8 vértices"
+        }
+      ]
+    }
+  ]
+}

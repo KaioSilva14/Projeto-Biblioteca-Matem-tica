@@ -48,10 +48,22 @@
       "dica": "Conte primeiro em quantas fatias a pizza inteira foi cortada. Esse número vai embaixo.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "3/8" },
-        { "rotulo": "B", "texto": "8/3" },
-        { "rotulo": "C", "texto": "5/8" },
-        { "rotulo": "D", "texto": "3/5" }
+        {
+          "rotulo": "A",
+          "texto": "3/8"
+        },
+        {
+          "rotulo": "B",
+          "texto": "8/3"
+        },
+        {
+          "rotulo": "C",
+          "texto": "5/8"
+        },
+        {
+          "rotulo": "D",
+          "texto": "3/5"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -93,10 +105,22 @@
       "dica": "O inteiro aqui é a caixa toda, com os 12 ovos — não só os que sobraram.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "5/12" },
-        { "rotulo": "B", "texto": "12/5" },
-        { "rotulo": "C", "texto": "7/12" },
-        { "rotulo": "D", "texto": "5/7" }
+        {
+          "rotulo": "A",
+          "texto": "5/12"
+        },
+        {
+          "rotulo": "B",
+          "texto": "12/5"
+        },
+        {
+          "rotulo": "C",
+          "texto": "7/12"
+        },
+        {
+          "rotulo": "D",
+          "texto": "5/7"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -138,16 +162,32 @@
       "dica": "Conte todas as partes primeiro. Depois conte só as vazias — é isso que a pergunta quer.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "7/10" },
-        { "rotulo": "B", "texto": "3/10" },
-        { "rotulo": "C", "texto": "10/7" },
-        { "rotulo": "D", "texto": "7/3" }
+        {
+          "rotulo": "A",
+          "texto": "7/10"
+        },
+        {
+          "rotulo": "B",
+          "texto": "3/10"
+        },
+        {
+          "rotulo": "C",
+          "texto": "10/7"
+        },
+        {
+          "rotulo": "D",
+          "texto": "7/3"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "3/10",
           "porque": "Essa é a parte preenchida. A palavra NÃO muda a pergunta: ela pede o pedaço vazio. Vale reler o enunciado antes de responder — nesse tipo de questão a pegadinha é sempre essa."
+        },
+        {
+          "resposta": "10/7",
+          "porque": "10/7 põe o total em cima e as partes em baixo, invertendo os dois papéis. O número de baixo diz em quantas partes o retângulo foi dividido, e o de cima quantas delas a pergunta quer — nesta ordem, sempre."
         },
         {
           "resposta": "7/3",

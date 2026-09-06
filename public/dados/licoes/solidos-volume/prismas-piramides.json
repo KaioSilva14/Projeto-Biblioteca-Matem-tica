@@ -1,0 +1,240 @@
+{
+  "id": "prismas-piramides",
+  "numero": 2,
+  "titulo": "Prismas e pirâmides",
+  "pergunta": "O que decide o nome de um sólido?",
+  "ideia": {
+    "paragrafos": [
+      "Os poliedros mais comuns se organizam em duas famílias, e a diferença entre elas é fácil de enxergar: uma tem duas bases, a outra tem uma só.",
+      "Prisma é o sólido com DUAS bases iguais e paralelas, ligadas por faces retangulares. Imagine um polígono qualquer e puxe ele para cima sem deformar: o que você forma é um prisma. O cubo e o bloco retangular são prismas de base retangular; a barraca de camping é um prisma de base triangular.",
+      "Pirâmide é o sólido com UMA base e faces laterais triangulares que sobem e se encontram todas num único ponto, chamado ápice. As pirâmides do Egito têm base quadrada, mas a base pode ser qualquer polígono.",
+      "Em ambos os casos, o nome vem da base. Prisma de base triangular, pirâmide de base pentagonal. E daí sai um jeito de contar as faces sem precisar do desenho: uma pirâmide de base com n lados tem n triângulos mais a base, ou seja, n + 1 faces. Um prisma de base com n lados tem n retângulos mais as duas bases: n + 2 faces.",
+      "Fora dessas duas famílias ficam os não poliedros, que também têm nome próprio. O cilindro tem duas bases circulares e uma superfície curva ligando as duas — é o prisma de 'base redonda'. O cone tem uma base circular e uma ponta, como a pirâmide. E a esfera não tem base nenhuma."
+    ],
+    "destaque": "Duas bases iguais é prisma. Uma base e uma ponta é pirâmide.",
+    "imagem": "sol-ideia-familias"
+  },
+  "resolvido": {
+    "enunciado": "Um prisma tem base triangular. Quantas faces, quantas arestas e quantos vértices ele tem?",
+    "imagem": "sol-res-prisma",
+    "passos": [
+      {
+        "titulo": "Comece pelas bases",
+        "explicacao": "Todo prisma tem duas bases iguais e paralelas. Aqui elas são triângulos.",
+        "conta": "2 bases triangulares"
+      },
+      {
+        "titulo": "Conte as faces laterais",
+        "explicacao": "Cada lado da base vira um retângulo em pé. Como o triângulo tem três lados, são três retângulos.",
+        "conta": "3 faces laterais"
+      },
+      {
+        "titulo": "Total de faces",
+        "explicacao": "As duas bases mais as três laterais. Confere com a regra: base de 3 lados dá 3 + 2 faces.",
+        "conta": "2 + 3 = 5 faces"
+      },
+      {
+        "titulo": "Arestas por grupos",
+        "explicacao": "Três arestas em cada base, mais três verticais ligando as duas bases.",
+        "conta": "3 + 3 + 3 = 9 arestas"
+      },
+      {
+        "titulo": "Vértices",
+        "explicacao": "Três cantos em cada base. Num prisma não há ápice: os vértices ficam todos nas bases.",
+        "conta": "3 + 3 = 6 vértices"
+      }
+    ],
+    "fecho": "Quase toda contagem de prisma sai da base: ela aparece duas vezes, e cada lado dela vira uma face lateral."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual sólido tem duas bases circulares ligadas por uma superfície curva?",
+      "imagem": "sol-q-cilindro",
+      "dica": "Pense numa lata de refrigerante em pé.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "O cilindro"
+        },
+        {
+          "rotulo": "B",
+          "texto": "O cone"
+        },
+        {
+          "rotulo": "C",
+          "texto": "A esfera"
+        },
+        {
+          "rotulo": "D",
+          "texto": "A pirâmide"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O cone",
+          "porque": "O cone tem UMA base circular só, e no lugar da segunda ele termina numa ponta. É o casquinho de sorvete, e não a lata."
+        },
+        {
+          "resposta": "A esfera",
+          "porque": "A esfera não tem base nenhuma: ela é curva por inteiro, como uma bola. Não dá nem para apoiá-la numa mesa sem que ela role."
+        },
+        {
+          "resposta": "A pirâmide",
+          "porque": "A pirâmide é poliedro: tem uma base poligonal e faces triangulares planas. Não há nada circular nem curvo nela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantas bases",
+          "explicacao": "O enunciado pede duas bases, o que já elimina o cone (uma) e a esfera (nenhuma).",
+          "conta": "2 bases"
+        },
+        {
+          "titulo": "De que formato",
+          "explicacao": "Circulares e ligadas por superfície curva. Isso descarta a pirâmide, que é toda de faces planas.",
+          "conta": "cilindro"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual sólido tem uma única base e faces laterais triangulares que se encontram todas num mesmo ponto?",
+      "imagem": "sol-q-piramide-def",
+      "dica": "Esse ponto de encontro tem nome: ápice.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "A pirâmide"
+        },
+        {
+          "rotulo": "B",
+          "texto": "O prisma"
+        },
+        {
+          "rotulo": "C",
+          "texto": "O cubo"
+        },
+        {
+          "rotulo": "D",
+          "texto": "O cilindro"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O prisma",
+          "porque": "O prisma tem DUAS bases e faces laterais retangulares, não triangulares. E ele não tem ápice: as laterais sobem paralelas, sem se encontrar."
+        },
+        {
+          "resposta": "O cubo",
+          "porque": "O cubo é um prisma: duas bases quadradas e quatro faces laterais quadradas. Nenhuma face dele é triângulo."
+        },
+        {
+          "resposta": "O cilindro",
+          "porque": "O cilindro tem duas bases circulares e nenhuma face triangular — ele nem é poliedro, porque a lateral é curva."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Uma base só",
+          "explicacao": "Isso já separa a pirâmide e o cone dos prismas e cilindros, que têm duas.",
+          "conta": "1 base"
+        },
+        {
+          "titulo": "Laterais triangulares e um ápice",
+          "explicacao": "Faces planas em forma de triângulo, todas subindo até o mesmo ponto. É a definição de pirâmide — o cone tem a ponta, mas a lateral dele é curva.",
+          "conta": "pirâmide"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantas faces tem uma pirâmide de base pentagonal? Digite apenas o número.",
+      "imagem": "sol-q-piramide-5",
+      "dica": "Cada lado da base vira um triângulo. Some a base no fim.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "faces",
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 são só os triângulos laterais, um para cada lado do pentágono. Falta contar a própria base, que também é uma face."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 seria o caso de um PRISMA de base pentagonal: cinco retângulos mais DUAS bases. A pirâmide tem uma base só."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o número de ARESTAS desta pirâmide: cinco na base e cinco subindo até o ápice. A pergunta é sobre faces."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quantos lados a base tem",
+          "explicacao": "Pentagonal quer dizer base de cinco lados.",
+          "conta": "base com 5 lados"
+        },
+        {
+          "titulo": "Um triângulo por lado",
+          "explicacao": "De cada lado da base sobe uma face triangular até o ápice.",
+          "conta": "5 triângulos"
+        },
+        {
+          "titulo": "Some a base",
+          "explicacao": "A regra geral: pirâmide de base com n lados tem n + 1 faces.",
+          "conta": "5 + 1 = 6 faces"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantas arestas tem um prisma de base triangular? Digite apenas o número.",
+      "imagem": "sol-q-prisma-tri",
+      "dica": "Conte as arestas de cada base e depois as verticais que ligam as duas.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "arestas",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o número de VÉRTICES deste prisma, três em cada base. Também seriam as arestas se você contasse só as duas bases e esquecesse as verticais."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o número de FACES: duas bases mais três retângulos laterais. Faces e arestas são coisas diferentes."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o número de arestas de um prisma de base QUADRADA, como o cubo. Aqui a base é triangular, então cada grupo tem três em vez de quatro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Arestas da base de baixo",
+          "explicacao": "A base é um triângulo, então tem três lados.",
+          "conta": "3 embaixo"
+        },
+        {
+          "titulo": "Arestas da base de cima",
+          "explicacao": "A outra base é igual à primeira, então também tem três.",
+          "conta": "3 em cima"
+        },
+        {
+          "titulo": "As verticais",
+          "explicacao": "Cada vértice da base de baixo sobe até o vértice correspondente da de cima. Três vértices, três arestas verticais.",
+          "conta": "3 em pé"
+        },
+        {
+          "titulo": "Some os três grupos",
+          "explicacao": "A regra geral: prisma de base com n lados tem 3n arestas.",
+          "conta": "3 + 3 + 3 = 9 arestas"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "barras",
+  "numero": 3,
+  "titulo": "Gráfico de barras",
+  "pergunta": "Por que às vezes a barra fica deitada?",
+  "ideia": {
+    "paragrafos": [
+      "O gráfico de barras é o mesmo gráfico de colunas girado de lado. A quantidade agora é o COMPRIMENTO da barra, medido da esquerda para a direita, e o nome da categoria fica antes dela, à esquerda.",
+      "A troca não é enfeite. Quando os nomes das categorias são compridos — 'natação', 'transporte público', 'ficar em casa' —, escrevê-los embaixo de colunas estreitas obriga a apertar a letra ou a deitar o texto. Deitando o gráfico, cada nome ganha uma linha inteira e fica confortável.",
+      "A regra vale também para o número de categorias. Oito colunas espremidas numa tela de celular ficam ilegíveis; oito barras empilhadas uma embaixo da outra continuam legíveis, porque o gráfico cresce para baixo, e rolar para baixo é fácil.",
+      "Tudo o mais é igual ao gráfico de colunas: as barras partem todas da mesma linha, e comparar comprimentos só é justo por causa disso. Quem lê deve conferir o valor escrito na ponta de cada barra, ou a escala, antes de confiar no tamanho.",
+      "Escolher entre coluna e barra é uma decisão de clareza, não de matemática. Os dois mostram exatamente a mesma informação — quem muda é o leitor, que enxerga melhor num ou noutro."
+    ],
+    "destaque": "Barra deitada é coluna girada. Ela existe para caber o nome comprido da categoria.",
+    "imagem": "grf-ideia-barras"
+  },
+  "resolvido": {
+    "enunciado": "O gráfico mostra o esporte preferido de uma turma. Quantos alunos escolheram futebol, e quantos escolheram vôlei?",
+    "imagem": "grf-res-barras",
+    "passos": [
+      {
+        "titulo": "Ache a barra do futebol",
+        "explicacao": "Os nomes ficam à esquerda, um por linha. Procure a linha do futebol e siga a barra dela para a direita.",
+        "conta": "linha do futebol"
+      },
+      {
+        "titulo": "Leia o valor na ponta",
+        "explicacao": "Neste gráfico o número está escrito no fim de cada barra, o que dispensa medir o comprimento no olho.",
+        "conta": "futebol = 14 alunos"
+      },
+      {
+        "titulo": "Faça o mesmo com o vôlei",
+        "explicacao": "A barra do vôlei é a primeira, e é bem mais curta que a do futebol.",
+        "conta": "vôlei = 7 alunos"
+      },
+      {
+        "titulo": "Compare os dois",
+        "explicacao": "Como as duas barras começam na mesma linha vertical, o dobro do comprimento é mesmo o dobro dos alunos.",
+        "conta": "14 = 2 × 7"
+      }
+    ],
+    "fecho": "O comprimento só é comparável porque todas as barras partem do mesmo lugar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos alunos responderam à pesquisa de esporte preferido ao todo? Digite apenas o número.",
+      "imagem": "grf-q-esportes-total",
+      "dica": "Some os quatro valores escritos na ponta das barras.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é só a barra do futebol, a maior delas. O total junta as quatro categorias, porque cada aluno escolheu um esporte."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o número de barras do gráfico, ou seja, quantos esportes apareceram. Cada barra representa vários alunos."
+        },
+        {
+          "resposta": "26",
+          "porque": "26 é a soma de três barras. Alguma ficou de fora — a mais curta é a que costuma passar batido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia os quatro valores",
+          "explicacao": "Vôlei 7, futebol 14, basquete 5 e natação 4, escritos na ponta de cada barra.",
+          "conta": "7, 14, 5, 4"
+        },
+        {
+          "titulo": "Some em duas etapas",
+          "explicacao": "Juntar as duas primeiras e depois as duas últimas evita erro de cabeça.",
+          "conta": "7 + 14 = 21 · 5 + 4 = 9"
+        },
+        {
+          "titulo": "Junte os parciais",
+          "explicacao": "O total é a soma de todas as categorias.",
+          "conta": "21 + 9 = 30 alunos"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos alunos a mais escolheram futebol do que vôlei? Digite apenas o número.",
+      "imagem": "grf-q-esportes-dif",
+      "dica": "Leia o valor das duas barras e subtraia o menor do maior.",
+      "formato": "numero",
+      "resposta": 7,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "21",
+          "porque": "21 é a soma das duas barras, 14 + 7. Quantos a mais pede subtração, e não soma."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é quantas VEZES a barra do futebol é maior que a do vôlei. A pergunta é quantos alunos a mais, o que se responde com a diferença."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é a barra do futebol inteira. Falta descontar os 7 alunos que escolheram vôlei."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia as duas barras",
+          "explicacao": "O futebol tem 14 alunos e o vôlei tem 7.",
+          "conta": "14 e 7"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Quantos a mais é sempre a diferença entre o maior e o menor.",
+          "conta": "14 − 7 = 7 alunos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma pesquisa listou seis profissões, com nomes compridos como 'veterinária' e 'programação'. Qual gráfico é o mais adequado?",
+      "imagem": "grf-q-qual-grafico",
+      "dica": "Pense em onde cada tipo de gráfico escreve o nome da categoria: embaixo de uma coluna estreita ou numa linha inteira.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "De barras deitadas, porque cada nome ganha uma linha inteira" },
+        { "rotulo": "B", "texto": "De colunas, porque coluna é sempre mais bonito" },
+        { "rotulo": "C", "texto": "De colunas, com o nome escrito de lado" },
+        { "rotulo": "D", "texto": "Tanto faz: os dois ficam igualmente legíveis" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "De colunas, porque coluna é sempre mais bonito",
+          "porque": "A escolha entre os dois não é de gosto, e sim de clareza. Seis nomes compridos embaixo de colunas estreitas ficariam ilegíveis, ainda que o desenho agradasse."
+        },
+        {
+          "resposta": "De colunas, com o nome escrito de lado",
+          "porque": "Escrever o rótulo de lado é justamente a gambiarra que a barra deitada evita. Texto girado é mais difícil de ler, e o problema continua de pé."
+        },
+        {
+          "resposta": "Tanto faz: os dois ficam igualmente legíveis",
+          "porque": "Os dois mostram a mesma informação, mas não com a mesma clareza. Com nomes compridos e várias categorias, a versão deitada é bem mais legível."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Onde vai o nome em cada gráfico",
+          "explicacao": "No de colunas, embaixo de uma coluna estreita. No de barras, numa linha inteira à esquerda.",
+          "conta": "coluna: nome apertado"
+        },
+        {
+          "titulo": "O que os dados pedem",
+          "explicacao": "São seis categorias e vários nomes compridos, então o espaço para o texto é o que decide.",
+          "conta": "6 categorias, nomes longos"
+        },
+        {
+          "titulo": "A escolha",
+          "explicacao": "A barra deitada dá uma linha inteira para cada nome e cresce para baixo, o que continua legível mesmo numa tela pequena.",
+          "conta": "gráfico de barras"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos alunos escolheram basquete ou natação, somando os dois? Digite apenas o número.",
+      "imagem": "grf-q-esportes-juntos",
+      "dica": "São duas barras. Leia o valor de cada uma e some.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 é a diferença entre as duas barras, 5 − 4. A palavra 'ou' aqui junta os dois grupos, então a operação é a soma."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é só o basquete. Falta somar os 4 alunos da natação, que é a barra mais curta do gráfico."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é o total da turma inteira, com os quatro esportes. A pergunta pede só duas das categorias."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia as duas barras",
+          "explicacao": "O basquete tem 5 alunos e a natação tem 4.",
+          "conta": "5 e 4"
+        },
+        {
+          "titulo": "Some as duas barras",
+          "explicacao": "Como nenhum aluno escolheu dois esportes, os dois grupos podem ser juntados sem risco de contar alguém duas vezes.",
+          "conta": "5 + 4 = 9 alunos"
+        }
+      ]
+    }
+  ]
+}

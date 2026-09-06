@@ -1,0 +1,210 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Converter antes de calcular",
+  "pergunta": "Quanto é 1,2 metro mais 45 centímetros?",
+  "ideia": {
+    "paragrafos": [
+      "Fora dos exercícios de conversão, o problema real quase nunca vem todo na mesma unidade. Uma receita pede 500 g de um ingrediente e 1,5 kg de outro; uma corrida tem 5 km e você já correu 2500 m. Somar ou subtrair assim, direto, não funciona.",
+      "A regra é curta e resolve tudo: converta ANTES de calcular. Escolha uma unidade para o problema inteiro, transforme todas as medidas para ela, e só então some, subtraia ou compare.",
+      "Qual unidade escolher? Normalmente a que o enunciado pede na resposta. Se ele pergunta em centímetros, converta tudo para centímetros. Assim você não precisa converter de novo no fim.",
+      "Quando a resposta não é pedida em unidade nenhuma, o costume é escolher a menor das que aparecem, porque ela evita números com vírgula. Somar 120 cm com 45 cm é mais confortável que somar 1,2 m com 0,45 m — dá no mesmo, mas com menos chance de escorregar uma casa decimal.",
+      "E vale a conferência de sempre: o resultado é plausível? Um metro e vinte mais quarenta e cinco centímetros tem que dar pouco mais de um metro e meio. Se der 46 ou 165 metros, alguma conversão saiu do lugar."
+    ],
+    "destaque": "Converta primeiro, calcule depois. Misturar unidades na mesma conta não funciona.",
+    "imagem": "gra-ideia-problemas"
+  },
+  "resolvido": {
+    "enunciado": "Uma tábua tem 1,2 m e outra tem 45 cm. Emendando as duas, qual é o comprimento total em centímetros?",
+    "imagem": "gra-res-problemas",
+    "passos": [
+      {
+        "titulo": "Escolha a unidade",
+        "explicacao": "O enunciado pede a resposta em centímetros, então converta tudo para centímetros e evite ter que converter de novo no fim.",
+        "conta": "trabalhar em cm"
+      },
+      {
+        "titulo": "Converta a primeira tábua",
+        "explicacao": "Do metro para o centímetro são dois degraus, ou seja, multiplicar por 100.",
+        "conta": "1,2 × 100 = 120 cm"
+      },
+      {
+        "titulo": "A segunda já está pronta",
+        "explicacao": "Os 45 cm já estão na unidade escolhida e entram direto na soma.",
+        "conta": "45 cm"
+      },
+      {
+        "titulo": "Some as duas tábuas",
+        "explicacao": "Agora as duas medidas estão na mesma unidade e a soma faz sentido.",
+        "conta": "120 + 45 = 165 cm"
+      },
+      {
+        "titulo": "Faz sentido?",
+        "explicacao": "Cento e sessenta e cinco centímetros são 1,65 m — um pouco mais que a tábua maior, como esperado ao emendar as duas.",
+        "conta": "165 cm = 1,65 m ✓"
+      }
+    ],
+    "fecho": "Somar 1,2 com 45 sem converter daria 46,2, um número que não significa nada. A conversão não é etapa opcional."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma corda tem 2 m e outra tem 30 cm. Emendando as duas, qual é o comprimento total em centímetros? Digite apenas o número.",
+      "imagem": "gra-q-cordas",
+      "dica": "Converta os metros para centímetros antes de somar.",
+      "formato": "numero",
+      "resposta": 230,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "32",
+          "porque": "32 soma 2 com 30 sem converter. Não dá para somar metros com centímetros diretamente: seriam duas unidades diferentes na mesma conta."
+        },
+        {
+          "resposta": "2.3",
+          "porque": "2,3 é o total em METROS, que está certo — mas o enunciado pede em centímetros. Falta o último passo da conversão."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 sai de tratar 2 m como 20 cm. O fator entre metro e centímetro é 100, então 2 m dão 200 cm."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta os metros",
+          "explicacao": "Cada metro tem cem centímetros.",
+          "conta": "2 × 100 = 200 cm"
+        },
+        {
+          "titulo": "Some as duas cordas",
+          "explicacao": "Agora as duas cordas estão na mesma unidade.",
+          "conta": "200 + 30 = 230 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "De um pacote de 1 kg de farinha foram usados 250 g. Quantos gramas sobraram? Digite apenas o número.",
+      "imagem": "gra-q-farinha",
+      "dica": "Converta o quilo para gramas antes de subtrair.",
+      "formato": "numero",
+      "resposta": 750,
+      "unidade": "g",
+      "errosComuns": [
+        {
+          "resposta": "249",
+          "porque": "249 sai de fazer 250 − 1, subtraindo o quilo como se fosse um grama. É preciso converter o pacote para gramas primeiro."
+        },
+        {
+          "resposta": "0.75",
+          "porque": "0,75 é o que sobrou em QUILOGRAMAS, que está certo — mas o enunciado pede em gramas. Falta converter."
+        },
+        {
+          "resposta": "1250",
+          "porque": "1.250 soma em vez de subtrair. A farinha foi usada, então o que sobra é menor que o pacote inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta o pacote",
+          "explicacao": "Um quilograma são mil gramas. Converter primeiro é o que permite subtrair as duas medidas na mesma linha.",
+          "conta": "1 kg = 1 000 g"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Tire do total o que foi usado. Como as duas medidas já estão em gramas, a subtração agora faz sentido.",
+          "conta": "1 000 − 250 = 750 g"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Setecentos e cinquenta gramas são três quartos de quilo — plausível depois de usar um quarto do pacote.",
+          "conta": "750 g = 0,75 kg ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa jarra havia 1,5 L de suco e foram acrescentados 400 mL. Quantos mililitros a jarra tem agora? Digite apenas o número.",
+      "imagem": "gra-q-jarra",
+      "dica": "O enunciado pede mililitros, então converta o litro e meio para mililitros.",
+      "formato": "numero",
+      "resposta": 1900,
+      "unidade": "mL",
+      "errosComuns": [
+        {
+          "resposta": "401.5",
+          "porque": "401,5 soma 400 com 1,5 sem converter. Litro e mililitro são unidades diferentes e não podem entrar na mesma soma como estão."
+        },
+        {
+          "resposta": "1.9",
+          "porque": "1,9 é o total em LITROS, que está certo — mas o enunciado pede em mililitros. Falta multiplicar por 1000."
+        },
+        {
+          "resposta": "5500",
+          "porque": "5.500 sai de tratar 1,5 L como 5100 mL ou algo parecido. Um litro e meio são 1500 mL, porque cada litro tem mil."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta o suco que já havia",
+          "explicacao": "Um litro e meio, com mil mililitros em cada litro.",
+          "conta": "1,5 × 1 000 = 1 500 mL"
+        },
+        {
+          "titulo": "Some o que foi acrescentado",
+          "explicacao": "Os 400 mL já estão na unidade certa.",
+          "conta": "1 500 + 400 = 1 900 mL"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Mil e novecentos mililitros são 1,9 litro — quase dois litros, plausível para a jarra depois do acréscimo.",
+          "conta": "1 900 mL = 1,9 L ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma prova de corrida tem 5 km. Um atleta já percorreu 2500 m. Quantos metros ainda faltam? Digite apenas o número.",
+      "imagem": "gra-q-corrida",
+      "dica": "Converta os quilômetros para metros antes de subtrair.",
+      "formato": "numero",
+      "resposta": 2500,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "2495",
+          "porque": "2.495 sai de fazer 2500 − 5, subtraindo os quilômetros como se fossem metros. Cinco quilômetros são 5000 metros."
+        },
+        {
+          "resposta": "2.5",
+          "porque": "2,5 é o que falta em QUILÔMETROS, que está certo — mas o enunciado pede em metros. Falta multiplicar por 1000."
+        },
+        {
+          "resposta": "7500",
+          "porque": "7.500 soma em vez de subtrair. O atleta já correu parte do percurso, então o que falta é menor que a prova inteira."
+        },
+        {
+          "resposta": "5000",
+          "porque": "5.000 é a prova INTEIRA em metros. Falta descontar os 2500 m que o atleta já percorreu."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta a prova",
+          "explicacao": "Cada quilômetro tem mil metros.",
+          "conta": "5 × 1 000 = 5 000 m"
+        },
+        {
+          "titulo": "Subtraia o percorrido",
+          "explicacao": "Tire do total o que já foi corrido.",
+          "conta": "5 000 − 2 500 = 2 500 m"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Ele está exatamente na metade: percorreu 2500 e faltam 2500. Faz sentido para 2,5 km de uma prova de 5 km.",
+          "conta": "2 500 + 2 500 = 5 000 ✓"
+        }
+      ]
+    }
+  ]
+}

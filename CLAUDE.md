@@ -12,10 +12,12 @@ Plataforma de estudo de Matemática para o Ensino Fundamental II. O aluno
 entra e estuda: sem login, sem cadastro, sem banco de dados, sem IA embutida
 no produto, sem gamificação. Progresso em `localStorage`.
 
-**Catálogo completo dos 4 anos (51 matérias). Prontas: Frações, Números
-decimais, Divisibilidade e primos, Potências e raiz quadrada, Porcentagem,
-Ângulos, Figuras planas, Perímetro e Área** — todas no 6º ano. Cada matéria
-concluída emite certificado.
+**Catálogo completo dos 4 anos (51 matérias). O 6º ano está FECHADO: as 14
+matérias dele estão publicadas** — Frações, Números decimais, Divisibilidade e
+primos, Potências e raiz quadrada, Porcentagem, Ângulos, Figuras planas,
+Perímetro, Área, Sólidos e volume, Grandezas e medidas, Plano cartesiano,
+Gráficos e tabelas e Média aritmética. Cada matéria concluída emite
+certificado.
 
 ## Stack
 
@@ -107,6 +109,31 @@ fica salvo junto do progresso daquele curso e é exportado em PNG
 (`src/ts/certificado.ts`, canvas → PNG). A página avisa o aluno que limpar os
 dados do navegador apaga tudo — porque apaga mesmo.
 
+**Há também certificado de ANO**, no pé de `ano.html`, e ele tem uma regra de
+projeto que vale entender antes de mexer: o ano fecha quando todas as matérias
+publicadas daquele ano **têm certificado guardado**, e o resumo é somado desses
+certificados. Nada de abrir os 14 cursos e as 88 lições para descobrir se o
+aluno terminou — isso trocaria a única requisição da página do ano por
+cem. Por isso o certificado da matéria passou a ser **registrado sozinho assim
+que ela é concluída**, mesmo sem o aluno digitar o nome: o nome é como o
+certificado é impresso, não o que define a conquista.
+
+Consequências que os testes cobrem:
+
+- o bloco do ano **só aparece quando o ano inteiro está publicado** — num ano
+  com matéria "em breve", dizer "faltam 6 matérias" cobraria do aluno uma coisa
+  que ninguém escreveu ainda;
+- apagar o progresso de uma matéria derruba junto o certificado daquele ano,
+  porque ele deixou de estar completo;
+- `Certificado.licoes` entrou depois no formato: registro antigo não tem o
+  campo e vale 0, em vez de derrubar o progresso inteiro na leitura.
+
+O desenho do certificado de ano traz a **lista das matérias** em três colunas,
+e a largura de cada coluna é medida, não dividida em três partes iguais — com
+largura fixa a terceira coluna acaba antes das outras e o bloco inteiro parece
+torto. A entrelinha cede quando há mais matérias, para a lista nunca invadir o
+rodapé.
+
 ## Vídeos
 
 Cada matéria tem **pelo menos 3 vídeos** numa seção "Para se aprofundar", fora
@@ -126,7 +153,7 @@ O player só é carregado no clique; antes disso a página não fala com o YouTu
 **Toda questão tem imagem, e imagem é arquivo PNG em `/assets`.** A página
 nunca desenha figura em tempo de execução.
 
-- `ferramentas/desenhos.mjs` — 23 geradores paramétricos de SVG: roda, barra,
+- `ferramentas/desenhos.mjs` — 41 geradores paramétricos de SVG: roda, barra,
   barras empilhadas, barras comparadas, rodas comparadas, grade, reta numérica,
   reta decimal, coleção, recipientes, barra de etapas, corte duplo, barra por
   categorias, preço por parte, quadro de ordens, conta armada, arranjos
@@ -157,6 +184,47 @@ nunca desenha figura em tempo de execução.
   diferentes: a largura era calculada só a partir do desenho, e um rótulo mais
   comprido que ele saía cortado pelas duas bordas. Toda função que escreve
   rótulo centralizado no rodapé deve passar a largura por esse helper.
+
+- **Bloco de sólidos** (`bloco`, `solidos`, `planificacao`, `planoCartesiano`).
+  O `bloco` usa projeção oblíqua, e não perspectiva: perspectiva encolheria as
+  arestas do fundo e o aluno mediria errado. Ele desenha os cubinhos unitários
+  nas três faces visíveis quando `cubinhos: true`.
+
+  **`planificacao` guarda cada peça com medida própria, e isso não é detalhe.**
+  A primeira versão desenhava o molde do bloco como seis retângulos iguais — e
+  um molde assim não fecha caixa nenhuma: o bloco tem TRÊS formatos de face,
+  cada um repetido duas vezes. Um teste confere isso contando os formatos
+  distintos no SVG.
+
+  O `planoCartesiano` aceita `ligar: true`, que fecha os pontos num polígono
+  (a figura da lição de retângulo no plano), e `caminho`, uma polilinha
+  tracejada — o trajeto pelas ruas do mapa, que é caminho possível e não
+  figura, e por isso vai tracejado.
+
+- **Bloco de dados** (`grafico`, `tabela`), escrito para Gráficos e tabelas e
+  reaproveitado inteiro por Média aritmética. `grafico` faz colunas e barras
+  deitadas; `tabela` faz a grade com cabeçalho.
+
+  Três decisões dele valem registro:
+
+  - **`base` corta o eixo, e existe por um motivo só.** O eixo dos valores
+    começa no zero por padrão. Cortá-lo é o truque mais comum de gráfico
+    enganoso, e não dá para ensinar o aluno a desconfiar dele sem mostrar um:
+    a lição 5 de Gráficos e tabelas desenha o par honesto/cortado lado a lado.
+    Quem passa `base` está fazendo o truque de propósito, e o `alt` da figura
+    tem de dizer que o eixo não começa no zero. O gerador recusa `base` em
+    barras deitadas e recusa base que engoliria alguma barra inteira.
+  - **`referencia` desenha o patamar da média** como linha tracejada. Ela só
+    entra onde a média já é conhecida — na ideia, no resolvido e nas questões
+    que perguntam outra coisa. Numa questão que PEDE a média, o patamar seria
+    a resposta desenhada. O rótulo dela escolhe ficar acima ou abaixo da linha,
+    o que estiver mais longe do valor escrito na primeira coluna: uma coluna na
+    altura exata da média fazia os dois textos se sobreporem.
+  - **A partir de cinco colunas a barra afina** (46px → 38px). Com largura
+    fixa o gráfico passava de 400px e caía para 0,71 do tamanho num celular de
+    320px — o mesmo aperto que obrigou `angulosComparados` a quebrar em duas
+    linhas.
+
 - `ferramentas/manifesto-imagens.mjs` — a lista de todas as imagens.
 - `npm run imagens` rasteriza tudo com o Chrome headless em 2x, fundo
   transparente, e reescreve `public/dados/imagens.json`.
@@ -211,10 +279,20 @@ Duas regras de conteúdo para as figuras:
 - A OBMEP é olimpíada e **não tem itens básicos**. As lições 1 a 5 usam
   questões escritas para o site; a OBMEP entra da lição 6 em diante.
 - Nunca duas alternativas corretas, nenhuma correta, ou enunciado ambíguo.
+- **TODA alternativa errada precisa do diagnóstico dela.** Sem `ErroComum`
+  casando com aquele texto, o aluno recebe "Ainda não." e a dica genérica —
+  que é exatamente o defeito da v2. Frações e Números decimais foram escritas
+  antes de a regra se firmar e tinham 27 alternativas descobertas; a revisão
+  que fechou o 6º ano preencheu todas, e um teste agora reprova qualquer nova.
+- **O diagnóstico tem de ser ALCANÇÁVEL pelo motor.** Em questão numérica o
+  motor casa por VALOR, não por texto: um erro previsto "8,0" numa questão de
+  resposta 8 é aceito como CERTO e nunca aparece, e "6" e "6,0" são o mesmo
+  erro escrito duas vezes — o segundo é inalcançável. Os dois casos existiam
+  em Números decimais. Teste cobre.
 
 ## Testes
 
-`npm test` roda o build e três arquivos (135 testes):
+`npm test` roda o build e três arquivos (183 testes):
 
 - `tests/conteudo.test.mjs` — percorre o catálogo inteiro: integridade de todos
   os cursos e, principalmente, a **recontagem independente de toda a
@@ -225,6 +303,14 @@ Duas regras de conteúdo para as figuras:
   desenhado com trigonometria**, comparando com o que o enunciado afirma. Se a
   figura e o texto discordarem, o teste quebra. Vale repetir isso em qualquer
   desenho cuja geometria seja o conteúdo.
+
+  O mesmo vale para plano cartesiano e gráficos: `lerPlano` converte os
+  círculos do SVG de volta em coordenadas e `lerColunas` converte as alturas
+  das barras de volta em valores. As duas se orientam pelos **números escritos
+  nos eixos**, e não pelas constantes internas do gerador — assim o teste
+  continua valendo se a escala mudar. É `lerColunas` que confere a afirmação
+  central da lição de gráfico enganoso: com o eixo em 50, a coluna da laranja
+  fica exatamente o triplo da uva.
 - `tests/motor.test.mjs` — correção, diagnóstico de erro, progresso por curso e
   certificado.
 - `tests/pagina.test.mjs` — integração: monta as quatro páginas reais e
@@ -233,6 +319,38 @@ Duas regras de conteúdo para as figuras:
 Detalhe do teste de integração: `app.js` registra o listener de
 `DOMContentLoaded` no import, ligado ao document daquele momento. Como cada
 montagem cria um jsdom novo, o import usa `?m=N` para forçar reavaliação.
+
+**Teste de página não pode cravar ano nem matéria.** Já quebrou duas vezes por
+isso: uma ao publicar a matéria que estava fixada como indisponível, outra ao
+fechar o 6º ano, quando o teste do "em breve" passou a exigir uma marca que
+aquele ano não tem mais. Os dois agora escolhem do catálogo o que precisam.
+O aviso do rodapé de `ano.html` some quando o ano inteiro fica pronto
+(`data-nota-embreve`), e há teste para os dois lados.
+
+## Revisão de fim de ano
+
+Antes de subir de ano vale repetir a varredura que fechou o 6º. Ela pegou
+coisas que os 185 testes não pegam, porque testa o site RODANDO:
+
+1. **Auditoria de diagnóstico** — para cada questão, conferir que toda
+   alternativa errada tem `ErroComum` e que nenhum erro numérico é aceito como
+   certo ou repete o valor de outro. Isso virou teste e não precisa mais ser
+   feito à mão.
+2. **Rastreamento das páginas** — carregar as 107 páginas (início, 4 anos, 14
+   matérias, 88 lições) num iframe de 320px e procurar: texto "Carregando" que
+   nunca saiu, `img` com `naturalWidth === 0`, `scrollWidth` maior que o
+   viewport, e link com "undefined" dentro.
+3. **Percurso do aluno, questão por questão** — em cada lição, responder
+   ERRADO (com um erro previsto), conferir que o diagnóstico daquele erro
+   aparece, clicar em "Tentar de novo", responder CERTO, conferir o acerto e
+   seguir até a tela de fim; no final, ler o `localStorage` e conferir que a
+   lição ficou concluída com todas as questões. São 352 questões e leva uns
+   dez minutos de Chrome headless.
+
+Armadilha da sonda: ao procurar o botão da alternativa, comparar o texto por
+IGUALDADE, e não com `includes` — num conjunto como 1000/10/100/10000 o
+`includes("10")` casa com a alternativa errada e a sonda acusa bug que não
+existe.
 
 ## Verificação visual
 
@@ -314,24 +432,42 @@ chutado, que nem batia com os 38px reais.
 
 ## Pendências
 
-**Prontas (padrão-ouro): Frações, Números decimais, Divisibilidade e primos,
-Potências e raiz quadrada, Porcentagem, Ângulos, Figuras planas, Perímetro e
-Área** — 58 lições, 232 questões, 348 imagens, 38 vídeos verificados.
+**O 6º ano está completo, revisado e fechado: 14 de 14 matérias** — 88 lições,
+352 questões, 1084 diagnósticos de erro, 528 imagens, 58 vídeos verificados,
+10 questões da OBMEP, e certificado de matéria e de ano.
 
-Falta o resto do 6º ano, na ordem do catálogo: Sólidos e volume, Grandezas e
-medidas, Plano cartesiano, Gráficos e tabelas, Média aritmética. Depois 7º, 8º
-e 9º.
+A revisão de fechamento percorreu as 107 páginas e as 352 questões no navegador
+e não deixou defeito conhecido.
 
-**Grandezas e medidas sai só com conteúdo** — é conversão de unidade, e
-`listasComuns`, `quadroOrdens` e `retaDecimal` já cobrem. As outras três pedem
-bloco novo:
+A decisão do usuário era terminar o 6º ano antes de subir de ano, e ela foi
+cumprida. **O próximo passo é o 7º ano**, na ordem do catálogo — e ele começa
+por Números inteiros (negativos), que é a primeira ideia realmente nova desde
+as frações e vai pedir bloco de desenho próprio: reta com negativos, saldo e
+dívida, e a comparação de dois números à esquerda do zero.
 
-- **Sólidos e volume**: caixa em projeção oblíqua (com e sem cubinhos),
-  planificação do cubo e do bloco, e uma comparação de sólidos nomeados.
-- **Plano cartesiano**: malha com eixos, origem e pontos marcados.
-- **Gráficos e tabelas**: barras, colunas e uma tabela de dados.
+O 7º ano tem **13 matérias**, nesta ordem: Números inteiros, Números racionais,
+Razão e proporção, Regra de três, Porcentagem e juros simples, Linguagem
+algébrica, Equações do 1º grau, Inequações, Retas paralelas e transversais,
+Triângulos e quadriláteros, Circunferência e círculo, Média/moda/mediana e
+Probabilidade.
 
-A decisão do usuário foi **terminar o 6º ano inteiro antes de subir de ano**.
+Três observações para quando ele começar:
+
+- **Números inteiros pede bloco de desenho novo** — reta com negativos, saldo
+  e dívida, e a comparação de dois números à esquerda do zero, que é onde o
+  aluno mais erra ("−7 é maior que −3" parece certo até desenhar).
+- **Média, moda e mediana reaproveita `grafico` e `tabela` inteiros**, e é
+  continuação direta da Média aritmética do 6º — inclusive do gancho que a
+  lição 5 de lá deixou aberto sobre o que a média não conta.
+- **Álgebra é a primeira matéria sem figura óbvia.** Vale decidir o desenho
+  antes de escrever o conteúdo, e não depois: balança de dois pratos para
+  equação, barra dividida para incógnita. Sem isso a regra "toda questão tem
+  imagem" vira enfeite.
+
+Débito conhecido do 6º ano: nenhum defeito, mas Plano cartesiano, Gráficos e
+tabelas e Média aritmética saíram só com questão escrita para o site. As três
+são temas ricos no Banco de Questões da OBMEP — Média aritmética em especial,
+que é assunto clássico de olimpíada e não depende de figura.
 
 Custo real por matéria, medido nas duas primeiras: 6 a 8 lições, ~4 questões
 por lição, ~6 imagens por lição, 3 vídeos verificados, e a verificação

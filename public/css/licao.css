@@ -38,8 +38,15 @@
 
 .linha--licao { transition: background .12s ease; }
 .linha--licao:hover { background: var(--canvas-soft); text-decoration: none; }
+/* Duas marcas diferentes, de propósito.
+
+   Na lista de licoes o marcador é o NÚMERO da licao, e o ✓ entra depois dele
+   quando ela é concluida — por isso o ::after. Na lista de matérias e na de
+   certificados quem escreve a marca é o JS (✓ ou ★), e ali o ::after
+   duplicaria o simbolo: essas usam .linha--concluida, que só recolore. */
 .linha--feita .linha__num { color: var(--acerto); }
 .linha--feita .linha__num::after { content: " ✓"; }
+.linha--concluida .linha__num { color: var(--acerto); }
 
 /* No celular a linha vira grade de duas colunas em vez de flex com quebra.
 

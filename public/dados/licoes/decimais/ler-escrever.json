@@ -53,10 +53,22 @@
       "dica": "Conte as casas depois da vírgula: a primeira é décimos, a segunda é centésimos.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "6 centésimos" },
-        { "rotulo": "B", "texto": "6 décimos" },
-        { "rotulo": "C", "texto": "6 milésimos" },
-        { "rotulo": "D", "texto": "6 unidades" }
+        {
+          "rotulo": "A",
+          "texto": "6 centésimos"
+        },
+        {
+          "rotulo": "B",
+          "texto": "6 décimos"
+        },
+        {
+          "rotulo": "C",
+          "texto": "6 milésimos"
+        },
+        {
+          "rotulo": "D",
+          "texto": "6 unidades"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -93,16 +105,32 @@
       "dica": "Centésimos ocupam duas casas depois da vírgula. Escreva o 34 nessas duas casas.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "12,34" },
-        { "rotulo": "B", "texto": "12,034" },
-        { "rotulo": "C", "texto": "1234" },
-        { "rotulo": "D", "texto": "12,304" }
+        {
+          "rotulo": "A",
+          "texto": "12,34"
+        },
+        {
+          "rotulo": "B",
+          "texto": "12,034"
+        },
+        {
+          "rotulo": "C",
+          "texto": "1234"
+        },
+        {
+          "rotulo": "D",
+          "texto": "12,304"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "12,034",
           "porque": "Assim o 34 caiu nos milésimos, não nos centésimos. Como o nome do número é 'centésimos', a última casa ocupada tem que ser a segunda depois da vírgula."
+        },
+        {
+          "resposta": "1234",
+          "porque": "1234 junta os algarismos e perde a vírgula, que é justamente o que separa a parte inteira da decimal. Sem ela o número vira mil duzentos e trinta e quatro, cem vezes maior."
         },
         {
           "resposta": "12,304",
@@ -134,10 +162,22 @@
       "dica": "Zero acrescentado no fim de um decimal não muda o valor. Zero acrescentado no meio muda.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "0,50" },
-        { "rotulo": "B", "texto": "0,05" },
-        { "rotulo": "C", "texto": "5,0" },
-        { "rotulo": "D", "texto": "0,005" }
+        {
+          "rotulo": "A",
+          "texto": "0,50"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0,05"
+        },
+        {
+          "rotulo": "C",
+          "texto": "5,0"
+        },
+        {
+          "rotulo": "D",
+          "texto": "0,005"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -148,6 +188,10 @@
         {
           "resposta": "5,0",
           "porque": "5,0 são cinco unidades inteiras. 0,5 é meia unidade — dez vezes menos."
+        },
+        {
+          "resposta": "0,005",
+          "porque": "0,005 é cinco milésimos, e não cinco décimos: o 5 aqui está na terceira casa depois da vírgula. Cada casa a mais divide o valor por dez, então 0,005 é cem vezes menor que 0,5."
         }
       ],
       "resolucao": [

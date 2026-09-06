@@ -48,16 +48,32 @@
       "dica": "Cada pedaço vale um décimo, ou seja, 0,1. Conte quantos passos o ponto andou.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "0,3" },
-        { "rotulo": "B", "texto": "0,03" },
-        { "rotulo": "C", "texto": "3,0" },
-        { "rotulo": "D", "texto": "0,7" }
+        {
+          "rotulo": "A",
+          "texto": "0,3"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0,03"
+        },
+        {
+          "rotulo": "C",
+          "texto": "3,0"
+        },
+        {
+          "rotulo": "D",
+          "texto": "0,7"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "0,03",
           "porque": "0,03 são três centésimos — um ponto praticamente colado no zero, invisível numa reta dividida em dez. Como a divisão foi em 10, cada passo vale 0,1 e três passos dão 0,3."
+        },
+        {
+          "resposta": "3,0",
+          "porque": "3,0 é o número três inteiros, que ficaria bem longe à direita do 1 — fora da reta desenhada. O ponto está entre 0 e 1, então a parte inteira é 0."
         },
         {
           "resposta": "0,7",
@@ -84,10 +100,22 @@
       "dica": "Olhe só para a parte antes da vírgula. Ela já diz o inteiro de baixo.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "Entre 2 e 3" },
-        { "rotulo": "B", "texto": "Entre 24 e 25" },
-        { "rotulo": "C", "texto": "Entre 1 e 2" },
-        { "rotulo": "D", "texto": "Entre 0 e 1" }
+        {
+          "rotulo": "A",
+          "texto": "Entre 2 e 3"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Entre 24 e 25"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Entre 1 e 2"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Entre 0 e 1"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -98,6 +126,10 @@
         {
           "resposta": "Entre 1 e 2",
           "porque": "2,45 é maior que 2, porque tem 2 inteiros completos MAIS um pedaço. Então ele fica depois do 2, não antes."
+        },
+        {
+          "resposta": "Entre 0 e 1",
+          "porque": "2,45 tem 2 como parte inteira, e é a parte inteira que diz entre quais inteiros o número cai. Entre 0 e 1 estariam os números que começam com 0, como 0,45."
         }
       ],
       "resolucao": [
@@ -125,16 +157,32 @@
       "dica": "O ponto de partida não é o zero. Comece no 3 e conte os passos de 0,1.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "3,6" },
-        { "rotulo": "B", "texto": "0,6" },
-        { "rotulo": "C", "texto": "6,3" },
-        { "rotulo": "D", "texto": "3,06" }
+        {
+          "rotulo": "A",
+          "texto": "3,6"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0,6"
+        },
+        {
+          "rotulo": "C",
+          "texto": "6,3"
+        },
+        {
+          "rotulo": "D",
+          "texto": "3,06"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "0,6",
           "porque": "Você contou os passos, mas esqueceu de onde a reta começa. Ela não parte do zero: parte do 3. Então o número é 3 mais 6 décimos."
+        },
+        {
+          "resposta": "6,3",
+          "porque": "6,3 troca a parte inteira pela decimal. A reta vai de 3 a 4, então nenhum ponto dela pode ter 6 como parte inteira — o 3 é o inteiro e o 6 conta os décimos."
         },
         {
           "resposta": "3,06",

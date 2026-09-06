@@ -1,0 +1,196 @@
+{
+  "id": "comprimento",
+  "numero": 2,
+  "titulo": "Unidades de comprimento",
+  "pergunta": "Como trocar de metro para centímetro sem errar a casa?",
+  "ideia": {
+    "paragrafos": [
+      "As unidades de comprimento formam uma escada, e todos os degraus valem a mesma coisa: 10. Do maior para o menor, a ordem é quilômetro, hectômetro, decâmetro, metro, decímetro, centímetro e milímetro.",
+      "Descer um degrau — ir para uma unidade menor — multiplica por 10. Subir um degrau divide por 10. E como cada degrau é uma potência de 10, isso é a mesma coisa que andar com a vírgula uma casa, exatamente como você viu na matéria de Números decimais.",
+      "Os três degraus do meio quase não aparecem no dia a dia. Na prática você usa km, m, cm e mm — e entre eles os saltos são maiores: do quilômetro para o metro são três degraus, ou seja, multiplicar por 1000. Do metro para o centímetro são dois degraus: multiplicar por 100.",
+      "Vale ter estes três de cor, porque resolvem quase tudo: 1 km = 1000 m, 1 m = 100 cm e 1 cm = 10 mm.",
+      "E há um jeito simples de nunca errar o sentido da conta. Indo para uma unidade MENOR, o número aumenta, porque cabem mais pedacinhos. Indo para uma unidade MAIOR, o número diminui. Se a sua conta fez o número crescer ao passar de centímetro para metro, ela foi para o lado errado."
+    ],
+    "destaque": "Unidade menor, número maior. Cada degrau da escada vale 10.",
+    "imagem": "gra-ideia-comprimento"
+  },
+  "resolvido": {
+    "enunciado": "Quantos centímetros há em 3,5 metros?",
+    "imagem": "gra-res-comprimento",
+    "passos": [
+      {
+        "titulo": "Para que lado a conta vai",
+        "explicacao": "O centímetro é menor que o metro, então o número vai AUMENTAR. Saber isso antes já elimina metade dos erros possíveis.",
+        "conta": "m → cm · unidade menor · número maior"
+      },
+      {
+        "titulo": "Quantos degraus",
+        "explicacao": "Do metro para o centímetro são dois degraus na escada: metro, decímetro, centímetro.",
+        "conta": "2 degraus"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Cada degrau vale 10, então dois degraus valem 100. Multiplicar por 100 anda com a vírgula duas casas para a direita.",
+        "conta": "3,5 × 100 = 350"
+      },
+      {
+        "titulo": "Confira o sentido",
+        "explicacao": "350 é maior que 3,5, como tinha que ser: passamos para uma unidade menor. Se tivesse diminuído, a conta estaria invertida.",
+        "conta": "3,5 m = 350 cm"
+      }
+    ],
+    "fecho": "Decida o sentido primeiro, calcule depois. É mais rápido que decorar tabela de conversão."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos centímetros há em 7 metros? Digite apenas o número.",
+      "imagem": "gra-q-7m",
+      "dica": "Cada metro tem 100 centímetros.",
+      "formato": "numero",
+      "resposta": 700,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "70",
+          "porque": "70 sai de multiplicar por 10, ou seja, de descer um degrau só. Do metro ao centímetro são DOIS degraus, então o fator é 100."
+        },
+        {
+          "resposta": "7000",
+          "porque": "7.000 sai de multiplicar por 1000, o fator do metro para o MILÍMETRO. O centímetro está um degrau acima do milímetro."
+        },
+        {
+          "resposta": "0.07",
+          "porque": "0,07 sai de dividir por 100. A conta foi para o lado errado: indo para uma unidade menor, o número precisa aumentar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido da conta",
+          "explicacao": "Centímetro é menor que metro, então o número aumenta.",
+          "conta": "m → cm · multiplicar"
+        },
+        {
+          "titulo": "Qual fator",
+          "explicacao": "Dois degraus de 10 cada dão 100.",
+          "conta": "7 × 100 = 700 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos metros há em 250 centímetros? Digite apenas o número.",
+      "imagem": "gra-q-250cm",
+      "dica": "Agora é o caminho de volta: o metro é maior, então o número diminui.",
+      "formato": "numero",
+      "resposta": 2.5,
+      "unidade": "m",
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 sai de dividir por 10, ou seja, de subir um degrau só. Do centímetro ao metro são dois degraus, então o divisor é 100."
+        },
+        {
+          "resposta": "25000",
+          "porque": "25.000 sai de multiplicar por 100. A conta foi para o lado errado: indo para uma unidade maior, o número precisa diminuir."
+        },
+        {
+          "resposta": "0.25",
+          "porque": "0,25 sai de dividir por 1000, o fator até o quilômetro seria ainda maior. Entre centímetro e metro o divisor é 100."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido da conta",
+          "explicacao": "Metro é maior que centímetro, então o número diminui.",
+          "conta": "cm → m · dividir"
+        },
+        {
+          "titulo": "Divida por 100",
+          "explicacao": "Dividir por 100 anda com a vírgula duas casas para a esquerda.",
+          "conta": "250 ÷ 100 = 2,5 m"
+        },
+        {
+          "titulo": "Faz sentido?",
+          "explicacao": "Dois metros e meio é uma altura de pé-direito comum. Se tivesse dado 25 metros, seria um prédio de oito andares.",
+          "conta": "2,5 m"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos metros há em 3 quilômetros? Digite apenas o número.",
+      "imagem": "gra-q-3km",
+      "dica": "Um quilômetro tem mil metros.",
+      "formato": "numero",
+      "resposta": 3000,
+      "unidade": "m",
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 sai de multiplicar por 100. Do quilômetro ao metro são TRÊS degraus, então o fator é 1000 — é o que o prefixo 'quilo' significa."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 sai de multiplicar por 10, um degrau só. Faltaram dois degraus."
+        },
+        {
+          "resposta": "0.003",
+          "porque": "0,003 sai de dividir por 1000. O metro é menor que o quilômetro, então o número tem que aumentar, e não diminuir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que 'quilo' significa",
+          "explicacao": "O prefixo 'quilo' quer dizer mil. Ele aparece igual no quilograma, que vale mil gramas.",
+          "conta": "1 km = 1 000 m"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Três quilômetros, cada um com mil metros.",
+          "conta": "3 × 1 000 = 3 000 m"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos centímetros há em 45 milímetros? Digite apenas o número.",
+      "imagem": "gra-q-45mm",
+      "dica": "O centímetro é maior que o milímetro, e a diferença é de um degrau só.",
+      "formato": "numero",
+      "resposta": 4.5,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "450",
+          "porque": "450 sai de multiplicar por 10. A conta foi para o lado errado: o centímetro é maior que o milímetro, então o número diminui."
+        },
+        {
+          "resposta": "0.45",
+          "porque": "0,45 sai de dividir por 100. Entre milímetro e centímetro há um degrau só, então o divisor é 10."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é o próprio valor em milímetros. Trocar de unidade sempre muda o número — a não ser entre mililitro e centímetro cúbico, que é um caso especial."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido da conta",
+          "explicacao": "Centímetro é maior que milímetro, então o número diminui.",
+          "conta": "mm → cm · dividir"
+        },
+        {
+          "titulo": "Um degrau só",
+          "explicacao": "Milímetro e centímetro são vizinhos na escada, então o fator é 10.",
+          "conta": "45 ÷ 10 = 4,5 cm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Quatro centímetros e meio é o tamanho aproximado de uma caixa de fósforos. Plausível para 45 mm.",
+          "conta": "4,5 cm"
+        }
+      ]
+    }
+  ]
+}

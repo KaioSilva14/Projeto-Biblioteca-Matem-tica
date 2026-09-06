@@ -88,6 +88,37 @@ function cursoConcluido(cursoId, licoes) {
   return { cursos: { [cursoId]: { cursoId, licoes: registro } } };
 }
 
+/**
+ * Progresso com um ANO inteiro certificado.
+ *
+ * Monta o certificado de cada matéria a partir dos arquivos reais, que é
+ * exatamente o formato que a página do ano lê: ela soma os certificados
+ * guardados em vez de buscar curso por curso.
+ */
+function anoConcluido(numero) {
+  const ano = catalogo.anos.find((a) => a.ano === numero);
+  const cursos = {};
+  for (const item of ano.cursos.filter((c) => c.disponivel)) {
+    const { curso, licoes } = lerCursoDisco(item.id);
+    const questoes = licoes.reduce((t, l) => t + l.questoes.length, 0);
+    cursos[item.id] = {
+      cursoId: item.id,
+      licoes: {},
+      certificado: {
+        cursoId: item.id,
+        cursoTitulo: curso.titulo,
+        ano: numero,
+        nome: "Ana Lima",
+        data: "2026-09-05T10:00:00.000Z",
+        questoes,
+        acertosDePrimeira: Math.round(questoes * 0.75),
+        licoes: licoes.length,
+      },
+    };
+  }
+  return { cursos, anos: {} };
+}
+
 const lerCursoDisco = (id) => {
   const item = catalogo.anos.flatMap((a) => a.cursos).find((c) => c.id === id);
   const curso = JSON.parse(readFileSync(join(PUBLICO, item.arquivo.replace(/^\//, "")), "utf8"));
@@ -130,18 +161,106 @@ await teste("certificados conquistados aparecem na home", async () => {
 grupo("Página de ano");
 
 await teste("lista as matérias do ano, separando prontas de 'em breve'", async () => {
-  const { doc } = await montar("ano.html", "?a=6");
-  assert.match(doc.querySelector("[data-cabecalho]").textContent, /6º ano/);
+  // O ano é escolhido do catálogo, e não fixado aqui: assim que o 6º ficou
+  // completo, um teste que cravasse "?a=6" passaria a exigir matéria em breve
+  // num ano que não tem mais nenhuma. É o mesmo cuidado do teste de curso
+  // indisponível.
+  const comPendencia = catalogo.anos.find((a) => a.cursos.some((c) => !c.disponivel));
+  assert.ok(comPendencia, "o catálogo inteiro está pronto — este teste perdeu o objeto");
+
+  const { doc } = await montar("ano.html", `?a=${comPendencia.ano}`);
+  assert.match(doc.querySelector("[data-cabecalho]").textContent, new RegExp(`${comPendencia.ano}º ano`));
   const linhas = doc.querySelectorAll(".linha--curso");
-  const doCatalogo = catalogo.anos.find((a) => a.ano === 6).cursos;
-  assert.equal(linhas.length, doCatalogo.length);
+  assert.equal(linhas.length, comPendencia.cursos.length);
 
   const prontas = [...linhas].filter((l) => !l.classList.contains("linha--indisponivel"));
   const emBreve = [...linhas].filter((l) => l.classList.contains("linha--indisponivel"));
-  assert.equal(prontas.length, doCatalogo.filter((c) => c.disponivel).length);
+  assert.equal(prontas.length, comPendencia.cursos.filter((c) => c.disponivel).length);
   assert.ok(emBreve.length >= 1, "deveria haver matérias em breve");
   assert.match(emBreve[0].textContent, /em breve/);
   assert.equal(emBreve[0].tagName, "DIV", "matéria indisponível não pode ser link");
+});
+
+await teste("um ano inteiro pronto não mostra nenhuma matéria em breve", async () => {
+  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
+  if (!completo) return;                      // ainda não há ano fechado
+  const { doc } = await montar("ano.html", `?a=${completo.ano}`);
+  const linhas = doc.querySelectorAll(".linha--curso");
+  assert.equal(linhas.length, completo.cursos.length);
+  assert.equal([...linhas].filter((l) => l.classList.contains("linha--indisponivel")).length, 0);
+  assert.ok([...linhas].every((l) => l.tagName === "A"), "toda matéria pronta tem de ser link");
+  // e o rodapé não explica uma marca que não aparece na página
+  assert.equal(doc.querySelector("[data-nota-embreve]").hidden, true);
+});
+
+await teste("num ano com pendências o rodapé continua explicando o 'em breve'", async () => {
+  const pendente = catalogo.anos.find((a) => a.cursos.some((c) => !c.disponivel));
+  assert.ok(pendente, "o catálogo inteiro está pronto — este teste perdeu o objeto");
+  const { doc } = await montar("ano.html", `?a=${pendente.ano}`);
+  assert.equal(doc.querySelector("[data-nota-embreve]").hidden, false);
+});
+
+await teste("ano com matéria por escrever não mostra certificado de ano", async () => {
+  const pendente = catalogo.anos.find((a) => a.cursos.some((c) => !c.disponivel));
+  const { doc } = await montar("ano.html", `?a=${pendente.ano}`);
+  const area = doc.querySelector("[data-certificado-ano]");
+  assert.equal(area.hidden, true, "cobrar um ano que ninguém escreveu não faz sentido");
+  assert.equal(area.querySelector(".certificado"), null);
+});
+
+await teste("ano completo mas não estudado mostra quantas matérias faltam", async () => {
+  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
+  if (!completo) return;
+  const { doc } = await montar("ano.html", `?a=${completo.ano}`);
+  const bloco = doc.querySelector("[data-certificado-ano] .certificado");
+  assert.ok(bloco, "o bloco do certificado de ano deveria aparecer");
+  assert.match(bloco.textContent, /Ano ainda em andamento/);
+  assert.match(bloco.textContent, new RegExp(`Faltam ${completo.cursos.length} matérias`));
+  assert.equal(bloco.querySelector(".certificado__campo"), null, "não pede nome antes de concluir");
+});
+
+await teste("com o ano inteiro concluído, o certificado de ano libera nome e download", async () => {
+  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
+  if (!completo) return;
+  const { doc } = await montar("ano.html", `?a=${completo.ano}`, anoConcluido(completo.ano));
+  const bloco = doc.querySelector("[data-certificado-ano] .certificado");
+  assert.match(bloco.textContent, new RegExp(`${completo.ano}º ano concluído`));
+  assert.match(bloco.textContent, new RegExp(`as ${completo.cursos.length} matérias`));
+  assert.ok(bloco.querySelector(".certificado__campo"), "faltou o campo de nome");
+  assert.ok(botao(doc, "Baixar certificado do ano"), "faltou o botão de download");
+});
+
+await teste("concluir o ano registra o certificado de ano no armazenamento local", async () => {
+  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
+  if (!completo) return;
+  const { window } = await montar("ano.html", `?a=${completo.ano}`, anoConcluido(completo.ano));
+  const salvo = JSON.parse(window.localStorage.getItem("biblioteca_matematica_v3"));
+  const cert = salvo.anos[String(completo.ano)];
+  assert.ok(cert, "o certificado do ano deveria ter sido emitido sozinho");
+  assert.equal(cert.materias.length, completo.cursos.length);
+  assert.equal(cert.nome, "Ana Lima", "reaproveita o nome já usado nos certificados de matéria");
+  // os números batem com a soma dos certificados de matéria
+  const somados = Object.values(anoConcluido(completo.ano).cursos).map((c) => c.certificado);
+  assert.equal(cert.questoes, somados.reduce((t, c) => t + c.questoes, 0));
+  assert.equal(cert.licoes, somados.reduce((t, c) => t + c.licoes, 0));
+});
+
+await teste("o certificado de ano aparece na home junto dos de matéria", async () => {
+  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
+  if (!completo) return;
+  const progresso = anoConcluido(completo.ano);
+  progresso.anos[String(completo.ano)] = {
+    ano: completo.ano, anoTitulo: `${completo.ano}º ano`, nome: "Ana Lima",
+    data: "2026-09-06T10:00:00.000Z", materias: completo.cursos.map((c) => c.titulo),
+    licoes: 88, questoes: 352, acertosDePrimeira: 260,
+  };
+  const { doc } = await montar("index.html", "", progresso);
+  const secao = doc.querySelector("[data-certificados]");
+  assert.equal(secao.hidden, false);
+  const linhas = secao.querySelectorAll(".linha");
+  assert.match(linhas[0].textContent, new RegExp(`${completo.ano}º ano completo`), "o do ano vem primeiro");
+  assert.equal(linhas[0].getAttribute("href"), `/ano.html?a=${completo.ano}#certificado`);
+  assert.equal(linhas.length, completo.cursos.length + 1, "o do ano não substitui os de matéria");
 });
 
 await teste("as matérias prontas linkam para a página do curso", async () => {

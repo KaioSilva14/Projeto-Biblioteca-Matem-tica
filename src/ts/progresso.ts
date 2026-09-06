@@ -8,12 +8,14 @@
 // contador. Contador é frágil: qualquer mudança de ordem ou repetição de
 // clique estraga o número. Lista de ids é idempotente por construção.
 
-import type { Certificado, ProgressoCurso, ProgressoGeral, ProgressoLicao } from "./tipos.js";
+import type {
+  Ano, Certificado, CertificadoAno, ProgressoCurso, ProgressoGeral, ProgressoLicao,
+} from "./tipos.js";
 
 const CHAVE = "biblioteca_matematica_v3";
 
 function vazio(): ProgressoGeral {
-  return { cursos: {} };
+  return { cursos: {}, anos: {} };
 }
 
 function licaoVazia(licaoId: string): ProgressoLicao {
@@ -38,6 +40,19 @@ function ehCertificadoValido(valor: unknown): valor is Certificado {
     typeof r.cursoId === "string" &&
     typeof r.nome === "string" &&
     typeof r.data === "string" &&
+    typeof r.questoes === "number" &&
+    typeof r.acertosDePrimeira === "number"
+  );
+}
+
+function ehCertificadoAnoValido(valor: unknown): valor is CertificadoAno {
+  if (typeof valor !== "object" || valor === null) return false;
+  const r = valor as Record<string, unknown>;
+  return (
+    typeof r.ano === "number" &&
+    typeof r.nome === "string" &&
+    typeof r.data === "string" &&
+    Array.isArray(r.materias) &&
     typeof r.questoes === "number" &&
     typeof r.acertosDePrimeira === "number"
   );
@@ -72,13 +87,24 @@ export function lerTudo(): ProgressoGeral {
         }
       }
 
-      cursos[cursoId] = {
-        cursoId,
-        licoes,
-        certificado: ehCertificadoValido(registro.certificado) ? registro.certificado : undefined,
-      };
+      // `licoes` entrou depois no certificado; registro antigo não tem o
+      // campo, e vale 0 em vez de derrubar o progresso inteiro.
+      const certificado = ehCertificadoValido(registro.certificado)
+        ? { ...registro.certificado, licoes: Number(registro.certificado.licoes) || 0 }
+        : undefined;
+
+      cursos[cursoId] = { cursoId, licoes, certificado };
     }
-    return { cursos };
+
+    const anos: Record<string, CertificadoAno> = {};
+    const crusAnos = (dados as Record<string, unknown>).anos;
+    if (typeof crusAnos === "object" && crusAnos !== null) {
+      for (const [chave, valor] of Object.entries(crusAnos as Record<string, unknown>)) {
+        if (ehCertificadoAnoValido(valor)) anos[chave] = valor;
+      }
+    }
+
+    return { cursos, anos };
   } catch {
     return vazio();
   }
@@ -226,4 +252,81 @@ export function listarCertificados(): Certificado[] {
     .map((c) => c.certificado)
     .filter((c): c is Certificado => c !== undefined)
     .sort((a, b) => b.data.localeCompare(a.data));
+}
+
+// ---------- Certificado de ano ----------
+//
+// O ano fecha quando TODAS as matérias publicadas dele têm certificado
+// guardado. Isso é lido só do localStorage: a página do ano não precisa
+// buscar os cursos nem as lições para saber se o aluno terminou, o que
+// manteria 14 requisições extras num lugar que hoje faz uma só.
+
+export interface ResumoAno {
+  /** Matérias do ano que já têm certificado. */
+  concluidas: number;
+  totalMaterias: number;
+  concluido: boolean;
+  materias: string[];
+  licoes: number;
+  questoes: number;
+  acertosDePrimeira: number;
+  /** Data da matéria concluída por último — a data do fecho do ano. */
+  ultimaData: string;
+}
+
+/**
+ * Resume o ano a partir dos certificados de matéria guardados.
+ *
+ * `cursosDoAno` são os ids das matérias PUBLICADAS daquele ano, na ordem do
+ * catálogo. Matéria ainda não escrita não entra na conta: senão nenhum ano
+ * fecharia enquanto o catálogo inteiro não estivesse pronto.
+ */
+export function resumirAno(cursosDoAno: string[]): ResumoAno {
+  const geral = lerTudo();
+  const certificados = cursosDoAno
+    .map((id) => geral.cursos[id]?.certificado)
+    .filter((c): c is Certificado => c !== undefined);
+
+  const soma = (campo: "licoes" | "questoes" | "acertosDePrimeira"): number =>
+    certificados.reduce((total, c) => total + (c[campo] || 0), 0);
+
+  return {
+    concluidas: certificados.length,
+    totalMaterias: cursosDoAno.length,
+    concluido: cursosDoAno.length > 0 && certificados.length === cursosDoAno.length,
+    materias: certificados.map((c) => c.cursoTitulo),
+    licoes: soma("licoes"),
+    questoes: soma("questoes"),
+    acertosDePrimeira: soma("acertosDePrimeira"),
+    ultimaData: certificados.map((c) => c.data).sort().at(-1) ?? "",
+  };
+}
+
+export function lerCertificadoAno(ano: Ano): CertificadoAno | null {
+  return lerTudo().anos[String(ano)] ?? null;
+}
+
+export function emitirCertificadoAno(certificado: CertificadoAno): CertificadoAno {
+  const geral = lerTudo();
+  geral.anos[String(certificado.ano)] = certificado;
+  gravar(geral);
+  return certificado;
+}
+
+/**
+ * Some o certificado de ano.
+ *
+ * Chamado quando o aluno apaga o progresso de alguma matéria daquele ano: o
+ * ano deixou de estar completo, e deixar o certificado guardado seria dizer
+ * que ele terminou uma coisa que já não está terminada.
+ */
+export function removerCertificadoAno(ano: Ano): void {
+  const geral = lerTudo();
+  delete geral.anos[String(ano)];
+  gravar(geral);
+}
+
+/** Todos os certificados de ano, do mais novo para o mais antigo. */
+export function listarCertificadosAno(): CertificadoAno[] {
+  return Object.values(lerTudo().anos).sort((a, b) => b.data.localeCompare(a.data));
 }

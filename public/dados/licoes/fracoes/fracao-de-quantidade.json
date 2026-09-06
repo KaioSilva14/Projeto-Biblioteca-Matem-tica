@@ -93,11 +93,26 @@
       "dica": "Chame de x a quantia que cada um deu. Se um quinto do dinheiro de Adriano é x, quanto Adriano tinha?",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "1/4" },
-        { "rotulo": "B", "texto": "1/3" },
-        { "rotulo": "C", "texto": "1/10" },
-        { "rotulo": "D", "texto": "2/5" },
-        { "rotulo": "E", "texto": "1/2" }
+        {
+          "rotulo": "A",
+          "texto": "1/4"
+        },
+        {
+          "rotulo": "B",
+          "texto": "1/3"
+        },
+        {
+          "rotulo": "C",
+          "texto": "1/10"
+        },
+        {
+          "rotulo": "D",
+          "texto": "2/5"
+        },
+        {
+          "rotulo": "E",
+          "texto": "1/2"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -108,6 +123,14 @@
         {
           "resposta": "1/10",
           "porque": "Talvez você tenha somado 5 + 4 + 3 = 12 e comparado com algo errado, ou somado os denominadores 5 + 4 + 3 e usado como total. O total é 12x e Daniel tem 3x, então a fração é 3x/12x."
+        },
+        {
+          "resposta": "2/5",
+          "porque": "2/5 olha só para o Adriano, que deu um quinto do que tinha. A pergunta é sobre o total dos TRÊS amigos juntos: como cada um doou a mesma quantia, eles tinham 5, 4 e 3 vezes essa quantia, somando 12."
+        },
+        {
+          "resposta": "1/2",
+          "porque": "1/2 seria Daniel ficar com metade de tudo o que os três tinham. Ele recebeu três quantias iguais de um total de doze — um quarto, e não a metade."
         }
       ],
       "resolucao": [

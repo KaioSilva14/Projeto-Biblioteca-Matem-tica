@@ -1,0 +1,259 @@
+{
+  "id": "medir",
+  "numero": 1,
+  "titulo": "O que é medir",
+  "pergunta": "Por que ninguém mede a distância entre cidades em centímetros?",
+  "ideia": {
+    "paragrafos": [
+      "Medir é comparar uma coisa com uma unidade escolhida e contar quantas vezes a unidade cabe. Quando você diz que a mesa tem 2 metros, está dizendo que o metro cabe duas vezes no comprimento dela.",
+      "Por isso toda medida tem duas partes, e as duas importam: o número e a unidade. Dizer 'a caixa tem 5' não significa nada. Cinco metros, cinco quilos e cinco litros são coisas completamente diferentes.",
+      "As unidades precisam ser combinadas por todo mundo, senão ninguém se entende. Já se mediu comprimento em pés e em palmos — e o pé de cada um tinha um tamanho. Foi para acabar com essa confusão que o metro foi criado e adotado internacionalmente.",
+      "Cada tipo de coisa que se mede é uma grandeza, e cada grandeza tem a sua família de unidades. Comprimento se mede em metros e derivados; massa em gramas e derivados; capacidade em litros; tempo em segundos, minutos e horas.",
+      "E dentro de cada família existem tamanhos diferentes para não trabalhar com números absurdos. A distância entre duas cidades em centímetros daria milhões — por isso existe o quilômetro. A espessura de uma folha em metros daria 0,0001 — por isso existe o milímetro. Escolher bem a unidade é parte de medir bem."
+    ],
+    "destaque": "Medir é contar quantas vezes a unidade cabe. Sem unidade, o número não diz nada.",
+    "imagem": "gra-ideia-grandezas"
+  },
+  "resolvido": {
+    "enunciado": "Qual unidade é mais adequada para medir: a altura de uma porta, a massa de um caminhão e a capacidade de uma colher de chá?",
+    "imagem": "gra-res-unidades",
+    "passos": [
+      {
+        "titulo": "Identifique a grandeza de cada um",
+        "explicacao": "Altura é comprimento. Massa de caminhão é massa. Capacidade de colher é capacidade. Cada grandeza tem a sua família de unidades, e escolher da família errada já erra tudo.",
+        "conta": "comprimento · massa · capacidade"
+      },
+      {
+        "titulo": "A altura da porta",
+        "explicacao": "Uma porta tem cerca de dois metros. Em centímetros daria 200, que também funciona; em quilômetros daria 0,002, um número desconfortável.",
+        "conta": "≈ 2 m"
+      },
+      {
+        "titulo": "A massa do caminhão",
+        "explicacao": "Um caminhão pesa milhares de quilos. Em gramas o número teria sete algarismos, então a unidade certa é a tonelada.",
+        "conta": "≈ 10 t"
+      },
+      {
+        "titulo": "A colher de chá",
+        "explicacao": "Cabe muito pouco líquido numa colher — bem menos que um litro. Aqui o mililitro é a unidade confortável.",
+        "conta": "≈ 5 mL"
+      },
+      {
+        "titulo": "A regra por trás",
+        "explicacao": "A unidade boa é a que deixa o número num tamanho fácil de falar: nem com muitos zeros na frente, nem com muitos atrás.",
+        "conta": "nem 0,002 nem 10 000 000"
+      }
+    ],
+    "fecho": "Todas as unidades da mesma família estão certas. A diferença é que uma delas deixa o número legível."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual unidade é mais adequada para medir a altura de uma pessoa?",
+      "imagem": "gra-q-altura",
+      "dica": "Uma pessoa tem cerca de um metro e meio. Que unidade dá um número confortável?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Metro (m)"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Quilômetro (km)"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Milímetro (mm)"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Quilograma (kg)"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Quilômetro (km)",
+          "porque": "O quilômetro é grande demais: uma pessoa teria cerca de 0,0017 km. A unidade está certa de família — é comprimento — mas o número fica impossível de falar."
+        },
+        {
+          "resposta": "Milímetro (mm)",
+          "porque": "O milímetro é pequeno demais: uma pessoa teria cerca de 1700 mm. Funciona, mas exige carregar milhares onde poucos metros bastam."
+        },
+        {
+          "resposta": "Quilograma (kg)",
+          "porque": "O quilograma mede MASSA, não comprimento. É a família errada: altura se mede com régua, e não com balança."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual é a grandeza",
+          "explicacao": "Altura é comprimento, então a família certa é a do metro.",
+          "conta": "altura → comprimento"
+        },
+        {
+          "titulo": "Qual tamanho de unidade",
+          "explicacao": "Em metros uma pessoa dá algo como 1,70 — um número curto e fácil de falar. É o sinal de que a unidade é a certa.",
+          "conta": "1,70 m"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual unidade é mais adequada para medir a massa de um caminhão carregado?",
+      "imagem": "gra-q-caminhao",
+      "dica": "Um caminhão pesa milhares de quilos. Existe uma unidade maior que o quilograma?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Tonelada (t)"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Grama (g)"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Miligrama (mg)"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Litro (L)"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Grama (g)",
+          "porque": "O grama é pequeno demais para um caminhão: seriam dezenas de milhões. A família está certa, mas a escala não."
+        },
+        {
+          "resposta": "Miligrama (mg)",
+          "porque": "O miligrama é ainda menor que o grama — ele serve para remédios. Num caminhão o número teria dez algarismos."
+        },
+        {
+          "resposta": "Litro (L)",
+          "porque": "O litro mede CAPACIDADE, não massa. Ele responderia quanto combustível cabe no tanque, e não quanto o caminhão pesa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual é a grandeza",
+          "explicacao": "Peso de caminhão é massa, então a família é a do grama.",
+          "conta": "massa → g, kg, t"
+        },
+        {
+          "titulo": "Qual tamanho",
+          "explicacao": "Um caminhão carregado tem dezenas de milhares de quilos. A tonelada, que vale mil quilos, deixa o número em dezenas.",
+          "conta": "≈ 20 t"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual unidade é mais adequada para medir quanto líquido cabe numa garrafa de refrigerante?",
+      "imagem": "gra-q-garrafa",
+      "dica": "Quanto costuma vir escrito no rótulo de uma garrafa grande?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Litro (L)"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Metro (m)"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Quilograma (kg)"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Hora (h)"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Metro (m)",
+          "porque": "O metro mede comprimento. Ele diria a ALTURA da garrafa, e não quanto líquido cabe dentro dela."
+        },
+        {
+          "resposta": "Quilograma (kg)",
+          "porque": "O quilograma mede massa. Ele diria quanto a garrafa PESA — o que é uma pergunta parecida, mas não é a mesma: capacidade é o espaço interno."
+        },
+        {
+          "resposta": "Hora (h)",
+          "porque": "A hora mede tempo. Nenhuma relação com o que cabe dentro de um recipiente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual é a grandeza",
+          "explicacao": "Quanto líquido cabe é capacidade, e a unidade dessa família é o litro.",
+          "conta": "capacidade → L, mL"
+        },
+        {
+          "titulo": "Qual tamanho",
+          "explicacao": "Garrafas grandes vêm com 2 litros; as pequenas, com 500 mililitros. O litro é a unidade natural aqui.",
+          "conta": "2 L"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual unidade é mais adequada para medir a distância entre duas cidades?",
+      "imagem": "gra-q-distancia",
+      "dica": "São dezenas ou centenas de milhares de metros. Existe uma unidade maior?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Quilômetro (km)"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Centímetro (cm)"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Milímetro (mm)"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Litro (L)"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Centímetro (cm)",
+          "porque": "O centímetro é pequeno demais: cem quilômetros dariam dez milhões de centímetros. A família está certa, mas o número fica impraticável."
+        },
+        {
+          "resposta": "Milímetro (mm)",
+          "porque": "O milímetro é dez vezes menor ainda que o centímetro — o número seria dez vezes pior. Ele serve para coisas pequenas, como a espessura de uma moeda."
+        },
+        {
+          "resposta": "Litro (L)",
+          "porque": "O litro mede capacidade, ou seja, quanto líquido cabe num recipiente. Ele não serve para distância — é a família de unidades errada para esta pergunta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual é a grandeza",
+          "explicacao": "Distância é comprimento, então a família é a do metro.",
+          "conta": "distância → comprimento"
+        },
+        {
+          "titulo": "Qual tamanho",
+          "explicacao": "O quilômetro vale mil metros, e é ele que deixa distâncias entre cidades em números de dois ou três algarismos.",
+          "conta": "≈ 400 km"
+        }
+      ]
+    }
+  ]
+}

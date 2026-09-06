@@ -1,0 +1,211 @@
+{
+  "id": "ordem-importa",
+  "numero": 3,
+  "titulo": "A ordem importa",
+  "pergunta": "(3, 5) e (5, 3) são o mesmo ponto?",
+  "ideia": {
+    "paragrafos": [
+      "Não são. E essa é a coisa mais importante desta matéria inteira.",
+      "Marque os dois: o ponto (3, 5) anda 3 para a direita e sobe 5. O ponto (5, 3) anda 5 para a direita e sobe 3. Os dois usam os mesmos algarismos, mas param em lugares diferentes do plano — um mais alto e mais à esquerda, o outro mais baixo e mais à direita.",
+      "Compare com a soma, onde 3 + 5 e 5 + 3 dão a mesma coisa. Ali a ordem não muda nada; aqui muda tudo. É por isso que o par se chama ORDENADO: a posição de cada número dentro dos parênteses carrega informação.",
+      "Os dois pontos só coincidem quando os números são iguais. O ponto (4, 4) é o mesmo escrito de qualquer jeito, porque não há o que trocar. Esses pontos formam a diagonal que sai da origem.",
+      "Um jeito prático de conferir: o primeiro número decide quem está mais à direita, e o segundo decide quem está mais alto. Entre (2, 6) e (5, 1), o segundo está mais à direita — porque 5 é maior que 2 — e o primeiro está mais alto."
+    ],
+    "destaque": "(3, 5) e (5, 3) usam os mesmos números e caem em lugares diferentes.",
+    "imagem": "pla-ideia-ordem"
+  },
+  "resolvido": {
+    "enunciado": "Marque no plano os pontos (3, 5) e (5, 3) e mostre que eles são diferentes.",
+    "imagem": "pla-res-ordem",
+    "passos": [
+      {
+        "titulo": "Marque o primeiro",
+        "explicacao": "Da origem, ande 3 para a direita e depois suba 5. Você para num ponto alto, perto do eixo vertical.",
+        "conta": "(3, 5) → 3 à direita, 5 acima"
+      },
+      {
+        "titulo": "Marque o segundo",
+        "explicacao": "Volte à origem, ande 5 para a direita e suba 3. Você para num ponto mais baixo e mais afastado.",
+        "conta": "(5, 3) → 5 à direita, 3 acima"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Os dois pontos estão em lugares distintos do plano. Trocar a ordem dos números moveu o ponto — ele não ficou onde estava.",
+        "conta": "(3, 5) ≠ (5, 3)"
+      },
+      {
+        "titulo": "Quando eles coincidiriam",
+        "explicacao": "Só se os dois números fossem iguais, como em (4, 4). Aí não haveria nada para trocar de lugar.",
+        "conta": "(4, 4) = (4, 4)"
+      }
+    ],
+    "fecho": "Na soma a ordem não importa; no par ordenado, importa. O nome já avisa."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Os pontos (2, 6) e (6, 2) são o mesmo ponto do plano?",
+      "imagem": "pla-q-dois-pontos",
+      "dica": "Marque os dois a partir da origem e veja onde cada um para.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, são pontos diferentes" },
+        { "rotulo": "B", "texto": "Sim, porque usam os mesmos números" },
+        { "rotulo": "C", "texto": "Sim, porque 2 + 6 e 6 + 2 dão o mesmo" },
+        { "rotulo": "D", "texto": "Só se estiverem no mesmo eixo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque usam os mesmos números",
+          "porque": "Os números são os mesmos, mas o LUGAR de cada um muda o significado. O primeiro é sempre a horizontal: em (2, 6) o ponto anda 2 e sobe 6; em (6, 2) ele anda 6 e sobe 2."
+        },
+        {
+          "resposta": "Sim, porque 2 + 6 e 6 + 2 dão o mesmo",
+          "porque": "Na soma a ordem realmente não importa. Mas aqui os números não estão sendo somados: cada um é uma instrução para um eixo diferente."
+        },
+        {
+          "resposta": "Só se estiverem no mesmo eixo",
+          "porque": "Nenhum dos dois está sobre um eixo — para isso uma das coordenadas teria que ser zero. Eles são pontos diferentes soltos no meio do plano."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Marque o primeiro",
+          "explicacao": "Duas unidades para a direita e seis para cima: um ponto alto e perto do eixo vertical.",
+          "conta": "(2, 6)"
+        },
+        {
+          "titulo": "Marque o segundo",
+          "explicacao": "Seis para a direita e duas para cima: um ponto baixo e afastado.",
+          "conta": "(6, 2)"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Lugares diferentes do plano. Só coincidiriam se as duas coordenadas fossem iguais entre si.",
+          "conta": "(2, 6) ≠ (6, 2)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O ponto (7, 1) está a quantas unidades à direita da origem? Digite apenas o número.",
+      "imagem": "pla-q-direita",
+      "dica": "O deslocamento horizontal é o primeiro número do par.",
+      "formato": "numero",
+      "resposta": 7,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 é o segundo número, que diz quanto o ponto SUBIU. O deslocamento para a direita é o primeiro."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é a soma dos dois números. Cada coordenada responde por um eixo, e elas não se somam."
+        },
+        {
+          "resposta": "71",
+          "porque": "71 junta os dois algarismos. O par (7, 1) são duas informações separadas por vírgula, e não um número de dois algarismos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Qual coordenada responde",
+          "explicacao": "O deslocamento horizontal é sempre o primeiro número do par ordenado.",
+          "conta": "(7, 1) → x = 7"
+        },
+        {
+          "titulo": "Leia o primeiro número",
+          "explicacao": "Sete unidades à direita da origem, e depois só uma para cima.",
+          "conta": "7 unidades"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual destes pontos está sobre o eixo vertical (o eixo y)?",
+      "imagem": "pla-q-eixo-y",
+      "dica": "Um ponto sobre o eixo vertical não andou nada para o lado.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(0, 4)" },
+        { "rotulo": "B", "texto": "(4, 0)" },
+        { "rotulo": "C", "texto": "(4, 4)" },
+        { "rotulo": "D", "texto": "(2, 3)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(4, 0)",
+          "porque": "(4, 0) está sobre o eixo HORIZONTAL: ele andou 4 para o lado e não subiu nada. É o caso espelhado deste."
+        },
+        {
+          "resposta": "(4, 4)",
+          "porque": "Este ponto andou 4 e subiu 4, então está longe dos dois eixos, no meio do plano."
+        },
+        {
+          "resposta": "(2, 3)",
+          "porque": "Também está solto no meio: como o x não é zero, ele saiu do eixo vertical."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O que define o eixo vertical",
+          "explicacao": "É a linha em que o deslocamento horizontal é zero.",
+          "conta": "no eixo y → x = 0"
+        },
+        {
+          "titulo": "Procure o x igual a zero",
+          "explicacao": "Só (0, 4) tem o primeiro número igual a zero.",
+          "conta": "(0, 4)"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual destes dois pontos está mais À DIREITA no plano: (2, 6) ou (5, 1)?",
+      "imagem": "pla-q-mais-direita",
+      "dica": "Quem decide a posição horizontal é o primeiro número.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(5, 1)" },
+        { "rotulo": "B", "texto": "(2, 6)" },
+        { "rotulo": "C", "texto": "Os dois estão na mesma posição horizontal" },
+        { "rotulo": "D", "texto": "Não dá para saber sem desenhar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(2, 6)",
+          "porque": "(2, 6) está mais ALTO, e não mais à direita. Quem decide a altura é o segundo número; a posição horizontal é decidida pelo primeiro, e 2 é menor que 5."
+        },
+        {
+          "resposta": "Os dois estão na mesma posição horizontal",
+          "porque": "Isso só aconteceria se os dois tivessem o mesmo x. Aqui um tem x = 2 e o outro x = 5, então eles estão em colunas diferentes."
+        },
+        {
+          "resposta": "Não dá para saber sem desenhar",
+          "porque": "Dá para saber só olhando os pares: basta comparar os primeiros números. Desenhar ajuda a conferir, mas não é necessário."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Quem decide a horizontal",
+          "explicacao": "O primeiro número de cada par. Ele mede o deslocamento para a direita a partir da origem.",
+          "conta": "x de cada um: 2 e 5"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Cinco é maior que dois, então (5, 1) está mais afastado para a direita.",
+          "conta": "5 > 2 → (5, 1) mais à direita"
+        },
+        {
+          "titulo": "E a altura",
+          "explicacao": "Pelos segundos números, 6 é maior que 1, então (2, 6) é o mais alto. Cada eixo tem o seu juiz.",
+          "conta": "6 > 1 → (2, 6) mais alto"
+        }
+      ]
+    }
+  ]
+}

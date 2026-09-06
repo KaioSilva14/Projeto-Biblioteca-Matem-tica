@@ -1,0 +1,206 @@
+{
+  "id": "quando-mente",
+  "numero": 5,
+  "titulo": "Quando a média engana",
+  "pergunta": "A média pode representar mal o próprio grupo?",
+  "ideia": {
+    "paragrafos": [
+      "Pode, e acontece mais do que parece. A média é um resumo, e todo resumo joga informação fora — o problema é quando o que foi jogado fora era justamente o mais importante.",
+      "Cinco pessoas contaram quantos livros leram no ano: 2, 4, 2, 4 e 38. A soma é 50 e a média é 10 livros por pessoa. Mas ninguém leu 10 livros: quatro pessoas leram 2 ou 4, e uma leu 38. A média não descreve pessoa nenhuma desse grupo.",
+      "O que aconteceu é que um valor muito distante dos outros puxou o resultado sozinho. Tirando o 38, os quatro restantes têm média 3, que descreve o grupo bem melhor. Um único número mudou a média de 3 para 10.",
+      "É por isso que notícia com média merece desconfiança. 'A média de gols do campeonato foi 4' pode significar muitos jogos com 4 gols, ou quase todos com 1 gol e um jogo de goleada. As duas situações dão a mesma média e são completamente diferentes.",
+      "A média continua útil — ela só não conta a história sozinha. Vale sempre olhar os valores originais, e prestar atenção especial em algum que esteja muito longe dos demais."
+    ],
+    "destaque": "Um valor muito distante dos outros puxa a média sozinho, e ela deixa de representar o grupo.",
+    "imagem": "med-ideia-extremo"
+  },
+  "resolvido": {
+    "enunciado": "As cinco pessoas leram 2, 4, 2, 4 e 38 livros. Qual é a média, e por que ela representa mal esse grupo?",
+    "imagem": "med-res-extremo",
+    "passos": [
+      {
+        "titulo": "Calcule a média",
+        "explicacao": "Some os cinco valores e divida pela quantidade, como sempre. A conta em si não tem nada de especial.",
+        "conta": "50 ÷ 5 = 10"
+      },
+      {
+        "titulo": "Compare com os valores reais",
+        "explicacao": "Nenhuma das cinco pessoas leu 10 livros. Quatro leram bem menos e uma leu muito mais — a média caiu num vazio entre os dois grupos.",
+        "conta": "2, 4, 2, 4 e 38"
+      },
+      {
+        "titulo": "Conte quem está abaixo",
+        "explicacao": "Quatro das cinco pessoas ficaram abaixo da média. Quando a maioria está de um lado só, é sinal de que um valor extremo está mandando no resultado.",
+        "conta": "4 de 5 abaixo de 10"
+      },
+      {
+        "titulo": "Refaça sem o valor extremo",
+        "explicacao": "Tirando o 38, sobram 2, 4, 2 e 4, que somam 12 e dão média 3. Esse número descreve o grupo muito melhor — e mostra o tamanho do estrago que um valor sozinho faz.",
+        "conta": "12 ÷ 4 = 3"
+      }
+    ],
+    "fecho": "A média não errou a conta. Ela só não serve para descrever um grupo desses sozinha."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Cinco pessoas leram 2, 4, 2, 4 e 38 livros. Qual é a média de livros lidos por pessoa? Digite apenas o número.",
+      "imagem": "med-q-extremo-media",
+      "dica": "A conta é a de sempre: some os cinco valores e divida por cinco.",
+      "formato": "numero",
+      "resposta": 10,
+      "unidade": "livros",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é a média dos quatro valores pequenos, sem o 38. Ele é um leitor do grupo e entra na conta — é justamente por isso que a média sobe tanto."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é o total de livros lidos pelas cinco pessoas. Falta repartir esse total entre elas."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é um dos valores da lista, e o maior entre os quatro pequenos. A média é calculada com todos os cinco."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os cinco",
+          "explicacao": "Os quatro valores pequenos somam 12, e mais 38 dá 50.",
+          "conta": "2 + 4 + 2 + 4 + 38 = 50"
+        },
+        {
+          "titulo": "Divida por cinco",
+          "explicacao": "São cinco pessoas, e todas entram na conta.",
+          "conta": "50 ÷ 5 = 10 livros"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Nesse mesmo grupo, quantas pessoas leram MENOS livros que a média? Digite apenas o número.",
+      "imagem": "med-q-abaixo",
+      "dica": "Compare cada um dos cinco valores com a média de 10 livros.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "pessoas",
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 é quantas pessoas leram MAIS que a média — só quem leu 38. A pergunta é sobre quem ficou abaixo, e são as outras quatro."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o grupo inteiro. Quem leu 38 livros está bem acima da média de 10, então não entra nessa contagem."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o valor da média, e não uma quantidade de pessoas. O grupo tem cinco pessoas ao todo, então a resposta não pode passar de 5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Anote a média",
+          "explicacao": "Ela já foi calculada e vale 10 livros por pessoa.",
+          "conta": "média = 10"
+        },
+        {
+          "titulo": "Compare um a um",
+          "explicacao": "Dois, quatro, dois e quatro são todos menores que dez; trinta e oito é maior.",
+          "conta": "2 ✓ · 4 ✓ · 2 ✓ · 4 ✓ · 38 ✗"
+        },
+        {
+          "titulo": "Conte",
+          "explicacao": "Quatro das cinco pessoas ficaram abaixo da média, o que já é um sinal de que ela não representa o grupo.",
+          "conta": "4 pessoas"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a média de 10 livros representa mal esse grupo?",
+      "imagem": "med-q-porque-engana",
+      "dica": "Olhe para o valor que está muito longe dos outros e pense no efeito dele na soma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque um valor muito maior que os outros puxou a média para cima" },
+        { "rotulo": "B", "texto": "Porque a conta da média foi feita errado" },
+        { "rotulo": "C", "texto": "Porque o grupo tem poucas pessoas" },
+        { "rotulo": "D", "texto": "Porque alguém leu menos de 10 livros" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a conta da média foi feita errado",
+          "porque": "A conta está certíssima: 50 dividido por 5 dá 10 mesmo. O problema não é aritmético — é que um resumo desses esconde a diferença enorme entre as pessoas."
+        },
+        {
+          "resposta": "Porque o grupo tem poucas pessoas",
+          "porque": "O tamanho do grupo não é o problema. Cinco pessoas com valores parecidos teriam uma média bem representativa; o que estraga aqui é o valor distante."
+        },
+        {
+          "resposta": "Porque alguém leu menos de 10 livros",
+          "porque": "É normal haver gente abaixo da média — em quase todo grupo há. O que chama atenção aqui é que quase TODOS estão abaixo, empurrados por um único valor muito alto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o valor distante",
+          "explicacao": "Quatro pessoas leram 2 ou 4 livros, e uma leu 38. Esse último está muito longe dos demais.",
+          "conta": "38 contra 2 e 4"
+        },
+        {
+          "titulo": "Veja o peso dele na soma",
+          "explicacao": "Os quatro valores pequenos somam 12; o valor distante sozinho vale 38, mais que o triplo de todo o resto junto.",
+          "conta": "38 > 12"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "É esse desequilíbrio que empurra a média para 10, um número que não descreve nenhuma das cinco pessoas.",
+          "conta": "média puxada para cima"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Tirando a pessoa que leu 38 livros, qual é a média das outras quatro? Digite apenas o número.",
+      "imagem": "med-q-sem-extremo",
+      "dica": "Some só os quatro valores que sobraram e divida por quatro, não mais por cinco.",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "livros",
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é a média do grupo COM a pessoa que leu 38. Tirando esse valor, tanto a soma quanto a quantidade mudam, e a média cai bastante."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a soma dos quatro valores que sobraram. Falta dividir pela nova quantidade de pessoas, que agora é quatro."
+        },
+        {
+          "resposta": "2.4",
+          "porque": "2,4 sai de dividir 12 por 5, ou seja, de continuar dividindo por cinco depois de tirar uma pessoa. Ao retirar um valor, a quantidade também diminui."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os que sobraram",
+          "explicacao": "Ficaram 2, 4, 2 e 4, que somam doze.",
+          "conta": "2 + 4 + 2 + 4 = 12"
+        },
+        {
+          "titulo": "Divida pela nova quantidade",
+          "explicacao": "Agora são quatro pessoas, e não cinco: quem sai leva junto o seu lugar na divisão.",
+          "conta": "12 ÷ 4 = 3 livros"
+        },
+        {
+          "titulo": "Compare com a média anterior",
+          "explicacao": "De 10 para 3 só por causa de um valor. É o tamanho do efeito que um número distante tem sobre a média.",
+          "conta": "10 → 3"
+        }
+      ]
+    }
+  ]
+}

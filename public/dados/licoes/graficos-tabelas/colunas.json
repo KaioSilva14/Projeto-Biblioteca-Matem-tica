@@ -1,0 +1,196 @@
+{
+  "id": "colunas",
+  "numero": 2,
+  "titulo": "Gráfico de colunas",
+  "pergunta": "Como a altura de uma coluna vira um número?",
+  "ideia": {
+    "paragrafos": [
+      "Uma tabela guarda os números com precisão, mas não mostra de cara quem é maior. O gráfico de colunas resolve isso: cada categoria vira uma coluna, e a altura dela representa a quantidade. Basta bater o olho para ver quem ganhou.",
+      "A altura só significa alguma coisa por causa do eixo do lado esquerdo. Ele é uma reta numérica em pé, com marcas de dez em dez, de dois em dois, do jeito que couber. Para ler uma coluna, siga o topo dela até o eixo e veja em que marca ele para.",
+      "Quando o topo cai entre duas marcas, o valor está entre elas. Se as marcas são 0, 2, 4, 6 e a coluna para no meio do 4 e do 6, ela vale 5. É a mesma leitura da reta numérica, virada de lado.",
+      "Todas as colunas partem da mesma linha de base, embaixo. É isso que torna a comparação justa: uma coluna com o dobro da altura representa mesmo o dobro da quantidade. Se a base fosse diferente para cada uma, a comparação visual não valeria nada — e é justamente o truque da lição 5.",
+      "Embaixo de cada coluna vai o nome da categoria, e o gráfico inteiro tem um título dizendo o que está sendo contado. Sem esses dois, o desenho é bonito e não informa nada."
+    ],
+    "destaque": "Siga o topo da coluna até o eixo da esquerda. Onde ele parar, esse é o valor.",
+    "imagem": "grf-ideia-colunas"
+  },
+  "resolvido": {
+    "enunciado": "O gráfico mostra como os alunos de uma turma vão para a escola. Quantos vão a pé?",
+    "imagem": "grf-res-colunas",
+    "passos": [
+      {
+        "titulo": "Ache a coluna certa",
+        "explicacao": "Os nomes das categorias ficam embaixo do eixo. Procure a coluna com o rótulo 'a pé' — é a primeira delas.",
+        "conta": "coluna 'a pé'"
+      },
+      {
+        "titulo": "Suba até o topo dela",
+        "explicacao": "O que representa a quantidade é onde a coluna termina, e não a largura nem a posição.",
+        "conta": "topo da primeira coluna"
+      },
+      {
+        "titulo": "Leia no eixo da esquerda",
+        "explicacao": "Ande na horizontal do topo da coluna até o eixo. As marcas ali vão de dois em dois, e o topo para exatamente na quarta marca.",
+        "conta": "8 alunos"
+      },
+      {
+        "titulo": "Confira com as vizinhas",
+        "explicacao": "A coluna do ônibus é mais alta e para na marca do 12; a da bicicleta é mais baixa e para no 6. A leitura do 8 fica no meio das duas, como o desenho mostra.",
+        "conta": "6 < 8 < 12"
+      }
+    ],
+    "fecho": "Ler coluna é seguir o topo até o eixo. Sem o eixo, a altura é só um desenho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Segundo o gráfico, quantos alunos vão de ônibus? Digite apenas o número.",
+      "imagem": "grf-q-onibus",
+      "dica": "Suba pela coluna do ônibus e siga até o eixo da esquerda para ler a marca.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é a marca logo abaixo do topo da coluna. As marcas do eixo vão de dois em dois, e a coluna do ônibus passa dessa e para na seguinte."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a altura da coluna da bicicleta. Vale conferir o rótulo embaixo antes de ler, porque duas colunas vizinhas se confundem fácil."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é a coluna do carro, a mais baixa do gráfico. A do ônibus é justamente a mais alta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a coluna do ônibus",
+          "explicacao": "O rótulo fica embaixo de cada coluna. A do ônibus é a segunda, e é a mais alta do gráfico.",
+          "conta": "segunda coluna"
+        },
+        {
+          "titulo": "Leia a altura no eixo",
+          "explicacao": "Seguindo o topo até o eixo da esquerda, ele para na marca mais alta desenhada.",
+          "conta": "12 alunos"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o meio de transporte MENOS usado pela turma?",
+      "imagem": "grf-q-menos",
+      "dica": "A coluna mais baixa é a da categoria menos escolhida. Confira o rótulo dela embaixo do eixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Carro" },
+        { "rotulo": "B", "texto": "Bicicleta" },
+        { "rotulo": "C", "texto": "A pé" },
+        { "rotulo": "D", "texto": "Ônibus" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Bicicleta",
+          "porque": "A bicicleta tem 6 alunos, que é pouco, mas não é o menor: a coluna do carro para no 4 e é mais baixa que ela."
+        },
+        {
+          "resposta": "A pé",
+          "porque": "A pé são 8 alunos, o segundo maior valor do gráfico. A coluna dela está no meio da altura, e não embaixo."
+        },
+        {
+          "resposta": "Ônibus",
+          "porque": "O ônibus é justamente o MAIS usado, com a coluna mais alta do gráfico. A pergunta pede o contrário."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare as alturas",
+          "explicacao": "Como todas as colunas partem da mesma linha de base, a mais baixa é mesmo a de menor valor.",
+          "conta": "12, 8, 6 e 4"
+        },
+        {
+          "titulo": "Leia o rótulo da menor",
+          "explicacao": "A coluna que para no 4 é a última, e embaixo dela está escrito carro.",
+          "conta": "carro, com 4 alunos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos alunos a turma tem ao todo, considerando que cada um respondeu uma vez só? Digite apenas o número.",
+      "imagem": "grf-q-total-alunos",
+      "dica": "Some as alturas das quatro colunas, uma por vez.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é só a coluna mais alta. O total junta as quatro categorias, porque cada aluno aparece numa delas."
+        },
+        {
+          "resposta": "26",
+          "porque": "26 é a soma de três colunas: alguma ficou de fora da conta. Some as quatro na ordem para não pular nenhuma."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o número de colunas do gráfico, e não o número de alunos. Cada coluna representa vários alunos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia as quatro alturas",
+          "explicacao": "Ônibus 12, a pé 8, bicicleta 6 e carro 4, seguindo cada topo até o eixo.",
+          "conta": "12, 8, 6, 4"
+        },
+        {
+          "titulo": "Some duas a duas",
+          "explicacao": "Juntar em pares facilita a conta de cabeça.",
+          "conta": "12 + 8 = 20 · 6 + 4 = 10"
+        },
+        {
+          "titulo": "Junte os dois parciais",
+          "explicacao": "O total é a soma de todas as categorias, porque cada aluno respondeu uma vez só.",
+          "conta": "20 + 10 = 30 alunos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos alunos a mais vão de ônibus do que a pé? Digite apenas o número.",
+      "imagem": "grf-q-a-mais",
+      "dica": "Leia as duas colunas no eixo e subtraia a menor da maior.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é a soma das duas colunas, 12 + 8. Quantos a mais é sempre uma subtração."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a coluna do ônibus inteira. A pergunta é sobre a diferença entre ela e a coluna do a pé."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o espaço entre duas marcas do eixo, e não a diferença entre as colunas. Entre 8 e 12 cabem dois desses espaços, ou seja, 4 alunos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia as duas colunas",
+          "explicacao": "O ônibus para na marca do 12 e o a pé para na do 8.",
+          "conta": "12 e 8"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "A diferença de altura entre as duas colunas é a diferença de alunos.",
+          "conta": "12 − 8 = 4 alunos"
+        }
+      ]
+    }
+  ]
+}

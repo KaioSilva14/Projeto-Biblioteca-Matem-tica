@@ -1,0 +1,41 @@
+{
+  "id": "graficos-tabelas",
+  "titulo": "Gráficos e tabelas",
+  "ano": 6,
+  "descricao": "Ler dados sem ser enganado por eles. Seis lições que vão do cruzamento de linha com coluna até o truque mais comum da propaganda: o gráfico que não erra um número sequer e mesmo assim dá a impressão errada, porque o eixo não começa no zero.",
+  "pergunta": "Como um gráfico pode estar certo e mentir ao mesmo tempo?",
+  "videos": [
+    {
+      "id": "ou-FJremqo4",
+      "titulo": "Aula 20 - Análise de gráficos e tabelas | Matemática 6º ano | Tempo de Estudar",
+      "canal": "MultiRio",
+      "descricao": "Aula de TV educativa feita para esta série, com exemplos do dia a dia. Vale ver depois da lição 2, para praticar leitura com outros conjuntos de dados."
+    },
+    {
+      "id": "WMV-G2GX1wc",
+      "titulo": "6º Ano | Matemática | Aula 65 - Da Tabela para o Gráfico de Barras",
+      "canal": "Aula Paraná",
+      "descricao": "Mostra a passagem de uma tabela para o gráfico, passo a passo, que é exatamente o assunto da lição 4. Bom para quem quiser ver a construção sendo feita."
+    },
+    {
+      "id": "9rSTsFQH9oE",
+      "titulo": "TIPOS DE GRÁFICOS - GRÁFICO DE COLUNAS, BARRAS, SEGMENTOS E SETORES @professoraangelamatematica",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Apresenta tipos de gráfico que este site não usa, como o de setores e o de linhas. Serve para quem terminou as seis lições e quer conhecer o resto da família."
+    },
+    {
+      "id": "jZWS0Q9ib3I",
+      "titulo": "A arte de mentir com gráficos: Um roteiro para navegar por gráficos enganosos",
+      "canal": "Verve Científica",
+      "descricao": "Reúne vários truques de gráfico enganoso além do eixo cortado da lição 5. É mais avançado que o site, e vale para quem gostou do assunto e quer ir além."
+    }
+  ],
+  "licoes": [
+    { "id": "tabela", "arquivo": "/dados/licoes/graficos-tabelas/tabela.json" },
+    { "id": "colunas", "arquivo": "/dados/licoes/graficos-tabelas/colunas.json" },
+    { "id": "barras", "arquivo": "/dados/licoes/graficos-tabelas/barras.json" },
+    { "id": "duas-formas", "arquivo": "/dados/licoes/graficos-tabelas/duas-formas.json" },
+    { "id": "enganosos", "arquivo": "/dados/licoes/graficos-tabelas/enganosos.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/graficos-tabelas/problemas.json" }
+  ]
+}

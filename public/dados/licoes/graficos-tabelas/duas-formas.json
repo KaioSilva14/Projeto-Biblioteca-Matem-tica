@@ -1,0 +1,211 @@
+{
+  "id": "duas-formas",
+  "numero": 4,
+  "titulo": "Da tabela ao gráfico",
+  "pergunta": "A tabela e o gráfico dizem a mesma coisa?",
+  "ideia": {
+    "paragrafos": [
+      "Dizem. A tabela e o gráfico são duas roupas do mesmo conjunto de dados: os números não mudam ao passar de uma para o outro. O que muda é o que cada forma deixa aparecer primeiro.",
+      "A tabela é melhor quando você precisa do número exato. Ela mostra 35 escrito, sem margem para dúvida. Um gráfico só dá 35 se alguém escrever esse valor na coluna — senão você lê pelo eixo, com o risco de errar um pouquinho.",
+      "O gráfico é melhor quando você precisa comparar. Numa tabela com dez linhas, achar o maior exige olhar número por número; num gráfico, a coluna mais alta salta aos olhos sem nenhuma leitura.",
+      "Passar de uma forma para a outra é direto. Cada linha da tabela vira uma coluna do gráfico: o nome da linha vira o rótulo de baixo, e o número vira a altura. No sentido inverso, cada coluna vira uma linha, com o valor lido no eixo.",
+      "Uma coisa aparece igual nas duas formas: o total. Somar a coluna de números da tabela ou somar as alturas das colunas do gráfico dá exatamente o mesmo resultado — e tem que dar, porque são os mesmos dados."
+    ],
+    "destaque": "Cada linha da tabela é uma coluna do gráfico. Os números são os mesmos.",
+    "imagem": "grf-ideia-duas-formas"
+  },
+  "resolvido": {
+    "enunciado": "A tabela mostra quantos sucos a cantina vendeu em cada dia. Como esses dados ficam num gráfico de colunas?",
+    "imagem": "grf-res-sucos",
+    "passos": [
+      {
+        "titulo": "Uma linha, uma coluna",
+        "explicacao": "A tabela tem quatro linhas de dados, uma por dia, então o gráfico vai ter quatro colunas, na mesma ordem.",
+        "conta": "4 dias → 4 colunas"
+      },
+      {
+        "titulo": "O nome vira o rótulo",
+        "explicacao": "O que estava na primeira coluna da tabela — segunda, terça, quarta, quinta — passa a ficar embaixo de cada coluna do gráfico.",
+        "conta": "segunda, terça, quarta, quinta"
+      },
+      {
+        "titulo": "O número vira altura",
+        "explicacao": "Cada valor da tabela decide até onde a coluna sobe. A escala do eixo precisa alcançar o maior deles, que é 40.",
+        "conta": "20, 35, 25, 40"
+      },
+      {
+        "titulo": "Confira o total nas duas formas",
+        "explicacao": "Se a passagem foi correta, somar a tabela e somar o gráfico dá o mesmo. É a maneira mais rápida de perceber que um dado ficou de fora.",
+        "conta": "20 + 35 + 25 + 40 = 120"
+      }
+    ],
+    "fecho": "Se o total mudou ao trocar de forma, alguma coisa se perdeu no caminho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Segundo os dados, quantos sucos a cantina vendeu nos quatro dias somados? Digite apenas o número.",
+      "imagem": "grf-q-sucos-total",
+      "dica": "Some os quatro valores. Dá para conferir somando na tabela e depois no gráfico.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "sucos",
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é só o dia de maior venda. O total junta os quatro dias, e não apenas o campeão."
+        },
+        {
+          "resposta": "80",
+          "porque": "80 é a soma de dois dias apenas. Somar de dois em dois ajuda, mas é preciso juntar os dois parciais no fim."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o número de dias. Cada dia representa dezenas de sucos, então esse é o número de colunas, não de vendas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os dois primeiros dias",
+          "explicacao": "Segunda vendeu 20 e terça vendeu 35.",
+          "conta": "20 + 35 = 55"
+        },
+        {
+          "titulo": "Some os dois últimos",
+          "explicacao": "Quarta vendeu 25 e quinta vendeu 40.",
+          "conta": "25 + 40 = 65"
+        },
+        {
+          "titulo": "Junte os parciais",
+          "explicacao": "O total da semana é a soma dos quatro dias, em qualquer ordem que se some.",
+          "conta": "55 + 65 = 120 sucos"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Em que dia a cantina vendeu mais sucos?",
+      "imagem": "grf-q-sucos-dia",
+      "dica": "No gráfico, procure a coluna mais alta e leia o rótulo dela embaixo do eixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quinta" },
+        { "rotulo": "B", "texto": "Terça" },
+        { "rotulo": "C", "texto": "Quarta" },
+        { "rotulo": "D", "texto": "Segunda" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Terça",
+          "porque": "Terça vendeu 35, que é bastante, mas quinta vendeu 40. A segunda maior coluna não é a maior."
+        },
+        {
+          "resposta": "Quarta",
+          "porque": "Quarta vendeu 25, um valor do meio da tabela. Ela fica acima só da segunda-feira."
+        },
+        {
+          "resposta": "Segunda",
+          "porque": "Segunda foi justamente o dia de MENOR venda, com 20 sucos. A pergunta pede o maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os quatro valores",
+          "explicacao": "São 20, 35, 25 e 40, um por dia da semana.",
+          "conta": "20, 35, 25, 40"
+        },
+        {
+          "titulo": "Ache o maior",
+          "explicacao": "O maior deles é 40, que no gráfico é a coluna mais alta.",
+          "conta": "40 → quinta"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a diferença entre o dia de maior venda e o de menor venda? Digite apenas o número.",
+      "imagem": "grf-q-sucos-dif",
+      "dica": "Ache primeiro os dois valores extremos e depois subtraia um do outro.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "sucos",
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 é a soma dos dois extremos, 40 + 20. Diferença é subtração."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a diferença entre 35 e 20, ou seja, entre terça e segunda. O dia de maior venda é quinta, com 40."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é o dia de maior venda sozinho. Falta descontar os 20 sucos do dia mais fraco."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o maior",
+          "explicacao": "Quinta-feira, com 40 sucos, é a coluna mais alta do gráfico.",
+          "conta": "maior = 40"
+        },
+        {
+          "titulo": "Ache o menor",
+          "explicacao": "Segunda-feira, com 20 sucos, é a coluna mais baixa.",
+          "conta": "menor = 20"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "A diferença entre os extremos mostra o quanto a venda variou na semana.",
+          "conta": "40 − 20 = 20 sucos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Os mesmos dados foram mostrados numa tabela e num gráfico. O que se pode afirmar?",
+      "imagem": "grf-q-mesma-info",
+      "dica": "Pense se algum número mudou de valor ao passar de uma forma para a outra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os dois mostram a mesma informação, em formas diferentes" },
+        { "rotulo": "B", "texto": "O gráfico mostra mais vendas, porque parece maior" },
+        { "rotulo": "C", "texto": "A tabela mostra mais vendas, porque tem mais números" },
+        { "rotulo": "D", "texto": "Não dá para comparar as duas formas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O gráfico mostra mais vendas, porque parece maior",
+          "porque": "Parecer maior não é ser maior. O gráfico ocupa mais espaço na página, mas os valores desenhados são exatamente os mesmos da tabela, e o total continua 120."
+        },
+        {
+          "resposta": "A tabela mostra mais vendas, porque tem mais números",
+          "porque": "A tabela escreve mais números na tela, mas eles são os mesmos quatro valores. Quantidade de tinta não é quantidade de suco."
+        },
+        {
+          "resposta": "Não dá para comparar as duas formas",
+          "porque": "Dá, e é justamente o exercício desta lição: cada linha da tabela vira uma coluna do gráfico, e o total tem que bater nas duas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare valor por valor",
+          "explicacao": "Cada linha da tabela corresponde a uma coluna do gráfico, com o mesmo número.",
+          "conta": "20, 35, 25, 40 nas duas"
+        },
+        {
+          "titulo": "Compare o total",
+          "explicacao": "Somando a tabela dá 120, e somando as alturas do gráfico dá 120 também.",
+          "conta": "120 = 120"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "A informação é a mesma; o que muda é o que cada forma facilita — o número exato ou a comparação rápida.",
+          "conta": "mesma informação"
+        }
+      ]
+    }
+  ]
+}

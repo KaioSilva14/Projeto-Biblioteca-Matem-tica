@@ -1,0 +1,205 @@
+{
+  "id": "localizar",
+  "numero": 1,
+  "titulo": "Dois números que localizam",
+  "pergunta": "Por que um número só não basta para achar um ponto?",
+  "ideia": {
+    "paragrafos": [
+      "Na reta numérica, um número só resolve: o 5 fica num lugar e em nenhum outro. Mas a reta tem uma direção só. Numa folha de papel, dizer '5' não localiza nada — cinco para onde?",
+      "É por isso que localizar no plano exige DOIS números: um dizendo quanto andar na horizontal e outro quanto andar na vertical. Juntos, eles apontam para um único ponto, e nenhum outro.",
+      "Para que os dois números signifiquem sempre a mesma coisa, o plano ganha uma marcação combinada. Um ponto de partida, chamado origem. Uma reta horizontal saindo dele, o eixo x. E uma reta vertical, o eixo y. Tudo é medido a partir da origem, ao longo desses dois eixos.",
+      "O par de números se escreve entre parênteses e separado por vírgula, sempre na mesma ordem: primeiro o da horizontal, depois o da vertical. O ponto (3, 4) é o que está 3 unidades à direita e 4 acima da origem. Esse par tem nome — par ordenado — e a palavra 'ordenado' avisa que a ordem faz parte da informação.",
+      "A origem também tem coordenadas: ela é o (0, 0), porque não andou nem para o lado nem para cima. Todo o resto é medido a partir dela."
+    ],
+    "destaque": "Primeiro quanto andar para a direita, depois quanto subir. Sempre nessa ordem.",
+    "imagem": "pla-ideia-eixos"
+  },
+  "resolvido": {
+    "enunciado": "No plano da figura, o ponto A está marcado. Quais são as coordenadas dele?",
+    "imagem": "pla-res-ponto",
+    "passos": [
+      {
+        "titulo": "Comece pela origem",
+        "explicacao": "Todo ponto é localizado a partir do (0, 0), que é o canto onde os dois eixos se cruzam. É de lá que a contagem parte.",
+        "conta": "origem = (0, 0)"
+      },
+      {
+        "titulo": "Ande na horizontal",
+        "explicacao": "Da origem, caminhe pelo eixo x até ficar embaixo do ponto. Conte quantos quadradinhos andou.",
+        "conta": "3 para a direita"
+      },
+      {
+        "titulo": "Suba na vertical",
+        "explicacao": "Agora suba até alcançar o ponto, contando os quadradinhos. Esse é o segundo número.",
+        "conta": "4 para cima"
+      },
+      {
+        "titulo": "Escreva o par ordenado",
+        "explicacao": "Primeiro a horizontal, depois a vertical, entre parênteses e separados por vírgula.",
+        "conta": "A(3, 4)"
+      }
+    ],
+    "fecho": "Direita e depois cima. Trocar a ordem aponta para outro ponto — e é o erro da lição 3."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quais são as coordenadas do ponto marcado no plano da figura?",
+      "imagem": "pla-q-ler-25",
+      "dica": "Conte primeiro quantos quadradinhos para a direita, depois quantos para cima.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(2, 5)" },
+        { "rotulo": "B", "texto": "(5, 2)" },
+        { "rotulo": "C", "texto": "(2, 2)" },
+        { "rotulo": "D", "texto": "(0, 0)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(5, 2)",
+          "porque": "Os dois números estão trocados. O primeiro sempre diz a horizontal, e aqui o ponto andou 2 para a direita — não 5. O ponto (5, 2) fica num lugar completamente diferente do plano."
+        },
+        {
+          "resposta": "(2, 2)",
+          "porque": "A horizontal está certa, mas a vertical não: o ponto subiu 5 quadradinhos, e não 2. Vale contar de novo pelo eixo y."
+        },
+        {
+          "resposta": "(0, 0)",
+          "porque": "(0, 0) é a ORIGEM, o canto onde os dois eixos se cruzam. O ponto da figura está longe dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte na horizontal",
+          "explicacao": "Da origem até ficar embaixo do ponto são dois quadradinhos para a direita.",
+          "conta": "x = 2"
+        },
+        {
+          "titulo": "Conte na vertical",
+          "explicacao": "Subindo daí até o ponto são cinco quadradinhos.",
+          "conta": "y = 5"
+        },
+        {
+          "titulo": "Monte o par",
+          "explicacao": "Horizontal primeiro, vertical depois.",
+          "conta": "(2, 5)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quais são as coordenadas da origem do plano cartesiano?",
+      "imagem": "pla-q-origem",
+      "dica": "A origem é o ponto de onde toda contagem parte. Quanto ela andou para chegar em si mesma?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(0, 0)" },
+        { "rotulo": "B", "texto": "(1, 1)" },
+        { "rotulo": "C", "texto": "(0, 1)" },
+        { "rotulo": "D", "texto": "Ela não tem coordenadas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(1, 1)",
+          "porque": "(1, 1) é o ponto que andou um quadradinho para a direita e um para cima. A origem é o ponto de partida, então ela não andou nada."
+        },
+        {
+          "resposta": "(0, 1)",
+          "porque": "(0, 1) está sobre o eixo vertical, um quadradinho acima da origem. Já saiu do ponto de partida."
+        },
+        {
+          "resposta": "Ela não tem coordenadas",
+          "porque": "Tem sim: todo ponto do plano tem um par ordenado, inclusive a origem. O dela é (0, 0), porque as duas contagens deram zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Onde fica a origem",
+          "explicacao": "É o ponto em que os dois eixos se cruzam, e de onde toda contagem começa.",
+          "conta": "cruzamento dos eixos"
+        },
+        {
+          "titulo": "Quanto ela andou",
+          "explicacao": "Nada para a direita e nada para cima — ela é o próprio ponto de partida.",
+          "conta": "(0, 0)"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num par ordenado como (7, 2), o que o PRIMEIRO número indica?",
+      "imagem": "pla-q-primeiro",
+      "dica": "Existe uma ordem combinada, e ela é sempre a mesma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quanto andar na horizontal, a partir da origem" },
+        { "rotulo": "B", "texto": "Quanto subir na vertical" },
+        { "rotulo": "C", "texto": "A distância até a origem" },
+        { "rotulo": "D", "texto": "Tanto faz: a ordem não importa" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Quanto subir na vertical",
+          "porque": "Isso é o que o SEGUNDO número indica. A ordem combinada é horizontal primeiro, vertical depois — e é justamente por isso que o par se chama ordenado."
+        },
+        {
+          "resposta": "A distância até a origem",
+          "porque": "Nenhum dos dois números é a distância direta até a origem. Eles são os dois deslocamentos, um por eixo — o caminho andado, e não a linha reta."
+        },
+        {
+          "resposta": "Tanto faz: a ordem não importa",
+          "porque": "A ordem importa muito: (7, 2) e (2, 7) são pontos diferentes do plano. É esse o assunto da lição 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A ordem combinada",
+          "explicacao": "Primeiro a horizontal, medida sobre o eixo x; depois a vertical, medida sobre o eixo y.",
+          "conta": "(x, y)"
+        },
+        {
+          "titulo": "Por que 'ordenado'",
+          "explicacao": "O nome par ordenado avisa que a ordem é parte da informação, e não um detalhe de escrita.",
+          "conta": "(7, 2) → 7 na horizontal"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "No ponto de coordenadas (6, 2), qual é o valor de x? Digite apenas o número.",
+      "imagem": "pla-q-valor-x",
+      "dica": "O x é o primeiro dos dois números.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é o valor de y, o segundo número do par. O x é sempre o primeiro, e diz o deslocamento na horizontal."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é a soma dos dois números. As coordenadas não se somam: cada uma responde por um eixo diferente."
+        },
+        {
+          "resposta": "62",
+          "porque": "62 junta os dois algarismos como se fossem um número só. O par (6, 2) são duas informações separadas, e não um número de dois algarismos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique a ordem",
+          "explicacao": "Num par ordenado, o primeiro número é o x e o segundo é o y.",
+          "conta": "(x, y) = (6, 2)"
+        },
+        {
+          "titulo": "Leia o x",
+          "explicacao": "É o primeiro, e ele diz que o ponto andou seis unidades na horizontal.",
+          "conta": "x = 6"
+        }
+      ]
+    }
+  ]
+}

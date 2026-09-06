@@ -48,10 +48,22 @@
       "dica": "Conte quantos quadradinhos estão preenchidos. Cada um vale um centésimo — a SEGUNDA casa depois da vírgula.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "0,07" },
-        { "rotulo": "B", "texto": "0,7" },
-        { "rotulo": "C", "texto": "7,0" },
-        { "rotulo": "D", "texto": "0,007" }
+        {
+          "rotulo": "A",
+          "texto": "0,07"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0,7"
+        },
+        {
+          "rotulo": "C",
+          "texto": "7,0"
+        },
+        {
+          "rotulo": "D",
+          "texto": "0,007"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -124,16 +136,32 @@
       "dica": "Quarenta centésimos completam fileiras inteiras. Cada fileira cheia vale um décimo.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "0,4" },
-        { "rotulo": "B", "texto": "0,04" },
-        { "rotulo": "C", "texto": "4,0" },
-        { "rotulo": "D", "texto": "40,0" }
+        {
+          "rotulo": "A",
+          "texto": "0,4"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0,04"
+        },
+        {
+          "rotulo": "C",
+          "texto": "4,0"
+        },
+        {
+          "rotulo": "D",
+          "texto": "40,0"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "0,04",
           "porque": "0,04 são quatro quadradinhos soltos. Aqui são quarenta — quatro fileiras cheias, que valem quatro décimos."
+        },
+        {
+          "resposta": "4,0",
+          "porque": "4,0 é o número quatro, quatro quadrados inteiros — e a figura mostra menos da metade de UM quadrado. O 40 preenchido de 100 é uma parte, então o valor fica entre 0 e 1."
         },
         {
           "resposta": "40,0",
@@ -165,10 +193,22 @@
       "dica": "Leia 0,25 em voz alta. O nome que você fala já diz qual é o denominador.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "25/100" },
-        { "rotulo": "B", "texto": "25/10" },
-        { "rotulo": "C", "texto": "1/25" },
-        { "rotulo": "D", "texto": "2/5" }
+        {
+          "rotulo": "A",
+          "texto": "25/100"
+        },
+        {
+          "rotulo": "B",
+          "texto": "25/10"
+        },
+        {
+          "rotulo": "C",
+          "texto": "1/25"
+        },
+        {
+          "rotulo": "D",
+          "texto": "2/5"
+        }
       ],
       "correta": 0,
       "errosComuns": [

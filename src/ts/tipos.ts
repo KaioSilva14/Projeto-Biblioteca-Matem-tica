@@ -183,6 +183,28 @@ export interface Certificado {
   data: string;
   questoes: number;
   acertosDePrimeira: number;
+  /** Quantas lições a matéria tinha. Só somado no certificado de ano. */
+  licoes: number;
+}
+
+/**
+ * Certificado de conclusão de um ANO inteiro — as 14 matérias do 6º, por
+ * exemplo. Ele é montado a partir dos certificados de matéria já guardados,
+ * e não de uma nova varredura do conteúdo: assim a página do ano continua
+ * carregando só o catálogo, sem buscar 14 cursos e 88 lições para descobrir
+ * se o aluno terminou.
+ */
+export interface CertificadoAno {
+  ano: Ano;
+  anoTitulo: string;
+  nome: string;
+  /** ISO da data em que a última matéria do ano foi concluída. */
+  data: string;
+  /** Títulos das matérias, na ordem do catálogo. */
+  materias: string[];
+  licoes: number;
+  questoes: number;
+  acertosDePrimeira: number;
 }
 
 // ---------- Progresso ----------
@@ -212,4 +234,6 @@ export interface ProgressoCurso {
 /** Tudo o que fica salvo na máquina do aluno, por curso. */
 export interface ProgressoGeral {
   cursos: Record<string, ProgressoCurso>;
+  /** Certificados de ano, indexados pelo número do ano ("6", "7"...). */
+  anos: Record<string, CertificadoAno>;
 }

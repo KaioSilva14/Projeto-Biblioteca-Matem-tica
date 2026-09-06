@@ -143,10 +143,22 @@
       "dica": "Não tem número nenhum no enunciado — e não precisa. Trabalhe direto com as frações, ou invente um valor fácil como 100 litros.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "1/4" },
-        { "rotulo": "B", "texto": "0 — o reservatório fica vazio" },
-        { "rotulo": "C", "texto": "1/2" },
-        { "rotulo": "D", "texto": "1/3" }
+        {
+          "rotulo": "A",
+          "texto": "1/4"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0 — o reservatório fica vazio"
+        },
+        {
+          "rotulo": "C",
+          "texto": "1/2"
+        },
+        {
+          "rotulo": "D",
+          "texto": "1/3"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -157,6 +169,10 @@
         {
           "resposta": "1/2",
           "porque": "Essa é a fração que sobrou depois da PRIMEIRA retirada. Ainda falta a segunda."
+        },
+        {
+          "resposta": "1/3",
+          "porque": "O 3 não aparece em passo nenhum do problema: as duas retiradas foram de metade. O engano é tratar 'a primeira retirada, a segunda e o que sobrou' como três partes iguais — e elas não são iguais."
         }
       ],
       "resolucao": [

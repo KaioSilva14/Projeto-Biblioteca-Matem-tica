@@ -1,0 +1,193 @@
+{
+  "id": "calcular",
+  "numero": 2,
+  "titulo": "Como calcular",
+  "pergunta": "Dividir por quanto, exatamente?",
+  "ideia": {
+    "paragrafos": [
+      "O cálculo da média tem dois passos e um cuidado. Some todos os valores, divida pela QUANTIDADE de valores — e o cuidado é justamente contar essa quantidade direito.",
+      "É aí que mora o erro mais comum da matéria. Muita gente divide pelo maior número da lista, ou pelo número de valores diferentes, ou esquece de contar um deles. A quantidade é quantos números existem na lista, contando repetições.",
+      "Valores repetidos contam cada um. Na lista 6, 6, 8, o seis aparece duas vezes e as duas contam: a soma é 20 e a divisão é por 3. Contar o seis uma vez só daria uma média errada.",
+      "O zero também conta. Se um time não fez gol num jogo, esse jogo aconteceu e entra na conta: nos jogos 2, 0, 3, 1 e 4, a soma é 10 e a divisão é por 5, não por 4. Ignorar o zero é fingir que o jogo não existiu, e a média sobe sem motivo.",
+      "Uma última observação: a divisão nem sempre dá um número inteiro, e não tem problema nenhum. A média de 7 e 8 é 7,5 — meia unidade não existe em prova, mas existe como resumo do conjunto."
+    ],
+    "destaque": "Divida pela quantidade de valores, contando repetições e contando os zeros.",
+    "imagem": "med-ideia-jogos"
+  },
+  "resolvido": {
+    "enunciado": "Um time fez 2, 0, 3, 1 e 4 gols nos cinco jogos do campeonato. Qual foi a média de gols por jogo?",
+    "imagem": "med-res-gols",
+    "passos": [
+      {
+        "titulo": "Some os gols",
+        "explicacao": "Some os cinco valores na ordem. O zero não muda a soma, mas precisa estar na lista.",
+        "conta": "2 + 0 + 3 + 1 + 4 = 10"
+      },
+      {
+        "titulo": "Conte os jogos",
+        "explicacao": "Foram cinco jogos, e o jogo sem gol é um deles. A quantidade é o número de jogos, e não o número de jogos com gol.",
+        "conta": "5 jogos"
+      },
+      {
+        "titulo": "Divida",
+        "explicacao": "A soma repartida igualmente entre os cinco jogos dá a média por jogo.",
+        "conta": "10 ÷ 5 = 2"
+      },
+      {
+        "titulo": "Veja o efeito do zero",
+        "explicacao": "Se o jogo sem gol fosse ignorado, a conta seria 10 ÷ 4 = 2,5, e o time pareceria melhor do que foi. O zero é uma informação, e não um buraco.",
+        "conta": "2 gols por jogo"
+      }
+    ],
+    "fecho": "Somar é fácil. O que decide o resultado é contar direito por quanto dividir."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a média dos números 12, 15 e 9? Digite apenas o número.",
+      "imagem": "med-q-tres-valores",
+      "dica": "Some os três e divida pela quantidade de números da lista.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é a soma dos três. Ela é o primeiro passo, e ainda precisa ser repartida entre os três valores."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 sai de dividir 36 por 2. São três números na lista, então a divisão é por 3."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é o maior dos três, e também o valor do meio da lista escrita. A média se calcula, não se escolhe."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os três",
+          "explicacao": "Doze mais quinze dá vinte e sete, e mais nove dá trinta e seis.",
+          "conta": "12 + 15 + 9 = 36"
+        },
+        {
+          "titulo": "Divida por três",
+          "explicacao": "São três valores na lista, então a soma se reparte em três partes iguais.",
+          "conta": "36 ÷ 3 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Nos quatro dias de uma feira, uma barraca vendeu 6, 6, 8 e 0 bolos. Qual foi a média de bolos por dia? Digite apenas o número.",
+      "imagem": "med-q-com-zero",
+      "dica": "O dia sem venda aconteceu e conta na quantidade. Some tudo e divida por quatro.",
+      "formato": "numero",
+      "resposta": 5,
+      "unidade": "bolos",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 sai de dividir 20 por 3, ou seja, de ignorar o dia sem venda. Esse dia existiu e entra na quantidade, senão a barraca parece melhor do que foi."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é o total de bolos vendidos nos quatro dias. Falta repartir esse total pelos dias."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 sai de usar só o 6 e o 8, ou seja, de contar o valor repetido uma vez só e ignorar o dia sem venda: 14 ÷ 2. Cada dia da lista conta, mesmo repetido e mesmo zerado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os quatro dias",
+          "explicacao": "Os dois seis contam os dois, e o zero não muda a soma.",
+          "conta": "6 + 6 + 8 + 0 = 20"
+        },
+        {
+          "titulo": "Conte os dias",
+          "explicacao": "Foram quatro dias de feira, inclusive o dia sem venda.",
+          "conta": "4 dias"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "A média por dia é o total repartido igualmente entre os quatro dias.",
+          "conta": "20 ÷ 4 = 5 bolos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Cinco números somam 45. Qual é a média deles? Digite apenas o número.",
+      "imagem": "med-q-soma-45",
+      "dica": "Você não precisa saber quais são os números: a média só depende da soma e da quantidade.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "45",
+          "porque": "45 é a soma dos cinco. A média é essa soma repartida entre eles, então ainda falta a divisão."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a quantidade de números, que é por quanto se divide. O resultado da divisão é outro número."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 soma a quantidade ao total. As duas informações entram na conta uma dividindo a outra, e nunca somadas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que já está pronto",
+          "explicacao": "O enunciado já deu a soma, então o primeiro passo do cálculo está feito.",
+          "conta": "soma = 45"
+        },
+        {
+          "titulo": "Divida pela quantidade",
+          "explicacao": "São cinco números, quaisquer que sejam eles. A média não depende de saber quais são.",
+          "conta": "45 ÷ 5 = 9"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a média dos números 14, 16, 18 e 20? Digite apenas o número.",
+      "imagem": "med-q-quatro-pares",
+      "dica": "Some os quatro e divida por quatro. Somar em pares facilita.",
+      "formato": "numero",
+      "resposta": 17,
+      "errosComuns": [
+        {
+          "resposta": "68",
+          "porque": "68 é a soma dos quatro números, e falta reparti-la entre eles."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é um dos valores da lista. A média deu 17, que não é nenhum deles — e isso é perfeitamente normal."
+        },
+        {
+          "resposta": "34",
+          "porque": "34 sai de dividir 68 por 2. São quatro números na lista, então a divisão é por 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some em pares",
+          "explicacao": "Quatorze com vinte dá trinta e quatro, e dezesseis com dezoito dá outros trinta e quatro.",
+          "conta": "14 + 20 = 34 · 16 + 18 = 34"
+        },
+        {
+          "titulo": "Junte os parciais",
+          "explicacao": "A soma total é o dobro de trinta e quatro.",
+          "conta": "34 + 34 = 68"
+        },
+        {
+          "titulo": "Divida por quatro",
+          "explicacao": "A média não é um dos números da lista, e não precisa ser.",
+          "conta": "68 ÷ 4 = 17"
+        }
+      ]
+    }
+  ]
+}

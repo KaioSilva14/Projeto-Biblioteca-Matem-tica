@@ -343,59 +343,40 @@ export interface VideoCurso {
 }
 
 // ---------- Bloco do certificado ----------
+//
+// O bloco da matéria e o do ano compartilham toda a máquina — campo de nome,
+// prévia em canvas, download e o aviso sobre o armazenamento local. O que
+// muda entre os dois é só o texto, então a diferença fica em quem chama, e
+// não numa segunda cópia de sessenta linhas.
 
-export interface OpcoesCertificado {
+interface OpcoesBaseCertificado {
+  eyebrow: string;
   concluido: boolean;
-  licoesConcluidas: number;
-  totalLicoes: number;
-  questoes: number;
-  acertosDePrimeira: number;
+  tituloPendente: string;
+  textoPendente: string;
+  notaPendente: string;
+  tituloConcluido: string;
+  textoConcluido: string;
+  rotuloBotao: string;
   nomeSalvo: string;
   aoEmitir: (nome: string) => void;
   desenhar: (nome: string) => HTMLCanvasElement;
   aoBaixar: (nome: string) => void;
 }
 
-/**
- * Enquanto a matéria não termina, o bloco mostra o que falta. Depois de
- * concluída, ele pede o nome e libera a prévia e o download.
- *
- * O aviso sobre o armazenamento local não é decoração: como não há cadastro,
- * limpar os dados do navegador apaga o certificado, e o aluno precisa saber
- * disso antes de contar com ele.
- */
-export function renderCertificado(opcoes: OpcoesCertificado): HTMLElement {
+function renderBlocoCertificado(opcoes: OpcoesBaseCertificado): HTMLElement {
   const bloco = el("section", { classe: "certificado card" });
-  bloco.appendChild(el("p", { classe: "eyebrow", texto: "Certificado" }));
+  bloco.appendChild(el("p", { classe: "eyebrow", texto: opcoes.eyebrow }));
 
   if (!opcoes.concluido) {
-    const faltam = opcoes.totalLicoes - opcoes.licoesConcluidas;
-    bloco.appendChild(el("h2", { classe: "d-sm certificado__titulo", texto: "Ainda não liberado" }));
-    bloco.appendChild(
-      el("p", {
-        classe: "t-md cor-body",
-        texto:
-          faltam === 1
-            ? "Falta 1 lição para você concluir a matéria e emitir o certificado."
-            : `Faltam ${faltam} lições para você concluir a matéria e emitir o certificado.`,
-      })
-    );
-    bloco.appendChild(
-      el("p", {
-        classe: "t-sm cor-mute",
-        texto: `${opcoes.licoesConcluidas} de ${opcoes.totalLicoes} lições concluídas até agora.`,
-      })
-    );
+    bloco.appendChild(el("h2", { classe: "d-sm certificado__titulo", texto: opcoes.tituloPendente }));
+    bloco.appendChild(el("p", { classe: "t-md cor-body", texto: opcoes.textoPendente }));
+    bloco.appendChild(el("p", { classe: "t-sm cor-mute", texto: opcoes.notaPendente }));
     return bloco;
   }
 
-  bloco.appendChild(el("h2", { classe: "d-sm certificado__titulo", texto: "Matéria concluída" }));
-  bloco.appendChild(
-    el("p", {
-      classe: "t-md cor-body",
-      texto: `Você respondeu as ${opcoes.questoes} questões da matéria e acertou ${opcoes.acertosDePrimeira} de primeira. Escreva seu nome como quer que apareça no certificado.`,
-    })
-  );
+  bloco.appendChild(el("h2", { classe: "d-sm certificado__titulo", texto: opcoes.tituloConcluido }));
+  bloco.appendChild(el("p", { classe: "t-md cor-body", texto: opcoes.textoConcluido }));
 
   const form = el("div", { classe: "certificado__form" });
   const campo = el("input", {
@@ -413,7 +394,7 @@ export function renderCertificado(opcoes: OpcoesCertificado): HTMLElement {
 
   const baixar = el("button", {
     classe: "botao botao--primario",
-    texto: "Baixar certificado",
+    texto: opcoes.rotuloBotao,
     atributos: { type: "button" },
   });
   form.appendChild(campo);
@@ -456,4 +437,87 @@ export function renderCertificado(opcoes: OpcoesCertificado): HTMLElement {
 
   atualizar();
   return bloco;
+}
+
+export interface OpcoesCertificado {
+  concluido: boolean;
+  licoesConcluidas: number;
+  totalLicoes: number;
+  questoes: number;
+  acertosDePrimeira: number;
+  nomeSalvo: string;
+  aoEmitir: (nome: string) => void;
+  desenhar: (nome: string) => HTMLCanvasElement;
+  aoBaixar: (nome: string) => void;
+}
+
+/**
+ * Enquanto a matéria não termina, o bloco mostra o que falta. Depois de
+ * concluída, ele pede o nome e libera a prévia e o download.
+ *
+ * O aviso sobre o armazenamento local não é decoração: como não há cadastro,
+ * limpar os dados do navegador apaga o certificado, e o aluno precisa saber
+ * disso antes de contar com ele.
+ */
+export function renderCertificado(opcoes: OpcoesCertificado): HTMLElement {
+  const faltam = opcoes.totalLicoes - opcoes.licoesConcluidas;
+  return renderBlocoCertificado({
+    eyebrow: "Certificado",
+    concluido: opcoes.concluido,
+    tituloPendente: "Ainda não liberado",
+    textoPendente:
+      faltam === 1
+        ? "Falta 1 lição para você concluir a matéria e emitir o certificado."
+        : `Faltam ${faltam} lições para você concluir a matéria e emitir o certificado.`,
+    notaPendente: `${opcoes.licoesConcluidas} de ${opcoes.totalLicoes} lições concluídas até agora.`,
+    tituloConcluido: "Matéria concluída",
+    textoConcluido: `Você respondeu as ${opcoes.questoes} questões da matéria e acertou ${opcoes.acertosDePrimeira} de primeira. Escreva seu nome como quer que apareça no certificado.`,
+    rotuloBotao: "Baixar certificado",
+    nomeSalvo: opcoes.nomeSalvo,
+    aoEmitir: opcoes.aoEmitir,
+    desenhar: opcoes.desenhar,
+    aoBaixar: opcoes.aoBaixar,
+  });
+}
+
+export interface OpcoesCertificadoAno {
+  ano: number;
+  concluido: boolean;
+  materiasConcluidas: number;
+  totalMaterias: number;
+  licoes: number;
+  questoes: number;
+  acertosDePrimeira: number;
+  nomeSalvo: string;
+  aoEmitir: (nome: string) => void;
+  desenhar: (nome: string) => HTMLCanvasElement;
+  aoBaixar: (nome: string) => void;
+}
+
+/**
+ * O certificado do ano inteiro, no pé da página do ano.
+ *
+ * Ele só aparece quando TODAS as matérias daquele ano já estão publicadas —
+ * num ano com matéria por escrever, um bloco dizendo "faltam 6" cobraria do
+ * aluno uma coisa que ele não tem como fazer.
+ */
+export function renderCertificadoAno(opcoes: OpcoesCertificadoAno): HTMLElement {
+  const faltam = opcoes.totalMaterias - opcoes.materiasConcluidas;
+  return renderBlocoCertificado({
+    eyebrow: `Certificado do ${opcoes.ano}º ano`,
+    concluido: opcoes.concluido,
+    tituloPendente: "Ano ainda em andamento",
+    textoPendente:
+      faltam === 1
+        ? "Falta 1 matéria para você concluir o ano inteiro e emitir o certificado do ano."
+        : `Faltam ${faltam} matérias para você concluir o ano inteiro e emitir o certificado do ano.`,
+    notaPendente: `${opcoes.materiasConcluidas} de ${opcoes.totalMaterias} matérias concluídas até agora. Cada matéria também tem o certificado dela.`,
+    tituloConcluido: `${opcoes.ano}º ano concluído`,
+    textoConcluido: `Você terminou as ${opcoes.totalMaterias} matérias do ${opcoes.ano}º ano: ${opcoes.licoes} lições e ${opcoes.questoes} questões, com ${opcoes.acertosDePrimeira} acertadas de primeira. Escreva seu nome como quer que apareça no certificado.`,
+    rotuloBotao: "Baixar certificado do ano",
+    nomeSalvo: opcoes.nomeSalvo,
+    aoEmitir: opcoes.aoEmitir,
+    desenhar: opcoes.desenhar,
+    aoBaixar: opcoes.aoBaixar,
+  });
 }

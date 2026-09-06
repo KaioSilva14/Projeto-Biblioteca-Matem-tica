@@ -1,0 +1,200 @@
+{
+  "id": "massa",
+  "numero": 3,
+  "titulo": "Unidades de massa",
+  "pergunta": "Um pacote de 500 g e outro de 1,5 kg dão quantos gramas juntos?",
+  "ideia": {
+    "paragrafos": [
+      "Massa é a quantidade de matéria de um objeto — o que a balança mede. A unidade principal é o grama, e a família dela funciona pela mesma lógica da escada do comprimento.",
+      "As três unidades que aparecem na vida real são a tonelada, o quilograma e o grama, e os saltos entre elas são todos de mil: 1 t = 1000 kg e 1 kg = 1000 g. Para coisas muito pequenas, como a dose de um remédio, existe o miligrama: 1 g = 1000 mg.",
+      "Repare que o prefixo 'quilo' significa mil, exatamente como no quilômetro. Um quilograma são mil gramas assim como um quilômetro são mil metros — o prefixo carrega o mesmo fator em qualquer família.",
+      "O sentido da conta segue a mesma regra de sempre. Indo para uma unidade menor, o número aumenta: 2 kg viram 2000 g. Indo para uma maior, diminui: 3000 g viram 3 kg.",
+      "E há um cuidado prático que vale para o resto da matéria: antes de somar ou subtrair medidas, coloque tudo na mesma unidade. Somar 500 g com 1,5 kg diretamente não faz sentido — é preciso escolher uma das duas unidades e converter a outra."
+    ],
+    "destaque": "Mil gramas num quilo, mil quilos numa tonelada. 'Quilo' sempre vale mil.",
+    "imagem": "gra-ideia-massa"
+  },
+  "resolvido": {
+    "enunciado": "Quantos gramas há em 2,5 quilogramas?",
+    "imagem": "gra-res-massa",
+    "passos": [
+      {
+        "titulo": "Para que lado a conta vai",
+        "explicacao": "O grama é menor que o quilograma, então o número vai aumentar.",
+        "conta": "kg → g · unidade menor · número maior"
+      },
+      {
+        "titulo": "Qual é o fator",
+        "explicacao": "O prefixo 'quilo' significa mil, então cada quilograma comporta mil gramas.",
+        "conta": "1 kg = 1 000 g"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Dois quilos dão dois mil gramas, e o meio quilo dá mais quinhentos. Multiplicar por 1000 anda com a vírgula três casas para a direita.",
+        "conta": "2,5 × 1 000 = 2 500 g"
+      },
+      {
+        "titulo": "Confira o sentido",
+        "explicacao": "2 500 é bem maior que 2,5, como esperado ao trocar por uma unidade menor.",
+        "conta": "2,5 kg = 2 500 g"
+      }
+    ],
+    "fecho": "O fator entre quilograma e grama é mil, e não cem. Confundir os dois é o erro mais comum aqui."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos gramas há em 4 quilogramas? Digite apenas o número.",
+      "imagem": "gra-q-4kg",
+      "dica": "Cada quilograma tem mil gramas.",
+      "formato": "numero",
+      "resposta": 4000,
+      "unidade": "g",
+      "errosComuns": [
+        {
+          "resposta": "400",
+          "porque": "400 sai de multiplicar por 100. Entre quilograma e grama o fator é 1000 — o prefixo 'quilo' significa mil."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 sai de multiplicar por 10. Faltaram dois zeros: são mil gramas em cada quilo."
+        },
+        {
+          "resposta": "0.004",
+          "porque": "0,004 sai de dividir por 1000. A conta foi para o lado errado: o grama é menor, então o número aumenta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido",
+          "explicacao": "Grama é menor que quilograma, então o número aumenta.",
+          "conta": "kg → g · multiplicar"
+        },
+        {
+          "titulo": "Multiplique por mil",
+          "explicacao": "Quatro quilos, cada um com mil gramas.",
+          "conta": "4 × 1 000 = 4 000 g"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos quilogramas há em 3000 gramas? Digite apenas o número.",
+      "imagem": "gra-q-3000g",
+      "dica": "Agora é o caminho de volta: o quilograma é maior, então o número diminui.",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "kg",
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 sai de dividir por 100. Entre grama e quilograma o divisor é 1000."
+        },
+        {
+          "resposta": "300",
+          "porque": "300 sai de dividir por 10 em vez de por 1000. O prefixo 'quilo' vale mil, então são mil gramas que cabem em cada quilograma — faltaram dois zeros no divisor."
+        },
+        {
+          "resposta": "3000000",
+          "porque": "3.000.000 sai de multiplicar por 1000. A conta foi para o lado errado: indo para uma unidade maior, o número diminui."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido",
+          "explicacao": "Quilograma é maior que grama, então o número diminui.",
+          "conta": "g → kg · dividir"
+        },
+        {
+          "titulo": "Divida por mil",
+          "explicacao": "Três mil gramas cabem exatamente em três quilos.",
+          "conta": "3 000 ÷ 1 000 = 3 kg"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos quilogramas há em 2 toneladas? Digite apenas o número.",
+      "imagem": "gra-q-2t",
+      "dica": "Uma tonelada tem mil quilos — o mesmo fator de sempre.",
+      "formato": "numero",
+      "resposta": 2000,
+      "unidade": "kg",
+      "errosComuns": [
+        {
+          "resposta": "200",
+          "porque": "200 sai de multiplicar por 100. Entre tonelada e quilograma o fator também é 1000."
+        },
+        {
+          "resposta": "2000000",
+          "porque": "2.000.000 é o valor em GRAMAS, e não em quilogramas. Você desceu dois saltos de mil em vez de um."
+        },
+        {
+          "resposta": "0.002",
+          "porque": "0,002 sai de dividir por 1000. O quilograma é menor que a tonelada, então o número aumenta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O fator",
+          "explicacao": "Uma tonelada equivale a mil quilogramas.",
+          "conta": "1 t = 1 000 kg"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Duas toneladas, cada uma com mil quilos.",
+          "conta": "2 × 1 000 = 2 000 kg"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um pacote de arroz tem 500 g e outro de feijão tem 1,5 kg. Quantos gramas os dois pesam juntos? Digite apenas o número.",
+      "imagem": "gra-q-soma-massa",
+      "dica": "Antes de somar, converta tudo para a mesma unidade. O enunciado pede o resultado em gramas.",
+      "formato": "numero",
+      "resposta": 2000,
+      "unidade": "g",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 seria o total em QUILOGRAMAS, que está certo — mas o enunciado pede em gramas. Falta converter o resultado."
+        },
+        {
+          "resposta": "501.5",
+          "porque": "501,5 soma 500 com 1,5 sem converter nada. Não dá para somar gramas com quilogramas diretamente: são unidades diferentes."
+        },
+        {
+          "resposta": "1550",
+          "porque": "1.550 sai de converter 1,5 kg para 1050 g ou algo parecido. Um quilo e meio são 1500 gramas, porque cada quilo tem mil."
+        },
+        {
+          "resposta": "650",
+          "porque": "650 sai de tratar 1,5 kg como 150 g. O fator entre quilo e grama é 1000, então 1,5 kg dá 1500 g."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a unidade",
+          "explicacao": "O enunciado pede gramas, então converta o pacote que está em quilos.",
+          "conta": "resultado em gramas"
+        },
+        {
+          "titulo": "Converta o feijão",
+          "explicacao": "Um quilo e meio, com mil gramas em cada quilo.",
+          "conta": "1,5 × 1 000 = 1 500 g"
+        },
+        {
+          "titulo": "Some as duas massas",
+          "explicacao": "Agora as duas medidas estão na mesma unidade e podem ser somadas.",
+          "conta": "500 + 1 500 = 2 000 g"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Dois mil gramas são dois quilos, o que faz sentido para meio quilo mais um quilo e meio.",
+          "conta": "2 000 g = 2 kg ✓"
+        }
+      ]
+    }
+  ]
+}

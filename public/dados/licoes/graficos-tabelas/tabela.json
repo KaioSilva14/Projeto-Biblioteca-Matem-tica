@@ -1,0 +1,201 @@
+{
+  "id": "tabela",
+  "numero": 1,
+  "titulo": "Ler uma tabela",
+  "pergunta": "Como achar um número no cruzamento de uma linha com uma coluna?",
+  "ideia": {
+    "paragrafos": [
+      "Uma tabela é uma forma de guardar muitos números sem se perder neles. Ela organiza os dados em linhas e colunas, e cada número ocupa exatamente um cruzamento — por isso não há dúvida sobre a que ele se refere.",
+      "A primeira linha, chamada cabeçalho, diz o que cada coluna guarda. A primeira coluna costuma dizer de quem é cada linha. Para achar um número específico, você anda pela linha certa até a coluna certa: onde as duas se encontram, está o dado.",
+      "Ler uma tabela é isso e só isso. O trabalho está em não trocar a linha pela coluna, o que acontece quando se lê no automático. Quem se apressa acaba respondendo o número de outro mês ou de outra turma.",
+      "Depois de achar os números, o resto é aritmética conhecida. Somar uma linha inteira dá o total daquela turma; somar uma coluna dá o total daquele mês; subtrair duas células compara dois casos.",
+      "E a tabela costuma vir com um título, que diz o que está sendo contado. Sem ele, os números não significam nada: 12 pode ser livros, alunos ou reais."
+    ],
+    "destaque": "Ande pela linha certa até a coluna certa. O número está no encontro das duas.",
+    "imagem": "grf-ideia-tabela"
+  },
+  "resolvido": {
+    "enunciado": "A tabela mostra quantos livros cada turma leu em março e em abril. Quantos livros o 6º B leu em abril?",
+    "imagem": "grf-res-tabela",
+    "passos": [
+      {
+        "titulo": "Ache a linha",
+        "explicacao": "A pergunta é sobre o 6º B, então procure na primeira coluna a linha que leva esse nome. É a segunda linha de dados.",
+        "conta": "linha do 6º B"
+      },
+      {
+        "titulo": "Ache a coluna",
+        "explicacao": "A pergunta é sobre abril, então procure no cabeçalho a coluna com esse nome. É a terceira coluna.",
+        "conta": "coluna de abril"
+      },
+      {
+        "titulo": "Vá até o cruzamento",
+        "explicacao": "Ande pela linha do 6º B até chegar embaixo da coluna de abril. O número que está ali é a resposta.",
+        "conta": "6º B em abril = 20"
+      },
+      {
+        "titulo": "Confira o que você não leu",
+        "explicacao": "Vale olhar os vizinhos para ter certeza de que não escorregou de linha: em março o 6º B leu 9, e em abril o 6º C leu 11. Nenhum dos dois é a resposta.",
+        "conta": "20 livros"
+      }
+    ],
+    "fecho": "O erro mais comum aqui não é de conta: é ler a linha de cima ou a coluna do lado."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Segundo a tabela, quantos livros o 6º C leu em março? Digite apenas o número.",
+      "imagem": "grf-q-cruzar",
+      "dica": "Ache a linha do 6º C e ande até a coluna de março.",
+      "formato": "numero",
+      "resposta": 14,
+      "unidade": "livros",
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 é o que o 6º C leu em ABRIL. A linha está certa, mas a coluna não — repare que março é a coluna do meio."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o que o 6º B leu em março. A coluna está certa, mas a linha escorregou uma para cima."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é o total do 6º C nos dois meses, somando 14 e 11. A questão pede só o mês de março."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a linha certa",
+          "explicacao": "Procure na primeira coluna o nome 6º C. É a última linha da tabela.",
+          "conta": "linha do 6º C"
+        },
+        {
+          "titulo": "Ande até a coluna de março",
+          "explicacao": "Março é a coluna do meio, entre o nome da turma e o mês de abril.",
+          "conta": "14 livros"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos livros o 6º A leu somando os dois meses? Digite apenas o número.",
+      "imagem": "grf-q-linha",
+      "dica": "Some os dois números que estão na linha do 6º A.",
+      "formato": "numero",
+      "resposta": 27,
+      "unidade": "livros",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é só o mês de março. A pergunta pede os dois meses, então falta somar os 15 livros de abril."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é só o mês de abril. Somar a linha inteira significa juntar as duas células dela."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é a soma da COLUNA de março, das três turmas: 12 + 9 + 14. A pergunta é sobre uma turma nos dois meses, e não sobre um mês nas três turmas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a linha inteira",
+          "explicacao": "Na linha do 6º A estão os números 12, de março, e 15, de abril.",
+          "conta": "12 e 15"
+        },
+        {
+          "titulo": "Some a linha",
+          "explicacao": "O total de uma turma é a soma de todos os números da linha dela.",
+          "conta": "12 + 15 = 27"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual turma leu mais livros no total dos dois meses?",
+      "imagem": "grf-q-maior",
+      "dica": "Some a linha de cada turma antes de comparar. A turma que ganhou num mês pode não ganhar no total.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "6º B" },
+        { "rotulo": "B", "texto": "6º A" },
+        { "rotulo": "C", "texto": "6º C" },
+        { "rotulo": "D", "texto": "As três leram o mesmo total" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6º A",
+          "porque": "O 6º A somou 27 livros, e o 6º B somou 29. Repare que o 6º B leu menos em março e passou na frente em abril — comparar um mês só não responde a pergunta."
+        },
+        {
+          "resposta": "6º C",
+          "porque": "O 6º C foi o que mais leu em MARÇO, com 14, mas no total ficou com 25, o menor dos três. Ganhar um mês não é ganhar o total."
+        },
+        {
+          "resposta": "As três leram o mesmo total",
+          "porque": "Os totais são diferentes: 27, 29 e 25. Só seriam iguais se as três somas dessem o mesmo número."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some a linha do 6º A",
+          "explicacao": "Os dois meses dessa turma dão o total dela.",
+          "conta": "12 + 15 = 27"
+        },
+        {
+          "titulo": "Some a linha do 6º B",
+          "explicacao": "Essa turma começou atrás e leu bem mais em abril.",
+          "conta": "9 + 20 = 29"
+        },
+        {
+          "titulo": "Some a linha do 6º C",
+          "explicacao": "E essa começou na frente, mas caiu no segundo mês.",
+          "conta": "14 + 11 = 25"
+        },
+        {
+          "titulo": "Compare os três totais",
+          "explicacao": "O maior deles é o 29, da segunda turma.",
+          "conta": "29 > 27 > 25 → 6º B"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Em abril, quantos livros o 6º B leu a mais que o 6º C? Digite apenas o número.",
+      "imagem": "grf-q-diferenca",
+      "dica": "Pegue as duas células da coluna de abril e subtraia a menor da maior.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "livros",
+      "errosComuns": [
+        {
+          "resposta": "31",
+          "porque": "31 é a soma das duas células, 20 + 11. Quando a pergunta é quantos a mais, a operação é a subtração."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é quanto o 6º B leu em abril, e não a diferença. Falta descontar os 11 livros do 6º C."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 é quanto o 6º C leu em abril. Esse é o número que deve ser subtraído, e não o resultado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache as duas células",
+          "explicacao": "Na coluna de abril, o 6º B tem 20 e o 6º C tem 11.",
+          "conta": "20 e 11"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Quantos a mais é sempre a maior menos a menor.",
+          "conta": "20 − 11 = 9"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O que é a média",
+  "pergunta": "Qual número representa um grupo inteiro?",
+  "ideia": {
+    "paragrafos": [
+      "Quatro amigos contaram as figurinhas: Ana tem 5, Bia tem 8, Caio tem 3 e Duda tem 4. São quatro números diferentes, e nenhum deles descreve o grupo — dizer 'eles têm 8' é injusto com o Caio, e dizer 'eles têm 3' é injusto com a Bia.",
+      "A média resolve isso com uma ideia bem concreta: junte tudo e reparta igualmente. As quatro coleções somam 20 figurinhas; repartidas entre quatro pessoas, dão 5 para cada uma. A média é 5.",
+      "Repare no que esse 5 significa. Ele é quanto cada um TERIA se a divisão fosse igual. Ninguém precisa realmente trocar figurinha para a média existir: ela é uma conta, uma forma de resumir o grupo num número só.",
+      "Por isso a média não é necessariamente um dos valores da lista. Aqui deu 5, que por acaso é o que a Ana tem, mas poderia ter dado 6, que não é a coleção de ninguém. Ela representa o conjunto, e não uma pessoa.",
+      "Quando todos os valores são iguais, a média é esse valor mesmo. Se os quatro tivessem 6 figurinhas, repartir igualmente não mudaria nada, e a média seria 6. É um bom teste para conferir se você entendeu a ideia."
+    ],
+    "destaque": "A média é quanto cada um teria se tudo fosse repartido igualmente.",
+    "imagem": "med-ideia-figurinhas"
+  },
+  "resolvido": {
+    "enunciado": "Ana tirou 7, 8, 6 e 7 nas quatro provas do bimestre. Qual foi a média dela?",
+    "imagem": "med-res-notas",
+    "passos": [
+      {
+        "titulo": "Junte tudo",
+        "explicacao": "Primeiro some todas as notas, como se fosse juntar as figurinhas de todo mundo numa pilha só.",
+        "conta": "7 + 8 + 6 + 7 = 28"
+      },
+      {
+        "titulo": "Conte quantos valores são",
+        "explicacao": "São quatro provas, então a repartição vai ser entre quatro. Contar isso com cuidado evita o erro mais comum da matéria.",
+        "conta": "4 provas"
+      },
+      {
+        "titulo": "Reparta igualmente",
+        "explicacao": "Dividir a soma pela quantidade de valores é o mesmo que espalhar a pilha em partes iguais.",
+        "conta": "28 ÷ 4 = 7"
+      },
+      {
+        "titulo": "Confira se faz sentido",
+        "explicacao": "As notas foram de 6 a 8, e a média deu 7, que está no meio dessa faixa. Se tivesse dado 12 ou 2, a conta estaria errada em algum passo.",
+        "conta": "média = 7"
+      }
+    ],
+    "fecho": "Somar e dividir pela quantidade. Todo o resto da matéria sai desses dois passos."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a média dos números 4, 6, 8 e 10? Digite apenas o número.",
+      "imagem": "med-q-quatro",
+      "dica": "Some os quatro números e divida pela quantidade deles.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "28",
+          "porque": "28 é a soma dos quatro números. Ela é só o primeiro passo: falta repartir esse total entre os quatro valores."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o maior dos números. A média nunca é o maior valor, a não ser que todos sejam iguais — ela fica entre o menor e o maior."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 sai de dividir 28 por 3. São quatro números na lista, então a divisão é por 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os quatro",
+          "explicacao": "Juntar em pares ajuda: 4 com 6 dá 10, e 8 com 10 dá 18.",
+          "conta": "4 + 6 + 8 + 10 = 28"
+        },
+        {
+          "titulo": "Divida pela quantidade",
+          "explicacao": "São quatro números na lista, então a soma se reparte em quatro partes iguais.",
+          "conta": "28 ÷ 4 = 7"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Três amigos leram 10 livros cada um. Qual é a média de livros lidos por eles? Digite apenas o número.",
+      "imagem": "med-q-iguais",
+      "dica": "Se todos têm a mesma quantidade, repartir igualmente não muda nada.",
+      "formato": "numero",
+      "resposta": 10,
+      "unidade": "livros",
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é o total lido pelos três. A média reparte esse total entre eles, e por isso volta a ser 10 para cada um."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a quantidade de amigos, que é o número pelo qual se DIVIDE. O resultado da divisão é outra coisa."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 soma o total com a quantidade de pessoas. As duas informações têm papéis diferentes na conta: uma é dividida pela outra."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os três",
+          "explicacao": "Cada um leu 10 livros, então o total é dez repetido três vezes.",
+          "conta": "10 + 10 + 10 = 30"
+        },
+        {
+          "titulo": "Divida por três",
+          "explicacao": "Repartir 30 entre três pessoas devolve exatamente o que cada uma já tinha.",
+          "conta": "30 ÷ 3 = 10"
+        },
+        {
+          "titulo": "Guarde a regra",
+          "explicacao": "Quando todos os valores são iguais, a média é esse mesmo valor. Não há nada a redistribuir.",
+          "conta": "média = 10"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que a média de um grupo de números representa?",
+      "imagem": "med-q-significado",
+      "dica": "Pense na cena das figurinhas sendo juntadas e repartidas de novo entre as mesmas pessoas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quanto cada um teria se tudo fosse repartido igualmente" },
+        { "rotulo": "B", "texto": "O maior valor da lista" },
+        { "rotulo": "C", "texto": "O valor que aparece mais vezes" },
+        { "rotulo": "D", "texto": "A soma de todos os valores" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O maior valor da lista",
+          "porque": "O maior valor descreve só quem tem mais, e não o grupo. A média fica sempre entre o menor e o maior, e não em cima de um deles."
+        },
+        {
+          "resposta": "O valor que aparece mais vezes",
+          "porque": "Esse é outro resumo de conjunto, chamado moda, e ele nem sempre coincide com a média. A média não olha repetição: ela junta tudo e reparte."
+        },
+        {
+          "resposta": "A soma de todos os valores",
+          "porque": "A soma é apenas o primeiro passo do cálculo. Sem dividir pela quantidade, o número cresce com o tamanho do grupo e não representa cada um."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte à cena das figurinhas",
+          "explicacao": "Juntar as quatro coleções e distribuir de novo, em partes iguais, é exatamente o que a conta faz.",
+          "conta": "juntar e repartir"
+        },
+        {
+          "titulo": "Traduza para a conta",
+          "explicacao": "Juntar é somar; repartir igualmente é dividir pela quantidade de valores.",
+          "conta": "soma ÷ quantidade"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a média dos números 3, 5 e 7? Digite apenas o número.",
+      "imagem": "med-q-tres",
+      "dica": "Some os três e divida por três.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 é a soma dos três números, e é só a metade do trabalho. Falta dividir pela quantidade de valores."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o maior dos três. A média fica entre 3 e 7, e não pode ser igual ao extremo quando os valores são diferentes."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é o menor da lista, e também é a quantidade de números. Nenhum dos dois papéis é o da média."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os três",
+          "explicacao": "Três mais cinco dá oito, e mais sete dá quinze.",
+          "conta": "3 + 5 + 7 = 15"
+        },
+        {
+          "titulo": "Divida por três",
+          "explicacao": "São três números, então a soma se reparte em três partes iguais.",
+          "conta": "15 ÷ 3 = 5"
+        }
+      ]
+    }
+  ]
+}

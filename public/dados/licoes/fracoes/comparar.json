@@ -48,16 +48,32 @@
       "dica": "Compare as partes pintadas na figura. Se quiser conferir pela conta, reescreva as duas com o mesmo número embaixo.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "2/3" },
-        { "rotulo": "B", "texto": "3/5" },
-        { "rotulo": "C", "texto": "São iguais" },
-        { "rotulo": "D", "texto": "Não dá para comparar" }
+        {
+          "rotulo": "A",
+          "texto": "2/3"
+        },
+        {
+          "rotulo": "B",
+          "texto": "3/5"
+        },
+        {
+          "rotulo": "C",
+          "texto": "São iguais"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Não dá para comparar"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "3/5",
           "porque": "Provavelmente você comparou só os números de cima (3 é maior que 2). Mas os pedaços são de tamanhos diferentes: um terço é bem maior que um quinto. Reescrevendo em quinze avos: 2/3 = 10/15 e 3/5 = 9/15."
+        },
+        {
+          "resposta": "São iguais",
+          "porque": "Elas não empatam: no mesmo denominador, 2/3 é 10/15 e 3/5 é 9/15. Parecem iguais porque usam os mesmos algarismos trocados de lugar, mas um quinze avos separa as duas."
         },
         {
           "resposta": "Não dá para comparar",
@@ -89,10 +105,22 @@
       "dica": "Quanto mais cortes, menor fica cada fatia.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "Na pizza cortada em 5" },
-        { "rotulo": "B", "texto": "Na pizza cortada em 8" },
-        { "rotulo": "C", "texto": "Comi a mesma quantidade nas duas" },
-        { "rotulo": "D", "texto": "Depende do sabor da pizza" }
+        {
+          "rotulo": "A",
+          "texto": "Na pizza cortada em 5"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Na pizza cortada em 8"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Comi a mesma quantidade nas duas"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Depende do sabor da pizza"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -103,6 +131,10 @@
         {
           "resposta": "Comi a mesma quantidade nas duas",
           "porque": "Foi uma fatia de cada, mas as fatias não têm o mesmo tamanho. Uma pizza inteira dividida em 5 dá fatias maiores do que a mesma pizza dividida em 8."
+        },
+        {
+          "resposta": "Depende do sabor da pizza",
+          "porque": "O sabor não muda o tamanho da fatia. Como as duas pizzas têm o mesmo tamanho, quem decide é em quantas partes cada uma foi cortada: quanto mais cortes, menor fica cada pedaço."
         }
       ],
       "resolucao": [
@@ -130,10 +162,22 @@
       "dica": "Todas cabem confortavelmente em oitavos: 4 e 2 dividem 8.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "1/2 · 5/8 · 3/4" },
-        { "rotulo": "B", "texto": "1/2 · 3/4 · 5/8" },
-        { "rotulo": "C", "texto": "3/4 · 5/8 · 1/2" },
-        { "rotulo": "D", "texto": "5/8 · 1/2 · 3/4" }
+        {
+          "rotulo": "A",
+          "texto": "1/2 · 5/8 · 3/4"
+        },
+        {
+          "rotulo": "B",
+          "texto": "1/2 · 3/4 · 5/8"
+        },
+        {
+          "rotulo": "C",
+          "texto": "3/4 · 5/8 · 1/2"
+        },
+        {
+          "rotulo": "D",
+          "texto": "5/8 · 1/2 · 3/4"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -144,6 +188,10 @@
         {
           "resposta": "3/4 · 5/8 · 1/2",
           "porque": "Essa é a ordem da maior para a menor. A questão pediu da menor para a maior — é só ler ao contrário."
+        },
+        {
+          "resposta": "5/8 · 1/2 · 3/4",
+          "porque": "Essa ordem coloca 5/8 antes de 1/2, mas 5/8 é maior que a metade — em oitavos, a metade seria 4/8. Convertendo as três para oitavos fica claro: 4/8, 5/8 e 6/8."
         }
       ],
       "resolucao": [
@@ -171,16 +219,32 @@
       "dica": "Procure um número que 9 e 6 dividam. Não precisa ser 54.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "O time B" },
-        { "rotulo": "B", "texto": "O time A" },
-        { "rotulo": "C", "texto": "Os dois tiveram o mesmo aproveitamento" },
-        { "rotulo": "D", "texto": "Falta saber quantos jogos cada time disputou" }
+        {
+          "rotulo": "A",
+          "texto": "O time B"
+        },
+        {
+          "rotulo": "B",
+          "texto": "O time A"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Os dois tiveram o mesmo aproveitamento"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Falta saber quantos jogos cada time disputou"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "O time A",
           "porque": "7 é maior que 5, mas os nonos são pedaços menores que os sextos. Reescrevendo em dezoito avos: 7/9 = 14/18 e 5/6 = 15/18. O time B levou por um fio."
+        },
+        {
+          "resposta": "Os dois tiveram o mesmo aproveitamento",
+          "porque": "Não houve empate: no denominador comum 18, o time A fez 14/18 e o time B fez 15/18. A diferença é de um dezoito avos — pequena, mas suficiente para desempatar."
         },
         {
           "resposta": "Falta saber quantos jogos cada time disputou",

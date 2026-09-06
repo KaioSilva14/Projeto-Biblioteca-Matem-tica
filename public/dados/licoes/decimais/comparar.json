@@ -53,16 +53,32 @@
       "dica": "Complete o de uma casa com um zero para os dois ficarem em centésimos.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "0,8" },
-        { "rotulo": "B", "texto": "0,25" },
-        { "rotulo": "C", "texto": "São iguais" },
-        { "rotulo": "D", "texto": "Não dá para comparar" }
+        {
+          "rotulo": "A",
+          "texto": "0,8"
+        },
+        {
+          "rotulo": "B",
+          "texto": "0,25"
+        },
+        {
+          "rotulo": "C",
+          "texto": "São iguais"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Não dá para comparar"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "0,25",
           "porque": "Você comparou 25 com 8 como se fossem números inteiros. Mas 0,8 são oito décimos e 0,25 são vinte e cinco centésimos. Escrevendo os dois em centésimos: 0,80 contra 0,25 — o primeiro é mais que o triplo."
+        },
+        {
+          "resposta": "São iguais",
+          "porque": "Elas não empatam: igualando as casas, 0,8 é 0,80 e 0,25 continua 0,25. Oitenta centésimos contra vinte e cinco — a diferença é grande, mesmo com 0,25 tendo mais algarismos."
         },
         {
           "resposta": "Não dá para comparar",
@@ -94,10 +110,22 @@
       "dica": "Todos têm 1 inteiro. Complete com zeros e compare só a parte depois da vírgula.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "1,09 · 1,15 · 1,2" },
-        { "rotulo": "B", "texto": "1,2 · 1,15 · 1,09" },
-        { "rotulo": "C", "texto": "1,09 · 1,2 · 1,15" },
-        { "rotulo": "D", "texto": "1,15 · 1,09 · 1,2" }
+        {
+          "rotulo": "A",
+          "texto": "1,09 · 1,15 · 1,2"
+        },
+        {
+          "rotulo": "B",
+          "texto": "1,2 · 1,15 · 1,09"
+        },
+        {
+          "rotulo": "C",
+          "texto": "1,09 · 1,2 · 1,15"
+        },
+        {
+          "rotulo": "D",
+          "texto": "1,15 · 1,09 · 1,2"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -108,6 +136,10 @@
         {
           "resposta": "1,09 · 1,2 · 1,15",
           "porque": "Você comparou 2 com 15 como inteiros e concluiu que 1,15 é maior que 1,2. Escrevendo tudo com duas casas: 1,20 contra 1,15 — o 1,2 é o maior dos três."
+        },
+        {
+          "resposta": "1,15 · 1,09 · 1,2",
+          "porque": "Essa ordem põe 1,15 antes de 1,09, mas comparando casa a casa o 0 dos décimos de 1,09 é menor que o 1 de 1,15. Ter mais algarismos não faz um decimal ser maior."
         }
       ],
       "resolucao": [
@@ -140,16 +172,32 @@
       "dica": "Cuidado: aqui ganha o menor, não o maior. Complete as casas antes de decidir.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "12,35 s" },
-        { "rotulo": "B", "texto": "12,4 s" },
-        { "rotulo": "C", "texto": "Os dois tempos são iguais" },
-        { "rotulo": "D", "texto": "Falta saber a distância da prova" }
+        {
+          "rotulo": "A",
+          "texto": "12,35 s"
+        },
+        {
+          "rotulo": "B",
+          "texto": "12,4 s"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Os dois tempos são iguais"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Falta saber a distância da prova"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "12,4 s",
           "porque": "Aqui há duas armadilhas de uma vez. Primeiro, 12,4 = 12,40 é MAIOR que 12,35, e não menor. Segundo, em prova de corrida o menor tempo é o melhor — então 12,4 seria o pior resultado, não o menor."
+        },
+        {
+          "resposta": "Os dois tempos são iguais",
+          "porque": "Não são: igualando as casas, 12,4 vira 12,40 e o outro é 12,35. Cinco centésimos separam as duas — pouco numa conversa, decisivo numa prova de corrida."
         },
         {
           "resposta": "Falta saber a distância da prova",

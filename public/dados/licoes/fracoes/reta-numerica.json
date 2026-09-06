@@ -42,10 +42,22 @@
       "dica": "Conte quantos pedaços iguais existem entre 0 e 1. Depois conte quantos passos o ponto andou.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "3/5" },
-        { "rotulo": "B", "texto": "5/3" },
-        { "rotulo": "C", "texto": "2/5" },
-        { "rotulo": "D", "texto": "3/2" }
+        {
+          "rotulo": "A",
+          "texto": "3/5"
+        },
+        {
+          "rotulo": "B",
+          "texto": "5/3"
+        },
+        {
+          "rotulo": "C",
+          "texto": "2/5"
+        },
+        {
+          "rotulo": "D",
+          "texto": "3/2"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -56,6 +68,10 @@
         {
           "resposta": "2/5",
           "porque": "Você contou os passos que faltam para chegar no 1. São 2 mesmo, mas a pergunta é onde o ponto ESTÁ, e isso se conta a partir do zero."
+        },
+        {
+          "resposta": "3/2",
+          "porque": "O 2 não sai de nenhum lugar da figura: a reta de 0 até 1 foi dividida em cinco partes, então o denominador é 5. E 3/2 vale mais que 1, ou seja, cairia fora do trecho desenhado."
         }
       ],
       "resolucao": [
@@ -83,10 +99,22 @@
       "dica": "Quantos passos de 1/4 você precisa dar para chegar no 1?",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "4/4" },
-        { "rotulo": "B", "texto": "1/4" },
-        { "rotulo": "C", "texto": "3/4" },
-        { "rotulo": "D", "texto": "0/4" }
+        {
+          "rotulo": "A",
+          "texto": "4/4"
+        },
+        {
+          "rotulo": "B",
+          "texto": "1/4"
+        },
+        {
+          "rotulo": "C",
+          "texto": "3/4"
+        },
+        {
+          "rotulo": "D",
+          "texto": "0/4"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -97,6 +125,10 @@
         {
           "resposta": "3/4",
           "porque": "Provavelmente você contou os tracinhos do meio e esqueceu que o 1 também é o fim do último passo. Dividindo em 4, os passos são: 1/4, 2/4, 3/4 e 4/4."
+        },
+        {
+          "resposta": "0/4",
+          "porque": "0/4 é o começo da reta, o próprio zero, porque nenhuma das quatro partes foi percorrida. O ponto está na ponta oposta: ele percorreu as quatro."
         }
       ],
       "resolucao": [
@@ -150,16 +182,32 @@
       "dica": "São 8 pedaços entre 0 e 1. Conte quantos o ponto andou.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "6/8" },
-        { "rotulo": "B", "texto": "8/6" },
-        { "rotulo": "C", "texto": "6/2" },
-        { "rotulo": "D", "texto": "2/8" }
+        {
+          "rotulo": "A",
+          "texto": "6/8"
+        },
+        {
+          "rotulo": "B",
+          "texto": "8/6"
+        },
+        {
+          "rotulo": "C",
+          "texto": "6/2"
+        },
+        {
+          "rotulo": "D",
+          "texto": "2/8"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "2/8",
           "porque": "Você contou o que falta para o 1. O ponto andou 6 passos, e é isso que a fração registra."
+        },
+        {
+          "resposta": "6/2",
+          "porque": "O 2 não corresponde a nada na figura — a reta está dividida em 8 partes, então o denominador é 8. Além disso 6/2 vale 3, bem além do trecho desenhado."
         },
         {
           "resposta": "8/6",

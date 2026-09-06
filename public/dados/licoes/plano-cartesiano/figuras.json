@@ -1,0 +1,206 @@
+{
+  "id": "figuras",
+  "numero": 5,
+  "titulo": "Figuras no plano",
+  "pergunta": "Onde fica o quarto vértice de um retângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Um ponto sozinho não desenha nada. Mas vários pontos ligados na ordem formam uma figura — e aí toda a geometria das matérias anteriores volta, agora com coordenadas em vez de régua.",
+      "O caso mais útil é o retângulo de lados paralelos aos eixos. Nele, os vértices se organizam de um jeito bem previsível: os dois de baixo têm o mesmo y, os dois de cima têm outro y igual entre si; os dois da esquerda compartilham o x, e os dois da direita também.",
+      "É essa repetição que permite achar um vértice que falta. Se você conhece três vértices de um retângulo, o quarto é obrigado a repetir o x de um deles e o y de outro — não há escolha. Dados (1, 1), (5, 1) e (5, 4), o quarto tem que ser (1, 4).",
+      "Com os quatro vértices na mão, medir a figura é a distância da lição anterior. O lado horizontal é a diferença dos x; o vertical, a diferença dos y. Depois disso, perímetro e área saem pelas fórmulas que você já conhece.",
+      "Vale reparar no encaixe: as coordenadas não substituem a geometria, elas dão endereço a ela. O retângulo continua sendo o mesmo de Figuras planas — só que agora dá para descrevê-lo por escrito, sem desenhar."
+    ],
+    "destaque": "Num retângulo, cada coordenada aparece duas vezes. É isso que revela o vértice que falta.",
+    "imagem": "pla-ideia-retangulo"
+  },
+  "resolvido": {
+    "enunciado": "Três vértices de um retângulo são (1, 1), (5, 1) e (5, 4). Qual é o quarto vértice?",
+    "imagem": "pla-res-retangulo",
+    "passos": [
+      {
+        "titulo": "Separe os x que aparecem",
+        "explicacao": "Entre os três pontos dados, os valores de x são 1, 5 e 5. O 1 apareceu uma vez só, e num retângulo cada x precisa aparecer duas.",
+        "conta": "x: 1, 5, 5 → falta um 1"
+      },
+      {
+        "titulo": "Separe os y",
+        "explicacao": "Os valores de y são 1, 1 e 4. Aqui é o 4 que apareceu sozinho.",
+        "conta": "y: 1, 1, 4 → falta um 4"
+      },
+      {
+        "titulo": "Junte os que faltam",
+        "explicacao": "O vértice que falta é justamente o que completa os dois pares: o x que apareceu sozinho com o y que apareceu sozinho.",
+        "conta": "quarto vértice = (1, 4)"
+      },
+      {
+        "titulo": "Confira o formato",
+        "explicacao": "Com os quatro pontos, os lados de baixo e de cima ficam ambos com 4 de comprimento, e os laterais com 3. Lados opostos iguais e cantos retos: é retângulo mesmo.",
+        "conta": "5 − 1 = 4 · 4 − 1 = 3"
+      }
+    ],
+    "fecho": "Num retângulo alinhado aos eixos, cada coordenada aparece exatamente duas vezes. Quem aparece uma só está pedindo companhia."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Três vértices de um retângulo são (2, 2), (6, 2) e (6, 5). Qual é o quarto vértice?",
+      "imagem": "pla-q-quarto",
+      "dica": "Veja qual valor de x apareceu uma vez só, e qual valor de y apareceu uma vez só.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(2, 5)" },
+        { "rotulo": "B", "texto": "(5, 2)" },
+        { "rotulo": "C", "texto": "(6, 6)" },
+        { "rotulo": "D", "texto": "(2, 6)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(5, 2)",
+          "porque": "As coordenadas estão trocadas. O x que falta é o 2, e o y que falta é o 5 — então o par é (2, 5), e não (5, 2)."
+        },
+        {
+          "resposta": "(6, 6)",
+          "porque": "O 6 já aparece duas vezes entre os x dados, então ele não precisa de outro. E o 6 nunca apareceu como y — o valor solitário ali é o 5."
+        },
+        {
+          "resposta": "(2, 6)",
+          "porque": "O x está certo, mas o y não: entre os pontos dados os y são 2, 2 e 5, então falta um 5. O 6 não aparece em lugar nenhum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os x",
+          "explicacao": "São 2, 6 e 6. O 2 apareceu sozinho.",
+          "conta": "x: 2, 6, 6"
+        },
+        {
+          "titulo": "Liste os y",
+          "explicacao": "São 2, 2 e 5. O 5 apareceu sozinho.",
+          "conta": "y: 2, 2, 5"
+        },
+        {
+          "titulo": "Junte",
+          "explicacao": "O quarto vértice combina os dois valores solitários.",
+          "conta": "(2, 5)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um retângulo tem vértices em (1, 1), (5, 1), (5, 4) e (1, 4). Quanto mede o lado horizontal dele? Digite apenas o número.",
+      "imagem": "pla-q-lado-h",
+      "dica": "O lado horizontal liga dois pontos de mesma altura. Use a diferença dos x.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o lado VERTICAL, dado pela diferença dos y: 4 − 1. O horizontal vem da diferença dos x."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a soma 5 + 1. Comprimento de lado é a diferença entre as coordenadas, e não a soma."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a coordenada x do vértice da direita. O lado é o quanto ele se afasta do vértice da esquerda, que está em x = 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha dois vértices de mesma altura",
+          "explicacao": "Os pontos (1, 1) e (5, 1) têm o mesmo y, então o segmento entre eles é horizontal.",
+          "conta": "(1, 1) e (5, 1)"
+        },
+        {
+          "titulo": "Diferença dos x",
+          "explicacao": "Subtraia o x menor do maior, para o comprimento sair positivo.",
+          "conta": "5 − 1 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a área do retângulo de vértices (1, 1), (5, 1), (5, 4) e (1, 4), em unidades de área? Digite apenas o número.",
+      "imagem": "pla-q-area-ret",
+      "dica": "Ache os dois lados pelas diferenças de coordenadas e depois use a fórmula da área.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "unidades de área",
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é o PERÍMETRO deste retângulo: 2 × (4 + 3). Perímetro percorre a borda; área conta o que cabe dentro."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é 4 + 3, a soma dos dois lados. Área é a multiplicação deles."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 5 × 4, usando as coordenadas dos vértices em vez dos comprimentos dos lados. O lado horizontal mede 5 − 1 = 4, e não 5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lado horizontal",
+          "explicacao": "Diferença dos x entre dois vértices de mesma altura.",
+          "conta": "5 − 1 = 4"
+        },
+        {
+          "titulo": "Lado vertical",
+          "explicacao": "Diferença dos y entre dois vértices de mesma coluna.",
+          "conta": "4 − 1 = 3"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Área de retângulo é base vezes altura, como na matéria de Área.",
+          "conta": "4 × 3 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é o perímetro do retângulo de vértices (1, 1), (5, 1), (5, 4) e (1, 4)? Digite apenas o número.",
+      "imagem": "pla-q-perim-ret",
+      "dica": "Os dois lados já foram calculados na questão anterior. Agora é a fórmula do perímetro.",
+      "formato": "numero",
+      "resposta": 14,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é a ÁREA do retângulo: 4 × 3. Área multiplica os lados; perímetro os soma, e cada um duas vezes."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é 4 + 3, apenas a meia volta. Falta dobrar para percorrer os quatro lados."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 sairia de um retângulo 5 por 3, usando a coordenada 5 como se fosse o comprimento do lado. O lado mede 5 − 1 = 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Os dois lados",
+          "explicacao": "Horizontal de 4 e vertical de 3, pelas diferenças de coordenadas.",
+          "conta": "4 e 3"
+        },
+        {
+          "titulo": "Meia volta",
+          "explicacao": "Base mais altura dá o caminho até o vértice oposto.",
+          "conta": "4 + 3 = 7"
+        },
+        {
+          "titulo": "Volta inteira",
+          "explicacao": "Dobre a meia volta, como na matéria de Perímetro.",
+          "conta": "2 × 7 = 14"
+        }
+      ]
+    }
+  ]
+}

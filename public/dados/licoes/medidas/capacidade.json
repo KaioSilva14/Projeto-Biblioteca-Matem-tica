@@ -1,0 +1,200 @@
+{
+  "id": "capacidade",
+  "numero": 4,
+  "titulo": "Unidades de capacidade",
+  "pergunta": "Quantos copos de 200 mL cabem numa garrafa de 2 litros?",
+  "ideia": {
+    "paragrafos": [
+      "Capacidade é quanto líquido cabe dentro de um recipiente. A unidade principal é o litro, e a única conversão que aparece no dia a dia é para o mililitro: 1 L = 1000 mL.",
+      "O prefixo é o mesmo de sempre. 'Mili' significa milésima parte, então o mililitro é a milésima parte do litro — assim como o milímetro é a milésima parte do metro e o miligrama a milésima parte do grama. Um prefixo aprendido serve para as três famílias.",
+      "Você já viu na matéria de Sólidos que capacidade e volume são a mesma coisa medida de dois jeitos, com uma ponte exata entre elas: 1 mL = 1 cm³ e 1 L = 1000 cm³. Isso permite responder em litros uma pergunta que veio em centímetros, e vice-versa.",
+      "O sentido da conta segue a regra de sempre: indo do litro para o mililitro o número aumenta mil vezes, e no caminho de volta diminui mil vezes.",
+      "E o problema mais comum do assunto tem duas etapas: converter e depois dividir. Quantos copos de 200 mL saem de uma garrafa de 2 L? Primeiro coloque os dois na mesma unidade; só então divida um pelo outro."
+    ],
+    "destaque": "Mil mililitros num litro. E cada mililitro é exatamente 1 cm³.",
+    "imagem": "gra-ideia-capacidade"
+  },
+  "resolvido": {
+    "enunciado": "Quantos mililitros há em 2,5 litros?",
+    "imagem": "gra-res-capacidade",
+    "passos": [
+      {
+        "titulo": "Para que lado",
+        "explicacao": "O mililitro é menor que o litro, então o número vai aumentar.",
+        "conta": "L → mL · número maior"
+      },
+      {
+        "titulo": "Qual é o fator",
+        "explicacao": "O prefixo 'mili' significa milésima parte, então cada litro comporta mil mililitros.",
+        "conta": "1 L = 1 000 mL"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Dois litros dão dois mil mililitros, e o meio litro dá mais quinhentos.",
+        "conta": "2,5 × 1 000 = 2 500 mL"
+      },
+      {
+        "titulo": "Confira pelo rótulo",
+        "explicacao": "Uma garrafa de 2 litros e meio traz 2500 mL no rótulo — os dois números são a mesma quantidade escrita de dois jeitos.",
+        "conta": "2,5 L = 2 500 mL"
+      }
+    ],
+    "fecho": "É a mesma escada da massa, com o mesmo salto de mil. Só muda a grandeza que está sendo medida."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos mililitros há em 3 litros? Digite apenas o número.",
+      "imagem": "gra-q-3l",
+      "dica": "Cada litro tem mil mililitros.",
+      "formato": "numero",
+      "resposta": 3000,
+      "unidade": "mL",
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 sai de multiplicar por 100. O prefixo 'mili' vale milésima parte, então o fator é 1000."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 sai de multiplicar por 10, e não por 1000. O prefixo 'mili' significa milésima parte, então cada litro comporta mil mililitros — faltaram dois zeros."
+        },
+        {
+          "resposta": "0.003",
+          "porque": "0,003 sai de dividir por 1000. Indo para uma unidade menor o número aumenta, e não diminui."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido",
+          "explicacao": "Mililitro é menor que litro, então o número aumenta.",
+          "conta": "L → mL · multiplicar"
+        },
+        {
+          "titulo": "Multiplique por mil",
+          "explicacao": "Três litros, cada um com mil mililitros.",
+          "conta": "3 × 1 000 = 3 000 mL"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos litros há em 1500 mililitros? Digite apenas o número.",
+      "imagem": "gra-q-1500ml",
+      "dica": "Caminho de volta: o litro é maior, então o número diminui.",
+      "formato": "numero",
+      "resposta": 1.5,
+      "unidade": "L",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 sai de dividir por 100. O divisor entre mililitro e litro é 1000."
+        },
+        {
+          "resposta": "150",
+          "porque": "150 sai de dividir por 10 em vez de por 1000. Entre mililitro e litro o salto é de mil, o mesmo da massa: mil mililitros formam um litro."
+        },
+        {
+          "resposta": "1500000",
+          "porque": "1.500.000 sai de multiplicar por 1000. Indo para uma unidade maior, o número precisa diminuir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Sentido",
+          "explicacao": "Litro é maior que mililitro, então o número diminui.",
+          "conta": "mL → L · dividir"
+        },
+        {
+          "titulo": "Divida por mil",
+          "explicacao": "Mil e quinhentos mililitros são um litro e meio.",
+          "conta": "1 500 ÷ 1 000 = 1,5 L"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma jarra foi enchida com 6 copos de 250 mL cada. Quantos mililitros a jarra recebeu? Digite apenas o número.",
+      "imagem": "gra-q-copos",
+      "dica": "Todos os copos têm o mesmo tamanho, então é uma multiplicação.",
+      "formato": "numero",
+      "resposta": 1500,
+      "unidade": "mL",
+      "errosComuns": [
+        {
+          "resposta": "256",
+          "porque": "256 soma 250 com 6, mas o 6 é a QUANTIDADE de copos, e não um volume. Somar os dois mistura coisas diferentes."
+        },
+        {
+          "resposta": "1.5",
+          "porque": "1,5 é o total em LITROS, que está certo — mas o enunciado pede em mililitros. Falta converter."
+        },
+        {
+          "resposta": "150",
+          "porque": "150 sai de uma multiplicação incompleta. Vale refazer: 250 × 6 é o mesmo que 250 × 2 × 3, que dá 1500."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Seis parcelas iguais",
+          "explicacao": "Cada copo tem 250 mL, e são seis deles.",
+          "conta": "250 × 6"
+        },
+        {
+          "titulo": "Multiplique por etapas",
+          "explicacao": "Duzentos e cinquenta vezes dois dá quinhentos; vezes três dá mil e quinhentos.",
+          "conta": "250 × 2 = 500 · 500 × 3 = 1 500 mL"
+        },
+        {
+          "titulo": "Confira em litros",
+          "explicacao": "Mil e quinhentos mililitros são um litro e meio — plausível para seis copos.",
+          "conta": "1 500 mL = 1,5 L ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos copos de 200 mL dá para encher completamente com uma garrafa de 2 litros? Digite apenas a quantidade.",
+      "imagem": "gra-q-garrafa-copos",
+      "dica": "Converta a garrafa para mililitros antes de dividir.",
+      "formato": "numero",
+      "resposta": 10,
+      "unidade": "copos",
+      "errosComuns": [
+        {
+          "resposta": "100",
+          "porque": "100 sai de dividir 2000 por 20 em vez de por 200. Vale conferir os zeros com calma: o copo tem 200 mL."
+        },
+        {
+          "resposta": "400",
+          "porque": "400 é 2 × 200, multiplicando onde precisava dividir. A garrafa é repartida entre os copos, então a conta é uma divisão."
+        },
+        {
+          "resposta": "2000",
+          "porque": "2.000 é o conteúdo da garrafa em mililitros. Ele é o ponto de partida da conta, e não a resposta — falta dividir pelo tamanho do copo."
+        },
+        {
+          "resposta": "0.01",
+          "porque": "0,01 sai de dividir 2 por 200, sem converter a garrafa. As duas medidas precisam estar na mesma unidade antes da divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Deixe na mesma unidade",
+          "explicacao": "A garrafa está em litros e o copo em mililitros. Converta a garrafa.",
+          "conta": "2 L = 2 000 mL"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Veja quantas vezes 200 cabe em 2000.",
+          "conta": "2 000 ÷ 200 = 10 copos"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Dez copos de 200 mL somam 2000 mL, que é exatamente o conteúdo da garrafa.",
+          "conta": "10 × 200 = 2 000 ✓"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas com dados",
+  "pergunta": "Como responder uma pergunta que o gráfico não responde sozinho?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui as perguntas foram de leitura: qual o maior, quanto vale esta coluna. Mas a maior parte das perguntas reais não está escrita no gráfico — ela exige ler os valores e depois fazer alguma coisa com eles.",
+      "O caminho é sempre o mesmo, em duas etapas separadas. Primeiro extraia do gráfico só os números de que você precisa, e anote-os. Depois esqueça o desenho e resolva o problema como qualquer outro, com os números na mão.",
+      "Misturar as duas etapas é o que causa erro. Quem tenta somar 'no olho', comparando alturas, acaba respondendo pela impressão. Quem anota 6, 9, 4 e 11 e só então soma, não erra por causa do desenho.",
+      "Também vale desconfiar do que a pergunta pede. 'Quantos a mais' é subtração; 'ao todo' é soma; 'em quantos meses' pede uma contagem de categorias, e não a soma dos valores delas. Ler a pergunta com o mesmo cuidado com que se lê o gráfico evita metade dos enganos.",
+      "Por fim, uma afirmação só está apoiada nos dados se der para conferi-la com os números lidos. Frases que soam razoáveis, mas que o gráfico não sustenta, são o tipo de conclusão que uma leitura atenta derruba."
+    ],
+    "destaque": "Leia os números, anote, e só então calcule. Nunca some pela altura.",
+    "imagem": "grf-ideia-gols"
+  },
+  "resolvido": {
+    "enunciado": "O gráfico mostra quantos gols um time fez em cada mês. Quantos gols o time fez a mais em julho do que em junho?",
+    "imagem": "grf-res-gols",
+    "passos": [
+      {
+        "titulo": "Anote os números que interessam",
+        "explicacao": "A pergunta é sobre dois meses só. Leia a altura de cada um no eixo e escreva os valores antes de calcular qualquer coisa.",
+        "conta": "julho = 11 · junho = 4"
+      },
+      {
+        "titulo": "Veja o que a pergunta pede",
+        "explicacao": "A expressão 'quantos a mais' compara dois valores, então a operação é a subtração — nem a soma nem a contagem de meses.",
+        "conta": "quantos a mais → subtrair"
+      },
+      {
+        "titulo": "Calcule com os números na mão",
+        "explicacao": "Agora o gráfico não é mais necessário: a conta é entre os dois valores anotados.",
+        "conta": "11 − 4 = 7 gols"
+      },
+      {
+        "titulo": "Volte ao gráfico para conferir",
+        "explicacao": "A coluna de julho é bem mais alta que a de junho, e a diferença de sete gols é compatível com o que se vê. Se o resultado destoasse do desenho, valeria refazer a leitura.",
+        "conta": "7 gols de diferença"
+      }
+    ],
+    "fecho": "O gráfico entrega os números. A pergunta decide o que fazer com eles."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos gols o time fez ao todo nos quatro meses? Digite apenas o número.",
+      "imagem": "grf-q-gols-total",
+      "dica": "Leia as quatro colunas no eixo, anote os valores e some.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "gols",
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 é só o melhor mês. 'Ao todo' junta os quatro meses, porque os gols de cada um continuam contando."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o número de meses do gráfico, e também o total de gols de junho. Nenhum dos dois é a soma pedida."
+        },
+        {
+          "resposta": "26",
+          "porque": "26 é a soma de três colunas. Alguma ficou de fora — some na ordem em que aparecem para não pular nenhuma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Anote as quatro alturas",
+          "explicacao": "Abril 6, maio 9, junho 4 e julho 11, lidos um a um no eixo da esquerda.",
+          "conta": "6, 9, 4, 11"
+        },
+        {
+          "titulo": "Some os dois primeiros",
+          "explicacao": "Abril com maio, para quebrar a conta em partes menores.",
+          "conta": "6 + 9 = 15"
+        },
+        {
+          "titulo": "Some os dois últimos",
+          "explicacao": "Junho com julho, do mesmo jeito.",
+          "conta": "4 + 11 = 15"
+        },
+        {
+          "titulo": "Junte os parciais",
+          "explicacao": "O total dos quatro meses é a soma dos dois parciais.",
+          "conta": "15 + 15 = 30 gols"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Em quantos meses o time fez MAIS de 5 gols? Digite apenas o número.",
+      "imagem": "grf-q-gols-meses",
+      "dica": "A resposta é uma quantidade de meses, e não de gols. Confira coluna por coluna se ela passa da marca do 5.",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "meses",
+      "errosComuns": [
+        {
+          "resposta": "26",
+          "porque": "26 é a soma dos gols desses meses, 6 + 9 + 11. A pergunta é quantos MESES, então a resposta é uma contagem de colunas."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o número total de meses do gráfico. Um deles, junho, fez 4 gols e não passa de 5, então fica de fora."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 conta só maio e julho. Abril também passa de 5, com 6 gols — a marca é 5, e 6 já é mais que isso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira mês a mês",
+          "explicacao": "Abril tem 6, que passa de 5. Maio tem 9, que passa. Junho tem 4, que não passa. Julho tem 11, que passa.",
+          "conta": "6 ✓ · 9 ✓ · 4 ✗ · 11 ✓"
+        },
+        {
+          "titulo": "Conte os que passaram",
+          "explicacao": "São três meses acima da marca. A resposta é a contagem deles, e não a soma dos gols.",
+          "conta": "3 meses"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos gols o time fez a mais em maio do que em abril? Digite apenas o número.",
+      "imagem": "grf-q-gols-dif",
+      "dica": "Anote as duas alturas e subtraia a menor da maior.",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "gols",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 é a soma dos dois meses, 9 + 6. Quantos a mais pede a diferença entre eles."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o total de maio. Falta descontar os 6 gols de abril para achar a diferença."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é a diferença entre julho e junho, que foi o exemplo resolvido. Esta questão compara outros dois meses."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Anote os dois valores",
+          "explicacao": "Maio tem 9 gols e abril tem 6, lidos nas colunas correspondentes.",
+          "conta": "9 e 6"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "A diferença entre as duas alturas é a diferença de gols entre os dois meses.",
+          "conta": "9 − 6 = 3 gols"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual destas afirmações é apoiada pelos dados do gráfico?",
+      "imagem": "grf-q-gols-afirmacao",
+      "dica": "Confira cada frase com os números que você leu. Uma afirmação só vale se os valores a sustentarem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Julho foi o mês de mais gols dos quatro" },
+        { "rotulo": "B", "texto": "O time fez menos gols em maio do que em abril" },
+        { "rotulo": "C", "texto": "Junho foi o mês de mais gols" },
+        { "rotulo": "D", "texto": "O time fez 30 gols só em julho" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O time fez menos gols em maio do que em abril",
+          "porque": "É o contrário: maio teve 9 gols e abril teve 6, então maio foi o mês melhor dos dois. A coluna de maio é visivelmente mais alta."
+        },
+        {
+          "resposta": "Junho foi o mês de mais gols",
+          "porque": "Junho teve 4 gols, o MENOR número dos quatro meses. A coluna dele é a mais baixa do gráfico."
+        },
+        {
+          "resposta": "O time fez 30 gols só em julho",
+          "porque": "30 é o total dos quatro meses somados. Julho sozinho teve 11 gols, que é o maior valor, mas está longe do total."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Anote os quatro valores",
+          "explicacao": "Abril 6, maio 9, junho 4 e julho 11.",
+          "conta": "6, 9, 4, 11"
+        },
+        {
+          "titulo": "Teste cada afirmação",
+          "explicacao": "Maio maior que abril derruba a segunda; junho ser o menor derruba a terceira; e 30 é o total, não julho.",
+          "conta": "9 > 6 · 4 é o menor · 30 é o total"
+        },
+        {
+          "titulo": "Fique com a que os números sustentam",
+          "explicacao": "Onze é o maior dos quatro valores, então julho foi mesmo o mês de mais gols.",
+          "conta": "11 > 9 > 6 > 4 → julho"
+        }
+      ]
+    }
+  ]
+}

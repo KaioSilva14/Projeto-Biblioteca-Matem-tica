@@ -108,8 +108,8 @@
           "porque": "Isso é arredondar aos décimos. A questão pediu unidades, ou seja, nenhuma casa depois da vírgula."
         },
         {
-          "resposta": "8.0",
-          "porque": "O valor está certo, mas arredondado às unidades o número não tem casa decimal: escreve-se 8."
+          "resposta": "7.96",
+          "porque": "Esse é o número original, sem arredondar nada. Arredondar às unidades é escolher entre 7 e 8 — o inteiro mais próximo — e abandonar as casas decimais."
         }
       ],
       "resolucao": [
@@ -132,6 +132,11 @@
           "titulo": "Confira a distância",
           "explicacao": "De 7,96 até 8 falta 0,04. Até 7 são 0,96. O 8 está muito mais perto.",
           "conta": "7,96 ≈ 8"
+        },
+        {
+          "titulo": "Escreva sem casa decimal",
+          "explicacao": "Arredondado às unidades, o número não guarda nenhuma casa depois da vírgula. Escrever 8,0 não está errado no valor, mas contraria o que a questão pediu.",
+          "conta": "resposta = 8"
         }
       ]
     },
@@ -142,10 +147,22 @@
       "dica": "Arredonde o preço para um número fácil de multiplicar por 3, e depois pense se o total real ficou acima ou abaixo.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "Um pouco menos de R$ 60" },
-        { "rotulo": "B", "texto": "Um pouco mais de R$ 60" },
-        { "rotulo": "C", "texto": "Cerca de R$ 30" },
-        { "rotulo": "D", "texto": "Cerca de R$ 600" }
+        {
+          "rotulo": "A",
+          "texto": "Um pouco menos de R$ 60"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Um pouco mais de R$ 60"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Cerca de R$ 30"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Cerca de R$ 600"
+        }
       ],
       "correta": 0,
       "errosComuns": [
@@ -156,6 +173,10 @@
         {
           "resposta": "Cerca de R$ 30",
           "porque": "Isso seria comprar um item e meio. São três itens de quase R$ 20 cada."
+        },
+        {
+          "resposta": "Cerca de R$ 600",
+          "porque": "600 sai de multiplicar por 30 em vez de 3, ou de somar um zero sem motivo. São três itens de quase R$ 20, então o total fica na casa das dezenas, e não das centenas."
         }
       ],
       "resolucao": [

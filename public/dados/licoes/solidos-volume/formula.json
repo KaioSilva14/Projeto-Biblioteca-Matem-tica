@@ -1,0 +1,201 @@
+{
+  "id": "formula",
+  "numero": 5,
+  "titulo": "Volume do bloco",
+  "pergunta": "Por que o volume é comprimento vezes largura vezes altura?",
+  "ideia": {
+    "paragrafos": [
+      "Contar cubinhos um por um funciona, mas numa caixa de 20 por 15 por 10 seriam três mil cubinhos. A fórmula é a mesma contagem, organizada.",
+      "Ela sai direto das camadas. Uma camada tem comprimento × largura cubinhos, porque é um retângulo. E cabem tantas camadas quanto a altura mede. Então o total é comprimento × largura × altura — os três fatores, um para cada dimensão.",
+      "Repare no encaixe com a matéria anterior: os dois primeiros fatores são a ÁREA da base, e o terceiro é quantas vezes essa base se repete subindo. Dá para pensar assim em qualquer prisma, não só no bloco: volume é a área da base multiplicada pela altura.",
+      "No cubo os três valores são iguais, então o volume é aresta × aresta × aresta, ou seja, a aresta ao cubo. É daí que vem o nome da potência de expoente 3 — assim como o expoente 2 veio da área do quadrado.",
+      "E a fórmula funciona ao contrário. Se você conhece o volume e a área da base, divida um pelo outro para achar a altura. Um cuidado: as três medidas precisam estar na mesma unidade antes de multiplicar, senão o resultado não significa nada."
+    ],
+    "destaque": "Área da base vezes altura. Os dois primeiros fatores fazem a camada; o terceiro empilha.",
+    "imagem": "sol-ideia-formula"
+  },
+  "resolvido": {
+    "enunciado": "Uma caixa mede 10 cm por 6 cm por 4 cm. Qual é o volume dela?",
+    "imagem": "sol-res-formula",
+    "passos": [
+      {
+        "titulo": "Ache a área da base",
+        "explicacao": "O fundo da caixa é um retângulo de 10 cm por 6 cm. Essa é a mesma conta da matéria de Área.",
+        "conta": "10 × 6 = 60 cm²"
+      },
+      {
+        "titulo": "Isso é uma camada",
+        "explicacao": "Sessenta cubinhos de 1 cm preenchem o fundo inteiro, formando uma camada de 1 cm de altura.",
+        "conta": "60 cubinhos por camada"
+      },
+      {
+        "titulo": "Empilhe as camadas",
+        "explicacao": "A altura é 4 cm, então cabem quatro camadas iguais a essa.",
+        "conta": "60 × 4 = 240"
+      },
+      {
+        "titulo": "Escreva com a unidade",
+        "explicacao": "As três medidas estavam em centímetros, então o volume sai em centímetros cúbicos.",
+        "conta": "volume = 240 cm³"
+      },
+      {
+        "titulo": "A fórmula toda de uma vez",
+        "explicacao": "Fazendo os três fatores numa linha só, o resultado é o mesmo — a separação em camadas serve para entender, não para mudar a conta.",
+        "conta": "10 × 6 × 4 = 240 cm³"
+      }
+    ],
+    "fecho": "Área da base vezes altura vale para qualquer prisma. O bloco é só o caso em que a base é um retângulo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o volume de uma caixa de 8 cm por 5 cm por 3 cm, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "sol-q-form-8-5-3",
+      "dica": "Multiplique as três medidas.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "cm³",
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é 8 × 5, ou seja, a ÁREA da base em centímetros quadrados. Falta multiplicar pela altura para empilhar as camadas."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é 8 + 5 + 3, somando as três medidas. Volume é o produto das três, e não a soma."
+        },
+        {
+          "resposta": "158",
+          "porque": "158 é a ÁREA total das faces da caixa, em centímetros quadrados. Ela mede o papelão gasto para montar a caixa, e não o que cabe dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "O fundo é um retângulo de 8 por 5.",
+          "conta": "8 × 5 = 40 cm²"
+        },
+        {
+          "titulo": "Multiplique pela altura",
+          "explicacao": "Três camadas de quarenta cubinhos cada.",
+          "conta": "40 × 3 = 120 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o volume de um cubo de 5 cm de aresta, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "sol-q-form-cubo5",
+      "dica": "No cubo as três medidas são iguais. É a aresta elevada ao cubo.",
+      "formato": "numero",
+      "resposta": 125,
+      "unidade": "cm³",
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 é 5 × 5, a ÁREA de uma face do cubo, em centímetros quadrados. Falta multiplicar pela terceira medida."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é 5 × 3, multiplicando a aresta pelo expoente. O expoente 3 manda usar TRÊS fatores 5, e não multiplicar por 3."
+        },
+        {
+          "resposta": "150",
+          "porque": "150 é a área total das seis faces, em centímetros quadrados: 6 × 25. Superfície e volume são medidas diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "As três medidas",
+          "explicacao": "No cubo, comprimento, largura e altura valem todos 5 cm.",
+          "conta": "5 × 5 × 5"
+        },
+        {
+          "titulo": "Calcule por etapas",
+          "explicacao": "Cinco vezes cinco dá vinte e cinco, que é uma camada. Multiplicando pelas cinco camadas, dá cento e vinte e cinco.",
+          "conta": "5³ = 125 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma caixa tem volume de 60 cm³ e a base mede 5 cm por 4 cm. Quanto mede a altura dela, em centímetros? Digite apenas o número.",
+      "imagem": "sol-q-form-altura",
+      "dica": "Ache a área da base e veja quantas camadas dessas cabem no volume.",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "1200",
+          "porque": "1.200 é 60 × 20. Você multiplicou onde precisava dividir: o volume já é o total, então a altura é quantas camadas cabem nele."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é 60 − 20. Volume é uma multiplicação, então tirar a área da base dele não desfaz nada. O que desfaz é a divisão."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é a ÁREA da base, ou seja, quantos cubinhos cabem numa camada. Ela é o divisor da conta, e não a resposta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "Cinco por quatro dá o número de cubinhos de uma camada.",
+          "conta": "5 × 4 = 20 cm²"
+        },
+        {
+          "titulo": "Quantas camadas cabem",
+          "explicacao": "O volume total é 60 cubinhos, e cada camada tem 20.",
+          "conta": "60 ÷ 20 = 3 camadas"
+        },
+        {
+          "titulo": "Traduza para altura",
+          "explicacao": "Cada camada tem 1 cm de altura, então três camadas dão 3 cm.",
+          "conta": "altura = 3 cm"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma caixa de papelão mede 20 cm por 15 cm por 10 cm. Qual é o volume dela, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "sol-q-form-20-15-10",
+      "dica": "Multiplique dois de cada vez para não errar a conta grande.",
+      "formato": "numero",
+      "resposta": 3000,
+      "unidade": "cm³",
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 é 20 × 15, a área da base em centímetros quadrados. Falta multiplicar pelos 10 cm de altura."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é 20 + 15 + 10, somando as três medidas. Volume é o produto delas."
+        },
+        {
+          "resposta": "1300",
+          "porque": "1.300 é a área total das faces, em centímetros quadrados. Ela diria quanto papelão a caixa gasta, e não quanto cabe dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "Vinte por quinze. Fazer 2 × 15 e depois × 10 deixa a conta mais simples.",
+          "conta": "20 × 15 = 300 cm²"
+        },
+        {
+          "titulo": "Multiplique pela altura",
+          "explicacao": "Dez camadas de trezentos cubinhos cada. Multiplicar por 10 é só acrescentar um zero.",
+          "conta": "300 × 10 = 3 000 cm³"
+        },
+        {
+          "titulo": "Faz sentido?",
+          "explicacao": "Três mil centímetros cúbicos são três litros, como você vai ver na próxima lição. Para uma caixa desse tamanho, é plausível.",
+          "conta": "3 000 cm³ = 3 L"
+        }
+      ]
+    }
+  ]
+}

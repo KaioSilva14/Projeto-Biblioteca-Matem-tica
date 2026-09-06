@@ -64,8 +64,8 @@
           "porque": "A multiplicação sem vírgula está certa (12 × 5 = 60), mas faltou colocar a vírgula. São duas casas somadas, então 60 vira 0,60 — ou seja, 0,6."
         },
         {
-          "resposta": "6.0",
-          "porque": "Mesmo problema: a vírgula ficou uma casa fora. Multiplicar por 0,5 é o mesmo que pegar a metade, e a metade de 1,2 é 0,6, não 6."
+          "resposta": "0.06",
+          "porque": "A vírgula andou uma casa a mais do que devia. São duas casas decimais somadas (uma de 1,2 e uma de 0,5), então 60 vira 0,60 — e não 0,060. Vale conferir pela estimativa: metade de 1,2 é 0,6."
         },
         {
           "resposta": "1.7",
@@ -182,16 +182,32 @@
       "dica": "0,25 é maior ou menor que 1? É isso que decide.",
       "formato": "alternativas",
       "alternativas": [
-        { "rotulo": "A", "texto": "Menor que 8" },
-        { "rotulo": "B", "texto": "Maior que 8" },
-        { "rotulo": "C", "texto": "Exatamente 8" },
-        { "rotulo": "D", "texto": "Depende de fazer a conta" }
+        {
+          "rotulo": "A",
+          "texto": "Menor que 8"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Maior que 8"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Exatamente 8"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Depende de fazer a conta"
+        }
       ],
       "correta": 0,
       "errosComuns": [
         {
           "resposta": "Maior que 8",
           "porque": "É a ideia teimosa de que multiplicar sempre aumenta. Ela só vale quando o multiplicador é maior que 1. Como 0,25 é menor que 1, você está pegando um pedaço de 8 — no caso, um quarto, que dá 2."
+        },
+        {
+          "resposta": "Exatamente 8",
+          "porque": "Daria exatamente 8 se o multiplicador fosse 1. Como 0,25 é menor que 1, o resultado tem de encolher: multiplicar por 0,25 é o mesmo que pegar um quarto."
         },
         {
           "resposta": "Depende de fazer a conta",
