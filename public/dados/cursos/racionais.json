@@ -1,0 +1,42 @@
+{
+  "id": "racionais",
+  "titulo": "Números racionais",
+  "ano": 7,
+  "descricao": "Fração, decimal e inteiro são a mesma família — e agora ela tem lado negativo. Sete lições que costuram o que o 6º ano ensinou sobre partes com o que a matéria anterior ensinou sobre sinal, até somar, multiplicar e dividir qualquer racional.",
+  "pergunta": "O que fração, decimal e número inteiro têm em comum?",
+  "videos": [
+    {
+      "id": "4yxQu7p1MGs",
+      "titulo": "NÚMEROS RACIONAIS: Tudo o que você precisa saber! Conjunto, reta numérica e exercícios",
+      "canal": "Gis com Giz",
+      "descricao": "Uma visão geral da matéria inteira, do conjunto à reta numérica. Bom para ver depois da lição 2, quando as duas primeiras ideias já estiverem firmes."
+    },
+    {
+      "id": "f5p3qZB8DYk",
+      "titulo": "RETA NUMÉRICA - NÚMEROS RACIONAIS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Foca só em marcar racionais na reta, inclusive os negativos. Vale como reforço da lição 2, se achar o lugar de uma fração ainda estiver difícil."
+    },
+    {
+      "id": "M9PiRFGbsCs",
+      "titulo": "OPERAÇÕES COM NÚMEROS RACIONAIS  | OPERAÇŌES COM FRAÇÃO | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Percorre as quatro operações com fração numa aula só. Serve para revisar as lições 5 e 6 juntas, depois de já ter feito as questões."
+    },
+    {
+      "id": "HwkZAeAUc4s",
+      "titulo": "Matemática | Números racionais na representação fracionária e decimal | 7º Ano |  4º Bim Prof. Júlio",
+      "canal": "Centro Municipal de Ensino a Distância",
+      "descricao": "Outra didática para a conversão entre fração e decimal, que é o assunto da lição 3. Útil para quem prefere ouvir a mesma ideia explicada por outra pessoa."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/racionais/o-que-e.json" },
+    { "id": "na-reta", "arquivo": "/dados/licoes/racionais/na-reta.json" },
+    { "id": "formas", "arquivo": "/dados/licoes/racionais/formas.json" },
+    { "id": "comparar", "arquivo": "/dados/licoes/racionais/comparar.json" },
+    { "id": "somar-subtrair", "arquivo": "/dados/licoes/racionais/somar-subtrair.json" },
+    { "id": "multiplicar-dividir", "arquivo": "/dados/licoes/racionais/multiplicar-dividir.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/racionais/problemas.json" }
+  ]
+}

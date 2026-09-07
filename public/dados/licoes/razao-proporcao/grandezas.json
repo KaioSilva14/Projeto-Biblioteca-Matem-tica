@@ -1,0 +1,216 @@
+{
+  "id": "grandezas",
+  "numero": 5,
+  "titulo": "Direta ou inversa",
+  "pergunta": "Toda grandeza que cresce junto é proporcional?",
+  "ideia": {
+    "paragrafos": [
+      "Duas grandezas são DIRETAMENTE proporcionais quando, ao multiplicar uma por um número, a outra fica multiplicada pelo mesmo número. Dobrar os cadernos dobra o preço; triplicar as horas de viagem triplica a distância, se a velocidade não mudar.",
+      "O teste é a razão entre elas: se ela se mantém constante, a proporcionalidade é direta. Com 1 caderno a R$ 6, 2 a R$ 12 e 3 a R$ 18, a divisão preço ÷ cadernos dá sempre 6. Esse número que não muda tem nome: constante de proporcionalidade.",
+      "Já duas grandezas são INVERSAMENTE proporcionais quando uma dobra e a outra cai pela metade. Se 2 pedreiros levam 12 dias para levantar um muro, 4 pedreiros levam 6 — o dobro de gente, metade do tempo. Aqui quem se mantém constante é o PRODUTO: 2 × 12 = 24 e 4 × 6 = 24.",
+      "E há um terceiro caso, que é o mais importante de reconhecer: grandezas que crescem juntas sem serem proporcionais. A idade e a altura de uma pessoa crescem juntas, mas ninguém com o dobro da idade tem o dobro da altura. Crescer junto não basta — a razão tem de ficar constante.",
+      "Antes de aplicar qualquer regra, vale fazer a pergunta certa: se eu dobrar uma, a outra dobra, cai pela metade, ou nenhum dos dois? A resposta decide se a proporcionalidade é direta, inversa ou inexistente — e é aí que se acerta ou erra o problema inteiro."
+    ],
+    "destaque": "Direta: a razão fica constante. Inversa: o produto fica constante.",
+    "imagem": "raz-ideia-grandezas"
+  },
+  "resolvido": {
+    "enunciado": "A tabela mostra a quantidade de cadernos e o preço pago. Essas grandezas são diretamente proporcionais?",
+    "imagem": "raz-res-tabela",
+    "passos": [
+      {
+        "titulo": "Teste a razão em cada coluna",
+        "explicacao": "Divida o preço pela quantidade em todas as colunas. Se a proporcionalidade for direta, o resultado tem de ser o mesmo em todas.",
+        "conta": "6 ÷ 1 = 6 · 12 ÷ 2 = 6 · 18 ÷ 3 = 6"
+      },
+      {
+        "titulo": "Confirme com o fator",
+        "explicacao": "Outro jeito de ver: de 1 para 2 cadernos multiplica-se por 2, e o preço de 6 para 12 também é multiplicado por 2. O mesmo fator atravessa as duas linhas.",
+        "conta": "×2 em cima, ×2 embaixo"
+      },
+      {
+        "titulo": "Nomeie a constante",
+        "explicacao": "O número que se repete é a constante de proporcionalidade, e aqui ele tem significado: é o preço de um caderno.",
+        "conta": "constante = 6 reais por caderno"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "Razão constante em todas as colunas é a definição de diretamente proporcional.",
+        "conta": "sim, diretamente proporcionais"
+      }
+    ],
+    "fecho": "A constante quase sempre tem nome no mundo real: preço unitário, velocidade, densidade."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Se 3 pedreiros levam 12 dias para levantar um muro, quantos dias levariam 6 pedreiros trabalhando no mesmo ritmo? Digite apenas o número.",
+      "imagem": "raz-q-pedreiros",
+      "dica": "Mais gente significa menos tempo: essas grandezas são inversamente proporcionais. O produto se mantém.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "dias",
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 dobra o tempo junto com os pedreiros, tratando as grandezas como diretamente proporcionais. Mais gente trabalhando termina ANTES, e não depois."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 soma 3 ao tempo, como se cada pedreiro a mais acrescentasse um dia. Na proporcionalidade inversa o que se mantém é o produto, e não a soma."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 subtrai 3 do tempo, como se cada pedreiro a mais economizasse exatamente um dia. Dobrar a equipe corta o tempo pela metade: de 12 para 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o tipo",
+          "explicacao": "Dobrando os pedreiros, o tempo cai pela metade — as grandezas são inversamente proporcionais.",
+          "conta": "mais gente, menos tempo"
+        },
+        {
+          "titulo": "Use o produto constante",
+          "explicacao": "Na proporcionalidade inversa, o produto das duas grandezas não muda. Ele representa o trabalho total do muro.",
+          "conta": "3 × 12 = 36"
+        },
+        {
+          "titulo": "Ache o tempo novo",
+          "explicacao": "Com seis pedreiros, o produto continua sendo 36.",
+          "conta": "36 ÷ 6 = 6 dias"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um carro a velocidade constante percorre 80 km em 1 hora. Quantos quilômetros percorre em 3 horas? Digite apenas o número.",
+      "imagem": "raz-q-carro",
+      "dica": "Distância e tempo crescem juntas e na mesma proporção: são diretamente proporcionais.",
+      "formato": "numero",
+      "resposta": 240,
+      "unidade": "km",
+      "errosComuns": [
+        {
+          "resposta": "83",
+          "porque": "83 soma as horas aos quilômetros, que são grandezas diferentes. Cada hora acrescenta 80 km, então três horas acrescentam três vezes isso."
+        },
+        {
+          "resposta": "26.67",
+          "porque": "26,67 divide 80 por 3, tratando as grandezas como inversamente proporcionais. Andar mais tempo percorre MAIS distância, e não menos."
+        },
+        {
+          "resposta": "160",
+          "porque": "160 é a distância de DUAS horas. A pergunta é sobre três, então falta somar mais oitenta quilômetros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o tipo",
+          "explicacao": "Dobrando o tempo, a distância dobra: são diretamente proporcionais.",
+          "conta": "mais tempo, mais distância"
+        },
+        {
+          "titulo": "Ache a constante",
+          "explicacao": "A razão distância por tempo é a velocidade, e ela não muda.",
+          "conta": "80 ÷ 1 = 80 km/h"
+        },
+        {
+          "titulo": "Aplique às três horas",
+          "explicacao": "Cada hora rende os mesmos 80 km, então três horas rendem três vezes isso.",
+          "conta": "80 × 3 = 240 km"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual destes pares de grandezas NÃO é proporcional?",
+      "imagem": "raz-q-nao-proporcional",
+      "dica": "Teste cada par dobrando a primeira grandeza. A segunda dobra, cai pela metade, ou nenhum dos dois?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A idade de uma pessoa e a altura dela" },
+        { "rotulo": "B", "texto": "A quantidade de pães e o preço pago" },
+        { "rotulo": "C", "texto": "O tempo de viagem e a distância, a velocidade constante" },
+        { "rotulo": "D", "texto": "O número de torneiras e o tempo para encher a piscina" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A quantidade de pães e o preço pago",
+          "porque": "Esse par é diretamente proporcional: dobrando os pães, o preço dobra, e a razão preço por pão fica constante."
+        },
+        {
+          "resposta": "O tempo de viagem e a distância, a velocidade constante",
+          "porque": "Esse par também é diretamente proporcional: dobrando o tempo, a distância dobra. A constante entre eles é justamente a velocidade."
+        },
+        {
+          "resposta": "O número de torneiras e o tempo para encher a piscina",
+          "porque": "Esse par é proporcional, só que de forma INVERSA: o dobro de torneiras enche em metade do tempo, e o produto se mantém. Inversa continua sendo proporcionalidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste dobrando",
+          "explicacao": "Alguém com 20 anos não tem o dobro da altura de alguém com 10, nem a metade.",
+          "conta": "idade ×2 → altura não dobra"
+        },
+        {
+          "titulo": "Teste a razão",
+          "explicacao": "Altura dividida por idade dá números diferentes em cada fase da vida, então não há constante.",
+          "conta": "razão não é constante"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "As duas crescem juntas, mas crescer junto não basta: proporcionalidade exige razão ou produto constante.",
+          "conta": "idade e altura: não proporcionais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa tabela, os valores de x são 2, 4 e 8, e os de y são 30, 15 e 7,5. Como são essas grandezas?",
+      "imagem": "raz-q-tabela-inversa",
+      "dica": "Teste a razão e depois o produto. Um dos dois se mantém constante.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Inversamente proporcionais, porque o produto é sempre 60" },
+        { "rotulo": "B", "texto": "Diretamente proporcionais, porque as duas mudam juntas" },
+        { "rotulo": "C", "texto": "Não são proporcionais, porque y diminui" },
+        { "rotulo": "D", "texto": "Inversamente proporcionais, porque a soma é sempre 32" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Diretamente proporcionais, porque as duas mudam juntas",
+          "porque": "Elas mudam juntas, mas em direções OPOSTAS: quando x dobra, y cai pela metade. Na proporcionalidade direta as duas crescem no mesmo sentido."
+        },
+        {
+          "resposta": "Não são proporcionais, porque y diminui",
+          "porque": "Diminuir não descarta proporcionalidade — descreve justamente a inversa. O teste é se o produto se mantém, e aqui ele dá 60 nas três colunas."
+        },
+        {
+          "resposta": "Inversamente proporcionais, porque a soma é sempre 32",
+          "porque": "A conclusão está certa, mas o motivo não: as somas dão 32, 19 e 15,5, que são diferentes. O que se mantém na proporcionalidade inversa é o produto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste a razão",
+          "explicacao": "Dividindo y por x em cada coluna, os resultados são diferentes, então não é direta.",
+          "conta": "15 · 3,75 · 0,94"
+        },
+        {
+          "titulo": "Teste o produto",
+          "explicacao": "Multiplicando x por y em cada coluna, o resultado se repete.",
+          "conta": "2 × 30 = 60 · 4 × 15 = 60 · 8 × 7,5 = 60"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Produto constante é a assinatura da proporcionalidade inversa.",
+          "conta": "inversamente proporcionais"
+        }
+      ]
+    }
+  ]
+}

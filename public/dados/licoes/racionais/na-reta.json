@@ -1,0 +1,221 @@
+{
+  "id": "na-reta",
+  "numero": 2,
+  "titulo": "Racionais na reta",
+  "pergunta": "O que existe entre −1 e 0?",
+  "ideia": {
+    "paragrafos": [
+      "Na matéria passada a reta ganhou o lado esquerdo, mas só com os inteiros marcados: −3, −2, −1, 0, 1. Entre eles parecia não haver nada. Agora esse espaço vai ser ocupado.",
+      "Para achar −3/4 na reta, faça o mesmo que se fazia com as frações positivas, só que para o outro lado: divida o pedaço entre 0 e −1 em quatro partes iguais e ande três delas a partir do zero, indo para a esquerda.",
+      "O decimal segue a mesma lógica, porque é a mesma família. O −1,3 fica entre −1 e −2: ande um inteiro para a esquerda e mais três décimos. Repare que ele é MENOR que −1, e não maior — quanto mais se anda para a esquerda, menor o número.",
+      "Os opostos continuam funcionando como antes. O −3/4 e o 3/4 estão à mesma distância do zero, um de cada lado, e a distância de qualquer um deles até o zero é 3/4.",
+      "E há uma novidade que muda a régua: entre dois inteiros cabem infinitos racionais. Entre 0 e −1 estão −1/2, −1/4, −1/10, −1/1000 e todos os que você quiser inventar. Com os inteiros dava para dizer quem vinha logo depois do −5; com os racionais, não existe 'o próximo'."
+    ],
+    "destaque": "Entre dois inteiros quaisquer cabem infinitos racionais. Não existe 'o próximo'.",
+    "imagem": "rac-ideia-reta"
+  },
+  "resolvido": {
+    "enunciado": "Onde fica −3/4 na reta numérica?",
+    "imagem": "rac-res-reta",
+    "passos": [
+      {
+        "titulo": "Veja o sinal primeiro",
+        "explicacao": "O número é negativo, então ele está à esquerda do zero. Isso já elimina metade da reta.",
+        "conta": "negativo → esquerda"
+      },
+      {
+        "titulo": "Leia o denominador",
+        "explicacao": "O 4 embaixo diz em quantas partes iguais dividir cada pedaço entre dois inteiros. Divida o trecho de 0 até −1 em quatro.",
+        "conta": "4 partes entre 0 e −1"
+      },
+      {
+        "titulo": "Ande o numerador",
+        "explicacao": "O 3 em cima diz quantas dessas partes percorrer, partindo do zero e indo para a esquerda.",
+        "conta": "3 partes de 1/4"
+      },
+      {
+        "titulo": "Confira onde parou",
+        "explicacao": "Três dos quatro pedaços é mais da metade do caminho, então −3/4 fica entre −1/2 e −1, mais perto do −1.",
+        "conta": "−1 < −3/4 < 0"
+      }
+    ],
+    "fecho": "O procedimento é o mesmo das frações do 6º ano. Só a direção da caminhada mudou."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Que número está marcado com o ponto nesta reta, dividida em quartos?",
+      "imagem": "rac-q-ler-quartos",
+      "dica": "Veja de que lado do zero o ponto está e conte quantos quartos ele percorreu.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−5/4" },
+        { "rotulo": "B", "texto": "5/4" },
+        { "rotulo": "C", "texto": "−4/5" },
+        { "rotulo": "D", "texto": "−1/4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "5/4",
+          "porque": "A quantidade de quartos está certa, mas o lado não: o ponto está à esquerda do zero, então o número é negativo. O 5/4 fica do lado oposto da reta."
+        },
+        {
+          "resposta": "−4/5",
+          "porque": "Os dois números estão trocados de lugar. O de baixo é em quantas partes cada inteiro foi dividido, que é 4; o de cima é quantas partes foram percorridas, que é 5."
+        },
+        {
+          "resposta": "−1/4",
+          "porque": "−1/4 é só um quartinho à esquerda do zero, bem perto dele. O ponto marcado já passou do −1, então percorreu mais de quatro quartos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o lado",
+          "explicacao": "O ponto está à esquerda do zero, então o número é negativo.",
+          "conta": "sinal −"
+        },
+        {
+          "titulo": "Conte os quartinhos",
+          "explicacao": "Do zero até o ponto são cinco pedaços, e cada pedaço vale 1/4.",
+          "conta": "5 pedaços de 1/4"
+        },
+        {
+          "titulo": "Monte o número",
+          "explicacao": "Como o ponto passou do −1, o resultado é menor que −1.",
+          "conta": "−5/4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Entre quais dois inteiros consecutivos está o número −1,3?",
+      "imagem": "rac-q-entre-inteiros",
+      "dica": "A parte inteira é 1, e o número é negativo. Ele está antes ou depois do −1?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Entre −2 e −1" },
+        { "rotulo": "B", "texto": "Entre −1 e 0" },
+        { "rotulo": "C", "texto": "Entre 1 e 2" },
+        { "rotulo": "D", "texto": "Entre 0 e 1" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Entre −1 e 0",
+          "porque": "Aí estão os números de −0,1 até −0,9, que ainda não completaram um inteiro. O −1,3 já passou do −1: ele tem um inteiro e mais três décimos de distância do zero."
+        },
+        {
+          "resposta": "Entre 1 e 2",
+          "porque": "Esse é o lugar do 1,3, sem o sinal. O menos joga o número para o outro lado do zero, e lá a vizinhança é entre −2 e −1."
+        },
+        {
+          "resposta": "Entre 0 e 1",
+          "porque": "Além de ignorar o sinal, essa faixa guarda só os números com parte inteira zero, como 0,3. O 1,3 tem um inteiro inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe as duas partes",
+          "explicacao": "O número tem um inteiro e mais três décimos de distância até o zero.",
+          "conta": "1 + 0,3 de distância"
+        },
+        {
+          "titulo": "Ande para a esquerda",
+          "explicacao": "O primeiro inteiro leva até −1, e os três décimos continuam na mesma direção.",
+          "conta": "0 → −1 → −1,3"
+        },
+        {
+          "titulo": "Veja onde parou",
+          "explicacao": "Passou do −1 e não chegou ao −2, então está entre os dois.",
+          "conta": "−2 < −1,3 < −1"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é o oposto de −2/5? Escreva a fração.",
+      "imagem": "rac-q-oposto",
+      "dica": "O oposto fica do outro lado do zero, à mesma distância. A fração não muda, só o sinal.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2/5" },
+        { "rotulo": "B", "texto": "−5/2" },
+        { "rotulo": "C", "texto": "5/2" },
+        { "rotulo": "D", "texto": "−2/5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−5/2",
+          "porque": "Isso vira a fração de cabeça para baixo, que é o INVERSO e não o oposto. Oposto troca o lado do zero; inverso troca o numerador com o denominador."
+        },
+        {
+          "resposta": "5/2",
+          "porque": "Aqui a fração foi virada e o sinal trocado ao mesmo tempo. O oposto mantém a distância até o zero, que é 2/5, e muda só o lado."
+        },
+        {
+          "resposta": "−2/5",
+          "porque": "Esse é o próprio número. O oposto tem de estar do OUTRO lado do zero — só o zero é oposto de si mesmo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça a distância até o zero",
+          "explicacao": "De −2/5 até o zero são dois quintos, e esse tamanho não muda.",
+          "conta": "distância = 2/5"
+        },
+        {
+          "titulo": "Troque o lado",
+          "explicacao": "Ande a mesma distância para o outro lado do zero, invertendo só o sinal.",
+          "conta": "oposto = 2/5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos números racionais existem entre −1 e 0?",
+      "imagem": "rac-q-infinitos",
+      "dica": "Tente listar alguns. Depois tente achar um entre o menor que você listou e o zero.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Infinitos" },
+        { "rotulo": "B", "texto": "Nenhum, porque são inteiros consecutivos" },
+        { "rotulo": "C", "texto": "Nove, um para cada décimo" },
+        { "rotulo": "D", "texto": "Apenas −1/2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Nenhum, porque são inteiros consecutivos",
+          "porque": "Eles são consecutivos entre os INTEIROS, mas a reta não fica vazia entre eles. Cabem ali −1/2, −1/4, −0,001 e uma infinidade de outros."
+        },
+        {
+          "resposta": "Nove, um para cada décimo",
+          "porque": "Os nove décimos são só os primeiros que aparecem. Entre −0,1 e 0 ainda cabem os centésimos, os milésimos, e a divisão nunca acaba."
+        },
+        {
+          "resposta": "Apenas −1/2",
+          "porque": "O meio é o mais fácil de enxergar, mas nada impede dividir de novo: entre −1/2 e 0 está −1/4, e entre −1/4 e 0 está −1/8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache um",
+          "explicacao": "O meio do caminho entre −1 e 0 é −1/2, então já existe pelo menos um.",
+          "conta": "−1/2"
+        },
+        {
+          "titulo": "Ache outro entre esse e o zero",
+          "explicacao": "Basta dividir o novo pedaço ao meio de novo.",
+          "conta": "−1/4"
+        },
+        {
+          "titulo": "Repare que não acaba",
+          "explicacao": "O mesmo passo pode ser repetido para sempre, e cada repetição produz um racional novo. Por isso não existe 'o próximo' número.",
+          "conta": "−1/8 · −1/16 · …"
+        }
+      ]
+    }
+  ]
+}

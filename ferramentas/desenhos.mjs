@@ -1680,3 +1680,349 @@ export function tabela({ cabecalho, linhas, rotulo = "", larguraCol = 108 }) {
   if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
   return svg(largura, altura, corpo);
 }
+
+// ═════════════════════════ Números inteiros ═════════════════════════
+//
+// O bloco do 7º ano. A ideia central da matéria é que o zero deixou de ser o
+// fim da reta, e é isso que os desenhos precisam mostrar: existe coisa à
+// ESQUERDA do zero, e ela é ordenada ao contrário da intuição de contagem.
+//
+// Por isso o zero é sempre marcado com traço mais alto e mais claro que os
+// outros — ele é a referência, e não só mais um número da fila.
+
+/** Sinal de menos tipográfico. O hífen do teclado é curto demais e some. */
+const MENOS = "−";
+const inteiro = (n) => (n < 0 ? MENOS + Math.abs(n) : String(n));
+
+/**
+ * Reta numérica com negativos.
+ *
+ * `salto` desenha o movimento de uma soma ou subtração como um arco por cima
+ * da reta — que é como a operação deve ser lida no começo da matéria: andar
+ * para a direita ou para a esquerda, e não aplicar uma regra decorada.
+ */
+export function retaInteiros({
+  de = -8, ate = 8, marcados = [], salto, rotuloCada = 1, subdivisoes = 1, rotulo = "",
+}) {
+  const divisoes = ate - de;
+  // O passo mínimo é o que os RÓTULOS escritos pedem, e não um número fixo.
+  // Ele sai da largura do maior rótulo (em DM Mono, ~7,2px por caractere)
+  // dividida por quantos tracinhos existem entre dois rótulos: numa reta que
+  // numera de dois em dois, os tracinhos podem ficar bem mais juntos sem nada
+  // se encavalar. Com piso fixo, uma reta de −10 a 10 passava de 420px e caía
+  // para 0,69 do tamanho num celular de 320px.
+  const digitos = Math.max(inteiro(de).length, inteiro(ate).length);
+  // Quando há subdivisões, cada tracinho menor precisa de uns 5px para não
+  // virar uma mancha: uma reta em décimos com passo de 34px empilhava dez
+  // tracinhos em 3px cada. O teto sobe junto, senão o mínimo nunca caberia.
+  const passoMinimo = Math.max(13, Math.ceil((digitos * 7.2 + 4) / rotuloCada), subdivisoes * 5);
+  const teto = Math.max(34, subdivisoes * 6);
+  const passo = Math.min(teto, Math.max(passoMinimo, Math.round(320 / divisoes)));
+  const m = 30;
+  const alturaSalto = salto ? 54 : 0;
+  const larguraDesenho = divisoes * passo + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = 92 + alturaSalto + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const y = 34 + alturaSalto;
+  const X = (v) => recuo + m + (v - de) * passo;
+  let corpo = "";
+
+  corpo += `<line x1="${X(de) - 14}" y1="${y}" x2="${X(ate) + 14}" y2="${y}" stroke="${TRACO_FORTE}" stroke-width="2.4" stroke-linecap="round"/>`;
+  // setas nas duas pontas: a reta continua para os dois lados
+  corpo += `<polygon points="${X(ate) + 20},${y} ${X(ate) + 10},${y - 4.5} ${X(ate) + 10},${y + 4.5}" fill="${TRACO_FORTE}"/>`;
+  corpo += `<polygon points="${X(de) - 20},${y} ${X(de) - 10},${y - 4.5} ${X(de) - 10},${y + 4.5}" fill="${TRACO_FORTE}"/>`;
+
+  // Tracinhos menores entre os inteiros, para os racionais terem onde cair.
+  // Eles vêm antes dos inteiros no SVG para nunca cobrirem o traço do zero.
+  if (subdivisoes > 1) {
+    for (let v = de; v < ate; v++) {
+      for (let k = 1; k < subdivisoes; k++) {
+        const x = X(v + k / subdivisoes);
+        corpo += `<line x1="${x.toFixed(1)}" y1="${y - 4.5}" x2="${x.toFixed(1)}" y2="${y + 4.5}" stroke="${TRACO}" stroke-width="1.2" stroke-opacity="0.7"/>`;
+      }
+    }
+  }
+
+  for (let v = de; v <= ate; v++) {
+    const zero = v === 0;
+    const x = X(v);
+    corpo += `<line x1="${x}" y1="${y - (zero ? 13 : 8)}" x2="${x}" y2="${y + (zero ? 13 : 8)}" stroke="${zero ? DESTAQUE : TRACO}" stroke-width="${zero ? 2.6 : 1.8}" stroke-linecap="round"/>`;
+    if (v % rotuloCada === 0 || zero) {
+      corpo += texto(x, y + 30, inteiro(v), {
+        tamanho: 12, cor: zero ? DESTAQUE : TRACO_FORTE, peso: zero ? 500 : 400, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  for (const ponto of marcados) {
+    const x = X(ponto.em);
+    corpo += `<circle cx="${x}" cy="${y}" r="6" fill="${DESTAQUE}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+    if (ponto.rotulo) {
+      corpo += texto(x, y - (salto ? 22 : 20), esc(ponto.rotulo), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  if (salto) {
+    const x1 = X(salto.de), x2 = X(salto.para);
+    const topo = y - 20 - alturaSalto / 2;
+    corpo += `<path d="M ${x1} ${y - 14} Q ${(x1 + x2) / 2} ${topo} ${x2} ${y - 14}" fill="none" stroke="${DESTAQUE}" stroke-width="2.2" stroke-dasharray="6 4"/>`;
+    const dir = x2 >= x1 ? 1 : -1;
+    corpo += `<polygon points="${x2},${y - 10} ${x2 - 5 * dir},${y - 20} ${x2 + 5 * dir},${y - 20}" fill="${DESTAQUE}"/>`;
+    if (salto.rotulo) {
+      corpo += texto((x1 + x2) / 2, topo + 4, esc(salto.rotulo), {
+        tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/**
+ * Termômetro: o negativo que o aluno já viu na vida antes da aula.
+ *
+ * A escala é vertical e o zero fica no meio, com traço destacado — a leitura
+ * "abaixo de zero" vira literal, e não uma figura de linguagem.
+ */
+export function termometro({ valor, de = -20, ate = 40, passo = 10, rotulo = "" }) {
+  const alturaEscala = 240, m = 26, larguraTubo = 26;
+  const larguraDesenho = 150;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = alturaEscala + m * 2 + 34 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const xTubo = recuo + 78;
+  const Y = (v) => m + alturaEscala - ((v - de) / (ate - de)) * alturaEscala;
+  let corpo = "";
+
+  // tubo
+  corpo += `<rect x="${xTubo - larguraTubo / 2}" y="${m - 6}" width="${larguraTubo}" height="${alturaEscala + 12}" rx="13" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+  // A coluna sobe do BULBO até o valor, como num termômetro de verdade — e
+  // não a partir do zero. Quem lê "abaixo de zero" vê a coluna parando antes
+  // do traço do zero, que é a leitura que a matéria quer ensinar.
+  const yZero = Y(0), yValor = Y(valor);
+  const yBulbo = m + alturaEscala + 16;
+  corpo += `<rect x="${xTubo - 7}" y="${yValor.toFixed(1)}" width="14" height="${(yBulbo - yValor).toFixed(1)}" fill="${CHEIO}" fill-opacity="0.7"/>`;
+  corpo += `<circle cx="${xTubo}" cy="${yBulbo}" r="17" fill="${CHEIO}" fill-opacity="0.7" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+
+  for (let v = de; v <= ate; v += passo) {
+    const zero = v === 0;
+    const y = Y(v);
+    corpo += `<line x1="${xTubo - larguraTubo / 2 - (zero ? 12 : 7)}" y1="${y}" x2="${xTubo - larguraTubo / 2}" y2="${y}" stroke="${zero ? DESTAQUE : TRACO}" stroke-width="${zero ? 2.4 : 1.6}"/>`;
+    corpo += texto(xTubo - larguraTubo / 2 - 17, y, inteiro(v), {
+      tamanho: 12, cor: zero ? DESTAQUE : TRACO_FORTE, peso: zero ? 500 : 400, ancora: "end", fonte: FONTE_MONO,
+    });
+  }
+
+  corpo += texto(xTubo + larguraTubo / 2 + 12, yValor, `${inteiro(valor)}°C`, {
+    tamanho: 14, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/**
+ * Saldo: barras que sobem do zero (entrada) ou descem dele (dívida).
+ *
+ * É a metáfora que dá sentido à soma de sinais diferentes — ter 50 e dever 80
+ * não é "somar 130", é ver quem ganha o cabo de guerra.
+ */
+export function saldo({ itens, rotulo = "", passo }) {
+  const maximo = Math.max(...itens.map((i) => Math.abs(i.valor)));
+  const marca = passo ?? Math.max(1, Math.ceil(maximo / 4));
+  const topo = Math.ceil(maximo / marca) * marca;
+  const larguraCol = itens.length >= 5 ? 38 : 46;
+  const folga = itens.length >= 5 ? 18 : 24;
+  const mEsq = 46, mDir = 18, meia = 96;
+  const larguraDesenho = mEsq + itens.length * (larguraCol + folga) + mDir;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = meia * 2 + 62 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const yZero = meia + 18;
+  const Y = (v) => yZero - (v / topo) * meia;
+  let corpo = "";
+
+  for (let v = -topo; v <= topo; v += marca) {
+    const zero = v === 0;
+    corpo += `<line x1="${recuo + mEsq - 6}" y1="${Y(v).toFixed(1)}" x2="${recuo + larguraDesenho - mDir}" y2="${Y(v).toFixed(1)}" stroke="${zero ? DESTAQUE : TRACO}" stroke-width="${zero ? 2.2 : 1}" stroke-opacity="${zero ? 1 : 0.45}"/>`;
+    corpo += texto(recuo + mEsq - 12, Y(v), inteiro(v), {
+      tamanho: 11, cor: zero ? DESTAQUE : TRACO_FORTE, ancora: "end", fonte: FONTE_MONO,
+    });
+  }
+
+  itens.forEach((item, i) => {
+    const x = recuo + mEsq + folga / 2 + i * (larguraCol + folga);
+    const y = Y(item.valor);
+    const alturaBarra = Math.abs(y - yZero);
+    corpo += `<rect x="${x.toFixed(1)}" y="${Math.min(y, yZero).toFixed(1)}" width="${larguraCol}" height="${alturaBarra.toFixed(1)}" fill="${CHEIO}" fill-opacity="${item.valor < 0 ? 0.28 : 0.6}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+    // o rótulo da categoria foge da barra: em cima quando ela desce
+    const yRotulo = item.valor < 0 ? yZero - 12 : yZero + 20;
+    corpo += texto(x + larguraCol / 2, yRotulo, esc(item.rotulo), { tamanho: 12 });
+    if (item.valor !== 0) {
+      corpo += texto(x + larguraCol / 2, item.valor > 0 ? y - 10 : y + 16, inteiro(item.valor), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/**
+ * Prédio com subsolo: os andares empilhados, com o térreo no zero.
+ *
+ * Serve para a mesma ideia da reta, virada em pé — e é o exemplo em que o
+ * aluno já usa números negativos sem chamá-los assim.
+ */
+export function predio({ de = -3, ate = 5, atual, rotulo = "" }) {
+  const alturaAndar = 30, larguraAndar = 118, m = 16;
+  const quantos = ate - de + 1;
+  const larguraDesenho = larguraAndar + 96;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = quantos * alturaAndar + m * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const x = recuo + 70;
+  let corpo = "";
+
+  for (let v = ate; v >= de; v--) {
+    const y = m + (ate - v) * alturaAndar;
+    const terreo = v === 0;
+    const aqui = v === atual;
+    corpo += `<rect x="${x}" y="${y}" width="${larguraAndar}" height="${alturaAndar}" fill="${CHEIO}" fill-opacity="${aqui ? 0.55 : terreo ? 0.2 : 0.08}" stroke="${terreo || aqui ? DESTAQUE : TRACO}" stroke-width="${terreo || aqui ? 2.2 : 1.4}"/>`;
+    corpo += texto(x - 12, y + alturaAndar / 2, inteiro(v), {
+      tamanho: 12, cor: terreo || aqui ? DESTAQUE : TRACO_FORTE, peso: terreo || aqui ? 500 : 400, ancora: "end", fonte: FONTE_MONO,
+    });
+    const nome = terreo ? "térreo" : v > 0 ? `${v}º andar` : `subsolo ${Math.abs(v)}`;
+    corpo += texto(x + larguraAndar / 2, y + alturaAndar / 2, nome, {
+      tamanho: 12, cor: terreo || aqui ? DESTAQUE : TEXTO,
+    });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ═════════════════════════ Razão e proporção ═════════════════════════
+//
+// A razão é uma COMPARAÇÃO, e comparação se enxerga colocando as duas
+// quantidades lado a lado. Por isso o desenho da matéria não é um gráfico de
+// valores: são duas fileiras de blocos que a gente conta de olho, e cuja
+// proporção é o conteúdo.
+
+/**
+ * Duas ou mais quantidades como fileiras de blocos unitários.
+ *
+ * `agrupar` desenha um vão a cada N blocos — é assim que a simplificação
+ * aparece antes de virar conta: doze e oito, agrupados de quatro em quatro,
+ * viram visivelmente três grupos contra dois.
+ */
+export function razao({ itens, unidade = 18, agrupar, rotulo = "", mostrarTotal = true }) {
+  const maior = Math.max(...itens.map((i) => i.quantidade));
+  const vao = 3;
+  const folgaGrupo = agrupar ? 8 : 0;
+  const gruposMax = agrupar ? Math.ceil(maior / agrupar) : 0;
+  const larguraBlocos = maior * (unidade + vao) + gruposMax * folgaGrupo;
+  const rotuloMax = Math.max(...itens.map((i) => String(i.rotulo ?? "").length));
+  const mEsq = Math.round(rotuloMax * 7.2) + 22;
+  const mDir = mostrarTotal ? 44 : 16;
+  const alturaLinha = unidade + 16;
+  const larguraDesenho = mEsq + larguraBlocos + mDir;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = itens.length * alturaLinha + 22 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  let corpo = "";
+
+  itens.forEach((item, linha) => {
+    const y = 12 + linha * alturaLinha;
+    corpo += texto(recuo + mEsq - 12, y + unidade / 2, esc(item.rotulo ?? ""), {
+      tamanho: 12, ancora: "end",
+    });
+    let x = recuo + mEsq;
+    for (let k = 0; k < item.quantidade; k++) {
+      if (agrupar && k > 0 && k % agrupar === 0) x += folgaGrupo;
+      corpo += `<rect x="${x.toFixed(1)}" y="${y}" width="${unidade}" height="${unidade}" rx="2" fill="${CHEIO}" fill-opacity="${item.vazio ? 0.16 : 0.55}" stroke="${TRACO_FORTE}" stroke-width="1.5"/>`;
+      x += unidade + vao;
+    }
+    if (mostrarTotal) {
+      corpo += texto(x + 8, y + unidade / 2, String(item.quantidade), {
+        tamanho: 13, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+      });
+    }
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/**
+ * Tabela de valores proporcionais, com o fator que leva de uma coluna à
+ * seguinte desenhado por cima.
+ *
+ * É o desenho que mostra POR QUE duas grandezas são proporcionais: o mesmo
+ * multiplicador atravessa a tabela inteira. Numa tabela sem as setas, o aluno
+ * vê números; com elas, vê a regularidade.
+ */
+export function tabelaProporcional({ titulos, colunas, fatores = [], fatoresBaixo = [], rotulo = "" }) {
+  const larguraCol = 70, alturaLinha = 34, m = 12, mRotulo = 88;
+  const alturaSetas = fatores.length ? 30 : 0;
+  const alturaSetasBaixo = fatoresBaixo.length ? 30 : 0;
+  const larguraDesenho = mRotulo + colunas.length * larguraCol + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = alturaSetas + alturaSetasBaixo + 2 * alturaLinha + m * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = (c) => recuo + m + mRotulo + c * larguraCol;
+  let corpo = "";
+
+  // setas do fator, entre as colunas
+  fatores.forEach((fator, c) => {
+    if (!fator) return;
+    const x1 = X(c) + larguraCol / 2, x2 = X(c + 1) + larguraCol / 2;
+    const y = m + alturaSetas - 8;
+    corpo += `<path d="M ${x1} ${y} Q ${(x1 + x2) / 2} ${y - 18} ${x2} ${y}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8" stroke-dasharray="5 4"/>`;
+    corpo += `<polygon points="${x2},${y + 3} ${x2 - 4},${y - 5} ${x2 + 4},${y - 5}" fill="${DESTAQUE}"/>`;
+    corpo += texto((x1 + x2) / 2, y - 22, esc(fator), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+    });
+  });
+
+  [0, 1].forEach((linha) => {
+    const y = m + alturaSetas + linha * alturaLinha;
+    corpo += texto(recuo + m + mRotulo - 12, y + alturaLinha / 2, esc(titulos[linha]), {
+      tamanho: 12, ancora: "end",
+    });
+    colunas.forEach((par, c) => {
+      corpo += `<rect x="${X(c)}" y="${y}" width="${larguraCol}" height="${alturaLinha}" fill="${CHEIO}" fill-opacity="${linha === 0 ? 0.16 : 0}" stroke="${TRACO}" stroke-width="1.4"/>`;
+      corpo += texto(X(c) + larguraCol / 2, y + alturaLinha / 2, esc(String(par[linha])), {
+        tamanho: 13, cor: DESTAQUE, fonte: FONTE_MONO,
+      });
+    });
+  });
+  corpo += `<rect x="${X(0)}" y="${m + alturaSetas}" width="${colunas.length * larguraCol}" height="${2 * alturaLinha}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+
+  // Setas embaixo, para a segunda grandeza.
+  //
+  // É este par de arcos que distingue direta de inversa numa olhada: com os
+  // dois fatores iguais e no mesmo sentido, direta; com o de baixo apontando
+  // para o outro lado, inversa. Sem isso, as duas tabelas seriam idênticas.
+  fatoresBaixo.forEach((fator, c) => {
+    if (!fator) return;
+    const meioC = X(c) + larguraCol / 2, meioD = X(c + 1) + larguraCol / 2;
+    const paraTras = String(fator).startsWith("÷");
+    const x1 = paraTras ? meioD : meioC;
+    const x2 = paraTras ? meioC : meioD;
+    const y = m + alturaSetas + 2 * alturaLinha + 8;
+    corpo += `<path d="M ${x1} ${y} Q ${(x1 + x2) / 2} ${y + 18} ${x2} ${y}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8" stroke-dasharray="5 4"/>`;
+    corpo += `<polygon points="${x2},${y - 3} ${x2 - 4},${y + 5} ${x2 + 4},${y + 5}" fill="${DESTAQUE}"/>`;
+    corpo += texto((x1 + x2) / 2, y + 26, esc(fator), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+    });
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}

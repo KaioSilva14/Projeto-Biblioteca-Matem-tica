@@ -1,0 +1,199 @@
+{
+  "id": "fator",
+  "numero": 1,
+  "titulo": "O fator multiplicativo",
+  "pergunta": "Dá para aumentar 20% com uma multiplicação só?",
+  "ideia": {
+    "paragrafos": [
+      "No 6º ano você aprendeu a aumentar em duas etapas: calcular a porcentagem e depois somar. Para um aumento de 20% sobre R$ 50, achava-se 10 e somava, chegando a 60. Funciona, mas há um caminho de um passo só — e ele vai ser indispensável nas próximas lições.",
+      "A ideia é olhar para o valor final como uma porcentagem do inicial. Se o preço aumentou 20%, o novo preço é o original mais um quinto dele: 100% + 20% = 120% do que era. E 120% é 1,20. Então basta multiplicar por 1,20.",
+      "Esse 1,20 é o FATOR multiplicativo do aumento. A regra para montá-lo é direta: some a taxa a 100% e passe para decimal. Aumento de 5% dá 105%, ou seja, ×1,05. Aumento de 50% dá 150%, ou seja, ×1,50.",
+      "No desconto vale o mesmo raciocínio, subtraindo. Um desconto de 30% deixa 100% − 30% = 70% do preço, então o fator é 0,70. Repare que o fator de desconto é sempre MENOR que 1 — e é por isso que multiplicar por ele diminui.",
+      "A economia de um passo parece pequena agora, mas ela é o que torna possível a próxima lição. Encadear dois aumentos vira uma multiplicação por dois fatores seguidos, e é aí que se descobre por que 10% e mais 10% não dá 20%."
+    ],
+    "destaque": "Aumento de x%: fator 1 + x/100. Desconto de x%: fator 1 − x/100.",
+    "imagem": "jur-ideia-fator"
+  },
+  "resolvido": {
+    "enunciado": "Uma camisa de R$ 80 teve aumento de 25%. Qual é o novo preço, usando o fator multiplicativo?",
+    "imagem": "jur-res-fator",
+    "passos": [
+      {
+        "titulo": "Escreva o final como porcentagem do inicial",
+        "explicacao": "O preço original é 100% dele mesmo. Com o aumento, o novo preço é esse 100% mais os 25% que entraram.",
+        "conta": "100% + 25% = 125%"
+      },
+      {
+        "titulo": "Passe para decimal",
+        "explicacao": "Porcentagem é a fração de denominador 100, então dividir por 100 devolve o decimal.",
+        "conta": "125 ÷ 100 = 1,25"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Uma multiplicação só resolve o que antes eram duas etapas.",
+        "conta": "80 × 1,25 = 100 reais"
+      },
+      {
+        "titulo": "Confira pelo caminho antigo",
+        "explicacao": "Vinte e cinco por cento de 80 é 20, e somando ao preço original dá 100. Os dois caminhos têm de bater sempre.",
+        "conta": "80 + 20 = 100 ✓"
+      }
+    ],
+    "fecho": "O fator não é um truque diferente: é a mesma conta, escrita de um jeito que encadeia."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o fator multiplicativo de um aumento de 15%? Digite apenas o número.",
+      "imagem": "jur-q-fator-aumento",
+      "dica": "Some a taxa a 100% e passe o resultado para decimal.",
+      "formato": "numero",
+      "resposta": 1.15,
+      "errosComuns": [
+        {
+          "resposta": "0.15",
+          "porque": "0,15 é só a taxa em decimal, ou seja, a PARTE que foi acrescentada. Multiplicar por ela devolveria apenas o aumento, e não o preço novo."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a taxa em porcentagem, sem virar decimal e sem somar aos 100%. Multiplicar o preço por 15 daria quinze vezes o valor original."
+        },
+        {
+          "resposta": "0.85",
+          "porque": "0,85 é o fator de um DESCONTO de 15%, porque sobra 85% do preço. Num aumento a taxa se soma aos 100%, e não se subtrai."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some aos 100%",
+          "explicacao": "O preço final é o original inteiro mais o aumento.",
+          "conta": "100% + 15% = 115%"
+        },
+        {
+          "titulo": "Passe para decimal",
+          "explicacao": "Dividindo por 100, como manda a definição de porcentagem.",
+          "conta": "115 ÷ 100 = 1,15"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o fator multiplicativo de um desconto de 30%? Digite apenas o número.",
+      "imagem": "jur-q-fator-desconto",
+      "dica": "No desconto, o que resta é 100% menos a taxa.",
+      "formato": "numero",
+      "resposta": 0.7,
+      "errosComuns": [
+        {
+          "resposta": "1.3",
+          "porque": "1,3 é o fator de um AUMENTO de 30%. No desconto a taxa é subtraída dos 100%, e o fator fica menor que 1 — senão o preço subiria."
+        },
+        {
+          "resposta": "0.3",
+          "porque": "0,3 é a taxa em decimal, ou seja, o pedaço que foi retirado. O que resta para pagar é o outro pedaço, de 70%."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é a taxa em porcentagem, sem nenhuma conversão. Multiplicar o preço por 30 o tornaria trinta vezes maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que sobra",
+          "explicacao": "Tirando 30 de 100, o que continua sendo pago é 70%.",
+          "conta": "100% − 30% = 70%"
+        },
+        {
+          "titulo": "Passe para decimal",
+          "explicacao": "O fator é menor que 1, o que confirma que multiplicar por ele diminui.",
+          "conta": "70 ÷ 100 = 0,70"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um tênis de R$ 240 está com 20% de desconto. Quanto se paga, usando o fator? Digite apenas o número.",
+      "imagem": "jur-q-tenis",
+      "dica": "Monte o fator do desconto e multiplique o preço por ele.",
+      "formato": "numero",
+      "resposta": 192,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 é o valor do DESCONTO, ou seja, 20% de 240. Ele é quanto se deixa de pagar — o preço final é o que sobra depois de tirá-lo."
+        },
+        {
+          "resposta": "288",
+          "porque": "288 usa o fator de aumento (1,20) em vez do de desconto. Com desconto o preço cai, então o resultado tem de ficar abaixo de 240."
+        },
+        {
+          "resposta": "220",
+          "porque": "220 subtrai 20 reais em vez de 20 por cento. A taxa é uma fração do preço: 20% de 240 são 48, e não 20."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o fator",
+          "explicacao": "Com 20% de desconto, continua-se pagando 80% do preço.",
+          "conta": "100% − 20% = 80% → 0,80"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Uma conta só resolve o preço final.",
+          "conta": "240 × 0,80 = 192 reais"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "O desconto foi de 48 reais, e 240 menos 48 dá o mesmo resultado.",
+          "conta": "240 − 48 = 192 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Multiplicar um preço por 1,08 corresponde a que operação?",
+      "imagem": "jur-q-ler-fator",
+      "dica": "Compare o fator com 1. Ele é maior ou menor, e por quanto?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Um aumento de 8%" },
+        { "rotulo": "B", "texto": "Um aumento de 108%" },
+        { "rotulo": "C", "texto": "Um desconto de 8%" },
+        { "rotulo": "D", "texto": "Um aumento de 1,08%" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Um aumento de 108%",
+          "porque": "108% é o valor FINAL em relação ao inicial, e não o aumento. O que entrou de novo foi só o que passa dos 100%, ou seja, 8%."
+        },
+        {
+          "resposta": "Um desconto de 8%",
+          "porque": "Fator de desconto é menor que 1 — no caso, seria 0,92. Como 1,08 é maior que 1, a multiplicação aumenta o valor."
+        },
+        {
+          "resposta": "Um aumento de 1,08%",
+          "porque": "1,08% seria um aumento minúsculo, com fator 1,0108. O 1,08 já é o fator pronto: a taxa é a parte que passa de 1, lida como 0,08 = 8%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare com 1",
+          "explicacao": "O fator é maior que 1, então a operação aumenta o valor.",
+          "conta": "1,08 > 1 → aumento"
+        },
+        {
+          "titulo": "Veja o que passa de 1",
+          "explicacao": "A parte que excede o 1 é o que foi acrescentado.",
+          "conta": "1,08 − 1 = 0,08"
+        },
+        {
+          "titulo": "Passe para porcentagem",
+          "explicacao": "Multiplicando por 100, o decimal volta a ser porcentagem.",
+          "conta": "0,08 = 8%"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "id": "somar-subtrair",
+  "numero": 5,
+  "titulo": "Somar e subtrair",
+  "pergunta": "Como somar duas frações quando uma delas é negativa?",
+  "ideia": {
+    "paragrafos": [
+      "Somar racionais junta duas coisas que você já sabe: igualar denominadores, do 6º ano, e a regra de sinais, da matéria passada. Não há regra nova — há duas regras antigas trabalhando na mesma conta.",
+      "A ordem importa. PRIMEIRO iguale os denominadores, porque só dá para somar pedaços do mesmo tamanho. DEPOIS resolva os sinais entre os numeradores, como se fossem inteiros.",
+      "Veja −1/2 + 1/4. O denominador comum é 4, então −1/2 vira −2/4. Agora os pedaços são iguais e a conta acontece só em cima: −2 + 1 = −1. O resultado é −1/4.",
+      "A subtração continua sendo a soma do oposto, como nos inteiros. Em 1/3 − 5/3, troca-se por 1/3 + (−5/3), e aí é só somar os numeradores: 1 + (−5) = −4, o que dá −4/3. Repare que o denominador não muda nunca na soma — ele só diz o tamanho do pedaço.",
+      "Com decimais, o caminho é ainda mais direto: alinhe as vírgulas e trate como inteiro com sinal. Em −2,5 + 1,8, as distâncias são 2,5 e 1,8; vence a maior, que é negativa, e sobra 2,5 − 1,8 = 0,7. O resultado é −0,7."
+    ],
+    "destaque": "Primeiro iguale os denominadores. Só depois resolva os sinais, lá em cima.",
+    "imagem": "rac-ideia-somar"
+  },
+  "resolvido": {
+    "enunciado": "Calcule −1/2 + 1/4.",
+    "imagem": "rac-res-somar",
+    "passos": [
+      {
+        "titulo": "Compare os pedaços",
+        "explicacao": "Meios e quartos têm tamanhos diferentes, e não dá para somar pedaços diferentes. É preciso reescrever os dois com o mesmo denominador.",
+        "conta": "2 e 4 → comum: 4"
+      },
+      {
+        "titulo": "Reescreva a primeira",
+        "explicacao": "Multiplicando os dois termos de 1/2 por 2, o valor não muda: metade é o mesmo que dois quartos. O sinal vai junto.",
+        "conta": "−1/2 = −2/4"
+      },
+      {
+        "titulo": "Some só os numeradores",
+        "explicacao": "Com os pedaços iguais, a conta é entre os números de cima, e vale a regra de sinais: distância 2 contra distância 1, vence o 2, que é negativo.",
+        "conta": "−2 + 1 = −1"
+      },
+      {
+        "titulo": "Monte o resultado",
+        "explicacao": "O denominador continua sendo 4, porque o tamanho do pedaço não muda ao somar.",
+        "conta": "−1/2 + 1/4 = −1/4"
+      }
+    ],
+    "fecho": "O denominador diz o tamanho do pedaço, e o tamanho não muda na soma. A conta acontece em cima."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule −3/5 + 1/5 e escreva o resultado como fração.",
+      "imagem": "rac-q-mesmo-denominador",
+      "dica": "Os denominadores já são iguais. A conta acontece só entre os numeradores.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−2/5" },
+        { "rotulo": "B", "texto": "−4/5" },
+        { "rotulo": "C", "texto": "−2/10" },
+        { "rotulo": "D", "texto": "2/5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−4/5",
+          "porque": "−4 sai de somar as distâncias 3 e 1, o que só vale quando os dois sinais são iguais. Aqui eles são diferentes, então é cabo de guerra: 3 − 1 = 2."
+        },
+        {
+          "resposta": "−2/10",
+          "porque": "Os denominadores foram somados junto com os numeradores. O de baixo diz o tamanho do pedaço, e somar quintos com quintos continua dando quintos."
+        },
+        {
+          "resposta": "2/5",
+          "porque": "A distância está certa, mas o sinal não. No cabo de guerra vence quem tem a maior distância até o zero, que é o −3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Os pedaços já são iguais",
+          "explicacao": "As duas frações estão em quintos, então dá para somar direto.",
+          "conta": "denominador 5 nos dois"
+        },
+        {
+          "titulo": "Some os numeradores",
+          "explicacao": "Sinais diferentes: distância 3 contra distância 1. Vence o 3, que é negativo.",
+          "conta": "−3 + 1 = −2"
+        },
+        {
+          "titulo": "Mantenha o denominador",
+          "explicacao": "O tamanho do pedaço não muda ao somar.",
+          "conta": "−2/5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Calcule 1/3 − 5/3 e escreva o resultado como fração.",
+      "imagem": "rac-q-subtrair-fracao",
+      "dica": "Subtrair é somar o oposto: troque por 1/3 + (−5/3).",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−4/3" },
+        { "rotulo": "B", "texto": "4/3" },
+        { "rotulo": "C", "texto": "−6/3" },
+        { "rotulo": "D", "texto": "−4/0" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "4/3",
+          "porque": "A distância está certa, mas quem tira 5 de 1 passa do zero e cai no lado negativo. Inverter a conta para 5 − 1 muda o resultado de lado."
+        },
+        {
+          "resposta": "−6/3",
+          "porque": "−6 sai de somar as distâncias 1 e 5. Depois da troca pelo oposto a conta é 1 + (−5), com sinais diferentes, então é subtração entre elas."
+        },
+        {
+          "resposta": "−4/0",
+          "porque": "O denominador foi subtraído junto: 3 − 3 = 0. O de baixo não entra na conta — e zero embaixo nem número seria."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Troque pelo oposto",
+          "explicacao": "Subtrair 5/3 é somar −5/3, do mesmo jeito que nos inteiros.",
+          "conta": "1/3 + (−5/3)"
+        },
+        {
+          "titulo": "Some os numeradores",
+          "explicacao": "Sinais diferentes: vence a distância 5, que é negativa, e sobram 4.",
+          "conta": "1 + (−5) = −4"
+        },
+        {
+          "titulo": "Mantenha o denominador",
+          "explicacao": "O tamanho do pedaço não muda ao somar: continuam sendo terços.",
+          "conta": "−4/3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Calcule −2,5 + 1,8 e digite o resultado com o sinal.",
+      "imagem": "rac-q-somar-decimal",
+      "dica": "Compare as distâncias até o zero: 2,5 contra 1,8. Quem vence dá o sinal.",
+      "formato": "numero",
+      "resposta": -0.7,
+      "errosComuns": [
+        {
+          "resposta": "0.7",
+          "porque": "A distância está certa, mas o sinal não. Quem tem a maior distância até o zero é o 2,5, e ele é negativo — então o resultado fica do lado esquerdo."
+        },
+        {
+          "resposta": "-4.3",
+          "porque": "−4,3 soma as duas distâncias, o que só valeria se os dois sinais fossem iguais. Aqui um puxa para cada lado, então a conta é de subtração."
+        },
+        {
+          "resposta": "-1.3",
+          "porque": "−1,3 sai de subtrair errado na casa dos décimos: 2,5 − 1,8 dá 0,7, e não 1,3. Vale conferir armando a conta com as vírgulas alinhadas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare as distâncias",
+          "explicacao": "O −2,5 está a 2,5 do zero e o 1,8 está a 1,8. Sinais diferentes, então é cabo de guerra.",
+          "conta": "2,5 contra 1,8"
+        },
+        {
+          "titulo": "Subtraia a menor da maior",
+          "explicacao": "Alinhe as vírgulas para não errar de casa.",
+          "conta": "2,5 − 1,8 = 0,7"
+        },
+        {
+          "titulo": "Use o sinal do vencedor",
+          "explicacao": "Quem tinha a maior distância era o negativo.",
+          "conta": "−2,5 + 1,8 = −0,7"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Calcule −1/4 + (−1/2) e escreva o resultado como fração.",
+      "imagem": "rac-q-dois-negativos",
+      "dica": "Iguale os denominadores primeiro. Depois repare que os dois sinais são iguais.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−3/4" },
+        { "rotulo": "B", "texto": "−1/4" },
+        { "rotulo": "C", "texto": "3/4" },
+        { "rotulo": "D", "texto": "−2/6" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−1/4",
+          "porque": "−1/4 sai de subtrair as distâncias, como se os sinais fossem diferentes. Os dois são negativos, então os pedaços se acumulam: um quarto mais dois quartos."
+        },
+        {
+          "resposta": "3/4",
+          "porque": "A distância está certa, mas os dois números somados são negativos — é impossível o resultado cair do lado direito do zero."
+        },
+        {
+          "resposta": "−2/6",
+          "porque": "Aqui numeradores e denominadores foram somados separadamente, sem igualar os pedaços antes. Quartos e meios têm tamanhos diferentes e não podem ser somados direto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale os denominadores",
+          "explicacao": "Meios e quartos são pedaços diferentes; o denominador comum é 4.",
+          "conta": "−1/2 = −2/4"
+        },
+        {
+          "titulo": "Some os numeradores",
+          "explicacao": "Os dois são negativos, então as distâncias se acumulam e o sinal se mantém.",
+          "conta": "−1 + (−2) = −3"
+        },
+        {
+          "titulo": "Monte o resultado",
+          "explicacao": "Três quartos de distância, do lado esquerdo do zero.",
+          "conta": "−3/4"
+        }
+      ]
+    }
+  ]
+}

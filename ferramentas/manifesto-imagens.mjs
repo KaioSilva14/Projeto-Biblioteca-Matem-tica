@@ -22,6 +22,8 @@ import {
   circulo, retanguloMalha, figuraComposta, trianguloAltura,
   bloco, solidos, planificacao, planoCartesiano,
   grafico, tabela,
+  retaInteiros, termometro, saldo, predio,
+  razao, tabelaProporcional,
 } from "./desenhos.mjs";
 
 /** Colunas do quadro de ordens usadas nas licoes de decimais. */
@@ -3484,4 +3486,1680 @@ export const MANIFESTO = [
       },
     ];
   })(),
+
+  // ───────────────────────── Números inteiros (7º ano) ─────────────────────────
+  //
+  // A matéria inteira gira em torno de uma reta que agora tem lado esquerdo, e
+  // por isso quase toda figura é a própria reta. Duas regras de conteúdo aqui:
+  //
+  //   - questão que PEDE o resultado de uma conta não ganha o salto desenhado
+  //     com o ponto de chegada; o salto só aparece onde o resultado já é
+  //     conhecido (na ideia e no resolvido);
+  //   - questão que pede a leitura de um ponto marca o ponto SEM rótulo, senão
+  //     a resposta está escrita na figura.
+
+  ...(() => {
+    const linha = (extra = {}) => retaInteiros({ de: -8, ate: 8, ...extra });
+
+    return [
+      // --- lição 1: por que existe número negativo ---
+      {
+        id: "int-ideia-termometro", pasta: "licoes",
+        alt: "Termômetro com escala de vinte graus negativos a quarenta positivos, marcando cinco abaixo de zero.",
+        desenho: () => termometro({ valor: -5, rotulo: "o zero do termômetro é um marco, não o fim" }),
+      },
+      {
+        id: "int-res-termometro", pasta: "licoes",
+        alt: "Termômetro marcando cinco graus abaixo de zero, com a coluna parando antes do traço do zero.",
+        desenho: () => termometro({ valor: -5 }),
+      },
+      {
+        id: "int-q-predio", pasta: "questoes",
+        alt: "Corte de um prédio com o térreo destacado e três subsolos abaixo dele.",
+        desenho: () => predio({ de: -3, ate: 5, rotulo: "o térreo é o andar de referência" }),
+      },
+      {
+        id: "int-q-situacoes", pasta: "questoes",
+        alt: "Reta numérica com o zero destacado e setas nas duas pontas.",
+        desenho: () => linha({ rotulo: "de que lado do zero cada situação cai?" }),
+      },
+      {
+        id: "int-q-submarino", pasta: "questoes",
+        alt: "Reta numérica com o zero destacado, representando o nível do mar entre a altitude e a profundidade.",
+        desenho: () => retaInteiros({ de: -5, ate: 5, marcados: [{ em: 0, rotulo: "mar" }], rotulo: "acima é altitude, abaixo é profundidade" }),
+      },
+      {
+        id: "int-q-zero", pasta: "questoes",
+        alt: "Reta numérica com o zero destacado entre os negativos, à esquerda, e os positivos, à direita.",
+        desenho: () => linha({ marcados: [{ em: 0, rotulo: "0" }], rotulo: "onde o zero fica na reta" }),
+      },
+
+      // --- lição 2: a reta ganha o lado esquerdo ---
+      {
+        id: "int-ideia-reta", pasta: "licoes",
+        alt: "Reta numérica de menos oito a oito, com o zero destacado e setas nas duas pontas.",
+        desenho: () => linha({ rotulo: "a reta não acaba de nenhum lado" }),
+      },
+      {
+        id: "int-res-oposto", pasta: "licoes",
+        alt: "Reta numérica com menos quatro e quatro marcados, à mesma distância do zero.",
+        desenho: () => retaInteiros({
+          de: -6, ate: 6,
+          marcados: [{ em: -4, rotulo: "−4" }, { em: 4, rotulo: "4" }],
+          rotulo: "opostos: mesma distância, lados contrários",
+        }),
+      },
+      {
+        id: "int-q-ler-reta", pasta: "questoes",
+        alt: "Reta numérica com um ponto marcado à esquerda do zero, sem o valor escrito.",
+        desenho: () => retaInteiros({ de: -6, ate: 6, marcados: [{ em: -3 }] }),
+      },
+      {
+        id: "int-q-oposto", pasta: "questoes",
+        alt: "Reta numérica com o menos sete marcado e o lado direito livre.",
+        desenho: () => retaInteiros({ de: -8, ate: 8, marcados: [{ em: -7, rotulo: "−7" }], rotulo: "onde fica o oposto dele?" }),
+      },
+      {
+        id: "int-q-distancia", pasta: "questoes",
+        alt: "Reta numérica com o menos seis marcado e o zero destacado.",
+        desenho: () => retaInteiros({ de: -8, ate: 4, marcados: [{ em: -6, rotulo: "−6" }], rotulo: "quantos passos até o zero?" }),
+      },
+      {
+        id: "int-q-simetria", pasta: "questoes",
+        alt: "Reta numérica com o menos nove marcado, mostrando os dois lados do zero.",
+        desenho: () => retaInteiros({ de: -10, ate: 10, rotuloCada: 2, marcados: [{ em: -9, rotulo: "−9" }] }),
+      },
+
+      // --- lição 3: qual é maior ---
+      {
+        id: "int-ideia-comparar", pasta: "licoes",
+        alt: "Reta numérica com menos sete e menos três marcados, os dois à esquerda do zero.",
+        desenho: () => retaInteiros({
+          de: -8, ate: 4,
+          marcados: [{ em: -7, rotulo: "−7" }, { em: -3, rotulo: "−3" }],
+          rotulo: "mais à esquerda é menor",
+        }),
+      },
+      {
+        id: "int-res-comparar", pasta: "licoes",
+        alt: "Reta numérica com menos sete e menos três marcados, mostrando qual está mais perto do zero.",
+        desenho: () => retaInteiros({ de: -8, ate: 4, marcados: [{ em: -7, rotulo: "−7" }, { em: -3, rotulo: "−3" }] }),
+      },
+      {
+        id: "int-q-maior", pasta: "questoes",
+        alt: "Reta numérica com dois pontos marcados à esquerda do zero, identificados por menos oito e menos dois.",
+        desenho: () => retaInteiros({ de: -9, ate: 3, marcados: [{ em: -8, rotulo: "−8" }, { em: -2, rotulo: "−2" }] }),
+      },
+      {
+        id: "int-q-ordenar", pasta: "questoes",
+        alt: "Reta numérica de menos seis a quatro, com o zero destacado.",
+        desenho: () => retaInteiros({ de: -6, ate: 4, rotulo: "crescente é da esquerda para a direita" }),
+      },
+      {
+        id: "int-q-frio", pasta: "questoes",
+        alt: "Termômetro com a escala passando pelo zero, sem nenhuma temperatura destacada.",
+        desenho: () => termometro({ valor: 0, de: -15, ate: 15, passo: 5, rotulo: "mais frio é mais abaixo" }),
+      },
+      {
+        id: "int-q-sempre", pasta: "questoes",
+        alt: "Reta numérica com o zero destacado separando o lado negativo do positivo.",
+        desenho: () => linha({ rotulo: "todo negativo fica à esquerda de todo positivo" }),
+      },
+
+      // --- lição 4: somar com sinais ---
+      {
+        id: "int-ideia-somar", pasta: "licoes",
+        alt: "Reta numérica com um salto tracejado de menos dois até três, marcado como mais cinco.",
+        desenho: () => retaInteiros({
+          de: -6, ate: 6, marcados: [{ em: -2 }],
+          salto: { de: -2, para: 3, rotulo: "+5" },
+          rotulo: "somar positivo anda para a direita",
+        }),
+      },
+      {
+        id: "int-res-somar", pasta: "licoes",
+        alt: "Reta numérica com o salto de cinco unidades partindo do menos dois e atravessando o zero.",
+        desenho: () => retaInteiros({ de: -6, ate: 6, marcados: [{ em: -2 }], salto: { de: -2, para: 3, rotulo: "+5" } }),
+      },
+      {
+        id: "int-q-somar-73", pasta: "questoes",
+        alt: "Reta numérica com o menos sete marcado como ponto de partida, sem o salto desenhado.",
+        desenho: () => retaInteiros({ de: -8, ate: 4, marcados: [{ em: -7, rotulo: "−7" }], rotulo: "ande 3 para a direita" }),
+      },
+      {
+        id: "int-q-somar-46", pasta: "questoes",
+        alt: "Reta numérica com o menos quatro marcado como ponto de partida.",
+        desenho: () => retaInteiros({ de: -12, ate: 2, rotuloCada: 2, marcados: [{ em: -4, rotulo: "−4" }], rotulo: "ande 6 para a esquerda" }),
+      },
+      {
+        id: "int-q-saldo", pasta: "questoes",
+        alt: "Gráfico de saldo com uma barra de cinquenta para cima e uma de oitenta para baixo do zero.",
+        desenho: () => saldo({
+          itens: [{ rotulo: "tinha", valor: 50 }, { rotulo: "pagou", valor: -80 }],
+          passo: 20, rotulo: "o que entrou e o que saiu",
+        }),
+      },
+      {
+        id: "int-q-opostos", pasta: "questoes",
+        alt: "Reta numérica com o oito marcado e o menos oito à mesma distância do zero.",
+        desenho: () => retaInteiros({ de: -9, ate: 9, marcados: [{ em: 8, rotulo: "8" }, { em: -8, rotulo: "−8" }] }),
+      },
+
+      // --- lição 5: subtrair é somar o oposto ---
+      {
+        id: "int-ideia-subtrair", pasta: "licoes",
+        alt: "Tabela mostrando três subtrações reescritas como somas do oposto.",
+        desenho: () => tabela({
+          cabecalho: ["a subtração", "vira a soma"],
+          linhas: [["4 − 9", "4 + (−9)"], ["−3 − 5", "−3 + (−5)"], ["−5 − (−3)", "−5 + 3"]],
+          rotulo: "subtrair é somar o oposto", larguraCol: 128,
+        }),
+      },
+      {
+        id: "int-res-subtrair", pasta: "licoes",
+        alt: "Reta numérica com um salto tracejado de menos cinco até menos dois, de três unidades para a direita.",
+        desenho: () => retaInteiros({
+          de: -8, ate: 4, marcados: [{ em: -5 }],
+          salto: { de: -5, para: -2, rotulo: "+3" },
+          rotulo: "tirar uma dívida melhora o saldo",
+        }),
+      },
+      {
+        id: "int-q-sub-49", pasta: "questoes",
+        alt: "Reta numérica com o quatro marcado como ponto de partida.",
+        desenho: () => retaInteiros({ de: -8, ate: 8, marcados: [{ em: 4, rotulo: "4" }], rotulo: "ande 9 para a esquerda" }),
+      },
+      {
+        id: "int-q-sub-35", pasta: "questoes",
+        alt: "Reta numérica com o menos três marcado como ponto de partida.",
+        desenho: () => retaInteiros({ de: -10, ate: 4, rotuloCada: 2, marcados: [{ em: -3, rotulo: "−3" }], rotulo: "ande 5 para a esquerda" }),
+      },
+      {
+        id: "int-q-sub-610", pasta: "questoes",
+        alt: "Reta numérica com o menos seis marcado como ponto de partida.",
+        desenho: () => retaInteiros({ de: -8, ate: 8, marcados: [{ em: -6, rotulo: "−6" }], rotulo: "qual é o oposto do que será subtraído?" }),
+      },
+      {
+        id: "int-q-variacao", pasta: "questoes",
+        alt: "Termômetro com a escala passando pelo zero, para medir a subida da madrugada até a tarde.",
+        desenho: () => termometro({ valor: -8, de: -15, ate: 15, passo: 5, rotulo: "de onde a temperatura partiu" }),
+      },
+
+      // --- lição 6: a regra dos sinais ---
+      {
+        id: "int-ideia-sinais", pasta: "licoes",
+        alt: "Tabela com as quatro combinações de sinais na multiplicação e o sinal do resultado.",
+        desenho: () => tabela({
+          cabecalho: ["fatores", "resultado"],
+          linhas: [["+ e +", "positivo"], ["+ e −", "negativo"], ["− e +", "negativo"], ["− e −", "positivo"]],
+          rotulo: "sinais iguais dão positivo", larguraCol: 116,
+        }),
+      },
+      {
+        id: "int-res-padrao", pasta: "licoes",
+        alt: "Tabela com a sequência de multiplicações por menos quatro, do multiplicador três até menos três.",
+        desenho: () => tabela({
+          cabecalho: ["conta", "resultado"],
+          linhas: [
+            ["(−4) × 3", "−12"], ["(−4) × 2", "−8"], ["(−4) × 1", "−4"], ["(−4) × 0", "0"],
+            ["(−4) × (−1)", "4"], ["(−4) × (−2)", "8"], ["(−4) × (−3)", "12"],
+          ],
+          rotulo: "o padrão sobe de quatro em quatro", larguraCol: 126,
+        }),
+      },
+      {
+        id: "int-q-mult-67", pasta: "questoes",
+        alt: "Tabela lembrando a regra dos sinais para a multiplicação.",
+        desenho: () => tabela({
+          cabecalho: ["sinais", "resultado"],
+          linhas: [["iguais", "positivo"], ["diferentes", "negativo"]],
+          rotulo: "a regra vale para as duas operações", larguraCol: 116,
+        }),
+      },
+      {
+        id: "int-q-mult-35", pasta: "questoes",
+        alt: "Tabela lembrando que sinais iguais dão resultado positivo.",
+        desenho: () => tabela({
+          cabecalho: ["sinais", "resultado"],
+          linhas: [["iguais", "positivo"], ["diferentes", "negativo"]],
+          rotulo: "os dois fatores são negativos", larguraCol: 116,
+        }),
+      },
+      {
+        id: "int-q-div-82", pasta: "questoes",
+        alt: "Tabela lembrando que a divisão segue a mesma regra de sinais da multiplicação.",
+        desenho: () => tabela({
+          cabecalho: ["sinais", "resultado"],
+          linhas: [["iguais", "positivo"], ["diferentes", "negativo"]],
+          rotulo: "dividir segue a mesma regra", larguraCol: 116,
+        }),
+      },
+      {
+        id: "int-q-potencia", pasta: "questoes",
+        alt: "Tabela com o sinal do resultado de uma base negativa conforme o expoente seja par ou ímpar.",
+        desenho: () => tabela({
+          cabecalho: ["expoente", "sinal"],
+          linhas: [["par", "positivo"], ["ímpar", "negativo"]],
+          rotulo: "com base negativa, o expoente decide", larguraCol: 122,
+        }),
+      },
+
+      // --- lição 7: problemas ---
+      {
+        id: "int-ideia-problemas", pasta: "licoes",
+        alt: "Tabela relacionando quatro contextos com o que significa o zero em cada um.",
+        desenho: () => tabela({
+          cabecalho: ["contexto", "o marco zero"],
+          linhas: [["conta bancária", "saldo zero"], ["termômetro", "água congela"], ["prédio", "térreo"], ["mar", "a superfície"]],
+          rotulo: "sem marco zero não há lado negativo", larguraCol: 142,
+        }),
+      },
+      {
+        id: "int-res-elevador", pasta: "licoes",
+        alt: "Corte de um prédio com o terceiro andar destacado, de onde o elevador parte.",
+        desenho: () => predio({ de: -3, ate: 5, atual: 3, rotulo: "o elevador começa no 3º andar" }),
+      },
+      {
+        id: "int-q-conta", pasta: "questoes",
+        alt: "Gráfico de saldo com o que havia na conta, o pagamento para baixo e o depósito para cima.",
+        desenho: () => saldo({
+          itens: [{ rotulo: "tinha", valor: 180 }, { rotulo: "pagou", valor: -250 }, { rotulo: "recebeu", valor: 40 }],
+          passo: 100, rotulo: "os três movimentos da conta",
+        }),
+      },
+      {
+        id: "int-q-temperaturas", pasta: "questoes",
+        alt: "Termômetro com a escala de menos quinze a quinze graus, com o zero destacado.",
+        desenho: () => termometro({ valor: -11, de: -15, ate: 15, passo: 5, rotulo: "a mínima da noite" }),
+      },
+      {
+        id: "int-q-mergulho", pasta: "questoes",
+        alt: "Reta numérica em que o zero é a superfície do mar e os negativos são a profundidade.",
+        desenho: () => retaInteiros({ de: -18, ate: 2, rotuloCada: 2, marcados: [{ em: -8, rotulo: "−8" }], rotulo: "onde o mergulhador já está" }),
+      },
+      {
+        id: "int-q-jogo", pasta: "questoes",
+        alt: "Gráfico de saldo com quatro barras iguais descendo do zero, uma por erro.",
+        desenho: () => saldo({
+          itens: [{ rotulo: "1º", valor: -5 }, { rotulo: "2º", valor: -5 }, { rotulo: "3º", valor: -5 }, { rotulo: "4º", valor: -5 }],
+          passo: 5, rotulo: "cada erro tira a mesma coisa",
+        }),
+      },
+    ];
+  })(),
+
+
+  // ───────────────────────── Números racionais (7º ano) ─────────────────────────
+  //
+  // A matéria é a costura de três coisas já ensinadas: fração e decimal do 6º
+  // ano com o lado negativo da reta do 7º. Por isso ela quase não pede desenho
+  // novo — reaproveita `barra`, `roda`, `tabela` e a `retaInteiros`, que ganhou
+  // `subdivisoes` para os racionais terem onde cair entre os inteiros.
+
+  ...(() => {
+    const REGRA_SINAIS = {
+      cabecalho: ["sinais", "resultado"],
+      linhas: [["iguais", "positivo"], ["diferentes", "negativo"]],
+    };
+
+    return [
+      // --- lição 1: o que é um racional ---
+      {
+        id: "rac-ideia-familia", pasta: "licoes",
+        alt: "Tabela mostrando um inteiro, um decimal e uma fração escritos todos como fração de inteiros.",
+        desenho: () => tabela({
+          cabecalho: ["o número", "como fração"],
+          linhas: [["4", "4/1"], ["−0,6", "−6/10"], ["2/3", "2/3"], ["0", "0/1"]],
+          rotulo: "racional é o que cabe numa fração de inteiros", larguraCol: 128,
+        }),
+      },
+      {
+        id: "rac-res-familia", pasta: "licoes",
+        alt: "Tabela com três números convertidos para a forma de fração.",
+        desenho: () => tabela({
+          cabecalho: ["o número", "como fração"],
+          linhas: [["4", "4/1"], ["−0,6", "−3/5"], ["2/3", "2/3"]],
+          rotulo: "os três são racionais", larguraCol: 128,
+        }),
+      },
+      {
+        id: "rac-q-nao-racional", pasta: "questoes",
+        alt: "Tabela lembrando que o denominador de uma fração não pode ser zero.",
+        desenho: () => tabela({
+          cabecalho: ["a fração", "vale?"],
+          linhas: [["inteiro / 1", "sim"], ["inteiro / 0", "não existe"]],
+          rotulo: "fração é divisão, e não se divide por zero", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rac-q-inteiro-fracao", pasta: "questoes",
+        alt: "Reta numérica com o menos seis marcado à esquerda do zero.",
+        desenho: () => retaInteiros({ de: -8, ate: 2, marcados: [{ em: -6, rotulo: "−6" }], rotulo: "todo inteiro também é racional" }),
+      },
+      {
+        id: "rac-q-decimal-fracao", pasta: "questoes",
+        alt: "Barra dividida em dez partes iguais, com oito delas preenchidas.",
+        desenho: () => barra({ partes: 10, pintadas: 8, largura: 380, rotulo: "oito de dez partes" }),
+      },
+      {
+        id: "rac-q-sinal-fracao", pasta: "questoes",
+        alt: "Tabela com a regra dos sinais aplicada à divisão que a fração representa.",
+        desenho: () => tabela({ ...REGRA_SINAIS, rotulo: "o traço da fração é uma divisão", larguraCol: 116 }),
+      },
+
+      // --- lição 2: racionais na reta ---
+      {
+        id: "rac-ideia-reta", pasta: "licoes",
+        alt: "Reta numérica dividida em quartos, com um ponto entre menos um e zero e outro entre dois e três.",
+        desenho: () => retaInteiros({
+          de: -3, ate: 3, subdivisoes: 4,
+          marcados: [{ em: -0.75, rotulo: "−3/4" }, { em: 2.25, rotulo: "9/4" }],
+          rotulo: "entre dois inteiros cabe muita coisa",
+        }),
+      },
+      {
+        id: "rac-res-reta", pasta: "licoes",
+        alt: "Reta numérica em quartos com o ponto de menos três quartos marcado entre menos um e zero.",
+        desenho: () => retaInteiros({
+          de: -2, ate: 2, subdivisoes: 4, marcados: [{ em: -0.75, rotulo: "−3/4" }],
+          rotulo: "três dos quatro pedaços, para a esquerda",
+        }),
+      },
+      {
+        id: "rac-q-ler-quartos", pasta: "questoes",
+        alt: "Reta numérica dividida em quartos, com um ponto marcado à esquerda do menos um, sem o valor escrito.",
+        desenho: () => retaInteiros({ de: -2, ate: 2, subdivisoes: 4, marcados: [{ em: -1.25 }] }),
+      },
+      {
+        id: "rac-q-entre-inteiros", pasta: "questoes",
+        alt: "Reta numérica dividida em décimos, mostrando o trecho entre menos dois e dois.",
+        desenho: () => retaInteiros({ de: -2, ate: 2, subdivisoes: 10, rotulo: "onde cai um número com vírgula?" }),
+      },
+      {
+        id: "rac-q-oposto", pasta: "questoes",
+        alt: "Reta numérica em quintos com o ponto de menos dois quintos marcado.",
+        desenho: () => retaInteiros({
+          de: -1, ate: 1, subdivisoes: 5, marcados: [{ em: -0.4, rotulo: "−2/5" }],
+          rotulo: "onde fica o oposto dele?",
+        }),
+      },
+      {
+        id: "rac-q-infinitos", pasta: "questoes",
+        alt: "Reta numérica com o trecho entre menos um e zero dividido em muitas partes.",
+        desenho: () => retaInteiros({ de: -1, ate: 1, subdivisoes: 10, rotulo: "quantos cabem entre −1 e 0?" }),
+      },
+
+      // --- lição 3: três roupas do mesmo número ---
+      {
+        id: "rac-ideia-formas", pasta: "licoes",
+        alt: "Tabela com quatro números escritos nas três formas: fração, decimal e porcentagem.",
+        desenho: () => tabela({
+          cabecalho: ["fração", "decimal", "porcentagem"],
+          linhas: [["1/2", "0,5", "50%"], ["1/4", "0,25", "25%"], ["3/4", "0,75", "75%"], ["2/5", "0,4", "40%"]],
+          rotulo: "o mesmo número em três roupas", larguraCol: 108,
+        }),
+      },
+      {
+        id: "rac-res-formas", pasta: "licoes",
+        alt: "Barra dividida em quatro partes com três preenchidas, representando três quartos.",
+        desenho: () => barra({ partes: 4, pintadas: 3, largura: 380, rotulo: "três quartos, antes de virar decimal" }),
+      },
+      {
+        id: "rac-q-fracao-decimal", pasta: "questoes",
+        alt: "Barra dividida em cinco partes iguais, com duas delas preenchidas.",
+        desenho: () => barra({ partes: 5, pintadas: 2, largura: 380, rotulo: "dois de cinco pedaços" }),
+      },
+      {
+        id: "rac-q-decimal-fracao2", pasta: "questoes",
+        alt: "Barra dividida em dez partes iguais, com seis delas preenchidas.",
+        desenho: () => barra({ partes: 10, pintadas: 6, largura: 380, rotulo: "seis décimos" }),
+      },
+      {
+        id: "rac-q-negativo-decimal", pasta: "questoes",
+        alt: "Reta numérica em meios com o ponto de menos um meio marcado entre menos um e zero.",
+        desenho: () => retaInteiros({ de: -2, ate: 2, subdivisoes: 2, marcados: [{ em: -0.5, rotulo: "−1/2" }] }),
+      },
+      {
+        id: "rac-q-mesma-coisa", pasta: "questoes",
+        alt: "Tabela lembrando como converter entre as três formas de escrever um racional.",
+        desenho: () => tabela({
+          cabecalho: ["de", "para", "como"],
+          linhas: [["fração", "decimal", "dividir"], ["decimal", "fração", "ler em voz alta"], ["fração", "%", "denominador 100"]],
+          rotulo: "converta tudo para a mesma forma", larguraCol: 116,
+        }),
+      },
+
+      // --- lição 4: comparar ---
+      {
+        id: "rac-ideia-comparar", pasta: "licoes",
+        alt: "Reta numérica em quartos com menos três quartos e menos um meio marcados à esquerda do zero.",
+        desenho: () => retaInteiros({
+          de: -2, ate: 2, subdivisoes: 4,
+          marcados: [{ em: -0.75, rotulo: "−3/4" }, { em: -0.5, rotulo: "−1/2" }],
+          rotulo: "mais longe do zero é menor",
+        }),
+      },
+      {
+        id: "rac-res-comparar", pasta: "licoes",
+        alt: "Reta numérica em quartos com os dois números negativos marcados para comparação.",
+        desenho: () => retaInteiros({
+          de: -1, ate: 1, subdivisoes: 4,
+          marcados: [{ em: -0.75, rotulo: "−0,75" }, { em: -0.5, rotulo: "−0,5" }],
+        }),
+      },
+      {
+        id: "rac-q-maior-negativo", pasta: "questoes",
+        alt: "Reta numérica em terços com dois pontos marcados à esquerda do zero.",
+        desenho: () => retaInteiros({
+          de: -1, ate: 1, subdivisoes: 3,
+          marcados: [{ em: -2 / 3, rotulo: "−2/3" }, { em: -1 / 3, rotulo: "−1/3" }],
+        }),
+      },
+      {
+        id: "rac-q-decimal-fracao3", pasta: "questoes",
+        alt: "Duas barras do mesmo tamanho divididas em quantidades diferentes de partes.",
+        desenho: () => barrasEmpilhadas({
+          largura: 400, rotuloEsquerda: true,
+          itens: [{ partes: 10, pintadas: 7, rotulo: "0,7" }, { partes: 4, pintadas: 3, rotulo: "3/4" }],
+        }),
+      },
+      {
+        id: "rac-q-ordenar", pasta: "questoes",
+        alt: "Reta numérica em meios mostrando o trecho de menos dois a dois.",
+        desenho: () => retaInteiros({ de: -2, ate: 2, subdivisoes: 2, rotulo: "crescente é da esquerda para a direita" }),
+      },
+      {
+        id: "rac-q-inverte", pasta: "questoes",
+        alt: "Reta numérica em oitavos com cinco oitavos e um meio marcados do lado positivo.",
+        desenho: () => retaInteiros({
+          de: -1, ate: 1, subdivisoes: 8,
+          marcados: [{ em: 0.5, rotulo: "1/2" }, { em: 0.625, rotulo: "5/8" }],
+          rotulo: "e do lado negativo, como fica?",
+        }),
+      },
+
+      // --- lição 5: somar e subtrair ---
+      {
+        id: "rac-ideia-somar", pasta: "licoes",
+        alt: "Duas barras do mesmo tamanho, uma dividida em meios e outra em quartos.",
+        desenho: () => barrasEmpilhadas({
+          largura: 400, rotuloEsquerda: true,
+          itens: [{ partes: 2, pintadas: 1, rotulo: "1/2" }, { partes: 4, pintadas: 1, rotulo: "1/4" }],
+        }),
+      },
+      {
+        id: "rac-res-somar", pasta: "licoes",
+        alt: "Reta numérica em quartos com um salto tracejado de menos dois quartos até menos um quarto.",
+        desenho: () => retaInteiros({
+          de: -1, ate: 1, subdivisoes: 4, marcados: [{ em: -0.5 }],
+          salto: { de: -0.5, para: -0.25, rotulo: "+1/4" },
+          rotulo: "somar 1/4 anda um quartinho para a direita",
+        }),
+      },
+      {
+        id: "rac-q-mesmo-denominador", pasta: "questoes",
+        alt: "Reta numérica em quintos com o ponto de menos três quintos marcado.",
+        desenho: () => retaInteiros({
+          de: -1, ate: 1, subdivisoes: 5, marcados: [{ em: -0.6, rotulo: "−3/5" }],
+          rotulo: "ande 1/5 para a direita",
+        }),
+      },
+      {
+        id: "rac-q-subtrair-fracao", pasta: "questoes",
+        alt: "Tabela lembrando que subtrair é somar o oposto, com três exemplos.",
+        desenho: () => tabela({
+          cabecalho: ["a subtração", "vira a soma"],
+          linhas: [["1/3 − 5/3", "1/3 + (−5/3)"], ["4 − 9", "4 + (−9)"]],
+          rotulo: "subtrair é somar o oposto", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rac-q-somar-decimal", pasta: "questoes",
+        alt: "Conta armada de dois decimais com as vírgulas alinhadas.",
+        desenho: () => contaArmada({ linhas: ["2,5", "1,8"], operador: "−", resultado: "0,7", nota: "as distâncias até o zero", largura: 300 }),
+      },
+      {
+        id: "rac-q-dois-negativos", pasta: "questoes",
+        alt: "Duas barras do mesmo tamanho, uma em quartos e outra em meios, cada uma com uma parte preenchida.",
+        desenho: () => barrasEmpilhadas({
+          largura: 400, rotuloEsquerda: true,
+          itens: [{ partes: 4, pintadas: 1, rotulo: "1/4" }, { partes: 2, pintadas: 1, rotulo: "1/2" }],
+        }),
+      },
+
+      // --- lição 6: multiplicar e dividir ---
+      {
+        id: "rac-ideia-multiplicar", pasta: "licoes",
+        alt: "Tabela comparando o que muda entre a soma e a multiplicação de frações.",
+        desenho: () => tabela({
+          cabecalho: ["operação", "iguala denominador?"],
+          linhas: [["somar", "sim, antes"], ["subtrair", "sim, antes"], ["multiplicar", "não"], ["dividir", "não, inverte"]],
+          rotulo: "só a soma e a subtração pedem denominador comum", larguraCol: 158,
+        }),
+      },
+      {
+        id: "rac-res-multiplicar", pasta: "licoes",
+        alt: "Tabela com a diferença entre oposto e inverso de uma fração.",
+        desenho: () => tabela({
+          cabecalho: ["de 2/3", "resultado"],
+          linhas: [["oposto", "−2/3"], ["inverso", "3/2"]],
+          rotulo: "oposto troca de lado; inverso vira a fração", larguraCol: 120,
+        }),
+      },
+      {
+        id: "rac-q-mult-fracoes", pasta: "questoes",
+        alt: "Tabela com a regra dos sinais, para decidir o sinal do produto.",
+        desenho: () => tabela({ ...REGRA_SINAIS, rotulo: "primeiro os números, depois o sinal", larguraCol: 116 }),
+      },
+      {
+        id: "rac-q-quantos-cabem", pasta: "questoes",
+        alt: "Quatro rodas inteiras, cada uma dividida ao meio.",
+        desenho: () => rodasComparadas({
+          itens: [
+            { partes: 2, pintadas: 2 }, { partes: 2, pintadas: 2 },
+            { partes: 2, pintadas: 2 }, { partes: 2, pintadas: 2 },
+          ],
+          largura: 380,
+        }),
+      },
+      {
+        id: "rac-q-inverso", pasta: "questoes",
+        alt: "Tabela com a diferença entre o oposto e o inverso de uma fração negativa.",
+        desenho: () => tabela({
+          cabecalho: ["de −3/4", "resultado"],
+          linhas: [["oposto", "3/4"], ["inverso", "−4/3"]],
+          rotulo: "inverter não muda o lado do zero", larguraCol: 124,
+        }),
+      },
+      {
+        id: "rac-q-mult-diminui", pasta: "questoes",
+        alt: "Barra dividida em duas partes iguais, com uma preenchida.",
+        desenho: () => barra({ partes: 2, pintadas: 1, largura: 380, rotulo: "multiplicar por 1/2 é pegar a metade" }),
+      },
+
+      // --- lição 7: problemas ---
+      {
+        id: "rac-ideia-problemas", pasta: "licoes",
+        alt: "Tabela relacionando o tipo de dado do problema com a forma mais prática de calcular.",
+        desenho: () => tabela({
+          cabecalho: ["os dados vêm como", "use"],
+          linhas: [["dinheiro ou medida", "decimal"], ["parte de um todo", "fração"], ["comparação por 100", "porcentagem"]],
+          rotulo: "escolha a forma antes de calcular", larguraCol: 150,
+        }),
+      },
+      {
+        id: "rac-res-bolo", pasta: "licoes",
+        alt: "Barra dividida em cinco partes iguais, com duas delas preenchidas.",
+        desenho: () => barra({ partes: 5, pintadas: 2, largura: 380, rotulo: "o bolo de 800 g, e a parte comida" }),
+      },
+      {
+        id: "rac-q-garrafa", pasta: "questoes",
+        alt: "Um recipiente parcialmente cheio, representando a garrafa de um litro e meio.",
+        desenho: () => recipientes({ largura: 260, itens: [{ fracao: 1, altura: 140, rotulo: "garrafa", nota: "1,5 litro no começo" }] }),
+      },
+      {
+        id: "rac-q-saldo-decimal", pasta: "questoes",
+        alt: "Gráfico de saldo com a dívida para baixo e o depósito para cima do zero.",
+        desenho: () => saldo({
+          itens: [{ rotulo: "saldo", valor: -40 }, { rotulo: "depósito", valor: 25.5 }],
+          passo: 20, rotulo: "o que havia e o que entrou",
+        }),
+      },
+      {
+        id: "rac-q-turma", pasta: "questoes",
+        alt: "Barra dividida em cinco partes iguais, com duas delas preenchidas.",
+        desenho: () => barra({ partes: 5, pintadas: 2, largura: 380, rotulo: "dois quintos da turma de 30" }),
+      },
+      {
+        id: "rac-q-fita", pasta: "questoes",
+        alt: "Barra dividida em quatro partes iguais, com três delas preenchidas.",
+        desenho: () => barra({ partes: 4, pintadas: 3, largura: 380, rotulo: "o tamanho de cada pedaço" }),
+      },
+    ];
+  })(),
+
+
+  // ───────────────────────── Razão e proporção (7º ano) ─────────────────────────
+  //
+  // Duas figuras carregam a matéria. `razao` põe as quantidades lado a lado em
+  // blocos, porque comparação se enxerga contando; e `tabelaProporcional`
+  // desenha o fator que atravessa a tabela, que é o que separa "cresce junto"
+  // de "é proporcional".
+  //
+  // Regra desta matéria: a figura mostra os DADOS, nunca o termo procurado.
+  // Numa questão que pede o x, a coluna dele fica com uma interrogação.
+
+  ...(() => {
+    const CRUZ = {
+      cabecalho: ["posição", "quem é"],
+      linhas: [["extremos", "o 1º e o 4º"], ["meios", "os do meio"]],
+    };
+
+    return [
+      // --- lição 1: comparar por divisão ---
+      {
+        id: "raz-ideia-comparar", pasta: "licoes",
+        alt: "Duas fileiras de blocos, uma com doze e outra com oito, agrupadas de quatro em quatro.",
+        desenho: () => razao({
+          itens: [{ rotulo: "meninas", quantidade: 12 }, { rotulo: "meninos", quantidade: 8 }],
+          agrupar: 4, rotulo: "três grupos contra dois",
+        }),
+      },
+      {
+        id: "raz-res-turma", pasta: "licoes",
+        alt: "Duas fileiras de blocos representando doze meninas e oito meninos.",
+        desenho: () => razao({
+          itens: [{ rotulo: "meninas", quantidade: 12 }, { rotulo: "meninos", quantidade: 8 }],
+          rotulo: "a turma do exemplo",
+        }),
+      },
+      {
+        id: "raz-q-lapis", pasta: "questoes",
+        alt: "Duas fileiras de blocos, uma com dez e outra com quinze.",
+        desenho: () => razao({
+          itens: [{ rotulo: "lápis", quantidade: 10 }, { rotulo: "canetas", quantidade: 15 }],
+          unidade: 14, rotulo: "o que há na caixa",
+        }),
+      },
+      {
+        id: "raz-q-velocidade", pasta: "questoes",
+        alt: "Tabela com a distância percorrida e o tempo gasto pelo carro.",
+        desenho: () => tabela({
+          cabecalho: ["distância", "tempo"],
+          linhas: [["240 km", "3 h"]],
+          rotulo: "km por hora é uma divisão", larguraCol: 108,
+        }),
+      },
+      {
+        id: "raz-q-duas-turmas", pasta: "questoes",
+        alt: "Tabela com a quantidade de meninas e meninos de cada uma das duas turmas.",
+        desenho: () => tabela({
+          cabecalho: ["turma", "meninas", "meninos"],
+          linhas: [["A", "12", "8"], ["B", "24", "16"]],
+          rotulo: "compare a razão e a diferença", larguraCol: 92,
+        }),
+      },
+      {
+        id: "raz-q-ordem", pasta: "questoes",
+        alt: "Duas fileiras de blocos com três de suco e dois de água.",
+        desenho: () => razao({
+          itens: [{ rotulo: "suco", quantidade: 3 }, { rotulo: "água", quantidade: 2 }],
+          unidade: 24, rotulo: "a receita, na ordem original",
+        }),
+      },
+
+      // --- lição 2: quando duas razões são iguais ---
+      {
+        id: "raz-ideia-proporcao", pasta: "licoes",
+        alt: "Duas receitas em blocos: três para dois, e seis para quatro.",
+        desenho: () => razao({
+          itens: [
+            { rotulo: "suco", quantidade: 3 }, { rotulo: "água", quantidade: 2 },
+            { rotulo: "suco (dobro)", quantidade: 6 }, { rotulo: "água (dobro)", quantidade: 4 },
+          ],
+          unidade: 16, rotulo: "mesmo gosto, quantidades diferentes",
+        }),
+      },
+      {
+        id: "raz-res-proporcao", pasta: "licoes",
+        alt: "Tabela comparando as razões três meios e seis quartos, simplificadas.",
+        desenho: () => tabela({
+          cabecalho: ["razão", "simplificada", "dividindo"],
+          linhas: [["3/2", "3/2", "1,5"], ["6/4", "3/2", "1,5"]],
+          rotulo: "as duas são a mesma comparação", larguraCol: 104,
+        }),
+      },
+      {
+        id: "raz-q-forma-proporcao", pasta: "questoes",
+        alt: "Tabela com as duas razões do enunciado, sem a conta feita.",
+        desenho: () => tabela({
+          cabecalho: ["razão", "simplificada"],
+          linhas: [["2/5", "?"], ["8/20", "?"]],
+          rotulo: "simplifique as duas e compare", larguraCol: 112,
+        }),
+      },
+      {
+        id: "raz-q-qual-nao", pasta: "questoes",
+        alt: "Tabela lembrando os dois jeitos de conferir se duas razões formam proporção.",
+        desenho: () => tabela({
+          cabecalho: ["como conferir", "o que fazer"],
+          linhas: [["simplificar", "as duas viram a mesma?"], ["dividir", "os quocientes batem?"]],
+          rotulo: "dois caminhos, mesma conclusão", larguraCol: 148,
+        }),
+      },
+      {
+        id: "raz-q-receita", pasta: "questoes",
+        alt: "Tabela com as quantidades da receita original e a coluna do dobro em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["farinha", "leite"],
+          colunas: [[4, 6], ["?", "?"]],
+          fatores: ["×2"],
+          rotulo: "dobrando os dois ingredientes",
+        }),
+      },
+      {
+        id: "raz-q-fotos", pasta: "questoes",
+        alt: "Tabela com as medidas da foto menor e a altura da maior em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["largura", "altura"],
+          colunas: [[4, 6], [10, "?"]],
+          rotulo: "as duas fotos são proporcionais",
+        }),
+      },
+
+      // --- lição 3: achar o termo que falta ---
+      {
+        id: "raz-ideia-cruz", pasta: "licoes",
+        alt: "Tabela nomeando os extremos e os meios de uma proporção.",
+        desenho: () => tabela({ ...CRUZ, rotulo: "extremos × extremos = meios × meios", larguraCol: 124 }),
+      },
+      {
+        id: "raz-res-cruz", pasta: "licoes",
+        alt: "Tabela com a proporção do exemplo e o termo procurado em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["numerador", "denominador"],
+          colunas: [[3, 4], ["x", 20]],
+          fatores: ["×5"],
+          rotulo: "de 4 para 20 multiplica-se por 5",
+        }),
+      },
+      {
+        id: "raz-q-cruz-1", pasta: "questoes",
+        alt: "Tabela com a proporção dois terços igual a x sobre doze.",
+        desenho: () => tabelaProporcional({
+          titulos: ["numerador", "denominador"],
+          colunas: [[2, 3], ["x", 12]],
+          rotulo: "ache o x",
+        }),
+      },
+      {
+        id: "raz-q-cruz-2", pasta: "questoes",
+        alt: "Tabela com a proporção cinco sobre x igual a quinze nonos.",
+        desenho: () => tabelaProporcional({
+          titulos: ["numerador", "denominador"],
+          colunas: [[5, "x"], [15, 9]],
+          rotulo: "agora o x está embaixo",
+        }),
+      },
+      {
+        id: "raz-q-cadernos", pasta: "questoes",
+        alt: "Tabela com quatro cadernos a trinta reais e o preço de seis em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["cadernos", "reais"],
+          colunas: [[4, 30], [6, "?"]],
+          rotulo: "o mesmo preço por caderno",
+        }),
+      },
+      {
+        id: "raz-q-propriedade", pasta: "questoes",
+        alt: "Tabela nomeando os extremos e os meios de uma proporção.",
+        desenho: () => tabela({ ...CRUZ, rotulo: "em a/b = c/d", larguraCol: 124 }),
+      },
+
+      // --- lição 4: escala ---
+      {
+        id: "raz-ideia-escala", pasta: "licoes",
+        alt: "Tabela com três escalas e o que cada uma significa.",
+        desenho: () => tabela({
+          cabecalho: ["escala", "significa"],
+          linhas: [["1 : 100", "papel 100× menor"], ["1 : 50 000", "papel 50 000× menor"], ["20 : 1", "papel 20× maior"]],
+          rotulo: "desenho : real, nessa ordem", larguraCol: 148,
+        }),
+      },
+      {
+        id: "raz-res-mapa", pasta: "licoes",
+        alt: "Tabela com a medida no mapa e a distância real em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["mapa (cm)", "real (cm)"],
+          colunas: [[1, 50000], [4, "?"]],
+          fatores: ["×4"],
+          rotulo: "cada centímetro vale 50 000",
+        }),
+      },
+      {
+        id: "raz-q-planta", pasta: "questoes",
+        alt: "Retângulo desenhado sobre malha, representando a parede da planta.",
+        desenho: () => retanguloMalha({ colunas: 6, linhas: 1, malha: true, rotuloLargura: "6 cm no papel", rotulo: "escala 1 : 100" }),
+      },
+      {
+        id: "raz-q-sala", pasta: "questoes",
+        alt: "Tabela com o comprimento real da sala e a medida do desenho em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["real (cm)", "desenho (cm)"],
+          colunas: [[200, 1], [800, "?"]],
+          rotulo: "escala 1 : 200, com tudo em centímetros",
+        }),
+      },
+      {
+        id: "raz-q-ampliacao", pasta: "questoes",
+        alt: "Tabela comparando uma escala de redução com uma de ampliação.",
+        desenho: () => tabela({
+          cabecalho: ["escala", "o desenho fica"],
+          linhas: [["1 : 20", "menor que a peça"], ["20 : 1", "maior que a peça"]],
+          rotulo: "o primeiro número é sempre o do papel", larguraCol: 150,
+        }),
+      },
+      {
+        id: "raz-q-trecho", pasta: "questoes",
+        alt: "Tabela com três centímetros valendo quinze quilômetros e o trecho de oito em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["mapa (cm)", "real (km)"],
+          colunas: [[3, 15], [8, "?"]],
+          rotulo: "quanto vale o trecho maior?",
+        }),
+      },
+
+      // --- lição 5: direta ou inversa ---
+      {
+        id: "raz-ideia-grandezas", pasta: "licoes",
+        alt: "Tabela com cadernos e preço, e o fator que atravessa as duas linhas.",
+        desenho: () => tabelaProporcional({
+          titulos: ["cadernos", "reais"],
+          colunas: [[1, 6], [2, 12], [3, 18], [4, 24]],
+          fatores: ["×2", "×1,5", "×⁴⁄₃"],
+          rotulo: "o mesmo fator nas duas linhas: direta",
+        }),
+      },
+      {
+        id: "raz-res-tabela", pasta: "licoes",
+        alt: "Tabela com a quantidade de cadernos e o preço pago em cada caso.",
+        desenho: () => tabelaProporcional({
+          titulos: ["cadernos", "reais"],
+          colunas: [[1, 6], [2, 12], [3, 18]],
+          rotulo: "a razão preço ÷ cadernos se repete?",
+        }),
+      },
+      {
+        id: "raz-q-pedreiros", pasta: "questoes",
+        alt: "Tabela com pedreiros e dias, com o tempo da equipe maior em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["pedreiros", "dias"],
+          colunas: [[3, 12], [6, "?"]],
+          rotulo: "mais gente, menos tempo",
+        }),
+      },
+      {
+        id: "raz-q-carro", pasta: "questoes",
+        alt: "Tabela com horas e quilômetros, com a distância de três horas em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["horas", "km"],
+          colunas: [[1, 80], [2, "?"], [3, "?"]],
+          rotulo: "velocidade constante",
+        }),
+      },
+      {
+        id: "raz-q-nao-proporcional", pasta: "questoes",
+        alt: "Tabela com o teste que separa proporcionalidade direta, inversa e ausência de proporcionalidade.",
+        desenho: () => tabela({
+          cabecalho: ["ao dobrar uma", "a outra"],
+          linhas: [["dobra", "direta"], ["cai pela metade", "inversa"], ["nem uma nem outra", "não é proporcional"]],
+          rotulo: "o teste que decide o tipo", larguraCol: 152,
+        }),
+      },
+      {
+        id: "raz-q-tabela-inversa", pasta: "questoes",
+        alt: "Tabela com os valores de x e y do enunciado.",
+        desenho: () => tabelaProporcional({
+          titulos: ["x", "y"],
+          colunas: [[2, 30], [4, 15], [8, "7,5"]],
+          rotulo: "teste a razão e depois o produto",
+        }),
+      },
+
+      // --- lição 6: problemas ---
+      {
+        id: "raz-ideia-montar", pasta: "licoes",
+        alt: "Tabela mostrando a montagem certa e a errada de uma proporção, pelas unidades.",
+        desenho: () => tabela({
+          cabecalho: ["montagem", "vale?"],
+          linhas: [["kg/reais = kg/reais", "certa"], ["kg/reais = reais/kg", "errada"]],
+          rotulo: "escreva as unidades junto dos números", larguraCol: 156,
+        }),
+      },
+      {
+        id: "raz-res-arroz", pasta: "licoes",
+        alt: "Tabela com cinco quilos a trinta reais e o preço de oito quilos em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["kg", "reais"],
+          colunas: [[5, 30], [8, "?"]],
+          rotulo: "mais arroz custa mais",
+        }),
+      },
+      {
+        id: "raz-q-baldes", pasta: "questoes",
+        alt: "Tabela com baldes e minutos, com o tempo de cinco baldes em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["baldes", "minutos"],
+          colunas: [[3, 12], [5, "?"]],
+          rotulo: "a mesma torneira, no mesmo ritmo",
+        }),
+      },
+      {
+        id: "raz-q-cafe", pasta: "questoes",
+        alt: "Tabela com o peso do pacote de café e o preço pago.",
+        desenho: () => tabela({
+          cabecalho: ["pacote", "preço"],
+          linhas: [["2 kg", "R$ 36"]],
+          rotulo: "quanto custa um quilo?", larguraCol: 108,
+        }),
+      },
+      {
+        id: "raz-q-obra", pasta: "questoes",
+        alt: "Tabela com operários e dias, com o tempo da equipe menor em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["operários", "dias"],
+          colunas: [[6, 10], [5, "?"]],
+          rotulo: "menos gente, mais tempo",
+        }),
+      },
+      {
+        id: "raz-q-suco", pasta: "questoes",
+        alt: "Duas fileiras de blocos com dois de polpa para cinco de água.",
+        desenho: () => razao({
+          itens: [{ rotulo: "polpa", quantidade: 2 }, { rotulo: "água", quantidade: 5 }],
+          unidade: 22, rotulo: "a receita, na proporção original",
+        }),
+      },
+    ];
+  })(),
+
+
+  // ───────────────────────── Regra de três (7º ano) ─────────────────────────
+  //
+  // A matéria não pediu gerador novo: o `tabelaProporcional` da matéria
+  // anterior ganhou `fatoresBaixo`, e é esse par de arcos que distingue direta
+  // de inversa numa olhada — com o de baixo no mesmo sentido, direta; apontando
+  // para o outro lado, inversa. Sem isso as duas tabelas seriam idênticas.
+  //
+  // Nas questões, a coluna do valor procurado leva "?": a figura mostra os
+  // dados e o tipo de relação, nunca a resposta.
+
+  ...(() => {
+    const TIPO = {
+      cabecalho: ["ao dobrar uma", "a outra", "é"],
+      linhas: [["dobra", "cresce", "direta"], ["cai pela metade", "encolhe", "inversa"]],
+    };
+
+    return [
+      // --- lição 1: o que a regra de três é de verdade ---
+      {
+        id: "rt-ideia-tabela", pasta: "licoes",
+        alt: "Tabela de regra de três com cadernos e reais, e o quarto valor em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["cadernos", "reais"],
+          colunas: [[4, 30], [6, "?"]],
+          rotulo: "três conhecidos, um procurado",
+        }),
+      },
+      {
+        id: "rt-res-cadernos", pasta: "licoes",
+        alt: "Tabela com quatro cadernos a trinta reais e o preço de seis em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["cadernos", "reais"],
+          colunas: [[4, 30], [6, "?"]],
+        }),
+      },
+      {
+        id: "rt-q-quantos", pasta: "questoes",
+        alt: "Tabela genérica de proporção com os quatro termos nomeados por letras.",
+        desenho: () => tabelaProporcional({
+          titulos: ["1ª grandeza", "2ª grandeza"],
+          colunas: [["a", "b"], ["c", "d"]],
+          rotulo: "quantos desses o problema entrega?",
+        }),
+      },
+      {
+        id: "rt-q-pizzas", pasta: "questoes",
+        alt: "Tabela com três pizzas a noventa reais e o preço de cinco em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["pizzas", "reais"],
+          colunas: [[3, 90], [5, "?"]],
+          rotulo: "o mesmo tipo de pizza",
+        }),
+      },
+      {
+        id: "rt-q-arroz", pasta: "questoes",
+        alt: "Tabela com pessoas e gramas de arroz, com a segunda situação em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["pessoas", "gramas"],
+          colunas: [[8, 600], [12, "?"]],
+          rotulo: "a mesma receita, para mais gente",
+        }),
+      },
+      {
+        id: "rt-q-antes", pasta: "questoes",
+        alt: "Tabela com o teste que classifica a relação entre duas grandezas.",
+        desenho: () => tabela({ ...TIPO, rotulo: "decida o tipo antes de montar", larguraCol: 118 }),
+      },
+
+      // --- lição 2: regra de três direta ---
+      {
+        id: "rt-ideia-direta", pasta: "licoes",
+        alt: "Tabela de quilos e reais com os dois fatores apontando no mesmo sentido.",
+        desenho: () => tabelaProporcional({
+          titulos: ["kg", "reais"],
+          colunas: [[4, 24], [8, 48]],
+          fatores: ["×2"], fatoresBaixo: ["×2"],
+          rotulo: "na direta, os dois fatores vão juntos",
+        }),
+      },
+      {
+        id: "rt-res-arroz", pasta: "licoes",
+        alt: "Tabela com cinco quilos a trinta reais e o preço de oito quilos em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["kg", "reais"],
+          colunas: [[5, 30], [8, "?"]],
+          rotulo: "mais arroz custa mais",
+        }),
+      },
+      {
+        id: "rt-q-combustivel", pasta: "questoes",
+        alt: "Tabela com litros e quilômetros, com o consumo do trajeto maior em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["litros", "km"],
+          colunas: [[6, 80], ["?", 200]],
+          rotulo: "o mesmo carro, no mesmo ritmo",
+        }),
+      },
+      {
+        id: "rt-q-impressora", pasta: "questoes",
+        alt: "Tabela com páginas e minutos, com a produção de sete minutos em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["páginas", "minutos"],
+          colunas: [[90, 3], ["?", 7]],
+          rotulo: "a mesma impressora",
+        }),
+      },
+      {
+        id: "rt-q-tecido", pasta: "questoes",
+        alt: "Tabela com metros de tecido e reais, com o preço de sete metros em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["metros", "reais"],
+          colunas: [[12, 96], [7, "?"]],
+          rotulo: "menos tecido custa menos",
+        }),
+      },
+      {
+        id: "rt-q-montagem-direta", pasta: "questoes",
+        alt: "Tabela comparando a montagem certa e a errada de uma regra de três direta.",
+        desenho: () => tabela({
+          cabecalho: ["montagem", "vale?"],
+          linhas: [["kg/reais = kg/reais", "certa"], ["kg/reais = reais/kg", "errada"]],
+          rotulo: "a mesma grandeza em cima nas duas", larguraCol: 156,
+        }),
+      },
+
+      // --- lição 3: regra de três inversa ---
+      {
+        id: "rt-ideia-inversa", pasta: "licoes",
+        alt: "Tabela de pedreiros e dias com o fator de baixo apontando para o lado oposto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["pedreiros", "dias"],
+          colunas: [[3, 12], [6, 6]],
+          fatores: ["×2"], fatoresBaixo: ["÷2"],
+          rotulo: "na inversa, o de baixo vai ao contrário",
+        }),
+      },
+      {
+        id: "rt-res-pedreiros", pasta: "licoes",
+        alt: "Tabela com três pedreiros em doze dias e o tempo de seis pedreiros em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["pedreiros", "dias"],
+          colunas: [[3, 12], [6, "?"]],
+          rotulo: "mais gente, menos tempo",
+        }),
+      },
+      {
+        id: "rt-q-torneiras", pasta: "questoes",
+        alt: "Tabela com torneiras e minutos, com o tempo de cinco torneiras em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["torneiras", "minutos"],
+          colunas: [[4, 30], [5, "?"]],
+          rotulo: "o mesmo tanque",
+        }),
+      },
+      {
+        id: "rt-q-velocidade", pasta: "questoes",
+        alt: "Tabela com velocidade e horas, com o tempo da velocidade maior em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["km/h", "horas"],
+          colunas: [[60, 4], [80, "?"]],
+          rotulo: "o mesmo trajeto",
+        }),
+      },
+      {
+        id: "rt-q-racao", pasta: "questoes",
+        alt: "Tabela com cavalos e dias de ração, com a duração para dez cavalos em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["cavalos", "dias"],
+          colunas: [[8, 15], [10, "?"]],
+          rotulo: "a mesma quantidade de ração",
+        }),
+      },
+      {
+        id: "rt-q-mantem", pasta: "questoes",
+        alt: "Tabela comparando o que se mantém constante na proporcionalidade direta e na inversa.",
+        desenho: () => tabela({
+          cabecalho: ["tipo", "o que não muda"],
+          linhas: [["direta", "a razão"], ["inversa", "o produto"]],
+          rotulo: "cada tipo tem a sua constante", larguraCol: 130,
+        }),
+      },
+
+      // --- lição 4: direta ou inversa? ---
+      {
+        id: "rt-ideia-decidir", pasta: "licoes",
+        alt: "Tabela com o teste de dobrar uma grandeza e o tipo que ele indica.",
+        desenho: () => tabela({ ...TIPO, rotulo: "o teste que decide o tipo", larguraCol: 118 }),
+      },
+      {
+        id: "rt-res-decidir", pasta: "licoes",
+        alt: "Tabela classificando dois pares de grandezas como direto e inverso.",
+        desenho: () => tabela({
+          cabecalho: ["par de grandezas", "tipo"],
+          linhas: [["tinta e área pintada", "?"], ["pintores e tempo", "?"]],
+          rotulo: "aplique o teste em cada um", larguraCol: 152,
+        }),
+      },
+      {
+        id: "rt-q-tipo-operarios", pasta: "questoes",
+        alt: "Tabela com operários e tempo de obra, sem os valores preenchidos.",
+        desenho: () => tabelaProporcional({
+          titulos: ["operários", "tempo"],
+          colunas: [["?", "?"], ["?", "?"]],
+          rotulo: "dobre os operários e veja o tempo",
+        }),
+      },
+      {
+        id: "rt-q-tipo-salario", pasta: "questoes",
+        alt: "Tabela com horas trabalhadas e salário, sem os valores preenchidos.",
+        desenho: () => tabelaProporcional({
+          titulos: ["horas", "salário"],
+          colunas: [["?", "?"], ["?", "?"]],
+          rotulo: "dobre as horas e veja o salário",
+        }),
+      },
+      {
+        id: "rt-q-maquinas", pasta: "questoes",
+        alt: "Tabela com máquinas e dias, com o tempo de quatro máquinas em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["máquinas", "dias"],
+          colunas: [[6, 10], [4, "?"]],
+          rotulo: "a mesma encomenda",
+        }),
+      },
+      {
+        id: "rt-q-qual-direta", pasta: "questoes",
+        alt: "Tabela com o teste que separa grandezas diretas de inversas.",
+        desenho: () => tabela({ ...TIPO, rotulo: "qual dos pares cresce junto?", larguraCol: 118 }),
+      },
+
+      // --- lição 5: a armadilha das unidades ---
+      {
+        id: "rt-ideia-unidades", pasta: "licoes",
+        alt: "Tabela comparando uma linha com unidades misturadas e outra com a unidade única.",
+        desenho: () => tabela({
+          cabecalho: ["a linha do tempo", "vale?"],
+          linhas: [["2 min e 1 h", "errada"], ["2 min e 60 min", "certa"]],
+          rotulo: "cada linha, uma unidade só", larguraCol: 140,
+        }),
+      },
+      {
+        id: "rt-res-torneira", pasta: "licoes",
+        alt: "Tabela com litros e minutos, com a hora já convertida para sessenta minutos.",
+        desenho: () => tabelaProporcional({
+          titulos: ["litros", "minutos"],
+          colunas: [[20, 2], ["?", 60]],
+          rotulo: "1 hora já convertida em 60 minutos",
+        }),
+      },
+      {
+        id: "rt-q-carro-hora", pasta: "questoes",
+        alt: "Tabela com quilômetros e minutos, com a distância de uma hora em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["km", "minutos"],
+          colunas: [[30, 20], ["?", 60]],
+          rotulo: "a hora já está em minutos",
+        }),
+      },
+      {
+        id: "rt-q-queijo", pasta: "questoes",
+        alt: "Tabela com gramas de queijo e reais, com os dois quilos já convertidos.",
+        desenho: () => tabelaProporcional({
+          titulos: ["gramas", "reais"],
+          colunas: [[500, 25], [2000, "?"]],
+          rotulo: "2 kg já convertidos em gramas",
+        }),
+      },
+      {
+        id: "rt-q-bombas", pasta: "questoes",
+        alt: "Tabela com bombas e minutos, com o tempo de duas bombas em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["bombas", "minutos"],
+          colunas: [[1, 90], [2, "?"]],
+          rotulo: "o mesmo tanque",
+        }),
+      },
+      {
+        id: "rt-q-regra-unidade", pasta: "questoes",
+        alt: "Tabela mostrando que cada linha guarda uma grandeza e cada coluna uma situação.",
+        desenho: () => tabela({
+          cabecalho: ["na tabela", "guarda"],
+          linhas: [["cada linha", "uma grandeza"], ["cada coluna", "uma situação"]],
+          rotulo: "onde a unidade precisa ser única?", larguraCol: 136,
+        }),
+      },
+
+      // --- lição 6: problemas ---
+      {
+        id: "rt-ideia-passos", pasta: "licoes",
+        alt: "Tabela com os cinco passos para resolver um problema de regra de três, na ordem.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1º", "identificar as grandezas"], ["2º", "converter as unidades"],
+            ["3º", "decidir direta ou inversa"], ["4º", "montar e resolver"],
+            ["5º", "conferir se faz sentido"],
+          ],
+          rotulo: "o terceiro é o mais pulado", larguraCol: 150,
+        }),
+      },
+      {
+        id: "rt-res-fabrica", pasta: "licoes",
+        alt: "Tabela com máquinas e peças produzidas, com a produção de oito máquinas em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["máquinas", "peças"],
+          colunas: [[5, 400], [8, "?"]],
+          rotulo: "no mesmo turno",
+        }),
+      },
+      {
+        id: "rt-q-canil", pasta: "questoes",
+        alt: "Tabela com pacotes de ração e dias, com a duração de seis pacotes em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["pacotes", "dias"],
+          colunas: [[4, 18], [6, "?"]],
+          rotulo: "os mesmos cães",
+        }),
+      },
+      {
+        id: "rt-q-ciclista", pasta: "questoes",
+        alt: "Tabela com velocidade e minutos, com o tempo da velocidade maior em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["km/h", "minutos"],
+          colunas: [[15, 40], [20, "?"]],
+          rotulo: "o mesmo percurso",
+        }),
+      },
+      {
+        id: "rt-q-leite", pasta: "questoes",
+        alt: "Tabela com pessoas e mililitros de leite, com a receita menor em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["pessoas", "ml"],
+          colunas: [[6, 750], [4, "?"]],
+          rotulo: "a mesma receita",
+        }),
+      },
+      {
+        id: "rt-q-nao-regra", pasta: "questoes",
+        alt: "Tabela comparando um problema com duas situações e outro com uma só.",
+        desenho: () => tabela({
+          cabecalho: ["o problema tem", "resolve com"],
+          linhas: [["duas situações", "regra de três"], ["uma situação", "uma divisão"]],
+          rotulo: "nem todo problema é regra de três", larguraCol: 144,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ───────────────────── Porcentagem e juros simples (7º ano) ─────────────────────
+  //
+  // A matéria fecha o bloco de proporcionalidade e não pediu gerador novo: usa
+  // `tabela`, `tabelaProporcional` e o `grafico` de colunas.
+  //
+  // O gráfico aqui tem um papel próprio: mostrar que o juro SIMPLES cresce em
+  // linha reta, com todas as colunas subindo o mesmo degrau. É o desenho que
+  // separa visualmente o juro simples do composto, sem precisar ensinar o
+  // composto agora.
+
+  ...(() => {
+    const mesesDeJuro = (capital, taxa, meses) =>
+      Array.from({ length: meses }, (_, i) => ({
+        rotulo: `${i + 1}º`,
+        valor: capital * taxa * (i + 1),
+      }));
+
+    return [
+      // --- lição 1: o fator multiplicativo ---
+      {
+        id: "jur-ideia-fator", pasta: "licoes",
+        alt: "Tabela com taxas de aumento e desconto e o fator multiplicativo de cada uma.",
+        desenho: () => tabela({
+          cabecalho: ["operação", "fica com", "fator"],
+          linhas: [["+5%", "105%", "1,05"], ["+25%", "125%", "1,25"], ["−15%", "85%", "0,85"], ["−30%", "70%", "0,70"]],
+          rotulo: "some ou subtraia de 100% e passe para decimal", larguraCol: 100,
+        }),
+      },
+      {
+        id: "jur-res-fator", pasta: "licoes",
+        alt: "Tabela com o preço da camisa e a porcentagem que ele representa antes e depois do aumento.",
+        desenho: () => tabelaProporcional({
+          titulos: ["reais", "% do inicial"],
+          colunas: [[80, "100%"], ["?", "125%"]],
+          rotulo: "aumento de 25%",
+        }),
+      },
+      {
+        id: "jur-q-fator-aumento", pasta: "questoes",
+        alt: "Tabela lembrando como montar o fator de um aumento.",
+        desenho: () => tabela({
+          cabecalho: ["aumento de", "fator"],
+          linhas: [["10%", "1,10"], ["20%", "1,20"], ["50%", "1,50"]],
+          rotulo: "e um aumento de 15%?", larguraCol: 116,
+        }),
+      },
+      {
+        id: "jur-q-fator-desconto", pasta: "questoes",
+        alt: "Tabela lembrando como montar o fator de um desconto.",
+        desenho: () => tabela({
+          cabecalho: ["desconto de", "fator"],
+          linhas: [["10%", "0,90"], ["25%", "0,75"], ["40%", "0,60"]],
+          rotulo: "e um desconto de 30%?", larguraCol: 116,
+        }),
+      },
+      {
+        id: "jur-q-tenis", pasta: "questoes",
+        alt: "Quadriculado de cem partes com oitenta delas preenchidas.",
+        desenho: () => grade({ colunas: 10, linhas: 10, pintadas: 80, rotulo: "com 20% de desconto, paga-se isto" }),
+      },
+      {
+        id: "jur-q-ler-fator", pasta: "questoes",
+        alt: "Tabela comparando fatores maiores e menores que um.",
+        desenho: () => tabela({
+          cabecalho: ["fator", "significa"],
+          linhas: [["maior que 1", "aumento"], ["igual a 1", "nada muda"], ["menor que 1", "desconto"]],
+          rotulo: "e a taxa é o quanto ele passa de 1", larguraCol: 128,
+        }),
+      },
+
+      // --- lição 2: aumentos sucessivos ---
+      {
+        id: "jur-ideia-sucessivos", pasta: "licoes",
+        alt: "Tabela com o preço depois de cada um dos dois aumentos de dez por cento.",
+        desenho: () => tabelaProporcional({
+          titulos: ["etapa", "preço"],
+          colunas: [["início", 100], ["+10%", 110], ["+10%", 121]],
+          fatores: ["×1,10", "×1,10"],
+          rotulo: "o segundo aumento incide sobre 110",
+        }),
+      },
+      {
+        id: "jur-res-sucessivos", pasta: "licoes",
+        alt: "Gráfico de colunas com o preço no início e depois de cada aumento.",
+        desenho: () => grafico({
+          dados: [{ rotulo: "início", valor: 100 }, { rotulo: "1º +10%", valor: 110 }, { rotulo: "2º +10%", valor: 121 }],
+          passo: 25, rotulo: "de 100 para 121, e não 120",
+        }),
+      },
+      {
+        id: "jur-q-dois-aumentos", pasta: "questoes",
+        alt: "Tabela com o preço inicial e as duas etapas de aumento em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["etapa", "preço"],
+          colunas: [["início", 200], ["+10%", "?"], ["+10%", "?"]],
+          rotulo: "dois aumentos de 10%",
+        }),
+      },
+      {
+        id: "jur-q-dois-descontos", pasta: "questoes",
+        alt: "Tabela com o preço inicial e as duas etapas de desconto em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["etapa", "preço"],
+          colunas: [["início", 500], ["−20%", "?"], ["−10%", "?"]],
+          rotulo: "o segundo desconto é sobre o valor já reduzido",
+        }),
+      },
+      {
+        id: "jur-q-sobe-desce", pasta: "questoes",
+        alt: "Tabela com o preço inicial, o aumento e o desconto seguintes em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["etapa", "preço"],
+          colunas: [["início", 100], ["+10%", "?"], ["−10%", "?"]],
+          rotulo: "volta ao preço original?",
+        }),
+      },
+      {
+        id: "jur-q-equivalente", pasta: "questoes",
+        alt: "Tabela lembrando que taxas sucessivas multiplicam fatores em vez de somar.",
+        desenho: () => tabela({
+          cabecalho: ["duas taxas de", "fator total"],
+          linhas: [["10% e 10%", "1,21"], ["20% e 20%", "?"]],
+          rotulo: "os fatores se multiplicam", larguraCol: 128,
+        }),
+      },
+
+      // --- lição 3: porcentagem é proporção ---
+      {
+        id: "jur-ideia-proporcao", pasta: "licoes",
+        alt: "Tabela com a forma geral da proporção que resolve problemas de porcentagem.",
+        desenho: () => tabelaProporcional({
+          titulos: ["valor", "porcentagem"],
+          colunas: [["total", "100%"], ["parte", "taxa"]],
+          rotulo: "o total sempre ocupa a coluna dos 100%",
+        }),
+      },
+      {
+        id: "jur-res-oculos", pasta: "licoes",
+        alt: "Tabela com a turma inteira e os alunos de óculos, com a taxa em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["alunos", "porcentagem"],
+          colunas: [[40, "100%"], [12, "?"]],
+          rotulo: "que fatia da turma usa óculos?",
+        }),
+      },
+      {
+        id: "jur-q-prova", pasta: "questoes",
+        alt: "Tabela com o total de questões da prova e os acertos, com a taxa em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["questões", "porcentagem"],
+          colunas: [[25, "100%"], [20, "?"]],
+          rotulo: "quanto da prova ele acertou?",
+        }),
+      },
+      {
+        id: "jur-q-total", pasta: "questoes",
+        alt: "Tabela com a parte conhecida e o total em aberto.",
+        desenho: () => tabelaProporcional({
+          titulos: ["valor", "porcentagem"],
+          colunas: [["?", "100%"], [45, "30%"]],
+          rotulo: "agora falta o total",
+        }),
+      },
+      {
+        id: "jur-q-aumento-taxa", pasta: "questoes",
+        alt: "Gráfico de colunas com o preço antigo e o preço novo do produto.",
+        desenho: () => grafico({
+          dados: [{ rotulo: "antes", valor: 80 }, { rotulo: "depois", valor: 100 }],
+          passo: 20, rotulo: "de quantos por cento foi o aumento?",
+        }),
+      },
+      {
+        id: "jur-q-quem-e-100", pasta: "questoes",
+        alt: "Tabela mostrando o papel de cada valor na proporção de porcentagem.",
+        desenho: () => tabela({
+          cabecalho: ["o valor", "corresponde a"],
+          linhas: [["a coisa inteira", "100%"], ["um pedaço dela", "a taxa"]],
+          rotulo: "quem se emparelha com o 100?", larguraCol: 140,
+        }),
+      },
+
+      // --- lição 4: o que é juro ---
+      {
+        id: "jur-ideia-juro", pasta: "licoes",
+        alt: "Tabela nomeando capital, taxa e tempo numa situação de juro simples.",
+        desenho: () => tabela({
+          cabecalho: ["nome", "o que é"],
+          linhas: [["capital", "o valor aplicado"], ["taxa", "a % por período"], ["tempo", "quantos períodos"]],
+          rotulo: "juro = capital × taxa × tempo", larguraCol: 142,
+        }),
+      },
+      {
+        id: "jur-res-aplicacao", pasta: "licoes",
+        alt: "Gráfico de colunas com o juro acumulado mês a mês, subindo sempre o mesmo degrau.",
+        desenho: () => grafico({
+          dados: mesesDeJuro(1000, 0.02, 6),
+          passo: 20, rotulo: "cada mês acrescenta os mesmos 20 reais",
+        }),
+      },
+      {
+        id: "jur-q-500", pasta: "questoes",
+        alt: "Tabela com o capital, a taxa mensal e o tempo da aplicação.",
+        desenho: () => tabela({
+          cabecalho: ["dado", "valor"],
+          linhas: [["capital", "R$ 500"], ["taxa", "3% ao mês"], ["tempo", "4 meses"]],
+          rotulo: "quanto rende de juros?", larguraCol: 118,
+        }),
+      },
+      {
+        id: "jur-q-sobre-o-que", pasta: "questoes",
+        alt: "Gráfico de colunas com o juro de cada mês, todos do mesmo tamanho.",
+        desenho: () => grafico({
+          dados: [
+            { rotulo: "1º mês", valor: 20 }, { rotulo: "2º mês", valor: 20 },
+            { rotulo: "3º mês", valor: 20 }, { rotulo: "4º mês", valor: 20 },
+          ],
+          passo: 5, rotulo: "o rendimento de cada mês, separado",
+        }),
+      },
+      {
+        id: "jur-q-taxa", pasta: "questoes",
+        alt: "Tabela com o capital, o juro total e o tempo, com a taxa em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["dado", "valor"],
+          linhas: [["capital", "R$ 2000"], ["juro total", "R$ 480"], ["tempo", "6 meses"]],
+          rotulo: "qual é a taxa mensal?", larguraCol: 118,
+        }),
+      },
+      {
+        id: "jur-q-tempo", pasta: "questoes",
+        alt: "Tabela com a taxa mensal e a meta de rendimento, com o tempo em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["dado", "valor"],
+          linhas: [["taxa", "1% ao mês"], ["meta", "12% do capital"], ["tempo", "?"]],
+          rotulo: "no juro simples as taxas se somam", larguraCol: 128,
+        }),
+      },
+
+      // --- lição 5: montante e o tempo ---
+      {
+        id: "jur-ideia-montante", pasta: "licoes",
+        alt: "Tabela mostrando que o montante é o capital somado aos juros.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "o que é"],
+          linhas: [["capital", "o que entrou"], ["juro", "o que rendeu"], ["montante", "a soma dos dois"]],
+          rotulo: "M = C + J", larguraCol: 132,
+        }),
+      },
+      {
+        id: "jur-res-montante", pasta: "licoes",
+        alt: "Gráfico de colunas com o capital e o montante depois de dez meses.",
+        desenho: () => grafico({
+          dados: [{ rotulo: "capital", valor: 1500 }, { rotulo: "montante", valor: 1800 }],
+          passo: 300, rotulo: "1500 aplicados a 2% ao mês, por 10 meses",
+        }),
+      },
+      {
+        id: "jur-q-montante-800", pasta: "questoes",
+        alt: "Tabela com o capital, a taxa e o tempo da aplicação de oitocentos reais.",
+        desenho: () => tabela({
+          cabecalho: ["dado", "valor"],
+          linhas: [["capital", "R$ 800"], ["taxa", "3% ao mês"], ["tempo", "5 meses"]],
+          rotulo: "qual é o montante?", larguraCol: 118,
+        }),
+      },
+      {
+        id: "jur-q-juro-do-montante", pasta: "questoes",
+        alt: "Gráfico de colunas comparando o capital emprestado com o montante pago.",
+        desenho: () => grafico({
+          dados: [{ rotulo: "capital", valor: 2000 }, { rotulo: "montante", valor: 2600 }],
+          passo: 500, rotulo: "quanto foi o juro?",
+        }),
+      },
+      {
+        id: "jur-q-dobrar", pasta: "questoes",
+        alt: "Tabela com a taxa mensal e a meta de render cem por cento do capital.",
+        desenho: () => tabela({
+          cabecalho: ["dado", "valor"],
+          linhas: [["taxa", "5% ao mês"], ["meta", "100% do capital"], ["tempo", "?"]],
+          rotulo: "em quantos meses?", larguraCol: 132,
+        }),
+      },
+      {
+        id: "jur-q-taxa-mensal", pasta: "questoes",
+        alt: "Tabela com capital, juro e tempo, com a taxa mensal em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["dado", "valor"],
+          linhas: [["capital", "R$ 4000"], ["juro total", "R$ 720"], ["tempo", "3 meses"]],
+          rotulo: "qual é a taxa mensal?", larguraCol: 118,
+        }),
+      },
+
+      // --- lição 6: decidir com porcentagem ---
+      {
+        id: "jur-ideia-decidir", pasta: "licoes",
+        alt: "Tabela comparando duas ofertas pelo preço final em vez de pela taxa anunciada.",
+        desenho: () => tabela({
+          cabecalho: ["loja", "anuncia", "cobra"],
+          linhas: [["A", "10% de R$ 200", "R$ 180"], ["B", "R$ 15 de R$ 190", "R$ 175"]],
+          rotulo: "quem anuncia menos pode cobrar menos", larguraCol: 116,
+        }),
+      },
+      {
+        id: "jur-res-tv", pasta: "licoes",
+        alt: "Gráfico de colunas comparando o preço à vista com o total do parcelado.",
+        desenho: () => grafico({
+          dados: [{ rotulo: "à vista", valor: 1000 }, { rotulo: "parcelado", valor: 1150 }],
+          passo: 250, rotulo: "10 parcelas de R$ 115",
+        }),
+      },
+      {
+        id: "jur-q-celular", pasta: "questoes",
+        alt: "Tabela com o preço à vista do celular e as condições do parcelamento.",
+        desenho: () => tabela({
+          cabecalho: ["forma", "valor"],
+          linhas: [["à vista", "R$ 1200"], ["parcelado", "12 × R$ 115"]],
+          rotulo: "quanto se paga a mais?", larguraCol: 128,
+        }),
+      },
+      {
+        id: "jur-q-duas-lojas", pasta: "questoes",
+        alt: "Tabela com o preço e o desconto anunciados por cada uma das duas lojas.",
+        desenho: () => tabela({
+          cabecalho: ["loja", "preço", "desconto"],
+          linhas: [["A", "R$ 200", "10%"], ["B", "R$ 190", "R$ 15"]],
+          rotulo: "onde se paga menos?", larguraCol: 100,
+        }),
+      },
+      {
+        id: "jur-q-emprestimo", pasta: "questoes",
+        alt: "Tabela com o valor emprestado, a taxa mensal e o prazo.",
+        desenho: () => tabela({
+          cabecalho: ["dado", "valor"],
+          linhas: [["capital", "R$ 3000"], ["taxa", "2% ao mês"], ["tempo", "8 meses"]],
+          rotulo: "qual é o montante a pagar?", larguraCol: 118,
+        }),
+      },
+      {
+        id: "jur-q-taxa-sem-base", pasta: "questoes",
+        alt: "Tabela mostrando quanto vale um desconto de quarenta por cento em preços diferentes.",
+        desenho: () => tabela({
+          cabecalho: ["preço", "40% dele"],
+          linhas: [["R$ 50", "R$ 20"], ["R$ 300", "R$ 120"]],
+          rotulo: "a mesma taxa, valores bem diferentes", larguraCol: 122,
+        }),
+      },
+    ];
+  })(),
+
 ];

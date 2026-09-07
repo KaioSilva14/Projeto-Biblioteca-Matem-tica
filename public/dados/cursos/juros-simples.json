@@ -1,0 +1,41 @@
+{
+  "id": "juros-simples",
+  "titulo": "Porcentagem e juros simples",
+  "ano": 7,
+  "descricao": "O que a porcentagem do 6º ano não tinha: o fator multiplicativo, as taxas que se acumulam e o tempo. Seis lições que vão de por que dois aumentos de 10% não dão 20% até decidir se compensa parcelar.",
+  "pergunta": "Por que dois aumentos de 10% não dão um aumento de 20%?",
+  "videos": [
+    {
+      "id": "aZcETuhXxPw",
+      "titulo": "JUROS SIMPLES Prof. Gis/ MATEMÁTICA FINANCEIRA",
+      "canal": "Gis com Giz",
+      "descricao": "Apresenta capital, taxa, tempo e montante com exemplos resolvidos. Bom para reforçar as lições 4 e 5, se os nomes ainda se confundirem."
+    },
+    {
+      "id": "PAcTN_4YDDQ",
+      "titulo": "🔥 7 ano | Aprenda a Calcular Juros Simples Passo a Passo: Aula Prática",
+      "canal": "Matematica Passo a Passo!",
+      "descricao": "Feita para esta série, com o passo a passo bem lento. Vale para quem quer ver a conta sendo montada devagar antes de tentar sozinho."
+    },
+    {
+      "id": "SPgz-BmA0Nc",
+      "titulo": "AULA COMPLETA SOBRE JUROS SIMPLES | Aprenda calcular Juros, a Taxa, o Tempo, o Capital e o Montante",
+      "canal": "Professora Noemi Matemática",
+      "descricao": "Cobre os quatro casos — achar o juro, a taxa, o tempo e o capital. Complementa a lição 5, que trata justamente de qual letra está escondida."
+    },
+    {
+      "id": "9Tbz7rkrm98",
+      "titulo": "JUROS SIMPLES EM 15 MINUTOS",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Revisão rápida com os tipos de exercício mais cobrados em prova. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "fator", "arquivo": "/dados/licoes/juros-simples/fator.json" },
+    { "id": "sucessivos", "arquivo": "/dados/licoes/juros-simples/sucessivos.json" },
+    { "id": "com-proporcao", "arquivo": "/dados/licoes/juros-simples/com-proporcao.json" },
+    { "id": "o-que-e-juro", "arquivo": "/dados/licoes/juros-simples/o-que-e-juro.json" },
+    { "id": "montante", "arquivo": "/dados/licoes/juros-simples/montante.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/juros-simples/problemas.json" }
+  ]
+}

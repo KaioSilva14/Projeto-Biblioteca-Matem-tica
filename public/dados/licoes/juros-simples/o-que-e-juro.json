@@ -1,0 +1,206 @@
+{
+  "id": "o-que-e-juro",
+  "numero": 4,
+  "titulo": "O que é juro",
+  "pergunta": "Por que dinheiro emprestado custa mais na volta?",
+  "ideia": {
+    "paragrafos": [
+      "Quem empresta dinheiro fica sem ele por um tempo, e cobra por essa espera. Esse pagamento pela espera é o JURO. Ele não é uma taxa de serviço fixa: quanto mais tempo o dinheiro fica emprestado, mais juro se acumula.",
+      "Três coisas definem o juro, e vale nomeá-las porque os problemas usam esses nomes. O CAPITAL é o valor emprestado ou aplicado. A TAXA é a porcentagem cobrada por período. E o TEMPO é quantos períodos se passam.",
+      "No juro SIMPLES, cada período rende o mesmo valor, sempre calculado sobre o capital original. Se você aplica R$ 1000 a 2% ao mês, cada mês rende 2% de 1000, ou seja, 20 reais — no primeiro mês, no décimo e em qualquer outro.",
+      "Daí sai a fórmula, que não precisa ser decorada porque pode ser remontada: o juro de um período é capital vezes taxa, e em vários períodos é isso vezes o tempo. Em símbolos, J = C × i × t, com a taxa escrita em decimal.",
+      "Um cuidado que decide o problema: a taxa e o tempo têm de estar na MESMA unidade de período. Uma taxa ao mês com um tempo em anos não pode ser multiplicada direto — é a mesma armadilha das unidades da matéria anterior, com outra roupa."
+    ],
+    "destaque": "No juro simples, cada período rende sempre a mesma coisa: J = C × i × t.",
+    "imagem": "jur-ideia-juro"
+  },
+  "resolvido": {
+    "enunciado": "Quanto rende, em juros simples, um capital de R$ 1000 aplicado a 2% ao mês durante 6 meses?",
+    "imagem": "jur-res-aplicacao",
+    "passos": [
+      {
+        "titulo": "Nomeie os três dados",
+        "explicacao": "Capital é o valor aplicado, taxa é a porcentagem por período e tempo é quantos períodos. Escrevê-los separados evita trocar um pelo outro.",
+        "conta": "C = 1000 · i = 2% ao mês · t = 6 meses"
+      },
+      {
+        "titulo": "Confira as unidades",
+        "explicacao": "A taxa é ao mês e o tempo está em meses: as duas combinam, então dá para multiplicar direto.",
+        "conta": "mês com mês ✓"
+      },
+      {
+        "titulo": "Calcule o juro de um período",
+        "explicacao": "Dois por cento de 1000 são 20 reais. No juro simples, esse valor se repete igual em todos os meses.",
+        "conta": "1000 × 0,02 = 20 por mês"
+      },
+      {
+        "titulo": "Multiplique pelo tempo",
+        "explicacao": "Seis meses rendem seis vezes o mesmo valor.",
+        "conta": "20 × 6 = 120 reais"
+      }
+    ],
+    "fecho": "O juro simples cresce em linha reta: cada mês acrescenta o mesmo pedaço."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um capital de R$ 500 é aplicado a 3% ao mês, em juros simples, por 4 meses. Quanto rende de juros? Digite apenas o número.",
+      "imagem": "jur-q-500",
+      "dica": "Ache primeiro quanto rende em um mês e depois multiplique pelo tempo.",
+      "formato": "numero",
+      "resposta": 60,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 é o rendimento de UM mês. A aplicação ficou quatro meses, e no juro simples cada mês rende esse mesmo valor."
+        },
+        {
+          "resposta": "560",
+          "porque": "560 é o MONTANTE, ou seja, o capital somado aos juros. A pergunta é só quanto rendeu — e o rendimento é a parte que se acrescenta."
+        },
+        {
+          "resposta": "6000",
+          "porque": "6000 usa a taxa como 3 em vez de 0,03. Porcentagem precisa virar decimal antes de multiplicar: 3% são três centésimos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Juro de um mês",
+          "explicacao": "Três por cento de 500, que é o quanto rende cada um dos meses.",
+          "conta": "500 × 0,03 = 15"
+        },
+        {
+          "titulo": "Multiplique pelo tempo",
+          "explicacao": "Quatro meses rendem quatro vezes o mesmo valor, porque o juro é simples.",
+          "conta": "15 × 4 = 60 reais"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "No juro simples, sobre qual valor a taxa é aplicada em cada período?",
+      "imagem": "jur-q-sobre-o-que",
+      "dica": "Pense se o rendimento do segundo mês é igual ou maior que o do primeiro.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sempre sobre o capital inicial" },
+        { "rotulo": "B", "texto": "Sobre o valor acumulado até ali" },
+        { "rotulo": "C", "texto": "Sobre os juros do período anterior" },
+        { "rotulo": "D", "texto": "Sobre a metade do capital" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sobre o valor acumulado até ali",
+          "porque": "Isso descreve o juro COMPOSTO, em que cada período rende mais que o anterior. No simples a base nunca muda: é sempre o capital do começo."
+        },
+        {
+          "resposta": "Sobre os juros do período anterior",
+          "porque": "Os juros anteriores não servem de base para nada no juro simples. A taxa incide sobre o capital, e o rendimento de cada mês é sempre o mesmo."
+        },
+        {
+          "resposta": "Sobre a metade do capital",
+          "porque": "Não há metade nenhuma na definição. A taxa é aplicada ao capital inteiro, e o resultado se repete a cada período."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste com números",
+          "explicacao": "Com 1000 a 2% ao mês, o primeiro mês rende 20.",
+          "conta": "1000 × 0,02 = 20"
+        },
+        {
+          "titulo": "Veja o segundo mês",
+          "explicacao": "No juro simples ele rende os mesmos 20, porque a base continua sendo os 1000 iniciais.",
+          "conta": "2º mês: 20 também"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "É essa base fixa que faz o juro simples crescer em linha reta.",
+          "conta": "base = capital inicial"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um capital de R$ 2000 rende R$ 480 de juros simples em 6 meses. Qual é a taxa mensal, em porcentagem? Digite apenas o número.",
+      "imagem": "jur-q-taxa",
+      "dica": "Ache quanto rendeu por mês e depois compare esse valor com o capital.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24% é a taxa do PERÍODO INTEIRO, dos seis meses juntos. A pergunta pede a taxa mensal, que é essa dividida por 6."
+        },
+        {
+          "resposta": "80",
+          "porque": "80 é o rendimento mensal em reais, e não uma porcentagem. Ele ainda precisa ser comparado com o capital de 2000 para virar taxa."
+        },
+        {
+          "resposta": "0.04",
+          "porque": "0,04 é a taxa em decimal, que é a forma usada dentro da conta. A questão pede em porcentagem, então falta multiplicar por 100."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o juro de um mês",
+          "explicacao": "No juro simples os seis meses renderam partes iguais.",
+          "conta": "480 ÷ 6 = 80 por mês"
+        },
+        {
+          "titulo": "Compare com o capital",
+          "explicacao": "A taxa é a proporção entre o rendimento mensal e o capital.",
+          "conta": "2000 → 100% · 80 → x%"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando em cruz e dividindo por 2000.",
+          "conta": "8000 ÷ 2000 = 4%"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um capital rende 1% ao mês em juros simples. Em quantos meses ele rende 12% do capital? Digite apenas o número.",
+      "imagem": "jur-q-tempo",
+      "dica": "No juro simples as taxas de cada período se somam, porque a base não muda.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "meses",
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 é a taxa mensal em porcentagem, e não o tempo. Um mês rende só 1% — para chegar a 12% são precisos vários meses."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 sai de subtrair 1 de 12, mas a conta aqui é de divisão: quantas vezes 1% cabe em 12%. Cada mês contribui com um ponto percentual."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 multiplica 12 por 10 sem motivo. Como cada mês rende exatamente 1%, o número de meses é o próprio 12."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja quanto rende por mês",
+          "explicacao": "Um por cento do capital, e esse valor se repete todo mês.",
+          "conta": "1% por mês"
+        },
+        {
+          "titulo": "Divida a meta pelo rendimento mensal",
+          "explicacao": "Quantas vezes 1% cabe em 12%, já que cada mês acrescenta a mesma fatia.",
+          "conta": "12 ÷ 1 = 12 meses"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Doze meses a 1% cada somam 12% do capital, porque no juro simples as taxas se acumulam por soma.",
+          "conta": "12 × 1% = 12% ✓"
+        }
+      ]
+    }
+  ]
+}

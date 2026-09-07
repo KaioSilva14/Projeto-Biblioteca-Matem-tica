@@ -1,0 +1,205 @@
+{
+  "id": "com-proporcao",
+  "numero": 3,
+  "titulo": "Porcentagem é proporção",
+  "pergunta": "Como achar a taxa quando ela é o que está faltando?",
+  "ideia": {
+    "paragrafos": [
+      "Toda porcentagem é uma proporção com 100 embaixo. Dizer que 15% de 240 é 36 é dizer que 36 está para 240 assim como 15 está para 100. Escrita assim, a porcentagem passa a caber na regra de três da matéria anterior — e isso resolve os casos que o atalho não resolve.",
+      "A tabela tem sempre a mesma forma: uma linha para o valor e outra para a porcentagem. O total ocupa a coluna dos 100%, porque o todo é sempre 100% dele mesmo. A parte e a taxa ficam na outra coluna.",
+      "Isso permite achar qualquer um dos três, e não só a parte. Se 45 é 30% de um número, o que falta é o total: 45/x = 30/100, e x = 150. Se numa turma de 40 alunos 12 usam óculos, o que falta é a taxa: 12/40 = x/100, e x = 30%.",
+      "É esse terceiro caso — achar a TAXA — que aparece mais na vida e menos nos exercícios. 'Que porcentagem da prova eu acertei?', 'de quanto foi o aumento?', 'qual foi o desconto?' são todas perguntas por uma taxa desconhecida.",
+      "E vale a mesma conferência de sempre: a parte tem de ser menor que o todo, e a taxa correspondente tem de ficar abaixo de 100%. Se a conta devolveu 250%, ou a parte era maior que o todo mesmo, ou algum número entrou na linha errada."
+    ],
+    "destaque": "Parte está para o total assim como a taxa está para 100.",
+    "imagem": "jur-ideia-proporcao"
+  },
+  "resolvido": {
+    "enunciado": "Numa turma de 40 alunos, 12 usam óculos. Que porcentagem da turma isso representa?",
+    "imagem": "jur-res-oculos",
+    "passos": [
+      {
+        "titulo": "Identifique o que falta",
+        "explicacao": "A parte é 12 e o total é 40; o que não se sabe é a taxa. É o caso em que o atalho de multiplicar não serve, porque a porcentagem é justamente a incógnita.",
+        "conta": "parte 12 · total 40 · taxa ?"
+      },
+      {
+        "titulo": "Monte a tabela",
+        "explicacao": "Valores numa linha e porcentagem na outra. O total sempre ocupa a coluna dos 100%.",
+        "conta": "40 → 100% · 12 → x%"
+      },
+      {
+        "titulo": "Multiplique em cruz",
+        "explicacao": "É a mesma propriedade fundamental da matéria anterior.",
+        "conta": "40x = 12 × 100 = 1200"
+      },
+      {
+        "titulo": "Resolva e confira",
+        "explicacao": "Trinta por cento é menos que a metade, o que bate com 12 ser menos que a metade de 40.",
+        "conta": "1200 ÷ 40 = 30%"
+      }
+    ],
+    "fecho": "Achar a taxa é o caso mais comum na vida e o menos treinado na escola."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa prova de 25 questões, um aluno acertou 20. Que porcentagem ele acertou? Digite apenas o número.",
+      "imagem": "jur-q-prova",
+      "dica": "O total ocupa a coluna dos 100%. A taxa é o que falta.",
+      "formato": "numero",
+      "resposta": 80,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é a quantidade de acertos, e não a porcentagem. Ela seria a taxa se a prova tivesse 100 questões — como tem 25, cada acerto vale mais que 1%."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a quantidade de ERROS. A pergunta é sobre os acertos, que são 20 — e eles correspondem a 80% da prova."
+        },
+        {
+          "resposta": "125",
+          "porque": "125 inverte a proporção, dividindo 25 por 20. A parte é 20 e o total é 25, então a taxa tem de ficar abaixo de 100%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "O total da prova ocupa a coluna dos 100%.",
+          "conta": "25 → 100% · 20 → x%"
+        },
+        {
+          "titulo": "Multiplique em cruz",
+          "explicacao": "Extremos com extremos, meios com meios.",
+          "conta": "25x = 2000"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Acertar 20 de 25 é acertar quatro quintos, que é mesmo 80%.",
+          "conta": "2000 ÷ 25 = 80%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Se 45 é 30% de um número, que número é esse? Digite apenas o número.",
+      "imagem": "jur-q-total",
+      "dica": "Agora o que falta é o total, que ocupa a coluna dos 100%.",
+      "formato": "numero",
+      "resposta": 150,
+      "errosComuns": [
+        {
+          "resposta": "13.5",
+          "porque": "13,5 é 30% de 45, ou seja, aplica a taxa ao número errado. Aqui o 45 já É a parte, e o que se procura é o todo — que tem de ser MAIOR que 45."
+        },
+        {
+          "resposta": "75",
+          "porque": "75 soma 45 com 30, misturando um valor com uma taxa. Porcentagem não se soma a reais: ela entra na conta como proporção."
+        },
+        {
+          "resposta": "1350",
+          "porque": "1350 é 45 × 30, mas esse par não é o do cruzamento. Na proporção x para 100% assim como 45 para 30%, cruzam-se o 45 com o 100 e o x com o 30."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "O total desconhecido ocupa a coluna dos 100%.",
+          "conta": "x → 100% · 45 → 30%"
+        },
+        {
+          "titulo": "Multiplique em cruz",
+          "explicacao": "Trinta vezes o total é igual a 45 vezes 100.",
+          "conta": "30x = 4500"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Trinta por cento de 150 é 45, o que fecha. E o total ficou maior que a parte, como tinha de ser.",
+          "conta": "4500 ÷ 30 = 150"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um produto passou de R$ 80 para R$ 100. De quantos por cento foi o aumento? Digite apenas o número.",
+      "imagem": "jur-q-aumento-taxa",
+      "dica": "Primeiro ache quanto aumentou em reais. Depois compare esse valor com o preço ORIGINAL.",
+      "formato": "numero",
+      "resposta": 25,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 compara o aumento com o preço NOVO (20 em 100). A taxa de aumento sempre se calcula sobre o valor de partida, que aqui é 80."
+        },
+        {
+          "resposta": "80",
+          "porque": "80 é o preço original em reais, e não uma taxa. A porcentagem sai de comparar o aumento de 20 reais com esse valor."
+        },
+        {
+          "resposta": "125",
+          "porque": "125% é quanto o preço NOVO representa do antigo. O aumento é só o que passa dos 100%, ou seja, 25%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o aumento em reais",
+          "explicacao": "A diferença entre o preço novo e o antigo.",
+          "conta": "100 − 80 = 20"
+        },
+        {
+          "titulo": "Compare com o valor de partida",
+          "explicacao": "A taxa de aumento é sempre calculada sobre o preço original.",
+          "conta": "80 → 100% · 20 → x%"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando em cruz e dividindo por 80.",
+          "conta": "2000 ÷ 80 = 25%"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na proporção que resolve um problema de porcentagem, qual valor ocupa a coluna dos 100%?",
+      "imagem": "jur-q-quem-e-100",
+      "dica": "Pense em qual dos valores representa a coisa inteira.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O total" },
+        { "rotulo": "B", "texto": "A parte" },
+        { "rotulo": "C", "texto": "O maior número do enunciado" },
+        { "rotulo": "D", "texto": "Sempre o número 100" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A parte",
+          "porque": "A parte é um pedaço do todo, então ela corresponde a menos de 100%. Quem vale 100% é a coisa inteira, que é o total."
+        },
+        {
+          "resposta": "O maior número do enunciado",
+          "porque": "Costuma coincidir, mas não é o critério — e falha quando a parte é maior que o todo, como num aumento de 150%. Quem decide é o papel do número, não o tamanho."
+        },
+        {
+          "resposta": "Sempre o número 100",
+          "porque": "O 100 fica na linha da PORCENTAGEM, e não na dos valores. Na linha dos valores vai o total do problema, que pode ser 40, 240 ou qualquer outro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que porcentagem significa",
+          "explicacao": "Ela compara uma parte com o todo, usando 100 como referência.",
+          "conta": "parte/total = taxa/100"
+        },
+        {
+          "titulo": "Veja quem é o todo",
+          "explicacao": "O total é 100% dele mesmo, então é ele que se emparelha com o 100.",
+          "conta": "total → 100%"
+        }
+      ]
+    }
+  ]
+}

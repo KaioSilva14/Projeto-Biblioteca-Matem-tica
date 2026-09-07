@@ -3166,5 +3166,1157 @@
     "alt": "Tabela com as três notas de cada um dos dois grupos.",
     "largura": 240,
     "altura": 148
+  },
+  "int-ideia-termometro": {
+    "arquivo": "/assets/licoes/int-ideia-termometro.png",
+    "alt": "Termômetro com escala de vinte graus negativos a quarenta positivos, marcando cinco abaixo de zero.",
+    "largura": 330,
+    "altura": 348
+  },
+  "int-res-termometro": {
+    "arquivo": "/assets/licoes/int-res-termometro.png",
+    "alt": "Termômetro marcando cinco graus abaixo de zero, com a coluna parando antes do traço do zero.",
+    "largura": 150,
+    "altura": 326
+  },
+  "int-q-predio": {
+    "arquivo": "/assets/questoes/int-q-predio.png",
+    "alt": "Corte de um prédio com o térreo destacado e três subsolos abaixo dele.",
+    "largura": 257,
+    "altura": 324
+  },
+  "int-q-situacoes": {
+    "arquivo": "/assets/questoes/int-q-situacoes.png",
+    "alt": "Reta numérica com o zero destacado e setas nas duas pontas.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-q-submarino": {
+    "arquivo": "/assets/questoes/int-q-submarino.png",
+    "alt": "Reta numérica com o zero destacado, representando o nível do mar entre a altitude e a profundidade.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-q-zero": {
+    "arquivo": "/assets/questoes/int-q-zero.png",
+    "alt": "Reta numérica com o zero destacado entre os negativos, à esquerda, e os positivos, à direita.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-ideia-reta": {
+    "arquivo": "/assets/licoes/int-ideia-reta.png",
+    "alt": "Reta numérica de menos oito a oito, com o zero destacado e setas nas duas pontas.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-res-oposto": {
+    "arquivo": "/assets/licoes/int-res-oposto.png",
+    "alt": "Reta numérica com menos quatro e quatro marcados, à mesma distância do zero.",
+    "largura": 384,
+    "altura": 114
+  },
+  "int-q-ler-reta": {
+    "arquivo": "/assets/questoes/int-q-ler-reta.png",
+    "alt": "Reta numérica com um ponto marcado à esquerda do zero, sem o valor escrito.",
+    "largura": 384,
+    "altura": 92
+  },
+  "int-q-oposto": {
+    "arquivo": "/assets/questoes/int-q-oposto.png",
+    "alt": "Reta numérica com o menos sete marcado e o lado direito livre.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-q-distancia": {
+    "arquivo": "/assets/questoes/int-q-distancia.png",
+    "alt": "Reta numérica com o menos seis marcado e o zero destacado.",
+    "largura": 384,
+    "altura": 114
+  },
+  "int-q-simetria": {
+    "arquivo": "/assets/questoes/int-q-simetria.png",
+    "alt": "Reta numérica com o menos nove marcado, mostrando os dois lados do zero.",
+    "largura": 380,
+    "altura": 92
+  },
+  "int-ideia-comparar": {
+    "arquivo": "/assets/licoes/int-ideia-comparar.png",
+    "alt": "Reta numérica com menos sete e menos três marcados, os dois à esquerda do zero.",
+    "largura": 384,
+    "altura": 114
+  },
+  "int-res-comparar": {
+    "arquivo": "/assets/licoes/int-res-comparar.png",
+    "alt": "Reta numérica com menos sete e menos três marcados, mostrando qual está mais perto do zero.",
+    "largura": 384,
+    "altura": 92
+  },
+  "int-q-maior": {
+    "arquivo": "/assets/questoes/int-q-maior.png",
+    "alt": "Reta numérica com dois pontos marcados à esquerda do zero, identificados por menos oito e menos dois.",
+    "largura": 384,
+    "altura": 92
+  },
+  "int-q-ordenar": {
+    "arquivo": "/assets/questoes/int-q-ordenar.png",
+    "alt": "Reta numérica de menos seis a quatro, com o zero destacado.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-q-frio": {
+    "arquivo": "/assets/questoes/int-q-frio.png",
+    "alt": "Termômetro com a escala passando pelo zero, sem nenhuma temperatura destacada.",
+    "largura": 191,
+    "altura": 348
+  },
+  "int-q-sempre": {
+    "arquivo": "/assets/questoes/int-q-sempre.png",
+    "alt": "Reta numérica com o zero destacado separando o lado negativo do positivo.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-ideia-somar": {
+    "arquivo": "/assets/licoes/int-ideia-somar.png",
+    "alt": "Reta numérica com um salto tracejado de menos dois até três, marcado como mais cinco.",
+    "largura": 384,
+    "altura": 168
+  },
+  "int-res-somar": {
+    "arquivo": "/assets/licoes/int-res-somar.png",
+    "alt": "Reta numérica com o salto de cinco unidades partindo do menos dois e atravessando o zero.",
+    "largura": 384,
+    "altura": 146
+  },
+  "int-q-somar-73": {
+    "arquivo": "/assets/questoes/int-q-somar-73.png",
+    "alt": "Reta numérica com o menos sete marcado como ponto de partida, sem o salto desenhado.",
+    "largura": 384,
+    "altura": 114
+  },
+  "int-q-somar-46": {
+    "arquivo": "/assets/questoes/int-q-somar-46.png",
+    "alt": "Reta numérica com o menos quatro marcado como ponto de partida.",
+    "largura": 382,
+    "altura": 114
+  },
+  "int-q-saldo": {
+    "arquivo": "/assets/questoes/int-q-saldo.png",
+    "alt": "Gráfico de saldo com uma barra de cinquenta para cima e uma de oitenta para baixo do zero.",
+    "largura": 206,
+    "altura": 276
+  },
+  "int-q-opostos": {
+    "arquivo": "/assets/questoes/int-q-opostos.png",
+    "alt": "Reta numérica com o oito marcado e o menos oito à mesma distância do zero.",
+    "largura": 402,
+    "altura": 92
+  },
+  "int-ideia-subtrair": {
+    "arquivo": "/assets/licoes/int-ideia-subtrair.png",
+    "alt": "Tabela mostrando três subtrações reescritas como somas do oposto.",
+    "largura": 280,
+    "altura": 182
+  },
+  "int-res-subtrair": {
+    "arquivo": "/assets/licoes/int-res-subtrair.png",
+    "alt": "Reta numérica com um salto tracejado de menos cinco até menos dois, de três unidades para a direita.",
+    "largura": 384,
+    "altura": 168
+  },
+  "int-q-sub-49": {
+    "arquivo": "/assets/questoes/int-q-sub-49.png",
+    "alt": "Reta numérica com o quatro marcado como ponto de partida.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-q-sub-35": {
+    "arquivo": "/assets/questoes/int-q-sub-35.png",
+    "alt": "Reta numérica com o menos três marcado como ponto de partida.",
+    "largura": 382,
+    "altura": 114
+  },
+  "int-q-sub-610": {
+    "arquivo": "/assets/questoes/int-q-sub-610.png",
+    "alt": "Reta numérica com o menos seis marcado como ponto de partida.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-q-variacao": {
+    "arquivo": "/assets/questoes/int-q-variacao.png",
+    "alt": "Termômetro com a escala passando pelo zero, para medir a subida da madrugada até a tarde.",
+    "largura": 228,
+    "altura": 348
+  },
+  "int-ideia-sinais": {
+    "arquivo": "/assets/licoes/int-ideia-sinais.png",
+    "alt": "Tabela com as quatro combinações de sinais na multiplicação e o sinal do resultado.",
+    "largura": 256,
+    "altura": 216
+  },
+  "int-res-padrao": {
+    "arquivo": "/assets/licoes/int-res-padrao.png",
+    "alt": "Tabela com a sequência de multiplicações por menos quatro, do multiplicador três até menos três.",
+    "largura": 276,
+    "altura": 318
+  },
+  "int-q-mult-67": {
+    "arquivo": "/assets/questoes/int-q-mult-67.png",
+    "alt": "Tabela lembrando a regra dos sinais para a multiplicação.",
+    "largura": 279,
+    "altura": 148
+  },
+  "int-q-mult-35": {
+    "arquivo": "/assets/questoes/int-q-mult-35.png",
+    "alt": "Tabela lembrando que sinais iguais dão resultado positivo.",
+    "largura": 256,
+    "altura": 148
+  },
+  "int-q-div-82": {
+    "arquivo": "/assets/questoes/int-q-div-82.png",
+    "alt": "Tabela lembrando que a divisão segue a mesma regra de sinais da multiplicação.",
+    "largura": 256,
+    "altura": 148
+  },
+  "int-q-potencia": {
+    "arquivo": "/assets/questoes/int-q-potencia.png",
+    "alt": "Tabela com o sinal do resultado de uma base negativa conforme o expoente seja par ou ímpar.",
+    "largura": 286,
+    "altura": 148
+  },
+  "int-ideia-problemas": {
+    "arquivo": "/assets/licoes/int-ideia-problemas.png",
+    "alt": "Tabela relacionando quatro contextos com o que significa o zero em cada um.",
+    "largura": 308,
+    "altura": 216
+  },
+  "int-res-elevador": {
+    "arquivo": "/assets/licoes/int-res-elevador.png",
+    "alt": "Corte de um prédio com o terceiro andar destacado, de onde o elevador parte.",
+    "largura": 235,
+    "altura": 324
+  },
+  "int-q-conta": {
+    "arquivo": "/assets/questoes/int-q-conta.png",
+    "alt": "Gráfico de saldo com o que havia na conta, o pagamento para baixo e o depósito para cima.",
+    "largura": 274,
+    "altura": 276
+  },
+  "int-q-temperaturas": {
+    "arquivo": "/assets/questoes/int-q-temperaturas.png",
+    "alt": "Termômetro com a escala de menos quinze a quinze graus, com o zero destacado.",
+    "largura": 150,
+    "altura": 348
+  },
+  "int-q-mergulho": {
+    "arquivo": "/assets/questoes/int-q-mergulho.png",
+    "alt": "Reta numérica em que o zero é a superfície do mar e os negativos são a profundidade.",
+    "largura": 380,
+    "altura": 114
+  },
+  "int-q-jogo": {
+    "arquivo": "/assets/questoes/int-q-jogo.png",
+    "alt": "Gráfico de saldo com quatro barras iguais descendo do zero, uma por erro.",
+    "largura": 344,
+    "altura": 276
+  },
+  "rac-ideia-familia": {
+    "arquivo": "/assets/licoes/rac-ideia-familia.png",
+    "alt": "Tabela mostrando um inteiro, um decimal e uma fração escritos todos como fração de inteiros.",
+    "largura": 352,
+    "altura": 216
+  },
+  "rac-res-familia": {
+    "arquivo": "/assets/licoes/rac-res-familia.png",
+    "alt": "Tabela com três números convertidos para a forma de fração.",
+    "largura": 280,
+    "altura": 182
+  },
+  "rac-q-nao-racional": {
+    "arquivo": "/assets/questoes/rac-q-nao-racional.png",
+    "alt": "Tabela lembrando que o denominador de uma fração não pode ser zero.",
+    "largura": 330,
+    "altura": 148
+  },
+  "rac-q-inteiro-fracao": {
+    "arquivo": "/assets/questoes/rac-q-inteiro-fracao.png",
+    "alt": "Reta numérica com o menos seis marcado à esquerda do zero.",
+    "largura": 380,
+    "altura": 114
+  },
+  "rac-q-decimal-fracao": {
+    "arquivo": "/assets/questoes/rac-q-decimal-fracao.png",
+    "alt": "Barra dividida em dez partes iguais, com oito delas preenchidas.",
+    "largura": 380,
+    "altura": 118
+  },
+  "rac-q-sinal-fracao": {
+    "arquivo": "/assets/questoes/rac-q-sinal-fracao.png",
+    "alt": "Tabela com a regra dos sinais aplicada à divisão que a fração representa.",
+    "largura": 256,
+    "altura": 148
+  },
+  "rac-ideia-reta": {
+    "arquivo": "/assets/licoes/rac-ideia-reta.png",
+    "alt": "Reta numérica dividida em quartos, com um ponto entre menos um e zero e outro entre dois e três.",
+    "largura": 286,
+    "altura": 114
+  },
+  "rac-res-reta": {
+    "arquivo": "/assets/licoes/rac-res-reta.png",
+    "alt": "Reta numérica em quartos com o ponto de menos três quartos marcado entre menos um e zero.",
+    "largura": 315,
+    "altura": 114
+  },
+  "rac-q-ler-quartos": {
+    "arquivo": "/assets/questoes/rac-q-ler-quartos.png",
+    "alt": "Reta numérica dividida em quartos, com um ponto marcado à esquerda do menos um, sem o valor escrito.",
+    "largura": 196,
+    "altura": 92
+  },
+  "rac-q-entre-inteiros": {
+    "arquivo": "/assets/questoes/rac-q-entre-inteiros.png",
+    "alt": "Reta numérica dividida em décimos, mostrando o trecho entre menos dois e dois.",
+    "largura": 300,
+    "altura": 114
+  },
+  "rac-q-oposto": {
+    "arquivo": "/assets/questoes/rac-q-oposto.png",
+    "alt": "Reta numérica em quintos com o ponto de menos dois quintos marcado.",
+    "largura": 199,
+    "altura": 114
+  },
+  "rac-q-infinitos": {
+    "arquivo": "/assets/questoes/rac-q-infinitos.png",
+    "alt": "Reta numérica com o trecho entre menos um e zero dividido em muitas partes.",
+    "largura": 221,
+    "altura": 114
+  },
+  "rac-ideia-formas": {
+    "arquivo": "/assets/licoes/rac-ideia-formas.png",
+    "alt": "Tabela com quatro números escritos nas três formas: fração, decimal e porcentagem.",
+    "largura": 348,
+    "altura": 216
+  },
+  "rac-res-formas": {
+    "arquivo": "/assets/licoes/rac-res-formas.png",
+    "alt": "Barra dividida em quatro partes com três preenchidas, representando três quartos.",
+    "largura": 380,
+    "altura": 118
+  },
+  "rac-q-fracao-decimal": {
+    "arquivo": "/assets/questoes/rac-q-fracao-decimal.png",
+    "alt": "Barra dividida em cinco partes iguais, com duas delas preenchidas.",
+    "largura": 380,
+    "altura": 118
+  },
+  "rac-q-decimal-fracao2": {
+    "arquivo": "/assets/questoes/rac-q-decimal-fracao2.png",
+    "alt": "Barra dividida em dez partes iguais, com seis delas preenchidas.",
+    "largura": 380,
+    "altura": 118
+  },
+  "rac-q-negativo-decimal": {
+    "arquivo": "/assets/questoes/rac-q-negativo-decimal.png",
+    "alt": "Reta numérica em meios com o ponto de menos um meio marcado entre menos um e zero.",
+    "largura": 196,
+    "altura": 92
+  },
+  "rac-q-mesma-coisa": {
+    "arquivo": "/assets/questoes/rac-q-mesma-coisa.png",
+    "alt": "Tabela lembrando como converter entre as três formas de escrever um racional.",
+    "largura": 372,
+    "altura": 182
+  },
+  "rac-ideia-comparar": {
+    "arquivo": "/assets/licoes/rac-ideia-comparar.png",
+    "alt": "Reta numérica em quartos com menos três quartos e menos um meio marcados à esquerda do zero.",
+    "largura": 213,
+    "altura": 114
+  },
+  "rac-res-comparar": {
+    "arquivo": "/assets/licoes/rac-res-comparar.png",
+    "alt": "Reta numérica em quartos com os dois números negativos marcados para comparação.",
+    "largura": 128,
+    "altura": 92
+  },
+  "rac-q-maior-negativo": {
+    "arquivo": "/assets/questoes/rac-q-maior-negativo.png",
+    "alt": "Reta numérica em terços com dois pontos marcados à esquerda do zero.",
+    "largura": 128,
+    "altura": 92
+  },
+  "rac-q-decimal-fracao3": {
+    "arquivo": "/assets/questoes/rac-q-decimal-fracao3.png",
+    "alt": "Duas barras do mesmo tamanho divididas em quantidades diferentes de partes.",
+    "largura": 400,
+    "altura": 122
+  },
+  "rac-q-ordenar": {
+    "arquivo": "/assets/questoes/rac-q-ordenar.png",
+    "alt": "Reta numérica em meios mostrando o trecho de menos dois a dois.",
+    "largura": 301,
+    "altura": 114
+  },
+  "rac-q-inverte": {
+    "arquivo": "/assets/questoes/rac-q-inverte.png",
+    "alt": "Reta numérica em oitavos com cinco oitavos e um meio marcados do lado positivo.",
+    "largura": 242,
+    "altura": 114
+  },
+  "rac-ideia-somar": {
+    "arquivo": "/assets/licoes/rac-ideia-somar.png",
+    "alt": "Duas barras do mesmo tamanho, uma dividida em meios e outra em quartos.",
+    "largura": 400,
+    "altura": 122
+  },
+  "rac-res-somar": {
+    "arquivo": "/assets/licoes/rac-res-somar.png",
+    "alt": "Reta numérica em quartos com um salto tracejado de menos dois quartos até menos um quarto.",
+    "largura": 330,
+    "altura": 168
+  },
+  "rac-q-mesmo-denominador": {
+    "arquivo": "/assets/questoes/rac-q-mesmo-denominador.png",
+    "alt": "Reta numérica em quintos com o ponto de menos três quintos marcado.",
+    "largura": 191,
+    "altura": 114
+  },
+  "rac-q-subtrair-fracao": {
+    "arquivo": "/assets/questoes/rac-q-subtrair-fracao.png",
+    "alt": "Tabela lembrando que subtrair é somar o oposto, com três exemplos.",
+    "largura": 288,
+    "altura": 148
+  },
+  "rac-q-somar-decimal": {
+    "arquivo": "/assets/questoes/rac-q-somar-decimal.png",
+    "alt": "Conta armada de dois decimais com as vírgulas alinhadas.",
+    "largura": 300,
+    "altura": 192
+  },
+  "rac-q-dois-negativos": {
+    "arquivo": "/assets/questoes/rac-q-dois-negativos.png",
+    "alt": "Duas barras do mesmo tamanho, uma em quartos e outra em meios, cada uma com uma parte preenchida.",
+    "largura": 400,
+    "altura": 122
+  },
+  "rac-ideia-multiplicar": {
+    "arquivo": "/assets/licoes/rac-ideia-multiplicar.png",
+    "alt": "Tabela comparando o que muda entre a soma e a multiplicação de frações.",
+    "largura": 366,
+    "altura": 216
+  },
+  "rac-res-multiplicar": {
+    "arquivo": "/assets/licoes/rac-res-multiplicar.png",
+    "alt": "Tabela com a diferença entre oposto e inverso de uma fração.",
+    "largura": 337,
+    "altura": 148
+  },
+  "rac-q-mult-fracoes": {
+    "arquivo": "/assets/questoes/rac-q-mult-fracoes.png",
+    "alt": "Tabela com a regra dos sinais, para decidir o sinal do produto.",
+    "largura": 279,
+    "altura": 148
+  },
+  "rac-q-quantos-cabem": {
+    "arquivo": "/assets/questoes/rac-q-quantos-cabem.png",
+    "alt": "Quatro rodas inteiras, cada uma dividida ao meio.",
+    "largura": 380,
+    "altura": 125
+  },
+  "rac-q-inverso": {
+    "arquivo": "/assets/questoes/rac-q-inverso.png",
+    "alt": "Tabela com a diferença entre o oposto e o inverso de uma fração negativa.",
+    "largura": 272,
+    "altura": 148
+  },
+  "rac-q-mult-diminui": {
+    "arquivo": "/assets/questoes/rac-q-mult-diminui.png",
+    "alt": "Barra dividida em duas partes iguais, com uma preenchida.",
+    "largura": 380,
+    "altura": 118
+  },
+  "rac-ideia-problemas": {
+    "arquivo": "/assets/licoes/rac-ideia-problemas.png",
+    "alt": "Tabela relacionando o tipo de dado do problema com a forma mais prática de calcular.",
+    "largura": 324,
+    "altura": 182
+  },
+  "rac-res-bolo": {
+    "arquivo": "/assets/licoes/rac-res-bolo.png",
+    "alt": "Barra dividida em cinco partes iguais, com duas delas preenchidas.",
+    "largura": 380,
+    "altura": 118
+  },
+  "rac-q-garrafa": {
+    "arquivo": "/assets/questoes/rac-q-garrafa.png",
+    "alt": "Um recipiente parcialmente cheio, representando a garrafa de um litro e meio.",
+    "largura": 260,
+    "altura": 250
+  },
+  "rac-q-saldo-decimal": {
+    "arquivo": "/assets/questoes/rac-q-saldo-decimal.png",
+    "alt": "Gráfico de saldo com a dívida para baixo e o depósito para cima do zero.",
+    "largura": 213,
+    "altura": 276
+  },
+  "rac-q-turma": {
+    "arquivo": "/assets/questoes/rac-q-turma.png",
+    "alt": "Barra dividida em cinco partes iguais, com duas delas preenchidas.",
+    "largura": 380,
+    "altura": 118
+  },
+  "rac-q-fita": {
+    "arquivo": "/assets/questoes/rac-q-fita.png",
+    "alt": "Barra dividida em quatro partes iguais, com três delas preenchidas.",
+    "largura": 380,
+    "altura": 118
+  },
+  "raz-ideia-comparar": {
+    "arquivo": "/assets/licoes/raz-ideia-comparar.png",
+    "alt": "Duas fileiras de blocos, uma com doze e outra com oito, agrupadas de quatro em quatro.",
+    "largura": 392,
+    "altura": 112
+  },
+  "raz-res-turma": {
+    "arquivo": "/assets/licoes/raz-res-turma.png",
+    "alt": "Duas fileiras de blocos representando doze meninas e oito meninos.",
+    "largura": 368,
+    "altura": 112
+  },
+  "raz-q-lapis": {
+    "arquivo": "/assets/questoes/raz-q-lapis.png",
+    "alt": "Duas fileiras de blocos, uma com dez e outra com quinze.",
+    "largura": 371,
+    "altura": 104
+  },
+  "raz-q-velocidade": {
+    "arquivo": "/assets/questoes/raz-q-velocidade.png",
+    "alt": "Tabela com a distância percorrida e o tempo gasto pelo carro.",
+    "largura": 240,
+    "altura": 114
+  },
+  "raz-q-duas-turmas": {
+    "arquivo": "/assets/questoes/raz-q-duas-turmas.png",
+    "alt": "Tabela com a quantidade de meninas e meninos de cada uma das duas turmas.",
+    "largura": 300,
+    "altura": 148
+  },
+  "raz-q-ordem": {
+    "arquivo": "/assets/questoes/raz-q-ordem.png",
+    "alt": "Duas fileiras de blocos com três de suco e dois de água.",
+    "largura": 228,
+    "altura": 124
+  },
+  "raz-ideia-proporcao": {
+    "arquivo": "/assets/licoes/raz-ideia-proporcao.png",
+    "alt": "Duas receitas em blocos: três para dois, e seis para quatro.",
+    "largura": 279,
+    "altura": 172
+  },
+  "raz-res-proporcao": {
+    "arquivo": "/assets/licoes/raz-res-proporcao.png",
+    "alt": "Tabela comparando as razões três meios e seis quartos, simplificadas.",
+    "largura": 336,
+    "altura": 148
+  },
+  "raz-q-forma-proporcao": {
+    "arquivo": "/assets/questoes/raz-q-forma-proporcao.png",
+    "alt": "Tabela com as duas razões do enunciado, sem a conta feita.",
+    "largura": 248,
+    "altura": 148
+  },
+  "raz-q-qual-nao": {
+    "arquivo": "/assets/questoes/raz-q-qual-nao.png",
+    "alt": "Tabela lembrando os dois jeitos de conferir se duas razões formam proporção.",
+    "largura": 320,
+    "altura": 148
+  },
+  "raz-q-receita": {
+    "arquivo": "/assets/questoes/raz-q-receita.png",
+    "alt": "Tabela com as quantidades da receita original e a coluna do dobro em aberto.",
+    "largura": 252,
+    "altura": 144
+  },
+  "raz-q-fotos": {
+    "arquivo": "/assets/questoes/raz-q-fotos.png",
+    "alt": "Tabela com as medidas da foto menor e a altura da maior em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-ideia-cruz": {
+    "arquivo": "/assets/licoes/raz-ideia-cruz.png",
+    "alt": "Tabela nomeando os extremos e os meios de uma proporção.",
+    "largura": 279,
+    "altura": 148
+  },
+  "raz-res-cruz": {
+    "arquivo": "/assets/licoes/raz-res-cruz.png",
+    "alt": "Tabela com a proporção do exemplo e o termo procurado em aberto.",
+    "largura": 257,
+    "altura": 144
+  },
+  "raz-q-cruz-1": {
+    "arquivo": "/assets/questoes/raz-q-cruz-1.png",
+    "alt": "Tabela com a proporção dois terços igual a x sobre doze.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-q-cruz-2": {
+    "arquivo": "/assets/questoes/raz-q-cruz-2.png",
+    "alt": "Tabela com a proporção cinco sobre x igual a quinze nonos.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-q-cadernos": {
+    "arquivo": "/assets/questoes/raz-q-cadernos.png",
+    "alt": "Tabela com quatro cadernos a trinta reais e o preço de seis em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-q-propriedade": {
+    "arquivo": "/assets/questoes/raz-q-propriedade.png",
+    "alt": "Tabela nomeando os extremos e os meios de uma proporção.",
+    "largura": 272,
+    "altura": 148
+  },
+  "raz-ideia-escala": {
+    "arquivo": "/assets/licoes/raz-ideia-escala.png",
+    "alt": "Tabela com três escalas e o que cada uma significa.",
+    "largura": 320,
+    "altura": 182
+  },
+  "raz-res-mapa": {
+    "arquivo": "/assets/licoes/raz-res-mapa.png",
+    "alt": "Tabela com a medida no mapa e a distância real em aberto.",
+    "largura": 252,
+    "altura": 144
+  },
+  "raz-q-planta": {
+    "arquivo": "/assets/questoes/raz-q-planta.png",
+    "alt": "Retângulo desenhado sobre malha, representando a parede da planta.",
+    "largura": 272,
+    "altura": 134
+  },
+  "raz-q-sala": {
+    "arquivo": "/assets/questoes/raz-q-sala.png",
+    "alt": "Tabela com o comprimento real da sala e a medida do desenho em aberto.",
+    "largura": 308,
+    "altura": 114
+  },
+  "raz-q-ampliacao": {
+    "arquivo": "/assets/questoes/raz-q-ampliacao.png",
+    "alt": "Tabela comparando uma escala de redução com uma de ampliação.",
+    "largura": 324,
+    "altura": 148
+  },
+  "raz-q-trecho": {
+    "arquivo": "/assets/questoes/raz-q-trecho.png",
+    "alt": "Tabela com três centímetros valendo quinze quilômetros e o trecho de oito em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-ideia-grandezas": {
+    "arquivo": "/assets/licoes/raz-ideia-grandezas.png",
+    "alt": "Tabela com cadernos e preço, e o fator que atravessa as duas linhas.",
+    "largura": 392,
+    "altura": 144
+  },
+  "raz-res-tabela": {
+    "arquivo": "/assets/licoes/raz-res-tabela.png",
+    "alt": "Tabela com a quantidade de cadernos e o preço pago em cada caso.",
+    "largura": 322,
+    "altura": 114
+  },
+  "raz-q-pedreiros": {
+    "arquivo": "/assets/questoes/raz-q-pedreiros.png",
+    "alt": "Tabela com pedreiros e dias, com o tempo da equipe maior em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-q-carro": {
+    "arquivo": "/assets/questoes/raz-q-carro.png",
+    "alt": "Tabela com horas e quilômetros, com a distância de três horas em aberto.",
+    "largura": 322,
+    "altura": 114
+  },
+  "raz-q-nao-proporcional": {
+    "arquivo": "/assets/questoes/raz-q-nao-proporcional.png",
+    "alt": "Tabela com o teste que separa proporcionalidade direta, inversa e ausência de proporcionalidade.",
+    "largura": 328,
+    "altura": 182
+  },
+  "raz-q-tabela-inversa": {
+    "arquivo": "/assets/questoes/raz-q-tabela-inversa.png",
+    "alt": "Tabela com os valores de x e y do enunciado.",
+    "largura": 322,
+    "altura": 114
+  },
+  "raz-ideia-montar": {
+    "arquivo": "/assets/licoes/raz-ideia-montar.png",
+    "alt": "Tabela mostrando a montagem certa e a errada de uma proporção, pelas unidades.",
+    "largura": 336,
+    "altura": 148
+  },
+  "raz-res-arroz": {
+    "arquivo": "/assets/licoes/raz-res-arroz.png",
+    "alt": "Tabela com cinco quilos a trinta reais e o preço de oito quilos em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-q-baldes": {
+    "arquivo": "/assets/questoes/raz-q-baldes.png",
+    "alt": "Tabela com baldes e minutos, com o tempo de cinco baldes em aberto.",
+    "largura": 257,
+    "altura": 114
+  },
+  "raz-q-cafe": {
+    "arquivo": "/assets/questoes/raz-q-cafe.png",
+    "alt": "Tabela com o peso do pacote de café e o preço pago.",
+    "largura": 240,
+    "altura": 114
+  },
+  "raz-q-obra": {
+    "arquivo": "/assets/questoes/raz-q-obra.png",
+    "alt": "Tabela com operários e dias, com o tempo da equipe menor em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "raz-q-suco": {
+    "arquivo": "/assets/questoes/raz-q-suco.png",
+    "alt": "Duas fileiras de blocos com dois de polpa para cinco de água.",
+    "largura": 257,
+    "altura": 120
+  },
+  "rt-ideia-tabela": {
+    "arquivo": "/assets/licoes/rt-ideia-tabela.png",
+    "alt": "Tabela de regra de três com cadernos e reais, e o quarto valor em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-res-cadernos": {
+    "arquivo": "/assets/licoes/rt-res-cadernos.png",
+    "alt": "Tabela com quatro cadernos a trinta reais e o preço de seis em aberto.",
+    "largura": 252,
+    "altura": 92
+  },
+  "rt-q-quantos": {
+    "arquivo": "/assets/questoes/rt-q-quantos.png",
+    "alt": "Tabela genérica de proporção com os quatro termos nomeados por letras.",
+    "largura": 272,
+    "altura": 114
+  },
+  "rt-q-pizzas": {
+    "arquivo": "/assets/questoes/rt-q-pizzas.png",
+    "alt": "Tabela com três pizzas a noventa reais e o preço de cinco em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-arroz": {
+    "arquivo": "/assets/questoes/rt-q-arroz.png",
+    "alt": "Tabela com pessoas e gramas de arroz, com a segunda situação em aberto.",
+    "largura": 257,
+    "altura": 114
+  },
+  "rt-q-antes": {
+    "arquivo": "/assets/questoes/rt-q-antes.png",
+    "alt": "Tabela com o teste que classifica a relação entre duas grandezas.",
+    "largura": 378,
+    "altura": 148
+  },
+  "rt-ideia-direta": {
+    "arquivo": "/assets/licoes/rt-ideia-direta.png",
+    "alt": "Tabela de quilos e reais com os dois fatores apontando no mesmo sentido.",
+    "largura": 293,
+    "altura": 174
+  },
+  "rt-res-arroz": {
+    "arquivo": "/assets/licoes/rt-res-arroz.png",
+    "alt": "Tabela com cinco quilos a trinta reais e o preço de oito quilos em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-combustivel": {
+    "arquivo": "/assets/questoes/rt-q-combustivel.png",
+    "alt": "Tabela com litros e quilômetros, com o consumo do trajeto maior em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-impressora": {
+    "arquivo": "/assets/questoes/rt-q-impressora.png",
+    "alt": "Tabela com páginas e minutos, com a produção de sete minutos em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-tecido": {
+    "arquivo": "/assets/questoes/rt-q-tecido.png",
+    "alt": "Tabela com metros de tecido e reais, com o preço de sete metros em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-montagem-direta": {
+    "arquivo": "/assets/questoes/rt-q-montagem-direta.png",
+    "alt": "Tabela comparando a montagem certa e a errada de uma regra de três direta.",
+    "largura": 336,
+    "altura": 148
+  },
+  "rt-ideia-inversa": {
+    "arquivo": "/assets/licoes/rt-ideia-inversa.png",
+    "alt": "Tabela de pedreiros e dias com o fator de baixo apontando para o lado oposto.",
+    "largura": 308,
+    "altura": 174
+  },
+  "rt-res-pedreiros": {
+    "arquivo": "/assets/licoes/rt-res-pedreiros.png",
+    "alt": "Tabela com três pedreiros em doze dias e o tempo de seis pedreiros em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-torneiras": {
+    "arquivo": "/assets/questoes/rt-q-torneiras.png",
+    "alt": "Tabela com torneiras e minutos, com o tempo de cinco torneiras em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-velocidade": {
+    "arquivo": "/assets/questoes/rt-q-velocidade.png",
+    "alt": "Tabela com velocidade e horas, com o tempo da velocidade maior em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-racao": {
+    "arquivo": "/assets/questoes/rt-q-racao.png",
+    "alt": "Tabela com cavalos e dias de ração, com a duração para dez cavalos em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-mantem": {
+    "arquivo": "/assets/questoes/rt-q-mantem.png",
+    "alt": "Tabela comparando o que se mantém constante na proporcionalidade direta e na inversa.",
+    "largura": 284,
+    "altura": 148
+  },
+  "rt-ideia-decidir": {
+    "arquivo": "/assets/licoes/rt-ideia-decidir.png",
+    "alt": "Tabela com o teste de dobrar uma grandeza e o tipo que ele indica.",
+    "largura": 378,
+    "altura": 148
+  },
+  "rt-res-decidir": {
+    "arquivo": "/assets/licoes/rt-res-decidir.png",
+    "alt": "Tabela classificando dois pares de grandezas como direto e inverso.",
+    "largura": 328,
+    "altura": 148
+  },
+  "rt-q-tipo-operarios": {
+    "arquivo": "/assets/questoes/rt-q-tipo-operarios.png",
+    "alt": "Tabela com operários e tempo de obra, sem os valores preenchidos.",
+    "largura": 264,
+    "altura": 114
+  },
+  "rt-q-tipo-salario": {
+    "arquivo": "/assets/questoes/rt-q-tipo-salario.png",
+    "alt": "Tabela com horas trabalhadas e salário, sem os valores preenchidos.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-maquinas": {
+    "arquivo": "/assets/questoes/rt-q-maquinas.png",
+    "alt": "Tabela com máquinas e dias, com o tempo de quatro máquinas em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-qual-direta": {
+    "arquivo": "/assets/questoes/rt-q-qual-direta.png",
+    "alt": "Tabela com o teste que separa grandezas diretas de inversas.",
+    "largura": 378,
+    "altura": 148
+  },
+  "rt-ideia-unidades": {
+    "arquivo": "/assets/licoes/rt-ideia-unidades.png",
+    "alt": "Tabela comparando uma linha com unidades misturadas e outra com a unidade única.",
+    "largura": 304,
+    "altura": 148
+  },
+  "rt-res-torneira": {
+    "arquivo": "/assets/licoes/rt-res-torneira.png",
+    "alt": "Tabela com litros e minutos, com a hora já convertida para sessenta minutos.",
+    "largura": 272,
+    "altura": 114
+  },
+  "rt-q-carro-hora": {
+    "arquivo": "/assets/questoes/rt-q-carro-hora.png",
+    "alt": "Tabela com quilômetros e minutos, com a distância de uma hora em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-queijo": {
+    "arquivo": "/assets/questoes/rt-q-queijo.png",
+    "alt": "Tabela com gramas de queijo e reais, com os dois quilos já convertidos.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-bombas": {
+    "arquivo": "/assets/questoes/rt-q-bombas.png",
+    "alt": "Tabela com bombas e minutos, com o tempo de duas bombas em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-regra-unidade": {
+    "arquivo": "/assets/questoes/rt-q-regra-unidade.png",
+    "alt": "Tabela mostrando que cada linha guarda uma grandeza e cada coluna uma situação.",
+    "largura": 296,
+    "altura": 148
+  },
+  "rt-ideia-passos": {
+    "arquivo": "/assets/licoes/rt-ideia-passos.png",
+    "alt": "Tabela com os cinco passos para resolver um problema de regra de três, na ordem.",
+    "largura": 324,
+    "altura": 250
+  },
+  "rt-res-fabrica": {
+    "arquivo": "/assets/licoes/rt-res-fabrica.png",
+    "alt": "Tabela com máquinas e peças produzidas, com a produção de oito máquinas em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-canil": {
+    "arquivo": "/assets/questoes/rt-q-canil.png",
+    "alt": "Tabela com pacotes de ração e dias, com a duração de seis pacotes em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-ciclista": {
+    "arquivo": "/assets/questoes/rt-q-ciclista.png",
+    "alt": "Tabela com velocidade e minutos, com o tempo da velocidade maior em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-leite": {
+    "arquivo": "/assets/questoes/rt-q-leite.png",
+    "alt": "Tabela com pessoas e mililitros de leite, com a receita menor em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "rt-q-nao-regra": {
+    "arquivo": "/assets/questoes/rt-q-nao-regra.png",
+    "alt": "Tabela comparando um problema com duas situações e outro com uma só.",
+    "largura": 312,
+    "altura": 148
+  },
+  "jur-ideia-fator": {
+    "arquivo": "/assets/licoes/jur-ideia-fator.png",
+    "alt": "Tabela com taxas de aumento e desconto e o fator multiplicativo de cada uma.",
+    "largura": 352,
+    "altura": 216
+  },
+  "jur-res-fator": {
+    "arquivo": "/assets/licoes/jur-res-fator.png",
+    "alt": "Tabela com o preço da camisa e a porcentagem que ele representa antes e depois do aumento.",
+    "largura": 252,
+    "altura": 114
+  },
+  "jur-q-fator-aumento": {
+    "arquivo": "/assets/questoes/jur-q-fator-aumento.png",
+    "alt": "Tabela lembrando como montar o fator de um aumento.",
+    "largura": 256,
+    "altura": 182
+  },
+  "jur-q-fator-desconto": {
+    "arquivo": "/assets/questoes/jur-q-fator-desconto.png",
+    "alt": "Tabela lembrando como montar o fator de um desconto.",
+    "largura": 256,
+    "altura": 182
+  },
+  "jur-q-tenis": {
+    "arquivo": "/assets/questoes/jur-q-tenis.png",
+    "alt": "Quadriculado de cem partes com oitenta delas preenchidas.",
+    "largura": 412,
+    "altura": 442
+  },
+  "jur-q-ler-fator": {
+    "arquivo": "/assets/questoes/jur-q-ler-fator.png",
+    "alt": "Tabela comparando fatores maiores e menores que um.",
+    "largura": 280,
+    "altura": 182
+  },
+  "jur-ideia-sucessivos": {
+    "arquivo": "/assets/licoes/jur-ideia-sucessivos.png",
+    "alt": "Tabela com o preço depois de cada um dos dois aumentos de dez por cento.",
+    "largura": 322,
+    "altura": 144
+  },
+  "jur-res-sucessivos": {
+    "arquivo": "/assets/licoes/jur-res-sucessivos.png",
+    "alt": "Gráfico de colunas com o preço no início e depois de cada aumento.",
+    "largura": 268,
+    "altura": 274
+  },
+  "jur-q-dois-aumentos": {
+    "arquivo": "/assets/questoes/jur-q-dois-aumentos.png",
+    "alt": "Tabela com o preço inicial e as duas etapas de aumento em aberto.",
+    "largura": 322,
+    "altura": 114
+  },
+  "jur-q-dois-descontos": {
+    "arquivo": "/assets/questoes/jur-q-dois-descontos.png",
+    "alt": "Tabela com o preço inicial e as duas etapas de desconto em aberto.",
+    "largura": 359,
+    "altura": 114
+  },
+  "jur-q-sobe-desce": {
+    "arquivo": "/assets/questoes/jur-q-sobe-desce.png",
+    "alt": "Tabela com o preço inicial, o aumento e o desconto seguintes em aberto.",
+    "largura": 322,
+    "altura": 114
+  },
+  "jur-q-equivalente": {
+    "arquivo": "/assets/questoes/jur-q-equivalente.png",
+    "alt": "Tabela lembrando que taxas sucessivas multiplicam fatores em vez de somar.",
+    "largura": 280,
+    "altura": 148
+  },
+  "jur-ideia-proporcao": {
+    "arquivo": "/assets/licoes/jur-ideia-proporcao.png",
+    "alt": "Tabela com a forma geral da proporção que resolve problemas de porcentagem.",
+    "largura": 301,
+    "altura": 114
+  },
+  "jur-res-oculos": {
+    "arquivo": "/assets/licoes/jur-res-oculos.png",
+    "alt": "Tabela com a turma inteira e os alunos de óculos, com a taxa em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "jur-q-prova": {
+    "arquivo": "/assets/questoes/jur-q-prova.png",
+    "alt": "Tabela com o total de questões da prova e os acertos, com a taxa em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "jur-q-total": {
+    "arquivo": "/assets/questoes/jur-q-total.png",
+    "alt": "Tabela com a parte conhecida e o total em aberto.",
+    "largura": 252,
+    "altura": 114
+  },
+  "jur-q-aumento-taxa": {
+    "arquivo": "/assets/questoes/jur-q-aumento-taxa.png",
+    "alt": "Gráfico de colunas com o preço antigo e o preço novo do produto.",
+    "largura": 279,
+    "altura": 274
+  },
+  "jur-q-quem-e-100": {
+    "arquivo": "/assets/questoes/jur-q-quem-e-100.png",
+    "alt": "Tabela mostrando o papel de cada valor na proporção de porcentagem.",
+    "largura": 304,
+    "altura": 148
+  },
+  "jur-ideia-juro": {
+    "arquivo": "/assets/licoes/jur-ideia-juro.png",
+    "alt": "Tabela nomeando capital, taxa e tempo numa situação de juro simples.",
+    "largura": 308,
+    "altura": 182
+  },
+  "jur-res-aplicacao": {
+    "arquivo": "/assets/licoes/jur-res-aplicacao.png",
+    "alt": "Gráfico de colunas com o juro acumulado mês a mês, subindo sempre o mesmo degrau.",
+    "largura": 400,
+    "altura": 274
+  },
+  "jur-q-500": {
+    "arquivo": "/assets/questoes/jur-q-500.png",
+    "alt": "Tabela com o capital, a taxa mensal e o tempo da aplicação.",
+    "largura": 260,
+    "altura": 182
+  },
+  "jur-q-sobre-o-que": {
+    "arquivo": "/assets/questoes/jur-q-sobre-o-que.png",
+    "alt": "Gráfico de colunas com o juro de cada mês, todos do mesmo tamanho.",
+    "largura": 336,
+    "altura": 274
+  },
+  "jur-q-taxa": {
+    "arquivo": "/assets/questoes/jur-q-taxa.png",
+    "alt": "Tabela com o capital, o juro total e o tempo, com a taxa em aberto.",
+    "largura": 260,
+    "altura": 182
+  },
+  "jur-q-tempo": {
+    "arquivo": "/assets/questoes/jur-q-tempo.png",
+    "alt": "Tabela com a taxa mensal e a meta de rendimento, com o tempo em aberto.",
+    "largura": 280,
+    "altura": 182
+  },
+  "jur-ideia-montante": {
+    "arquivo": "/assets/licoes/jur-ideia-montante.png",
+    "alt": "Tabela mostrando que o montante é o capital somado aos juros.",
+    "largura": 288,
+    "altura": 182
+  },
+  "jur-res-montante": {
+    "arquivo": "/assets/licoes/jur-res-montante.png",
+    "alt": "Gráfico de colunas com o capital e o montante depois de dez meses.",
+    "largura": 315,
+    "altura": 274
+  },
+  "jur-q-montante-800": {
+    "arquivo": "/assets/questoes/jur-q-montante-800.png",
+    "alt": "Tabela com o capital, a taxa e o tempo da aplicação de oitocentos reais.",
+    "largura": 260,
+    "altura": 182
+  },
+  "jur-q-juro-do-montante": {
+    "arquivo": "/assets/questoes/jur-q-juro-do-montante.png",
+    "alt": "Gráfico de colunas comparando o capital emprestado com o montante pago.",
+    "largura": 200,
+    "altura": 274
+  },
+  "jur-q-dobrar": {
+    "arquivo": "/assets/questoes/jur-q-dobrar.png",
+    "alt": "Tabela com a taxa mensal e a meta de render cem por cento do capital.",
+    "largura": 288,
+    "altura": 182
+  },
+  "jur-q-taxa-mensal": {
+    "arquivo": "/assets/questoes/jur-q-taxa-mensal.png",
+    "alt": "Tabela com capital, juro e tempo, com a taxa mensal em aberto.",
+    "largura": 260,
+    "altura": 182
+  },
+  "jur-ideia-decidir": {
+    "arquivo": "/assets/licoes/jur-ideia-decidir.png",
+    "alt": "Tabela comparando duas ofertas pelo preço final em vez de pela taxa anunciada.",
+    "largura": 372,
+    "altura": 148
+  },
+  "jur-res-tv": {
+    "arquivo": "/assets/licoes/jur-res-tv.png",
+    "alt": "Gráfico de colunas comparando o preço à vista com o total do parcelado.",
+    "largura": 200,
+    "altura": 274
+  },
+  "jur-q-celular": {
+    "arquivo": "/assets/questoes/jur-q-celular.png",
+    "alt": "Tabela com o preço à vista do celular e as condições do parcelamento.",
+    "largura": 280,
+    "altura": 148
+  },
+  "jur-q-duas-lojas": {
+    "arquivo": "/assets/questoes/jur-q-duas-lojas.png",
+    "alt": "Tabela com o preço e o desconto anunciados por cada uma das duas lojas.",
+    "largura": 324,
+    "altura": 148
+  },
+  "jur-q-emprestimo": {
+    "arquivo": "/assets/questoes/jur-q-emprestimo.png",
+    "alt": "Tabela com o valor emprestado, a taxa mensal e o prazo.",
+    "largura": 260,
+    "altura": 182
+  },
+  "jur-q-taxa-sem-base": {
+    "arquivo": "/assets/questoes/jur-q-taxa-sem-base.png",
+    "alt": "Tabela mostrando quanto vale um desconto de quarenta por cento em preços diferentes.",
+    "largura": 286,
+    "altura": 148
   }
 }

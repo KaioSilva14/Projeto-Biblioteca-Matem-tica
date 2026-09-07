@@ -1,0 +1,211 @@
+{
+  "id": "qual-usar",
+  "numero": 4,
+  "titulo": "Direta ou inversa?",
+  "pergunta": "Como decidir o tipo antes de escrever qualquer número?",
+  "ideia": {
+    "paragrafos": [
+      "Essa é a decisão que salva ou perde o problema. As duas montagens usam os mesmos quatro números e dão respostas diferentes — e a errada costuma parecer razoável, porque também é um número.",
+      "O teste cabe numa frase: se eu DOBRAR a primeira grandeza, o que acontece com a segunda? Se ela dobra, é direta. Se ela cai pela metade, é inversa. Não é preciso calcular nada para responder isso; basta pensar na situação.",
+      "Alguns exemplos, sempre pelo teste. Dobrar os quilos de arroz dobra o preço: direta. Dobrar o número de pedreiros corta o tempo pela metade: inversa. Dobrar a velocidade num mesmo trajeto corta o tempo pela metade: inversa. Dobrar as horas de trabalho dobra o salário: direta.",
+      "Cuidado com uma armadilha frequente. 'Mais rápido' e 'mais gente' quase sempre indicam inversa, mas o que decide é a pergunta, e não a palavra. Se mais pedreiros trabalham por MAIS dias, o total de trabalho cresce — e aí a relação com a obra pronta é direta.",
+      "E há um segundo teste, para quem prefere números: monte a tabela e olhe as duas colunas conhecidas. Se as duas grandezas crescem juntas, direta; se uma cresce enquanto a outra encolhe, inversa. É o mesmo raciocínio, feito com o dado na frente."
+    ],
+    "destaque": "Dobre a primeira grandeza mentalmente. A segunda dobra, ou cai pela metade?",
+    "imagem": "rt-ideia-decidir"
+  },
+  "resolvido": {
+    "enunciado": "Classifique como direta ou inversa: (a) litros de tinta e área pintada; (b) número de pintores e tempo para pintar a mesma parede.",
+    "imagem": "rt-res-decidir",
+    "passos": [
+      {
+        "titulo": "Aplique o teste ao primeiro par",
+        "explicacao": "Dobrando os litros de tinta, dá para pintar o dobro da área. As duas crescem juntas.",
+        "conta": "tinta ×2 → área ×2"
+      },
+      {
+        "titulo": "Classifique",
+        "explicacao": "Uma dobra e a outra dobra: proporcionalidade direta. A razão litros por metro quadrado se mantém.",
+        "conta": "(a) direta"
+      },
+      {
+        "titulo": "Aplique ao segundo par",
+        "explicacao": "Dobrando os pintores, a mesma parede fica pronta na metade do tempo. Uma cresce e a outra encolhe.",
+        "conta": "pintores ×2 → tempo ÷2"
+      },
+      {
+        "titulo": "Classifique",
+        "explicacao": "Uma dobra e a outra cai pela metade: proporcionalidade inversa. O produto pintores × tempo se mantém.",
+        "conta": "(b) inversa"
+      }
+    ],
+    "fecho": "Repare que a parede é a mesma nos dois casos. O que muda é qual grandeza está sendo comparada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O número de operários e o tempo para terminar uma obra são grandezas de que tipo?",
+      "imagem": "rt-q-tipo-operarios",
+      "dica": "Dobre os operários mentalmente e veja o que acontece com o tempo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Inversamente proporcionais" },
+        { "rotulo": "B", "texto": "Diretamente proporcionais" },
+        { "rotulo": "C", "texto": "Não são proporcionais" },
+        { "rotulo": "D", "texto": "Depende do tamanho da obra" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Diretamente proporcionais",
+          "porque": "Seriam diretas se mais operários levassem mais tempo, o que não acontece. Dobrando a equipe, a mesma obra fica pronta na metade do tempo."
+        },
+        {
+          "resposta": "Não são proporcionais",
+          "porque": "Elas são proporcionais, só que de forma inversa: o produto operários × tempo se mantém, e ele representa o trabalho total da obra."
+        },
+        {
+          "resposta": "Depende do tamanho da obra",
+          "porque": "O tamanho da obra muda o VALOR do produto constante, mas não o tipo de relação. Em qualquer obra, mais operários significa menos tempo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique o teste",
+          "explicacao": "Dobrando os operários, o tempo cai pela metade.",
+          "conta": "operários ×2 → tempo ÷2"
+        },
+        {
+          "titulo": "Classifique",
+          "explicacao": "Uma cresce e a outra encolhe na mesma medida: inversa.",
+          "conta": "inversamente proporcionais"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O número de horas trabalhadas e o salário recebido, ao mesmo valor por hora, são grandezas de que tipo?",
+      "imagem": "rt-q-tipo-salario",
+      "dica": "Dobrando as horas, o que acontece com o pagamento?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Diretamente proporcionais" },
+        { "rotulo": "B", "texto": "Inversamente proporcionais" },
+        { "rotulo": "C", "texto": "Não são proporcionais" },
+        { "rotulo": "D", "texto": "Depende do dia da semana" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Inversamente proporcionais",
+          "porque": "Seriam inversas se trabalhar mais rendesse menos dinheiro. Ao mesmo valor por hora, dobrar as horas dobra o salário."
+        },
+        {
+          "resposta": "Não são proporcionais",
+          "porque": "Elas são: a razão salário por hora se mantém constante, e é justamente o valor da hora. Razão constante é a definição de direta."
+        },
+        {
+          "resposta": "Depende do dia da semana",
+          "porque": "O enunciado fixa o mesmo valor por hora, então não há variação escondida. Com esse valor fixo, a relação é direta em qualquer dia."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique o teste",
+          "explicacao": "Dobrando as horas, o salário dobra.",
+          "conta": "horas ×2 → salário ×2"
+        },
+        {
+          "titulo": "Confirme pela razão",
+          "explicacao": "Salário dividido por horas dá sempre o valor da hora, que não muda.",
+          "conta": "razão constante → direta"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Se 6 máquinas produzem uma encomenda em 10 dias, quantos dias levam 4 máquinas? Digite apenas o número.",
+      "imagem": "rt-q-maquinas",
+      "dica": "Decida o tipo primeiro: menos máquinas levam mais ou menos tempo?",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "dias",
+      "errosComuns": [
+        {
+          "resposta": "6.67",
+          "porque": "6,67 monta como se fosse direta, o que faria menos máquinas terminarem antes. Com menos gente produzindo, a encomenda demora MAIS."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 subtrai dois dias pelas duas máquinas a menos. Na inversa o que se mantém é o produto: a encomenda vale 6 × 10 = 60 dias de uma máquina."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é o produto, que representa a encomenda inteira em dias de uma máquina. Falta dividir pelas quatro máquinas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Menos máquinas, mais tempo: inversa.",
+          "conta": "inversa"
+        },
+        {
+          "titulo": "Use o produto constante",
+          "explicacao": "Ele é o trabalho total da encomenda.",
+          "conta": "6 × 10 = 60"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "O resultado é maior que 10, como esperado ao reduzir a equipe.",
+          "conta": "60 ÷ 4 = 15 dias"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual destes pares é DIRETAMENTE proporcional?",
+      "imagem": "rt-q-qual-direta",
+      "dica": "Aplique o teste de dobrar em cada par e veja qual cresce junto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quantidade de pães e preço total" },
+        { "rotulo": "B", "texto": "Velocidade e tempo no mesmo trajeto" },
+        { "rotulo": "C", "texto": "Número de bombas e tempo para esvaziar um poço" },
+        { "rotulo": "D", "texto": "Número de convidados e dias que a comida dura" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Velocidade e tempo no mesmo trajeto",
+          "porque": "Esse par é inverso: dobrando a velocidade, o tempo cai pela metade. O produto dos dois é a distância, que não muda."
+        },
+        {
+          "resposta": "Número de bombas e tempo para esvaziar um poço",
+          "porque": "Também inverso: mais bombas esvaziam mais rápido. O produto bombas × tempo representa o poço inteiro."
+        },
+        {
+          "resposta": "Número de convidados e dias que a comida dura",
+          "porque": "Inverso outra vez: mais gente comendo faz a comida acabar antes. O produto é a comida toda, em dias de uma pessoa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste o primeiro par",
+          "explicacao": "Dobrando os pães, o preço dobra.",
+          "conta": "pães ×2 → preço ×2"
+        },
+        {
+          "titulo": "Teste os outros três",
+          "explicacao": "Nos três, dobrar a primeira grandeza corta a segunda pela metade.",
+          "conta": "×2 → ÷2 nos três"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Só o par de pães e preço cresce junto, então é o único direto.",
+          "conta": "pães e preço"
+        }
+      ]
+    }
+  ]
+}

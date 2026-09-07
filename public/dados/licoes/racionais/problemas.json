@@ -1,0 +1,206 @@
+{
+  "id": "problemas",
+  "numero": 7,
+  "titulo": "Problemas com racionais",
+  "pergunta": "Qual roupa do número deixa a conta mais fácil?",
+  "ideia": {
+    "paragrafos": [
+      "Num problema com racionais, a primeira decisão não é qual conta fazer: é em que FORMA fazer. O mesmo problema pode ficar fácil ou penoso dependendo de você escolher fração, decimal ou porcentagem.",
+      "A regra prática é simples. Se os números do enunciado já vêm em dinheiro ou medida, fique no decimal — ninguém soma reais em fração. Se vêm como partes de um todo com denominadores pequenos, a fração costuma ser mais limpa, porque evita dízima.",
+      "O sinal continua saindo do contexto, como no assunto anterior: o que entra é positivo, o que sai é negativo; subir é positivo, descer é negativo. A diferença é que agora esses valores podem ter vírgula ou traço de fração.",
+      "Um cuidado que vale o problema inteiro: 'sobrou quanto' e 'sobrou que fração' são perguntas diferentes. Se 2/5 de um bolo foram comidos, sobraram 3/5 DO BOLO — e se o bolo tinha 800 gramas, sobraram 480 gramas. Uma resposta é fração, a outra é quantidade.",
+      "E, no fim, vale sempre conferir se o resultado é possível. Uma parte não pode ser maior que o todo; um saldo que só teve saídas não pode terminar positivo; e uma fração de uma quantidade não pode dar mais que a quantidade, a menos que a fração seja maior que 1."
+    ],
+    "destaque": "Escolha a forma antes de calcular. A conta certa na roupa errada custa o dobro.",
+    "imagem": "rac-ideia-problemas"
+  },
+  "resolvido": {
+    "enunciado": "Um bolo de 800 gramas foi cortado e 2/5 dele foram comidos. Quantos gramas sobraram?",
+    "imagem": "rac-res-bolo",
+    "passos": [
+      {
+        "titulo": "Veja o que a pergunta quer",
+        "explicacao": "Ela pede uma quantidade em gramas, e não uma fração. Então em algum momento a fração vai ter de virar número de gramas.",
+        "conta": "resposta em gramas"
+      },
+      {
+        "titulo": "Ache a fração que sobrou",
+        "explicacao": "O bolo inteiro é 5/5. Se 2/5 foram comidos, o que sobra é a diferença — e aqui os denominadores já são iguais.",
+        "conta": "5/5 − 2/5 = 3/5"
+      },
+      {
+        "titulo": "Aplique a fração à quantidade",
+        "explicacao": "Três quintos de 800 gramas: divida por 5 para achar um quinto e multiplique por 3.",
+        "conta": "800 ÷ 5 = 160 · 160 × 3 = 480"
+      },
+      {
+        "titulo": "Confira se é possível",
+        "explicacao": "Sobraram 480 de 800 gramas, ou seja, mais da metade — compatível com ter comido menos da metade do bolo.",
+        "conta": "480 gramas"
+      }
+    ],
+    "fecho": "Duas perguntas moram no mesmo problema: que fração sobrou, e quanto isso vale em gramas."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "De uma garrafa de 1,5 litro, foram bebidos 0,4 litro pela manhã e 0,35 litro à tarde. Quantos litros sobraram? Digite apenas o número.",
+      "imagem": "rac-q-garrafa",
+      "dica": "Some o que saiu antes de descontar. Alinhe as vírgulas para não errar de casa.",
+      "formato": "numero",
+      "resposta": 0.75,
+      "unidade": "litros",
+      "errosComuns": [
+        {
+          "resposta": "1.1",
+          "porque": "1,1 desconta só o primeiro gole. Foram duas retiradas, e as duas precisam sair do 1,5 antes de a conta terminar."
+        },
+        {
+          "resposta": "0.71",
+          "porque": "0,71 vem de somar 0,4 com 0,35 sem alinhar as vírgulas, o que dá 0,79 em vez de 0,75. Escrevendo 0,40 embaixo de 0,35, a casa dos décimos volta ao lugar."
+        },
+        {
+          "resposta": "2.25",
+          "porque": "2,25 soma tudo, inclusive o que foi bebido. O que saiu tem de ser DESCONTADO do que havia na garrafa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some o que saiu",
+          "explicacao": "Iguale as casas antes de somar: 0,40 e 0,35.",
+          "conta": "0,40 + 0,35 = 0,75"
+        },
+        {
+          "titulo": "Desconte do total",
+          "explicacao": "O que sobra é o que havia menos o que saiu.",
+          "conta": "1,50 − 0,75 = 0,75"
+        },
+        {
+          "titulo": "Confira se é possível",
+          "explicacao": "Sobrou exatamente metade da garrafa, que é compatível com ter bebido a outra metade.",
+          "conta": "0,75 litro"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma conta tinha saldo de −40 reais. Foram depositados 25,50 reais. Qual ficou o saldo? Digite o número com o sinal.",
+      "imagem": "rac-q-saldo-decimal",
+      "dica": "Depósito é positivo. Compare as distâncias até o zero para saber de que lado o resultado cai.",
+      "formato": "numero",
+      "resposta": -14.5,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "14.5",
+          "porque": "A distância está certa, mas o depósito não foi suficiente para cobrir a dívida: 25,50 é menor que 40, então a conta continua no vermelho."
+        },
+        {
+          "resposta": "-65.5",
+          "porque": "−65,50 soma as distâncias, tratando o depósito como mais uma saída. Depositar ENTRA dinheiro, então o valor é positivo e reduz a dívida."
+        },
+        {
+          "resposta": "-15.5",
+          "porque": "−15,50 erra a subtração na casa dos décimos: 40,00 − 25,50 dá 14,50. Vale armar a conta com as vírgulas alinhadas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva com sinais",
+          "explicacao": "O saldo devedor é negativo e o depósito é positivo.",
+          "conta": "−40 + 25,50"
+        },
+        {
+          "titulo": "Cabo de guerra",
+          "explicacao": "Sinais diferentes: distância 40 contra distância 25,50. Vence o 40, que é negativo.",
+          "conta": "40,00 − 25,50 = 14,50"
+        },
+        {
+          "titulo": "Use o sinal do vencedor",
+          "explicacao": "A dívida diminuiu, mas não acabou.",
+          "conta": "saldo = −14,50 reais"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa turma de 30 alunos, 2/5 vão de ônibus. Quantos alunos vão de ônibus? Digite apenas o número.",
+      "imagem": "rac-q-turma",
+      "dica": "Fração de uma quantidade: divida pelo de baixo e multiplique pelo de cima.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é apenas UM quinto de 30. A fração pede dois desses quintos, então falta multiplicar por 2."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 são os três quintos que NÃO vão de ônibus. A pergunta é sobre os 2/5, que é a parte menor."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a metade da turma, que seria 1/2 e não 2/5. Dois quintos é um pouco menos que a metade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache um quinto",
+          "explicacao": "O denominador diz em quantas partes iguais dividir a turma.",
+          "conta": "30 ÷ 5 = 6"
+        },
+        {
+          "titulo": "Pegue dois deles",
+          "explicacao": "O numerador diz quantas dessas partes a pergunta quer.",
+          "conta": "6 × 2 = 12"
+        },
+        {
+          "titulo": "Confira se é possível",
+          "explicacao": "Doze de trinta é menos que a metade, compatível com uma fração menor que 1/2.",
+          "conta": "12 alunos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma fita de 6 metros será cortada em pedaços de 3/4 de metro. Quantos pedaços saem? Digite apenas o número.",
+      "imagem": "rac-q-fita",
+      "dica": "Quantas vezes 3/4 cabe em 6? Dividir por uma fração é multiplicar pelo inverso.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "pedaços",
+      "errosComuns": [
+        {
+          "resposta": "4.5",
+          "porque": "4,5 é o resultado de 6 × 3/4, ou seja, três quartos DE 6. A pergunta é quantas vezes 3/4 cabe em 6, que é a divisão."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 sai de dividir 6 por 3, esquecendo o denominador 4. Cada pedaço tem 3/4 de metro, e não 3 metros."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 6 × 4, usando só o denominador. O inverso de 3/4 é 4/3 — os dois números entram na multiplicação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a divisão",
+          "explicacao": "Quantas vezes 3/4 cabe em 6 é a conta 6 ÷ 3/4.",
+          "conta": "6 ÷ 3/4"
+        },
+        {
+          "titulo": "Multiplique pelo inverso",
+          "explicacao": "O inverso de 3/4 é 4/3, e o 6 pode ser escrito como 6/1.",
+          "conta": "6/1 × 4/3 = 24/3"
+        },
+        {
+          "titulo": "Simplifique e confira",
+          "explicacao": "Oito pedaços de 3/4 dão 6 metros exatos, porque 8 × 3/4 = 24/4 = 6.",
+          "conta": "24/3 = 8 pedaços"
+        }
+      ]
+    }
+  ]
+}

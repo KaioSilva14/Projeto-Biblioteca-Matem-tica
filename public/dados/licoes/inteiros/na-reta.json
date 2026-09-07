@@ -1,0 +1,194 @@
+{
+  "id": "na-reta",
+  "numero": 2,
+  "titulo": "A reta ganha o lado esquerdo",
+  "pergunta": "Onde ficam os negativos na reta numérica?",
+  "ideia": {
+    "paragrafos": [
+      "A reta numérica que você já conhece começava no zero e seguia para a direita. Agora ela continua também para a esquerda, com os negativos, e passa a ter setas nas duas pontas: não acaba de nenhum lado.",
+      "A construção é simétrica. À direita do zero vêm 1, 2, 3, na distância de sempre; à esquerda, na mesma distância, vêm −1, −2, −3. O 3 e o −3 ficam à mesma distância do zero, um de cada lado, como duas pessoas em lados opostos de uma porta.",
+      "Esse par tem nome: −3 é o OPOSTO de 3, e 3 é o oposto de −3. Achar o oposto é trocar o lado sem mudar a distância — basta inverter o sinal. O oposto de −7 é 7; o oposto de 7 é −7. O zero é o único que é oposto de si mesmo, porque está em cima da fronteira.",
+      "E há uma segunda medida útil: a DISTÂNCIA até o zero, sem olhar o lado. De −6 até o zero são seis unidades; de 6 até o zero também. Essa distância se chama módulo, e ela nunca é negativa, porque distância é comprimento, não posição.",
+      "Vale separar bem as duas ideias, porque elas são confundidas o tempo todo. O sinal diz o LADO; o módulo diz o TAMANHO. Em −6, o lado é o esquerdo e o tamanho é 6."
+    ],
+    "destaque": "O sinal diz o lado do zero. O módulo diz a distância até ele.",
+    "imagem": "int-ideia-reta"
+  },
+  "resolvido": {
+    "enunciado": "Marque −4 na reta, encontre o oposto dele e diga a que distância do zero os dois estão.",
+    "imagem": "int-res-oposto",
+    "passos": [
+      {
+        "titulo": "Marque o −4",
+        "explicacao": "Partindo do zero, ande quatro unidades para a ESQUERDA, porque o sinal é de menos. É a quarta marca desse lado.",
+        "conta": "0 → −1 → −2 → −3 → −4"
+      },
+      {
+        "titulo": "Ache o oposto",
+        "explicacao": "O oposto fica do outro lado, à mesma distância. Ande quatro unidades a partir do zero, agora para a direita.",
+        "conta": "oposto de −4 = 4"
+      },
+      {
+        "titulo": "Confira a simetria",
+        "explicacao": "Dobrando a reta no zero, o −4 cai exatamente em cima do 4. É esse espelho que define um par de opostos.",
+        "conta": "−4 e 4 espelhados no 0"
+      },
+      {
+        "titulo": "Meça a distância",
+        "explicacao": "Os dois estão a quatro unidades do zero. A distância é a mesma para os dois, e não carrega sinal nenhum.",
+        "conta": "distância = 4"
+      }
+    ],
+    "fecho": "Trocar o sinal move o número para o outro lado. Não muda o tamanho dele."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Que número está marcado com o ponto na reta?",
+      "imagem": "int-q-ler-reta",
+      "dica": "Conte quantas marcas o ponto está distante do zero e veja de que lado ele ficou.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−3" },
+        { "rotulo": "B", "texto": "3" },
+        { "rotulo": "C", "texto": "−4" },
+        { "rotulo": "D", "texto": "−2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "A distância está certa, mas o lado não: o ponto está à esquerda do zero, e é isso que o sinal de menos registra. O 3 fica do lado oposto da reta."
+        },
+        {
+          "resposta": "−4",
+          "porque": "Quatro marcas seria uma casa mais à esquerda. Vale contar os ESPAÇOS entre os tracinhos a partir do zero, e não os tracinhos."
+        },
+        {
+          "resposta": "−2",
+          "porque": "Duas marcas seria uma casa mais à direita, mais perto do zero. Conte de novo a partir do zero, um espaço por vez."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece no zero",
+          "explicacao": "O zero é a marca mais alta da reta, e é sempre dele que a contagem parte.",
+          "conta": "referência = 0"
+        },
+        {
+          "titulo": "Veja o lado",
+          "explicacao": "O ponto está à esquerda do zero, então o número é negativo.",
+          "conta": "esquerda → sinal −"
+        },
+        {
+          "titulo": "Conte a distância",
+          "explicacao": "São três espaços do zero até o ponto.",
+          "conta": "−3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o oposto de −7? Digite o número.",
+      "imagem": "int-q-oposto",
+      "dica": "O oposto fica do outro lado do zero, à mesma distância. Só o sinal muda.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "-7",
+          "porque": "Esse é o próprio número, e não o oposto dele. O oposto tem de estar do OUTRO lado do zero — só o zero é oposto de si mesmo."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o ponto médio entre −7 e o oposto dele, mas não é o oposto. Oposto é o que está à mesma distância do zero, do outro lado."
+        },
+        {
+          "resposta": "-14",
+          "porque": "−14 sai de dobrar a distância em vez de trocar o lado. Achar o oposto não muda o tamanho: continuam sendo sete unidades até o zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça a distância até o zero",
+          "explicacao": "De −7 até o zero são sete unidades. Esse tamanho não muda.",
+          "conta": "distância = 7"
+        },
+        {
+          "titulo": "Troque o lado",
+          "explicacao": "Ande as mesmas sete unidades para o outro lado do zero.",
+          "conta": "oposto = 7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A quantas unidades do zero está o número −6? Digite apenas o número.",
+      "imagem": "int-q-distancia",
+      "dica": "Distância é comprimento: conte os espaços de −6 até o zero, sem se preocupar com o lado.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "-6",
+          "porque": "Distância não tem sinal, porque sinal é lado e distância é tamanho. Ir de −6 até o zero e voltar percorre o mesmo caminho: seis unidades."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o ponto de chegada da medida, e não o quanto se andou até ele. Só estaria a zero de distância um número que fosse o próprio zero."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a distância de −6 até 6, atravessando a reta inteira. A pergunta é sobre a distância até o zero, que é metade desse caminho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize os dois pontos",
+          "explicacao": "O −6 fica à esquerda do zero, seis marcas adiante.",
+          "conta": "de −6 até 0"
+        },
+        {
+          "titulo": "Conte os espaços",
+          "explicacao": "São seis unidades percorridas, e o resultado é positivo porque é um comprimento.",
+          "conta": "distância = 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois números diferentes estão à mesma distância do zero: um deles é −9. Qual é o outro? Digite o número.",
+      "imagem": "int-q-simetria",
+      "dica": "Mesma distância e números diferentes só acontece com um par de opostos.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "-9",
+          "porque": "O enunciado diz que os dois números são DIFERENTES, então não pode ser o mesmo. Do lado esquerdo só existe um número a nove unidades do zero."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 está a dezoito unidades do zero, e não a nove. A distância de 18 até −9 é que vale dezoito — mas a pergunta é sobre a distância até o zero."
+        },
+        {
+          "resposta": "0",
+          "porque": "O zero está a zero unidades de si mesmo, então não empata com −9. Ele é o meio do par, e não um dos dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça a distância dada",
+          "explicacao": "De −9 até o zero são nove unidades.",
+          "conta": "distância = 9"
+        },
+        {
+          "titulo": "Procure quem empata",
+          "explicacao": "Do lado direito, o número a nove unidades do zero é o 9. Ele e o −9 formam um par de opostos.",
+          "conta": "9 e −9"
+        }
+      ]
+    }
+  ]
+}

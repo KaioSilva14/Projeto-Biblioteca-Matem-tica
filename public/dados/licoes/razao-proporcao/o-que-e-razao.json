@@ -1,0 +1,211 @@
+{
+  "id": "o-que-e-razao",
+  "numero": 1,
+  "titulo": "Comparar por divisão",
+  "pergunta": "Quantas vezes uma coisa cabe na outra?",
+  "ideia": {
+    "paragrafos": [
+      "Há dois jeitos de comparar duas quantidades, e eles respondem perguntas diferentes. Numa turma com 12 meninas e 8 meninos, dá para dizer que há 4 meninas A MAIS — isso é comparar por diferença. Ou dizer que há 3 meninas para cada 2 meninos — isso é comparar por divisão.",
+      "A segunda comparação se chama RAZÃO, e é ela o assunto da matéria. A razão entre 12 e 8 é 12/8, que simplificado dá 3/2 — e lê-se 'três para dois'. Repare que a razão é uma fração, mas com um papel diferente: aqui ela não é uma parte de um todo, e sim uma comparação entre duas coisas.",
+      "Por que isso importa? Porque a diferença muda quando a turma cresce e a razão não. Numa turma com 24 meninas e 16 meninos, a diferença virou 8, mas a razão continua 3 para 2 — a proporção entre os grupos é a mesma. É a razão que descreve o formato da turma; a diferença descreve só o tamanho.",
+      "A ORDEM importa e não é detalhe. A razão de meninas para meninos é 12/8 = 3/2. A de meninos para meninas é 8/12 = 2/3. São números diferentes, e escrever ao contrário troca a resposta. O enunciado sempre diz a ordem: 'a razão de A para B' é A dividido por B.",
+      "E a razão não precisa comparar coisas do mesmo tipo. Quilômetros por hora compara distância com tempo; reais por quilo compara preço com massa. Nesses casos ela ganha nome próprio — velocidade, preço unitário — mas continua sendo uma divisão entre duas grandezas."
+    ],
+    "destaque": "Razão é comparar dividindo. A diferença muda com o tamanho; a razão, não.",
+    "imagem": "raz-ideia-comparar"
+  },
+  "resolvido": {
+    "enunciado": "Numa turma há 12 meninas e 8 meninos. Qual é a razão de meninas para meninos?",
+    "imagem": "raz-res-turma",
+    "passos": [
+      {
+        "titulo": "Leia a ordem pedida",
+        "explicacao": "O enunciado diz 'de meninas PARA meninos'. Então as meninas vão em cima e os meninos embaixo — trocar isso responderia outra pergunta.",
+        "conta": "meninas ÷ meninos"
+      },
+      {
+        "titulo": "Escreva a divisão",
+        "explicacao": "A razão é a fração formada pelos dois números, na ordem lida.",
+        "conta": "12/8"
+      },
+      {
+        "titulo": "Simplifique",
+        "explicacao": "Dividir os dois termos por 4 não muda a comparação, só a deixa na forma mais limpa. É o mesmo procedimento das frações do 6º ano.",
+        "conta": "12 ÷ 4 = 3 · 8 ÷ 4 = 2"
+      },
+      {
+        "titulo": "Leia o resultado",
+        "explicacao": "Três para dois significa que, para cada 3 meninas, há 2 meninos. Agrupando a turma de 4 em 4, saem três grupos de meninas contra dois de meninos.",
+        "conta": "razão = 3/2"
+      }
+    ],
+    "fecho": "A turma tem 4 meninas a mais. E tem 3 meninas para cada 2 meninos. As duas frases são verdadeiras, e dizem coisas diferentes."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa caixa há 10 lápis e 15 canetas. Qual é a razão de lápis para canetas, simplificada?",
+      "imagem": "raz-q-lapis",
+      "dica": "Lápis em cima, canetas embaixo — nessa ordem. Depois simplifique dividindo os dois pelo mesmo número.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2/3" },
+        { "rotulo": "B", "texto": "3/2" },
+        { "rotulo": "C", "texto": "5" },
+        { "rotulo": "D", "texto": "10/15" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/2",
+          "porque": "Essa é a razão de canetas para lápis, ou seja, a ordem inversa. O enunciado pede 'de lápis PARA canetas', então os lápis vão em cima."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a DIFERENÇA entre as duas quantidades: há cinco canetas a mais. Razão compara por divisão, e não por subtração."
+        },
+        {
+          "resposta": "10/15",
+          "porque": "A ordem está certa, mas a fração não foi simplificada. Dividindo os dois termos por 5, ela vira 2/3 — que é a mesma comparação escrita de forma mais limpa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Respeite a ordem",
+          "explicacao": "De lápis para canetas significa lápis dividido por canetas.",
+          "conta": "10/15"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "Os dois números são divisíveis por 5.",
+          "conta": "10 ÷ 5 = 2 · 15 ÷ 5 = 3"
+        },
+        {
+          "titulo": "Leia a razão",
+          "explicacao": "Dois lápis para cada três canetas.",
+          "conta": "razão = 2/3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um carro percorreu 240 km em 3 horas. Qual foi a razão entre distância e tempo, em quilômetros por hora? Digite apenas o número.",
+      "imagem": "raz-q-velocidade",
+      "dica": "Distância em cima, tempo embaixo. Essa razão tem nome próprio: velocidade média.",
+      "formato": "numero",
+      "resposta": 80,
+      "unidade": "km/h",
+      "errosComuns": [
+        {
+          "resposta": "720",
+          "porque": "720 multiplica em vez de dividir. Razão é sempre uma divisão — e 720 km em 3 horas seria uma velocidade impossível para um carro."
+        },
+        {
+          "resposta": "243",
+          "porque": "243 soma a distância com o tempo, que são grandezas diferentes e não podem ser somadas. A comparação entre elas se faz por divisão."
+        },
+        {
+          "resposta": "237",
+          "porque": "237 é a diferença entre 240 e 3, uma subtração entre grandezas diferentes. Comparar km com horas só faz sentido dividindo um pelo outro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a razão",
+          "explicacao": "Quilômetros por hora já diz a ordem: distância dividida por tempo.",
+          "conta": "240/3"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "O resultado diz quantos quilômetros couberam em cada hora.",
+          "conta": "240 ÷ 3 = 80 km/h"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa turma A há 12 meninas e 8 meninos. Numa turma B há 24 meninas e 16 meninos. O que é correto afirmar?",
+      "imagem": "raz-q-duas-turmas",
+      "dica": "Calcule a razão das duas e compare. Depois compare também as diferenças.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "As duas turmas têm a mesma razão, mas diferenças diferentes" },
+        { "rotulo": "B", "texto": "As duas têm a mesma razão e a mesma diferença" },
+        { "rotulo": "C", "texto": "A turma B tem razão maior, porque tem mais alunos" },
+        { "rotulo": "D", "texto": "A turma A tem razão maior, porque é menor" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "As duas têm a mesma razão e a mesma diferença",
+          "porque": "A razão é a mesma, 3/2 nas duas. Mas a diferença dobrou junto com a turma: 4 na primeira e 8 na segunda. É justamente isso que separa os dois tipos de comparação."
+        },
+        {
+          "resposta": "A turma B tem razão maior, porque tem mais alunos",
+          "porque": "Ter mais alunos aumenta a diferença, mas não a razão: 24/16 simplificado também dá 3/2. A razão descreve o formato da turma, e não o tamanho dela."
+        },
+        {
+          "resposta": "A turma A tem razão maior, porque é menor",
+          "porque": "O tamanho da turma não decide a razão em nenhuma direção. As duas dão 3/2 quando simplificadas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a razão da turma A",
+          "explicacao": "Doze meninas para oito meninos, simplificando por 4.",
+          "conta": "12/8 = 3/2"
+        },
+        {
+          "titulo": "Calcule a razão da turma B",
+          "explicacao": "Vinte e quatro para dezesseis, simplificando por 8.",
+          "conta": "24/16 = 3/2"
+        },
+        {
+          "titulo": "Compare as diferenças",
+          "explicacao": "A da turma A é 12 − 8 = 4, e a da turma B é 24 − 16 = 8. Dobrou.",
+          "conta": "4 e 8"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa receita, a razão de suco para água é 3/2. Se a razão fosse escrita de água para suco, qual seria?",
+      "imagem": "raz-q-ordem",
+      "dica": "Trocar a ordem da comparação vira a fração de cabeça para baixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2/3" },
+        { "rotulo": "B", "texto": "3/2" },
+        { "rotulo": "C", "texto": "1/2" },
+        { "rotulo": "D", "texto": "5/2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/2",
+          "porque": "Essa é a razão original, de suco para água. Trocar a ordem da comparação obrigatoriamente muda o número — a não ser que as duas quantidades sejam iguais."
+        },
+        {
+          "resposta": "1/2",
+          "porque": "1/2 não sai de nenhum caminho aqui. Inverter 3/2 é escrever 2/3: o número de baixo sobe e o de cima desce."
+        },
+        {
+          "resposta": "5/2",
+          "porque": "O 5 aparece se as duas partes forem somadas (3 + 2), que é o total de partes da receita. A razão compara as partes entre si, e não com o total."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que a razão diz",
+          "explicacao": "Três de suco para cada dois de água.",
+          "conta": "suco/água = 3/2"
+        },
+        {
+          "titulo": "Inverta a ordem",
+          "explicacao": "A mesma receita, lida ao contrário: dois de água para cada três de suco.",
+          "conta": "água/suco = 2/3"
+        }
+      ]
+    }
+  ]
+}

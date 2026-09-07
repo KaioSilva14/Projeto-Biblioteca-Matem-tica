@@ -1,0 +1,42 @@
+{
+  "id": "inteiros",
+  "titulo": "Números inteiros",
+  "ano": 7,
+  "descricao": "O zero deixa de ser o fim da reta. Sete lições que começam onde o negativo já existe na vida — o termômetro, o saldo, o subsolo — e chegam até a regra dos sinais, mostrando por que menos com menos dá mais em vez de mandar decorar.",
+  "pergunta": "Por que −7 é menor que −3, se 7 é maior que 3?",
+  "videos": [
+    {
+      "id": "jTbY7FDCp3k",
+      "titulo": "COMPARAÇÃO DE NÚMEROS POSITIVOS E NEGATIVOS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Trata exatamente do ponto que mais derruba gente: comparar dois negativos. Vale ver depois da lição 3, se a ordem invertida ainda estiver estranha."
+    },
+    {
+      "id": "8NcJEIsc8sQ",
+      "titulo": "NÚMEROS POSITIVOS E NEGATIVOS | OPERAÇÕES COM NÚMEROS INTEIROS 7º ANO | MULTIPLICAÇÃO, ADIÇÃO",
+      "canal": "Gis com Giz",
+      "descricao": "Percorre as quatro operações com inteiros numa aula só. Bom para revisar as lições 4, 5 e 6 juntas, depois de já ter feito as questões."
+    },
+    {
+      "id": "pminpWeWAf8",
+      "titulo": "NÚMEROS NEGATIVOS E POSITIVOS - EXPRESSÕES NUMÉRICAS - NÚMEROS INTEIROS- Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Vai além do site: junta várias operações numa expressão só, com parênteses. É o passo seguinte para quem terminou a matéria e quer mais desafio."
+    },
+    {
+      "id": "DuAmuq8p70k",
+      "titulo": "ANTECESSOR E SUCESSOR - NÚMEROS POSITIVOS E NEGATIVOS 7ºANO \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Mostra quem vem antes e depois de um negativo na reta, que é outro jeito de treinar a ordem. Complementa a lição 2, sobre a reta com o lado esquerdo."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/inteiros/o-que-e.json" },
+    { "id": "na-reta", "arquivo": "/dados/licoes/inteiros/na-reta.json" },
+    { "id": "comparar", "arquivo": "/dados/licoes/inteiros/comparar.json" },
+    { "id": "somar", "arquivo": "/dados/licoes/inteiros/somar.json" },
+    { "id": "subtrair", "arquivo": "/dados/licoes/inteiros/subtrair.json" },
+    { "id": "multiplicar-dividir", "arquivo": "/dados/licoes/inteiros/multiplicar-dividir.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/inteiros/problemas.json" }
+  ]
+}

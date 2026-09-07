@@ -1,0 +1,206 @@
+{
+  "id": "problemas",
+  "numero": 7,
+  "titulo": "Problemas com inteiros",
+  "pergunta": "Como decidir qual sinal cada número do problema leva?",
+  "ideia": {
+    "paragrafos": [
+      "Nos problemas de verdade, ninguém entrega a conta com os sinais prontos. O enunciado diz 'sacou', 'subiu', 'desceu', 'perdeu', e a primeira tarefa é traduzir isso para números com sinal. Traduzido, o resto é a aritmética das lições anteriores.",
+      "O passo que organiza tudo é achar o marco zero do problema. Na conta bancária é o saldo zero; no termômetro é o ponto de congelamento; no prédio é o térreo; no mar é a superfície. Sem escolher o marco, não há como dizer que lado é negativo.",
+      "Depois disso, cada informação vira um número com sinal: o que aumenta em relação ao marco é positivo, o que diminui é negativo. Uma retirada de 120 reais entra na conta como −120, e não como 120 — mesmo que o enunciado escreva o número sem sinal nenhum.",
+      "Cuidado com uma armadilha frequente: 'quantos graus a temperatura variou' e 'qual foi a temperatura final' são perguntas diferentes. A variação é uma diferença (final menos inicial); a temperatura final é uma posição. Ler qual das duas está sendo pedida evita metade dos erros.",
+      "E vale sempre conferir se a resposta faz sentido no mundo. Um saldo negativo depois de gastar mais do que se tinha é esperado; uma dívida que vira lucro sem entrada de dinheiro não é."
+    ],
+    "destaque": "Ache o marco zero, traduza cada informação com sinal e só então calcule.",
+    "imagem": "int-ideia-problemas"
+  },
+  "resolvido": {
+    "enunciado": "Um elevador está no 3º andar, desce 7 andares e depois sobe 2. Em que andar ele para?",
+    "imagem": "int-res-elevador",
+    "passos": [
+      {
+        "titulo": "Ache o marco zero",
+        "explicacao": "No prédio, o térreo é o andar de referência. Andar acima dele é positivo, subsolo é negativo.",
+        "conta": "térreo = 0"
+      },
+      {
+        "titulo": "Traduza cada movimento",
+        "explicacao": "Descer é ir para a esquerda na reta, então vale −7. Subir é ir para a direita, então vale +2.",
+        "conta": "3 + (−7) + 2"
+      },
+      {
+        "titulo": "Resolva na ordem",
+        "explicacao": "Do 3, descer sete passos atravessa o térreo e chega ao segundo subsolo. Sinais diferentes: 7 − 3 = 4, com o sinal do 7.",
+        "conta": "3 + (−7) = −4"
+      },
+      {
+        "titulo": "Aplique o último movimento",
+        "explicacao": "Subir dois andares a partir do −4 anda dois passos para a direita.",
+        "conta": "−4 + 2 = −2"
+      }
+    ],
+    "fecho": "O elevador para no segundo subsolo. Sem o marco zero, os três números não teriam lado."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A conta de João tinha R$ 180. Ele pagou uma conta de R$ 250 e depois recebeu R$ 40. Qual ficou o saldo? Digite o número com o sinal.",
+      "imagem": "int-q-conta",
+      "dica": "Pagamento é negativo e depósito é positivo. Resolva na ordem em que as coisas aconteceram.",
+      "formato": "numero",
+      "resposta": -30,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é a distância certa, mas do lado errado. Ele pagou 250 tendo 180, então ficou devendo antes de receber os 40 — e os 40 não foram suficientes para zerar a dívida."
+        },
+        {
+          "resposta": "470",
+          "porque": "470 soma os três valores como se todos fossem entradas. O pagamento tira dinheiro da conta e precisa entrar como −250."
+        },
+        {
+          "resposta": "-110",
+          "porque": "−110 trata o depósito como mais um pagamento: 180 − 250 − 40. Os 40 reais ENTRARAM na conta, então somam em vez de descontar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza com sinais",
+          "explicacao": "O que ele tinha é positivo, o pagamento é negativo e o depósito é positivo.",
+          "conta": "180 + (−250) + 40"
+        },
+        {
+          "titulo": "Faça o pagamento",
+          "explicacao": "Sinais diferentes: distância 250 contra 180. Vence o 250, que é negativo, e sobram 70.",
+          "conta": "180 − 250 = −70"
+        },
+        {
+          "titulo": "Some o depósito",
+          "explicacao": "Do −70, andar quarenta passos para a direita ainda não alcança o zero.",
+          "conta": "−70 + 40 = −30 reais"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Em Bariloche a máxima do dia foi 4 °C e a mínima da noite foi −11 °C. Qual foi a diferença entre as duas temperaturas? Digite apenas o número.",
+      "imagem": "int-q-temperaturas",
+      "dica": "Diferença é a maior menos a menor. Cuidado: subtrair um negativo vira soma.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 sai de fazer 11 − 4, ignorando que as duas temperaturas estão em lados opostos do zero. É preciso contar de −11 até o zero e depois do zero até 4."
+        },
+        {
+          "resposta": "-15",
+          "porque": "A distância está certa, mas diferença entre duas temperaturas é um comprimento e não tem sinal negativo. A queda seria negativa; a diferença entre elas, não."
+        },
+        {
+          "resposta": "-7",
+          "porque": "Junta os dois erros: usa 11 − 4 e ainda põe sinal de menos. Vale marcar as duas temperaturas na reta e contar os passos entre elas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a diferença",
+          "explicacao": "A maior menos a menor, nessa ordem, para o resultado sair positivo.",
+          "conta": "4 − (−11)"
+        },
+        {
+          "titulo": "Troque pelo oposto",
+          "explicacao": "Subtrair −11 é somar 11, então os dois sinais viram um de mais.",
+          "conta": "4 + 11 = 15"
+        },
+        {
+          "titulo": "Confira contando na reta",
+          "explicacao": "De −11 até o zero são onze graus, e do zero até 4 são mais quatro.",
+          "conta": "11 + 4 = 15 graus"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um mergulhador está a 8 metros abaixo do nível do mar e desce mais 7 metros. Em que posição ele fica? Digite o número com o sinal.",
+      "imagem": "int-q-mergulho",
+      "dica": "Os dois movimentos vão para o mesmo lado do zero. Traduza a descida com sinal antes de somar.",
+      "formato": "numero",
+      "resposta": -15,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "A distância está certa, mas ele está abaixo da superfície: um número positivo colocaria o mergulhador 15 metros no ar."
+        },
+        {
+          "resposta": "-1",
+          "porque": "−1 subtrai as distâncias, como se um movimento fosse para cima. Descer mais 7 é somar outro número negativo, então as distâncias se acumulam."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 subtrai as distâncias e ainda perde o sinal. Nenhum dos dois movimentos foi de subida — os dois afastam o mergulhador da superfície."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza a posição inicial",
+          "explicacao": "Abaixo do nível do mar é o lado negativo, com o zero na superfície.",
+          "conta": "posição = −8"
+        },
+        {
+          "titulo": "Traduza o movimento",
+          "explicacao": "Descer mais sete metros é somar −7, porque a descida vai para a esquerda na reta.",
+          "conta": "−8 + (−7)"
+        },
+        {
+          "titulo": "Some as distâncias",
+          "explicacao": "Os dois são negativos, então elas se acumulam e o sinal se mantém.",
+          "conta": "−8 + (−7) = −15 metros"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um jogo tira 5 pontos a cada erro. Uma jogadora começou com 0 e errou 4 vezes. Com quantos pontos ela ficou? Digite o número com o sinal.",
+      "imagem": "int-q-jogo",
+      "dica": "Perder 5 pontos quatro vezes é repetir um número negativo quatro vezes — e repetição é multiplicação.",
+      "formato": "numero",
+      "resposta": -20,
+      "unidade": "pontos",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "A distância está certa, mas ela perdeu pontos partindo do zero, então terminou abaixo dele. Sinais diferentes na multiplicação dão resultado negativo."
+        },
+        {
+          "resposta": "-9",
+          "porque": "−9 soma 5 e 4 em vez de multiplicar. Cada um dos quatro erros custa cinco pontos, então é o mesmo −5 repetido quatro vezes."
+        },
+        {
+          "resposta": "-1",
+          "porque": "−1 subtrai 5 − 4, misturando o valor da penalidade com a quantidade de erros. Os dois números têm papéis diferentes: um é o tamanho do castigo, o outro quantas vezes ele aconteceu."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza a penalidade",
+          "explicacao": "Perder 5 pontos é somar −5 ao total.",
+          "conta": "cada erro = −5"
+        },
+        {
+          "titulo": "Repita quatro vezes",
+          "explicacao": "Quatro erros repetem essa perda quatro vezes, o que é uma multiplicação.",
+          "conta": "4 × (−5)"
+        },
+        {
+          "titulo": "Aplique a regra dos sinais",
+          "explicacao": "Sinais diferentes dão resultado negativo, e ela partiu do zero.",
+          "conta": "0 + (−20) = −20 pontos"
+        }
+      ]
+    }
+  ]
+}

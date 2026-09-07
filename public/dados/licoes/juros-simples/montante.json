@@ -1,0 +1,201 @@
+{
+  "id": "montante",
+  "numero": 5,
+  "titulo": "Montante e o tempo",
+  "pergunta": "Quanto se paga no total, e em quanto tempo a dívida dobra?",
+  "ideia": {
+    "paragrafos": [
+      "O juro é o que se paga a mais. O MONTANTE é o total: capital mais juros. Quem empresta R$ 1000 e paga R$ 120 de juros devolve R$ 1120 — esse é o montante, e é ele que sai do bolso no fim.",
+      "Em símbolos, M = C + J. Como J = C × i × t, dá para escrever tudo de uma vez: M = C × (1 + i × t). É o fator multiplicativo da lição 1, agora com o tempo dentro dele.",
+      "A pergunta muda de lugar conforme o problema. Às vezes se procura o juro, às vezes o montante, às vezes a taxa e às vezes o TEMPO. Em todos os casos a relação é a mesma; o que muda é qual das quatro letras está escondida.",
+      "Para achar o tempo, o caminho é o de sempre: descubra quanto rende um período e veja quantos períodos são necessários. Um capital que rende 5% ao mês precisa de 20 meses para render 100% — ou seja, para dobrar em juros simples.",
+      "E vale ter na cabeça uma noção de tamanho. No juro simples, a taxa mensal multiplicada pelo número de meses dá a taxa do período inteiro: 2% ao mês por 10 meses são 20% no total. Se um resultado destoar muito disso, algum passo escapou."
+    ],
+    "destaque": "Montante é capital mais juros: M = C + J. No simples, as taxas de cada período se somam.",
+    "imagem": "jur-ideia-montante"
+  },
+  "resolvido": {
+    "enunciado": "Um capital de R$ 1500 é aplicado a 2% ao mês, em juros simples, por 10 meses. Qual é o montante?",
+    "imagem": "jur-res-montante",
+    "passos": [
+      {
+        "titulo": "Some as taxas do período",
+        "explicacao": "No juro simples cada mês rende os mesmos 2%, então dez meses rendem dez vezes isso. É a soma que vale aqui, e não a multiplicação de fatores.",
+        "conta": "2% × 10 = 20%"
+      },
+      {
+        "titulo": "Calcule o juro",
+        "explicacao": "Vinte por cento do capital, aplicando a taxa acumulada de uma vez.",
+        "conta": "1500 × 0,20 = 300"
+      },
+      {
+        "titulo": "Some ao capital",
+        "explicacao": "O montante é o que foi aplicado mais o que rendeu.",
+        "conta": "1500 + 300 = 1800 reais"
+      },
+      {
+        "titulo": "Confira pelo fator",
+        "explicacao": "O caminho de um passo só: 1 mais a taxa acumulada em decimal.",
+        "conta": "1500 × 1,20 = 1800 ✓"
+      }
+    ],
+    "fecho": "Repare que aqui as taxas se SOMAM. Na lição 2 elas se multiplicavam — a diferença é o juro ser simples."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um capital de R$ 800 é aplicado a 3% ao mês, em juros simples, por 5 meses. Qual é o montante? Digite apenas o número.",
+      "imagem": "jur-q-montante-800",
+      "dica": "Ache o juro total e some ao capital.",
+      "formato": "numero",
+      "resposta": 920,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "120",
+          "porque": "120 é só o JURO rendido em cinco meses. O montante inclui também o capital de 800 que já estava lá."
+        },
+        {
+          "resposta": "824",
+          "porque": "824 soma o rendimento de um mês só. Foram cinco meses, e no juro simples cada um rende os mesmos 24 reais."
+        },
+        {
+          "resposta": "1200",
+          "porque": "1200 usa a taxa como 3 em vez de 0,03 em algum passo. Três por cento de 800 são 24 reais por mês, e não 240."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as taxas",
+          "explicacao": "Cinco meses a 3% cada, no juro simples.",
+          "conta": "3% × 5 = 15%"
+        },
+        {
+          "titulo": "Calcule o juro",
+          "explicacao": "Quinze por cento do capital, aplicando a taxa acumulada de uma vez.",
+          "conta": "800 × 0,15 = 120"
+        },
+        {
+          "titulo": "Some ao capital",
+          "explicacao": "O montante é o capital somado a tudo o que rendeu no período.",
+          "conta": "800 + 120 = 920 reais"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um empréstimo de R$ 2000 foi pago com montante de R$ 2600. De quanto foi o juro? Digite apenas o número.",
+      "imagem": "jur-q-juro-do-montante",
+      "dica": "O montante é o capital mais o juro. Qual das duas partes falta?",
+      "formato": "numero",
+      "resposta": 600,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "4600",
+          "porque": "4600 soma o capital ao montante, mas o capital JÁ está dentro do montante. O juro é o que sobra ao tirar o capital dele."
+        },
+        {
+          "resposta": "2600",
+          "porque": "2600 é o montante inteiro, que inclui o dinheiro emprestado. O juro é só a parte que se paga a mais."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é a taxa em porcentagem (600 em 2000), e não o valor em reais. A pergunta pede quanto de juro, e não a que taxa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre a relação",
+          "explicacao": "O montante é o capital somado ao juro.",
+          "conta": "M = C + J"
+        },
+        {
+          "titulo": "Isole o juro",
+          "explicacao": "Tirando o capital do montante sobra o que foi pago a mais.",
+          "conta": "2600 − 2000 = 600 reais"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Em quantos meses um capital aplicado a 5% ao mês, em juros simples, rende 100% do valor aplicado? Digite apenas o número.",
+      "imagem": "jur-q-dobrar",
+      "dica": "Cada mês rende 5%. Quantos meses são precisos para acumular 100%?",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "meses",
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é a taxa mensal em porcentagem, e não o tempo. Em cinco meses o rendimento seria de 25%, longe dos 100% pedidos."
+        },
+        {
+          "resposta": "95",
+          "porque": "95 subtrai 5 de 100, mas a conta é de divisão: quantas vezes 5% cabe em 100%. Cada mês contribui com cinco pontos percentuais."
+        },
+        {
+          "resposta": "500",
+          "porque": "500 multiplica em vez de dividir. Como cada mês rende 5%, vinte meses já somam os 100%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja quanto rende por mês",
+          "explicacao": "Cinco por cento do capital, sempre o mesmo valor.",
+          "conta": "5% por mês"
+        },
+        {
+          "titulo": "Divida a meta",
+          "explicacao": "Quantas vezes 5% cabe em 100%, já que cada mês contribui com a mesma fatia.",
+          "conta": "100 ÷ 5 = 20 meses"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Vinte meses a 5% somam 100%, ou seja, o montante fica igual ao dobro do capital.",
+          "conta": "20 × 5% = 100% ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A que taxa mensal um capital de R$ 4000 rende R$ 720 em juros simples durante 3 meses? Digite apenas o número.",
+      "imagem": "jur-q-taxa-mensal",
+      "dica": "Ache o rendimento de um mês e compare com o capital.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18% é a taxa acumulada nos três meses. A pergunta pede a taxa MENSAL, que é essa dividida por 3."
+        },
+        {
+          "resposta": "240",
+          "porque": "240 é o rendimento mensal em reais, e não uma porcentagem. Ele ainda precisa ser comparado com o capital de 4000."
+        },
+        {
+          "resposta": "0.06",
+          "porque": "0,06 é a taxa em decimal, que é a forma usada dentro da conta. A questão pede em porcentagem, então falta multiplicar por 100."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o juro de um mês",
+          "explicacao": "No juro simples os três meses renderam partes iguais.",
+          "conta": "720 ÷ 3 = 240 por mês"
+        },
+        {
+          "titulo": "Compare com o capital",
+          "explicacao": "A taxa é a proporção entre o rendimento mensal e o capital aplicado.",
+          "conta": "4000 → 100% · 240 → x%"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando em cruz e dividindo por 4000.",
+          "conta": "24000 ÷ 4000 = 6%"
+        }
+      ]
+    }
+  ]
+}

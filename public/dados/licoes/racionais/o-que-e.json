@@ -1,0 +1,199 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O que é um número racional",
+  "pergunta": "O que fração, decimal e inteiro têm em comum?",
+  "ideia": {
+    "paragrafos": [
+      "Você já usou três tipos de número que pareciam separados: os inteiros do ano passado, as frações e os decimais do 6º ano. Esta matéria mostra que os três são a mesma família, e essa família tem nome: os números RACIONAIS.",
+      "A definição cabe numa frase. Racional é todo número que pode ser escrito como uma fração de dois inteiros, com o de baixo diferente de zero. O nome vem de razão, que é o outro jeito de dizer divisão — e não de ser 'sensato'.",
+      "Todo inteiro é racional, e é fácil ver por quê: 5 é 5/1, e −3 é −3/1. Basta pôr o 1 embaixo. Todo decimal finito também é: 0,7 é 7/10, e 2,45 é 245/100. E as frações, claro, já nascem escritas assim.",
+      "O de baixo não pode ser zero, e isso não é capricho. Uma fração é uma divisão, e dividir por zero não tem resposta: não existe número que multiplicado por zero devolva 6. Por isso 6/0 simplesmente não é um número.",
+      "Como os inteiros agora podem ser negativos, os racionais também são. E o sinal pode ser escrito em três lugares que significam a mesma coisa: −3/4, (−3)/4 e 3/(−4) valem todos o mesmo. O costume é escrever o menos na frente da fração inteira."
+    ],
+    "destaque": "Racional é todo número que cabe numa fração de inteiros, com o de baixo diferente de zero.",
+    "imagem": "rac-ideia-familia"
+  },
+  "resolvido": {
+    "enunciado": "Mostre que 4, −0,6 e 2/3 são todos números racionais.",
+    "imagem": "rac-res-familia",
+    "passos": [
+      {
+        "titulo": "Comece pelo inteiro",
+        "explicacao": "Para provar que um número é racional, basta exibi-lo como fração de inteiros. Todo inteiro vira fração pondo 1 embaixo, porque dividir por 1 não muda nada.",
+        "conta": "4 = 4/1"
+      },
+      {
+        "titulo": "Agora o decimal",
+        "explicacao": "Um decimal finito já diz o denominador em voz alta: seis DÉCIMOS negativos. A quantidade de casas depois da vírgula dá a potência de dez que vai embaixo.",
+        "conta": "−0,6 = −6/10"
+      },
+      {
+        "titulo": "Simplifique, se quiser",
+        "explicacao": "Simplificar não é obrigatório para provar que é racional, mas deixa a fração na forma mais limpa. Dividindo os dois por 2, chega-se a −3/5.",
+        "conta": "−6/10 = −3/5"
+      },
+      {
+        "titulo": "A fração já está pronta",
+        "explicacao": "O 2/3 não precisa de conversão nenhuma: ele já é uma fração de dois inteiros, com o de baixo diferente de zero.",
+        "conta": "os três são racionais"
+      }
+    ],
+    "fecho": "Fração, decimal e inteiro não são três mundos. São três roupas do mesmo tipo de número."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destes números NÃO é racional?",
+      "imagem": "rac-q-nao-racional",
+      "dica": "Tente escrever cada um como fração de dois inteiros. Um deles não passa nesse teste — repare no de baixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "7/0" },
+        { "rotulo": "B", "texto": "−9" },
+        { "rotulo": "C", "texto": "0,25" },
+        { "rotulo": "D", "texto": "0" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−9",
+          "porque": "Todo inteiro é racional, inclusive os negativos: basta escrever −9/1. Ser negativo não tira um número da família."
+        },
+        {
+          "resposta": "0,25",
+          "porque": "Todo decimal finito é racional. Vinte e cinco centésimos é 25/100, que simplificado dá 1/4 — fração de dois inteiros."
+        },
+        {
+          "resposta": "0",
+          "porque": "O zero é racional: 0/1 é uma fração perfeitamente válida. O que não pode é o zero embaixo, e não em cima."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste cada um",
+          "explicacao": "Ser racional é caber numa fração de inteiros: −9 vira −9/1, 0,25 vira 25/100, e 0 vira 0/1.",
+          "conta": "−9/1 · 25/100 · 0/1"
+        },
+        {
+          "titulo": "Olhe o denominador que sobrou",
+          "explicacao": "Em 7/0 o número de baixo é zero, e fração é divisão: não existe número que multiplicado por zero devolva 7.",
+          "conta": "7/0 não é número"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Escrevendo o inteiro −6 como fração de denominador 1, qual é o numerador? Digite com o sinal.",
+      "imagem": "rac-q-inteiro-fracao",
+      "dica": "Dividir por 1 não muda o número. O sinal continua onde estava.",
+      "formato": "numero",
+      "resposta": -6,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "Sem o sinal, a fração 6/1 vale 6, e não −6. Escrever um inteiro como fração não pode mudar de que lado do zero ele está."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o DENOMINADOR que o enunciado já deu. O numerador é o número de cima, que é o próprio inteiro."
+        },
+        {
+          "resposta": "-1",
+          "porque": "−1 troca os dois papéis e ainda perde o valor: a fração ficaria −1/1, que vale −1. O de cima tem de ser o −6 inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que a fração significa",
+          "explicacao": "Uma fração é uma divisão, e dividir qualquer número por 1 devolve ele mesmo.",
+          "conta": "n ÷ 1 = n"
+        },
+        {
+          "titulo": "Monte a fração",
+          "explicacao": "O inteiro inteiro vai para cima, com o sinal junto.",
+          "conta": "−6 = −6/1"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O decimal 0,8 escrito como fração de denominador 10 tem que numerador? Digite apenas o número.",
+      "imagem": "rac-q-decimal-fracao",
+      "dica": "Leia o decimal em voz alta: quantos décimos ele tem?",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é o denominador que o enunciado já deu. O numerador é quantos décimos existem, e 0,8 tem oito deles."
+        },
+        {
+          "resposta": "80",
+          "porque": "80/10 vale 8, e não 0,8 — cem vezes o número certo. A casa dos décimos guarda o 8 sozinho, sem o zero de acompanhamento."
+        },
+        {
+          "resposta": "0.8",
+          "porque": "O numerador de uma fração é um número INTEIRO. Escrever 0,8/10 não resolve nada: continua havendo uma vírgula na conta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia em voz alta",
+          "explicacao": "0,8 se lê oito décimos, e essa leitura já é a fração.",
+          "conta": "oito décimos"
+        },
+        {
+          "titulo": "Escreva",
+          "explicacao": "A quantidade vai em cima e o tipo de pedaço vai embaixo.",
+          "conta": "0,8 = 8/10"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sobre a fração −3/4, o que é correto afirmar?",
+      "imagem": "rac-q-sinal-fracao",
+      "dica": "Pense em quantos lugares o sinal pode aparecer sem mudar o valor da fração.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Vale o mesmo que 3/(−4)" },
+        { "rotulo": "B", "texto": "Vale o mesmo que 3/4, porque o sinal some na divisão" },
+        { "rotulo": "C", "texto": "Não é racional, porque é negativa" },
+        { "rotulo": "D", "texto": "Vale o mesmo que (−3)/(−4)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Vale o mesmo que 3/4, porque o sinal some na divisão",
+          "porque": "O sinal não some: uma fração é uma divisão, e dividir um negativo por um positivo dá negativo. As duas ficam em lados opostos do zero."
+        },
+        {
+          "resposta": "Não é racional, porque é negativa",
+          "porque": "Racional é caber numa fração de inteiros, e −3 e 4 são inteiros. O lado do zero não decide se o número pertence à família."
+        },
+        {
+          "resposta": "Vale o mesmo que (−3)/(−4)",
+          "porque": "Com os DOIS negativos, os sinais são iguais e a divisão dá positivo: (−3)/(−4) é 3/4. Só um dos dois pode ser negativo para a fração continuar negativa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fração é divisão",
+          "explicacao": "O traço da fração é um sinal de divisão, então vale a regra dos sinais do ano.",
+          "conta": "−3/4 = (−3) ÷ 4"
+        },
+        {
+          "titulo": "Aplique a regra",
+          "explicacao": "Sinais diferentes dão resultado negativo, tanto em (−3) ÷ 4 quanto em 3 ÷ (−4).",
+          "conta": "os dois dão negativo"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "O menos pode ficar em cima, embaixo ou na frente da fração: nos três casos o valor é o mesmo.",
+          "conta": "−3/4 = (−3)/4 = 3/(−4)"
+        }
+      ]
+    }
+  ]
+}

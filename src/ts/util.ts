@@ -47,6 +47,12 @@ export function paraNumero(entrada: string): number {
     .trim()
     .replace(/^R\$\s*/i, "")
     .replace(/\s/g, "")
+    // O site escreve negativo com o sinal de menos tipográfico (−, U+2212),
+    // que é o caractere que o aluno vê na figura e copia; o teclado dele dá
+    // hífen. Sem normalizar, quem digitasse o símbolo da própria tela
+    // receberia NaN — contado como erro e sem diagnóstico nenhum. Vale
+    // também para travessão e meia-risca, que aparecem em texto colado.
+    .replace(/[‐‑‒–—―−]/g, "-")
     .replace(/\.(?=\d{3}\b)/g, "")
     .replace(",", ".");
   if (limpo === "") return NaN;

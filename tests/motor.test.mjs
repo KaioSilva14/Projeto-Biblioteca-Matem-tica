@@ -50,10 +50,24 @@ teste("aceita vírgula, ponto, espaços e cifrão", () => {
   assert.equal(paraNumero("1.200"), 1200, "ponto como separador de milhar");
 });
 
+teste("aceita o sinal de menos que o aluno vê na tela, e não só o do teclado", () => {
+  // O site escreve negativo com o menos tipográfico (−, U+2212). Quem copiasse
+  // o caractere da própria figura recebia NaN, ou seja, era contado como erro
+  // sem diagnóstico nenhum. É pré-requisito do 7º ano inteiro.
+  assert.equal(paraNumero("-25"), -25, "hífen do teclado");
+  assert.equal(paraNumero("−25"), -25, "sinal de menos tipográfico (U+2212)");
+  assert.equal(paraNumero("–25"), -25, "meia-risca");
+  assert.equal(paraNumero("—25"), -25, "travessão");
+  assert.equal(paraNumero("- 25"), -25, "com espaço depois do sinal");
+  assert.equal(paraNumero("−3,5"), -3.5, "negativo com vírgula");
+  assert.equal(paraNumero("R$ −40"), -40, "saldo negativo em reais");
+});
+
 teste("devolve NaN para o que não é número", () => {
   assert.ok(Number.isNaN(paraNumero("")));
   assert.ok(Number.isNaN(paraNumero("   ")));
   assert.ok(Number.isNaN(paraNumero("não sei")));
+  assert.ok(Number.isNaN(paraNumero("−")), "só o sinal não é número");
 });
 
 // ---------- Correção ----------

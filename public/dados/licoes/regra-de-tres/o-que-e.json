@@ -1,0 +1,211 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O que a regra de três é de verdade",
+  "pergunta": "Isso é uma regra nova, ou um jeito de organizar o que eu já sei?",
+  "ideia": {
+    "paragrafos": [
+      "A regra de três tem fama de truque, e não é. Ela é exatamente a proporção da matéria anterior, com um dos quatro termos escondido, escrita numa tabela para não se perder na hora de montar.",
+      "O nome vem daí: são TRÊS valores conhecidos e um procurado. Se 4 cadernos custam R$ 30 e você quer o preço de 6, os três conhecidos são 4, 30 e 6, e o quarto é o que se procura.",
+      "Toda a diferença está na organização. Em vez de escrever 4/30 = 6/x direto, monta-se uma tabela com uma grandeza em cada linha e cada situação em uma coluna. Isso evita o erro que mais aparece: trocar os lados e montar cadernos sobre reais de um lado e reais sobre cadernos do outro.",
+      "Depois de montada, a conta é a de sempre — multiplicar em cruz e dividir. Não há passo novo nenhum: quem sabe resolver 4/30 = 6/x já sabe fazer regra de três, mesmo sem nunca ter ouvido esse nome.",
+      "E vale guardar desde já o que a próxima lição vai detalhar: a montagem depende de as grandezas serem diretamente ou inversamente proporcionais. Aplicar a regra sem decidir isso antes é o caminho mais curto para uma resposta errada com cara de certa."
+    ],
+    "destaque": "Regra de três é uma proporção com um termo escondido, organizada em tabela.",
+    "imagem": "rt-ideia-tabela"
+  },
+  "resolvido": {
+    "enunciado": "Se 4 cadernos custam R$ 30, quanto custam 6 cadernos?",
+    "imagem": "rt-res-cadernos",
+    "passos": [
+      {
+        "titulo": "Separe as grandezas",
+        "explicacao": "São duas: quantidade de cadernos e preço em reais. Cada uma ganha uma linha da tabela, e as duas situações ficam nas colunas.",
+        "conta": "cadernos | reais"
+      },
+      {
+        "titulo": "Preencha o que se sabe",
+        "explicacao": "A primeira situação tem os dois valores; a segunda tem só um, e o outro é o x. Manter cada grandeza na sua linha é o que impede a troca de lados.",
+        "conta": "4 → 30 · 6 → x"
+      },
+      {
+        "titulo": "Escreva a proporção",
+        "explicacao": "A tabela vira a igualdade lendo coluna por coluna, com a mesma grandeza sempre em cima.",
+        "conta": "4/30 = 6/x"
+      },
+      {
+        "titulo": "Multiplique em cruz e resolva",
+        "explicacao": "Daqui em diante é a matéria anterior: produto dos extremos igual ao produto dos meios.",
+        "conta": "4x = 180 → x = 45 reais"
+      }
+    ],
+    "fecho": "Nenhum passo é novo. O que a tabela acrescenta é não deixar você montar errado."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa regra de três, quantos valores são conhecidos e quantos são procurados?",
+      "imagem": "rt-q-quantos",
+      "dica": "O nome da regra já entrega o primeiro número.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Três conhecidos e um procurado" },
+        { "rotulo": "B", "texto": "Dois conhecidos e dois procurados" },
+        { "rotulo": "C", "texto": "Três procurados e um conhecido" },
+        { "rotulo": "D", "texto": "Quatro conhecidos, e o resultado é a soma" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Dois conhecidos e dois procurados",
+          "porque": "Com dois valores faltando não haveria resposta única: várias combinações fariam a proporção funcionar. É preciso conhecer três para o quarto ficar determinado."
+        },
+        {
+          "resposta": "Três procurados e um conhecido",
+          "porque": "É o inverso: o nome vem dos TRÊS valores conhecidos. Com apenas um conhecido não haveria como comparar duas situações."
+        },
+        {
+          "resposta": "Quatro conhecidos, e o resultado é a soma",
+          "porque": "Se os quatro fossem conhecidos, não haveria o que procurar. E proporção não se resolve somando: o que liga os quatro termos é a multiplicação cruzada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os termos",
+          "explicacao": "Uma proporção tem quatro termos: dois em cada razão.",
+          "conta": "a/b = c/d"
+        },
+        {
+          "titulo": "Veja quantos o problema dá",
+          "explicacao": "O enunciado sempre entrega três deles, e o quarto é o que a pergunta quer.",
+          "conta": "3 conhecidos + 1 procurado"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Se 3 pizzas custam R$ 90, quanto custam 5 pizzas do mesmo tipo? Digite apenas o número.",
+      "imagem": "rt-q-pizzas",
+      "dica": "Monte a tabela com pizzas numa linha e reais na outra, e multiplique em cruz.",
+      "formato": "numero",
+      "resposta": 150,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "54",
+          "porque": "54 sai de inverter a montagem, dividindo 90 por algo em vez de multiplicar. Mais pizzas custam MAIS, então o resultado tem de passar de 90."
+        },
+        {
+          "resposta": "92",
+          "porque": "92 soma 2 ao preço, como se cada pizza a mais custasse um real. Cada pizza custa 90 ÷ 3 = 30, então duas a mais custam 60."
+        },
+        {
+          "resposta": "450",
+          "porque": "450 é 5 × 90, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 3 para dar o preço."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a tabela",
+          "explicacao": "Pizzas numa linha, reais na outra, e cada situação numa coluna.",
+          "conta": "3 → 90 · 5 → x"
+        },
+        {
+          "titulo": "Escreva a proporção",
+          "explicacao": "Lendo coluna por coluna, com pizzas sempre em cima.",
+          "conta": "3/90 = 5/x"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando em cruz e dividindo. Cada pizza custa 30 reais, e cinco custam 150.",
+          "conta": "3x = 450 → x = 150 reais"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa receita para 8 pessoas usam-se 600 g de arroz. Quantos gramas seriam para 12 pessoas? Digite apenas o número.",
+      "imagem": "rt-q-arroz",
+      "dica": "Mais pessoas comem mais arroz. Monte pessoas numa linha e gramas na outra.",
+      "formato": "numero",
+      "resposta": 900,
+      "unidade": "gramas",
+      "errosComuns": [
+        {
+          "resposta": "400",
+          "porque": "400 sai de montar a proporção invertida, o que faria mais pessoas comerem menos. Doze pessoas comem mais que oito, então o resultado tem de passar de 600."
+        },
+        {
+          "resposta": "604",
+          "porque": "604 soma 4 gramas, uma por pessoa a mais. Cada pessoa come 600 ÷ 8 = 75 g, então quatro a mais comem 300 g."
+        },
+        {
+          "resposta": "7200",
+          "porque": "7200 é 600 × 12, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a tabela",
+          "explicacao": "Pessoas numa linha e gramas na outra.",
+          "conta": "8 → 600 · 12 → x"
+        },
+        {
+          "titulo": "Multiplique em cruz",
+          "explicacao": "Extremos com extremos, meios com meios.",
+          "conta": "8x = 600 × 12 = 7200"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Cada pessoa come 75 g, e doze comem 900. O resultado passou de 600, como esperado.",
+          "conta": "7200 ÷ 8 = 900 g"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Antes de montar a regra de três, o que é preciso decidir?",
+      "imagem": "rt-q-antes",
+      "dica": "Pense no que muda entre um problema de cadernos e um de pedreiros.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Se as grandezas são direta ou inversamente proporcionais" },
+        { "rotulo": "B", "texto": "Qual dos números é o maior" },
+        { "rotulo": "C", "texto": "Se o resultado vai ser inteiro" },
+        { "rotulo": "D", "texto": "Nada: a montagem é sempre igual" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Qual dos números é o maior",
+          "porque": "O tamanho dos números não muda a montagem. O que muda é o tipo de relação: se uma grandeza cresce, a outra cresce junto ou diminui?"
+        },
+        {
+          "resposta": "Se o resultado vai ser inteiro",
+          "porque": "A resposta pode ser decimal sem problema nenhum — preço, tempo e massa costumam ter vírgula. Isso não afeta como a proporção é montada."
+        },
+        {
+          "resposta": "Nada: a montagem é sempre igual",
+          "porque": "É justamente o engano que a próxima lição desfaz. Num problema de pedreiros, mais gente significa menos tempo, e montar como se fosse direta dá resposta errada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare dois problemas",
+          "explicacao": "Mais cadernos custam mais; mais pedreiros levam menos tempo. As duas relações são opostas.",
+          "conta": "cresce junto? ou o contrário?"
+        },
+        {
+          "titulo": "Veja o efeito na montagem",
+          "explicacao": "Na direta as duas razões vão na mesma ordem; na inversa uma delas precisa ser virada.",
+          "conta": "direta ≠ inversa"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Decidir o tipo é o primeiro passo, antes de escrever qualquer número.",
+          "conta": "primeiro o tipo, depois a conta"
+        }
+      ]
+    }
+  ]
+}

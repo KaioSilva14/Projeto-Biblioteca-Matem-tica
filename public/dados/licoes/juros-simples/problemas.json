@@ -1,0 +1,211 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Decidir com porcentagem",
+  "pergunta": "Vale mais a pena à vista ou parcelado?",
+  "ideia": {
+    "paragrafos": [
+      "A porcentagem sai da escola e entra na vida em forma de decisão: à vista ou parcelado, esta loja ou aquela, este desconto ou aquele. Em todas elas o método é o mesmo — transformar as opções em números comparáveis e só então escolher.",
+      "A regra que resolve a maioria dos casos é comparar o VALOR FINAL, e não a taxa anunciada. Uma loja que dá 10% de desconto sobre R$ 200 cobra 180; outra que dá R$ 15 de desconto sobre R$ 190 cobra 175. A segunda anuncia menos e custa menos.",
+      "No parcelamento, o que interessa é quanto se paga a mais do que o preço à vista. Se um produto custa R$ 1000 à vista ou 10 parcelas de R$ 115, o parcelado sai por 1150 — são 150 reais de juro, ou 15% sobre o preço à vista.",
+      "Cuidado com a taxa anunciada sem base. 'Desconto de 50%' não diz nada sem o preço; 'juros de 2%' não diz nada sem o período nem o capital. A taxa é sempre uma fração DE alguma coisa, e comparar taxas de bases diferentes não significa nada.",
+      "E vale desconfiar do que é apresentado como vantagem. Um aumento de 10% seguido de desconto de 10% deixa o preço menor que o original — mas um desconto de 10% seguido de aumento de 10% também. O que muda o resultado não é a ordem, e sim o fato de as bases serem diferentes."
+    ],
+    "destaque": "Compare o valor final, não a taxa anunciada. Taxa sem base não informa nada.",
+    "imagem": "jur-ideia-decidir"
+  },
+  "resolvido": {
+    "enunciado": "Uma TV custa R$ 1000 à vista ou 10 parcelas de R$ 115. Quantos reais e quantos por cento se paga a mais no parcelado?",
+    "imagem": "jur-res-tv",
+    "passos": [
+      {
+        "titulo": "Ache o total do parcelado",
+        "explicacao": "Dez parcelas iguais somam dez vezes o valor de cada uma.",
+        "conta": "115 × 10 = 1150"
+      },
+      {
+        "titulo": "Compare com o preço à vista",
+        "explicacao": "A diferença é quanto se paga a mais pelo direito de dividir.",
+        "conta": "1150 − 1000 = 150 reais"
+      },
+      {
+        "titulo": "Transforme em taxa",
+        "explicacao": "A comparação tem de ser feita sobre o preço à VISTA, que é o valor de partida.",
+        "conta": "1000 → 100% · 150 → x%"
+      },
+      {
+        "titulo": "Resolva e interprete",
+        "explicacao": "Quinze por cento a mais no total, distribuídos em dez meses. Ao mês, isso dá 1,5% em juros simples.",
+        "conta": "15% no total"
+      }
+    ],
+    "fecho": "Parcelado 'sem juros' que custa mais que o à vista tem juros — eles só estão embutidos no preço."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um celular custa R$ 1200 à vista ou 12 parcelas de R$ 115. Quantos reais se paga a mais no parcelado? Digite apenas o número.",
+      "imagem": "jur-q-celular",
+      "dica": "Some o total das parcelas e compare com o preço à vista.",
+      "formato": "numero",
+      "resposta": 180,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "1380",
+          "porque": "1380 é o total do parcelado. A pergunta é quanto se paga A MAIS, que é a diferença entre esse total e o preço à vista."
+        },
+        {
+          "resposta": "115",
+          "porque": "115 é o valor de uma parcela. A comparação com o preço à vista precisa usar a soma das doze."
+        },
+        {
+          "resposta": "15",
+          "porque": "15% é a taxa, e não o valor em reais. A pergunta pede quantos reais a mais, que são 180."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as parcelas",
+          "explicacao": "Doze parcelas iguais, somadas para chegar ao total do parcelado.",
+          "conta": "115 × 12 = 1380"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "A diferença é o custo de parcelar.",
+          "conta": "1380 − 1200 = 180 reais"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Loja A vende um fone por R$ 200 com 10% de desconto. Loja B vende o mesmo fone por R$ 190 com R$ 15 de desconto. Onde se paga menos?",
+      "imagem": "jur-q-duas-lojas",
+      "dica": "Calcule o preço final de cada uma antes de comparar. A taxa anunciada não decide.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Na loja B, que sai por R$ 175" },
+        { "rotulo": "B", "texto": "Na loja A, porque 10% é mais que R$ 15" },
+        { "rotulo": "C", "texto": "Nas duas o preço final é igual" },
+        { "rotulo": "D", "texto": "Na loja A, porque o preço original é maior" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Na loja A, porque 10% é mais que R$ 15",
+          "porque": "Dez por cento de 200 são exatamente 20 reais, que é mais que 15 — mas o preço de partida da loja A também é maior. O que decide é o preço FINAL: 180 contra 175."
+        },
+        {
+          "resposta": "Nas duas o preço final é igual",
+          "porque": "Não são iguais: a loja A cobra 180 e a B cobra 175. Cinco reais separam as duas."
+        },
+        {
+          "resposta": "Na loja A, porque o preço original é maior",
+          "porque": "Preço original maior não é vantagem nenhuma para quem compra. O que interessa é quanto sai do bolso no fim."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Preço final da loja A",
+          "explicacao": "Com 10% de desconto, paga-se 90% do preço.",
+          "conta": "200 × 0,90 = 180"
+        },
+        {
+          "titulo": "Preço final da loja B",
+          "explicacao": "Aqui o desconto já vem em reais.",
+          "conta": "190 − 15 = 175"
+        },
+        {
+          "titulo": "Compare os finais",
+          "explicacao": "A loja que anunciava o desconto menor cobra menos.",
+          "conta": "175 < 180"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um empréstimo de R$ 3000 a 2% ao mês, em juros simples, será pago em 8 meses. Qual é o montante? Digite apenas o número.",
+      "imagem": "jur-q-emprestimo",
+      "dica": "Some as taxas dos oito meses, calcule o juro e some ao capital.",
+      "formato": "numero",
+      "resposta": 3480,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "480",
+          "porque": "480 é só o JURO dos oito meses. O montante inclui também os 3000 que foram emprestados."
+        },
+        {
+          "resposta": "3060",
+          "porque": "3060 soma o juro de um mês só. Foram oito meses, e cada um rende os mesmos 60 reais."
+        },
+        {
+          "resposta": "3016",
+          "porque": "3016 trata os 2% como 2 reais em vez de 2 por cento. Dois por cento de 3000 são 60 reais por mês."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as taxas",
+          "explicacao": "Oito meses a 2% cada, no juro simples.",
+          "conta": "2% × 8 = 16%"
+        },
+        {
+          "titulo": "Calcule o juro",
+          "explicacao": "Dezesseis por cento do capital.",
+          "conta": "3000 × 0,16 = 480"
+        },
+        {
+          "titulo": "Some ao capital",
+          "explicacao": "O montante é o capital somado a tudo o que rendeu no período.",
+          "conta": "3000 + 480 = 3480 reais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma loja anuncia 'desconto de 40%'. Sem saber o preço do produto, o que dá para concluir?",
+      "imagem": "jur-q-taxa-sem-base",
+      "dica": "Uma taxa é sempre uma fração de alguma coisa. Sem essa coisa, o que se sabe?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Só que se paga 60% do preço, seja ele qual for" },
+        { "rotulo": "B", "texto": "Que o desconto é de R$ 40" },
+        { "rotulo": "C", "texto": "Que o produto é barato" },
+        { "rotulo": "D", "texto": "Nada, porque porcentagem sem preço não significa coisa alguma" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que o desconto é de R$ 40",
+          "porque": "Confunde 40% com 40 reais. A taxa é uma fração do preço: em R$ 300 ela vale 120 reais, e em R$ 50 vale 20."
+        },
+        {
+          "resposta": "Que o produto é barato",
+          "porque": "O tamanho do desconto não diz nada sobre o preço final. Quarenta por cento de desconto num produto caríssimo ainda deixa um preço alto."
+        },
+        {
+          "resposta": "Nada, porque porcentagem sem preço não significa coisa alguma",
+          "porque": "Dá para concluir uma coisa, sim: a PROPORÇÃO que sobra. Sem o preço não se sabe o valor em reais, mas se sabe que restam 60% dele."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que a taxa fixa",
+          "explicacao": "Ela fixa a proporção, e não o valor: 40% saem, e o resto fica.",
+          "conta": "100% − 40% = 60%"
+        },
+        {
+          "titulo": "Veja o que ela não fixa",
+          "explicacao": "O valor em reais depende do preço, que não foi informado.",
+          "conta": "40% de 300 = 120 · de 50 = 20"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "A informação é útil como proporção, e insuficiente como valor.",
+          "conta": "paga-se 0,60 do preço"
+        }
+      ]
+    }
+  ]
+}

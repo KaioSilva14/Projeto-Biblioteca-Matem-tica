@@ -1,0 +1,211 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas com regra de três",
+  "pergunta": "Qual é a ordem dos passos quando o problema vem sem aviso?",
+  "ideia": {
+    "paragrafos": [
+      "Fora da lista de exercícios, ninguém escreve 'use regra de três inversa'. O enunciado conta uma história, e cabe a você extrair as duas grandezas, decidir o tipo e montar. A ordem dos passos é sempre a mesma, e vale segui-la mesmo quando o problema parece fácil.",
+      "Primeiro, IDENTIFIQUE as duas grandezas e o que a pergunta quer. Segundo, CONVERTA as unidades para cada linha ficar consistente. Terceiro, DECIDA se a relação é direta ou inversa, dobrando uma das grandezas mentalmente. Quarto, MONTE e resolva. Quinto, CONFIRA se o resultado faz sentido no mundo.",
+      "Os quatro primeiros passos são rápidos; o quinto é o que salva. Um tempo negativo, um preço menor por comprar mais, uma obra que atrasa com mais gente — todos esses são avisos de que algum passo anterior escapou.",
+      "Vale reconhecer também os problemas que NÃO são de regra de três. 'Qual o preço por quilo?' é uma divisão simples: há uma situação só, e não duas para comparar. Regra de três precisa de duas situações, com três valores conhecidos entre elas.",
+      "E o passo mais fácil de pular é o terceiro. Muita gente monta no automático, sempre como direta, porque a maioria dos problemas é assim. Os de tempo, gente e velocidade quase sempre não são — e é justamente neles que a montagem automática erra."
+    ],
+    "destaque": "Identifique, converta, decida o tipo, monte, confira. Nessa ordem.",
+    "imagem": "rt-ideia-passos"
+  },
+  "resolvido": {
+    "enunciado": "Numa fábrica, 5 máquinas produzem 400 peças em um turno. Quantas peças 8 máquinas produzem no mesmo turno?",
+    "imagem": "rt-res-fabrica",
+    "passos": [
+      {
+        "titulo": "Identifique as grandezas",
+        "explicacao": "São o número de máquinas e a quantidade de peças. O turno é o mesmo nos dois casos, então ele não entra na conta.",
+        "conta": "máquinas | peças"
+      },
+      {
+        "titulo": "Confira as unidades",
+        "explicacao": "Máquinas com máquinas e peças com peças: as duas linhas já estão consistentes, e não há conversão a fazer.",
+        "conta": "unidades ok"
+      },
+      {
+        "titulo": "Decida o tipo",
+        "explicacao": "Dobrando as máquinas no mesmo turno, a produção dobra. É direta — repare que aqui MAIS máquinas dá MAIS peças, e não menos tempo.",
+        "conta": "máquinas ×2 → peças ×2"
+      },
+      {
+        "titulo": "Monte, resolva e confira",
+        "explicacao": "Multiplicando em cruz e dividindo. Cada máquina faz 80 peças, e oito fazem 640 — mais que 400, como esperado.",
+        "conta": "5x = 3200 → x = 640 peças"
+      }
+    ],
+    "fecho": "O mesmo enunciado com 'em quanto tempo' em vez de 'quantas peças' seria inverso. A pergunta decide."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Com 4 pacotes de ração, um canil alimenta os cães por 18 dias. Por quantos dias 6 pacotes alimentariam os mesmos cães? Digite apenas o número.",
+      "imagem": "rt-q-canil",
+      "dica": "Mais ração dura mais tempo, para o mesmo número de cães.",
+      "formato": "numero",
+      "resposta": 27,
+      "unidade": "dias",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 monta como inversa, o que faria mais ração acabar antes. Aqui quem varia é o estoque, e não o número de cães: mais comida dura MAIS."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 soma dois dias pelos dois pacotes a mais. Cada pacote dura 18 ÷ 4 = 4,5 dias, então dois a mais rendem nove dias."
+        },
+        {
+          "resposta": "108",
+          "porque": "108 é 18 × 6, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Dobrando os pacotes, a ração dura o dobro: direta. O número de cães não mudou.",
+          "conta": "mais ração, mais dias"
+        },
+        {
+          "titulo": "Monte e cruze",
+          "explicacao": "Pacotes numa linha e dias na outra, na mesma ordem.",
+          "conta": "4/18 = 6/x → 4x = 108"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Cada pacote rende 4,5 dias, e seis rendem 27 — mais que 18, como esperado.",
+          "conta": "108 ÷ 4 = 27 dias"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um ciclista a 15 km/h faz um percurso em 40 minutos. A 20 km/h, em quantos minutos faz o mesmo percurso? Digite apenas o número.",
+      "imagem": "rt-q-ciclista",
+      "dica": "Mesmo percurso, mais velocidade: o tempo cai. O produto velocidade × tempo se mantém.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "minutos",
+      "errosComuns": [
+        {
+          "resposta": "53.33",
+          "porque": "53,33 monta como direta, o que faria o ciclista mais rápido demorar mais. Aumentar a velocidade no mesmo percurso reduz o tempo."
+        },
+        {
+          "resposta": "600",
+          "porque": "600 é o produto 15 × 40, um passo do caminho. Ele ainda precisa ser dividido por 20."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é a velocidade nova, copiada do enunciado. A pergunta é sobre o tempo, que sai da divisão do produto pela velocidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Mais rápido no mesmo percurso significa menos tempo: inversa.",
+          "conta": "inversa"
+        },
+        {
+          "titulo": "Use o produto",
+          "explicacao": "Ele é proporcional à distância do percurso, que não muda.",
+          "conta": "15 × 40 = 600"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "O tempo caiu de 40 para 30, como esperado ao acelerar.",
+          "conta": "600 ÷ 20 = 30 minutos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma receita para 6 pessoas leva 750 ml de leite. Para 4 pessoas, quantos mililitros? Digite apenas o número.",
+      "imagem": "rt-q-leite",
+      "dica": "Menos pessoas usa menos leite: o resultado tem de ficar abaixo de 750.",
+      "formato": "numero",
+      "resposta": 500,
+      "unidade": "ml",
+      "errosComuns": [
+        {
+          "resposta": "1125",
+          "porque": "1125 monta como inversa, o que faria menos pessoas usarem mais leite. Menos gente come menos, então o resultado tem de ser menor que 750."
+        },
+        {
+          "resposta": "748",
+          "porque": "748 subtrai dois mililitros pelas duas pessoas a menos. Cada pessoa consome 750 ÷ 6 = 125 ml, então duas a menos poupam 250 ml."
+        },
+        {
+          "resposta": "3000",
+          "porque": "3000 é 750 × 4, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Menos pessoas, menos leite: direta.",
+          "conta": "direta"
+        },
+        {
+          "titulo": "Monte e cruze",
+          "explicacao": "Pessoas numa linha e mililitros na outra.",
+          "conta": "6/750 = 4/x → 6x = 3000"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Cada pessoa usa 125 ml, e quatro usam 500 — abaixo de 750, como previsto.",
+          "conta": "3000 ÷ 6 = 500 ml"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual destes problemas NÃO se resolve com regra de três?",
+      "imagem": "rt-q-nao-regra",
+      "dica": "Regra de três compara duas situações. Procure o problema que tem só uma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Um pacote de 3 kg custa R$ 24. Qual é o preço por quilo?" },
+        { "rotulo": "B", "texto": "Se 3 kg custam R$ 24, quanto custam 5 kg?" },
+        { "rotulo": "C", "texto": "Se 4 operários levam 9 dias, quantos dias levam 6?" },
+        { "rotulo": "D", "texto": "Se 2 h rendem R$ 30, quanto rendem 7 h?" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Se 3 kg custam R$ 24, quanto custam 5 kg?",
+          "porque": "Esse é regra de três: há duas situações (3 kg e 5 kg) e três valores conhecidos. O quarto é o que se procura."
+        },
+        {
+          "resposta": "Se 4 operários levam 9 dias, quantos dias levam 6?",
+          "porque": "Esse é regra de três inversa: duas situações, três valores conhecidos, e a relação é de produto constante."
+        },
+        {
+          "resposta": "Se 2 h rendem R$ 30, quanto rendem 7 h?",
+          "porque": "Esse é regra de três direta: duas situações e três valores conhecidos, com a razão salário por hora se mantendo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as situações",
+          "explicacao": "No primeiro problema há uma só: um pacote, com peso e preço conhecidos.",
+          "conta": "1 situação"
+        },
+        {
+          "titulo": "Conte os valores conhecidos",
+          "explicacao": "São dois, e não três. Regra de três precisa de três conhecidos para achar o quarto.",
+          "conta": "3 kg e 24 reais"
+        },
+        {
+          "titulo": "Veja o que resolve",
+          "explicacao": "Preço por quilo é uma divisão simples — a razão da matéria anterior, e não uma proporção.",
+          "conta": "24 ÷ 3 = 8 reais por kg"
+        }
+      ]
+    }
+  ]
+}

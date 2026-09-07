@@ -1,0 +1,41 @@
+{
+  "id": "razao-proporcao",
+  "titulo": "Razão e proporção",
+  "ano": 7,
+  "descricao": "Comparar por divisão em vez de por diferença — e o que se ganha com isso. Seis lições que vão da razão simples até a escala de um mapa e o teste que separa grandezas proporcionais das que só crescem juntas.",
+  "pergunta": "Por que a diferença muda quando a turma cresce, e a razão não?",
+  "videos": [
+    {
+      "id": "Kf_YzZ0CnIs",
+      "titulo": "RAZÃO E PROPORÇÃO \\Prof. Gis/ #01",
+      "canal": "Gis com Giz",
+      "descricao": "Apresenta a razão do zero, com exemplos do dia a dia. Bom para reforçar a lição 1, se comparar por divisão ainda soar estranho."
+    },
+    {
+      "id": "NXb8T626NSo",
+      "titulo": "PROPORÇÃO MATEMÁTICA 7 ° ano  \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Foca na igualdade entre duas razões e na propriedade fundamental. Complementa as lições 2 e 3, onde entra a multiplicação em cruz."
+    },
+    {
+      "id": "J1PxPv33MR8",
+      "titulo": "Aula 13 - Razão e proporção | Matemática 7º ano | Tempo de Estudar",
+      "canal": "MultiRio",
+      "descricao": "Aula de TV educativa que passa por razão, escala e proporção numa sequência só. Serve como revisão depois da lição 4."
+    },
+    {
+      "id": "07X4G9wh1W0",
+      "titulo": "Razão e proporção - exercícios e exemplos - 7º ano",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Uma lista de exercícios resolvidos passo a passo. Vale para treinar mais depois de terminar as seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e-razao", "arquivo": "/dados/licoes/razao-proporcao/o-que-e-razao.json" },
+    { "id": "proporcao", "arquivo": "/dados/licoes/razao-proporcao/proporcao.json" },
+    { "id": "propriedade", "arquivo": "/dados/licoes/razao-proporcao/propriedade.json" },
+    { "id": "escala", "arquivo": "/dados/licoes/razao-proporcao/escala.json" },
+    { "id": "grandezas", "arquivo": "/dados/licoes/razao-proporcao/grandezas.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/razao-proporcao/problemas.json" }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "id": "sucessivos",
+  "numero": 2,
+  "titulo": "Aumentos sucessivos",
+  "pergunta": "Dois aumentos de 10% dão um aumento de 20%?",
+  "ideia": {
+    "paragrafos": [
+      "Não dão, e a diferença não é um detalhe. Um preço de R$ 100 que sobe 10% vai para 110. Subindo mais 10%, o segundo aumento incide sobre 110, e não sobre 100 — são 11 reais, e não 10. O preço final é 121, e não 120.",
+      "A razão é que a segunda porcentagem se aplica ao valor JÁ AUMENTADO. Porcentagem é sempre uma fração de alguma coisa, e essa coisa mudou no caminho. Somar as taxas ignora exatamente isso.",
+      "Com o fator multiplicativo, a conta fica limpa: 100 × 1,10 × 1,10 = 121. Dois aumentos seguidos são dois fatores multiplicados. E o fator total, 1,21, revela o aumento acumulado de verdade: 21%.",
+      "O mesmo vale para descontos. Um preço de R$ 200 com 20% e depois mais 10% de desconto vira 200 × 0,80 × 0,90 = 144. O desconto total foi de 56 reais em 200, ou seja, 28% — e não os 30% que a soma sugeriria.",
+      "E há um caso que surpreende: um aumento de 10% seguido de um desconto de 10% NÃO volta ao preço original. Fica 100 × 1,10 × 0,90 = 99. Perde-se 1%, porque o desconto incidiu sobre um valor maior do que aquele em que o aumento incidiu."
+    ],
+    "destaque": "Taxas sucessivas não se somam: os fatores se multiplicam.",
+    "imagem": "jur-ideia-sucessivos"
+  },
+  "resolvido": {
+    "enunciado": "Um produto de R$ 100 sofre dois aumentos seguidos de 10%. Qual é o preço final e qual foi o aumento total?",
+    "imagem": "jur-res-sucessivos",
+    "passos": [
+      {
+        "titulo": "Aplique o primeiro aumento",
+        "explicacao": "Dez por cento de 100 são 10 reais, e o preço passa a 110. Até aqui nada de novo.",
+        "conta": "100 × 1,10 = 110"
+      },
+      {
+        "titulo": "Repare sobre o que o segundo incide",
+        "explicacao": "O segundo aumento é calculado sobre o preço NOVO, de 110 — e 10% de 110 são 11, e não 10. É esse real a mais que quebra a soma das taxas.",
+        "conta": "10% de 110 = 11"
+      },
+      {
+        "titulo": "Aplique o segundo",
+        "explicacao": "Multiplicando de novo pelo fator, ou somando os 11 reais.",
+        "conta": "110 × 1,10 = 121"
+      },
+      {
+        "titulo": "Calcule o aumento total",
+        "explicacao": "De 100 para 121 são 21 reais em 100, ou seja, 21%. Os dois fatores multiplicados dão 1,21, que é a mesma informação.",
+        "conta": "1,10 × 1,10 = 1,21 → 21%"
+      }
+    ],
+    "fecho": "O 1% a mais parece pouco em 100 reais. Em juros repetidos por meses, ele é a diferença toda."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um preço de R$ 200 sofre dois aumentos seguidos de 10%. Qual é o preço final? Digite apenas o número.",
+      "imagem": "jur-q-dois-aumentos",
+      "dica": "Aplique um fator de cada vez. O segundo incide sobre o preço já aumentado.",
+      "formato": "numero",
+      "resposta": 242,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "240",
+          "porque": "240 soma as duas taxas e aplica 20% de uma vez. O segundo aumento incide sobre 220, e não sobre 200 — são 22 reais, e não 20."
+        },
+        {
+          "resposta": "220",
+          "porque": "220 aplica só o primeiro aumento. Falta o segundo, que rende mais 22 reais."
+        },
+        {
+          "resposta": "400",
+          "porque": "400 dobra o preço, como se cada aumento de 10% fosse de 100%. Dez por cento é um décimo, então cada aumento acrescenta pouco."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Primeiro aumento",
+          "explicacao": "Dez por cento de 200 são 20 reais.",
+          "conta": "200 × 1,10 = 220"
+        },
+        {
+          "titulo": "Segundo aumento",
+          "explicacao": "Agora sobre 220, o que dá 22 reais em vez de 20.",
+          "conta": "220 × 1,10 = 242"
+        },
+        {
+          "titulo": "Confira pelo fator total",
+          "explicacao": "Os dois fatores multiplicados dão o fator acumulado.",
+          "conta": "200 × 1,21 = 242 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um preço de R$ 500 recebe 20% de desconto e depois mais 10% sobre o valor já reduzido. Quanto se paga no fim? Digite apenas o número.",
+      "imagem": "jur-q-dois-descontos",
+      "dica": "Multiplique pelos dois fatores de desconto, um de cada vez.",
+      "formato": "numero",
+      "resposta": 360,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "350",
+          "porque": "350 soma os descontos e aplica 30% de uma vez. O segundo desconto incide sobre 400, e não sobre 500 — são 40 reais, e não 50."
+        },
+        {
+          "resposta": "400",
+          "porque": "400 aplica só o primeiro desconto. Falta o segundo, que ainda tira 40 reais."
+        },
+        {
+          "resposta": "140",
+          "porque": "140 é a soma dos dois descontos em reais (100 + 40). A pergunta é quanto se PAGA, que é o que sobra do preço."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Primeiro desconto",
+          "explicacao": "Com 20% de desconto, resta 80% do preço.",
+          "conta": "500 × 0,80 = 400"
+        },
+        {
+          "titulo": "Segundo desconto",
+          "explicacao": "Agora 10% sobre 400, restando 90%.",
+          "conta": "400 × 0,90 = 360"
+        },
+        {
+          "titulo": "Veja o desconto real",
+          "explicacao": "De 500 para 360 são 140 reais, ou seja, 28% — e não os 30% que a soma sugeriria.",
+          "conta": "140 ÷ 500 = 28%"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um preço de R$ 100 sobe 10% e depois recebe 10% de desconto. Qual é o preço final? Digite apenas o número.",
+      "imagem": "jur-q-sobe-desce",
+      "dica": "O desconto incide sobre o preço já aumentado. Ele volta exatamente ao original?",
+      "formato": "numero",
+      "resposta": 99,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "100",
+          "porque": "Parece que sobe e desce a mesma coisa, mas não: o aumento de 10% valeu 10 reais e o desconto de 10% valeu 11, porque incidiu sobre 110. Sobra 99."
+        },
+        {
+          "resposta": "110",
+          "porque": "110 aplica só o aumento. Falta o desconto, que retira 11 reais desse valor."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 aplica só o desconto, sobre o preço original. O aumento veio antes e mudou a base sobre a qual o desconto foi calculado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique o aumento",
+          "explicacao": "Dez por cento de 100 são 10 reais.",
+          "conta": "100 × 1,10 = 110"
+        },
+        {
+          "titulo": "Aplique o desconto",
+          "explicacao": "Agora 10% de 110, que são 11 reais — mais que os 10 que entraram.",
+          "conta": "110 × 0,90 = 99"
+        },
+        {
+          "titulo": "Entenda o 1% perdido",
+          "explicacao": "O desconto incidiu sobre um valor maior do que aquele em que o aumento incidiu, e por isso tirou mais do que colocou.",
+          "conta": "1,10 × 0,90 = 0,99"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois aumentos sucessivos de 20% equivalem a um aumento único de quanto?",
+      "imagem": "jur-q-equivalente",
+      "dica": "Multiplique os dois fatores e veja o quanto o resultado passa de 1.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "44%" },
+        { "rotulo": "B", "texto": "40%" },
+        { "rotulo": "C", "texto": "20%" },
+        { "rotulo": "D", "texto": "24%" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "40%",
+          "porque": "40% soma as duas taxas, o que ignora que a segunda incide sobre o valor já aumentado. Multiplicando os fatores: 1,20 × 1,20 = 1,44."
+        },
+        {
+          "resposta": "20%",
+          "porque": "20% é o efeito de um aumento só. Dois aumentos seguidos acumulam mais que isso, mesmo que não cheguem ao dobro."
+        },
+        {
+          "resposta": "24%",
+          "porque": "24% sairia de somar 20% com 4%, mas o 4% aqui é justamente o extra que já está incluído no total. O fator 1,44 dá 44%, e não 24%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte os fatores",
+          "explicacao": "Cada aumento de 20% tem fator 1,20.",
+          "conta": "1,20 e 1,20"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Aumentos sucessivos multiplicam fatores.",
+          "conta": "1,20 × 1,20 = 1,44"
+        },
+        {
+          "titulo": "Leia a taxa acumulada",
+          "explicacao": "O que passa de 1 é o aumento total.",
+          "conta": "1,44 − 1 = 0,44 = 44%"
+        }
+      ]
+    }
+  ]
+}

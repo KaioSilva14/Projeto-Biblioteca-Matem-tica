@@ -1,0 +1,203 @@
+{
+  "id": "somar",
+  "numero": 4,
+  "titulo": "Somar com sinais",
+  "pergunta": "Como somar um número que é uma dívida?",
+  "ideia": {
+    "paragrafos": [
+      "Somar na reta sempre foi andar para a direita. Com os negativos, a única novidade é que somar um número negativo é andar para a ESQUERDA. O sinal do que se soma decide a direção do passo.",
+      "Partindo de −2 e somando 5, você anda cinco passos para a direita e para no 3. Partindo de 4 e somando −6, anda seis passos para a esquerda e para no −2. Nada além disso está acontecendo.",
+      "Quando os dois números têm o MESMO sinal, os passos vão para o mesmo lado e se acumulam: soma-se as distâncias e mantém-se o sinal. Dever 4 e depois dever 6 é dever 10, então (−4) + (−6) = −10.",
+      "Quando os sinais são DIFERENTES, os passos brigam, e é um cabo de guerra: quem tem a maior distância até o zero vence. Subtrai-se a menor distância da maior, e o resultado fica com o sinal do vencedor. Ter 50 e dever 80 deixa saldo de −30, porque 80 − 50 = 30 e quem venceu foi a dívida.",
+      "Há um caso especial que vale guardar: somar um número com o oposto dele dá sempre zero. Ter 8 e dever 8 empata o cabo de guerra, e 8 + (−8) = 0. É a única situação em que ninguém ganha."
+    ],
+    "destaque": "Somar positivo é andar para a direita; somar negativo é andar para a esquerda.",
+    "imagem": "int-ideia-somar"
+  },
+  "resolvido": {
+    "enunciado": "Calcule −2 + 5.",
+    "imagem": "int-res-somar",
+    "passos": [
+      {
+        "titulo": "Comece no primeiro número",
+        "explicacao": "Coloque o dedo no −2, dois passos à esquerda do zero. É de lá que o movimento parte.",
+        "conta": "ponto de partida = −2"
+      },
+      {
+        "titulo": "Leia a direção do passo",
+        "explicacao": "O que está sendo somado é +5, um número positivo, então o movimento é para a direita.",
+        "conta": "+5 → para a direita"
+      },
+      {
+        "titulo": "Ande e veja onde parou",
+        "explicacao": "Cinco passos à direita a partir de −2 passam pelo −1, pelo 0, pelo 1, pelo 2 e param no 3. Repare que o caminho atravessa o zero.",
+        "conta": "−2 → 3"
+      },
+      {
+        "titulo": "Confira pelo cabo de guerra",
+        "explicacao": "Os sinais eram diferentes: distância 5 contra distância 2. Vence o 5, que é positivo, e sobra 5 − 2 = 3 do lado dele.",
+        "conta": "−2 + 5 = 3"
+      }
+    ],
+    "fecho": "A reta e o cabo de guerra dão a mesma resposta. Um serve para entender, o outro para ir rápido."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule −7 + 3 e digite o resultado com o sinal.",
+      "imagem": "int-q-somar-73",
+      "dica": "Comece no −7 e ande três passos para a direita. Ou compare as distâncias: 7 contra 3.",
+      "formato": "numero",
+      "resposta": -4,
+      "errosComuns": [
+        {
+          "resposta": "-10",
+          "porque": "−10 sai de somar as distâncias 7 e 3. Isso só vale quando os dois sinais são iguais; aqui eles são diferentes, então os passos se opõem e a conta é de subtração."
+        },
+        {
+          "resposta": "4",
+          "porque": "A distância está certa (7 − 3 = 4), mas o sinal não. No cabo de guerra vence quem tem a maior distância até o zero, que é o 7 — e ele é negativo."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 ignora os dois sinais e soma os algarismos. Andar três passos para a direita a partir de −7 não pode terminar tão longe, do lado oposto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare as distâncias",
+          "explicacao": "O −7 está a sete unidades do zero e o 3 está a três. Os sinais são diferentes, então é cabo de guerra.",
+          "conta": "7 contra 3"
+        },
+        {
+          "titulo": "Subtraia a menor da maior",
+          "explicacao": "Sobra a diferença entre as duas forças.",
+          "conta": "7 − 3 = 4"
+        },
+        {
+          "titulo": "Use o sinal do vencedor",
+          "explicacao": "Quem tinha a maior distância era o −7, que é negativo, então o resultado é negativo.",
+          "conta": "−7 + 3 = −4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Calcule (−4) + (−6) e digite o resultado com o sinal.",
+      "imagem": "int-q-somar-46",
+      "dica": "Os dois passos vão para o mesmo lado. Some as distâncias e pense em que lado você parou.",
+      "formato": "numero",
+      "resposta": -10,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "A distância está certa, mas o resultado não pode ser positivo: os dois passos foram para a esquerda, então é impossível terminar do lado direito do zero."
+        },
+        {
+          "resposta": "-2",
+          "porque": "−2 sai de subtrair 6 − 4, como se os sinais fossem diferentes. Aqui os dois são negativos: os passos vão para o mesmo lado e se acumulam."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 subtrai as distâncias e ainda perde o sinal. Com dois negativos não há cabo de guerra — ninguém está puxando para a direita."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja os sinais",
+          "explicacao": "Os dois números são negativos, então os dois passos vão para a esquerda.",
+          "conta": "esquerda + esquerda"
+        },
+        {
+          "titulo": "Some as distâncias",
+          "explicacao": "Quatro passos e depois mais seis somam dez passos no total.",
+          "conta": "4 + 6 = 10"
+        },
+        {
+          "titulo": "Mantenha o sinal",
+          "explicacao": "Como todo o movimento foi para a esquerda, o resultado fica desse lado. Dever 4 e depois dever 6 é dever 10.",
+          "conta": "(−4) + (−6) = −10"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Marina tinha R$ 50 na conta e pagou uma compra de R$ 80. Qual ficou o saldo dela? Digite o número com o sinal.",
+      "imagem": "int-q-saldo",
+      "dica": "O pagamento entra na conta como um número negativo. Faça 50 + (−80).",
+      "formato": "numero",
+      "resposta": -30,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é a distância certa, mas do lado errado: ela pagou mais do que tinha, então ficou devendo. Um saldo positivo significaria dinheiro sobrando."
+        },
+        {
+          "resposta": "130",
+          "porque": "130 soma os dois valores como se os dois fossem entradas. O pagamento tira dinheiro da conta, então entra na soma como −80."
+        },
+        {
+          "resposta": "-130",
+          "porque": "−130 soma as distâncias e ainda põe sinal de menos. Os R$ 50 que ela tinha ajudam a pagar a compra, então precisam ser descontados da dívida."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a situação com sinais",
+          "explicacao": "O que ela tinha é positivo e o que saiu é negativo.",
+          "conta": "50 + (−80)"
+        },
+        {
+          "titulo": "Cabo de guerra",
+          "explicacao": "Sinais diferentes: distância 80 contra distância 50. Vence o 80.",
+          "conta": "80 − 50 = 30"
+        },
+        {
+          "titulo": "Sinal do vencedor",
+          "explicacao": "Quem venceu foi o pagamento, que é negativo. Ela ficou devendo trinta reais ao banco.",
+          "conta": "saldo = −30 reais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Calcule 8 + (−8) e digite o resultado.",
+      "imagem": "int-q-opostos",
+      "dica": "Os dois números estão à mesma distância do zero, em lados opostos. Quem vence o cabo de guerra?",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 soma as distâncias ignorando que os passos vão para lados opostos. Andar oito para a direita e oito para a esquerda volta ao ponto de partida."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 usa só o primeiro número, como se o segundo não fizesse nada. Somar −8 anda oito passos para a esquerda, e esses passos desfazem os primeiros."
+        },
+        {
+          "resposta": "-16",
+          "porque": "−16 soma as distâncias e ainda escolhe o lado negativo. Como as duas forças empatam, não há vencedor para dar o sinal."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Repare no par",
+          "explicacao": "O 8 e o −8 são opostos: mesma distância até o zero, lados contrários.",
+          "conta": "distância 8 dos dois lados"
+        },
+        {
+          "titulo": "Ande na reta",
+          "explicacao": "Partindo do 8, oito passos para a esquerda param exatamente no zero.",
+          "conta": "8 → 0"
+        },
+        {
+          "titulo": "Guarde a regra",
+          "explicacao": "Somar qualquer número com o oposto dele sempre dá zero — o cabo de guerra empata.",
+          "conta": "8 + (−8) = 0"
+        }
+      ]
+    }
+  ]
+}

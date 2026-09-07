@@ -1,0 +1,209 @@
+{
+  "id": "propriedade",
+  "numero": 3,
+  "titulo": "Achar o termo que falta",
+  "pergunta": "E se um dos quatro números da proporção estiver escondido?",
+  "ideia": {
+    "paragrafos": [
+      "Toda a utilidade da proporção está aqui: quando três dos quatro números são conhecidos, o quarto fica determinado. Não há escolha — existe um único valor que faz a igualdade ser verdadeira.",
+      "A ferramenta para achá-lo é a PROPRIEDADE FUNDAMENTAL das proporções: numa igualdade a/b = c/d, o produto dos extremos é igual ao produto dos meios. Ou seja, a × d = b × c. Na prática é o que se chama de multiplicar em cruz.",
+      "Por que isso funciona? Porque multiplicar os dois lados de uma igualdade pelo mesmo número mantém a igualdade. Multiplicando a/b = c/d por b e depois por d, os denominadores somem dos dois lados e sobra a × d = b × c.",
+      "Veja 3/4 = x/20. Multiplicando em cruz: 3 × 20 = 4 × x, ou seja, 60 = 4x. Para achar o x, desfaz-se a multiplicação dividindo: x = 60 ÷ 4 = 15. E dá para conferir substituindo — 15/20 simplificado é 3/4.",
+      "Há um caminho ainda mais curto quando o fator salta aos olhos. Em 3/4 = x/20, de 4 para 20 multiplica-se por 5; então x é 3 × 5 = 15. Os dois caminhos dão o mesmo resultado, e o segundo é mais rápido quando os números são amigáveis."
+    ],
+    "destaque": "Numa proporção, o produto dos extremos é igual ao produto dos meios.",
+    "imagem": "raz-ideia-cruz"
+  },
+  "resolvido": {
+    "enunciado": "Ache o valor de x na proporção 3/4 = x/20.",
+    "imagem": "raz-res-cruz",
+    "passos": [
+      {
+        "titulo": "Identifique meios e extremos",
+        "explicacao": "Nos extremos ficam o primeiro e o último número: 3 e 20. Nos meios, os do centro: 4 e x.",
+        "conta": "extremos: 3 e 20 · meios: 4 e x"
+      },
+      {
+        "titulo": "Multiplique em cruz",
+        "explicacao": "A propriedade garante que os dois produtos são iguais. Isso transforma a proporção numa igualdade sem frações.",
+        "conta": "3 × 20 = 4 × x"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Sessenta é quatro vezes o x, então o x é sessenta dividido por quatro. Dividir desfaz a multiplicação.",
+        "conta": "60 = 4x → x = 60 ÷ 4 = 15"
+      },
+      {
+        "titulo": "Confira substituindo",
+        "explicacao": "Voltando o valor achado para a proporção, as duas razões precisam dar a mesma coisa.",
+        "conta": "15/20 = 3/4 ✓"
+      }
+    ],
+    "fecho": "Multiplicar em cruz tira as frações da frente. O resto é uma divisão."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na proporção 2/3 = x/12, qual é o valor de x? Digite apenas o número.",
+      "imagem": "raz-q-cruz-1",
+      "dica": "Multiplique em cruz, ou repare no fator que leva de 3 para 12.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 sai de multiplicar 2 por 9, ou de cruzar os números errados. Os extremos aqui são 2 e 12, e os meios são 3 e x: a conta é 2 × 12 = 3x."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o resultado de 2 × 3, multiplicando os dois números da primeira razão. A propriedade cruza os termos: um de cada razão em cada produto."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 2 × 12, o produto dos extremos — um passo do caminho. Ele ainda precisa ser dividido por 3 para dar o x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique em cruz",
+          "explicacao": "Extremos com extremos, meios com meios.",
+          "conta": "2 × 12 = 3 × x"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Vinte e quatro é três vezes o x, então divida por três.",
+          "conta": "24 ÷ 3 = 8"
+        },
+        {
+          "titulo": "Confira pelo fator",
+          "explicacao": "De 3 para 12 multiplica-se por 4, e 2 × 4 também dá 8.",
+          "conta": "2 × 4 = 8 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Na proporção 5/x = 15/9, qual é o valor de x? Digite apenas o número.",
+      "imagem": "raz-q-cruz-2",
+      "dica": "O x está no denominador desta vez. Multiplique em cruz do mesmo jeito.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "27",
+          "porque": "27 aplica o fator na direção errada. De 5 para 15 multiplica-se por 3, então o de baixo também é multiplicado por 3 — mas é o x que vira 9, e não o contrário: x = 9 ÷ 3."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é o produto 5 × 9, que é um passo do caminho. Ele ainda precisa ser dividido por 15 para isolar o x."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é um dos números do enunciado, copiado como resposta. O x é o que falta para as duas razões darem o mesmo valor — e 5/9 não é igual a 15/9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique em cruz",
+          "explicacao": "O x estar embaixo não muda nada: os extremos são 5 e 9, e os meios são x e 15.",
+          "conta": "5 × 9 = x × 15"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Quarenta e cinco é quinze vezes o x.",
+          "conta": "45 ÷ 15 = 3"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Substituindo, as duas razões dão o mesmo valor.",
+          "conta": "5/3 = 15/9 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Se 4 cadernos custam R$ 30, quanto custam 6 cadernos, no mesmo preço por caderno? Digite apenas o número.",
+      "imagem": "raz-q-cadernos",
+      "dica": "Monte a proporção cadernos para reais, com o mesmo lado em cima nas duas razões.",
+      "formato": "numero",
+      "resposta": 45,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 usa o fator de cabeça para baixo: 30 × 4/6 em vez de 30 × 6/4. Mais cadernos custam MAIS, então o resultado tem de passar de 30, e não encolher."
+        },
+        {
+          "resposta": "32",
+          "porque": "32 soma 2 ao preço, como se cada caderno a mais custasse 1 real. Cada caderno custa 30 ÷ 4 = 7,50, então dois a mais custam 15."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é 6 × 30, o produto dos extremos — um passo do caminho. Ele ainda precisa ser dividido por 4 para dar o preço."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "Cadernos em cima e reais embaixo, na mesma ordem nas duas razões.",
+          "conta": "4/30 = 6/x"
+        },
+        {
+          "titulo": "Multiplique em cruz",
+          "explicacao": "Os extremos são 4 e x; os meios são 30 e 6. O produto dos dois pares é igual.",
+          "conta": "4 × x = 30 × 6 = 180"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Dividindo por 4 chega-se ao preço; e o preço por caderno bate nos dois casos.",
+          "conta": "180 ÷ 4 = 45 reais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa proporção a/b = c/d, o que a propriedade fundamental garante?",
+      "imagem": "raz-q-propriedade",
+      "dica": "Extremos são o primeiro e o último; meios são os do centro.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "a × d = b × c" },
+        { "rotulo": "B", "texto": "a × b = c × d" },
+        { "rotulo": "C", "texto": "a + d = b + c" },
+        { "rotulo": "D", "texto": "a ÷ d = b ÷ c" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "a × b = c × d",
+          "porque": "Isso multiplica os dois termos de cada razão separadamente, sem cruzar. A propriedade junta um termo de cada razão: o de cima de uma com o de baixo da outra."
+        },
+        {
+          "resposta": "a + d = b + c",
+          "porque": "Proporção é igualdade entre DIVISÕES, e a propriedade sai de multiplicar os dois lados. Somar não preserva a igualdade: em 1/2 = 2/4, 1 + 4 dá 5 e 2 + 2 dá 4."
+        },
+        {
+          "resposta": "a ÷ d = b ÷ c",
+          "porque": "Testando com 1/2 = 2/4: 1 ÷ 4 dá 0,25 e 2 ÷ 2 dá 1, que são diferentes. A propriedade vale com multiplicação cruzada, e não com divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Nomeie as posições",
+          "explicacao": "Em a/b = c/d, os extremos são a e d; os meios são b e c.",
+          "conta": "extremos: a, d · meios: b, c"
+        },
+        {
+          "titulo": "Enuncie a propriedade",
+          "explicacao": "O produto dos extremos é igual ao produto dos meios.",
+          "conta": "a × d = b × c"
+        },
+        {
+          "titulo": "Teste com números",
+          "explicacao": "Em 1/2 = 2/4, os extremos dão 1 × 4 = 4 e os meios dão 2 × 2 = 4.",
+          "conta": "4 = 4 ✓"
+        }
+      ]
+    }
+  ]
+}

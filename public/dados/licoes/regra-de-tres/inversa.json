@@ -1,0 +1,211 @@
+{
+  "id": "inversa",
+  "numero": 3,
+  "titulo": "Regra de três inversa",
+  "pergunta": "Por que numa delas é preciso virar a razão?",
+  "ideia": {
+    "paragrafos": [
+      "Quando as grandezas são inversamente proporcionais, montar as duas razões na mesma ordem dá resposta errada — e no sentido errado. Se 3 pedreiros levam 12 dias, a montagem direta diria que 6 pedreiros levam 24, ou seja, que dobrar a equipe atrasa a obra.",
+      "O que se mantém na proporcionalidade inversa não é a razão: é o PRODUTO. Três pedreiros por doze dias dão 36; seis pedreiros por x dias têm de dar os mesmos 36. Daí x = 36 ÷ 6 = 6 dias.",
+      "Esse produto tem significado, e entendê-lo dispensa decorar: 36 é o trabalho total da obra, medido em dias de um pedreiro. Ele não muda porque a obra é a mesma — só é dividido entre mais ou menos gente.",
+      "Quem prefere trabalhar com proporção pode: basta INVERTER uma das razões antes de cruzar. Em vez de 3/6 = 12/x, escreve-se 3/6 = x/12. É o mesmo procedimento por outro caminho, e dá exatamente o produto constante de novo.",
+      "Os dois caminhos servem, mas o do produto é mais difícil de errar, porque tem significado no mundo. E a conferência é sempre a mesma: mais gente tem de dar menos tempo. Se o resultado cresceu junto com a equipe, algo saiu do lugar."
+    ],
+    "destaque": "Na inversa o que se mantém é o produto, e ele costuma ter nome: o trabalho total.",
+    "imagem": "rt-ideia-inversa"
+  },
+  "resolvido": {
+    "enunciado": "Se 3 pedreiros levam 12 dias para levantar um muro, quantos dias levam 6 pedreiros?",
+    "imagem": "rt-res-pedreiros",
+    "passos": [
+      {
+        "titulo": "Decida o tipo",
+        "explicacao": "Dobrando os pedreiros, o tempo cai pela metade: as grandezas são inversamente proporcionais. Essa decisão muda a montagem inteira.",
+        "conta": "mais gente, menos tempo"
+      },
+      {
+        "titulo": "Calcule o produto",
+        "explicacao": "Na inversa, o produto das duas grandezas não muda. Aqui ele é o trabalho total do muro, medido em dias de um pedreiro.",
+        "conta": "3 × 12 = 36"
+      },
+      {
+        "titulo": "Divida pela nova quantidade",
+        "explicacao": "O mesmo trabalho, repartido entre seis pedreiros.",
+        "conta": "36 ÷ 6 = 6 dias"
+      },
+      {
+        "titulo": "Confira a direção",
+        "explicacao": "A equipe dobrou e o tempo caiu pela metade, que é exatamente o esperado. Se tivesse dado 24 dias, a montagem teria sido a de proporcionalidade direta.",
+        "conta": "6 < 12 ✓"
+      }
+    ],
+    "fecho": "Um pedreiro sozinho levaria 36 dias. É esse número que sobrevive a qualquer tamanho de equipe."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Se 4 torneiras iguais enchem um tanque em 30 minutos, em quantos minutos 5 torneiras enchem o mesmo tanque? Digite apenas o número.",
+      "imagem": "rt-q-torneiras",
+      "dica": "Mais torneiras enchem mais rápido: inversa. O produto se mantém.",
+      "formato": "numero",
+      "resposta": 24,
+      "unidade": "minutos",
+      "errosComuns": [
+        {
+          "resposta": "37.5",
+          "porque": "37,5 monta como se fosse direta, o que faria mais torneiras demorarem mais. Com mais água entrando, o tanque enche ANTES."
+        },
+        {
+          "resposta": "31",
+          "porque": "31 soma um minuto pela torneira a mais. Na proporcionalidade inversa o que se mantém é o produto, e não a soma."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é o produto 4 × 30, que é um passo do caminho — ele representa o tanque em minutos de uma torneira. Falta dividir por 5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Mais torneiras, menos tempo: inversamente proporcionais.",
+          "conta": "inversa"
+        },
+        {
+          "titulo": "Calcule o produto",
+          "explicacao": "Ele representa o tanque inteiro, medido em minutos de uma torneira só.",
+          "conta": "4 × 30 = 120"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "Repartindo entre cinco torneiras. O tempo caiu, como esperado.",
+          "conta": "120 ÷ 5 = 24 minutos"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um carro a 60 km/h faz um trajeto em 4 horas. A 80 km/h, em quantas horas faz o mesmo trajeto? Digite apenas o número.",
+      "imagem": "rt-q-velocidade",
+      "dica": "Mais rápido chega antes: inversa. O produto velocidade × tempo é a distância, e ela não muda.",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "horas",
+      "errosComuns": [
+        {
+          "resposta": "5.33",
+          "porque": "5,33 monta como se fosse direta, o que faria o carro mais rápido demorar mais. Aumentar a velocidade no mesmo trajeto reduz o tempo."
+        },
+        {
+          "resposta": "240",
+          "porque": "240 é o produto 60 × 4, ou seja, a distância do trajeto em quilômetros. Ele é um passo do caminho: falta dividir por 80."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 corresponderia a dobrar a velocidade, mas ela não dobrou: foi de 60 para 80, um aumento menor. O tempo cai na mesma medida, de 4 para 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Mais velocidade, menos tempo, no mesmo trajeto: inversa.",
+          "conta": "inversa"
+        },
+        {
+          "titulo": "Calcule o produto",
+          "explicacao": "Velocidade vezes tempo é a distância, e ela é a mesma nas duas situações.",
+          "conta": "60 × 4 = 240 km"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "A mesma distância, na velocidade nova.",
+          "conta": "240 ÷ 80 = 3 horas"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma ração dura 15 dias para 8 cavalos. Para quantos dias duraria a mesma ração se houvesse 10 cavalos? Digite apenas o número.",
+      "imagem": "rt-q-racao",
+      "dica": "Mais cavalos comem mais rápido: a mesma ração dura menos.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "dias",
+      "errosComuns": [
+        {
+          "resposta": "18.75",
+          "porque": "18,75 monta como se fosse direta, o que faria mais cavalos esticarem a ração. Com mais bocas comendo, o estoque acaba ANTES."
+        },
+        {
+          "resposta": "17",
+          "porque": "17 soma dois dias pelos dois cavalos a mais. A relação é de produto constante: a ração toda vale 8 × 15 = 120 dias de um cavalo."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é o produto, que representa a ração inteira medida em dias de um cavalo. Falta dividir pelos dez cavalos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Mais cavalos, menos dias de ração: inversa.",
+          "conta": "inversa"
+        },
+        {
+          "titulo": "Calcule o produto",
+          "explicacao": "Ele é a ração toda, medida em dias de um cavalo.",
+          "conta": "8 × 15 = 120"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "Repartindo entre dez cavalos. O resultado é menor que 15, como esperado.",
+          "conta": "120 ÷ 10 = 12 dias"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa regra de três INVERSA, o que se mantém igual nas duas situações?",
+      "imagem": "rt-q-mantem",
+      "dica": "Na direta é a razão. Na inversa é a outra operação.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O produto das duas grandezas" },
+        { "rotulo": "B", "texto": "A razão entre as duas grandezas" },
+        { "rotulo": "C", "texto": "A soma das duas grandezas" },
+        { "rotulo": "D", "texto": "A diferença entre as duas grandezas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A razão entre as duas grandezas",
+          "porque": "A razão constante é a assinatura da proporcionalidade DIRETA. Na inversa ela muda: 3/12 e 6/6 dão números diferentes."
+        },
+        {
+          "resposta": "A soma das duas grandezas",
+          "porque": "Testando com os pedreiros: 3 + 12 dá 15 e 6 + 6 dá 12, que são diferentes. Além disso, somar pedreiros com dias não produz nada com significado."
+        },
+        {
+          "resposta": "A diferença entre as duas grandezas",
+          "porque": "Testando: 12 − 3 dá 9 e 6 − 6 dá 0. A diferença não se mantém, e nem teria sentido — são grandezas de tipos diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste com o exemplo",
+          "explicacao": "Três pedreiros em doze dias, e seis pedreiros em seis dias.",
+          "conta": "3 e 12 · 6 e 6"
+        },
+        {
+          "titulo": "Multiplique cada par",
+          "explicacao": "Os dois produtos dão o mesmo número.",
+          "conta": "3 × 12 = 36 · 6 × 6 = 36"
+        },
+        {
+          "titulo": "Nomeie o que é constante",
+          "explicacao": "O produto é o trabalho total da obra, e é ele que não muda quando a equipe muda de tamanho.",
+          "conta": "produto constante"
+        }
+      ]
+    }
+  ]
+}

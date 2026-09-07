@@ -2300,6 +2300,986 @@ teste("média · lição 6 — escolher a conta certa", () => {
   alt("media", "problemas", "q4", "Os dois grupos têm média 5, mas notas bem diferentes");
 });
 
+// ---------- Números inteiros (7º ano) ----------
+//
+// A matéria toda é sobre ORDEM e SINAL, então a conferência não pode se apoiar
+// nos operadores do JavaScript, que já sabem lidar com negativos. Aqui as
+// operações são refeitas pela definição da lição: andar na reta, casa por casa.
+
+/** Anda `passos` casas na reta a partir de `origem`, uma de cada vez. */
+function andar(origem, passos) {
+  let onde = origem;
+  const direcao = passos < 0 ? -1 : 1;
+  for (let i = 0; i < Math.abs(passos); i++) onde += direcao;
+  return onde;
+}
+
+/** Soma pela definição da lição 4: somar é andar na reta. */
+const somaNaReta = (a, b) => andar(a, b);
+
+/** Subtração pela definição da lição 5: somar o oposto. */
+const oposto = (n) => 0 - n;
+const subtraiPeloOposto = (a, b) => somaNaReta(a, oposto(b));
+
+/** Multiplicação por soma repetida, inclusive com multiplicador negativo. */
+function multiplicaRepetindo(a, b) {
+  let total = 0;
+  for (let i = 0; i < Math.abs(b); i++) total = somaNaReta(total, a);
+  return b < 0 ? oposto(total) : total;
+}
+
+/** Distância até o zero, contando casas — nunca negativa por construção. */
+function distanciaAteZero(n) {
+  let passos = 0;
+  let onde = n;
+  while (onde !== 0) {
+    onde += onde < 0 ? 1 : -1;
+    passos += 1;
+  }
+  return passos;
+}
+
+/** "a está à esquerda de b?" percorrendo a reta da esquerda para a direita. */
+function estaAEsquerda(a, b) {
+  for (let x = Math.min(a, b) - 1; x <= Math.max(a, b) + 1; x++) {
+    if (x === a && x !== b) return true;
+    if (x === b && x !== a) return false;
+  }
+  return false;
+}
+
+teste("inteiros · a aritmética da reta bate com a do JavaScript", () => {
+  // Se as funções de referência estiverem erradas, todo o resto do bloco
+  // estaria conferindo lixo contra lixo. Este teste ancora as duas coisas.
+  // `assert.equal` é estrito e separa 0 de −0, que aparece em toda
+  // multiplicação por zero. Aqui a comparação é por ===, que os iguala.
+  const mesmo = (x, y, msg) => assert.ok(x === y, `${msg}: ${x} ≠ ${y}`);
+  for (let a = -12; a <= 12; a++) {
+    mesmo(distanciaAteZero(a), Math.abs(a), `distância de ${a}`);
+    mesmo(oposto(a), -a, `oposto de ${a}`);
+    for (let b = -12; b <= 12; b++) {
+      mesmo(somaNaReta(a, b), a + b, `${a} + ${b}`);
+      mesmo(subtraiPeloOposto(a, b), a - b, `${a} − ${b}`);
+      mesmo(multiplicaRepetindo(a, b), a * b, `${a} × ${b}`);
+      if (a !== b) assert.equal(estaAEsquerda(a, b), a < b, `${a} à esquerda de ${b}`);
+    }
+  }
+});
+
+teste("inteiros · lição 1 — o sinal diz o lado do zero", () => {
+  // Descer do térreo: cada andar percorrido tira um do número, e o próprio
+  // térreo é o ponto de partida — não um andar de descida.
+  let andarAtual = 0;
+  for (let i = 0; i < 2; i++) andarAtual -= 1;
+  assert.equal(andarAtual, -2);
+  alt("inteiros", "o-que-e", "q1", "−2");
+
+  alt("inteiros", "o-que-e", "q2", "Uma dívida de 30 reais");
+  num("inteiros", "o-que-e", "q3", oposto(200));
+  alt("inteiros", "o-que-e", "q4", "Não é positivo nem negativo: é a fronteira entre os dois lados");
+
+  // o zero não é mais o menor: existe reta à esquerda dele
+  assert.ok(estaAEsquerda(-1, 0), "−1 tem de estar à esquerda do zero");
+});
+
+teste("inteiros · lição 2 — oposto e distância até o zero", () => {
+  assert.equal(oposto(-4), 4, "o exemplo resolvido não fecha");
+  assert.equal(distanciaAteZero(-4), distanciaAteZero(4), "opostos ficam à mesma distância do zero");
+
+  alt("inteiros", "na-reta", "q1", "−3");
+  num("inteiros", "na-reta", "q2", oposto(-7));
+  num("inteiros", "na-reta", "q3", distanciaAteZero(-6));
+
+  // só um número diferente empata a distância de −9: o oposto dele
+  const empatam = [];
+  for (let n = -20; n <= 20; n++) {
+    if (n !== -9 && distanciaAteZero(n) === distanciaAteZero(-9)) empatam.push(n);
+  }
+  assert.deepEqual(empatam, [9], "o oposto tem de ser o único a empatar");
+  num("inteiros", "na-reta", "q4", empatam[0]);
+
+  // o zero é o único que é oposto de si mesmo
+  const autoOpostos = [];
+  for (let n = -20; n <= 20; n++) if (oposto(n) === n) autoOpostos.push(n);
+  assert.deepEqual(autoOpostos, [0]);
+});
+
+teste("inteiros · lição 3 — entre negativos a ordem se inverte", () => {
+  // O coração da matéria: a distância maior até o zero faz o número MENOR.
+  assert.ok(estaAEsquerda(-7, -3), "−7 tem de ficar à esquerda de −3");
+  assert.ok(distanciaAteZero(-7) > distanciaAteZero(-3), "e mesmo assim estar mais longe do zero");
+  alt("inteiros", "comparar", "q1", "−2");
+
+  // ordenar é ler a reta da esquerda para a direita
+  const lista = [2, -5, 0, -1];
+  const crescente = [...lista].sort((a, b) => (estaAEsquerda(a, b) ? -1 : 1));
+  assert.deepEqual(crescente, [-5, -1, 0, 2]);
+  // O conteúdo escreve negativo com o menos tipográfico (−), e não com o
+  // hífen do teclado; a comparação tem de usar o mesmo caractere.
+  const comSinal = (n) => (n < 0 ? `−${Math.abs(n)}` : String(n));
+  alt("inteiros", "comparar", "q2", crescente.map(comSinal).join(" · "));
+
+  const temperaturas = [-8, 3, -1, 0];
+  const maisFria = temperaturas.reduce((a, b) => (estaAEsquerda(b, a) ? b : a));
+  assert.equal(maisFria, -8);
+  num("inteiros", "comparar", "q3", maisFria);
+
+  // todo negativo é menor que todo positivo, sem exceção na faixa testada
+  for (let n = -30; n < 0; n++) {
+    for (let p = 1; p <= 30; p++) {
+      assert.ok(estaAEsquerda(n, p), `${n} deveria ser menor que ${p}`);
+    }
+  }
+  alt("inteiros", "comparar", "q4", "Qualquer número negativo é menor que qualquer positivo");
+});
+
+teste("inteiros · lição 4 — somar é andar na reta", () => {
+  assert.equal(somaNaReta(-2, 5), 3, "o exemplo resolvido não fecha");
+
+  num("inteiros", "somar", "q1", somaNaReta(-7, 3));
+  num("inteiros", "somar", "q2", somaNaReta(-4, -6));
+  num("inteiros", "somar", "q3", somaNaReta(50, -80));
+  num("inteiros", "somar", "q4", somaNaReta(8, -8));
+
+  // sinais iguais acumulam; sinais diferentes é cabo de guerra
+  assert.equal(distanciaAteZero(somaNaReta(-4, -6)), distanciaAteZero(-4) + distanciaAteZero(-6));
+  assert.equal(
+    distanciaAteZero(somaNaReta(-7, 3)),
+    distanciaAteZero(-7) - distanciaAteZero(3),
+    "sobra a diferença das distâncias"
+  );
+
+  // somar o oposto sempre zera, em toda a faixa
+  for (let n = -20; n <= 20; n++) assert.equal(somaNaReta(n, oposto(n)), 0);
+});
+
+teste("inteiros · lição 5 — subtrair é somar o oposto", () => {
+  assert.equal(subtraiPeloOposto(-5, -3), -2, "o exemplo resolvido não fecha");
+
+  num("inteiros", "subtrair", "q1", subtraiPeloOposto(4, 9));
+  num("inteiros", "subtrair", "q2", subtraiPeloOposto(-3, 5));
+  num("inteiros", "subtrair", "q3", subtraiPeloOposto(-6, -10));
+
+  // variação é o final menos o inicial, e subir de −8 para 3 é ganho
+  const variacao = subtraiPeloOposto(3, -8);
+  assert.equal(variacao, 11);
+  assert.ok(variacao > 0, "a temperatura subiu, então a variação é positiva");
+  assert.equal(variacao, distanciaAteZero(-8) + distanciaAteZero(3), "conta contornando o zero");
+  num("inteiros", "subtrair", "q4", variacao);
+
+  // subtrair um negativo AUMENTA — a afirmação central da lição
+  for (let a = -10; a <= 10; a++) {
+    for (let b = -10; b < 0; b++) {
+      assert.ok(subtraiPeloOposto(a, b) > a, `${a} − (${b}) deveria ser maior que ${a}`);
+    }
+  }
+});
+
+teste("inteiros · lição 6 — a regra dos sinais sai do padrão", () => {
+  // A tabela do exemplo resolvido: descendo o multiplicador de um em um, o
+  // resultado sobe sempre a mesma coisa — inclusive depois de passar do zero.
+  const linha = [];
+  for (let b = 3; b >= -3; b--) linha.push(multiplicaRepetindo(-4, b));
+  assert.deepEqual(linha, [-12, -8, -4, 0, 4, 8, 12]);
+  for (let i = 1; i < linha.length; i++) {
+    assert.equal(linha[i] - linha[i - 1], 4, "o padrão não pode quebrar no zero");
+  }
+
+  num("inteiros", "multiplicar-dividir", "q1", multiplicaRepetindo(-6, 7));
+  num("inteiros", "multiplicar-dividir", "q2", multiplicaRepetindo(-3, -5));
+
+  // divisão conferida pela multiplicação: o quociente devolve o dividendo
+  const quociente = -8 / -2;
+  assert.equal(multiplicaRepetindo(quociente, -2), -8);
+  num("inteiros", "multiplicar-dividir", "q3", quociente);
+
+  // a regra vale em toda a faixa, sem exceção
+  for (let a = -12; a <= 12; a++) {
+    for (let b = -12; b <= 12; b++) {
+      if (a === 0 || b === 0) continue;
+      const produto = multiplicaRepetindo(a, b);
+      const sinaisIguais = (a < 0) === (b < 0);
+      assert.equal(produto > 0, sinaisIguais, `sinal de ${a} × ${b}`);
+      assert.equal(distanciaAteZero(produto), distanciaAteZero(a) * distanciaAteZero(b));
+    }
+  }
+
+  // potência de base negativa: o expoente ímpar deixa um sinal sobrando
+  const potencia = (base, expoente) => {
+    let r = 1;
+    for (let i = 0; i < expoente; i++) r = multiplicaRepetindo(r, base);
+    return r;
+  };
+  assert.equal(potencia(-2, 3), -8);
+  assert.equal(potencia(-2, 4), 16);
+  for (let e = 1; e <= 6; e++) {
+    assert.equal(potencia(-2, e) < 0, e % 2 === 1, `sinal de (−2)^${e}`);
+  }
+  alt("inteiros", "multiplicar-dividir", "q4", "Negativo, porque o expoente é ímpar");
+});
+
+teste("inteiros · lição 7 — traduzir o problema em sinais", () => {
+  // Elevador: 3º andar, desce 7, sobe 2.
+  let onde = 3;
+  onde = somaNaReta(onde, -7);
+  assert.equal(onde, -4);
+  onde = somaNaReta(onde, 2);
+  assert.equal(onde, -2, "o exemplo resolvido não fecha");
+
+  // Conta bancária, movimento por movimento e na ordem.
+  const saldo = somaNaReta(somaNaReta(180, -250), 40);
+  assert.equal(saldo, -30);
+  num("inteiros", "problemas", "q1", saldo);
+
+  // Diferença entre duas temperaturas é comprimento: não tem sinal.
+  const diferenca = subtraiPeloOposto(4, -11);
+  assert.equal(diferenca, 15);
+  assert.ok(diferenca > 0);
+  assert.equal(diferenca, distanciaAteZero(-11) + distanciaAteZero(4));
+  num("inteiros", "problemas", "q2", diferenca);
+
+  // Mergulho: os dois movimentos vão para o mesmo lado, então acumulam.
+  const profundidade = somaNaReta(-8, -7);
+  assert.equal(profundidade, -15);
+  assert.equal(distanciaAteZero(profundidade), 8 + 7);
+  num("inteiros", "problemas", "q3", profundidade);
+
+  // Jogo: quatro erros de −5 é repetição, e não soma dos dois números.
+  const pontos = multiplicaRepetindo(-5, 4);
+  assert.equal(pontos, -20);
+  assert.notEqual(pontos, somaNaReta(-5, 4), "somar em vez de repetir daria outro número");
+  num("inteiros", "problemas", "q4", somaNaReta(0, pontos));
+});
+
+// ---------- Números racionais (7º ano) ----------
+//
+// Aqui a conferência não pode usar ponto flutuante para o que a matéria
+// ensina: 1/3 não existe em binário, e 0,1 + 0,2 dá 0,30000000000000004. As
+// contas são refeitas com frações de INTEIROS, que é a própria definição de
+// racional, e só no fim viram decimal para comparar com o JSON.
+
+/** Um racional é o par {n, d}, sempre com o d positivo e já simplificado. */
+function racional(n, d) {
+  if (d === 0) throw new Error("denominador zero não é número");
+  const sinal = d < 0 ? -1 : 1;
+  const mdcAbs = (a, b) => (b === 0 ? Math.abs(a) : mdcAbs(b, a % b));
+  const g = mdcAbs(n, d) || 1;
+  return { n: (sinal * n) / g, d: (sinal * d) / g };
+}
+const somaR = (a, b) => racional(a.n * b.d + b.n * a.d, a.d * b.d);
+const opostoR = (a) => racional(-a.n, a.d);
+const subR = (a, b) => somaR(a, opostoR(b));
+const multR = (a, b) => racional(a.n * b.n, a.d * b.d);
+const inversoR = (a) => racional(a.d, a.n);
+const divR = (a, b) => multR(a, inversoR(b));
+const paraDecimal = (a) => a.n / a.d;
+const menorR = (a, b) => a.n * b.d < b.n * a.d;   // com d > 0, comparar cruzado
+const texto = (a) => (a.n < 0 ? `−${Math.abs(a.n)}/${a.d}` : `${a.n}/${a.d}`);
+
+teste("racionais · a aritmética de frações bate com a decimal", () => {
+  // Ancora as funções de referência: se elas estiverem erradas, o bloco
+  // inteiro estaria conferindo lixo contra lixo.
+  for (let an = -6; an <= 6; an++) {
+    for (let ad = 1; ad <= 6; ad++) {
+      const a = racional(an, ad);
+      assert.ok(Math.abs(paraDecimal(somaR(a, a)) - 2 * paraDecimal(a)) < 1e-9);
+      assert.ok(Math.abs(paraDecimal(opostoR(a)) + paraDecimal(a)) < 1e-9);
+      for (let bn = -6; bn <= 6; bn++) {
+        for (let bd = 1; bd <= 6; bd++) {
+          const b = racional(bn, bd);
+          assert.ok(Math.abs(paraDecimal(somaR(a, b)) - (paraDecimal(a) + paraDecimal(b))) < 1e-9);
+          assert.ok(Math.abs(paraDecimal(subR(a, b)) - (paraDecimal(a) - paraDecimal(b))) < 1e-9);
+          assert.ok(Math.abs(paraDecimal(multR(a, b)) - paraDecimal(a) * paraDecimal(b)) < 1e-9);
+          if (bn !== 0) {
+            assert.ok(Math.abs(paraDecimal(divR(a, b)) - paraDecimal(a) / paraDecimal(b)) < 1e-9);
+          }
+          if (paraDecimal(a) !== paraDecimal(b)) {
+            assert.equal(menorR(a, b), paraDecimal(a) < paraDecimal(b), `${texto(a)} < ${texto(b)}`);
+          }
+        }
+      }
+    }
+  }
+});
+
+teste("racionais · lição 1 — todo inteiro e todo decimal cabe numa fração", () => {
+  // Inteiro vira fração com 1 embaixo; decimal finito, com potência de dez.
+  for (let k = -10; k <= 10; k++) {
+    assert.equal(paraDecimal(racional(k, 1)), k, `${k} = ${k}/1`);
+  }
+  assert.equal(paraDecimal(racional(-6, 10)), -0.6, "−0,6 = −6/10");
+  assert.deepEqual(racional(-6, 10), { n: -3, d: 5 }, "e simplifica para −3/5");
+  assert.throws(() => racional(7, 0), /denominador zero/);
+
+  alt("racionais", "o-que-e", "q1", "7/0");
+  num("racionais", "o-que-e", "q2", racional(-6, 1).n);
+  num("racionais", "o-que-e", "q3", 8);
+  assert.equal(paraDecimal(racional(8, 10)), 0.8, "0,8 = 8/10");
+
+  // o sinal pode morar em cima, embaixo ou na frente: os três valem o mesmo
+  assert.equal(paraDecimal(racional(-3, 4)), paraDecimal(racional(3, -4)));
+  assert.notEqual(paraDecimal(racional(-3, 4)), paraDecimal(racional(-3, -4)));
+  alt("racionais", "o-que-e", "q4", "Vale o mesmo que 3/(−4)");
+});
+
+teste("racionais · lição 2 — racionais na reta", () => {
+  const menosTresQuartos = racional(-3, 4);
+  assert.ok(menorR(racional(-1, 1), menosTresQuartos), "−1 < −3/4");
+  assert.ok(menorR(menosTresQuartos, racional(0, 1)), "−3/4 < 0");
+
+  alt("racionais", "na-reta", "q1", "−5/4");
+  assert.ok(menorR(racional(-5, 4), racional(-1, 1)), "−5/4 já passou do −1");
+
+  // −1,3 fica entre −2 e −1: a parte inteira decide a vizinhança
+  const menosUmVirgulaTres = racional(-13, 10);
+  assert.ok(menorR(racional(-2, 1), menosUmVirgulaTres) && menorR(menosUmVirgulaTres, racional(-1, 1)));
+  alt("racionais", "na-reta", "q2", "Entre −2 e −1");
+
+  assert.deepEqual(opostoR(racional(-2, 5)), racional(2, 5));
+  alt("racionais", "na-reta", "q3", "2/5");
+
+  // entre dois racionais quaisquer sempre cabe outro — o meio deles
+  let esquerda = racional(-1, 1);
+  const direita = racional(0, 1);
+  for (let i = 0; i < 12; i++) {
+    const meio = multR(somaR(esquerda, direita), racional(1, 2));
+    assert.ok(menorR(esquerda, meio) && menorR(meio, direita), "o meio tem de cair entre os dois");
+    esquerda = meio;
+  }
+  alt("racionais", "na-reta", "q4", "Infinitos");
+});
+
+teste("racionais · lição 3 — as três formas do mesmo número", () => {
+  assert.equal(paraDecimal(racional(3, 4)), 0.75, "o exemplo resolvido não fecha");
+  assert.equal(paraDecimal(racional(-3, 4)), -0.75, "converter não muda o lado do zero");
+
+  num("racionais", "formas", "q1", paraDecimal(racional(2, 5)));
+  assert.deepEqual(racional(6, 10), { n: 3, d: 5 }, "0,6 simplificado é 3/5");
+  alt("racionais", "formas", "q2", "3/5");
+  num("racionais", "formas", "q3", paraDecimal(racional(-1, 2)));
+
+  // porcentagem é a fração de denominador 100
+  const comoPorcentagem = (r) => paraDecimal(multR(r, racional(100, 1)));
+  assert.equal(comoPorcentagem(racional(3, 4)), 75);
+  assert.equal(comoPorcentagem(racional(1, 4)), 25);
+
+  // e o intruso da questão 4 é o único que não vale um quarto
+  const trio = { "2/5": racional(2, 5), "0,25": racional(25, 100), "25%": racional(25, 100) };
+  assert.equal(paraDecimal(trio["0,25"]), paraDecimal(trio["25%"]));
+  assert.notEqual(paraDecimal(trio["2/5"]), paraDecimal(trio["0,25"]));
+  alt("racionais", "formas", "q4", "2/5");
+});
+
+teste("racionais · lição 4 — comparar troca de ordem no lado negativo", () => {
+  assert.ok(menorR(racional(-3, 4), racional(-1, 2)), "o exemplo resolvido não fecha");
+  assert.ok(menorR(racional(1, 2), racional(3, 4)), "e do lado positivo a ordem é a oposta");
+
+  alt("racionais", "comparar", "q1", "−1/3");
+  assert.ok(menorR(racional(-2, 3), racional(-1, 3)));
+
+  assert.ok(menorR(racional(7, 10), racional(3, 4)), "0,7 < 3/4");
+  alt("racionais", "comparar", "q2", "3/4");
+
+  const lista = [racional(1, 2), racional(-1, 4), racional(-3, 2), racional(0, 1)];
+  const crescente = [...lista].sort((a, b) => (menorR(a, b) ? -1 : 1)).map(paraDecimal);
+  assert.deepEqual(crescente, [-1.5, -0.25, 0, 0.5]);
+  alt("racionais", "comparar", "q3", "−1,5 · −1/4 · 0 · 0,5");
+
+  // trocar o sinal dos dois inverte a comparação, sempre
+  for (let an = 1; an <= 8; an++) {
+    for (let bn = 1; bn <= 8; bn++) {
+      const a = racional(an, 8), b = racional(bn, 8);
+      if (paraDecimal(a) === paraDecimal(b)) continue;
+      assert.equal(menorR(a, b), menorR(opostoR(b), opostoR(a)), "o espelho no zero inverte");
+    }
+  }
+  alt("racionais", "comparar", "q4", "−5/8 é MENOR que −1/2");
+});
+
+teste("racionais · lição 5 — somar e subtrair", () => {
+  assert.deepEqual(somaR(racional(-1, 2), racional(1, 4)), racional(-1, 4), "o exemplo resolvido não fecha");
+
+  alt("racionais", "somar-subtrair", "q1", texto(somaR(racional(-3, 5), racional(1, 5))));
+  alt("racionais", "somar-subtrair", "q2", texto(subR(racional(1, 3), racional(5, 3))));
+
+  // decimais entram como frações de potência de dez, sem erro de arredondamento
+  const decimal = somaR(racional(-25, 10), racional(18, 10));
+  assert.deepEqual(decimal, racional(-7, 10));
+  num("racionais", "somar-subtrair", "q3", paraDecimal(decimal));
+
+  alt("racionais", "somar-subtrair", "q4", texto(somaR(racional(-1, 4), racional(-1, 2))));
+
+  // somar dois negativos acumula a distância; o denominador nunca é somado
+  const soma = somaR(racional(-1, 4), racional(-1, 2));
+  assert.ok(paraDecimal(soma) < Math.min(paraDecimal(racional(-1, 4)), paraDecimal(racional(-1, 2))));
+  assert.notEqual(soma.d, 4 + 2, "o denominador não entra na soma");
+});
+
+teste("racionais · lição 6 — multiplicar e dividir", () => {
+  assert.deepEqual(multR(racional(-2, 3), racional(4, 5)), racional(-8, 15), "o exemplo resolvido não fecha");
+  assert.equal(paraDecimal(divR(racional(4, 1), racional(2, 3))), 6);
+
+  alt("racionais", "multiplicar-dividir", "q1", texto(multR(racional(-1, 2), racional(3, 5))));
+  num("racionais", "multiplicar-dividir", "q2", paraDecimal(divR(racional(4, 1), racional(1, 2))));
+  alt("racionais", "multiplicar-dividir", "q3", texto(inversoR(racional(-3, 4))));
+  num("racionais", "multiplicar-dividir", "q4", paraDecimal(multR(racional(10, 1), racional(1, 2))));
+
+  // inverso e oposto são coisas diferentes, e o inverso não muda o lado do zero
+  const r = racional(-3, 4);
+  assert.deepEqual(multR(r, inversoR(r)), racional(1, 1), "número vezes o inverso dá 1");
+  assert.deepEqual(somaR(r, opostoR(r)), racional(0, 1), "número mais o oposto dá 0");
+  assert.equal(paraDecimal(inversoR(r)) < 0, paraDecimal(r) < 0, "o inverso fica do mesmo lado");
+  assert.notEqual(paraDecimal(inversoR(r)), paraDecimal(opostoR(r)));
+
+  // multiplicar por fração menor que 1 diminui; dividir por ela aumenta
+  for (let n = 1; n <= 9; n++) {
+    const fracaoPequena = racional(n, 10);
+    const base = racional(10, 1);
+    assert.ok(paraDecimal(multR(base, fracaoPequena)) < paraDecimal(base), "multiplicar diminuiu");
+    assert.ok(paraDecimal(divR(base, fracaoPequena)) > paraDecimal(base), "dividir aumentou");
+  }
+});
+
+teste("racionais · lição 7 — escolher a forma antes de calcular", () => {
+  // Bolo: a fração que sobra e quanto ela vale em gramas são duas perguntas.
+  const sobrou = subR(racional(1, 1), racional(2, 5));
+  assert.deepEqual(sobrou, racional(3, 5));
+  assert.equal(paraDecimal(multR(sobrou, racional(800, 1))), 480, "o exemplo resolvido não fecha");
+
+  // Garrafa: decimais como frações de décimos e centésimos, sem ponto flutuante.
+  const restou = subR(racional(15, 10), somaR(racional(4, 10), racional(35, 100)));
+  assert.deepEqual(restou, racional(3, 4));
+  num("racionais", "problemas", "q1", paraDecimal(restou));
+
+  const saldo = somaR(racional(-40, 1), racional(255, 10));
+  assert.deepEqual(saldo, racional(-29, 2));
+  assert.ok(paraDecimal(saldo) < 0, "o depósito não cobriu a dívida");
+  num("racionais", "problemas", "q2", paraDecimal(saldo));
+
+  const deOnibus = multR(racional(2, 5), racional(30, 1));
+  assert.deepEqual(deOnibus, racional(12, 1));
+  assert.ok(paraDecimal(deOnibus) < 30 / 2, "dois quintos é menos que a metade");
+  num("racionais", "problemas", "q3", paraDecimal(deOnibus));
+
+  const pedacos = divR(racional(6, 1), racional(3, 4));
+  assert.deepEqual(pedacos, racional(8, 1));
+  assert.deepEqual(multR(pedacos, racional(3, 4)), racional(6, 1), "os pedaços recompõem a fita");
+  num("racionais", "problemas", "q4", paraDecimal(pedacos));
+});
+
+// ---------- Razão e proporção (7º ano) ----------
+//
+// A matéria vive de duas afirmações que precisam ser conferidas, e não
+// aceitas: que a razão sobrevive a mudar de tamanho (e a diferença não), e
+// que a propriedade fundamental vale sempre. As duas são testadas por força
+// bruta, e não em cima dos exemplos escolhidos para a lição.
+
+/** Razão simplificada, como a lição manda escrever. */
+function razaoSimples(a, b) {
+  const mdcAbs = (x, y) => (y === 0 ? Math.abs(x) : mdcAbs(y, x % y));
+  const g = mdcAbs(a, b) || 1;
+  return `${a / g}/${b / g}`;
+}
+/** Termo que falta numa proporção a/b = c/d, pela multiplicação em cruz. */
+const cruzada = { extremos: (a, d) => a * d, meios: (b, c) => b * c };
+
+teste("razão · a razão sobrevive à mudança de tamanho; a diferença, não", () => {
+  // A afirmação central da lição 1, testada em toda a faixa em vez de só no
+  // exemplo da turma.
+  for (let a = 1; a <= 20; a++) {
+    for (let b = 1; b <= 20; b++) {
+      for (const k of [2, 3, 5, 10]) {
+        assert.equal(razaoSimples(a, b), razaoSimples(a * k, b * k), `${a}/${b} ampliada por ${k}`);
+        if (a !== b) {
+          assert.notEqual(a - b, a * k - b * k, `a diferença de ${a} e ${b} não podia sobreviver ao ×${k}`);
+        }
+      }
+    }
+  }
+});
+
+teste("razão · lição 1 — comparar por divisão", () => {
+  assert.equal(razaoSimples(12, 8), "3/2", "o exemplo resolvido não fecha");
+  alt("razao-proporcao", "o-que-e-razao", "q1", razaoSimples(10, 15));
+  num("razao-proporcao", "o-que-e-razao", "q2", 240 / 3);
+
+  // as duas turmas: mesma razão, diferenças diferentes
+  assert.equal(razaoSimples(12, 8), razaoSimples(24, 16));
+  assert.notEqual(12 - 8, 24 - 16);
+  alt("razao-proporcao", "o-que-e-razao", "q3", "As duas turmas têm a mesma razão, mas diferenças diferentes");
+
+  // inverter a ordem inverte a fração
+  assert.equal(razaoSimples(2, 3), "2/3");
+  alt("razao-proporcao", "o-que-e-razao", "q4", "2/3");
+});
+
+teste("razão · lição 2 — proporção é igualdade de razões", () => {
+  const formaProporcao = (a, b, c, d) => a * d === b * c;
+
+  assert.ok(formaProporcao(3, 2, 6, 4), "o exemplo resolvido não fecha");
+  assert.ok(formaProporcao(2, 5, 8, 20));
+  alt("razao-proporcao", "proporcao", "q1", "Sim, porque 8/20 simplificado é 2/5");
+
+  // o intruso da questão 2 é o único par que não forma proporção
+  const pares = [[3, 4, 9, 16], [1, 2, 5, 10], [2, 3, 10, 15], [4, 5, 12, 15]];
+  const falham = pares.filter(([a, b, c, d]) => !formaProporcao(a, b, c, d));
+  assert.equal(falham.length, 1, "só um par pode falhar");
+  assert.deepEqual(falham[0], [3, 4, 9, 16]);
+  alt("razao-proporcao", "proporcao", "q2", "3/4 e 9/16");
+
+  // dobrar a receita mantém a proporção
+  assert.ok(formaProporcao(4, 6, 8, 12));
+  num("razao-proporcao", "proporcao", "q3", 6 * 2);
+
+  // ampliar a foto pelo mesmo fator mantém o formato
+  const fator = 10 / 4;
+  assert.equal(6 * fator, 15);
+  assert.ok(formaProporcao(4, 6, 10, 15));
+  num("razao-proporcao", "proporcao", "q4", 6 * fator);
+});
+
+teste("razão · lição 3 — a propriedade fundamental vale sempre", () => {
+  // Força bruta: em toda proporção montada por ampliação, o produto dos
+  // extremos tem de bater com o dos meios.
+  for (let a = 1; a <= 12; a++) {
+    for (let b = 1; b <= 12; b++) {
+      for (const k of [2, 3, 4, 5]) {
+        const c = a * k, d = b * k;
+        assert.equal(cruzada.extremos(a, d), cruzada.meios(b, c), `${a}/${b} = ${c}/${d}`);
+      }
+    }
+  }
+
+  // 3/4 = x/20 → x = 15, e o valor achado devolve a proporção
+  const x0 = (3 * 20) / 4;
+  assert.equal(x0, 15);
+  assert.equal(cruzada.extremos(3, 20), cruzada.meios(4, x0));
+
+  const x1 = (2 * 12) / 3;
+  assert.equal(x1, 8);
+  num("razao-proporcao", "propriedade", "q1", x1);
+
+  // 5/x = 15/9 → o x está no denominador
+  const x2 = (5 * 9) / 15;
+  assert.equal(x2, 3);
+  assert.equal(cruzada.extremos(5, 9), cruzada.meios(x2, 15));
+  num("razao-proporcao", "propriedade", "q2", x2);
+
+  const preco = (30 * 6) / 4;
+  assert.equal(preco, 45);
+  assert.equal(30 / 4, preco / 6, "o preço por caderno tem de bater nos dois casos");
+  num("razao-proporcao", "propriedade", "q3", preco);
+
+  alt("razao-proporcao", "propriedade", "q4", "a × d = b × c");
+});
+
+teste("razão · lição 4 — escala é desenho para real", () => {
+  const real = (desenho, escala) => desenho * escala;
+  const papel = (medidaReal, escala) => medidaReal / escala;
+
+  // o exemplo resolvido, com a conversão de unidade no fim
+  assert.equal(real(4, 50000), 200000);
+  assert.equal(200000 / 100000, 2, "200 000 cm são 2 km");
+
+  num("razao-proporcao", "escala", "q1", real(6, 100));
+  assert.equal(8 * 100, 800, "8 m são 800 cm");
+  num("razao-proporcao", "escala", "q2", papel(800, 200));
+  alt("razao-proporcao", "escala", "q3", "O desenho é 20 vezes maior que a peça real");
+
+  // o trecho do mapa, pela proporção
+  const km = (15 * 8) / 3;
+  assert.equal(km, 40);
+  assert.equal(15 / 3, km / 8, "a razão km por cm tem de se manter");
+  num("razao-proporcao", "escala", "q4", km);
+
+  // ida e volta: encolher e ampliar de novo devolve a medida original
+  for (const escala of [10, 100, 200, 50000]) {
+    for (const medida of [1, 4, 8, 800]) {
+      assert.equal(papel(real(medida, escala), escala), medida);
+    }
+  }
+});
+
+teste("razão · lição 5 — direta guarda a razão, inversa guarda o produto", () => {
+  const razaoConstante = (pares) => new Set(pares.map(([x, y]) => y / x)).size === 1;
+  const produtoConstante = (pares) => new Set(pares.map(([x, y]) => x * y)).size === 1;
+
+  const cadernos = [[1, 6], [2, 12], [3, 18], [4, 24]];
+  assert.ok(razaoConstante(cadernos), "o exemplo resolvido não fecha");
+  assert.ok(!produtoConstante(cadernos), "na direta o produto NÃO se mantém");
+
+  // pedreiros e dias: inversamente proporcionais
+  const dias = (3 * 12) / 6;
+  assert.equal(dias, 6);
+  assert.equal(3 * 12, 6 * dias, "o produto tem de se manter");
+  assert.ok(dias < 12, "mais gente termina antes");
+  num("razao-proporcao", "grandezas", "q1", dias);
+
+  const distancia = 80 * 3;
+  assert.equal(distancia, 240);
+  assert.ok(razaoConstante([[1, 80], [3, distancia]]));
+  num("razao-proporcao", "grandezas", "q2", distancia);
+
+  alt("razao-proporcao", "grandezas", "q3", "A idade de uma pessoa e a altura dela");
+
+  const tabela = [[2, 30], [4, 15], [8, 7.5]];
+  assert.ok(!razaoConstante(tabela), "a razão não pode ser constante aqui");
+  assert.ok(produtoConstante(tabela));
+  assert.equal(2 * 30, 60);
+  alt("razao-proporcao", "grandezas", "q4", "Inversamente proporcionais, porque o produto é sempre 60");
+
+  // e as somas da alternativa errada realmente não batem
+  assert.notEqual(2 + 30, 4 + 15);
+});
+
+teste("razão · lição 6 — montar sem trocar os lados", () => {
+  // O exemplo resolvido, com a conferência de direção que a lição ensina.
+  const preco = (30 * 8) / 5;
+  assert.equal(preco, 48);
+  assert.ok(preco > 30, "mais arroz custa mais");
+  assert.equal(30 / 5, preco / 8, "o preço por quilo tem de bater");
+
+  const minutos = (12 * 5) / 3;
+  assert.equal(minutos, 20);
+  assert.ok(minutos > 12, "mais baldes leva mais tempo");
+  num("razao-proporcao", "problemas", "q1", minutos);
+
+  num("razao-proporcao", "problemas", "q2", 36 / 2);
+
+  // obra: inversa, então o produto se mantém e o tempo AUMENTA
+  const diasObra = (6 * 10) / 5;
+  assert.equal(diasObra, 12);
+  assert.equal(6 * 10, 5 * diasObra);
+  assert.ok(diasObra > 10, "menos operários demora mais");
+  num("razao-proporcao", "problemas", "q3", diasObra);
+
+  const agua = (5 * 8) / 2;
+  assert.equal(agua, 20);
+  assert.ok(agua > 8, "a receita leva mais água que polpa");
+  assert.equal(razaoSimples(8, agua), razaoSimples(2, 5), "a proporção original tem de se manter");
+  num("razao-proporcao", "problemas", "q4", agua);
+});
+
+// ---------- Regra de três (7º ano) ----------
+//
+// A matéria tem um risco próprio: virar receita. Por isso a conferência aqui
+// não aplica a fórmula da regra de três — ela recalcula pelo SIGNIFICADO
+// (valor unitário na direta, trabalho total na inversa) e só então compara
+// com o que a lição afirma. Se os dois caminhos discordarem, o conteúdo está
+// ensinando um truque que não corresponde ao que acontece.
+
+/** Direta: acha o valor unitário e multiplica. */
+const porUnidade = (a, b, c) => (b / a) * c;
+/** Inversa: o produto das duas grandezas não muda. */
+const porProduto = (a, b, c) => (a * b) / c;
+
+teste("regra de três · os dois caminhos batem com a multiplicação em cruz", () => {
+  // Ancora as funções de referência contra a técnica que a lição ensina.
+  for (let a = 1; a <= 12; a++) {
+    for (let b = 1; b <= 24; b++) {
+      for (let c = 1; c <= 12; c++) {
+        assert.ok(Math.abs(porUnidade(a, b, c) - (b * c) / a) < 1e-9, `direta ${a},${b},${c}`);
+        assert.ok(Math.abs(porProduto(a, b, c) - (a * b) / c) < 1e-9, `inversa ${a},${b},${c}`);
+      }
+    }
+  }
+  // E a diferença entre os dois tipos não é cosmética: só coincidem quando as
+  // duas situações são iguais.
+  for (let a = 1; a <= 10; a++) {
+    for (let c = 1; c <= 10; c++) {
+      const iguais = Math.abs(porUnidade(a, 12, c) - porProduto(a, 12, c)) < 1e-9;
+      assert.equal(iguais, a === c, `montar errado só acerta por acaso quando ${a} = ${c}`);
+    }
+  }
+});
+
+teste("regra de três · lição 1 — é proporção com um termo escondido", () => {
+  assert.equal(porUnidade(4, 30, 6), 45, "o exemplo resolvido não fecha");
+  alt("regra-de-tres", "o-que-e", "q1", "Três conhecidos e um procurado");
+  num("regra-de-tres", "o-que-e", "q2", porUnidade(3, 90, 5));
+  num("regra-de-tres", "o-que-e", "q3", porUnidade(8, 600, 12));
+  alt("regra-de-tres", "o-que-e", "q4", "Se as grandezas são direta ou inversamente proporcionais");
+
+  // o resultado da regra de três é o mesmo da proporção montada à mão
+  assert.equal((4 * 45), (30 * 6), "o produto dos extremos tem de bater com o dos meios");
+});
+
+teste("regra de três · lição 2 — direta", () => {
+  const litros = porUnidade(80, 6, 200);
+  assert.equal(litros, 15);
+  assert.equal(6 / 80, litros / 200, "o consumo por km tem de se manter");
+  assert.ok(litros > 6, "mais distância consome mais");
+  num("regra-de-tres", "direta", "q1", litros);
+
+  const paginas = porUnidade(3, 90, 7);
+  assert.equal(paginas, 210);
+  assert.equal(90 / 3, paginas / 7, "as páginas por minuto têm de se manter");
+  num("regra-de-tres", "direta", "q2", paginas);
+
+  const tecido = porUnidade(12, 96, 7);
+  assert.equal(tecido, 56);
+  assert.ok(tecido < 96, "menos tecido custa menos");
+  num("regra-de-tres", "direta", "q3", tecido);
+
+  alt("regra-de-tres", "direta", "q4", "Na mesma ordem: a mesma grandeza em cima nas duas");
+});
+
+teste("regra de três · lição 3 — inversa", () => {
+  assert.equal(porProduto(3, 12, 6), 6, "o exemplo resolvido não fecha");
+  assert.equal(3 * 12, 6 * 6, "o produto é que se mantém");
+
+  const torneiras = porProduto(4, 30, 5);
+  assert.equal(torneiras, 24);
+  assert.equal(4 * 30, 5 * torneiras);
+  assert.ok(torneiras < 30, "mais torneiras enchem antes");
+  num("regra-de-tres", "inversa", "q1", torneiras);
+
+  const horas = porProduto(60, 4, 80);
+  assert.equal(horas, 3);
+  assert.equal(60 * 4, 80 * horas, "velocidade × tempo é a distância, e ela não muda");
+  num("regra-de-tres", "inversa", "q2", horas);
+
+  const dias = porProduto(8, 15, 10);
+  assert.equal(dias, 12);
+  assert.ok(dias < 15, "mais cavalos gastam a ração antes");
+  num("regra-de-tres", "inversa", "q3", dias);
+
+  alt("regra-de-tres", "inversa", "q4", "O produto das duas grandezas");
+
+  // na inversa a razão NÃO se mantém — é o que separa os dois tipos
+  assert.notEqual(3 / 12, 6 / porProduto(3, 12, 6));
+});
+
+teste("regra de três · lição 4 — decidir o tipo antes de montar", () => {
+  alt("regra-de-tres", "qual-usar", "q1", "Inversamente proporcionais");
+  alt("regra-de-tres", "qual-usar", "q2", "Diretamente proporcionais");
+
+  const maquinas = porProduto(6, 10, 4);
+  assert.equal(maquinas, 15);
+  assert.ok(maquinas > 10, "menos máquinas demoram mais");
+  assert.notEqual(maquinas, porUnidade(6, 10, 4), "montar como direta daria outro número");
+  num("regra-de-tres", "qual-usar", "q3", maquinas);
+
+  alt("regra-de-tres", "qual-usar", "q4", "Quantidade de pães e preço total");
+});
+
+teste("regra de três · lição 5 — a unidade muda o resultado", () => {
+  // O estrago da lição, medido: comparar 2 min com 1 h dá sessenta vezes menos.
+  const semConverter = porUnidade(2, 20, 1);
+  const convertendo = porUnidade(2, 20, 60);
+  assert.equal(convertendo, 600, "o exemplo resolvido não fecha");
+  assert.equal(semConverter, 10);
+  assert.equal(convertendo / semConverter, 60, "o erro de unidade vale exatamente o fator da conversão");
+
+  num("regra-de-tres", "unidades", "q1", porUnidade(20, 30, 60));
+  assert.equal(2 * 1000, 2000, "2 kg são 2000 g");
+  num("regra-de-tres", "unidades", "q2", porUnidade(500, 25, 2000));
+
+  const bombas = porProduto(1, 90, 2);
+  assert.equal(bombas, 45);
+  assert.equal(bombas / 60, 0.75, "45 minutos são 0,75 hora — e a questão pediu minutos");
+  num("regra-de-tres", "unidades", "q3", bombas);
+
+  alt("regra-de-tres", "unidades", "q4", "Os dois valores de cada linha, entre si");
+});
+
+teste("regra de três · lição 6 — os cinco passos", () => {
+  assert.equal(porUnidade(5, 400, 8), 640, "o exemplo resolvido não fecha");
+
+  const diasRacao = porUnidade(4, 18, 6);
+  assert.equal(diasRacao, 27);
+  assert.ok(diasRacao > 18, "mais ração dura mais");
+  num("regra-de-tres", "problemas", "q1", diasRacao);
+
+  const minutos = porProduto(15, 40, 20);
+  assert.equal(minutos, 30);
+  assert.ok(minutos < 40, "mais rápido chega antes");
+  num("regra-de-tres", "problemas", "q2", minutos);
+
+  const leite = porUnidade(6, 750, 4);
+  assert.equal(leite, 500);
+  assert.ok(leite < 750, "menos gente usa menos leite");
+  assert.equal(750 / 6, leite / 4, "o consumo por pessoa tem de se manter");
+  num("regra-de-tres", "problemas", "q3", leite);
+
+  // o problema que NÃO é regra de três tem uma situação só
+  assert.equal(24 / 3, 8, "preço por quilo é uma divisão simples");
+  alt("regra-de-tres", "problemas", "q4", "Um pacote de 3 kg custa R$ 24. Qual é o preço por quilo?");
+});
+
+// ---------- Porcentagem e juros simples (7º ano) ----------
+//
+// Dinheiro em ponto flutuante é caminho para erro de arredondamento, então
+// todo valor aqui é tratado em CENTAVOS inteiros e só volta a reais no fim.
+// E a afirmação central da matéria — taxas sucessivas se multiplicam, taxas de
+// juro simples se somam — é conferida por força bruta, e não no exemplo.
+
+/** Fator multiplicativo de uma variação percentual. */
+const fator = (taxa) => 1 + taxa / 100;
+/** Aplica uma variação a um valor em centavos, arredondando ao centavo. */
+const aplicar = (centavos, taxa) => Math.round(centavos * fator(taxa));
+const reais = (centavos) => centavos / 100;
+
+teste("juros · fator multiplicativo e variações sucessivas", () => {
+  assert.equal(fator(25), 1.25);
+  assert.equal(fator(15), 1.15);
+  assert.equal(fator(-30), 0.7);
+  assert.equal(fator(8), 1.08);
+
+  // Força bruta: em toda a faixa, aplicar duas taxas seguidas NÃO é o mesmo
+  // que aplicar a soma delas — exceto quando uma das duas é zero.
+  for (let a = -50; a <= 50; a += 5) {
+    for (let b = -50; b <= 50; b += 5) {
+      const emDuasEtapas = fator(a) * fator(b);
+      const somandoTaxas = fator(a + b);
+      const iguais = Math.abs(emDuasEtapas - somandoTaxas) < 1e-12;
+      assert.equal(iguais, a === 0 || b === 0, `taxas ${a}% e ${b}%`);
+    }
+  }
+});
+
+teste("juros · lição 1 — o fator", () => {
+  assert.equal(reais(aplicar(8000, 25)), 100, "o exemplo resolvido não fecha");
+  num("juros-simples", "fator", "q1", fator(15));
+  num("juros-simples", "fator", "q2", fator(-30));
+  num("juros-simples", "fator", "q3", reais(aplicar(24000, -20)));
+  alt("juros-simples", "fator", "q4", "Um aumento de 8%");
+
+  // o fator de desconto é sempre menor que 1, e o de aumento sempre maior
+  for (let t = 1; t <= 99; t++) {
+    assert.ok(fator(-t) < 1, `desconto de ${t}%`);
+    assert.ok(fator(t) > 1, `aumento de ${t}%`);
+  }
+});
+
+teste("juros · lição 2 — sucessivos multiplicam, não somam", () => {
+  // O exemplo da lição, refeito passo a passo.
+  const depoisDoPrimeiro = aplicar(10000, 10);
+  assert.equal(reais(depoisDoPrimeiro), 110);
+  assert.equal(reais(aplicar(depoisDoPrimeiro, 10)), 121, "o exemplo resolvido não fecha");
+  assert.notEqual(reais(aplicar(10000, 20)), 121, "somar as taxas daria outro número");
+
+  num("juros-simples", "sucessivos", "q1", reais(aplicar(aplicar(20000, 10), 10)));
+  num("juros-simples", "sucessivos", "q2", reais(aplicar(aplicar(50000, -20), -10)));
+
+  // subir e descer a mesma taxa NÃO volta ao original, e a ordem não importa
+  const sobeDesce = aplicar(aplicar(10000, 10), -10);
+  const desceSobe = aplicar(aplicar(10000, -10), 10);
+  assert.equal(reais(sobeDesce), 99);
+  assert.equal(sobeDesce, desceSobe, "a ordem não muda o resultado");
+  assert.ok(sobeDesce < 10000, "sempre sobra menos que o original");
+  num("juros-simples", "sucessivos", "q3", reais(sobeDesce));
+
+  // e isso vale para qualquer taxa, não só 10%
+  for (let t = 1; t <= 60; t++) {
+    assert.ok(fator(t) * fator(-t) < 1, `subir e descer ${t}% tem de perder`);
+  }
+
+  const acumulado = Math.round((fator(20) * fator(20) - 1) * 100);
+  assert.equal(acumulado, 44);
+  alt("juros-simples", "sucessivos", "q4", "44%");
+});
+
+teste("juros · lição 3 — porcentagem como proporção", () => {
+  const taxa = (parte, total) => (parte * 100) / total;
+  const total = (parte, taxa) => (parte * 100) / taxa;
+
+  assert.equal(taxa(12, 40), 30, "o exemplo resolvido não fecha");
+  num("juros-simples", "com-proporcao", "q1", taxa(20, 25));
+  num("juros-simples", "com-proporcao", "q2", total(45, 30));
+
+  // taxa de aumento é sempre sobre o valor de PARTIDA
+  const aumento = taxa(100 - 80, 80);
+  assert.equal(aumento, 25);
+  assert.notEqual(aumento, taxa(100 - 80, 100), "usar o preço novo daria 20%");
+  num("juros-simples", "com-proporcao", "q3", aumento);
+
+  alt("juros-simples", "com-proporcao", "q4", "O total");
+
+  // ida e volta: achar a taxa e voltar ao total devolve o valor original
+  for (let t = 100; t <= 500; t += 20) {
+    for (let p = 10; p < t; p += 30) {
+      assert.ok(Math.abs(total(p, taxa(p, t)) - t) < 1e-9);
+    }
+  }
+});
+
+teste("juros · lição 4 — o juro simples cresce em linha reta", () => {
+  const juroSimples = (capital, taxa, tempo) => (capital * taxa * tempo) / 100;
+
+  assert.equal(juroSimples(1000, 2, 6), 120, "o exemplo resolvido não fecha");
+  num("juros-simples", "o-que-e-juro", "q1", juroSimples(500, 3, 4));
+  alt("juros-simples", "o-que-e-juro", "q2", "Sempre sobre o capital inicial");
+
+  // achar a taxa a partir do juro
+  const taxaMensal = (juro, capital, tempo) => (juro * 100) / (capital * tempo);
+  assert.equal(taxaMensal(480, 2000, 6), 4);
+  num("juros-simples", "o-que-e-juro", "q3", taxaMensal(480, 2000, 6));
+  num("juros-simples", "o-que-e-juro", "q4", 12 / 1);
+
+  // A marca do juro SIMPLES: o rendimento de cada período é sempre igual, e o
+  // acumulado cresce em passos constantes. É o que o gráfico da lição mostra.
+  const acumulado = [];
+  for (let t = 1; t <= 10; t++) acumulado.push(juroSimples(1000, 2, t));
+  for (let i = 1; i < acumulado.length; i++) {
+    assert.equal(acumulado[i] - acumulado[i - 1], 20, "cada mês acrescenta o mesmo degrau");
+  }
+  // e é diferente do juro composto, que a matéria não ensina mas cita
+  const composto = 1000 * fator(2) ** 10 - 1000;
+  assert.ok(composto > acumulado.at(-1), "o composto renderia mais no mesmo prazo");
+});
+
+teste("juros · lição 5 — montante", () => {
+  const juroSimples = (c, i, t) => (c * i * t) / 100;
+  const montante = (c, i, t) => c + juroSimples(c, i, t);
+
+  assert.equal(montante(1500, 2, 10), 1800, "o exemplo resolvido não fecha");
+  // o caminho do fator tem de dar o mesmo
+  assert.equal(1500 * fator(2 * 10), 1800);
+
+  num("juros-simples", "montante", "q1", montante(800, 3, 5));
+  num("juros-simples", "montante", "q2", 2600 - 2000);
+  num("juros-simples", "montante", "q3", 100 / 5);
+  num("juros-simples", "montante", "q4", (720 * 100) / (4000 * 3));
+
+  // No juro simples, a taxa acumulada é a SOMA das taxas de cada período —
+  // o oposto da lição 2, e é essa diferença que a matéria precisa deixar clara.
+  for (let i = 1; i <= 10; i++) {
+    for (let t = 1; t <= 12; t++) {
+      const porSoma = 1000 * fator(i * t);
+      assert.ok(Math.abs(montante(1000, i, t) - porSoma) < 1e-9, `taxa ${i}% por ${t} períodos`);
+      if (t > 1) {
+        assert.ok(1000 * fator(i) ** t > porSoma, "o composto passaria do simples");
+      }
+    }
+  }
+});
+
+teste("juros · lição 6 — decidir comparando o valor final", () => {
+  // TV do exemplo resolvido.
+  assert.equal(115 * 10, 1150);
+  assert.equal(1150 - 1000, 150);
+  assert.equal((150 * 100) / 1000, 15, "15% sobre o preço à vista");
+
+  num("juros-simples", "problemas", "q1", 115 * 12 - 1200);
+
+  // as duas lojas: quem anuncia o desconto maior cobra mais
+  const lojaA = 200 * fator(-10);
+  const lojaB = 190 - 15;
+  assert.equal(lojaA, 180);
+  assert.equal(lojaB, 175);
+  assert.ok(lojaB < lojaA, "a loja B tem de sair mais barata");
+  alt("juros-simples", "problemas", "q2", "Na loja B, que sai por R$ 175");
+
+  num("juros-simples", "problemas", "q3", 3000 + (3000 * 2 * 8) / 100);
+  alt("juros-simples", "problemas", "q4", "Só que se paga 60% do preço, seja ele qual for");
+
+  // a mesma taxa vale valores diferentes conforme a base
+  assert.equal(50 * 0.4, 20);
+  assert.equal(300 * 0.4, 120);
+  assert.notEqual(50 * 0.4, 300 * 0.4);
+});
+
 teste("as igualdades escritas nas contas são verdadeiras", () => {
   // Confere "2/3 = 8/12", "6 × 1/6 = 6/6 = 1" e afins dentro dos campos
   // "conta". A varredura é conservadora: só entram segmentos em que TODOS os

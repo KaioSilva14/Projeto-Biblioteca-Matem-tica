@@ -1,0 +1,211 @@
+{
+  "id": "unidades",
+  "numero": 5,
+  "titulo": "A armadilha das unidades",
+  "pergunta": "Por que a conta certa às vezes dá um resultado absurdo?",
+  "ideia": {
+    "paragrafos": [
+      "Há um erro que não aparece na conta e estraga o problema inteiro: misturar unidades. Uma coluna em minutos e a outra em horas, uma em gramas e a outra em quilos. A multiplicação em cruz funciona do mesmo jeito, e o resultado sai errado sem nenhum sinal de alerta.",
+      "A regra é simples: cada LINHA da tabela precisa estar toda na mesma unidade. As duas linhas não precisam combinar entre si — uma pode estar em quilos e a outra em reais —, mas dentro de cada uma tem de haver uma unidade só.",
+      "Veja o estrago. Se uma torneira enche 20 litros em 2 minutos e a pergunta é quantos litros em 1 hora, montar 2 e 1 na mesma linha compara minutos com horas. A resposta sairia 10 litros, quando a certa é 600.",
+      "A correção é converter antes de montar, usando as escadas do 6º ano: 1 hora são 60 minutos, 1 kg são 1000 g, 1 m são 100 cm. Feita a conversão, a tabela fica honesta e a conta pode ser feita sem medo.",
+      "E fica valendo a conferência de sempre, que aqui é ainda mais útil: o resultado faz sentido no mundo? Dez litros em uma hora, para uma torneira que faz 20 em dois minutos, é absurdo — e o absurdo é o aviso de que alguma unidade ficou fora do lugar."
+    ],
+    "destaque": "Cada linha da tabela, uma unidade só. Converta antes de montar.",
+    "imagem": "rt-ideia-unidades"
+  },
+  "resolvido": {
+    "enunciado": "Uma torneira enche 20 litros em 2 minutos. Quantos litros ela enche em 1 hora?",
+    "imagem": "rt-res-torneira",
+    "passos": [
+      {
+        "titulo": "Repare nas unidades",
+        "explicacao": "A linha do tempo tem 2 minutos de um lado e 1 hora do outro. São unidades diferentes na mesma linha, e isso invalida a comparação.",
+        "conta": "2 min e 1 h — não batem"
+      },
+      {
+        "titulo": "Converta",
+        "explicacao": "Escolha uma unidade e traga tudo para ela. Minutos costuma ser mais prático aqui, porque evita decimais.",
+        "conta": "1 h = 60 min"
+      },
+      {
+        "titulo": "Monte com a tabela honesta",
+        "explicacao": "Agora as duas colunas da linha do tempo estão em minutos, e a proporcionalidade é direta: mais tempo, mais água.",
+        "conta": "20/2 = x/60"
+      },
+      {
+        "titulo": "Resolva e confira",
+        "explicacao": "A torneira faz 10 litros por minuto, e em sessenta minutos faz 600. Sem a conversão, o resultado teria sido 10 litros — absurdo para uma hora inteira.",
+        "conta": "2x = 1200 → x = 600 litros"
+      }
+    ],
+    "fecho": "O erro de unidade não deixa rastro na conta. Só o resultado absurdo denuncia."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um carro percorre 30 km em 20 minutos. Quantos quilômetros percorre em 1 hora, no mesmo ritmo? Digite apenas o número.",
+      "imagem": "rt-q-carro-hora",
+      "dica": "Converta a hora para minutos antes de montar a tabela.",
+      "formato": "numero",
+      "resposta": 90,
+      "unidade": "km",
+      "errosComuns": [
+        {
+          "resposta": "1.5",
+          "porque": "1,5 monta 20 minutos contra 1 hora na mesma linha, comparando unidades diferentes. Convertendo a hora para 60 minutos, a conta muda completamente."
+        },
+        {
+          "resposta": "600",
+          "porque": "600 é 30 × 20, o produto dos meios sem dividir. Ele ainda precisa ser repartido, e além disso a hora precisa virar minutos antes."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 soma 20 aos 30 km, misturando quilômetros com minutos. As duas grandezas não se somam: a relação entre elas é de proporção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta a unidade",
+          "explicacao": "A linha do tempo precisa estar toda em minutos.",
+          "conta": "1 h = 60 min"
+        },
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "Mais tempo, mais distância: direta.",
+          "conta": "30/20 = x/60"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "O carro faz 1,5 km por minuto, e em sessenta minutos faz noventa.",
+          "conta": "20x = 1800 → x = 90 km"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Se 500 g de queijo custam R$ 25, quanto custam 2 kg do mesmo queijo? Digite apenas o número.",
+      "imagem": "rt-q-queijo",
+      "dica": "Converta os 2 kg para gramas antes de montar, ou os 500 g para quilos.",
+      "formato": "numero",
+      "resposta": 100,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "0.1",
+          "porque": "0,1 compara 500 gramas com 2 quilos na mesma linha, sem converter. Como 2 kg são 2000 g, a quantidade quadruplicou e o preço também."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 dobra o preço, como se 2 kg fossem o dobro de 500 g. São quatro vezes mais: 2000 g contra 500 g."
+        },
+        {
+          "resposta": "12500",
+          "porque": "12500 é 25 × 500, um produto sem sentido aqui. A conta certa cruza 500 com o preço procurado e 2000 com os 25 reais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale as unidades",
+          "explicacao": "A linha da massa precisa estar toda em gramas.",
+          "conta": "2 kg = 2000 g"
+        },
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "Mais queijo custa mais: direta.",
+          "conta": "500/25 = 2000/x"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "A quantidade quadruplicou, então o preço também. Cada 500 g custam 25 reais.",
+          "conta": "500x = 50000 → x = 100 reais"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma bomba esvazia um tanque em 90 minutos. Duas bombas iguais esvaziam em quantos minutos? Digite apenas o número.",
+      "imagem": "rt-q-bombas",
+      "dica": "Aqui as unidades já batem. O que decide é o tipo de proporcionalidade.",
+      "formato": "numero",
+      "resposta": 45,
+      "unidade": "minutos",
+      "errosComuns": [
+        {
+          "resposta": "180",
+          "porque": "180 dobra o tempo junto com as bombas, montando como direta. Duas bombas puxando água terminam ANTES, e não depois."
+        },
+        {
+          "resposta": "91",
+          "porque": "91 soma um minuto pela bomba a mais. Na inversa o que se mantém é o produto: o tanque vale 1 × 90 = 90 minutos de uma bomba."
+        },
+        {
+          "resposta": "1.5",
+          "porque": "1,5 é o tempo convertido para HORAS, e a pergunta pede minutos. Vale sempre reler qual unidade a resposta deve ter."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Mais bombas, menos tempo: inversa.",
+          "conta": "inversa"
+        },
+        {
+          "titulo": "Use o produto",
+          "explicacao": "Ele representa o tanque, medido em minutos de uma bomba.",
+          "conta": "1 × 90 = 90"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "Duas bombas cortam o tempo pela metade, e a resposta sai em minutos, como pedido.",
+          "conta": "90 ÷ 2 = 45 minutos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa tabela de regra de três, o que precisa estar na mesma unidade?",
+      "imagem": "rt-q-regra-unidade",
+      "dica": "Pense em quilos numa linha e reais na outra: isso é problema?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os dois valores de cada linha, entre si" },
+        { "rotulo": "B", "texto": "Todos os quatro valores da tabela" },
+        { "rotulo": "C", "texto": "Os dois valores de cada coluna, entre si" },
+        { "rotulo": "D", "texto": "Nenhum: a unidade não afeta a conta" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Todos os quatro valores da tabela",
+          "porque": "Isso seria impossível na maioria dos problemas: uma linha guarda quilos e a outra reais. O que não pode é uma LINHA misturar duas unidades."
+        },
+        {
+          "resposta": "Os dois valores de cada coluna, entre si",
+          "porque": "Uma coluna guarda grandezas diferentes — 5 kg e 30 reais, por exemplo — e elas nunca teriam a mesma unidade. A exigência é por linha."
+        },
+        {
+          "resposta": "Nenhum: a unidade não afeta a conta",
+          "porque": "Afeta, e sem deixar rastro: comparar 2 minutos com 1 hora dá um resultado sessenta vezes menor, com a multiplicação em cruz funcionando normalmente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que cada linha guarda",
+          "explicacao": "Cada linha é uma grandeza só, medida nas duas situações.",
+          "conta": "linha = uma grandeza"
+        },
+        {
+          "titulo": "Veja o que cada coluna guarda",
+          "explicacao": "Cada coluna é uma situação, com duas grandezas diferentes.",
+          "conta": "coluna = uma situação"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Como a comparação é feita dentro de cada linha, é ali que a unidade tem de ser única.",
+          "conta": "mesma unidade por linha"
+        }
+      ]
+    }
+  ]
+}

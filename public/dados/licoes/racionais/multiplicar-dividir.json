@@ -1,0 +1,215 @@
+{
+  "id": "multiplicar-dividir",
+  "numero": 6,
+  "titulo": "Multiplicar e dividir",
+  "pergunta": "Por que dividir por uma fração dá um resultado MAIOR?",
+  "ideia": {
+    "paragrafos": [
+      "Multiplicar frações é a mais fácil das quatro operações, e por um motivo que surpreende: aqui NÃO é preciso igualar denominadores. Multiplica-se de cima com de cima, de baixo com de baixo, e pronto.",
+      "Assim 2/3 × 4/5 dá 8/15. Com sinal, a regra do ano passado entra depois: (−2/3) × 4/5 tem sinais diferentes, então o resultado é −8/15. Primeiro os números, depois o sinal.",
+      "Multiplicar por uma fração menor que 1 DIMINUI o número, o que contraria a intuição de que multiplicar sempre aumenta. Metade de 10 é 10 × 1/2 = 5. Faz sentido: tirar uma parte de algo dá menos que o todo.",
+      "Dividir por uma fração é multiplicar pelo INVERSO dela. O inverso troca o de cima com o de baixo: o inverso de 2/3 é 3/2. Então 4 ÷ 2/3 vira 4 × 3/2 = 12/2 = 6. Não confunda inverso com oposto: o oposto troca o lado do zero, o inverso vira a fração de cabeça para baixo.",
+      "E é por isso que dividir por uma fração menor que 1 aumenta o resultado. A pergunta 'quantos pedaços de 1/2 cabem em 4?' tem resposta 8 — cabem oito metades. Dividir pergunta quantas vezes cabe, e coisas pequenas cabem muitas vezes."
+    ],
+    "destaque": "Dividir por uma fração é multiplicar pelo inverso dela. Inverso vira de cabeça para baixo; oposto troca de lado.",
+    "imagem": "rac-ideia-multiplicar"
+  },
+  "resolvido": {
+    "enunciado": "Calcule (−2/3) × 4/5 e depois 4 ÷ 2/3.",
+    "imagem": "rac-res-multiplicar",
+    "passos": [
+      {
+        "titulo": "Multiplique em linha reta",
+        "explicacao": "Na multiplicação não se iguala nada: numerador com numerador, denominador com denominador.",
+        "conta": "2 × 4 = 8 · 3 × 5 = 15"
+      },
+      {
+        "titulo": "Decida o sinal",
+        "explicacao": "Um fator é negativo e o outro positivo, ou seja, sinais diferentes — e sinais diferentes dão resultado negativo.",
+        "conta": "(−2/3) × 4/5 = −8/15"
+      },
+      {
+        "titulo": "Na divisão, ache o inverso",
+        "explicacao": "O inverso de 2/3 é 3/2: basta virar a fração de cabeça para baixo. Dividir por ela é multiplicar por esse inverso.",
+        "conta": "4 ÷ 2/3 = 4 × 3/2"
+      },
+      {
+        "titulo": "Multiplique e simplifique",
+        "explicacao": "O 4 pode ser escrito como 4/1. Multiplicando, dá 12/2, que simplificado é 6 — maior que o 4 do começo, porque o divisor era menor que 1.",
+        "conta": "12/2 = 6"
+      }
+    ],
+    "fecho": "Dividir por algo menor que 1 aumenta. A pergunta é quantas vezes cabe, e o pequeno cabe muitas."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule (−1/2) × 3/5 e escreva o resultado como fração.",
+      "imagem": "rac-q-mult-fracoes",
+      "dica": "Multiplique de cima com de cima e de baixo com de baixo. O sinal se decide no fim.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−3/10" },
+        { "rotulo": "B", "texto": "3/10" },
+        { "rotulo": "C", "texto": "−4/7" },
+        { "rotulo": "D", "texto": "−5/6" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/10",
+          "porque": "Os números estão certos, mas o sinal não. Um fator é negativo e o outro positivo: sinais diferentes dão resultado negativo."
+        },
+        {
+          "resposta": "−4/7",
+          "porque": "Aqui os números foram SOMADOS em vez de multiplicados: 1 + 3 em cima e 2 + 5 embaixo. Na multiplicação de frações não se soma nada."
+        },
+        {
+          "resposta": "−5/6",
+          "porque": "Isso é o que sairia de igualar denominadores e somar, que é o caminho da adição. Na multiplicação não se iguala nada: multiplica-se em linha reta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique os numeradores",
+          "explicacao": "Deixe os sinais de lado por um instante e multiplique os números de cima.",
+          "conta": "1 × 3 = 3"
+        },
+        {
+          "titulo": "Multiplique os denominadores",
+          "explicacao": "Agora os números de baixo, do mesmo jeito.",
+          "conta": "2 × 5 = 10"
+        },
+        {
+          "titulo": "Decida o sinal",
+          "explicacao": "Sinais diferentes dão resultado negativo.",
+          "conta": "−3/10"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos pedaços de 1/2 cabem em 4? Digite apenas o número.",
+      "imagem": "rac-q-quantos-cabem",
+      "dica": "Dividir é perguntar quantas vezes uma coisa cabe na outra. Pense em quatro pizzas cortadas ao meio.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "pedaços",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é a metade de 4, que seria a resposta de 4 × 1/2. Dividir por 1/2 pergunta o contrário: quantas metades cabem em 4 — e cabem oito."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o número de partida, como se dividir por 1/2 não mudasse nada. Dividir só devolve o mesmo número quando o divisor é 1."
+        },
+        {
+          "resposta": "0.5",
+          "porque": "0,5 é o próprio divisor, que é o tamanho de cada pedaço. A pergunta é quantos pedaços desse tamanho cabem no 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a divisão",
+          "explicacao": "Quantas vezes 1/2 cabe em 4 é a conta 4 ÷ 1/2.",
+          "conta": "4 ÷ 1/2"
+        },
+        {
+          "titulo": "Multiplique pelo inverso",
+          "explicacao": "O inverso de 1/2 é 2/1, ou seja, 2.",
+          "conta": "4 × 2 = 8"
+        },
+        {
+          "titulo": "Confira contando",
+          "explicacao": "Quatro pizzas cortadas ao meio dão oito metades. O resultado aumentou porque o divisor era menor que 1.",
+          "conta": "8 pedaços"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é o INVERSO de −3/4?",
+      "imagem": "rac-q-inverso",
+      "dica": "O inverso vira a fração de cabeça para baixo. Cuidado para não confundir com o oposto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−4/3" },
+        { "rotulo": "B", "texto": "3/4" },
+        { "rotulo": "C", "texto": "4/3" },
+        { "rotulo": "D", "texto": "−3/4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/4",
+          "porque": "Isso é o OPOSTO, que troca o lado do zero mas mantém a fração de pé. O inverso vira a fração de cabeça para baixo e mantém o sinal."
+        },
+        {
+          "resposta": "4/3",
+          "porque": "A fração foi virada certo, mas o sinal se perdeu no caminho. Inverter não muda o lado do zero: o inverso de um negativo continua negativo."
+        },
+        {
+          "resposta": "−3/4",
+          "porque": "Esse é o próprio número. O inverso é o que multiplicado por ele devolve 1, e −3/4 × (−3/4) não dá 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Vire a fração",
+          "explicacao": "O inverso troca o número de cima com o de baixo.",
+          "conta": "3/4 → 4/3"
+        },
+        {
+          "titulo": "Mantenha o sinal",
+          "explicacao": "Inverter não mexe no lado do zero, então o menos continua lá.",
+          "conta": "−4/3"
+        },
+        {
+          "titulo": "Confira pela definição",
+          "explicacao": "O inverso é o número que multiplicado pelo original devolve 1, e os sinais iguais dão positivo.",
+          "conta": "(−3/4) × (−4/3) = 12/12 = 1"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Calcule 10 × 1/2 e digite o resultado.",
+      "imagem": "rac-q-mult-diminui",
+      "dica": "Multiplicar por 1/2 é o mesmo que pegar a metade. O resultado vai ser maior ou menor que 10?",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o dobro, que sairia de multiplicar por 2. Multiplicar por 1/2 é pegar a METADE — multiplicar por um número menor que 1 sempre diminui."
+        },
+        {
+          "resposta": "10.5",
+          "porque": "10,5 soma o 10 com a metade em vez de multiplicar. A conta pedida é de multiplicação, e ela dá exatamente a metade do 10."
+        },
+        {
+          "resposta": "12",
+          "porque": "Não há caminho que leve a 12 aqui. Vale reler a operação: metade de 10 é 5, e nenhuma conta com esses dois números dá 12."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva os dois como fração",
+          "explicacao": "O 10 pode ser escrito como 10/1.",
+          "conta": "10/1 × 1/2"
+        },
+        {
+          "titulo": "Multiplique em linha reta",
+          "explicacao": "Cima com cima e baixo com baixo.",
+          "conta": "10 × 1 = 10 · 1 × 2 = 2"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "Dez meios é a metade de dez. O resultado ficou MENOR que o número de partida, porque o outro fator é menor que 1.",
+          "conta": "10/2 = 5"
+        }
+      ]
+    }
+  ]
+}

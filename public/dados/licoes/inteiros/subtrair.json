@@ -1,0 +1,203 @@
+{
+  "id": "subtrair",
+  "numero": 5,
+  "titulo": "Subtrair é somar o oposto",
+  "pergunta": "O que fazer quando aparecem dois sinais seguidos?",
+  "ideia": {
+    "paragrafos": [
+      "A subtração de inteiros não precisa de regra nova. Existe um truque que transforma toda subtração numa soma, e você já sabe somar: subtrair um número é somar o OPOSTO dele.",
+      "Em símbolos, a − b é o mesmo que a + (−b). Assim 4 − 9 vira 4 + (−9), que dá −5. E −3 − 5 vira −3 + (−5), que dá −8. Feita a troca, é o cabo de guerra da lição anterior.",
+      "O truque brilha mesmo quando o que se subtrai já é negativo. Em −5 − (−3), o oposto de −3 é 3, então a conta vira −5 + 3 = −2. É daí que sai a fama de que 'menos com menos dá mais': dois sinais seguidos viram um só, de mais.",
+      "E isso faz sentido fora do papel. Tirar uma dívida de alguém é melhorar a situação dessa pessoa: se você deve 5 reais e alguém perdoa 3 dessa dívida, você passa a dever só 2. Perdoar dívida é somar dinheiro.",
+      "A subtração tem ainda um segundo uso, o de medir DIFERENÇA. Para saber quanto a temperatura variou de −8 °C até 3 °C, faz-se o valor final menos o inicial: 3 − (−8) = 3 + 8 = 11 graus de subida. É a mesma conta, lida como distância percorrida."
+    ],
+    "destaque": "a − b é a mesma coisa que a + (−b). Troque, e volte a somar.",
+    "imagem": "int-ideia-subtrair"
+  },
+  "resolvido": {
+    "enunciado": "Calcule −5 − (−3).",
+    "imagem": "int-res-subtrair",
+    "passos": [
+      {
+        "titulo": "Ache o que está sendo subtraído",
+        "explicacao": "O número depois do sinal de subtração é o −3. É dele que precisamos do oposto.",
+        "conta": "subtraendo = −3"
+      },
+      {
+        "titulo": "Troque pelo oposto",
+        "explicacao": "O oposto de −3 é 3: mesma distância até o zero, do outro lado. A subtração vira uma soma.",
+        "conta": "−5 − (−3) = −5 + 3"
+      },
+      {
+        "titulo": "Some como na lição anterior",
+        "explicacao": "Sinais diferentes: distância 5 contra distância 3. Vence o 5, que é negativo, e sobra 5 − 3 = 2 do lado dele.",
+        "conta": "−5 + 3 = −2"
+      },
+      {
+        "titulo": "Confira pela história",
+        "explicacao": "Devendo 5 reais, ter 3 dessa dívida perdoada deixa a pessoa devendo 2. O resultado melhorou, e é por isso que subtrair um negativo aumenta.",
+        "conta": "−5 − (−3) = −2"
+      }
+    ],
+    "fecho": "Dois sinais de menos seguidos viram um de mais. Não é decoreba: é a troca pelo oposto."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule 4 − 9 e digite o resultado com o sinal.",
+      "imagem": "int-q-sub-49",
+      "dica": "Troque por 4 + (−9) e resolva o cabo de guerra.",
+      "formato": "numero",
+      "resposta": -5,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é a distância certa, mas do lado errado: quem tira 9 de 4 passa do zero e cai no lado negativo. Inverter a ordem para 9 − 4 muda o resultado, porque subtração não pode ser virada de lado."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 soma os dois números em vez de subtrair. O sinal da conta é de menos, então o segundo número anda para a esquerda."
+        },
+        {
+          "resposta": "-13",
+          "porque": "−13 soma as distâncias e ainda põe sinal negativo. Como os sinais são diferentes, a conta é de subtração entre elas: 9 − 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Troque pelo oposto",
+          "explicacao": "Subtrair 9 é o mesmo que somar −9.",
+          "conta": "4 − 9 = 4 + (−9)"
+        },
+        {
+          "titulo": "Cabo de guerra",
+          "explicacao": "Distância 9 contra distância 4. Vence o 9, que é negativo.",
+          "conta": "9 − 4 = 5"
+        },
+        {
+          "titulo": "Escreva com o sinal do vencedor",
+          "explicacao": "Partindo do 4 e andando nove passos para a esquerda, atravessa-se o zero e para-se no −5.",
+          "conta": "4 − 9 = −5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Calcule −3 − 5 e digite o resultado com o sinal.",
+      "imagem": "int-q-sub-35",
+      "dica": "Troque por −3 + (−5). Os dois passos vão para o mesmo lado.",
+      "formato": "numero",
+      "resposta": -8,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 subtrai as distâncias, como se os sinais fossem diferentes. Depois da troca a conta é −3 + (−5): os dois passos vão para a esquerda e se acumulam."
+        },
+        {
+          "resposta": "-2",
+          "porque": "A distância está errada: 5 − 3 vale 2, mas aqui não há cabo de guerra. Como os dois movimentos vão para a esquerda, as distâncias se somam."
+        },
+        {
+          "resposta": "8",
+          "porque": "A distância está certa, mas nenhum dos dois passos foi para a direita — é impossível terminar do lado positivo do zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Troque pelo oposto",
+          "explicacao": "Subtrair 5 é o mesmo que somar o oposto dele, que é −5.",
+          "conta": "−3 − 5 = −3 + (−5)"
+        },
+        {
+          "titulo": "Some as distâncias",
+          "explicacao": "Os dois são negativos, então os passos vão para o mesmo lado.",
+          "conta": "3 + 5 = 8"
+        },
+        {
+          "titulo": "Mantenha o sinal",
+          "explicacao": "Todo o movimento foi para a esquerda.",
+          "conta": "−3 − 5 = −8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Calcule −6 − (−10) e digite o resultado com o sinal.",
+      "imagem": "int-q-sub-610",
+      "dica": "O oposto de −10 é 10. Troque e some.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "-16",
+          "porque": "−16 soma as distâncias como se os dois sinais continuassem negativos. Subtrair −10 é somar +10, então o segundo passo vai para a DIREITA."
+        },
+        {
+          "resposta": "-4",
+          "porque": "A distância está certa, mas o lado não. Depois da troca a conta é −6 + 10: vence a distância 10, que agora é positiva, então o resultado fica à direita do zero."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 soma as distâncias e escolhe o lado positivo. Só o segundo número virou positivo na troca; o −6 continua sendo negativo e puxa para o outro lado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o oposto do subtraendo",
+          "explicacao": "O que está sendo subtraído é −10, e o oposto dele é 10.",
+          "conta": "−(−10) = +10"
+        },
+        {
+          "titulo": "Reescreva como soma",
+          "explicacao": "Os dois sinais seguidos viram um de mais.",
+          "conta": "−6 − (−10) = −6 + 10"
+        },
+        {
+          "titulo": "Resolva o cabo de guerra",
+          "explicacao": "Distância 10 contra distância 6: vence o 10, que é positivo, e sobram 4.",
+          "conta": "10 − 6 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "De madrugada fazia −8 °C e à tarde o termômetro marcou 3 °C. De quantos graus foi a subida? Digite apenas o número.",
+      "imagem": "int-q-variacao",
+      "dica": "Variação é o valor final menos o inicial. Cuidado: o inicial é negativo.",
+      "formato": "numero",
+      "resposta": 11,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 sai de fazer 8 − 3, ignorando que a temperatura começou ABAIXO do zero. O termômetro precisou subir oito graus só para chegar ao zero, e mais três depois disso."
+        },
+        {
+          "resposta": "-5",
+          "porque": "Além de usar 8 − 3, esse resultado é negativo — mas a temperatura subiu, e não caiu. Uma variação negativa indicaria esfriamento."
+        },
+        {
+          "resposta": "-11",
+          "porque": "A distância está certa: são mesmo onze graus. Mas o sinal indica queda, e aqui a temperatura foi de um valor menor para um maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a variação",
+          "explicacao": "Variação é sempre o valor final menos o inicial, nessa ordem.",
+          "conta": "3 − (−8)"
+        },
+        {
+          "titulo": "Troque pelo oposto",
+          "explicacao": "Subtrair −8 é somar 8, então os dois sinais viram um de mais.",
+          "conta": "3 + 8 = 11"
+        },
+        {
+          "titulo": "Confira contando na reta",
+          "explicacao": "De −8 até o zero são oito graus, e do zero até 3 são mais três: onze no total.",
+          "conta": "8 + 3 = 11 graus"
+        }
+      ]
+    }
+  ]
+}

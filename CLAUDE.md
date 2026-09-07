@@ -19,6 +19,10 @@ Perímetro, Área, Sólidos e volume, Grandezas e medidas, Plano cartesiano,
 Gráficos e tabelas e Média aritmética. Cada matéria concluída emite
 certificado.
 
+**O 7º ano está em andamento: 5 das 13 matérias publicadas** — Números
+inteiros, Números racionais, Razão e proporção, Regra de três e Porcentagem e
+juros simples. O bloco de proporcionalidade está fechado.
+
 ## Stack
 
 - HTML + CSS + TypeScript compilado. Sem framework, sem bundler.
@@ -153,7 +157,7 @@ O player só é carregado no clique; antes disso a página não fala com o YouTu
 **Toda questão tem imagem, e imagem é arquivo PNG em `/assets`.** A página
 nunca desenha figura em tempo de execução.
 
-- `ferramentas/desenhos.mjs` — 41 geradores paramétricos de SVG: roda, barra,
+- `ferramentas/desenhos.mjs` — 47 geradores paramétricos de SVG: roda, barra,
   barras empilhadas, barras comparadas, rodas comparadas, grade, reta numérica,
   reta decimal, coleção, recipientes, barra de etapas, corte duplo, barra por
   categorias, preço por parte, quadro de ordens, conta armada, arranjos
@@ -225,6 +229,42 @@ nunca desenha figura em tempo de execução.
     320px — o mesmo aperto que obrigou `angulosComparados` a quebrar em duas
     linhas.
 
+- **Bloco de inteiros** (`retaInteiros`, `termometro`, `saldo`, `predio`), o
+  primeiro do 7º ano. Em todos eles o ZERO é desenhado com traço mais alto e
+  mais claro que os vizinhos: ele virou referência, e não mais um número da
+  fila.
+
+  - `retaInteiros` aceita `salto`, um arco tracejado de um número a outro —
+    é assim que soma e subtração aparecem antes de virar regra: andar para a
+    direita ou para a esquerda. O salto só entra onde o resultado JÁ é
+    conhecido; numa questão que pede a conta, ele seria a resposta desenhada.
+  - **O passo da reta sai da largura dos rótulos, e não de um piso fixo.**
+    Com piso fixo em 18px, uma reta de −10 a 10 passava de 420px e caía para
+    0,69 do tamanho num celular de 320px. O passo mínimo agora é a largura do
+    maior rótulo dividida por `rotuloCada`: numa reta que numera de dois em
+    dois, os tracinhos podem ficar bem mais juntos sem nada se encavalar.
+  - No `termometro` a coluna sobe **do bulbo** até o valor, como num
+    termômetro de verdade. A primeira versão desenhava a coluna a partir do
+    zero, o que deixava o negativo como um retângulo solto no meio do tubo.
+
+- **Bloco de proporção** (`razao`, `tabelaProporcional`). O primeiro põe as
+  quantidades lado a lado em blocos, porque comparação se enxerga contando —
+  e `agrupar` desenha um vão a cada N blocos, que é a simplificação aparecendo
+  antes de virar conta: doze e oito, agrupados de quatro em quatro, viram
+  visivelmente três grupos contra dois.
+
+  O `tabelaProporcional` desenha o FATOR que atravessa a tabela, em arco
+  tracejado entre as colunas. É ele que separa "cresce junto" de "é
+  proporcional": sem as setas o aluno vê números, com elas vê a regularidade.
+  Nas questões que pedem um termo, a coluna dele leva "?" — a figura mostra os
+  dados, nunca o valor procurado.
+
+  Ele ganhou depois `fatoresBaixo`, um segundo arco por baixo da tabela, e é
+  esse PAR de arcos que distingue direta de inversa numa olhada: os dois no
+  mesmo sentido, direta; o de baixo apontando para o outro lado, inversa. Sem
+  isso as duas tabelas seriam idênticas, e a matéria inteira de Regra de três
+  perderia a figura que a explica.
+
 - `ferramentas/manifesto-imagens.mjs` — a lista de todas as imagens.
 - `npm run imagens` rasteriza tudo com o Chrome headless em 2x, fundo
   transparente, e reescreve `public/dados/imagens.json`.
@@ -284,6 +324,12 @@ Duas regras de conteúdo para as figuras:
   que é exatamente o defeito da v2. Frações e Números decimais foram escritas
   antes de a regra se firmar e tinham 27 alternativas descobertas; a revisão
   que fechou o 6º ano preencheu todas, e um teste agora reprova qualquer nova.
+- **O aluno digita o menos do teclado; o site escreve o menos tipográfico.**
+  As figuras e os textos usam − (U+2212), que é o caractere que o aluno vê e
+  copia. O `paraNumero` normaliza −, –, — e os hifens Unicode para o hífen
+  comum antes de converter; sem isso, quem digitasse o símbolo da própria tela
+  recebia NaN, contado como erro e sem diagnóstico nenhum. Foi corrigido antes
+  da primeira lição do 7º ano, e há teste.
 - **O diagnóstico tem de ser ALCANÇÁVEL pelo motor.** Em questão numérica o
   motor casa por VALOR, não por texto: um erro previsto "8,0" numa questão de
   resposta 8 é aceito como CERTO e nunca aparece, e "6" e "6,0" são o mesmo
@@ -292,7 +338,7 @@ Duas regras de conteúdo para as figuras:
 
 ## Testes
 
-`npm test` roda o build e três arquivos (183 testes):
+`npm test` roda o build e três arquivos (223 testes):
 
 - `tests/conteudo.test.mjs` — percorre o catálogo inteiro: integridade de todos
   os cursos e, principalmente, a **recontagem independente de toda a
@@ -439,23 +485,20 @@ chutado, que nem batia com os 38px reais.
 A revisão de fechamento percorreu as 107 páginas e as 352 questões no navegador
 e não deixou defeito conhecido.
 
-A decisão do usuário era terminar o 6º ano antes de subir de ano, e ela foi
-cumprida. **O próximo passo é o 7º ano**, na ordem do catálogo — e ele começa
-por Números inteiros (negativos), que é a primeira ideia realmente nova desde
-as frações e vai pedir bloco de desenho próprio: reta com negativos, saldo e
-dívida, e a comparação de dois números à esquerda do zero.
+**O 7º ano está em andamento: 2 de 13 matérias.** Números inteiros e Números
+racionais somam 14 lições, 56 questões, 168 diagnósticos, 84 imagens e 8
+vídeos. A primeira trouxe o bloco de desenho de negativos e a correção do sinal
+de menos no motor; a segunda quase não pediu desenho novo — só a `subdivisoes`
+da `retaInteiros`, para os racionais terem onde cair entre os inteiros.
 
-O 7º ano tem **13 matérias**, nesta ordem: Números inteiros, Números racionais,
-Razão e proporção, Regra de três, Porcentagem e juros simples, Linguagem
-algébrica, Equações do 1º grau, Inequações, Retas paralelas e transversais,
-Triângulos e quadriláteros, Circunferência e círculo, Média/moda/mediana e
-Probabilidade.
+O 7º ano tem **13 matérias**, nesta ordem: ~~Números inteiros~~ e ~~Números
+racionais~~ (prontas), Razão e proporção, Regra de três, Porcentagem e juros
+simples, Linguagem algébrica, Equações do 1º grau, Inequações, Retas paralelas
+e transversais, Triângulos e quadriláteros, Circunferência e círculo,
+Média/moda/mediana e Probabilidade.
 
-Três observações para quando ele começar:
+Duas observações que continuam valendo:
 
-- **Números inteiros pede bloco de desenho novo** — reta com negativos, saldo
-  e dívida, e a comparação de dois números à esquerda do zero, que é onde o
-  aluno mais erra ("−7 é maior que −3" parece certo até desenhar).
 - **Média, moda e mediana reaproveita `grafico` e `tabela` inteiros**, e é
   continuação direta da Média aritmética do 6º — inclusive do gancho que a
   lição 5 de lá deixou aberto sobre o que a média não conta.
@@ -463,6 +506,34 @@ Três observações para quando ele começar:
   antes de escrever o conteúdo, e não depois: balança de dois pratos para
   equação, barra dividida para incógnita. Sem isso a regra "toda questão tem
   imagem" vira enfeite.
+
+A próxima é **Linguagem algébrica**, e ela é a virada do ano: a primeira
+matéria sem figura óbvia, e a primeira em que a letra entra no lugar do número.
+Vale decidir o desenho ANTES de escrever o conteúdo — balança de dois pratos
+para equação, barra dividida para incógnita —, senão a regra "toda questão tem
+imagem" vira enfeite. Depois dela vêm Equações do 1º grau e Inequações, que
+reaproveitam o mesmo bloco.
+
+**Duas coisas do bloco de proporcionalidade que valem repetir:**
+
+- **Regra de três não virou receita** porque foi montada em cima da proporção
+  que o aluno já sabia, porque decidir direta ou inversa ganhou uma lição
+  inteira, e porque o teste de conteúdo NÃO aplica a fórmula: ele recalcula
+  pelo significado (valor unitário na direta, trabalho total na inversa) e
+  compara os dois caminhos.
+- **Dinheiro é conferido em centavos inteiros.** O teste de Juros simples
+  trata todo valor como inteiro e só volta a reais no fim — em ponto
+  flutuante, `1000 × 1,1 × 1,1` não dá exatamente 1210. A mesma disciplina do
+  bloco de Racionais, com outra roupa.
+
+E a distinção que a matéria de juros precisou deixar clara: na lição 2 as
+taxas sucessivas MULTIPLICAM fatores; na lição 5, as taxas de juro simples
+SOMAM. As duas afirmações são conferidas por força bruta, uma contra a outra.
+
+**Cuidado com o ponto flutuante ao verificar racionais.** O bloco de testes de
+Números racionais não usa `0.1 + 0.2`: ele reimplementa a aritmética com pares
+de inteiros {n, d} e só converte para decimal no fim. Sem isso, meia dúzia de
+asserções falharia por erro de arredondamento em vez de erro de conteúdo.
 
 Débito conhecido do 6º ano: nenhum defeito, mas Plano cartesiano, Gráficos e
 tabelas e Média aritmética saíram só com questão escrita para o site. As três

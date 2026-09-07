@@ -1,0 +1,206 @@
+{
+  "id": "direta",
+  "numero": 2,
+  "titulo": "Regra de três direta",
+  "pergunta": "Como resolver quando as duas grandezas crescem juntas?",
+  "ideia": {
+    "paragrafos": [
+      "Quando as duas grandezas são diretamente proporcionais, a montagem é a mais simples possível: as duas razões seguem a MESMA ordem. Primeira situação em cima, segunda embaixo, nas duas colunas.",
+      "Um exemplo com números redondos deixa isso claro. Se 5 kg de arroz custam R$ 30 e você quer o preço de 8 kg, a tabela tem kg numa linha e reais na outra. A proporção sai lendo as colunas: 5/30 = 8/x.",
+      "Multiplicando em cruz, 5x = 240, e dividindo, x = 48. Vale conferir pelo preço por quilo: 30 ÷ 5 = 6 e 48 ÷ 8 = 6. Como o preço unitário bate nos dois casos, a montagem estava certa.",
+      "Existe um atalho quando o fator entre as colunas é fácil de ver. De 5 para 8 não é redondo, mas de 4 para 12 é: multiplica-se por 3, então o outro valor também é multiplicado por 3. Os dois caminhos dão o mesmo resultado, e o atalho é mais rápido quando os números ajudam.",
+      "A conferência que custa menos e pega mais erro continua sendo a mesma da matéria anterior: prever a direção. Comprando mais arroz, o preço tem de subir. Se o resultado saiu menor, ou a montagem foi invertida ou a conta escorregou."
+    ],
+    "destaque": "Na direta, as duas razões vão na mesma ordem. É só montar e cruzar.",
+    "imagem": "rt-ideia-direta"
+  },
+  "resolvido": {
+    "enunciado": "Se 5 kg de arroz custam R$ 30, quanto custam 8 kg?",
+    "imagem": "rt-res-arroz",
+    "passos": [
+      {
+        "titulo": "Decida o tipo",
+        "explicacao": "Dobrando os quilos, o preço dobra: as grandezas são diretamente proporcionais. É essa decisão que autoriza a montagem na mesma ordem.",
+        "conta": "mais arroz, mais dinheiro"
+      },
+      {
+        "titulo": "Monte a tabela",
+        "explicacao": "Quilos numa linha e reais na outra, com cada situação numa coluna.",
+        "conta": "5 → 30 · 8 → x"
+      },
+      {
+        "titulo": "Multiplique em cruz",
+        "explicacao": "Como a proporcionalidade é direta, as razões vão na mesma ordem e o cruzamento é o comum.",
+        "conta": "5x = 30 × 8 = 240"
+      },
+      {
+        "titulo": "Resolva e confira",
+        "explicacao": "Dividindo por 5 chega-se ao preço. O preço por quilo bate nos dois casos, e o resultado ficou maior que 30, como previsto.",
+        "conta": "240 ÷ 5 = 48 reais"
+      }
+    ],
+    "fecho": "Conferir pelo valor unitário custa uma divisão e prova que a montagem estava certa."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um carro consome 6 litros de combustível para percorrer 80 km. Quantos litros consome em 200 km, no mesmo ritmo? Digite apenas o número.",
+      "imagem": "rt-q-combustivel",
+      "dica": "Mais distância consome mais combustível: proporcionalidade direta.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "litros",
+      "errosComuns": [
+        {
+          "resposta": "2.4",
+          "porque": "2,4 monta a proporção invertida, o que faria mais quilômetros gastarem menos. Andar mais consome mais, então o resultado tem de passar de 6."
+        },
+        {
+          "resposta": "126",
+          "porque": "126 soma a distância ao consumo, que são grandezas diferentes. A relação entre elas é de multiplicação, não de soma."
+        },
+        {
+          "resposta": "1200",
+          "porque": "1200 é 6 × 200, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 80."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida o tipo",
+          "explicacao": "Dobrando a distância, o consumo dobra: direta.",
+          "conta": "mais km, mais litros"
+        },
+        {
+          "titulo": "Monte e cruze",
+          "explicacao": "Litros numa linha e quilômetros na outra, na mesma ordem.",
+          "conta": "6/80 = x/200 → 80x = 1200"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Dividindo por 80. O consumo por quilômetro bate: 6 ÷ 80 e 15 ÷ 200 dão o mesmo.",
+          "conta": "1200 ÷ 80 = 15 litros"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma impressora imprime 90 páginas em 3 minutos. Quantas páginas imprime em 7 minutos? Digite apenas o número.",
+      "imagem": "rt-q-impressora",
+      "dica": "Mais tempo imprime mais páginas. Ache quantas páginas saem por minuto.",
+      "formato": "numero",
+      "resposta": 210,
+      "unidade": "páginas",
+      "errosComuns": [
+        {
+          "resposta": "38.57",
+          "porque": "38,57 divide 90 por algo em vez de multiplicar, ou monta a proporção ao contrário. Em mais tempo a impressora produz MAIS, e não menos."
+        },
+        {
+          "resposta": "94",
+          "porque": "94 soma 4 páginas, uma por minuto a mais. A impressora faz 90 ÷ 3 = 30 páginas por minuto, então quatro minutos a mais rendem 120 páginas."
+        },
+        {
+          "resposta": "630",
+          "porque": "630 é 90 × 7, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o valor unitário",
+          "explicacao": "Quantas páginas saem em um minuto.",
+          "conta": "90 ÷ 3 = 30 por minuto"
+        },
+        {
+          "titulo": "Multiplique pelo tempo",
+          "explicacao": "Sete minutos rendem sete vezes isso.",
+          "conta": "30 × 7 = 210 páginas"
+        },
+        {
+          "titulo": "Confira pela proporção",
+          "explicacao": "Multiplicando em cruz na montagem direta chega-se ao mesmo número.",
+          "conta": "3x = 630 → x = 210"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Se 12 metros de tecido custam R$ 96, quanto custam 7 metros? Digite apenas o número.",
+      "imagem": "rt-q-tecido",
+      "dica": "Menos tecido custa menos: o resultado tem de ficar abaixo de 96.",
+      "formato": "numero",
+      "resposta": 56,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "164.57",
+          "porque": "164,57 monta a proporção invertida, o que faria menos tecido custar mais. Sete metros custam menos que doze."
+        },
+        {
+          "resposta": "91",
+          "porque": "91 subtrai 5 reais, um por metro a menos. Cada metro custa 96 ÷ 12 = 8 reais, então cinco metros a menos custam 40 a menos."
+        },
+        {
+          "resposta": "672",
+          "porque": "672 é 96 × 7, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 12."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Preveja a direção",
+          "explicacao": "Menos metros custam menos, então o resultado tem de ser menor que 96.",
+          "conta": "x < 96"
+        },
+        {
+          "titulo": "Monte e cruze",
+          "explicacao": "Metros numa linha e reais na outra, na mesma ordem.",
+          "conta": "12/96 = 7/x → 12x = 672"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Cada metro custa 8 reais, e sete metros custam 56 — abaixo de 96, como previsto.",
+          "conta": "672 ÷ 12 = 56 reais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa regra de três DIRETA, como as duas razões devem ser montadas?",
+      "imagem": "rt-q-montagem-direta",
+      "dica": "Pense em qual grandeza fica em cima de cada razão.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Na mesma ordem: a mesma grandeza em cima nas duas" },
+        { "rotulo": "B", "texto": "Uma delas invertida" },
+        { "rotulo": "C", "texto": "Sempre com o maior número em cima" },
+        { "rotulo": "D", "texto": "Somando as duas grandezas antes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Uma delas invertida",
+          "porque": "Isso é o que se faz na regra de três INVERSA, que é o assunto da próxima lição. Na direta, inverter uma das razões daria um resultado no sentido errado."
+        },
+        {
+          "resposta": "Sempre com o maior número em cima",
+          "porque": "O tamanho do número não decide nada: quem decide é a grandeza. Se os quilos ficam em cima numa razão, têm de ficar em cima na outra também."
+        },
+        {
+          "resposta": "Somando as duas grandezas antes",
+          "porque": "Grandezas diferentes não se somam — quilos com reais não dá nada. A proporção compara as duas por divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva com as unidades",
+          "explicacao": "Se de um lado ficam kg em cima e reais embaixo, do outro tem de ser igual.",
+          "conta": "kg/reais = kg/reais"
+        },
+        {
+          "titulo": "Veja por que",
+          "explicacao": "As duas razões representam o mesmo preço por quilo, então precisam ser lidas do mesmo jeito.",
+          "conta": "mesma ordem nas duas"
+        }
+      ]
+    }
+  ]
+}

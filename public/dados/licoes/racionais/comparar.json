@@ -1,0 +1,226 @@
+{
+  "id": "comparar",
+  "numero": 4,
+  "titulo": "Comparar racionais",
+  "pergunta": "Qual é maior: −1/2 ou −3/4?",
+  "ideia": {
+    "paragrafos": [
+      "A regra da reta não mudou desde a matéria passada: quanto mais à direita, maior. O que complica agora é que os números vêm em roupas diferentes, e comparar fração com decimal de olho não funciona.",
+      "A saída é sempre a mesma: ponha os dois na MESMA forma antes de comparar. Ou converta tudo para decimal, dividindo, ou iguale os denominadores como você fazia no 6º ano. Qualquer uma das duas resolve.",
+      "Entre negativos, a ordem continua invertida, e é aqui que quase todo mundo tropeça. Comparando −1/2 com −3/4: em decimal são −0,5 e −0,75. O −0,75 está mais longe do zero, portanto mais à esquerda, portanto MENOR. Logo −1/2 é o maior dos dois.",
+      "Repare no que aconteceu: 3/4 é maior que 1/2, mas −3/4 é MENOR que −1/2. Trocar o sinal dos dois números inverte a comparação, do mesmo jeito que acontecia com os inteiros — dever três quartos de alguma coisa é pior que dever metade.",
+      "Duas conferências rápidas ajudam. Todo negativo continua menor que zero e menor que qualquer positivo. E, entre dois negativos, o que estiver mais longe do zero é o menor."
+    ],
+    "destaque": "Iguale as roupas antes de comparar. Entre negativos, mais longe do zero é menor.",
+    "imagem": "rac-ideia-comparar"
+  },
+  "resolvido": {
+    "enunciado": "Qual é maior: −1/2 ou −3/4?",
+    "imagem": "rac-res-comparar",
+    "passos": [
+      {
+        "titulo": "Ponha na mesma forma",
+        "explicacao": "As duas são frações, mas com denominadores diferentes. Converter para decimal é o caminho mais curto aqui: basta dividir.",
+        "conta": "−1/2 = −0,5 · −3/4 = −0,75"
+      },
+      {
+        "titulo": "Compare as distâncias até o zero",
+        "explicacao": "Setenta e cinco centésimos é mais que cinquenta centésimos, então −3/4 está mais longe do zero.",
+        "conta": "0,75 > 0,5"
+      },
+      {
+        "titulo": "Traduza para posição",
+        "explicacao": "Do lado negativo, mais longe do zero significa mais à esquerda na reta — e mais à esquerda é menor.",
+        "conta": "−3/4 mais à esquerda"
+      },
+      {
+        "titulo": "Responda",
+        "explicacao": "Quem está mais à direita é o maior, e nesse par é o −1/2, que ficou mais perto do zero.",
+        "conta": "−3/4 < −1/2"
+      }
+    ],
+    "fecho": "Entre positivos, 3/4 ganha de 1/2. Entre negativos, o mesmo par troca de lugar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o MAIOR número: −2/3 ou −1/3?",
+      "imagem": "rac-q-maior-negativo",
+      "dica": "Os denominadores já são iguais. Quem está mais longe do zero é o menor.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−1/3" },
+        { "rotulo": "B", "texto": "−2/3" },
+        { "rotulo": "C", "texto": "Os dois são iguais" },
+        { "rotulo": "D", "texto": "Não dá para comparar frações negativas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−2/3",
+          "porque": "Dois terços é mais que um terço, mas isso compara as DISTÂNCIAS até o zero. Do lado negativo, quem está mais longe fica mais à esquerda — e mais à esquerda é menor."
+        },
+        {
+          "resposta": "Os dois são iguais",
+          "porque": "Eles têm o mesmo denominador, mas numeradores diferentes, então ocupam pontos diferentes da reta. Um terço de distância separa os dois."
+        },
+        {
+          "resposta": "Não dá para comparar frações negativas",
+          "porque": "Dá, e pela regra de sempre: quem está mais à direita na reta é o maior. A reta não muda de regra ao passar do zero nem ao sair dos inteiros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Os denominadores já batem",
+          "explicacao": "Os dois estão em terços, então dá para comparar direto pelos numeradores.",
+          "conta": "1 terço contra 2 terços"
+        },
+        {
+          "titulo": "Compare as distâncias",
+          "explicacao": "Dois terços é uma distância maior até o zero que um terço.",
+          "conta": "2/3 > 1/3"
+        },
+        {
+          "titulo": "Inverta para o lado negativo",
+          "explicacao": "Distância maior, do lado esquerdo, significa posição menor.",
+          "conta": "−2/3 < −1/3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o maior número: 0,7 ou 3/4?",
+      "imagem": "rac-q-decimal-fracao3",
+      "dica": "Converta a fração para decimal e compare casa a casa.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3/4" },
+        { "rotulo": "B", "texto": "0,7" },
+        { "rotulo": "C", "texto": "Os dois são iguais" },
+        { "rotulo": "D", "texto": "Não dá para comparar fração com decimal" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "0,7",
+          "porque": "Sete décimos é 0,70, e três quartos é 0,75. Igualando as casas fica claro que 0,75 é maior — cinco centésimos separam os dois."
+        },
+        {
+          "resposta": "Os dois são iguais",
+          "porque": "Eles são próximos, mas não iguais: 3/4 é 0,75 e 0,7 é 0,70. A diferença é de cinco centésimos."
+        },
+        {
+          "resposta": "Não dá para comparar fração com decimal",
+          "porque": "Dá, e é o assunto da lição: basta pôr os dois na mesma forma antes de comparar. Fração e decimal são roupas do mesmo tipo de número."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta a fração",
+          "explicacao": "O traço da fração é uma divisão: três dividido por quatro.",
+          "conta": "3/4 = 0,75"
+        },
+        {
+          "titulo": "Iguale as casas",
+          "explicacao": "Escrever 0,7 como 0,70 deixa os dois com o mesmo número de casas decimais.",
+          "conta": "0,70 e 0,75"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Com as casas iguais, compara-se como se fossem inteiros: 75 é maior que 70.",
+          "conta": "3/4 > 0,7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Coloque em ordem crescente: 0,5 · −1/4 · −1,5 · 0. Qual é a ordem certa?",
+      "imagem": "rac-q-ordenar",
+      "dica": "Converta tudo para decimal e leia a reta da esquerda para a direita.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−1,5 · −1/4 · 0 · 0,5" },
+        { "rotulo": "B", "texto": "−1/4 · −1,5 · 0 · 0,5" },
+        { "rotulo": "C", "texto": "0 · −1/4 · 0,5 · −1,5" },
+        { "rotulo": "D", "texto": "0,5 · 0 · −1/4 · −1,5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−1/4 · −1,5 · 0 · 0,5",
+          "porque": "Os negativos ficaram trocados. Em decimal são −0,25 e −1,5: o −1,5 está bem mais longe do zero, então vem primeiro na ordem crescente."
+        },
+        {
+          "resposta": "0 · −1/4 · 0,5 · −1,5",
+          "porque": "Essa ordem trata o zero como o menor de todos, o que deixou de valer quando os negativos entraram. Os dois negativos vêm antes dele."
+        },
+        {
+          "resposta": "0,5 · 0 · −1/4 · −1,5",
+          "porque": "É a ordem DECRESCENTE, do maior para o menor. Ela está certa de trás para frente — crescente começa pelo menor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta tudo",
+          "explicacao": "Só a fração precisa de conversão: −1/4 é −0,25.",
+          "conta": "0,5 · −0,25 · −1,5 · 0"
+        },
+        {
+          "titulo": "Separe os lados",
+          "explicacao": "Os dois negativos ficam à esquerda do zero, e o 0,5 à direita.",
+          "conta": "−1,5 e −0,25 | 0 | 0,5"
+        },
+        {
+          "titulo": "Ordene os negativos",
+          "explicacao": "O que está mais longe do zero é o menor, então o −1,5 abre a fila.",
+          "conta": "−1,5 · −1/4 · 0 · 0,5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sabendo que 5/8 é maior que 1/2, o que se pode afirmar sobre −5/8 e −1/2?",
+      "imagem": "rac-q-inverte",
+      "dica": "Trocar o sinal dos dois números espelha as posições na reta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−5/8 é MENOR que −1/2" },
+        { "rotulo": "B", "texto": "−5/8 é maior que −1/2, porque 5/8 é maior" },
+        { "rotulo": "C", "texto": "Os dois passam a ser iguais" },
+        { "rotulo": "D", "texto": "A comparação não muda, mas os dois viram positivos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−5/8 é maior que −1/2, porque 5/8 é maior",
+          "porque": "A comparação entre positivos não se copia para os negativos: ela se INVERTE. Distância maior do zero, do lado esquerdo, dá posição menor."
+        },
+        {
+          "resposta": "Os dois passam a ser iguais",
+          "porque": "Trocar o sinal move cada número para o outro lado do zero, mantendo a distância. Como as distâncias eram diferentes, os pontos continuam diferentes."
+        },
+        {
+          "resposta": "A comparação não muda, mas os dois viram positivos",
+          "porque": "Pôr o sinal de menos deixa os dois NEGATIVOS, e não positivos. Eles saem do lado direito da reta e vão para o esquerdo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o sinal faz",
+          "explicacao": "Trocar o sinal de um número o joga para o outro lado do zero, à mesma distância.",
+          "conta": "5/8 → −5/8"
+        },
+        {
+          "titulo": "Espelhe as posições",
+          "explicacao": "Se 5/8 estava mais à direita que 1/2, o espelho põe −5/8 mais à esquerda que −1/2.",
+          "conta": "espelho no zero"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Mais à esquerda é menor, então a comparação se inverte. Em decimal: −0,625 é menor que −0,5.",
+          "conta": "−5/8 < −1/2"
+        }
+      ]
+    }
+  ]
+}

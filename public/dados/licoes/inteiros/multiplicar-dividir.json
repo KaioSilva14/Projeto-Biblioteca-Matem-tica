@@ -1,0 +1,213 @@
+{
+  "id": "multiplicar-dividir",
+  "numero": 6,
+  "titulo": "A regra dos sinais",
+  "pergunta": "Por que menos vezes menos dá mais?",
+  "ideia": {
+    "paragrafos": [
+      "Multiplicar por um número positivo continua sendo repetir uma soma. Fazer (−4) × 3 é somar −4 três vezes: −4 −4 −4, que dá −12. Repetir uma dívida três vezes deixa a dívida três vezes maior, e é por isso que positivo vezes negativo dá negativo.",
+      "O caso difícil é (−4) × (−3), porque não dá para 'repetir menos três vezes'. A saída é olhar o padrão. Escreva a sequência: (−4) × 3 = −12, (−4) × 2 = −8, (−4) × 1 = −4, (−4) × 0 = 0. A cada passo o multiplicador cai um e o resultado SOBE quatro.",
+      "Se o padrão vale, ele tem de continuar depois do zero. O próximo é (−4) × (−1), que deve ser 0 + 4 = 4. Depois (−4) × (−2) = 8, e (−4) × (−3) = 12. É o padrão que obriga o resultado a ser positivo — não é uma decisão arbitrária de ninguém.",
+      "Daí sai a regra curta: sinais IGUAIS dão resultado positivo, sinais DIFERENTES dão negativo. Ela vale igual para a divisão, porque dividir é a operação inversa de multiplicar: se (−4) × 3 = −12, então −12 ÷ 3 = −4 e −12 ÷ (−4) = 3.",
+      "Uma consequência prática: numa potência de base negativa, o sinal depende de o expoente ser par ou ímpar. Em (−2)³, os três fatores negativos deixam um sinal sobrando e o resultado é −8. Em (−2)⁴, eles se anulam dois a dois e o resultado é 16."
+    ],
+    "destaque": "Sinais iguais, resultado positivo. Sinais diferentes, resultado negativo.",
+    "imagem": "int-ideia-sinais"
+  },
+  "resolvido": {
+    "enunciado": "Calcule (−4) × 3 e depois (−4) × (−3).",
+    "imagem": "int-res-padrao",
+    "passos": [
+      {
+        "titulo": "O primeiro é soma repetida",
+        "explicacao": "Multiplicar por 3 é repetir três vezes. Somar −4 três vezes empurra o resultado para a esquerda do zero.",
+        "conta": "(−4) + (−4) + (−4) = −12"
+      },
+      {
+        "titulo": "Monte o padrão descendo",
+        "explicacao": "Baixe o multiplicador de um em um e anote o que acontece. A cada passo o resultado sobe quatro.",
+        "conta": "−12 · −8 · −4 · 0"
+      },
+      {
+        "titulo": "Continue depois do zero",
+        "explicacao": "Não há motivo para o padrão parar no zero. O passo seguinte é (−4) × (−1), e ele tem de valer 0 + 4.",
+        "conta": "(−4) × (−1) = 4"
+      },
+      {
+        "titulo": "Chegue ao pedido",
+        "explicacao": "Mais dois passos do mesmo padrão dão a resposta, e ela é positiva porque os dois sinais são iguais.",
+        "conta": "(−4) × (−3) = 12"
+      }
+    ],
+    "fecho": "A regra não foi inventada para complicar: ela é o único jeito de o padrão não quebrar no zero."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule (−6) × 7 e digite o resultado com o sinal.",
+      "imagem": "int-q-mult-67",
+      "dica": "Os sinais são diferentes. Multiplique as distâncias e depois decida o sinal.",
+      "formato": "numero",
+      "resposta": -42,
+      "errosComuns": [
+        {
+          "resposta": "42",
+          "porque": "O número está certo, mas o sinal não. Sinais diferentes dão resultado negativo: repetir uma dívida de 6 sete vezes deixa a dívida maior, e não um lucro."
+        },
+        {
+          "resposta": "-13",
+          "porque": "−13 vem de somar 6 e 7 em vez de multiplicar. A soma seria o caso de andar na reta; aqui a operação é de repetição."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é a diferença entre 7 e 6, que não tem papel nenhum nesta conta. Multiplicação combina as duas distâncias por produto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique as distâncias",
+          "explicacao": "Ignore os sinais por um instante e faça a conta de sempre.",
+          "conta": "6 × 7 = 42"
+        },
+        {
+          "titulo": "Compare os sinais",
+          "explicacao": "Um é negativo e o outro positivo, ou seja, sinais diferentes.",
+          "conta": "− e + → diferentes"
+        },
+        {
+          "titulo": "Aplique a regra",
+          "explicacao": "Sinais diferentes dão resultado negativo.",
+          "conta": "(−6) × 7 = −42"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Calcule (−3) × (−5) e digite o resultado com o sinal.",
+      "imagem": "int-q-mult-35",
+      "dica": "Os dois sinais são iguais. Lembre do padrão que continua depois do zero.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "-15",
+          "porque": "O número está certo, mas o sinal não. Com os DOIS fatores negativos os sinais são iguais, e sinais iguais dão resultado positivo — é o que o padrão da tabela obriga."
+        },
+        {
+          "resposta": "-8",
+          "porque": "−8 soma as distâncias 3 e 5 e mantém o sinal, que seria o caminho de uma adição. Aqui a operação é multiplicação."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é a soma das distâncias. Multiplicar 3 por 5 dá 15, e só depois se decide o sinal."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique as distâncias",
+          "explicacao": "Deixe os sinais de lado por um instante e faça três vezes cinco, como sempre.",
+          "conta": "3 × 5 = 15"
+        },
+        {
+          "titulo": "Compare os sinais",
+          "explicacao": "Os dois fatores são negativos, então os sinais são iguais.",
+          "conta": "− e − → iguais"
+        },
+        {
+          "titulo": "Aplique a regra",
+          "explicacao": "Sinais iguais dão resultado positivo.",
+          "conta": "(−3) × (−5) = 15"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Calcule (−8) ÷ (−2) e digite o resultado com o sinal.",
+      "imagem": "int-q-div-82",
+      "dica": "A regra dos sinais é a mesma da multiplicação. Divida as distâncias e depois decida o sinal.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "-4",
+          "porque": "A distância está certa, mas os dois números são negativos, ou seja, sinais iguais — e sinais iguais dão resultado positivo, na divisão como na multiplicação."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 multiplica em vez de dividir. O sinal ficou certo pela regra, mas a operação pedida é a divisão."
+        },
+        {
+          "resposta": "-6",
+          "porque": "−6 vem de somar as distâncias 8 e 2 mantendo o sinal. A conta desta questão é de divisão, e não de adição."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida as distâncias",
+          "explicacao": "Oito dividido por dois, como sempre.",
+          "conta": "8 ÷ 2 = 4"
+        },
+        {
+          "titulo": "Compare os sinais",
+          "explicacao": "Os dois são negativos, então os sinais são iguais.",
+          "conta": "− e − → iguais"
+        },
+        {
+          "titulo": "Confira pela multiplicação",
+          "explicacao": "O resultado tem de ser o número que, multiplicado por −2, devolve −8. Esse número é 4, porque 4 × (−2) = −8.",
+          "conta": "(−8) ÷ (−2) = 4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sem calcular o valor, qual é o SINAL do resultado de (−2)³?",
+      "imagem": "int-q-potencia",
+      "dica": "Escreva a potência como uma multiplicação de três fatores iguais e vá aplicando a regra aos pares.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Negativo, porque o expoente é ímpar" },
+        { "rotulo": "B", "texto": "Positivo, porque a regra diz que menos com menos dá mais" },
+        { "rotulo": "C", "texto": "Positivo, porque toda potência é positiva" },
+        { "rotulo": "D", "texto": "Negativo, porque a base é negativa, qualquer que seja o expoente" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Positivo, porque a regra diz que menos com menos dá mais",
+          "porque": "A regra vale para um PAR de fatores. Aqui são três: os dois primeiros se anulam e dão positivo, mas sobra um terceiro negativo que derruba o resultado de novo."
+        },
+        {
+          "resposta": "Positivo, porque toda potência é positiva",
+          "porque": "Potência de base positiva é sempre positiva, mas a base aqui é −2. Com base negativa o sinal alterna conforme o expoente é par ou ímpar."
+        },
+        {
+          "resposta": "Negativo, porque a base é negativa, qualquer que seja o expoente",
+          "porque": "O sinal da base não decide sozinho: (−2)⁴ é positivo, porque os quatro fatores negativos se anulam dois a dois. O que decide é a paridade do expoente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Abra a potência",
+          "explicacao": "O expoente 3 diz que a base aparece três vezes na multiplicação.",
+          "conta": "(−2) × (−2) × (−2)"
+        },
+        {
+          "titulo": "Resolva aos pares",
+          "explicacao": "Os dois primeiros têm sinais iguais e dão positivo: (−2) × (−2) = 4.",
+          "conta": "4 × (−2)"
+        },
+        {
+          "titulo": "Veja quem sobrou",
+          "explicacao": "Sobrou um fator negativo sem par, e ele leva o resultado de volta para o lado negativo.",
+          "conta": "(−2)³ = −8"
+        },
+        {
+          "titulo": "Guarde o critério",
+          "explicacao": "Com base negativa, expoente ímpar deixa um sinal sobrando e o resultado é negativo; expoente par anula todos e o resultado é positivo.",
+          "conta": "ímpar → negativo"
+        }
+      ]
+    }
+  ]
+}

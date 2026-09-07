@@ -1,0 +1,216 @@
+{
+  "id": "proporcao",
+  "numero": 2,
+  "titulo": "Quando duas razões são iguais",
+  "pergunta": "Como saber se duas comparações têm o mesmo formato?",
+  "ideia": {
+    "paragrafos": [
+      "Uma PROPORÇÃO é uma igualdade entre duas razões. Escreve-se a/b = c/d e lê-se 'a está para b assim como c está para d'. É o jeito matemático de dizer que duas situações têm o mesmo formato, mesmo tendo tamanhos diferentes.",
+      "Uma receita com 3 copos de suco para 2 de água e outra com 6 copos para 4 têm o mesmo gosto, porque 3/2 = 6/4. As quantidades dobraram, a proporção ficou igual. Se alguém fizer 6 para 3, o gosto muda — e 3/2 não é igual a 6/3.",
+      "Para conferir se duas razões formam proporção, o caminho mais direto é simplificar as duas e ver se chegam à mesma fração. 6/4 simplificado por 2 dá 3/2, então as duas são a mesma razão escrita de dois jeitos.",
+      "Outro caminho, às vezes mais rápido, é dividir e comparar os resultados: 3 ÷ 2 = 1,5 e 6 ÷ 4 = 1,5. Números iguais, proporção confirmada. Esse jeito serve bem quando os números não simplificam de cabeça.",
+      "Vale reparar numa coisa que confunde: os quatro números de uma proporção não precisam ser da mesma grandeza. Em 'R$ 6 para 2 cadernos assim como R$ 15 para 5 cadernos', comparam-se reais com cadernos dos dois lados. O que tem de bater é a RAZÃO, e não a unidade."
+    ],
+    "destaque": "Proporção é uma igualdade entre duas razões: a/b = c/d.",
+    "imagem": "raz-ideia-proporcao"
+  },
+  "resolvido": {
+    "enunciado": "As razões 3/2 e 6/4 formam uma proporção?",
+    "imagem": "raz-res-proporcao",
+    "passos": [
+      {
+        "titulo": "Simplifique a segunda",
+        "explicacao": "Os dois termos de 6/4 são divisíveis por 2. Simplificar não muda o valor da razão, só a escrita.",
+        "conta": "6 ÷ 2 = 3 · 4 ÷ 2 = 2"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Depois de simplificar, as duas razões viraram a mesma fração — o que confirma que são a mesma comparação.",
+        "conta": "3/2 = 3/2"
+      },
+      {
+        "titulo": "Confirme dividindo",
+        "explicacao": "O segundo caminho serve de conferência: se as duas divisões derem o mesmo número, a proporção existe.",
+        "conta": "3 ÷ 2 = 1,5 · 6 ÷ 4 = 1,5"
+      },
+      {
+        "titulo": "Escreva a proporção",
+        "explicacao": "Confirmada a igualdade, ela pode ser escrita com o sinal de igual entre as duas razões.",
+        "conta": "3/2 = 6/4"
+      }
+    ],
+    "fecho": "Dobrar as duas quantidades mantém o formato. É isso que a proporção registra."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As razões 2/5 e 8/20 formam uma proporção?",
+      "imagem": "raz-q-forma-proporcao",
+      "dica": "Simplifique a segunda e compare com a primeira.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque 8/20 simplificado é 2/5" },
+        { "rotulo": "B", "texto": "Não, porque os números são diferentes" },
+        { "rotulo": "C", "texto": "Sim, porque 8 − 2 é igual a 20 − 5" },
+        { "rotulo": "D", "texto": "Não, porque 8 não é o dobro de 2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque os números são diferentes",
+          "porque": "Duas razões podem ter números diferentes e mesmo assim serem iguais — é o que a simplificação mostra. Dividindo 8 e 20 por 4, chega-se exatamente a 2/5."
+        },
+        {
+          "resposta": "Sim, porque 8 − 2 é igual a 20 − 5",
+          "porque": "A conclusão está certa, mas o motivo não: 8 − 2 dá 6 e 20 − 5 dá 15, que nem são iguais. Proporção se confere por divisão, e não por diferença."
+        },
+        {
+          "resposta": "Não, porque 8 não é o dobro de 2",
+          "porque": "O 8 é o quádruplo de 2, e o 20 é o quádruplo de 5 — o mesmo fator dos dois lados, que é justamente o que garante a proporção. Não precisa ser o dobro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Simplifique a segunda razão",
+          "explicacao": "Os dois termos de 8/20 são divisíveis por 4.",
+          "conta": "8 ÷ 4 = 2 · 20 ÷ 4 = 5"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "As duas viraram a mesma fração, então formam proporção.",
+          "conta": "2/5 = 2/5"
+        },
+        {
+          "titulo": "Confira dividindo",
+          "explicacao": "Os dois quocientes têm de bater.",
+          "conta": "2 ÷ 5 = 0,4 · 8 ÷ 20 = 0,4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destes pares NÃO forma uma proporção?",
+      "imagem": "raz-q-qual-nao",
+      "dica": "Simplifique cada par ou divida os dois termos. Três dão o mesmo número; um não.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3/4 e 9/16" },
+        { "rotulo": "B", "texto": "1/2 e 5/10" },
+        { "rotulo": "C", "texto": "2/3 e 10/15" },
+        { "rotulo": "D", "texto": "4/5 e 12/15" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/2 e 5/10",
+          "porque": "Esse par forma proporção: 5/10 simplificado por 5 dá exatamente 1/2. Os dois valem 0,5."
+        },
+        {
+          "resposta": "2/3 e 10/15",
+          "porque": "Esse par também forma: 10/15 simplificado por 5 dá 2/3. O fator entre eles é 5 nos dois termos."
+        },
+        {
+          "resposta": "4/5 e 12/15",
+          "porque": "Esse par forma proporção: 12/15 simplificado por 3 dá 4/5. Os dois valem 0,8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste o primeiro par",
+          "explicacao": "De 3 para 9 o fator é 3, mas de 4 para 16 o fator é 4 — fatores diferentes quebram a proporção.",
+          "conta": "3 × 3 = 9 · 4 × 3 = 12 ≠ 16"
+        },
+        {
+          "titulo": "Confirme dividindo",
+          "explicacao": "Os dois quocientes precisariam ser iguais, e não são.",
+          "conta": "3 ÷ 4 = 0,75 · 9 ÷ 16 = 0,5625"
+        },
+        {
+          "titulo": "Confira os outros",
+          "explicacao": "Nos outros três, o mesmo fator multiplica os dois termos, então a proporção vale.",
+          "conta": "×5 · ×5 · ×3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma receita usa 4 xícaras de farinha para 6 de leite. Dobrando tudo, quantas xícaras de leite serão usadas? Digite apenas o número.",
+      "imagem": "raz-q-receita",
+      "dica": "Dobrar mantém a proporção: os dois valores dobram juntos.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "xícaras",
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é o dobro da FARINHA, e não do leite. A pergunta é sobre o leite, que partiu de 6."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 soma 1 ao valor original, como se dobrar fosse acrescentar. Dobrar é multiplicar por 2."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 6 + 4, somando as duas quantidades. Cada ingrediente dobra por conta própria: a farinha vai a 8 e o leite a 12."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a razão original",
+          "explicacao": "Quatro de farinha para seis de leite.",
+          "conta": "4/6"
+        },
+        {
+          "titulo": "Dobre os dois",
+          "explicacao": "Para o gosto não mudar, o mesmo fator tem de multiplicar os dois ingredientes.",
+          "conta": "4 × 2 = 8 · 6 × 2 = 12"
+        },
+        {
+          "titulo": "Confira a proporção",
+          "explicacao": "As duas razões simplificam para a mesma fração, então a receita manteve o formato.",
+          "conta": "4/6 = 8/12 = 2/3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Duas fotos são proporcionais. A menor tem 4 cm de largura e 6 cm de altura; a maior tem 10 cm de largura. Qual é a altura da maior? Digite apenas o número.",
+      "imagem": "raz-q-fotos",
+      "dica": "Ache o fator que leva de 4 para 10 e aplique o mesmo fator à altura.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 sai de somar 6 com 6, ou de dobrar a altura. O fator entre as larguras não é 2: de 4 para 10 multiplica-se por 2,5."
+        },
+        {
+          "resposta": "2.5",
+          "porque": "2,5 é o FATOR da ampliação, um passo do caminho. Ele ainda precisa multiplicar a altura original de 6 cm para dar a altura da foto maior."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 acrescenta 10 à altura original, tratando a ampliação como soma. Fotos proporcionais crescem por multiplicação, com o mesmo fator nos dois lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o fator da largura",
+          "explicacao": "Quanto se multiplica 4 para chegar a 10.",
+          "conta": "10 ÷ 4 = 2,5"
+        },
+        {
+          "titulo": "Aplique à altura",
+          "explicacao": "Para a foto não deformar, a altura tem de crescer pelo mesmo fator.",
+          "conta": "6 × 2,5 = 15"
+        },
+        {
+          "titulo": "Confira a proporção",
+          "explicacao": "As duas razões largura por altura têm de dar o mesmo número.",
+          "conta": "4/6 ≈ 0,67 · 10/15 ≈ 0,67"
+        }
+      ]
+    }
+  ]
+}

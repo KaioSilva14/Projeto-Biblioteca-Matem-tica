@@ -1,0 +1,41 @@
+{
+  "id": "regra-de-tres",
+  "titulo": "Regra de três",
+  "ano": 7,
+  "descricao": "Não é regra nova: é a proporção da matéria anterior com um termo escondido, organizada em tabela. Seis lições que insistem no passo que quase todo mundo pula — decidir se a relação é direta ou inversa antes de escrever qualquer número.",
+  "pergunta": "Por que mais pedreiros não significa mais dias?",
+  "videos": [
+    {
+      "id": "mnle8NcUYkQ",
+      "titulo": "REGRA DE TRÊS SIMPLES  \\Prof. Gis/ Matemática",
+      "canal": "Gis com Giz",
+      "descricao": "Apresenta a montagem do zero, com exemplos resolvidos no quadro. Bom para reforçar as lições 1 e 2, se a tabela ainda parecer confusa."
+    },
+    {
+      "id": "H5It7WL5WMA",
+      "titulo": "REGRA DE TRÊS SIMPLES - GRANDEZAS DIRETA E INVERSAMENTE PROPORCIONAIS - Matemática básica",
+      "canal": "Gis com Giz",
+      "descricao": "Trata justamente da decisão entre direta e inversa, que é o assunto da lição 4. Vale ver depois de errar algum problema de tempo ou de equipe."
+    },
+    {
+      "id": "qwN_ouBrR_A",
+      "titulo": "REGRA DE TRÊS SIMPLES - GRANDEZAS INVERSAMENTE PROPORCIONAIS - @professoraangelamatematica",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Foca só no caso inverso, com outra didática. Complementa a lição 3, que é a que mais gera engano."
+    },
+    {
+      "id": "q846Qdi-od8",
+      "titulo": "REGRA DE TRÊS SIMPLES | FÁCIL e RÁPIDO ",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Aula curta e direta, boa para revisar antes de uma prova. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/regra-de-tres/o-que-e.json" },
+    { "id": "direta", "arquivo": "/dados/licoes/regra-de-tres/direta.json" },
+    { "id": "inversa", "arquivo": "/dados/licoes/regra-de-tres/inversa.json" },
+    { "id": "qual-usar", "arquivo": "/dados/licoes/regra-de-tres/qual-usar.json" },
+    { "id": "unidades", "arquivo": "/dados/licoes/regra-de-tres/unidades.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/regra-de-tres/problemas.json" }
+  ]
+}

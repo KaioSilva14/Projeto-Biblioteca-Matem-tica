@@ -114,31 +114,36 @@
           "id": "inteiros",
           "titulo": "Números inteiros",
           "resumo": "O que existe à esquerda do zero, e como somar dívidas.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/inteiros.json"
         },
         {
           "id": "racionais",
           "titulo": "Números racionais",
           "resumo": "Fração, decimal e negativo na mesma reta.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/racionais.json"
         },
         {
           "id": "razao-proporcao",
           "titulo": "Razão e proporção",
           "resumo": "Comparar por divisão, e quando duas razões são iguais.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/razao-proporcao.json"
         },
         {
           "id": "regra-de-tres",
           "titulo": "Regra de três",
           "resumo": "Grandezas que crescem juntas — e as que fazem o contrário.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/regra-de-tres.json"
         },
         {
           "id": "juros-simples",
           "titulo": "Porcentagem e juros simples",
           "resumo": "Aumento, desconto e o que o banco faz com o seu dinheiro.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/juros-simples.json"
         },
         {
           "id": "algebra-inicial",

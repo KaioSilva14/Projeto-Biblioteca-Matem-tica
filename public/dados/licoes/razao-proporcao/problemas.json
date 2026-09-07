@@ -1,0 +1,201 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas com proporção",
+  "pergunta": "Como montar a proporção sem trocar os lados?",
+  "ideia": {
+    "paragrafos": [
+      "Quase todo erro em problema de proporção acontece antes da conta: na hora de montar. Uma vez montada certo, o resto é multiplicar em cruz e dividir.",
+      "A regra que evita a troca é escrever as unidades junto com os números. Se de um lado ficam cadernos em cima e reais embaixo, do outro lado tem de ser a mesma coisa: cadernos em cima e reais embaixo. Montar cadernos sobre reais de um lado e reais sobre cadernos do outro dá resposta errada com aparência de certa.",
+      "Antes de calcular, vale prever a direção do resultado. Comprando mais cadernos, o preço sobe; com mais pedreiros, o tempo cai. Essa previsão não resolve o problema, mas denuncia na hora um resultado absurdo — e é a conferência mais barata que existe.",
+      "Repare também no tipo de proporcionalidade, porque ele muda a conta. Na direta, o mesmo fator multiplica os dois lados. Na inversa, o produto é que se mantém: se o tempo caiu pela metade, é porque a equipe dobrou.",
+      "E há problemas em que a razão é a resposta, e não o caminho. 'Qual a densidade?', 'qual o preço por quilo?', 'qual a velocidade média?' pedem uma divisão entre duas grandezas — nesses, não há proporção nenhuma a montar."
+    ],
+    "destaque": "Escreva as unidades junto. Se os lados baterem, a proporção está montada certo.",
+    "imagem": "raz-ideia-montar"
+  },
+  "resolvido": {
+    "enunciado": "Se 5 kg de arroz custam R$ 30, quanto custam 8 kg do mesmo arroz?",
+    "imagem": "raz-res-arroz",
+    "passos": [
+      {
+        "titulo": "Escreva com as unidades",
+        "explicacao": "Quilos em cima e reais embaixo, dos dois lados. Manter a mesma ordem é o que impede a troca de lados.",
+        "conta": "5 kg/30 reais = 8 kg/x reais"
+      },
+      {
+        "titulo": "Preveja a direção",
+        "explicacao": "Mais arroz custa mais dinheiro, então a resposta tem de ser maior que 30. Qualquer resultado abaixo disso já estaria errado.",
+        "conta": "x > 30"
+      },
+      {
+        "titulo": "Multiplique em cruz",
+        "explicacao": "Extremos com extremos, meios com meios.",
+        "conta": "5 × x = 30 × 8 = 240"
+      },
+      {
+        "titulo": "Resolva e confira",
+        "explicacao": "Dividindo por 5 chega-se ao preço, e ele é maior que 30, como previsto. O preço por quilo bate: R$ 6 nos dois casos.",
+        "conta": "240 ÷ 5 = 48 reais"
+      }
+    ],
+    "fecho": "Prever a direção antes de calcular custa cinco segundos e pega quase todo erro de montagem."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma torneira enche 3 baldes em 12 minutos. Em quanto tempo ela enche 5 baldes, no mesmo ritmo? Digite apenas o número.",
+      "imagem": "raz-q-baldes",
+      "dica": "Mais baldes leva mais tempo: proporcionalidade direta. Monte baldes sobre minutos dos dois lados.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "minutos",
+      "errosComuns": [
+        {
+          "resposta": "7.2",
+          "porque": "7,2 trata as grandezas como inversamente proporcionais, o que faria mais baldes levarem menos tempo. Com a mesma torneira, encher mais demora mais."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 soma 2 minutos, como se cada balde a mais custasse um minuto. Cada balde leva 12 ÷ 3 = 4 minutos, então dois a mais levam 8."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é 5 × 12, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 3 para dar o tempo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte com as unidades",
+          "explicacao": "Baldes em cima e minutos embaixo, dos dois lados.",
+          "conta": "3/12 = 5/x"
+        },
+        {
+          "titulo": "Preveja a direção",
+          "explicacao": "Mais baldes, mais tempo: o resultado tem de passar de 12.",
+          "conta": "x > 12"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando em cruz e dividindo. Cada balde leva 4 minutos, e cinco levam vinte.",
+          "conta": "3x = 60 → x = 20 minutos"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um pacote de 2 kg de café custa R$ 36. Qual é o preço por quilo, em reais? Digite apenas o número.",
+      "imagem": "raz-q-cafe",
+      "dica": "Aqui a razão é a própria resposta: reais divididos por quilos.",
+      "formato": "numero",
+      "resposta": 18,
+      "unidade": "reais por kg",
+      "errosComuns": [
+        {
+          "resposta": "72",
+          "porque": "72 multiplica em vez de dividir. Preço por quilo pergunta quanto custa UM quilo, então o valor tem de ser menor que o do pacote inteiro."
+        },
+        {
+          "resposta": "34",
+          "porque": "34 subtrai os quilos do preço, que são grandezas diferentes. A comparação entre elas se faz por divisão, e o resultado sai em reais por quilo."
+        },
+        {
+          "resposta": "0.06",
+          "porque": "0,06 divide os quilos pelo preço, invertendo a ordem. Isso responde 'quantos quilos por real', que é outra pergunta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a ordem pedida",
+          "explicacao": "Reais POR quilo significa reais divididos por quilos.",
+          "conta": "36/2"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "O resultado diz quanto custa cada quilo separadamente.",
+          "conta": "36 ÷ 2 = 18 reais por kg"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma obra que 6 operários fariam em 10 dias será feita por 5 operários. Quantos dias eles levarão, no mesmo ritmo? Digite apenas o número.",
+      "imagem": "raz-q-obra",
+      "dica": "Menos operários leva mais tempo: proporcionalidade inversa. O produto se mantém.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "dias",
+      "errosComuns": [
+        {
+          "resposta": "8.33",
+          "porque": "8,33 trata as grandezas como diretamente proporcionais, o que faria menos operários terminarem antes. Com menos gente a obra demora MAIS."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 subtrai um dia junto com o operário que saiu. Na proporcionalidade inversa o que se mantém é o produto, e não a diferença."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 soma um dia por operário a menos. O produto 6 × 10 = 60 tem de ser preservado, então 5 operários levam 60 ÷ 5 = 12 dias."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o tipo",
+          "explicacao": "Menos operários, mais dias: as grandezas são inversamente proporcionais.",
+          "conta": "menos gente, mais tempo"
+        },
+        {
+          "titulo": "Ache o produto constante",
+          "explicacao": "Ele representa o trabalho total da obra, em dias de operário.",
+          "conta": "6 × 10 = 60"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Com cinco operários o produto continua 60, e o resultado é maior que 10, como esperado.",
+          "conta": "60 ÷ 5 = 12 dias"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Para fazer suco, a razão de polpa para água é 2/5. Usando 8 litros de polpa, quantos litros de água serão necessários? Digite apenas o número.",
+      "imagem": "raz-q-suco",
+      "dica": "Monte polpa sobre água nas duas razões, com o mesmo lado em cima.",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "litros",
+      "errosComuns": [
+        {
+          "resposta": "3.2",
+          "porque": "3,2 monta a proporção invertida, com água em cima de um lado e polpa do outro. Como há mais água que polpa na receita, o resultado tem de ser maior que 8."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 soma 3 à polpa, mantendo a DIFERENÇA entre os dois ingredientes em vez da razão. Manter a diferença muda o gosto: o que se preserva é a proporção."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é 8 × 5, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 2 para dar a quantidade de água."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte com as unidades",
+          "explicacao": "Polpa em cima e água embaixo, nas duas razões.",
+          "conta": "2/5 = 8/x"
+        },
+        {
+          "titulo": "Preveja a direção",
+          "explicacao": "A receita leva mais água que polpa, então a resposta tem de passar de 8.",
+          "conta": "x > 8"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Multiplicando em cruz e dividindo por 2. E a razão final simplifica de volta para 2/5.",
+          "conta": "2x = 40 → x = 20 litros"
+        }
+      ]
+    }
+  ]
+}

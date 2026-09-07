@@ -1,0 +1,216 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "Por que existe número negativo",
+  "pergunta": "O que vem antes do zero?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui, todo número que você usou servia para contar ou medir: quantidade de figurinhas, metros de corda, litros de suco. Nesse mundo o zero é o fim da linha — não existe menos que nada.",
+      "Só que muita coisa da vida não é quantidade: é POSIÇÃO em relação a um marco. O termômetro tem o zero no ponto em que a água congela, e faz frio abaixo dele. O prédio tem o térreo, e há andares embaixo. A conta bancária tem o zero, e dá para ficar devendo. O mar tem o nível zero, e o submarino desce.",
+      "Nesses casos, um número só não basta: 5 graus e 5 graus abaixo de zero são temperaturas bem diferentes. É preciso dizer também de que LADO do zero está. É para isso que serve o sinal de menos escrito antes do número: −5 significa cinco unidades do lado de baixo do marco.",
+      "Repare que o sinal não é uma conta. Em −5 não há nada sendo subtraído: o menos faz parte do número, do jeito que a vírgula faz parte de 3,5. Números com esse sinal se chamam negativos; os de sempre, positivos.",
+      "E o zero deixa de ser o fim: ele vira o meio. Não é positivo nem negativo — é a fronteira entre os dois lados, o ponto a partir do qual tudo é medido."
+    ],
+    "destaque": "O sinal de menos não é uma conta: ele diz de que lado do zero o número está.",
+    "imagem": "int-ideia-termometro"
+  },
+  "resolvido": {
+    "enunciado": "Numa madrugada de inverno, o termômetro de uma cidade marcou cinco graus abaixo de zero. Como se escreve essa temperatura com números?",
+    "imagem": "int-res-termometro",
+    "passos": [
+      {
+        "titulo": "Ache o marco zero",
+        "explicacao": "No termômetro, o zero não é a ausência de temperatura: é o ponto em que a água congela. É a partir dele que se conta para os dois lados.",
+        "conta": "0 °C = marco"
+      },
+      {
+        "titulo": "Veja de que lado está",
+        "explicacao": "A leitura foi ABAIXO do zero. Isso já diz que o número não é dos de contar — ele fica do lado de baixo do marco.",
+        "conta": "abaixo → lado negativo"
+      },
+      {
+        "titulo": "Conte a distância até o marco",
+        "explicacao": "São cinco graus de distância do zero. Esse cinco é o tamanho; o lado ainda precisa ser escrito.",
+        "conta": "5 graus de distância"
+      },
+      {
+        "titulo": "Junte o lado e o tamanho",
+        "explicacao": "O sinal de menos na frente marca o lado de baixo. O número inteiro fica −5, e lê-se 'menos cinco graus'.",
+        "conta": "−5 °C"
+      }
+    ],
+    "fecho": "Escrever 5 °C nesse dia seria errar por dez graus — a diferença entre passar frio e passar calor."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num prédio, o estacionamento fica dois andares abaixo do térreo. Que número representa esse andar?",
+      "imagem": "int-q-predio",
+      "dica": "O térreo é o marco zero. Conte os andares a partir dele, e diga de que lado está.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−2" },
+        { "rotulo": "B", "texto": "2" },
+        { "rotulo": "C", "texto": "−3" },
+        { "rotulo": "D", "texto": "0" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é o segundo andar, que fica ACIMA do térreo. Sem o sinal, o número aponta para o lado errado do prédio — dois andares de distância viram quatro."
+        },
+        {
+          "resposta": "−3",
+          "porque": "O 3 aparece se o próprio térreo for contado como um andar de descida. Ele é o marco zero, o ponto de partida: descer o primeiro andar já leva ao −1."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o próprio térreo, o ponto de referência. O estacionamento está dois andares longe dele, então não pode ser zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o marco",
+          "explicacao": "O térreo é o andar de referência do prédio, e por isso recebe o número zero.",
+          "conta": "térreo = 0"
+        },
+        {
+          "titulo": "Conte a partir dele",
+          "explicacao": "Descendo um andar chega-se ao primeiro subsolo, e descendo mais um ao segundo.",
+          "conta": "0 → −1 → −2"
+        },
+        {
+          "titulo": "Escreva com o sinal",
+          "explicacao": "Como está abaixo do marco, o número leva o sinal de menos.",
+          "conta": "−2"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas situações é representada por um número NEGATIVO?",
+      "imagem": "int-q-situacoes",
+      "dica": "Procure a situação em que se está do lado de baixo de um marco zero, e não a que tem só um número grande.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Uma dívida de 30 reais" },
+        { "rotulo": "B", "texto": "Um lucro de 30 reais" },
+        { "rotulo": "C", "texto": "30 pessoas numa sala" },
+        { "rotulo": "D", "texto": "Uma altura de 30 metros" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Um lucro de 30 reais",
+          "porque": "Lucro é dinheiro que entrou, ou seja, está acima do zero da conta. Quem tem lucro tem saldo positivo; negativo é o oposto disso, a dívida."
+        },
+        {
+          "resposta": "30 pessoas numa sala",
+          "porque": "Quantidade de pessoas é contagem pura, e contagem não tem lado: o menor valor possível é zero pessoa. Não existe sala com menos de nenhuma pessoa."
+        },
+        {
+          "resposta": "Uma altura de 30 metros",
+          "porque": "Altura medida para cima fica do lado positivo. Seria negativa se fosse profundidade — 30 metros ABAIXO do nível do mar, por exemplo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Procure o marco zero",
+          "explicacao": "Número negativo só existe onde há um ponto de referência com dois lados. Na conta bancária, esse ponto é o saldo zero.",
+          "conta": "saldo 0 = nem sobra nem falta"
+        },
+        {
+          "titulo": "Veja quem fica abaixo dele",
+          "explicacao": "Dever é estar abaixo do zero: falta dinheiro para chegar de volta ao marco.",
+          "conta": "dívida de 30 → −30"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um submarino está a 200 metros abaixo do nível do mar. Que número representa essa posição? Digite com o sinal.",
+      "imagem": "int-q-submarino",
+      "dica": "O nível do mar é o zero. Escreva a distância e, antes dela, o sinal do lado em que o submarino está.",
+      "formato": "numero",
+      "resposta": -200,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "200",
+          "porque": "200 sem sinal é a posição de quem está 200 metros ACIMA do mar, como um avião baixo. O tamanho está certo, mas falta dizer o lado."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o próprio nível do mar, a superfície. O submarino está longe dele — se estivesse no zero, estaria boiando."
+        },
+        {
+          "resposta": "-2",
+          "porque": "O 2 sozinho perde as centenas. São duzentos metros de distância até a superfície, e não dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o marco",
+          "explicacao": "O nível do mar é a referência combinada para medir altitude e profundidade.",
+          "conta": "nível do mar = 0"
+        },
+        {
+          "titulo": "Diga o lado",
+          "explicacao": "Abaixo do marco é o lado negativo, então o número leva o sinal de menos.",
+          "conta": "abaixo → sinal −"
+        },
+        {
+          "titulo": "Junte com a distância",
+          "explicacao": "São 200 metros de distância até a superfície.",
+          "conta": "−200 metros"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sobre o número zero, o que é correto afirmar?",
+      "imagem": "int-q-zero",
+      "dica": "Pense no zero como a fronteira da reta, e não como a ponta dela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não é positivo nem negativo: é a fronteira entre os dois lados" },
+        { "rotulo": "B", "texto": "É o menor número que existe" },
+        { "rotulo": "C", "texto": "É um número negativo, porque não tem nada" },
+        { "rotulo": "D", "texto": "É positivo, porque não tem sinal de menos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "É o menor número que existe",
+          "porque": "Isso valia enquanto os números serviam só para contar. Com os negativos existe uma reta inteira à esquerda do zero, e todo número dela é menor que ele."
+        },
+        {
+          "resposta": "É um número negativo, porque não tem nada",
+          "porque": "Negativo não significa 'nada': significa estar do lado de baixo do marco. O zero é o próprio marco, então não está de lado nenhum."
+        },
+        {
+          "resposta": "É positivo, porque não tem sinal de menos",
+          "porque": "A ausência do sinal costuma indicar positivo, mas o zero é a exceção combinada: ele separa os dois lados e não pertence a nenhum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Onde o zero fica",
+          "explicacao": "Ele é o ponto de referência a partir do qual se conta para a direita e para a esquerda.",
+          "conta": "negativos | 0 | positivos"
+        },
+        {
+          "titulo": "O que isso implica",
+          "explicacao": "Como o zero é a própria fronteira, ele não está de nenhum dos dois lados — não é positivo nem negativo.",
+          "conta": "0 não tem sinal"
+        },
+        {
+          "titulo": "E deixou de ser o menor",
+          "explicacao": "Todo número à esquerda dele na reta é menor que zero, o que derruba a ideia de que nada pode ser menor que nada.",
+          "conta": "−1 < 0"
+        }
+      ]
+    }
+  ]
+}

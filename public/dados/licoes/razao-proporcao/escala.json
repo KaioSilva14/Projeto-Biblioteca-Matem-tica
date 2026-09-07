@@ -1,0 +1,201 @@
+{
+  "id": "escala",
+  "numero": 4,
+  "titulo": "Escala",
+  "pergunta": "Como um mapa cabe numa folha sem mentir sobre as distâncias?",
+  "ideia": {
+    "paragrafos": [
+      "Um mapa do Brasil não cabe numa folha em tamanho real, e uma formiga desenhada em tamanho real seria pequena demais para estudar. A saída dos dois casos é a mesma: encolher ou ampliar TUDO pelo mesmo fator. Esse fator é a escala.",
+      "A escala é uma razão entre a medida do desenho e a medida real, escrita com dois pontos: 1 : 100 significa que 1 cm no papel corresponde a 100 cm de verdade. O primeiro número é sempre o desenho; o segundo, o real.",
+      "Para achar a medida real, multiplica-se a do desenho pelo segundo número. Se num mapa de escala 1 : 50 000 duas cidades estão a 4 cm, a distância real é 4 × 50 000 = 200 000 cm, que dá 2 km. Repare que o resultado sai na mesma unidade do desenho, e quase sempre precisa ser convertido.",
+      "No caminho inverso, divide-se. Uma sala de 8 m desenhada na escala 1 : 200 fica com 800 ÷ 200 = 4 cm no papel — convertendo os 8 m para 800 cm antes, porque as duas medidas precisam estar na mesma unidade para a razão fazer sentido.",
+      "E a escala pode ser de ampliação. Numa escala 20 : 1, o desenho é vinte vezes maior que a coisa: é assim que se desenha um inseto ou uma peça minúscula. O que muda é qual dos dois números é o maior."
+    ],
+    "destaque": "Escala é desenho : real. O primeiro número é sempre o do papel.",
+    "imagem": "raz-ideia-escala"
+  },
+  "resolvido": {
+    "enunciado": "Num mapa de escala 1 : 50 000, duas cidades aparecem a 4 cm uma da outra. Qual é a distância real, em quilômetros?",
+    "imagem": "raz-res-mapa",
+    "passos": [
+      {
+        "titulo": "Leia o que a escala diz",
+        "explicacao": "1 : 50 000 significa que cada centímetro do papel vale 50 000 centímetros de verdade. O primeiro número é o desenho.",
+        "conta": "1 cm no papel = 50 000 cm reais"
+      },
+      {
+        "titulo": "Multiplique pela medida do desenho",
+        "explicacao": "Se um centímetro vale 50 000, quatro centímetros valem quatro vezes isso.",
+        "conta": "4 × 50 000 = 200 000 cm"
+      },
+      {
+        "titulo": "Converta a unidade",
+        "explicacao": "O resultado saiu em centímetros, que é a unidade do desenho. Para virar quilômetro, use a escada de conversão do 6º ano: 100 000 cm valem 1 km.",
+        "conta": "200 000 ÷ 100 000 = 2"
+      },
+      {
+        "titulo": "Confira se faz sentido",
+        "explicacao": "Dois quilômetros entre cidades vizinhas é plausível. Se tivesse dado 2 metros ou 2 000 km, algum passo teria escapado.",
+        "conta": "2 km"
+      }
+    ],
+    "fecho": "Multiplicar é sair do papel para o mundo. Dividir é o caminho de volta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa planta de escala 1 : 100, uma parede está desenhada com 6 cm. Qual é o comprimento real dela, em centímetros? Digite apenas o número.",
+      "imagem": "raz-q-planta",
+      "dica": "Cada centímetro do desenho vale 100 centímetros de verdade.",
+      "formato": "numero",
+      "resposta": 600,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "106",
+          "porque": "106 soma a medida com o número da escala. A escala é um FATOR de multiplicação: cada centímetro do papel vale cem, então seis valem seiscentos."
+        },
+        {
+          "resposta": "0.06",
+          "porque": "0,06 divide em vez de multiplicar, que é o caminho de ir do real para o papel. Aqui o desenho já é conhecido, e o que se procura é a medida real — que é maior."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é o segundo número da escala, ou seja, quanto vale UM centímetro do desenho. A parede tem seis centímetros no papel."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a escala",
+          "explicacao": "Um centímetro do desenho corresponde a cem centímetros reais.",
+          "conta": "1 : 100"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Seis centímetros no papel valem seis vezes cem.",
+          "conta": "6 × 100 = 600 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma sala tem 8 metros de comprimento e será desenhada na escala 1 : 200. Quantos centímetros terá o desenho? Digite apenas o número.",
+      "imagem": "raz-q-sala",
+      "dica": "Converta os 8 metros para centímetros antes de dividir — as duas medidas têm de estar na mesma unidade.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "0.04",
+          "porque": "0,04 divide os 8 METROS por 200, sem converter para centímetros antes. As duas medidas da razão precisam estar na mesma unidade: 8 m são 800 cm."
+        },
+        {
+          "resposta": "1600",
+          "porque": "1600 multiplica em vez de dividir. Aqui o caminho é do real para o papel, e o papel é sempre menor — multiplicar aumentaria a sala em vez de encolhê-la."
+        },
+        {
+          "resposta": "800",
+          "porque": "800 é a sala convertida para centímetros, um passo do caminho. Ela ainda precisa ser dividida por 200 para caber no papel."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale as unidades",
+          "explicacao": "A escala compara centímetro com centímetro, então converta os metros primeiro.",
+          "conta": "8 m = 800 cm"
+        },
+        {
+          "titulo": "Divida pela escala",
+          "explicacao": "Ir do real para o desenho é encolher, e encolher é dividir.",
+          "conta": "800 ÷ 200 = 4 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma peça foi desenhada na escala 20 : 1. O que isso significa?",
+      "imagem": "raz-q-ampliacao",
+      "dica": "O primeiro número é sempre o do desenho. Aqui ele é o maior.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O desenho é 20 vezes maior que a peça real" },
+        { "rotulo": "B", "texto": "O desenho é 20 vezes menor que a peça real" },
+        { "rotulo": "C", "texto": "A peça tem 20 cm de comprimento" },
+        { "rotulo": "D", "texto": "O desenho tem o mesmo tamanho da peça" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O desenho é 20 vezes menor que a peça real",
+          "porque": "Isso seria a escala 1 : 20, com o número maior do lado do real. Como o 20 está em PRIMEIRO, ele é o do desenho — que portanto é o maior dos dois."
+        },
+        {
+          "resposta": "A peça tem 20 cm de comprimento",
+          "porque": "A escala não informa tamanho nenhum: ela é uma razão entre duas medidas. A peça poderia ter qualquer comprimento, e o desenho seria vinte vezes maior."
+        },
+        {
+          "resposta": "O desenho tem o mesmo tamanho da peça",
+          "porque": "Isso seria a escala 1 : 1, com os dois números iguais. Aqui eles são bem diferentes, então há ampliação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique cada número",
+          "explicacao": "Na escala, o primeiro é sempre a medida do desenho e o segundo a do real.",
+          "conta": "desenho : real"
+        },
+        {
+          "titulo": "Compare os dois",
+          "explicacao": "Vinte do lado do desenho contra um do lado do real: o papel é o maior.",
+          "conta": "20 : 1 → ampliação"
+        },
+        {
+          "titulo": "Traduza",
+          "explicacao": "Cada centímetro da peça vira vinte centímetros no papel, que é como se desenha uma coisa pequena demais para enxergar.",
+          "conta": "desenho 20 vezes maior"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num mapa, 3 cm representam 15 km reais. Qual é a distância real, em quilômetros, de um trecho que no mapa mede 8 cm? Digite apenas o número.",
+      "imagem": "raz-q-trecho",
+      "dica": "Monte a proporção entre centímetros do mapa e quilômetros reais, e ache o termo que falta.",
+      "formato": "numero",
+      "resposta": 40,
+      "unidade": "km",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 sai de somar 5 ao valor original, como se cada centímetro a mais valesse pouco. Cada centímetro vale 5 km, então cinco centímetros a mais valem 25 km."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é 15 × 8, o produto dos meios — um passo do caminho. Ele ainda precisa ser dividido por 3 para dar a distância."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é o número de centímetros do primeiro trecho, copiado do enunciado. A pergunta é sobre o trecho de 8 cm, que é mais longo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "Centímetros do mapa em cima e quilômetros reais embaixo, na mesma ordem nas duas razões.",
+          "conta": "3/15 = 8/x"
+        },
+        {
+          "titulo": "Multiplique em cruz",
+          "explicacao": "Os extremos são 3 e x; os meios são 15 e 8. O produto dos dois pares é igual.",
+          "conta": "3 × x = 15 × 8 = 120"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Cada centímetro vale 5 km, e oito deles valem quarenta.",
+          "conta": "120 ÷ 3 = 40 km"
+        }
+      ]
+    }
+  ]
+}
