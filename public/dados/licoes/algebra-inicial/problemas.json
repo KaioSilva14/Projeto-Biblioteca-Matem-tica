@@ -1,0 +1,220 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Modelar com letras",
+  "pergunta": "Como um problema escrito em português vira matemática?",
+  "ideia": {
+    "paragrafos": [
+      "Há um passo que a escola costuma pular e que é o mais importante de todos: antes de calcular, ESCREVER. Modelar é transformar um texto em símbolos, e quase todo problema difícil fica fácil depois que a modelagem sai certa — enquanto quase toda conta certa em cima de um modelo errado dá resposta errada.",
+      "O roteiro tem três perguntas. O que eu estou procurando? Dê um nome a isso. O que o texto diz sobre essa quantidade e sobre as outras? Escreva cada uma usando o nome que você deu. E o que a pergunta pede, exatamente? Escreva também, porque nem sempre ela pede a letra que você nomeou.",
+      "O diagrama de fita ajuda a enxergar o problema antes de qualquer conta. Cada pedaço da barra é uma quantidade, e a chave por cima é o total. Quando as quantidades são múltiplas umas das outras, dá para desenhar a barra inteira sem saber o valor de nada — e é justamente essa figura que mostra em quantas partes iguais o total se divide.",
+      "Escolher bem a letra economiza trabalho. Nomeie sempre a MENOR quantidade: as outras saem dela por soma e multiplicação, que são operações confortáveis. Nomear a maior obriga a escrever as outras com subtração e divisão, e é aí que aparecem frações desnecessárias.",
+      "Por fim, conferir. Achado o valor, volte ao texto original — não à conta — e veja se a resposta faz sentido em cada frase. Um número que fecha a aritmética mas contradiz o enunciado é sinal de modelo errado, e não de conta errada."
+    ],
+    "destaque": "Nomeie a menor quantidade: as outras saem dela sem fração nenhuma.",
+    "imagem": "alg-ideia-modelar"
+  },
+  "resolvido": {
+    "enunciado": "Três amigos dividiram 120 figurinhas. Bruno ficou com o dobro do que Ana ficou, e Caio com o triplo do que Ana ficou. Quantas figurinhas coube a Ana?",
+    "imagem": "alg-res-modelar",
+    "passos": [
+      {
+        "titulo": "Nomeie a menor quantidade",
+        "explicacao": "Ana é a referência do texto, porque as outras duas partes são descritas a partir dela. Nomeá-la deixa tudo o mais escrito por multiplicação.",
+        "conta": "a = figurinhas de Ana"
+      },
+      {
+        "titulo": "Escreva as outras partes",
+        "explicacao": "Dobro e triplo viram multiplicações da mesma letra, sem precisar de letra nova para ninguém.",
+        "conta": "Bruno = 2a · Caio = 3a"
+      },
+      {
+        "titulo": "Some tudo e junte os termos semelhantes",
+        "explicacao": "As três partes juntas formam o total, e os três termos têm a mesma parte literal, então se juntam num só.",
+        "conta": "a + 2a + 3a = 6a = 120"
+      },
+      {
+        "titulo": "Reparta e confira no texto",
+        "explicacao": "O total se divide em 6 partes iguais. Depois vale voltar ao enunciado e conferir cada frase, e não só a conta.",
+        "conta": "120 ÷ 6 = 20 · 20+40+60 = 120 ✓"
+      }
+    ],
+    "fecho": "Repare que a figura já dizia a resposta antes da conta: a barra tinha 6 pedaços iguais."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Dois números somam 60, e o maior é o triplo do menor. Qual é o menor deles? Digite apenas o número.",
+      "imagem": "alg-q-dois-numeros",
+      "dica": "Chame o menor de x e escreva o maior a partir dele. Em quantas partes iguais o total se divide?",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 divide 60 por 3, como se o total se repartisse em três partes. São quatro partes: uma do menor e três do maior, porque o maior vale três vezes o menor."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é o número MAIOR, que de fato é o triplo de 15. A pergunta pede o menor, e é ele que corresponde a uma parte só da barra."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 divide o total ao meio, o que valeria se os dois números fossem iguais. O enunciado diz que um é o triplo do outro, então as partes não podem ser do mesmo tamanho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Nomeie o menor",
+          "explicacao": "Nomear o menor deixa o maior escrito por multiplicação, sem fração.",
+          "conta": "menor = x · maior = 3x"
+        },
+        {
+          "titulo": "Escreva a soma",
+          "explicacao": "Os dois termos são semelhantes, então se juntam num só.",
+          "conta": "x + 3x = 4x = 60"
+        },
+        {
+          "titulo": "Reparta e confira",
+          "explicacao": "São quatro partes iguais no total, e a resposta tem de fechar as duas frases do enunciado.",
+          "conta": "60 ÷ 4 = 15 · 15 + 45 = 60 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma caneta custa c reais e um caderno custa 4 reais a mais que a caneta. Qual expressão dá o preço de duas canetas e um caderno?",
+      "imagem": "alg-q-caneta",
+      "dica": "Escreva primeiro o preço do caderno usando a mesma letra, e só então some tudo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3c + 4" },
+        { "rotulo": "B", "texto": "2c + 4" },
+        { "rotulo": "C", "texto": "3c" },
+        { "rotulo": "D", "texto": "2c + 4c" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2c + 4",
+          "porque": "Soma as duas canetas e os 4 reais, mas esquece que o caderno também custa uma caneta inteira além desses 4. São três valores de caneta no total, e não dois."
+        },
+        {
+          "resposta": "3c",
+          "porque": "Conta as três canetas escondidas na compra e perde os 4 reais a mais do caderno. Ele custa c + 4, e esse acréscimo entra no preço final."
+        },
+        {
+          "resposta": "2c + 4c",
+          "porque": "Trata os 4 reais como se fossem 4 canetas. O enunciado diz 4 REAIS a mais, que é um valor solto, e não um múltiplo do preço da caneta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o preço do caderno",
+          "explicacao": "Ele é descrito a partir da caneta, então usa a mesma letra.",
+          "conta": "caderno = c + 4"
+        },
+        {
+          "titulo": "Monte a compra",
+          "explicacao": "Duas canetas mais um caderno, cada item com o seu preço.",
+          "conta": "c + c + (c + 4)"
+        },
+        {
+          "titulo": "Junte os termos semelhantes",
+          "explicacao": "Os três termos com c se juntam; o número solto fica ao lado.",
+          "conta": "3c + 4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A idade de Pedro hoje é p. Daqui a 8 anos ele terá o dobro da idade que tinha há 4 anos. Qual é a idade de Pedro hoje? Digite apenas o número.",
+      "imagem": "alg-q-idade",
+      "dica": "Escreva as duas idades em função de p e teste valores até os dois lados ficarem iguais.",
+      "formato": "numero",
+      "resposta": 16,
+      "unidade": "anos",
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é a idade que Pedro terá daqui a 8 anos, e não a de hoje. A pergunta pede a idade atual, que é essa menos os 8 anos que ainda vão passar."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a idade que Pedro tinha há 4 anos. Ela aparece na conta como o valor que vai ser dobrado, mas a pergunta é sobre hoje."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é um número que já estava no enunciado, e repeti-lo não responde nada. Testando: daqui a 8 anos ele teria 16, e há 4 anos teria 4 — e 16 não é o dobro de 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva as duas idades",
+          "explicacao": "A partir da idade de hoje, o futuro soma e o passado subtrai.",
+          "conta": "daqui a 8: p + 8 · há 4: p − 4"
+        },
+        {
+          "titulo": "Traduza a relação",
+          "explicacao": "A idade futura é o dobro da passada, e é isso que a igualdade registra.",
+          "conta": "p + 8 = 2(p − 4)"
+        },
+        {
+          "titulo": "Teste valores até fechar",
+          "explicacao": "Substituindo nos dois lados, o valor que iguala os dois números é a resposta.",
+          "conta": "p=16: 24 e 2×12 = 24 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 9 — Calculando distâncias"
+      },
+      "enunciado": "As quatro cidades A, B, C e D foram construídas nessa ordem à beira de uma rodovia reta. A distância entre A e C é de 50 km, a distância entre B e D é de 45 km, e a distância entre a primeira e a última cidade é de 80 km. Qual é a distância, em quilômetros, entre as cidades B e C?",
+      "imagem": "alg-q-cidades",
+      "dica": "Chame de x o trecho procurado e escreva os outros dois trechos a partir dos dados. Cada distância dada é a soma de trechos vizinhos.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "km",
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é a diferença entre 50 e 45, feita direto. Os dois trechos não são comparáveis assim: eles se sobrepõem justamente no pedaço procurado, e é essa sobreposição que precisa ser levada em conta."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é o trecho de C até D, que sai de 80 − 50. Ele é um passo do caminho, mas a pergunta é sobre o trecho entre B e C."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é o trecho de A até B, que sai de 80 − 45. É o outro passo intermediário, e não o trecho pedido — B e C são as duas cidades do meio."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o trecho de C até D",
+          "explicacao": "A rodovia inteira mede 80 e o pedaço de A até C mede 50, então o que sobra é o final do caminho.",
+          "conta": "CD = 80 − 50 = 30"
+        },
+        {
+          "titulo": "Use o trecho de B até D",
+          "explicacao": "Ele é formado por dois pedaços seguidos: de B até C e de C até D.",
+          "conta": "BD = BC + CD = 45"
+        },
+        {
+          "titulo": "Isole o trecho procurado",
+          "explicacao": "Conhecido um dos dois pedaços, o outro é o que falta para completar os 45.",
+          "conta": "BC = 45 − 30 = 15 km"
+        },
+        {
+          "titulo": "Confira somando o caminho inteiro",
+          "explicacao": "Os três trechos juntos têm de dar a distância entre a primeira e a última cidade.",
+          "conta": "35 + 15 + 30 = 80 ✓"
+        }
+      ]
+    }
+  ]
+}

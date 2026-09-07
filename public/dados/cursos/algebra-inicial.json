@@ -1,0 +1,41 @@
+{
+  "id": "algebra-inicial",
+  "titulo": "Linguagem algébrica",
+  "ano": 7,
+  "descricao": "A virada do ano: a letra entra no lugar do número. Seis lições que vão de onde a letra vem — uma sequência de figuras que ninguém quer desenhar até o fim — ao que o sinal de igual afirma de verdade, passando por traduzir frases, calcular valor numérico e juntar termos semelhantes.",
+  "pergunta": "Por que a matemática usa letras, se o que ela estuda são números?",
+  "videos": [
+    {
+      "id": "Rf4MPuTRHHs",
+      "titulo": "EXPRESSÕES ALGÉBRICAS: Definição e Linguagem Algébrica - Exercícios e Exemplos - 7º Ano - AULA 47",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Começa pela definição e vai direto para a tradução de frases em símbolos. Serve para reforçar as lições 1 e 2, se a passagem do português para a letra ainda estiver estranha."
+    },
+    {
+      "id": "YHb-xGxV2Lw",
+      "titulo": "EXPRESSÃO ALGÉBRICA | VALOR NUMÉRICO DE UMA EXPRESSÃO ALGÉBRICA| \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só sobre substituir a letra pelo número, com bastante exemplo resolvido devagar. É o complemento da lição 3, principalmente para quem se enrola com expoente e sinal."
+    },
+    {
+      "id": "3mpsJlDqChg",
+      "titulo": "EXPRESSÕES ALGÉBRICAS | REDUÇÃO DE TERMOS SEMELHANTES | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Trata de juntar os termos que podem ser juntados, que é o assunto da lição 4. Vale para quem ainda quer somar x com número solto."
+    },
+    {
+      "id": "cgUlxr3E82Q",
+      "titulo": "EXPRESSÕES ALGÉBRICAS  EXERCÍCIOS 7 ano  8 ano exercícios Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Uma lista de exercícios resolvidos do começo ao fim. Serve como fechamento, depois das seis lições, para treinar sem material novo."
+    }
+  ],
+  "licoes": [
+    { "id": "a-letra", "arquivo": "/dados/licoes/algebra-inicial/a-letra.json" },
+    { "id": "traduzir", "arquivo": "/dados/licoes/algebra-inicial/traduzir.json" },
+    { "id": "valor-numerico", "arquivo": "/dados/licoes/algebra-inicial/valor-numerico.json" },
+    { "id": "semelhantes", "arquivo": "/dados/licoes/algebra-inicial/semelhantes.json" },
+    { "id": "igualdade", "arquivo": "/dados/licoes/algebra-inicial/igualdade.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/algebra-inicial/problemas.json" }
+  ]
+}

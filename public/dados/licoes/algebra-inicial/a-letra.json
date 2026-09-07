@@ -1,0 +1,209 @@
+{
+  "id": "a-letra",
+  "numero": 1,
+  "titulo": "A letra no lugar do número",
+  "pergunta": "Por que a matemática usa letras?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui todo número tinha nome próprio: 7, 0,25, −3. A partir de agora aparece uma coisa nova, e ela costuma assustar sem motivo. A letra não é um enigma nem um símbolo mágico: ela é um APELIDO para um número, usado exatamente quando não dá para dizer qual número é.",
+      "O melhor jeito de ver de onde ela vem é olhar para uma sequência de figuras. A primeira tem 3 quadradinhos, a segunda tem 5, a terceira tem 7. Dá para continuar desenhando a vida inteira — ou dá para dizer numa frase só: a figura n tem 2n + 1 quadradinhos. Uma linha substitui infinitas.",
+      "A letra aparece em três papéis diferentes, e vale reconhecê-los. Como INCÓGNITA, ela é um número específico que ainda não se sabe: em x + 3 = 10, x é 7 e nada mais. Como VARIÁVEL, ela percorre vários valores: em 2n + 1, n vai sendo 1, 2, 3. E como GENERALIZAÇÃO, ela é qualquer número: a + b = b + a vale para todos eles de uma vez.",
+      "Há duas combinações de escrita que precisam ficar claras desde já. O sinal de multiplicação some quando um dos fatores é letra: 2n quer dizer 2 × n, e não o número 2 seguido do algarismo n. E a letra sozinha carrega um 1 invisível: x é o mesmo que 1x.",
+      "O ganho de tudo isso é escrever uma regra em vez de repetir contas. Quando alguém escreve que o perímetro de um quadrado de lado L é 4L, escreveu de uma vez o perímetro de todos os quadrados que existem — os que já foram desenhados e os que ninguém desenhou ainda."
+    ],
+    "destaque": "A letra é um apelido para um número: às vezes um que não sei, às vezes qualquer um.",
+    "imagem": "alg-ideia-letra"
+  },
+  "resolvido": {
+    "enunciado": "Numa sequência, a figura 1 tem 4 quadradinhos, a figura 2 tem 7 e a figura 3 tem 10. Qual expressão dá a quantidade de quadradinhos da figura n?",
+    "imagem": "alg-res-sequencia",
+    "passos": [
+      {
+        "titulo": "Veja quanto cresce a cada passo",
+        "explicacao": "Comparar uma figura com a seguinte mostra o tamanho do passo. Se o passo for sempre o mesmo, a expressão vai ter esse número multiplicando a letra.",
+        "conta": "7 − 4 = 3 · 10 − 7 = 3"
+      },
+      {
+        "titulo": "Escreva o que se repete",
+        "explicacao": "Como cada passo acrescenta 3, na figura n houve n grupos de 3 quadradinhos. Essa é a parte que depende de n.",
+        "conta": "n grupos de 3 → 3n"
+      },
+      {
+        "titulo": "Descubra o que fica fixo",
+        "explicacao": "A figura 1 tem 4, mas 3 × 1 dá apenas 3. Falta 1 quadradinho, e ele está em todas as figuras — é a parte que não depende de n.",
+        "conta": "4 − 3 = 1"
+      },
+      {
+        "titulo": "Junte e confira nas outras figuras",
+        "explicacao": "Uma expressão só vale se acertar em todos os casos conhecidos, e não apenas naquele que a inspirou.",
+        "conta": "3n + 1 · n=2 → 7 ✓ · n=3 → 10 ✓"
+      }
+    ],
+    "fecho": "A letra guardou o que muda; o número solto guardou o que fica. Toda sequência de passo constante se escreve assim."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa sequência, a figura n tem 2n + 1 quadradinhos. Quantos quadradinhos tem a figura 10? Digite apenas o número.",
+      "imagem": "alg-q-figura-10",
+      "dica": "Troque o n por 10 e lembre que 2n quer dizer 2 vezes n.",
+      "formato": "numero",
+      "resposta": 21,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o resultado de 2 × 10, ou seja, só a parte que depende de n. Falta o quadradinho fixo que aparece em todas as figuras, escrito como o + 1 da expressão."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 soma 10 com 2, mas em 2n o número e a letra estão MULTIPLICADOS. O sinal de vezes some quando um dos fatores é letra, e esse é o engano mais comum no começo."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a quantidade da figura 1, que sai de 2 × 1 + 1. A pergunta é sobre a figura 10, então o n que entra na expressão é o 10."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Troque a letra pelo número",
+          "explicacao": "Substituir é escrever o valor no lugar de n, mantendo tudo o mais igual.",
+          "conta": "2n + 1 → 2 × 10 + 1"
+        },
+        {
+          "titulo": "Multiplique antes de somar",
+          "explicacao": "A ordem das operações continua valendo: primeiro a multiplicação, depois a soma.",
+          "conta": "20 + 1 = 21"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa sequência, cada figura tem 4 quadradinhos a mais que a anterior, e a figura 1 tem 6. Qual expressão dá a figura n?",
+      "imagem": "alg-q-achar-expressao",
+      "dica": "O passo vira o número que multiplica n. Depois veja quanto falta para chegar na figura 1.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "4n + 2" },
+        { "rotulo": "B", "texto": "4n + 6" },
+        { "rotulo": "C", "texto": "6n + 4" },
+        { "rotulo": "D", "texto": "4n" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "4n + 6",
+          "porque": "Usa o 6 como parte fixa porque ele é o valor da figura 1. Mas a parte fixa é o que SOBRA depois de tirar 4 × 1, e não a figura inteira: com n = 1 essa expressão daria 10."
+        },
+        {
+          "resposta": "6n + 4",
+          "porque": "Troca os papéis dos dois números. Quem multiplica a letra é o PASSO da sequência, que é 4; o 6 é o valor de uma figura, e valor de figura nunca multiplica n."
+        },
+        {
+          "resposta": "4n",
+          "porque": "Acerta o passo e esquece a parte fixa. Com n = 1 essa expressão daria 4, e a figura 1 tem 6 — faltam os 2 quadradinhos que aparecem em todas elas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O passo multiplica a letra",
+          "explicacao": "Cada figura ganha 4 quadradinhos, então na figura n houve n grupos de 4.",
+          "conta": "passo 4 → 4n"
+        },
+        {
+          "titulo": "Descubra a parte fixa",
+          "explicacao": "Na figura 1 a parte que depende de n vale 4, e a figura tem 6. A diferença é o que não muda nunca.",
+          "conta": "6 − 4 = 2"
+        },
+        {
+          "titulo": "Confira com a figura 2",
+          "explicacao": "A figura 2 tem 10, porque ganhou mais 4. A expressão tem de devolver esse número.",
+          "conta": "4 × 2 + 2 = 10 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na frase \"a + b = b + a, quaisquer que sejam os números a e b\", o que as letras estão fazendo?",
+      "imagem": "alg-q-regra-geral",
+      "dica": "Pergunte-se se existe UM valor a descobrir ali, ou se a frase vale para todos os números de uma vez.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Representando qualquer número, para dizer uma regra geral" },
+        { "rotulo": "B", "texto": "Representando um número desconhecido, que a gente vai descobrir" },
+        { "rotulo": "C", "texto": "São nomes de figuras, e não números" },
+        { "rotulo": "D", "texto": "Valem sempre 1 e 2, na ordem do alfabeto" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Representando um número desconhecido, que a gente vai descobrir",
+          "porque": "Esse é o papel de INCÓGNITA, que aparece em coisas como x + 3 = 10, onde só um valor serve. Aqui não há nada a descobrir: a frase já avisa que vale para quaisquer números."
+        },
+        {
+          "resposta": "São nomes de figuras, e não números",
+          "porque": "Letra em geometria às vezes nomeia ponto ou vértice, mas aqui ela está sendo somada. Só se soma número, então a e b são números — quaisquer números."
+        },
+        {
+          "resposta": "Valem sempre 1 e 2, na ordem do alfabeto",
+          "porque": "A letra não carrega valor por causa da posição no alfabeto. Se a valesse sempre 1, a frase seria sobre um caso único, e não sobre todos os números."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que a frase promete",
+          "explicacao": "Ela diz \"quaisquer que sejam\", ou seja, afirma algo sobre todos os números ao mesmo tempo.",
+          "conta": "vale para todo a e todo b"
+        },
+        {
+          "titulo": "Teste com valores diferentes",
+          "explicacao": "Se fosse uma incógnita, só um valor faria a igualdade dar certo. Aqui qualquer par funciona.",
+          "conta": "2+5 = 5+2 · 9+1 = 1+9"
+        },
+        {
+          "titulo": "Conclua o papel da letra",
+          "explicacao": "Quando a letra serve para escrever uma regra que vale sempre, ela está generalizando.",
+          "conta": "generalização"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma sequência começa com 3, 5 e 7 quadradinhos nas figuras 1, 2 e 3, e continua com o mesmo passo. Quantos quadradinhos tem a figura 8? Digite apenas o número.",
+      "imagem": "alg-q-figura-8",
+      "dica": "Ache primeiro a expressão da figura n; contar de dois em dois até a figura 8 também funciona, mas demora.",
+      "formato": "numero",
+      "resposta": 17,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é 2 × 8, ou seja, só a parte que depende do número da figura. Falta o quadradinho fixo, aquele que já estava lá na figura 1 e nunca sai."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 multiplica o valor da figura 1 pelo número da figura, como se a sequência dobrasse e triplicasse. Ela não faz isso: ela ACRESCENTA 2 a cada passo, e acrescentar não é multiplicar."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 anda de dois em dois, mas dá um passo a menos. Da figura 1 até a 8 são sete passos, e não seis — o primeiro passo leva da figura 1 para a 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o passo",
+          "explicacao": "A diferença entre figuras vizinhas é sempre a mesma, e é ela que multiplica a letra.",
+          "conta": "5 − 3 = 2 · 7 − 5 = 2"
+        },
+        {
+          "titulo": "Monte a expressão",
+          "explicacao": "São n grupos de 2, mais o que sobra na figura 1 depois de tirar 2 × 1.",
+          "conta": "2n + 1"
+        },
+        {
+          "titulo": "Substitua o 8",
+          "explicacao": "A expressão vale para qualquer figura, inclusive as que ninguém desenhou.",
+          "conta": "2 × 8 + 1 = 17"
+        }
+      ]
+    }
+  ]
+}

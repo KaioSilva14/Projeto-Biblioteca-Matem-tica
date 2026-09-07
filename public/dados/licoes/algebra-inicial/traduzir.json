@@ -1,0 +1,211 @@
+{
+  "id": "traduzir",
+  "numero": 2,
+  "titulo": "Escrever com letras",
+  "pergunta": "Como uma frase vira uma expressão?",
+  "ideia": {
+    "paragrafos": [
+      "Traduzir uma frase para a linguagem algébrica é trocar palavra por símbolo, e o trabalho começa antes do primeiro símbolo: é preciso dizer o que a letra representa. \"Seja n o número de figurinhas de Ana\" parece burocracia, mas é metade do serviço — sem isso, a expressão que sair não vai querer dizer nada.",
+      "O resto é um dicionário curto. Soma, mais, acrescido de viram +. Diferença, menos, a menos que viram −. Dobro, triplo, vezes viram multiplicação. Metade, terça parte viram divisão. E \"o quadrado de\" vira o expoente 2.",
+      "Duas operações não deixam trocar a ordem, e é aí que a tradução costuma escorregar. \"Cinco menos um número\" é 5 − n; \"um número menos cinco\" é n − 5. As duas frases têm as mesmas palavras e resultados diferentes — a segunda tira 5 de n, a primeira tira n de 5.",
+      "Os parênteses guardam a ordem em que as coisas acontecem. \"O dobro de um número mais três\" é ambíguo em português, mas em símbolos não há dúvida: 2n + 3 dobra primeiro e soma depois; 2(n + 3) soma primeiro e dobra depois. Quando a frase diz \"o dobro DA SOMA\", a soma tem de acontecer antes.",
+      "Por fim, uma economia que rende: quando uma quantidade se descreve a partir da outra, use uma letra só. Se Ana tem 3 figurinhas a mais que Bruno, não é preciso inventar duas letras — basta chamar Bruno de b e Ana de b + 3."
+    ],
+    "destaque": "2(n + 3) e 2n + 3 são coisas diferentes: no primeiro soma-se antes de dobrar.",
+    "imagem": "alg-ideia-traduzir"
+  },
+  "resolvido": {
+    "enunciado": "Ana tem 3 figurinhas a mais que Bruno, e juntos eles têm 25. Escreva a expressão do total usando uma letra só.",
+    "imagem": "alg-res-traduzir",
+    "passos": [
+      {
+        "titulo": "Dê nome à quantidade mais simples",
+        "explicacao": "Bruno é a referência do texto, porque é a partir dele que a outra quantidade é descrita. Nomear a quantidade menor evita ter de subtrair depois.",
+        "conta": "b = figurinhas de Bruno"
+      },
+      {
+        "titulo": "Escreva a outra a partir dela",
+        "explicacao": "\"Três a mais que Bruno\" quer dizer que se pega a quantidade dele e acrescenta 3. Nenhuma letra nova é necessária.",
+        "conta": "Ana = b + 3"
+      },
+      {
+        "titulo": "Some as duas para chegar ao total",
+        "explicacao": "O total é o que os dois têm juntos, e juntar é somar. Os pedaços com b se agrupam porque são a mesma coisa.",
+        "conta": "b + (b + 3) = 2b + 3"
+      },
+      {
+        "titulo": "Confira o significado com um valor qualquer",
+        "explicacao": "Testar com um número inventado mostra se a expressão descreve mesmo a situação. Se Bruno tivesse 5, Ana teria 8 e os dois teriam 13.",
+        "conta": "2 × 5 + 3 = 13 ✓"
+      }
+    ],
+    "fecho": "Uma letra só, porque a segunda quantidade já estava escrita dentro da primeira."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Como se escreve \"o triplo de um número, menos quatro\"?",
+      "imagem": "alg-q-triplo",
+      "dica": "Triplo é multiplicar por 3. Depois veja de quem os 4 estão sendo tirados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3n − 4" },
+        { "rotulo": "B", "texto": "3(n − 4)" },
+        { "rotulo": "C", "texto": "n³ − 4" },
+        { "rotulo": "D", "texto": "4 − 3n" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3(n − 4)",
+          "porque": "O parêntese manda tirar 4 ANTES de triplicar, e a frase diz o contrário: primeiro o triplo, depois a subtração. Com n = 10 as duas dão 26 e 18, então a diferença é real."
+        },
+        {
+          "resposta": "n³ − 4",
+          "porque": "Confunde triplo com cubo. Triplo é multiplicar por 3; n³ é multiplicar n por ele mesmo três vezes, o que com n = 5 dá 125 em vez de 15."
+        },
+        {
+          "resposta": "4 − 3n",
+          "porque": "Inverte a subtração. A frase diz que o triplo é que perde 4, então o triplo tem de vir primeiro — quem começa a conta é ele, e não o 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o triplo",
+          "explicacao": "Triplo de alguma coisa é essa coisa multiplicada por 3.",
+          "conta": "o triplo de n → 3n"
+        },
+        {
+          "titulo": "Traduza a subtração na ordem certa",
+          "explicacao": "A vírgula separa: o que já foi escrito é que perde 4.",
+          "conta": "3n − 4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Como se escreve \"o dobro da soma de um número com cinco\"?",
+      "imagem": "alg-q-parenteses",
+      "dica": "A frase diz o dobro DA SOMA. Isso decide o que acontece primeiro.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2(n + 5)" },
+        { "rotulo": "B", "texto": "2n + 5" },
+        { "rotulo": "C", "texto": "n² + 5" },
+        { "rotulo": "D", "texto": "2n × 5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2n + 5",
+          "porque": "Dobra o número antes de somar, e a frase manda somar primeiro. É o que os parênteses existem para resolver: com n = 3, uma dá 16 e a outra dá 11."
+        },
+        {
+          "resposta": "n² + 5",
+          "porque": "Troca dobro por quadrado. Dobrar é multiplicar por 2; elevar ao quadrado é multiplicar o número por ele mesmo, e com n = 6 isso dá 36 em vez de 12."
+        },
+        {
+          "resposta": "2n × 5",
+          "porque": "Transforma a soma em multiplicação. A frase diz soma de um número COM cinco, e somar cinco é bem diferente de multiplicar por cinco."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o que vem primeiro",
+          "explicacao": "A soma é a operação de dentro, porque a frase fala do dobro dela.",
+          "conta": "a soma → n + 5"
+        },
+        {
+          "titulo": "Proteja a soma com parênteses",
+          "explicacao": "Sem os parênteses, o 2 multiplicaria só o n, e não a soma inteira.",
+          "conta": "2(n + 5)"
+        },
+        {
+          "titulo": "Confira com um número",
+          "explicacao": "Com n = 3 a soma dá 8, e o dobro dela dá 16.",
+          "conta": "2 × (3 + 5) = 16"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Bruno tem b reais e Ana tem 4 reais a mais que ele. Quanto os dois têm juntos, se b = 12? Digite apenas o número.",
+      "imagem": "alg-q-juntos",
+      "dica": "Escreva primeiro quanto Ana tem em função de b, e só depois troque b por 12.",
+      "formato": "numero",
+      "resposta": 28,
+      "unidade": "reais",
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é só quanto Ana tem, ou seja, 12 mais 4. A pergunta é sobre os dois juntos, então o dinheiro de Bruno ainda precisa entrar na soma."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 soma 12 com 12, tratando os dois como se tivessem o mesmo. O texto diz que Ana tem 4 a mais, e esses 4 não podem sumir."
+        },
+        {
+          "resposta": "32",
+          "porque": "32 acrescenta os 4 reais duas vezes, uma para cada pessoa. Só Ana tem a mais: o dinheiro de Bruno é o valor de b, sem nenhum acréscimo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva com a letra",
+          "explicacao": "Bruno tem b, Ana tem b + 4, e o total é a soma dos dois.",
+          "conta": "b + (b + 4) = 2b + 4"
+        },
+        {
+          "titulo": "Troque a letra pelo valor",
+          "explicacao": "Só depois de a expressão estar pronta é que o número entra.",
+          "conta": "2 × 12 + 4 = 28"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa turma há m meninas e o dobro de meninos. Qual expressão dá o total de alunos?",
+      "imagem": "alg-q-turma",
+      "dica": "Escreva quantos meninos há usando a mesma letra, e só então some.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3m" },
+        { "rotulo": "B", "texto": "2m" },
+        { "rotulo": "C", "texto": "m + 2" },
+        { "rotulo": "D", "texto": "m²" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2m",
+          "porque": "2m é quanto há de meninos, e não o total. As meninas ainda estão de fora: a turma inteira é m mais 2m."
+        },
+        {
+          "resposta": "m + 2",
+          "porque": "Acrescenta 2 alunos em vez de dobrar. \"O dobro\" multiplica por 2, então com 10 meninas haveria 20 meninos, e não 12 alunos."
+        },
+        {
+          "resposta": "m²",
+          "porque": "Multiplica a quantidade de meninas por ela mesma, o que não corresponde a nada no enunciado. Com 10 meninas isso daria uma turma de 100 pessoas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva os meninos com a mesma letra",
+          "explicacao": "O dobro de m é 2m, e usar a mesma letra evita inventar uma segunda incógnita.",
+          "conta": "meninos = 2m"
+        },
+        {
+          "titulo": "Some as duas partes",
+          "explicacao": "O total da turma é meninas mais meninos, e os dois pedaços têm a mesma letra.",
+          "conta": "m + 2m = 3m"
+        },
+        {
+          "titulo": "Confira com um número",
+          "explicacao": "Com 8 meninas haveria 16 meninos, e a turma teria 24 pessoas.",
+          "conta": "3 × 8 = 24 ✓"
+        }
+      ]
+    }
+  ]
+}

@@ -50,6 +50,24 @@ teste("aceita vírgula, ponto, espaços e cifrão", () => {
   assert.equal(paraNumero("1.200"), 1200, "ponto como separador de milhar");
 });
 
+teste("o ponto do milhar não engole o decimal de quem escreve 0.045", () => {
+  // A regra do separador de milhar valia para qualquer ponto seguido de três
+  // algarismos, e por isso "0.045" era lido como 45. Sete diagnósticos já
+  // publicados (em Decimais, Sólidos e as três de Grandezas e medidas)
+  // nunca chegavam à tela por causa disso, e o aluno que usasse o ponto como
+  // separador decimal via a resposta certa recusada. Ninguém escreve "0.500"
+  // para dizer quinhentos: o grupo antes do ponto tem de começar por
+  // algarismo diferente de zero.
+  assert.equal(paraNumero("0.045"), 0.045);
+  assert.equal(paraNumero("0.123"), 0.123);
+  assert.equal(paraNumero("0.500"), 0.5);
+  assert.equal(paraNumero("−0.002"), -0.002, "negativo com o menos da tela");
+  // e o separador de milhar de verdade continua funcionando
+  assert.equal(paraNumero("1.500"), 1500);
+  assert.equal(paraNumero("12.345"), 12345);
+  assert.equal(paraNumero("1.234.567"), 1234567);
+});
+
 teste("aceita o sinal de menos que o aluno vê na tela, e não só o do teclado", () => {
   // O site escreve negativo com o menos tipográfico (−, U+2212). Quem copiasse
   // o caractere da própria figura recebia NaN, ou seja, era contado como erro

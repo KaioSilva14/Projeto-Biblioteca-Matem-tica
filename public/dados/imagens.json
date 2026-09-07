@@ -4318,5 +4318,437 @@
     "alt": "Tabela mostrando quanto vale um desconto de quarenta por cento em preços diferentes.",
     "largura": 286,
     "altura": 148
+  },
+  "alg-ideia-letra": {
+    "arquivo": "/assets/licoes/alg-ideia-letra.png",
+    "alt": "Quatro figuras de uma sequência que cresce de dois em dois quadradinhos, com a contagem embaixo de cada uma.",
+    "largura": 340,
+    "altura": 106
+  },
+  "alg-res-sequencia": {
+    "arquivo": "/assets/licoes/alg-res-sequencia.png",
+    "alt": "Três figuras de uma sequência que cresce de três em três quadradinhos, com a contagem embaixo de cada uma.",
+    "largura": 229,
+    "altura": 123
+  },
+  "alg-q-figura-10": {
+    "arquivo": "/assets/questoes/alg-q-figura-10.png",
+    "alt": "Máquina com a expressão 2n mais 1, mostrando a entrada 10 e a saída em aberto.",
+    "largura": 284,
+    "altura": 132
+  },
+  "alg-q-achar-expressao": {
+    "arquivo": "/assets/questoes/alg-q-achar-expressao.png",
+    "alt": "Três figuras de uma sequência que cresce de quatro em quatro quadradinhos, com a contagem embaixo de cada uma.",
+    "largura": 229,
+    "altura": 140
+  },
+  "alg-q-regra-geral": {
+    "arquivo": "/assets/questoes/alg-q-regra-geral.png",
+    "alt": "Duas fileiras de caixinhas com letras, uma escrita a mais b e a outra b mais a.",
+    "largura": 221,
+    "altura": 134
+  },
+  "alg-q-figura-8": {
+    "arquivo": "/assets/questoes/alg-q-figura-8.png",
+    "alt": "Três figuras de uma sequência que cresce de dois em dois quadradinhos, com a contagem embaixo de cada uma.",
+    "largura": 229,
+    "altura": 106
+  },
+  "alg-ideia-traduzir": {
+    "arquivo": "/assets/licoes/alg-ideia-traduzir.png",
+    "alt": "Tabela com frases em português e as expressões correspondentes.",
+    "largura": 328,
+    "altura": 216
+  },
+  "alg-res-traduzir": {
+    "arquivo": "/assets/licoes/alg-res-traduzir.png",
+    "alt": "Barra dividida em dois pedaços iguais chamados b e um pedaço de 3, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 132
+  },
+  "alg-q-triplo": {
+    "arquivo": "/assets/questoes/alg-q-triplo.png",
+    "alt": "Barra dividida em três pedaços iguais chamados n, com a chave do triplo por cima.",
+    "largura": 380,
+    "altura": 110
+  },
+  "alg-q-parenteses": {
+    "arquivo": "/assets/questoes/alg-q-parenteses.png",
+    "alt": "Tabela com a ordem em que as duas operações da frase acontecem.",
+    "largura": 360,
+    "altura": 148
+  },
+  "alg-q-juntos": {
+    "arquivo": "/assets/questoes/alg-q-juntos.png",
+    "alt": "Barra com dois pedaços iguais chamados b e um pedaço de 4, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 132
+  },
+  "alg-q-turma": {
+    "arquivo": "/assets/questoes/alg-q-turma.png",
+    "alt": "Barra com um pedaço chamado m e outro do dobro do tamanho chamado 2m.",
+    "largura": 380,
+    "altura": 132
+  },
+  "alg-ideia-valor": {
+    "arquivo": "/assets/licoes/alg-ideia-valor.png",
+    "alt": "Máquina com a expressão 2n mais 3, mostrando três entradas e as saídas correspondentes.",
+    "largura": 284,
+    "altura": 186
+  },
+  "alg-res-valor": {
+    "arquivo": "/assets/licoes/alg-res-valor.png",
+    "alt": "Tabela com o valor de cada uma das duas letras.",
+    "largura": 232,
+    "altura": 148
+  },
+  "alg-q-5n8": {
+    "arquivo": "/assets/questoes/alg-q-5n8.png",
+    "alt": "Máquina com a expressão 5n menos 8, mostrando a entrada 6 e a saída em aberto.",
+    "largura": 284,
+    "altura": 110
+  },
+  "alg-q-quadrado": {
+    "arquivo": "/assets/questoes/alg-q-quadrado.png",
+    "alt": "Máquina com a expressão 2n ao quadrado, mostrando a entrada 3 e a saída em aberto.",
+    "largura": 284,
+    "altura": 110
+  },
+  "alg-q-duas-letras": {
+    "arquivo": "/assets/questoes/alg-q-duas-letras.png",
+    "alt": "Tabela com o valor de cada uma das duas letras.",
+    "largura": 232,
+    "altura": 148
+  },
+  "alg-q-passo": {
+    "arquivo": "/assets/questoes/alg-q-passo.png",
+    "alt": "Máquina com a expressão 3n mais 1, mostrando três entradas seguidas e só a primeira saída preenchida.",
+    "largura": 284,
+    "altura": 166
+  },
+  "alg-ideia-semelhantes": {
+    "arquivo": "/assets/licoes/alg-ideia-semelhantes.png",
+    "alt": "Duas fileiras de caixinhas com a letra x: três mais duas em cima, cinco embaixo.",
+    "largura": 307,
+    "altura": 134
+  },
+  "alg-res-semelhantes": {
+    "arquivo": "/assets/licoes/alg-res-semelhantes.png",
+    "alt": "Duas fileiras separadas: uma com caixinhas de x e outra com moedas de números.",
+    "largura": 361,
+    "altura": 134
+  },
+  "alg-q-7a": {
+    "arquivo": "/assets/questoes/alg-q-7a.png",
+    "alt": "Três fileiras de fichas: sete caixinhas de a, três caixinhas de a e duas moedas.",
+    "largura": 328,
+    "altura": 162
+  },
+  "alg-q-coeficiente": {
+    "arquivo": "/assets/questoes/alg-q-coeficiente.png",
+    "alt": "Três fileiras de caixinhas com a letra m, uma para cada termo da expressão.",
+    "largura": 290,
+    "altura": 162
+  },
+  "alg-q-parte-literal": {
+    "arquivo": "/assets/questoes/alg-q-parte-literal.png",
+    "alt": "Tabela com cada termo e o coeficiente dele.",
+    "largura": 293,
+    "altura": 182
+  },
+  "alg-q-simplificar-valor": {
+    "arquivo": "/assets/questoes/alg-q-simplificar-valor.png",
+    "alt": "Máquina com a expressão 8y mais 5 menos 3y menos 2, mostrando a entrada 4 e a saída em aberto.",
+    "largura": 371,
+    "altura": 110
+  },
+  "alg-ideia-balanca": {
+    "arquivo": "/assets/licoes/alg-ideia-balanca.png",
+    "alt": "Balança em equilíbrio, com uma caixinha x e uma moeda de 3 num prato e uma moeda de 10 no outro.",
+    "largura": 268,
+    "altura": 150
+  },
+  "alg-res-igualdade": {
+    "arquivo": "/assets/licoes/alg-res-igualdade.png",
+    "alt": "Balança em equilíbrio, com três caixinhas x e duas moedas de 1 num prato e uma moeda de 14 no outro.",
+    "largura": 376,
+    "altura": 189
+  },
+  "alg-q-x6": {
+    "arquivo": "/assets/questoes/alg-q-x6.png",
+    "alt": "Balança em equilíbrio, com uma caixinha x e uma moeda de 6 num prato e uma moeda de 15 no outro.",
+    "largura": 268,
+    "altura": 130
+  },
+  "alg-q-sempre": {
+    "arquivo": "/assets/questoes/alg-q-sempre.png",
+    "alt": "Tabela com três valores de n e o que valem n mais 2 e 2n em cada um deles.",
+    "largura": 286,
+    "altura": 182
+  },
+  "alg-q-testar": {
+    "arquivo": "/assets/questoes/alg-q-testar.png",
+    "alt": "Máquina com a expressão 4x menos 3, mostrando a saída 17 e a entrada em aberto.",
+    "largura": 284,
+    "altura": 110
+  },
+  "alg-q-o-que-e-igual": {
+    "arquivo": "/assets/questoes/alg-q-o-que-e-igual.png",
+    "alt": "Balança em equilíbrio, com duas caixinhas x e uma moeda de 4 num prato e uma moeda de 12 no outro.",
+    "largura": 300,
+    "altura": 150
+  },
+  "alg-ideia-modelar": {
+    "arquivo": "/assets/licoes/alg-ideia-modelar.png",
+    "alt": "Barra com um pedaço chamado menor x e outro do dobro do tamanho chamado maior x mais 7.",
+    "largura": 380,
+    "altura": 132
+  },
+  "alg-res-modelar": {
+    "arquivo": "/assets/licoes/alg-res-modelar.png",
+    "alt": "Barra dividida em três pedaços chamados a, 2a e 3a, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 132
+  },
+  "alg-q-dois-numeros": {
+    "arquivo": "/assets/questoes/alg-q-dois-numeros.png",
+    "alt": "Barra com um pedaço chamado x e outro três vezes maior chamado 3x, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 110
+  },
+  "alg-q-caneta": {
+    "arquivo": "/assets/questoes/alg-q-caneta.png",
+    "alt": "Tabela com o preço da caneta e o do caderno escritos com a mesma letra.",
+    "largura": 256,
+    "altura": 148
+  },
+  "alg-q-idade": {
+    "arquivo": "/assets/questoes/alg-q-idade.png",
+    "alt": "Tabela com a idade de Pedro há quatro anos, hoje e daqui a oito anos, escritas com a mesma letra.",
+    "largura": 272,
+    "altura": 182
+  },
+  "alg-q-cidades": {
+    "arquivo": "/assets/questoes/alg-q-cidades.png",
+    "alt": "Rodovia reta dividida nos três trechos entre as quatro cidades, com a chave da distância total por cima.",
+    "largura": 380,
+    "altura": 132
+  },
+  "eq-ideia-equilibrio": {
+    "arquivo": "/assets/licoes/eq-ideia-equilibrio.png",
+    "alt": "Duas fileiras de fichas: em cima uma caixinha x com cinco moedas igualando doze, embaixo a caixinha sozinha.",
+    "largura": 338,
+    "altura": 184
+  },
+  "eq-res-equilibrio": {
+    "arquivo": "/assets/licoes/eq-res-equilibrio.png",
+    "alt": "Balança em equilíbrio, com uma caixinha x e uma moeda de 8 num prato e uma moeda de 21 no outro.",
+    "largura": 268,
+    "altura": 150
+  },
+  "eq-q-menos-7": {
+    "arquivo": "/assets/questoes/eq-q-menos-7.png",
+    "alt": "Máquina com a expressão x menos 7, mostrando a saída 12 e a entrada em aberto.",
+    "largura": 284,
+    "altura": 110
+  },
+  "eq-q-por-que-dois-lados": {
+    "arquivo": "/assets/questoes/eq-q-por-que-dois-lados.png",
+    "alt": "Balança em equilíbrio, com uma caixinha x e uma moeda de 5 num prato e uma moeda de 12 no outro.",
+    "largura": 268,
+    "altura": 150
+  },
+  "eq-q-letra-a-direita": {
+    "arquivo": "/assets/questoes/eq-q-letra-a-direita.png",
+    "alt": "Balança em equilíbrio, com uma moeda de 23 no prato esquerdo e uma caixinha x com uma moeda de 8 no direito.",
+    "largura": 279,
+    "altura": 150
+  },
+  "eq-q-conferir": {
+    "arquivo": "/assets/questoes/eq-q-conferir.png",
+    "alt": "Tabela com o que está escrito de cada lado da igualdade.",
+    "largura": 288,
+    "altura": 148
+  },
+  "eq-ideia-inversas": {
+    "arquivo": "/assets/licoes/eq-ideia-inversas.png",
+    "alt": "Tabela com cada operação grudada na letra e a operação que a desfaz.",
+    "largura": 250,
+    "altura": 216
+  },
+  "eq-res-isolar": {
+    "arquivo": "/assets/licoes/eq-res-isolar.png",
+    "alt": "Balança em equilíbrio, com seis caixinhas x num prato e uma moeda de 42 no outro.",
+    "largura": 376,
+    "altura": 189
+  },
+  "eq-q-5x": {
+    "arquivo": "/assets/questoes/eq-q-5x.png",
+    "alt": "Balança em equilíbrio, com cinco caixinhas x num prato e uma moeda de 45 no outro.",
+    "largura": 376,
+    "altura": 169
+  },
+  "eq-q-dividido-4": {
+    "arquivo": "/assets/questoes/eq-q-dividido-4.png",
+    "alt": "Máquina com a expressão x dividido por 4, mostrando a saída 7 e a entrada em aberto.",
+    "largura": 284,
+    "altura": 110
+  },
+  "eq-q-oito-x": {
+    "arquivo": "/assets/questoes/eq-q-oito-x.png",
+    "alt": "Duas fileiras de quatro caixinhas x cada uma, e uma moeda de 56 numa terceira fileira.",
+    "largura": 228,
+    "altura": 162
+  },
+  "eq-q-dois-x-nove": {
+    "arquivo": "/assets/questoes/eq-q-dois-x-nove.png",
+    "alt": "Balança em equilíbrio, com duas caixinhas x num prato e uma moeda de 9 no outro.",
+    "largura": 268,
+    "altura": 150
+  },
+  "eq-ideia-ordem": {
+    "arquivo": "/assets/licoes/eq-ideia-ordem.png",
+    "alt": "Tabela com a ordem em que a máquina fez as operações e a ordem inversa para desfazê-las.",
+    "largura": 264,
+    "altura": 148
+  },
+  "eq-res-duas": {
+    "arquivo": "/assets/licoes/eq-res-duas.png",
+    "alt": "Balança em equilíbrio, com três caixinhas x e uma moeda de 5 num prato e uma moeda de 20 no outro.",
+    "largura": 376,
+    "altura": 150
+  },
+  "eq-q-4x7": {
+    "arquivo": "/assets/questoes/eq-q-4x7.png",
+    "alt": "Balança em equilíbrio, com quatro caixinhas x e uma moeda de 7 num prato e uma moeda de 31 no outro.",
+    "largura": 376,
+    "altura": 169
+  },
+  "eq-q-5x3": {
+    "arquivo": "/assets/questoes/eq-q-5x3.png",
+    "alt": "Máquina com a expressão 5x menos 3, mostrando a saída 22 e a entrada em aberto.",
+    "largura": 284,
+    "altura": 110
+  },
+  "eq-q-primeiro-passo": {
+    "arquivo": "/assets/questoes/eq-q-primeiro-passo.png",
+    "alt": "Balança em equilíbrio, com seis caixinhas x e uma moeda de 4 num prato e uma moeda de 28 no outro.",
+    "largura": 376,
+    "altura": 169
+  },
+  "eq-q-zero": {
+    "arquivo": "/assets/questoes/eq-q-zero.png",
+    "alt": "Máquina com a expressão 2x mais 9, mostrando a saída 9 e a entrada em aberto.",
+    "largura": 284,
+    "altura": 110
+  },
+  "eq-ideia-dois-lados": {
+    "arquivo": "/assets/licoes/eq-ideia-dois-lados.png",
+    "alt": "Balança em equilíbrio, com cinco caixinhas x e uma moeda de 2 num prato e três caixinhas x com uma moeda de 10 no outro.",
+    "largura": 376,
+    "altura": 189
+  },
+  "eq-res-dois-lados": {
+    "arquivo": "/assets/licoes/eq-res-dois-lados.png",
+    "alt": "Duas fileiras de fichas, uma com cinco caixinhas e duas moedas, outra com três caixinhas e uma moeda de 10.",
+    "largura": 376,
+    "altura": 134
+  },
+  "eq-q-4x-2x": {
+    "arquivo": "/assets/questoes/eq-q-4x-2x.png",
+    "alt": "Balança em equilíbrio, com quatro caixinhas x e uma moeda de 3 num prato e duas caixinhas x com uma moeda de 15 no outro.",
+    "largura": 376,
+    "altura": 169
+  },
+  "eq-q-6x-2x": {
+    "arquivo": "/assets/questoes/eq-q-6x-2x.png",
+    "alt": "Balança em equilíbrio, com seis caixinhas x e uma moeda de 4 num prato e duas caixinhas x com uma moeda de 20 no outro.",
+    "largura": 376,
+    "altura": 169
+  },
+  "eq-q-3x-7x": {
+    "arquivo": "/assets/questoes/eq-q-3x-7x.png",
+    "alt": "Balança em equilíbrio, com três caixinhas x e uma moeda de 8 num prato e sete caixinhas x no outro.",
+    "largura": 376,
+    "altura": 169
+  },
+  "eq-q-sobrou-5": {
+    "arquivo": "/assets/questoes/eq-q-sobrou-5.png",
+    "alt": "Uma fileira com duas moedas de 5 separadas pelo sinal de igual, e nenhuma caixinha.",
+    "largura": 242,
+    "altura": 84
+  },
+  "eq-ideia-preparar": {
+    "arquivo": "/assets/licoes/eq-ideia-preparar.png",
+    "alt": "Tabela com o que fazer antes de resolver quando a equação tem parênteses ou fração.",
+    "largura": 320,
+    "altura": 148
+  },
+  "eq-res-parenteses": {
+    "arquivo": "/assets/licoes/eq-res-parenteses.png",
+    "alt": "Barra dividida em dois pedaços iguais, cada um marcado como x mais 3, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 132
+  },
+  "eq-q-3-parenteses": {
+    "arquivo": "/assets/questoes/eq-q-3-parenteses.png",
+    "alt": "Barra dividida em três pedaços iguais, cada um marcado como x mais 2, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 110
+  },
+  "eq-q-fracao-mais-um": {
+    "arquivo": "/assets/questoes/eq-q-fracao-mais-um.png",
+    "alt": "Máquina com a expressão x dividido por 4 mais 1, mostrando a saída 6 e a entrada em aberto.",
+    "largura": 305,
+    "altura": 110
+  },
+  "eq-q-abrir": {
+    "arquivo": "/assets/questoes/eq-q-abrir.png",
+    "alt": "Barra dividida em dois pedaços iguais, cada um marcado como x mais 5.",
+    "largura": 380,
+    "altura": 132
+  },
+  "eq-q-fracao-menos": {
+    "arquivo": "/assets/questoes/eq-q-fracao-menos.png",
+    "alt": "Tabela com a ordem dos dois passos necessários para isolar a letra.",
+    "largura": 260,
+    "altura": 148
+  },
+  "eq-ideia-roteiro": {
+    "arquivo": "/assets/licoes/eq-ideia-roteiro.png",
+    "alt": "Tabela com os cinco passos do roteiro, de nomear a incógnita a conferir no texto.",
+    "largura": 324,
+    "altura": 250
+  },
+  "eq-res-problema": {
+    "arquivo": "/assets/licoes/eq-res-problema.png",
+    "alt": "Máquina com a expressão 2x menos 7, mostrando a saída 23 e a entrada em aberto.",
+    "largura": 284,
+    "altura": 130
+  },
+  "eq-q-soma-triplo": {
+    "arquivo": "/assets/questoes/eq-q-soma-triplo.png",
+    "alt": "Barra com um pedaço chamado x e outro três vezes maior chamado 3x, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 110
+  },
+  "eq-q-idades": {
+    "arquivo": "/assets/questoes/eq-q-idades.png",
+    "alt": "Barra com dois pedaços iguais chamados b e um pedaço de 5, com a chave do total por cima.",
+    "largura": 380,
+    "altura": 132
+  },
+  "eq-q-oculos": {
+    "arquivo": "/assets/questoes/eq-q-oculos.png",
+    "alt": "Tabela com o que o enunciado diz sobre a classe, sobre quem usa óculos e sobre os meninos.",
+    "largura": 328,
+    "altura": 182
+  },
+  "eq-q-qual-maior": {
+    "arquivo": "/assets/questoes/eq-q-qual-maior.png",
+    "alt": "Tabela com cada uma das quatro letras e a operação que é feita com ela.",
+    "largura": 308,
+    "altura": 216
   }
 }

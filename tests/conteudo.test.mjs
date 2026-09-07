@@ -16,6 +16,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 // Os testes de geometria medem o SVG gerado, e não só o JSON do conteúdo.
 import * as desenhos from "../ferramentas/desenhos.mjs";
+import { paraNumero } from "../public/js/util.js";
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const PUBLICO = join(AQUI, "..", "public");
@@ -248,7 +249,9 @@ teste("todo diagnóstico é ALCANÇÁVEL pelo motor de correção", () => {
     const tolerancia = q.tolerancia ?? 0.001;
     const vistos = [];
     q.errosComuns.forEach((erro, i) => {
-      const valor = Number(String(erro.resposta).replace(",", "."));
+      // Usa o conversor DO MOTOR, e não um parser próprio: um teste mais
+      // rígido que o app reprova diagnóstico que funcionaria na tela.
+      const valor = paraNumero(String(erro.resposta));
       assert.ok(
         !Number.isNaN(valor),
         `${q.curso}/${q.licao}/${q.id}: erro ${i} não é número numa questão numérica ("${erro.resposta}")`
@@ -3278,6 +3281,477 @@ teste("juros · lição 6 — decidir comparando o valor final", () => {
   assert.equal(50 * 0.4, 20);
   assert.equal(300 * 0.4, 120);
   assert.notEqual(50 * 0.4, 300 * 0.4);
+});
+
+// ---------- Linguagem algébrica (7º ano) ----------
+//
+// A matéria é sobre a LETRA, então os testes daqui não podem só refazer a
+// conta do enunciado: eles precisam conferir que a expressão publicada
+// descreve mesmo a situação. Por isso quase tudo aqui é força bruta sobre
+// uma faixa de valores — uma expressão que acerta no caso do enunciado e
+// erra nos outros não é a expressão certa, e é assim que se pega isso.
+//
+// E a sequência de figuras é conferida contra o DESENHO: o gerador calcula
+// os próprios quadradinhos a partir de a e b, então lendo os retângulos do
+// SVG de volta dá para provar que a figura e o texto dizem o mesmo número.
+
+/** Avalia a·n + b, que é a forma de toda sequência de passo constante. */
+const termo = (a, b, n) => a * n + b;
+
+/** Le de volta, do SVG, quantos quadradinhos cada figura recebeu. */
+function lerQuadradinhos(svg, quantos, a, b) {
+  const rects = [...svg.matchAll(/<rect x="([0-9.]+)" y="([0-9.]+)"/g)]
+    .map((m) => [Number(m[1]), Number(m[2])]);
+  // as figuras estão separadas por um vão maior que a célula; agrupa por x
+  const xs = [...new Set(rects.map((r) => r[0]))].sort((p, q) => p - q);
+  const grupos = [];
+  let atual = [xs[0]];
+  for (let i = 1; i < xs.length; i++) {
+    if (xs[i] - xs[i - 1] > 20) { grupos.push(atual); atual = []; }
+    atual.push(xs[i]);
+  }
+  grupos.push(atual);
+  assert.equal(grupos.length, quantos, "número de figuras desenhadas");
+  return grupos.map((colunas) =>
+    rects.filter((r) => colunas.includes(r[0])).length
+  );
+}
+
+teste("álgebra · a figura desenhada tem a quantidade que a expressão promete", () => {
+  // Três sequências usadas nas imagens da matéria, conferidas no SVG.
+  for (const [a, b, quantos] of [[2, 1, 4], [3, 1, 3], [4, 2, 3]]) {
+    const svg = desenhos.sequenciaFiguras({ a, b, quantos });
+    const contados = lerQuadradinhos(svg, quantos, a, b);
+    for (let n = 1; n <= quantos; n++) {
+      assert.equal(
+        contados[n - 1], termo(a, b, n),
+        `sequência ${a}n+${b}: a figura ${n} foi desenhada com ${contados[n - 1]} quadradinhos`
+      );
+    }
+  }
+
+  // E o número escrito embaixo de cada figura bate com o que foi desenhado.
+  const svg = desenhos.sequenciaFiguras({ a: 2, b: 1, quantos: 4 });
+  const escritos = [...svg.matchAll(/font-size="13"[^>]*>([0-9]+)</g)].map((m) => Number(m[1]));
+  assert.deepEqual(escritos, [3, 5, 7, 9], "os totais escritos no SVG");
+});
+
+teste("álgebra · lição 1 — de onde a letra vem", () => {
+  // O exemplo resolvido: 4, 7, 10 tem de ser 3n + 1, e nenhuma outra.
+  assert.deepEqual([1, 2, 3].map((n) => termo(3, 1, n)), [4, 7, 10]);
+
+  num("algebra-inicial", "a-letra", "q1", termo(2, 1, 10));
+  alt("algebra-inicial", "a-letra", "q2", "4n + 2");
+  alt("algebra-inicial", "a-letra", "q3", "Representando qualquer número, para dizer uma regra geral");
+  num("algebra-inicial", "a-letra", "q4", termo(2, 1, 8));
+
+  // A expressão da q2 é a ÚNICA da forma an+b que serve: passo 4, figura 1 = 6.
+  let servem = 0;
+  for (let a = 1; a <= 9; a++) {
+    for (let b = 0; b <= 9; b++) {
+      const passoConstante = termo(a, b, 2) - termo(a, b, 1) === 4;
+      if (passoConstante && termo(a, b, 1) === 6) { servem++; assert.equal(`${a}n + ${b}`, "4n + 2"); }
+    }
+  }
+  assert.equal(servem, 1, "só uma expressão an+b atende às duas condições");
+
+  // Comutatividade: a afirmação da q3 vale para todo par, e não só no exemplo.
+  for (let x = -20; x <= 20; x += 3) {
+    for (let y = -20; y <= 20; y += 3) assert.equal(x + y, y + x);
+  }
+});
+
+teste("álgebra · lição 2 — traduzir sem trocar a ordem", () => {
+  // Cada tradução da lição é uma FUNÇÃO, e ela é conferida em toda a faixa
+  // contra a leitura errada que a alternativa oferece.
+  const triploMenos4 = (n) => 3 * n - 4;
+  const dobroDaSoma = (n) => 2 * (n + 5);
+
+  for (let n = -10; n <= 20; n++) {
+    // 3n − 4 nunca é 3(n − 4), a não ser que os dois coincidissem — não coincidem
+    assert.notEqual(triploMenos4(n), 3 * (n - 4), `n = ${n}`);
+    // o dobro da soma difere de dobrar antes de somar, sempre
+    assert.notEqual(dobroDaSoma(n), 2 * n + 5, `n = ${n}`);
+    // e 3n − 4 nunca é n³ − 4 fora dos pontos onde n³ = 3n
+    if (n * n * n !== 3 * n) assert.notEqual(triploMenos4(n), n ** 3 - 4);
+  }
+
+  alt("algebra-inicial", "traduzir", "q1", "3n − 4");
+  alt("algebra-inicial", "traduzir", "q2", "2(n + 5)");
+
+  // Bruno b, Ana b+4: o total é 2b+4, conferido pelo significado e não pela fórmula
+  const totalPeloSignificado = (b) => b + (b + 4);
+  const totalPelaExpressao = (b) => 2 * b + 4;
+  for (let b = 0; b <= 60; b++) assert.equal(totalPeloSignificado(b), totalPelaExpressao(b));
+  num("algebra-inicial", "traduzir", "q3", totalPeloSignificado(12));
+
+  // Turma: m meninas e 2m meninos dá 3m, contado pessoa a pessoa
+  const turma = (m) => m + 2 * m;
+  for (let m = 1; m <= 40; m++) assert.equal(turma(m), 3 * m);
+  alt("algebra-inicial", "traduzir", "q4", "3m");
+});
+
+teste("álgebra · lição 3 — valor numérico e a ordem das operações", () => {
+  assert.equal(3 * 4 ** 2 - 2 * 5, 38, "o exemplo resolvido não fecha");
+  // e não é o mesmo que elevar o produto ao quadrado
+  assert.notEqual(3 * 4 ** 2, (3 * 4) ** 2);
+
+  num("algebra-inicial", "valor-numerico", "q1", 5 * 6 - 8);
+  num("algebra-inicial", "valor-numerico", "q2", 2 * 3 ** 2);
+  num("algebra-inicial", "valor-numerico", "q3", 3 * 7 + 4);
+  alt("algebra-inicial", "valor-numerico", "q4", "Aumenta 3");
+
+  // 2n² e (2n)² só coincidem em n = 0 — o erro previsto na q2 é real em toda
+  // a faixa, e não uma coincidência do 3.
+  for (let n = -8; n <= 8; n++) {
+    if (n !== 0) assert.notEqual(2 * n ** 2, (2 * n) ** 2, `n = ${n}`);
+  }
+  // 3a + b nunca é 3(a + b) quando b ≠ 0
+  for (let a = -6; a <= 6; a++) {
+    for (let b = -6; b <= 6; b++) {
+      if (b !== 0) assert.notEqual(3 * a + b, 3 * (a + b));
+    }
+  }
+  // o passo de 3n + 1 é 3 em qualquer ponto, o que é a resposta da q4
+  for (let n = -30; n <= 30; n++) {
+    assert.equal((3 * (n + 1) + 1) - (3 * n + 1), 3);
+  }
+});
+
+teste("álgebra · lição 4 — semelhante junta, diferente não", () => {
+  // Simplificar não pode mudar o valor da expressão em NENHUM ponto: é assim
+  // que se prova que 5x + 3 − 2x + 7 é 3x + 10, e que não é 13x.
+  const mesmoValorSempre = (f, g) => {
+    for (let x = -20; x <= 20; x++) if (f(x) !== g(x)) return false;
+    return true;
+  };
+
+  assert.ok(mesmoValorSempre((x) => 5 * x + 3 - 2 * x + 7, (x) => 3 * x + 10));
+  assert.ok(!mesmoValorSempre((x) => 5 * x + 3 - 2 * x + 7, (x) => 13 * x));
+
+  assert.ok(mesmoValorSempre((a) => 7 * a - 3 * a + 2, (a) => 4 * a + 2));
+  assert.ok(!mesmoValorSempre((a) => 7 * a - 3 * a + 2, (a) => 6 * a), "6a é o erro previsto");
+  alt("algebra-inicial", "semelhantes", "q1", "4a + 2");
+
+  num("algebra-inicial", "semelhantes", "q2", 6 + 2 - 3);
+  assert.ok(mesmoValorSempre((m) => 6 * m + 2 * m - 3 * m, (m) => 5 * m));
+
+  alt("algebra-inicial", "semelhantes", "q3", "4x² e 7x²");
+  // x e x² só valem o mesmo em 0 e 1, então nunca são a mesma quantidade
+  let coincidem = 0;
+  for (let x = -12; x <= 12; x++) if (x === x * x) coincidem++;
+  assert.equal(coincidem, 2, "x e x² coincidem só em 0 e 1");
+
+  const simplificada = (y) => 5 * y + 3;
+  assert.ok(mesmoValorSempre((y) => 8 * y + 5 - 3 * y - 2, simplificada));
+  num("algebra-inicial", "semelhantes", "q4", simplificada(4));
+  // o erro previsto 8y também é conferido: ele erra fora do caso do enunciado
+  assert.ok(!mesmoValorSempre((y) => 8 * y + 5 - 3 * y - 2, (y) => 8 * y));
+});
+
+teste("álgebra · lição 5 — a igualdade é uma balança, não uma seta", () => {
+  // Testar um valor é calcular os DOIS lados. O teste faz isso por força
+  // bruta e exige que a solução publicada seja a única na faixa inteira.
+  const unicaSolucao = (esq, dir, de = -60, ate = 60) => {
+    const serve = [];
+    for (let x = de; x <= ate; x++) if (esq(x) === dir(x)) serve.push(x);
+    return serve;
+  };
+
+  assert.equal(3 * 4 + 2, 14, "o exemplo resolvido não fecha");
+
+  assert.deepEqual(unicaSolucao((x) => x + 6, () => 15), [9]);
+  num("algebra-inicial", "igualdade", "q1", 9);
+
+  assert.deepEqual(unicaSolucao((x) => 4 * x - 3, () => 17), [5]);
+  num("algebra-inicial", "igualdade", "q3", 5);
+
+  alt("algebra-inicial", "igualdade", "q2", "n + n = 2n");
+  alt("algebra-inicial", "igualdade", "q4", "Que os dois lados valem o mesmo número");
+
+  // A q2 afirma que só UMA das quatro vale sempre. Conferido nas quatro.
+  const faixa = [];
+  for (let n = -30; n <= 30; n++) faixa.push(n);
+  assert.ok(faixa.every((n) => n + n === 2 * n), "n + n = 2n vale sempre");
+  assert.equal(faixa.filter((n) => n + 2 === 2 * n).length, 1, "n + 2 = 2n só em n = 2");
+  assert.equal(faixa.filter((n) => n * n === 2 * n).length, 2, "n × n = 2n só em 0 e 2");
+  assert.equal(faixa.filter((n) => n - 1 === n).length, 0, "n − 1 = n nunca vale");
+});
+
+teste("álgebra · lição 6 — modelar, e conferir no texto", () => {
+  // Dois números que somam 60 com o maior sendo o triplo do menor: o teste
+  // procura o par por força bruta, sem usar a equação, e exige que só um sirva.
+  const pares = [];
+  for (let menor = 1; menor < 60; menor++) {
+    const maior = 60 - menor;
+    if (maior === 3 * menor) pares.push([menor, maior]);
+  }
+  assert.equal(pares.length, 1);
+  assert.deepEqual(pares[0], [15, 45]);
+  num("algebra-inicial", "problemas", "q1", pares[0][0]);
+
+  // O resolvido: 120 figurinhas em a, 2a e 3a.
+  const divisoes = [];
+  for (let a = 1; a <= 120; a++) if (a + 2 * a + 3 * a === 120) divisoes.push(a);
+  assert.deepEqual(divisoes, [20], "o exemplo resolvido não fecha");
+
+  // Caneta c, caderno c+4: duas canetas e um caderno custam 3c + 4, conferido
+  // somando item a item em toda a faixa de preços.
+  for (let c = 1; c <= 50; c++) {
+    assert.equal(c + c + (c + 4), 3 * c + 4, `caneta a ${c}`);
+  }
+  alt("algebra-inicial", "problemas", "q2", "3c + 4");
+
+  // Idade: procura p sem montar a equação, testando a frase do enunciado.
+  const idades = [];
+  for (let p = 5; p <= 100; p++) if (p + 8 === 2 * (p - 4)) idades.push(p);
+  assert.deepEqual(idades, [16], "só uma idade satisfaz o enunciado");
+  num("algebra-inicial", "problemas", "q3", idades[0]);
+
+  // OBMEP 2010, problema 9. Resolvido por busca sobre as posições das quatro
+  // cidades na rodovia — nada de fórmula: se A está em 0 e D em 80, procura-se
+  // B e C que respeitem AC = 50 e BD = 45, e mede-se BC no que sobrar.
+  const solucoes = [];
+  for (let B = 1; B < 80; B++) {
+    for (let C = B + 1; C < 80; C++) {
+      if (C - 0 === 50 && 80 - B === 45) solucoes.push(C - B);
+    }
+  }
+  assert.equal(solucoes.length, 1, "a posição das cidades é única");
+  assert.equal(solucoes[0], 15, "a resposta oficial da OBMEP é 15 km");
+  num("algebra-inicial", "problemas", "q4", solucoes[0]);
+
+  // e os dois erros previstos são de fato os trechos vizinhos
+  assert.equal(80 - 50, 30, "o trecho C→D");
+  assert.equal(80 - 45, 35, "o trecho A→B");
+  assert.equal(35 + 15 + 30, 80, "os três trechos fecham a rodovia");
+});
+
+// ---------- Equações do 1º grau (7º ano) ----------
+//
+// A matéria inteira se apoia numa afirmação só: operar nos DOIS lados
+// preserva a igualdade. Então o teste não confere a conta publicada — ele
+// confere a afirmação, por força bruta, e só depois usa isso para achar a
+// solução de cada equação.
+//
+// Nenhuma equação daqui é resolvida pela fórmula. Todas são resolvidas por
+// BUSCA na faixa, e o teste exige que a solução publicada seja a única —
+// que é a mesma disciplina usada na lição 5 de Linguagem algébrica.
+
+/**
+ * Resolve por busca, sem isolar nada: varre a faixa e devolve os valores
+ * que tornam os dois lados iguais. Trabalha em passos de 1/2 para pegar
+ * também as soluções quebradas (2x = 9 dá 4,5).
+ */
+function resolverPorBusca(esquerdo, direito, de = -200, ate = 200) {
+  const serve = [];
+  for (let dobro = de * 2; dobro <= ate * 2; dobro++) {
+    const x = dobro / 2;
+    if (Math.abs(esquerdo(x) - direito(x)) < 1e-9) serve.push(x);
+  }
+  return serve;
+}
+
+/** Única solução na faixa, ou explode dizendo o que encontrou. */
+function unica(esquerdo, direito, rotulo) {
+  const s = resolverPorBusca(esquerdo, direito);
+  assert.equal(s.length, 1, `${rotulo}: esperava uma solução só, achei ${JSON.stringify(s)}`);
+  return s[0];
+}
+
+teste("equações · operar nos dois lados preserva a igualdade", () => {
+  // A afirmação central da matéria, conferida em toda a faixa antes de ser
+  // usada: se dois números são iguais, continuam iguais depois da MESMA
+  // operação — e deixam de ser iguais quando ela entra num lado só.
+  for (let v = -30; v <= 30; v += 3) {
+    for (const k of [-7, -1, 2, 5, 11]) {
+      assert.equal(v + k, v + k, "somar nos dois lados");
+      assert.equal(v - k, v - k, "tirar dos dois lados");
+      assert.equal(v * k, v * k, "multiplicar os dois lados");
+      if (k !== 0) assert.equal(v / k, v / k, "dividir os dois lados");
+      // e mexer em um lado só quebra, a não ser que a operação seja neutra
+      if (k !== 0) assert.notEqual(v + k, v, `somar ${k} num lado só`);
+    }
+  }
+});
+
+teste("equações · lição 1 — o princípio da balança", () => {
+  assert.equal(unica((x) => x + 8, () => 21, "x + 8 = 21"), 13, "o exemplo resolvido não fecha");
+
+  num("equacoes-1grau", "equilibrio", "q1", unica((x) => x - 7, () => 12, "x − 7 = 12"));
+  alt("equacoes-1grau", "equilibrio", "q2", "Porque tirar a mesma coisa dos dois lados mantém a igualdade");
+  // a letra do lado direito não muda nada: a igualdade não tem lado de chegada
+  num("equacoes-1grau", "equilibrio", "q3", unica(() => 23, (x) => x + 8, "23 = x + 8"));
+  assert.equal(
+    unica(() => 23, (x) => x + 8, "espelhada"),
+    unica((x) => x + 8, () => 23, "normal"),
+    "trocar os lados não pode mudar a solução"
+  );
+  alt("equacoes-1grau", "equilibrio", "q4", "Trocar x por 6 na equação original e ver se os dois lados dão o mesmo");
+
+  // o erro previsto "−5" da q1 resolve OUTRA equação, e é por isso que ele engana
+  assert.equal(unica(() => 7, (x) => x + 12, "7 − x = 12 reescrita"), -5);
+});
+
+teste("equações · lição 2 — desfazer pela operação inversa", () => {
+  assert.equal(unica((x) => 6 * x, () => 42, "6x = 42"), 7, "o exemplo resolvido não fecha");
+
+  num("equacoes-1grau", "isolar", "q1", unica((x) => 5 * x, () => 45, "5x = 45"));
+  num("equacoes-1grau", "isolar", "q2", unica((x) => x / 4, () => 7, "x ÷ 4 = 7"));
+  alt("equacoes-1grau", "isolar", "q3", "Divide os dois lados por 8");
+  // resposta quebrada é resposta normal: 2x = 9 não tem solução inteira
+  const meio = unica((x) => 2 * x, () => 9, "2x = 9");
+  assert.equal(meio, 4.5);
+  assert.ok(!Number.isInteger(meio), "a q4 existe justamente por não ser inteira");
+  num("equacoes-1grau", "isolar", "q4", meio);
+
+  // A tabela das inversas, conferida em vez de afirmada.
+  for (let x = -20; x <= 20; x++) {
+    for (const k of [2, 3, 4, 5, 8]) {
+      assert.equal((x * k) / k, x, `× ${k} desfeito por ÷ ${k}`);
+      assert.equal((x / k) * k, x, `÷ ${k} desfeito por × ${k}`);
+      assert.equal(x + k - k, x, `+ ${k} desfeito por − ${k}`);
+      assert.equal(x - k + k, x, `− ${k} desfeito por + ${k}`);
+    }
+  }
+});
+
+teste("equações · lição 3 — desfazer na ordem inversa", () => {
+  assert.equal(unica((x) => 3 * x + 5, () => 20, "3x + 5 = 20"), 5, "o exemplo resolvido não fecha");
+
+  num("equacoes-1grau", "duas-operacoes", "q1", unica((x) => 4 * x + 7, () => 31, "4x + 7 = 31"));
+  num("equacoes-1grau", "duas-operacoes", "q2", unica((x) => 5 * x - 3, () => 22, "5x − 3 = 22"));
+  alt("equacoes-1grau", "duas-operacoes", "q3", "Tirar 4 dos dois lados");
+  // zero é solução como qualquer outra, e a q4 existe para dizer isso
+  const zero = unica((x) => 2 * x + 9, () => 9, "2x + 9 = 9");
+  assert.equal(zero, 0);
+  num("equacoes-1grau", "duas-operacoes", "q4", zero);
+
+  // As duas ordens dão a MESMA resposta — a ordem recomendada é só a que não
+  // cria fração no caminho. Conferido nas duas, para a lição não virar dogma.
+  for (let a = 1; a <= 9; a++) {
+    for (let b = -9; b <= 9; b++) {
+      for (let c = -20; c <= 20; c += 4) {
+        const tirandoPrimeiro = (c - b) / a;      // tira o termo solto, depois divide
+        const dividindoPrimeiro = c / a - b / a;  // divide tudo antes
+        assert.ok(Math.abs(tirandoPrimeiro - dividindoPrimeiro) < 1e-9, `${a}x + ${b} = ${c}`);
+      }
+    }
+  }
+});
+
+teste("equações · lição 4 — a letra nos dois lados", () => {
+  assert.equal(
+    unica((x) => 5 * x + 2, (x) => 3 * x + 10, "5x + 2 = 3x + 10"),
+    4, "o exemplo resolvido não fecha"
+  );
+
+  num("equacoes-1grau", "dois-lados", "q1", unica((x) => 4 * x + 3, (x) => 2 * x + 15, "q1"));
+  num("equacoes-1grau", "dois-lados", "q2", unica((x) => 6 * x + 4, (x) => 2 * x + 20, "q2"));
+  num("equacoes-1grau", "dois-lados", "q3", unica((x) => 3 * x + 8, (x) => 7 * x, "q3"));
+  alt("equacoes-1grau", "dois-lados", "q4", "Que a igualdade é verdadeira para qualquer valor de x");
+
+  // Tirar o menor ou o maior coeficiente leva ao MESMO valor: a recomendação
+  // da lição é sobre conforto, e não sobre correção. Conferido por força bruta.
+  for (let a = 1; a <= 8; a++) {
+    for (let c = 1; c <= 8; c++) {
+      if (a === c) continue;
+      for (const b of [-6, 0, 3, 9]) {
+        for (const d of [-6, 0, 3, 9]) {
+          const porSubtracao = (d - b) / (a - c);
+          assert.ok(
+            Math.abs((a * porSubtracao + b) - (c * porSubtracao + d)) < 1e-9,
+            `${a}x+${b} = ${c}x+${d}`
+          );
+        }
+      }
+    }
+  }
+
+  // O caso da q4: quando os dois lados são a MESMA expressão, todo valor serve.
+  const todos = resolverPorBusca((x) => 2 * x + 5, (x) => 5 + x + x, -30, 30);
+  assert.equal(todos.length, 121, "identidade: todo valor da faixa deveria servir");
+  // e quando sobra algo falso, nenhum serve
+  assert.equal(resolverPorBusca((x) => x + 5, (x) => x + 8, -30, 30).length, 0);
+});
+
+teste("equações · lição 5 — parênteses e frações", () => {
+  // Abrir o parêntese é uma AFIRMAÇÃO sobre toda a faixa, e não uma reescrita:
+  // 2(x+3) e 2x+6 têm de dar o mesmo valor em todo ponto, e 2x+3 não.
+  for (let x = -20; x <= 20; x++) {
+    assert.equal(2 * (x + 3), 2 * x + 6, `x = ${x}`);
+    assert.equal(2 * (x + 5), 2 * x + 10, `x = ${x}`);
+    if (x !== 0) {
+      assert.notEqual(2 * (x + 5), 2 * x + 5, "o erro previsto tem de discordar");
+      assert.notEqual(2 * (x + 5), x + 10, "o erro previsto tem de discordar");
+    }
+    assert.notEqual(2 * (x + 5), 2 * x + 7, "2x + 7 nunca coincide");
+  }
+
+  assert.equal(unica((x) => 2 * (x + 3), () => 14, "2(x+3) = 14"), 4, "o exemplo resolvido não fecha");
+  // e o atalho citado no fecho dá o mesmo
+  assert.equal(unica((x) => x + 3, () => 7, "atalho"), 4);
+
+  num("equacoes-1grau", "parenteses-fracoes", "q1", unica((x) => 3 * (x + 2), () => 21, "q1"));
+  num("equacoes-1grau", "parenteses-fracoes", "q2", unica((x) => x / 4 + 1, () => 6, "q2"));
+  alt("equacoes-1grau", "parenteses-fracoes", "q3", "2x + 10");
+  num("equacoes-1grau", "parenteses-fracoes", "q4", unica((x) => x / 2 - 3, () => 4, "q4"));
+
+  // Multiplicar os dois lados pelo denominador limpa a fração sem mudar a
+  // solução — conferido comparando a equação com fração e a equação limpa.
+  for (let d = 2; d <= 6; d++) {
+    for (let b = -5; b <= 5; b++) {
+      for (let c = -10; c <= 10; c += 5) {
+        const comFracao = resolverPorBusca((x) => x / d + b, () => c);
+        const limpa = resolverPorBusca((x) => x + b * d, () => c * d);
+        assert.deepEqual(comFracao, limpa, `x/${d} + ${b} = ${c}`);
+      }
+    }
+  }
+});
+
+teste("equações · lição 6 — modelar, resolver e voltar à pergunta", () => {
+  assert.equal(unica((x) => 2 * x - 7, () => 23, "2x − 7 = 23"), 15, "o exemplo resolvido não fecha");
+
+  // q1: um número mais o triplo dele dá 48 — achado por busca sobre o TEXTO
+  const soma = [];
+  for (let n = 1; n <= 200; n++) if (n + 3 * n === 48) soma.push(n);
+  assert.deepEqual(soma, [12]);
+  num("equacoes-1grau", "problemas", "q1", soma[0]);
+  assert.equal(3 * soma[0], 36, "o erro previsto 36 é mesmo o triplo");
+
+  // q2: Ana tem 5 a mais que Bruno e juntos têm 37
+  const idades = [];
+  for (let b = 0; b <= 100; b++) if (b + (b + 5) === 37) idades.push(b);
+  assert.deepEqual(idades, [16]);
+  num("equacoes-1grau", "problemas", "q2", idades[0]);
+  assert.equal(idades[0] + 5, 21, "o erro previsto 21 é a idade de Ana");
+
+  // OBMEP 2010, problema 29. Resolvido pelo TEXTO, e não pela equação: varre
+  // o tamanho da classe e exige que só um valor produza exatamente 4 meninos
+  // de óculos com todas as frações dando números inteiros de pessoas.
+  const classes = [];
+  for (let x = 1; x <= 600; x++) {
+    const comOculos = x / 6;
+    if (!Number.isInteger(comOculos)) continue;
+    const meninas = comOculos / 3;
+    if (!Number.isInteger(meninas)) continue;
+    if (comOculos - meninas === 4) classes.push(x);
+  }
+  assert.deepEqual(classes, [36], "a resposta oficial da OBMEP é 36 alunos");
+  num("equacoes-1grau", "problemas", "q3", classes[0]);
+
+  // OBMEP 2010, problema 74. Sem a manipulação algébrica da solução oficial:
+  // o teste varre valores possíveis do valor comum e confere que c é o maior
+  // em TODOS eles — se dependesse do valor comum, a questão seria ambígua.
+  for (let k = -50; k <= 50; k++) {
+    const a = k + 1, b = k - 2, c = k + 3, d = k - 4;
+    assert.equal(a - 1, k); assert.equal(b + 2, k);
+    assert.equal(c - 3, k); assert.equal(d + 4, k);
+    assert.equal(Math.max(a, b, c, d), c, `com valor comum ${k}, o maior deveria ser c`);
+    assert.equal(Math.min(a, b, c, d), d, "e o menor é sempre o d");
+  }
+  alt("equacoes-1grau", "problemas", "q4", "O número c");
 });
 
 teste("as igualdades escritas nas contas são verdadeiras", () => {

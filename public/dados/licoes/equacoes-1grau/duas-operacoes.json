@@ -1,0 +1,198 @@
+{
+  "id": "duas-operacoes",
+  "numero": 3,
+  "titulo": "Quando há duas operações",
+  "pergunta": "Em 3x + 5 = 20, o que se desfaz primeiro?",
+  "ideia": {
+    "paragrafos": [
+      "A maioria das equações não tem uma coisa só grudada na incógnita: tem duas. Em 3x + 5 = 20, o x foi multiplicado por 3 E depois somado a 5. Para isolá-lo é preciso desfazer as duas, e a pergunta que decide tudo é por qual começar.",
+      "A resposta vem da máquina da matéria passada. O número entrou, foi multiplicado por 3 e depois recebeu mais 5. Para voltar ao começo, o caminho é o mesmo de trás para frente: tira-se o 5 primeiro e só depois desfaz-se a multiplicação. A última coisa que foi feita é a primeira a ser desfeita.",
+      "Na prática isso vira uma regra curta: tire primeiro o termo SOLTO — o que está sendo somado ou subtraído — e só depois cuide do número que multiplica a letra. No 1º grau essa ordem funciona quase sempre.",
+      "Vale entender por que ela é melhor, e não só decorá-la. O + 5 está fora do produto: ele se aplica ao 3x inteiro. Se você dividisse por 3 antes, teria de dividir o 5 também, e a equação ganharia uma fração sem nenhuma necessidade.",
+      "Fora isso, nada muda. Cada passo continua sendo feito nos dois lados, e conferir continua sendo substituir o valor achado na equação original — nunca na última linha, que é justamente a que pode ter saído errada."
+    ],
+    "destaque": "Desfaz-se na ordem inversa: primeiro o que foi somado, depois o que multiplicou.",
+    "imagem": "eq-ideia-ordem"
+  },
+  "resolvido": {
+    "enunciado": "Resolva a equação 3x + 5 = 20.",
+    "imagem": "eq-res-duas",
+    "passos": [
+      {
+        "titulo": "Separe o que está grudado",
+        "explicacao": "Há duas coisas em volta da letra: uma multiplicação por 3 e uma soma de 5. A soma foi a última a entrar, então é a primeira a sair.",
+        "conta": "3x + 5 = 20"
+      },
+      {
+        "titulo": "Tire o termo solto dos dois lados",
+        "explicacao": "Retirar 5 dos dois pratos mantém o equilíbrio e faz sumir a parte que não tem letra.",
+        "conta": "3x + 5 − 5 = 20 − 5 → 3x = 15"
+      },
+      {
+        "titulo": "Agora desfaça a multiplicação",
+        "explicacao": "Sobrou uma equação igual às da lição passada: três parcelas iguais valendo 15.",
+        "conta": "3x ÷ 3 = 15 ÷ 3"
+      },
+      {
+        "titulo": "Simplifique e confira no original",
+        "explicacao": "O valor achado precisa satisfazer a equação inteira, com as duas operações no lugar.",
+        "conta": "x = 5 · 3 × 5 + 5 = 20 ✓"
+      }
+    ],
+    "fecho": "Se tivesse dividido primeiro, o 5 também seria dividido e apareceria um 5/3 no caminho. A resposta seria a mesma, o trabalho seria maior."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Resolva a equação 4x + 7 = 31. Digite apenas o número.",
+      "imagem": "eq-q-4x7",
+      "dica": "Tire primeiro o termo solto dos dois lados. Só depois cuide do número que multiplica a letra.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "9.5",
+          "porque": "9,5 soma o 7 em vez de tirar, chegando a 38 e dividindo por 4. O 7 está sendo ACRESCENTADO no lado esquerdo, então para desfazê-lo é preciso subtrair."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é o valor de 4x, e não o de x. O primeiro passo foi feito certo, mas falta o segundo: repartir esse total entre as quatro parcelas iguais."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 tira o 7 e depois tira mais 4, tratando a multiplicação como se fosse soma. O 4 está multiplicando a letra, então ele sai por divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire 7 dos dois lados",
+          "explicacao": "O termo solto sai primeiro, porque foi a última operação a entrar.",
+          "conta": "4x = 31 − 7 = 24"
+        },
+        {
+          "titulo": "Divida por 4 e confira",
+          "explicacao": "Agora sobrou uma multiplicação só, desfeita pela divisão.",
+          "conta": "x = 6 · 4 × 6 + 7 = 31 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolva a equação 5x − 3 = 22. Digite apenas o número.",
+      "imagem": "eq-q-5x3",
+      "dica": "Aqui o termo solto está sendo subtraído. Qual operação desfaz uma subtração?",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "3.8",
+          "porque": "3,8 tira mais 3 do 22, mas o 3 JÁ estava sendo tirado no lado esquerdo. Para desfazer uma subtração é preciso somar, chegando a 25 e não a 19."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é o valor de 5x, e não o de x. O primeiro passo saiu certo; falta dividir esse total pelas cinco parcelas iguais."
+        },
+        {
+          "resposta": "19",
+          "porque": "19 é 22 menos 3, ou seja, o primeiro passo feito com o sinal trocado — e ainda parado no meio, porque a divisão por 5 nem chegou a acontecer."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some 3 aos dois lados",
+          "explicacao": "A soma desfaz a subtração e leva o termo solto embora.",
+          "conta": "5x = 22 + 3 = 25"
+        },
+        {
+          "titulo": "Divida por 5 e confira",
+          "explicacao": "O valor achado volta para a equação original, com a subtração no lugar.",
+          "conta": "x = 5 · 5 × 5 − 3 = 22 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na equação 6x + 4 = 28, qual é o primeiro passo?",
+      "imagem": "eq-q-primeiro-passo",
+      "dica": "Pense na ordem em que as operações foram feitas com o x, e desfaça a última delas primeiro.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Tirar 4 dos dois lados" },
+        { "rotulo": "B", "texto": "Dividir os dois lados por 6" },
+        { "rotulo": "C", "texto": "Somar 4 aos dois lados" },
+        { "rotulo": "D", "texto": "Dividir os dois lados por 4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Dividir os dois lados por 6",
+          "porque": "Não está errado, mas é o caminho trabalhoso: o 4 também teria de ser dividido, e apareceria 4/6 na conta. O termo solto sai primeiro justamente para evitar isso."
+        },
+        {
+          "resposta": "Somar 4 aos dois lados",
+          "porque": "Somar aumenta o termo solto em vez de eliminá-lo: ficaria 6x + 8 = 32. O 4 está sendo acrescentado, então quem o desfaz é a subtração."
+        },
+        {
+          "resposta": "Dividir os dois lados por 4",
+          "porque": "O 4 não multiplica o x — ele está somado. Dividir por ele não desfaz nada e ainda quebra o 6x, deixando 1,5x = 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja a ordem das operações",
+          "explicacao": "O x foi multiplicado por 6 e depois recebeu mais 4. A soma foi a última a entrar.",
+          "conta": "x → ×6 → +4"
+        },
+        {
+          "titulo": "Desfaça de trás para frente",
+          "explicacao": "A última a entrar é a primeira a sair, então o 4 vai embora antes.",
+          "conta": "6x + 4 − 4 = 28 − 4"
+        },
+        {
+          "titulo": "E aí sim divida",
+          "explicacao": "Com o termo solto fora, sobra a multiplicação, desfeita pela divisão.",
+          "conta": "6x = 24 → x = 4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Resolva a equação 2x + 9 = 9. Digite apenas o número.",
+      "imagem": "eq-q-zero",
+      "dica": "Resolva do jeito de sempre, sem estranhar o resultado. Zero é um número como qualquer outro.",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 repete o número que aparece nos dois lados, mas ele é o termo solto e o total, e não o valor da letra. Testando: 2 × 9 + 9 daria 27, e não 9."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 soma os dois noves. O 9 do lado esquerdo está sendo acrescentado ao 2x, então para isolá-lo é preciso tirá-lo dos dois lados, e não juntá-los."
+        },
+        {
+          "resposta": "4.5",
+          "porque": "4,5 divide 9 por 2 sem antes tirar o 9 que está somado. Feito o primeiro passo, o que sobra do lado direito é zero, e não nove."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire 9 dos dois lados",
+          "explicacao": "O termo solto sai primeiro, como sempre, e do lado direito não sobra nada.",
+          "conta": "2x = 9 − 9 = 0"
+        },
+        {
+          "titulo": "Divida por 2",
+          "explicacao": "Zero repartido em duas partes iguais dá zero em cada uma.",
+          "conta": "x = 0 ÷ 2 = 0"
+        },
+        {
+          "titulo": "Confira no original",
+          "explicacao": "Zero é uma solução perfeitamente válida, e a equação confirma isso.",
+          "conta": "2 × 0 + 9 = 9 ✓"
+        }
+      ]
+    }
+  ]
+}

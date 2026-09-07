@@ -1,0 +1,198 @@
+{
+  "id": "valor-numerico",
+  "numero": 3,
+  "titulo": "Valor numérico",
+  "pergunta": "Quanto vale uma expressão quando a letra vira número?",
+  "ideia": {
+    "paragrafos": [
+      "Uma expressão com letra não tem UM valor: ela tem um valor para cada entrada. É como uma máquina — entra um número, a expressão faz com ele o que está escrito, e sai outro número. Achar esse número de saída é calcular o VALOR NUMÉRICO da expressão.",
+      "O procedimento é curto: trocar a letra pelo número e efetuar. A parte que engana é a ordem das operações, que continua exatamente a mesma de antes. Em 2n², com n = 3, primeiro vem a potência e depois a multiplicação: 2 × 9, que dá 18. Fazer o contrário daria 36, que é o quadrado de outra coisa.",
+      "Vale substituir com PARÊNTESES, sempre. Escrever 2(3) deixa claro que há uma multiplicação ali; escrever 23 cria um número que não existia no problema. E com número negativo o parêntese deixa de ser cuidado e passa a ser necessidade: em 5 − n, com n = −4, o certo é 5 − (−4), que dá 9.",
+      "Quando há mais de uma letra, cada uma recebe o seu próprio valor, e o resto não muda. Em 3a + b, com a = 2 e b = 5, a conta vira 6 + 5, ou seja, 11. Nenhuma letra empresta valor para a outra.",
+      "Calcular a mesma expressão em várias entradas monta uma tabela, e a tabela mostra o COMPORTAMENTO. Em 2n + 3, cada vez que n cresce 1, o resultado cresce 2 — que é o passo da sequência da lição 1, aparecendo do outro lado."
+    ],
+    "destaque": "Substituir é trocar a letra pelo número entre parênteses, e só então calcular.",
+    "imagem": "alg-ideia-valor"
+  },
+  "resolvido": {
+    "enunciado": "Qual é o valor de 3a² − 2b quando a = 4 e b = 5?",
+    "imagem": "alg-res-valor",
+    "passos": [
+      {
+        "titulo": "Substitua com parênteses",
+        "explicacao": "Cada letra recebe o seu valor, e o parêntese guarda a multiplicação que estava escondida no 3a e no 2b.",
+        "conta": "3(4)² − 2(5)"
+      },
+      {
+        "titulo": "Resolva as potências primeiro",
+        "explicacao": "O expoente 2 pertence só ao a, e não ao 3. Elevar antes de multiplicar é o que a ordem das operações manda.",
+        "conta": "4² = 16"
+      },
+      {
+        "titulo": "Faça as multiplicações",
+        "explicacao": "Com as potências resolvidas, sobram duas multiplicações independentes.",
+        "conta": "3 × 16 = 48 · 2 × 5 = 10"
+      },
+      {
+        "titulo": "Subtraia por último",
+        "explicacao": "A subtração só entra quando os dois termos já são números.",
+        "conta": "48 − 10 = 38"
+      }
+    ],
+    "fecho": "Se o expoente fosse do 3 também, a expressão teria de escrever (3a)². Sem parêntese, ele pega só a letra."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o valor de 5n − 8 quando n = 6? Digite apenas o número.",
+      "imagem": "alg-q-5n8",
+      "dica": "Lembre que 5n é uma multiplicação, e faça-a antes da subtração.",
+      "formato": "numero",
+      "resposta": 22,
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 vem de escrever 56 no lugar de 5n, como se o 5 e o 6 formassem um número de dois algarismos. Em álgebra, número colado em letra quer dizer multiplicação: 5n é 5 × n."
+        },
+        {
+          "resposta": "38",
+          "porque": "38 soma 8 em vez de subtrair. O sinal que está na expressão é de menos, e trocá-lo muda o resultado em 16 unidades."
+        },
+        {
+          "resposta": "-3",
+          "porque": "−3 sai de calcular 5 − 8, ou seja, de ignorar o valor de n. A letra vale 6 aqui, e ela precisa entrar na multiplicação antes de a subtração acontecer."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua com parênteses",
+          "explicacao": "O parêntese deixa a multiplicação visível e evita colar o 5 no 6.",
+          "conta": "5(6) − 8"
+        },
+        {
+          "titulo": "Multiplique e depois subtraia",
+          "explicacao": "A multiplicação vem antes da subtração na ordem das operações.",
+          "conta": "30 − 8 = 22"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o valor de 2n² quando n = 3? Digite apenas o número.",
+      "imagem": "alg-q-quadrado",
+      "dica": "O expoente pertence só à letra. Descubra o que ele alcança antes de calcular.",
+      "formato": "numero",
+      "resposta": 18,
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é (2n)², ou seja, dobrou antes de elevar ao quadrado. O expoente está escrito só no n, então ele alcança só o 3 — para pegar o 2 junto seria preciso escrever (2n)²."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 trata o quadrado como se fosse outro dobro, calculando 2 × 3 × 2. Elevar ao quadrado é multiplicar o número por ele mesmo, e não por 2."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é apenas n², ou seja, o 2 da frente foi esquecido. Depois de elevar ao quadrado ainda falta multiplicar o resultado por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o alcance do expoente",
+          "explicacao": "Sem parênteses, o expoente pega só o símbolo imediatamente antes dele.",
+          "conta": "2n² = 2 × (n × n)"
+        },
+        {
+          "titulo": "Eleve ao quadrado",
+          "explicacao": "Três vezes três, que é o que o expoente 2 manda fazer.",
+          "conta": "3² = 9"
+        },
+        {
+          "titulo": "Multiplique pelo coeficiente",
+          "explicacao": "Só agora o 2 entra, multiplicando o resultado da potência.",
+          "conta": "2 × 9 = 18"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é o valor de 3a + b quando a = 7 e b = 4? Digite apenas o número.",
+      "imagem": "alg-q-duas-letras",
+      "dica": "Cada letra recebe o seu próprio valor, e o 3 multiplica apenas o a.",
+      "formato": "numero",
+      "resposta": 25,
+      "errosComuns": [
+        {
+          "resposta": "33",
+          "porque": "33 é 3(a + b), ou seja, somou as duas letras antes de multiplicar. Na expressão o 3 está encostado só no a, então ele multiplica só o a."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 é a + b, com o 3 esquecido pelo caminho. Ele não é enfeite: o termo 3a vale três vezes o valor de a."
+        },
+        {
+          "resposta": "84",
+          "porque": "84 é 3ab, isto é, multiplicou tudo. O sinal entre 3a e b é de soma, e soma não pode virar multiplicação sem mudar o resultado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua cada letra",
+          "explicacao": "Cada uma recebe o valor que o enunciado deu, sem misturar.",
+          "conta": "3(7) + 4"
+        },
+        {
+          "titulo": "Multiplique antes de somar",
+          "explicacao": "O termo 3a é uma multiplicação, e ela vem primeiro.",
+          "conta": "21 + 4 = 25"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na expressão 3n + 1, o que acontece com o resultado cada vez que n aumenta 1?",
+      "imagem": "alg-q-passo",
+      "dica": "Calcule o valor para dois n seguidos e compare os resultados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Aumenta 3" },
+        { "rotulo": "B", "texto": "Aumenta 1" },
+        { "rotulo": "C", "texto": "Aumenta 4" },
+        { "rotulo": "D", "texto": "Fica multiplicado por 3" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Aumenta 1",
+          "porque": "Olha para o + 1 da expressão, mas ele é a parte FIXA: entra uma vez só, seja qual for o n. Quem responde pelo crescimento é o número que multiplica a letra."
+        },
+        {
+          "resposta": "Aumenta 4",
+          "porque": "Soma o 3 com o 1, misturando o passo com a parte fixa. Testando: com n = 1 dá 4 e com n = 2 dá 7, então a diferença é 3."
+        },
+        {
+          "resposta": "Fica multiplicado por 3",
+          "porque": "Confunde multiplicar a letra com multiplicar o resultado. De n = 1 para n = 2 o resultado vai de 4 para 7, e 7 não é o triplo de 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule dois valores seguidos",
+          "explicacao": "Comparar entradas vizinhas é o jeito mais direto de enxergar o passo.",
+          "conta": "n=1 → 4 · n=2 → 7"
+        },
+        {
+          "titulo": "Compare os resultados",
+          "explicacao": "A diferença entre eles é o quanto a expressão cresce a cada unidade de n.",
+          "conta": "7 − 4 = 3"
+        },
+        {
+          "titulo": "Confira mais adiante",
+          "explicacao": "O passo tem de ser o mesmo em qualquer parte da tabela, e não só no começo.",
+          "conta": "n=5 → 16 · n=6 → 19 ✓"
+        }
+      ]
+    }
+  ]
+}

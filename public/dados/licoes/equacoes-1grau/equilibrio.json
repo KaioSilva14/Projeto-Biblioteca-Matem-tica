@@ -1,0 +1,209 @@
+{
+  "id": "equilibrio",
+  "numero": 1,
+  "titulo": "O princípio da balança",
+  "pergunta": "Como descobrir o valor sem ficar adivinhando?",
+  "ideia": {
+    "paragrafos": [
+      "Na matéria anterior você aprendeu a TESTAR um valor: substituir nos dois lados e ver se dão o mesmo número. Isso funciona bem quando a resposta é pequena e redonda. Para 7x + 13 = 202, testar vira perda de tempo — é preciso um método que ACHE o valor, e não que apenas confira um valor já escolhido.",
+      "O método sai da balança, e é quase óbvio quando dito em voz alta: se os dois pratos estão equilibrados e você tira a mesma coisa dos dois, eles continuam equilibrados. Se acrescenta a mesma coisa nos dois, também. O que quebra o equilíbrio é mexer em um lado só.",
+      "Isso não é um truque de conta: é uma afirmação sobre igualdade. Se a = b, então a − 5 = b − 5, e a + 5 = b + 5. A igualdade sobrevive a qualquer operação feita dos DOIS lados, e não sobrevive a nenhuma feita de um lado só.",
+      "Resolver uma equação é usar essa regra várias vezes com um objetivo só: deixar a letra SOZINHA de um lado. Cada passo tira do caminho alguma coisa que estava grudada nela, e cada passo é feito nos dois lados.",
+      "E como toda linha continua sendo verdadeira, a última delas — aquela que diz x = alguma coisa — afirma exatamente o mesmo que a primeira. É por isso que conferir a resposta na equação ORIGINAL sempre funciona: ela nunca deixou de valer."
+    ],
+    "destaque": "O que se faz de um lado tem de ser feito do outro. É só isso que mantém a igualdade.",
+    "imagem": "eq-ideia-equilibrio"
+  },
+  "resolvido": {
+    "enunciado": "Resolva a equação x + 8 = 21.",
+    "imagem": "eq-res-equilibrio",
+    "passos": [
+      {
+        "titulo": "Veja o que está atrapalhando",
+        "explicacao": "A letra não está sozinha: há um 8 somado a ela. Enquanto esse 8 estiver ali, o prato não mostra quanto vale x.",
+        "conta": "x + 8 = 21"
+      },
+      {
+        "titulo": "Desfaça a soma nos dois lados",
+        "explicacao": "Somar 8 se desfaz tirando 8. E para a igualdade continuar valendo, o 8 sai dos dois pratos ao mesmo tempo.",
+        "conta": "x + 8 − 8 = 21 − 8"
+      },
+      {
+        "titulo": "Simplifique cada lado",
+        "explicacao": "Do lado esquerdo o 8 foi embora e sobrou a letra sozinha; do direito ficou a conta pronta.",
+        "conta": "x = 13"
+      },
+      {
+        "titulo": "Confira na equação original",
+        "explicacao": "Conferir é substituir o valor achado na primeira linha, e não na última — se algum passo tivesse escorregado, é aqui que apareceria.",
+        "conta": "13 + 8 = 21 ✓"
+      }
+    ],
+    "fecho": "Repare que em nenhum momento foi preciso adivinhar. O valor apareceu sozinho, tirado pelo método."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Resolva a equação x − 7 = 12. Digite apenas o número.",
+      "imagem": "eq-q-menos-7",
+      "dica": "O 7 já foi tirado do x. Para desfazer uma subtração, qual operação se usa?",
+      "formato": "numero",
+      "resposta": 19,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 tira 7 de 12, mas o 7 JÁ tinha sido tirado — é isso que a equação diz. Para desfazer uma subtração é preciso somar, e não subtrair de novo."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 resolve 7 − x = 12, que é outra equação. Na que foi dada quem perde o 7 é o x, então ele é o maior dos dois, e não o menor."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o valor do outro lado da igualdade, ou seja, quanto sobra DEPOIS de tirar 7. O x é o valor de antes, que ainda tinha esses 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desfaça a subtração",
+          "explicacao": "Somar 7 é o que desfaz tirar 7, e a soma entra nos dois lados.",
+          "conta": "x − 7 + 7 = 12 + 7"
+        },
+        {
+          "titulo": "Simplifique e confira",
+          "explicacao": "A letra fica sozinha, e a resposta volta para a equação original.",
+          "conta": "x = 19 · 19 − 7 = 12 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Na equação x + 5 = 12, por que se pode tirar 5 dos dois lados?",
+      "imagem": "eq-q-por-que-dois-lados",
+      "dica": "Pense na balança: o que aconteceria se você tirasse peso de um prato só?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque tirar a mesma coisa dos dois lados mantém a igualdade" },
+        { "rotulo": "B", "texto": "Porque 5 é o menor número que aparece na equação" },
+        { "rotulo": "C", "texto": "Porque assim o x fica positivo" },
+        { "rotulo": "D", "texto": "Porque a regra manda sempre começar pelo lado esquerdo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque 5 é o menor número que aparece na equação",
+          "porque": "O tamanho do número não autoriza nada. O que autoriza é a operação ser feita nos DOIS lados — tirar 12 dos dois também seria permitido, embora não ajudasse a isolar o x."
+        },
+        {
+          "resposta": "Porque assim o x fica positivo",
+          "porque": "O x já era positivo antes e continuaria sendo de qualquer jeito. A razão de tirar 5 é deixar a letra sozinha, e a permissão vem de fazer isso nos dois lados."
+        },
+        {
+          "resposta": "Porque a regra manda sempre começar pelo lado esquerdo",
+          "porque": "Não existe regra sobre por qual lado começar: a igualdade não tem lado de chegada. O que existe é a exigência de tratar os dois lados do mesmo jeito."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte à balança",
+          "explicacao": "Os dois pratos pesam o mesmo. Tirar peso de um só desequilibra na hora.",
+          "conta": "esquerdo = direito"
+        },
+        {
+          "titulo": "Tire dos dois",
+          "explicacao": "Retirando a mesma quantidade dos dois pratos, o equilíbrio permanece e a igualdade continua verdadeira.",
+          "conta": "x + 5 − 5 = 12 − 5"
+        },
+        {
+          "titulo": "Veja o que sobrou",
+          "explicacao": "O objetivo foi alcançado: a letra ficou sozinha de um lado.",
+          "conta": "x = 7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Resolva a equação 23 = x + 8. Repare que a letra está do lado direito. Digite apenas o número.",
+      "imagem": "eq-q-letra-a-direita",
+      "dica": "A igualdade não tem lado de chegada: o método é o mesmo, com o x onde ele estiver.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "31",
+          "porque": "31 soma os dois números que aparecem. Mas o 23 é o total do lado que JÁ contém o 8, então somar de novo passa do valor em vez de chegar nele."
+        },
+        {
+          "resposta": "23",
+          "porque": "23 é o total do lado esquerdo, e do lado direito esse total é repartido entre o x e mais 8 unidades. O x é só uma parte dele."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o número que acompanha o x, e não o valor dele. Testando: 8 + 8 dá 16, e o outro lado vale 23."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Não se assuste com o lado",
+          "explicacao": "A igualdade vale nos dois sentidos, então 23 = x + 8 diz o mesmo que x + 8 = 23.",
+          "conta": "23 = x + 8"
+        },
+        {
+          "titulo": "Tire 8 dos dois lados",
+          "explicacao": "É o que desfaz a soma e deixa a letra sozinha, esteja ela à esquerda ou à direita.",
+          "conta": "23 − 8 = x + 8 − 8"
+        },
+        {
+          "titulo": "Simplifique e confira",
+          "explicacao": "Substituindo na equação original, os dois lados têm de dar o mesmo número.",
+          "conta": "x = 15 · 15 + 8 = 23 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Alguém resolveu x + 9 = 15 e achou x = 6. Qual é o jeito certo de conferir?",
+      "imagem": "eq-q-conferir",
+      "dica": "Conferir é testar o valor achado, e uma igualdade só se confere calculando os dois lados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Trocar x por 6 na equação original e ver se os dois lados dão o mesmo" },
+        { "rotulo": "B", "texto": "Refazer a mesma conta, do mesmo jeito, e ver se dá 6 de novo" },
+        { "rotulo": "C", "texto": "Somar 6 com 15 e ver se dá um número redondo" },
+        { "rotulo": "D", "texto": "Não dá para conferir: só o gabarito diz se está certo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Refazer a mesma conta, do mesmo jeito, e ver se dá 6 de novo",
+          "porque": "Repetir o mesmo caminho repete também o mesmo engano, se houve um. Conferir de verdade é usar outro caminho — e substituir na equação original é justamente outro caminho."
+        },
+        {
+          "resposta": "Somar 6 com 15 e ver se dá um número redondo",
+          "porque": "Essa soma não aparece em lugar nenhum da equação, e um resultado redondo não é prova de nada. O que a equação afirma é que x + 9 vale 15."
+        },
+        {
+          "resposta": "Não dá para conferir: só o gabarito diz se está certo",
+          "porque": "Dá, sim, e é a maior vantagem de trabalhar com equação: a própria equação diz se a resposta serve. Basta substituir e comparar os dois lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte à equação original",
+          "explicacao": "É nela que a afirmação foi feita, e é nela que a resposta precisa funcionar.",
+          "conta": "x + 9 = 15"
+        },
+        {
+          "titulo": "Substitua e calcule cada lado",
+          "explicacao": "O lado esquerdo vira uma conta fechada; o direito já é um número.",
+          "conta": "6 + 9 = 15 · e o outro lado é 15"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Dando o mesmo número dos dois lados, o valor achado é solução.",
+          "conta": "15 = 15 ✓"
+        }
+      ]
+    }
+  ]
+}

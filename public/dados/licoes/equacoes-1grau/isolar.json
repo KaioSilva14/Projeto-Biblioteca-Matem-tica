@@ -1,0 +1,193 @@
+{
+  "id": "isolar",
+  "numero": 2,
+  "titulo": "Multiplicar e dividir os dois lados",
+  "pergunta": "E quando a letra está multiplicada por um número?",
+  "ideia": {
+    "paragrafos": [
+      "Nem toda equação tem a incógnita somada a alguma coisa. Em 4x = 20 não há nada para tirar: o que está grudado no x é uma MULTIPLICAÇÃO. E multiplicação não se desfaz com subtração — tirar 4 dos dois lados daria 4x − 4 = 16, que não deixou a letra mais sozinha do que antes.",
+      "A balança continua valendo, agora com outra operação. Se os dois pratos pesam o mesmo e você reparte cada um em 4 partes iguais, cada parte de um pesa o mesmo que cada parte do outro. Dividir os dois lados pelo mesmo número mantém a igualdade, exatamente como tirar mantinha.",
+      "Então 4x = 20 vira x = 5, dividindo os dois lados por 4. Repare no que aconteceu: dividir por 4 desfez multiplicar por 4. Cada operação se desfaz pela INVERSA dela, e é só isso que está sendo usado desde a lição passada.",
+      "O caminho contrário também aparece. Em x ÷ 3 = 6 a letra está dividida, e o que desfaz uma divisão é uma multiplicação: multiplicando os dois lados por 3, chega-se a x = 18. Vale conferir — 18 dividido por 3 dá 6.",
+      "A tabela das inversas é curta e não muda nunca: mais desfaz menos, menos desfaz mais, vezes desfaz dividido, dividido desfaz vezes. Saber escolher a inversa certa é praticamente saber resolver equação."
+    ],
+    "destaque": "Cada operação se desfaz pela inversa dela, aplicada aos dois lados.",
+    "imagem": "eq-ideia-inversas"
+  },
+  "resolvido": {
+    "enunciado": "Resolva a equação 6x = 42.",
+    "imagem": "eq-res-isolar",
+    "passos": [
+      {
+        "titulo": "Veja o que está grudado na letra",
+        "explicacao": "Aqui não há nada somado: o 6 está multiplicando o x. São seis parcelas iguais a x, e juntas elas pesam 42.",
+        "conta": "6x = 42"
+      },
+      {
+        "titulo": "Escolha a operação inversa",
+        "explicacao": "O que desfaz uma multiplicação por 6 é uma divisão por 6, e ela precisa entrar nos dois lados para a igualdade sobreviver.",
+        "conta": "6x ÷ 6 = 42 ÷ 6"
+      },
+      {
+        "titulo": "Simplifique cada lado",
+        "explicacao": "Do lado esquerdo sobra uma parcela só, que é o próprio x; do direito, a divisão fecha.",
+        "conta": "x = 7"
+      },
+      {
+        "titulo": "Confira na equação original",
+        "explicacao": "Substituindo o valor achado, os dois lados têm de dar o mesmo número.",
+        "conta": "6 × 7 = 42 ✓"
+      }
+    ],
+    "fecho": "Dá para ler o passo na figura: se seis caixinhas iguais pesam 42, cada uma pesa 42 dividido por 6."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Resolva a equação 5x = 45. Digite apenas o número.",
+      "imagem": "eq-q-5x",
+      "dica": "São cinco parcelas iguais somando 45. Qual operação desfaz a multiplicação?",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "225",
+          "porque": "225 multiplica 5 por 45, mas a multiplicação por 5 já está feita — é o que a equação diz. Para desfazê-la é preciso dividir, e não multiplicar de novo."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 soma os dois números. Soma desfaz subtração, e aqui não há subtração nenhuma: o 5 está multiplicando o x, então a inversa é a divisão."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 tira 5 de 45, tratando a multiplicação como se fosse soma. Se fosse x + 5 = 45 a conta serviria; mas 5x quer dizer cinco vezes x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida os dois lados por 5",
+          "explicacao": "É a operação que desfaz a multiplicação por 5, aplicada aos dois lados.",
+          "conta": "5x ÷ 5 = 45 ÷ 5"
+        },
+        {
+          "titulo": "Simplifique e confira",
+          "explicacao": "A letra fica sozinha, e o valor achado volta para a equação original.",
+          "conta": "x = 9 · 5 × 9 = 45 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolva a equação x ÷ 4 = 7. Digite apenas o número.",
+      "imagem": "eq-q-dividido-4",
+      "dica": "Aqui a letra está dividida. Qual operação desfaz uma divisão?",
+      "formato": "numero",
+      "resposta": 28,
+      "errosComuns": [
+        {
+          "resposta": "1.75",
+          "porque": "1,75 divide 7 por 4, mas a divisão já está feita no enunciado. Dividir outra vez afasta ainda mais da resposta: o que desfaz uma divisão é uma multiplicação."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 soma 7 com 4. Soma só desfaz subtração, e aqui a operação grudada na letra é uma divisão — a inversa dela é multiplicar."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 tira 4 de 7, tratando a divisão como se fosse soma. O enunciado diz que x REPARTIDO em 4 partes dá 7, então x é bem maior que 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique os dois lados por 4",
+          "explicacao": "Multiplicar por 4 é o que desfaz dividir por 4, e entra nos dois lados.",
+          "conta": "(x ÷ 4) × 4 = 7 × 4"
+        },
+        {
+          "titulo": "Simplifique e confira",
+          "explicacao": "O valor achado tem de satisfazer a equação original.",
+          "conta": "x = 28 · 28 ÷ 4 = 7 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Para resolver a equação 8x = 56, o que se faz?",
+      "imagem": "eq-q-oito-x",
+      "dica": "Identifique primeiro qual operação está grudada no x, e só depois escolha a inversa dela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Divide os dois lados por 8" },
+        { "rotulo": "B", "texto": "Subtrai 8 dos dois lados" },
+        { "rotulo": "C", "texto": "Multiplica os dois lados por 8" },
+        { "rotulo": "D", "texto": "Soma 8 aos dois lados" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Subtrai 8 dos dois lados",
+          "porque": "Subtrair desfaz uma soma, e aqui não há soma: o 8 multiplica o x. Fazendo isso sobraria 8x − 8 = 48, com a letra tão acompanhada quanto antes."
+        },
+        {
+          "resposta": "Multiplica os dois lados por 8",
+          "porque": "Multiplicar por 8 é justamente o que a equação já fez com o x. Repetir a operação afasta da resposta: chegaria a 64x = 448."
+        },
+        {
+          "resposta": "Soma 8 aos dois lados",
+          "porque": "A soma desfaz subtração, e aqui não há subtração nenhuma. A operação grudada no x é a multiplicação, e a inversa dela é a divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique a operação",
+          "explicacao": "O 8 está encostado no x, o que quer dizer multiplicação.",
+          "conta": "8x = 8 × x"
+        },
+        {
+          "titulo": "Aplique a inversa nos dois lados",
+          "explicacao": "A divisão por 8 desfaz a multiplicação por 8 e deixa a letra sozinha.",
+          "conta": "8x ÷ 8 = 56 ÷ 8 → x = 7"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Resolva a equação 2x = 9. Digite apenas o número — ele não precisa ser inteiro.",
+      "imagem": "eq-q-dois-x-nove",
+      "dica": "O método é o mesmo de sempre. Nada obriga a resposta de uma equação a ser um número inteiro.",
+      "formato": "numero",
+      "resposta": 4.5,
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 multiplica 9 por 2, mas a multiplicação por 2 já está feita. Como duas parcelas iguais somam 9, cada uma é menor que 9, e não maior."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 tira 2 de 9, tratando a multiplicação como soma. Se fosse x + 2 = 9 a conta serviria; em 2x o número está multiplicando a letra."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 soma 9 com 2. A soma desfaz subtração, e aqui a operação a desfazer é uma multiplicação — o que pede divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida os dois lados por 2",
+          "explicacao": "É a inversa da multiplicação por 2, aplicada aos dois lados.",
+          "conta": "2x ÷ 2 = 9 ÷ 2"
+        },
+        {
+          "titulo": "Aceite a resposta quebrada",
+          "explicacao": "Nove repartido em duas partes iguais dá quatro e meio em cada uma. Resposta com vírgula é resposta normal.",
+          "conta": "x = 4,5"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Substituindo na equação original, os dois lados têm de bater.",
+          "conta": "2 × 4,5 = 9 ✓"
+        }
+      ]
+    }
+  ]
+}

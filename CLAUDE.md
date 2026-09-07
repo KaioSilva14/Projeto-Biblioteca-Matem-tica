@@ -19,9 +19,10 @@ Perímetro, Área, Sólidos e volume, Grandezas e medidas, Plano cartesiano,
 Gráficos e tabelas e Média aritmética. Cada matéria concluída emite
 certificado.
 
-**O 7º ano está em andamento: 5 das 13 matérias publicadas** — Números
-inteiros, Números racionais, Razão e proporção, Regra de três e Porcentagem e
-juros simples. O bloco de proporcionalidade está fechado.
+**O 7º ano está em andamento: 7 das 13 matérias publicadas** — Números
+inteiros, Números racionais, Razão e proporção, Regra de três, Porcentagem e
+juros simples, Linguagem algébrica e Equações do 1º grau. O bloco de
+proporcionalidade está fechado, e o de álgebra vai pela metade.
 
 ## Stack
 
@@ -157,7 +158,7 @@ O player só é carregado no clique; antes disso a página não fala com o YouTu
 **Toda questão tem imagem, e imagem é arquivo PNG em `/assets`.** A página
 nunca desenha figura em tempo de execução.
 
-- `ferramentas/desenhos.mjs` — 47 geradores paramétricos de SVG: roda, barra,
+- `ferramentas/desenhos.mjs` — 52 geradores paramétricos de SVG: roda, barra,
   barras empilhadas, barras comparadas, rodas comparadas, grade, reta numérica,
   reta decimal, coleção, recipientes, barra de etapas, corte duplo, barra por
   categorias, preço por parte, quadro de ordens, conta armada, arranjos
@@ -265,6 +266,42 @@ nunca desenha figura em tempo de execução.
   isso as duas tabelas seriam idênticas, e a matéria inteira de Regra de três
   perderia a figura que a explica.
 
+- **Bloco de álgebra** (`sequenciaFiguras`, `balanca`, `barraIncognita`,
+  `maquinaFuncao`, `tokensAlgebricos`), decidido ANTES do conteúdo — que é a
+  única razão de a regra "toda questão tem imagem" não ter virado enfeite na
+  primeira matéria sem figura óbvia. São três metáforas: a SEQUÊNCIA mostra de
+  onde a letra vem (ela é o que sobra quando se para de desenhar figura por
+  figura), a BALANÇA mostra o que a igualdade afirma, e o TOKEN — caixinha para
+  a letra, moeda para o número — mostra por que 3x + 2x junta e 3x + 2 não.
+
+  A caixa e a moeda saem do MESMO helper na balança e fora dela, de propósito:
+  o aluno tem de reconhecer o mesmo objeto nos dois lugares. A distinção entre
+  eles é de FORMA, e não de cor — não há paleta de acento para gastar.
+
+  `sequenciaFiguras` calcula a própria figura a partir de `a` e `b`, como
+  `fatoracao` e `fatoresRepetidos`: a figura n recebe n grupos de `a` mais `b`
+  fixos, então o desenho não tem como discordar do enunciado. Um teste lê os
+  retângulos do SVG de volta e confere a contagem de cada figura.
+
+  Duas correções que a primeira versão da balança pediu, as duas por causa do
+  celular e da leitura: a coluna era um trapézio largo da base à travessa e
+  virava o objeto mais pesado do desenho — a balança lia como obelisco, e agora
+  é um mastro fino; e as cordas prendiam nos CANTOS do prato, formando um
+  triângulo que envolvia a pilha inteira de fichas justamente na figura em que
+  se quer contá-las de olho. Elas prendem a 22% da borda. Com 5 fichas por
+  fileira a figura passava de 470px e caía para 0,61 em 320px; são 4 por
+  fileira.
+
+  `barraIncognita` é esquemática de propósito: a largura de cada pedaço vem de
+  `unidades`, que descreve o que o enunciado JÁ diz (2x é o dobro de x), e
+  nunca do valor procurado — uma fita em escala entregaria a incógnita.
+
+  Equações do 1º grau saiu inteira desse bloco, sem gerador novo — que era o
+  objetivo de tê-lo decidido antes do conteúdo. Duas medidas de lá valem
+  guardar: uma fileira de tokens com `x + 1 1 1 1 1 = 12` passa de 460px e cai
+  para 0,62 em 320px, e quebrada em três fileiras curtas sobe para 0,85; e a
+  balança de 7 fichas num prato mede 376px, que é o teto confortável dela.
+
 - `ferramentas/manifesto-imagens.mjs` — a lista de todas as imagens.
 - `npm run imagens` rasteriza tudo com o Chrome headless em 2x, fundo
   transparente, e reescreve `public/dados/imagens.json`.
@@ -303,6 +340,14 @@ Duas regras de conteúdo para as figuras:
     arquivo de 2010 baixa direto de
     `http://obmep2010.obmep.org.br/bq/bancoobmep2010.pdf`. Dele vieram os
     problemas 7, 39, 64 e 177 (todos de porcentagem).
+  - **O problema 43 do BQ 2010 ("Duas populações") também foi descartado.**
+    O enunciado diz que a população de Pirajussaraí há três anos era igual à
+    que Tucupira tem HOJE, e sob essa leitura a resposta é 7 500 — que é a
+    opção (e), marcada como certa no gabarito. Mas a solução publicada resolve
+    outra coisa: ela trata a população de Pirajussaraí de hoje como o valor de
+    Tucupira há três anos, e conclui 7 200, que é a opção (d). O gabarito e a
+    prosa da própria solução discordam entre si, e a regra aqui é não publicar
+    o que a fonte não fecha.
   - **Achado ao conferir: o problema 110 do BQ 2010 ("Ovos e maçãs") está
     quebrado.** O enunciado diz que o preço dos ovos caiu 10% e o da maçã
     subiu 2%; a solução oficial calcula o contrário (ovos subindo 10%, maçãs
@@ -330,11 +375,23 @@ Duas regras de conteúdo para as figuras:
   comum antes de converter; sem isso, quem digitasse o símbolo da própria tela
   recebia NaN, contado como erro e sem diagnóstico nenhum. Foi corrigido antes
   da primeira lição do 7º ano, e há teste.
+- **O ponto do milhar não pode engolir o decimal de quem escreve `0.045`.**
+  A regra que lê `1.500` como mil e quinhentos valia para QUALQUER ponto
+  seguido de três algarismos, e por isso `0.045` era lido como 45. Sete
+  diagnósticos já publicados (Decimais, Sólidos e as três de Grandezas e
+  medidas) nunca chegavam à tela por causa disso, e o aluno que usasse o ponto
+  como separador decimal tinha a resposta certa recusada. Ninguém escreve
+  `0.500` querendo dizer quinhentos: o grupo antes do ponto tem de começar por
+  algarismo diferente de zero. Achado ao publicar Linguagem algébrica, e há
+  teste nos dois sentidos.
 - **O diagnóstico tem de ser ALCANÇÁVEL pelo motor.** Em questão numérica o
   motor casa por VALOR, não por texto: um erro previsto "8,0" numa questão de
   resposta 8 é aceito como CERTO e nunca aparece, e "6" e "6,0" são o mesmo
   erro escrito duas vezes — o segundo é inalcançável. Os dois casos existiam
-  em Números decimais. Teste cobre.
+  em Números decimais. Teste cobre — e ele usa o `paraNumero` DO MOTOR, e não
+  um parser próprio: um teste mais rígido que o produto reprova diagnóstico que
+  funcionaria na tela, que foi como o `-3` de Linguagem algébrica caiu antes de
+  o bug do ponto aparecer.
 
 ## Testes
 
@@ -485,34 +542,81 @@ chutado, que nem batia com os 38px reais.
 A revisão de fechamento percorreu as 107 páginas e as 352 questões no navegador
 e não deixou defeito conhecido.
 
-**O 7º ano está em andamento: 2 de 13 matérias.** Números inteiros e Números
-racionais somam 14 lições, 56 questões, 168 diagnósticos, 84 imagens e 8
-vídeos. A primeira trouxe o bloco de desenho de negativos e a correção do sinal
-de menos no motor; a segunda quase não pediu desenho novo — só a `subdivisoes`
-da `retaInteiros`, para os racionais terem onde cair entre os inteiros.
+**O 7º ano está em andamento: 7 de 13 matérias** — 44 lições, 176 questões,
+528 diagnósticos, 252 imagens e 28 vídeos.
 
-O 7º ano tem **13 matérias**, nesta ordem: ~~Números inteiros~~ e ~~Números
-racionais~~ (prontas), Razão e proporção, Regra de três, Porcentagem e juros
-simples, Linguagem algébrica, Equações do 1º grau, Inequações, Retas paralelas
-e transversais, Triângulos e quadriláteros, Circunferência e círculo,
-Média/moda/mediana e Probabilidade.
+O 7º ano tem **13 matérias**, nesta ordem: ~~Números inteiros~~, ~~Números
+racionais~~, ~~Razão e proporção~~, ~~Regra de três~~, ~~Porcentagem e juros
+simples~~, ~~Linguagem algébrica~~ e ~~Equações do 1º grau~~ (prontas),
+Inequações, Retas paralelas e transversais, Triângulos e quadriláteros,
+Circunferência e círculo, Média/moda/mediana e Probabilidade.
 
-Duas observações que continuam valendo:
+A próxima é **Inequações**, e ela sai quase de graça em desenho: reusa o bloco
+de álgebra inteiro e finalmente usa a `inclinacao` da `balanca`, que existe
+desde Linguagem algébrica e ainda não apareceu em nenhuma imagem publicada —
+a balança pendendo para um lado é exatamente o que distingue < de =. O ponto
+de conteúdo que ela precisa acertar é o único lugar em que o método de
+Equações QUEBRA: multiplicar ou dividir os dois lados por um número negativo
+inverte o sinal da desigualdade. A lição 2 de Equações já deixa o gancho, ao
+dizer que dividir os dois lados mantém a igualdade — mantém a igualdade, e não
+a desigualdade.
+
+Uma observação que continua valendo:
 
 - **Média, moda e mediana reaproveita `grafico` e `tabela` inteiros**, e é
   continuação direta da Média aritmética do 6º — inclusive do gancho que a
   lição 5 de lá deixou aberto sobre o que a média não conta.
-- **Álgebra é a primeira matéria sem figura óbvia.** Vale decidir o desenho
-  antes de escrever o conteúdo, e não depois: balança de dois pratos para
-  equação, barra dividida para incógnita. Sem isso a regra "toda questão tem
-  imagem" vira enfeite.
 
-A próxima é **Linguagem algébrica**, e ela é a virada do ano: a primeira
-matéria sem figura óbvia, e a primeira em que a letra entra no lugar do número.
-Vale decidir o desenho ANTES de escrever o conteúdo — balança de dois pratos
-para equação, barra dividida para incógnita —, senão a regra "toda questão tem
-imagem" vira enfeite. Depois dela vêm Equações do 1º grau e Inequações, que
-reaproveitam o mesmo bloco.
+**O que Equações do 1º grau deixou registrado:**
+
+- **Nenhum gerador novo.** A matéria inteira coube no bloco de álgebra, e foi
+  por isso que ele foi decidido antes do conteúdo. A balança carrega o
+  princípio de operar nos dois lados, que não fica óbvio sem os dois pratos
+  desenhados.
+- **A balança só entra onde a equação é de soma.** Ela não sabe desenhar termo
+  negativo, e forçá-la a isso seria mentir na figura. Onde há subtração ou
+  divisão quem trabalha é a `maquinaFuncao` com a entrada em aberto — a
+  máquina invertida, que mostra a saída e pergunta o que entrou.
+- **O teste não resolve nenhuma equação pela fórmula.** Ele varre a faixa em
+  passos de meio e exige que a solução publicada seja a ÚNICA — o que também
+  cobre as respostas quebradas (2x = 9 dá 4,5) e o zero (2x + 9 = 9 dá 0), que
+  são duas questões existindo justamente para dizer que isso é normal.
+- **A ordem recomendada é conforto, não correção, e o teste diz isso.** Tirar
+  o termo solto antes de dividir evita fração no caminho, mas as duas ordens
+  dão o mesmo valor — conferido por força bruta em toda a faixa, para a lição
+  não virar dogma. O mesmo vale para tirar o menor ou o maior coeficiente na
+  lição 4.
+- **Abrir parêntese é conferido por equivalência.** 2(x+5) e 2x+10 têm de dar
+  o mesmo valor em −20..20, e os três erros previstos (2x+5, x+10, 2x+7) têm
+  de DISCORDAR em algum ponto. É a mesma disciplina da simplificação de
+  Linguagem algébrica.
+- Da OBMEP vieram dois problemas do Banco de Questões de 2010: o 29 ("Alunos
+  com óculos") e o 74 ("Qual é o maior?"). O 29 é resolvido no teste pelo
+  TEXTO — varrendo o tamanho da classe e exigindo que as frações deem números
+  inteiros de pessoas —, e não pela equação. O 74 é conferido para todo valor
+  comum de −50 a 50: se o maior dependesse desse valor, a questão seria
+  ambígua.
+
+**O que Linguagem algébrica deixou registrado:**
+
+- **A letra entra por uma sequência de figuras, e não por definição.** A lição
+  1 não abre dizendo o que é incógnita: abre com figuras que crescem de dois em
+  dois e com a pergunta de quantos quadradinhos tem a figura 10. A letra chega
+  como economia de trabalho, que é de onde ela veio historicamente.
+- **A lição 5 conserta o sinal de igual antes de ele virar problema.** Anos de
+  aritmética ensinam a ler "=" como "dá", e essa leitura quebra na equação. A
+  balança diz o que ele afirma sem precisar de frase, e o teste exige que a
+  solução publicada seja a ÚNICA da faixa inteira, achada por busca e não pela
+  fórmula.
+- **Simplificar é conferido por equivalência, e não por reescrita.** O teste
+  não compara strings: ele avalia a expressão original e a simplificada em
+  −20..20 e exige que deem o mesmo valor em todos os pontos — e exige que o
+  erro previsto (13x, 6a, 8y) DISCORDE em algum ponto. Uma simplificação certa
+  no caso do enunciado e errada fora dele não passa.
+- Da OBMEP veio o problema 9 do Banco de Questões de 2010 ("Calculando
+  distâncias"), conferido contra a solução oficial. O teste não usa a
+  identidade AC + BD = AD + BC: ele varre as posições possíveis das quatro
+  cidades na rodovia e exige que só uma sirva.
 
 **Duas coisas do bloco de proporcionalidade que valem repetir:**
 
@@ -544,3 +648,7 @@ Custo real por matéria, medido nas duas primeiras: 6 a 8 lições, ~4 questões
 por lição, ~6 imagens por lição, 3 vídeos verificados, e a verificação
 matemática de cada resposta. Não dá para acelerar isso sem cair no conteúdo
 raso que motivou a v3.
+
+
+## Idioma
+Responda SEMPRE em português do Brasil (pt-BR) no chat, independente do idioma do código, comentários ou saídas de ferramentas. Nunca troque para inglês.

@@ -1,0 +1,208 @@
+{
+  "id": "parenteses-fracoes",
+  "numero": 5,
+  "titulo": "Parênteses e frações",
+  "pergunta": "E quando a equação vem com parênteses ou denominador?",
+  "ideia": {
+    "paragrafos": [
+      "Duas formas de escrever atrapalham o método, e as duas se resolvem ANTES de começar a isolar a letra: os parênteses e as frações. Nenhuma das duas exige regra nova — as duas exigem preparar a equação até ela virar uma das que você já sabe resolver.",
+      "Os parênteses saem multiplicando o número de fora por CADA termo de dentro. Em 2(x + 3), o 2 multiplica o x e também multiplica o 3, dando 2x + 6. Esquecer o segundo termo e escrever 2x + 3 é o erro mais comum de toda esta matéria.",
+      "Vale entender por que é assim, olhando o desenho: 2(x + 3) são duas cópias inteiras do pedaço (x + 3). Duas cópias do x dão 2x, e duas cópias do 3 dão 6. Nada foi inventado — só foi contado.",
+      "As frações saem multiplicando os DOIS lados pelo denominador. Em x ÷ 3 + 1 = 5, multiplicar tudo por 3 leva a x + 3 = 15, sem nenhum denominador sobrando. Repare que o 1 também é multiplicado: quando se multiplica um lado, multiplica-se ele inteiro.",
+      "Havendo mais de um denominador, multiplica-se pelo MMC de todos, e a equação fica limpa de uma vez. É o mesmo MMC que apareceu em Frações no 6º ano, agora fazendo outro serviço."
+    ],
+    "destaque": "Tire os parênteses e as frações primeiro. Depois é a mesma equação de sempre.",
+    "imagem": "eq-ideia-preparar"
+  },
+  "resolvido": {
+    "enunciado": "Resolva a equação 2(x + 3) = 14.",
+    "imagem": "eq-res-parenteses",
+    "passos": [
+      {
+        "titulo": "Abra o parêntese",
+        "explicacao": "O 2 de fora multiplica cada um dos termos de dentro, e não apenas o primeiro. São duas cópias do pedaço inteiro.",
+        "conta": "2(x + 3) = 2x + 6"
+      },
+      {
+        "titulo": "Reescreva a equação já sem parênteses",
+        "explicacao": "Agora ela é exatamente uma equação da lição 3: um número multiplicando a letra e um termo solto somado.",
+        "conta": "2x + 6 = 14"
+      },
+      {
+        "titulo": "Tire o termo solto e divida",
+        "explicacao": "A ordem de sempre: primeiro o que está somado, depois o que multiplica.",
+        "conta": "2x = 8 → x = 4"
+      },
+      {
+        "titulo": "Confira no enunciado original",
+        "explicacao": "A conferência é feita na equação COM parênteses, que é onde a afirmação foi escrita.",
+        "conta": "2(4 + 3) = 2 × 7 = 14 ✓"
+      }
+    ],
+    "fecho": "Havia um caminho mais curto aqui: dividir os dois lados por 2 daria x + 3 = 7 direto. Os dois estão certos."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Resolva a equação 3(x + 2) = 21. Digite apenas o número.",
+      "imagem": "eq-q-3-parenteses",
+      "dica": "Abra o parêntese multiplicando o 3 pelos dois termos de dentro — ou divida os dois lados por 3 logo de início.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é o valor de (x + 2), e não o de x. Dividir os dois lados por 3 é um começo válido, mas depois dele ainda falta tirar o 2 que acompanha a letra."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é o valor de 3x depois de abrir o parêntese e tirar o 6. É o passo do meio: falta repartir esse total entre as três parcelas iguais."
+        },
+        {
+          "resposta": "23",
+          "porque": "23 soma o 2 ao 21 e ignora o 3 que está multiplicando tudo. O 2 está DENTRO do parêntese, então ele é multiplicado por 3 antes de qualquer coisa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Abra o parêntese",
+          "explicacao": "O 3 multiplica o x e também o 2, formando três cópias do pedaço.",
+          "conta": "3x + 6 = 21"
+        },
+        {
+          "titulo": "Tire o termo solto e divida",
+          "explicacao": "A ordem de sempre, agora que os parênteses saíram do caminho.",
+          "conta": "3x = 15 → x = 5"
+        },
+        {
+          "titulo": "Confira no original",
+          "explicacao": "Substituindo na equação com parênteses, que é a que foi dada.",
+          "conta": "3(5 + 2) = 21 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolva a equação x ÷ 4 + 1 = 6. Digite apenas o número.",
+      "imagem": "eq-q-fracao-mais-um",
+      "dica": "Tire primeiro o termo solto. O que sobra é uma equação com divisão, como as da lição 2.",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 multiplica 6 por 4 sem antes tirar o 1 que está somado. O termo solto sai primeiro: o que fica dividido por 4 vale 5, e não 6."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o valor de x dividido por 4, e não o de x. Falta o último passo: desfazer a divisão multiplicando por 4."
+        },
+        {
+          "resposta": "28",
+          "porque": "28 soma o 1 ao 6 antes de multiplicar, em vez de tirá-lo. O 1 está sendo ACRESCENTADO do lado esquerdo, então ele sai por subtração."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire o termo solto",
+          "explicacao": "O 1 sai dos dois lados, como em qualquer equação de duas operações.",
+          "conta": "x ÷ 4 = 5"
+        },
+        {
+          "titulo": "Desfaça a divisão",
+          "explicacao": "Multiplicar os dois lados por 4 é a inversa de dividir por 4.",
+          "conta": "x = 20"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Substituindo na equação original, com a divisão e a soma no lugar.",
+          "conta": "20 ÷ 4 + 1 = 6 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A expressão 2(x + 5) é igual a:",
+      "imagem": "eq-q-abrir",
+      "dica": "São duas cópias inteiras do pedaço que está dentro do parêntese. Conte o que há em cada uma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2x + 10" },
+        { "rotulo": "B", "texto": "2x + 5" },
+        { "rotulo": "C", "texto": "x + 10" },
+        { "rotulo": "D", "texto": "2x + 7" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2x + 5",
+          "porque": "Multiplica só o primeiro termo e deixa o 5 intocado. O 2 está fora do parêntese, então ele alcança tudo o que está dentro — inclusive o 5."
+        },
+        {
+          "resposta": "x + 10",
+          "porque": "Multiplica só o segundo termo e esquece o primeiro. As duas cópias do pedaço têm dois x, e não um: com x = 3, a expressão vale 16, e essa daria 13."
+        },
+        {
+          "resposta": "2x + 7",
+          "porque": "Soma o 2 com o 5 em vez de multiplicá-los. O número de fora do parêntese multiplica o que está dentro; ele não se junta a nada por soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as cópias",
+          "explicacao": "O 2 na frente quer dizer duas cópias inteiras do que está dentro.",
+          "conta": "(x + 5) + (x + 5)"
+        },
+        {
+          "titulo": "Junte os semelhantes",
+          "explicacao": "Dois x de um lado e dois cincos do outro, cada família com a sua soma.",
+          "conta": "2x + 10"
+        },
+        {
+          "titulo": "Confira com um número",
+          "explicacao": "Testar um valor qualquer nas duas expressões é o jeito mais rápido de saber se a abertura saiu certa.",
+          "conta": "x=3: 2×8 = 16 · 2(3)+10 = 16 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Resolva a equação x ÷ 2 − 3 = 4. Digite apenas o número.",
+      "imagem": "eq-q-fracao-menos",
+      "dica": "Duas operações de novo: desfaça primeiro a que foi feita por último.",
+      "formato": "numero",
+      "resposta": 14,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 tira mais 3 do 4 e multiplica por 2. O 3 já estava sendo subtraído do lado esquerdo, então para desfazê-lo é preciso somar: o que fica dividido vale 7."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o valor de x dividido por 2, e não o de x. O primeiro passo saiu certo; falta desfazer a divisão multiplicando por 2."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 multiplica 4 por 2 sem antes desfazer a subtração. O termo solto sai primeiro, e só então a divisão é desfeita."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some 3 aos dois lados",
+          "explicacao": "A soma desfaz a subtração e leva o termo solto embora.",
+          "conta": "x ÷ 2 = 7"
+        },
+        {
+          "titulo": "Multiplique por 2",
+          "explicacao": "Multiplicar é a inversa de dividir, e entra nos dois lados.",
+          "conta": "x = 14"
+        },
+        {
+          "titulo": "Confira no original",
+          "explicacao": "Com a divisão e a subtração no lugar, os dois lados têm de bater.",
+          "conta": "14 ÷ 2 − 3 = 4 ✓"
+        }
+      ]
+    }
+  ]
+}

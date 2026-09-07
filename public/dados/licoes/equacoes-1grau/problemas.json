@@ -1,0 +1,225 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Resolver problemas com equação",
+  "pergunta": "Como o problema vira equação, e a equação vira resposta?",
+  "ideia": {
+    "paragrafos": [
+      "Linguagem algébrica ensinou a MODELAR: dar nome à incógnita e traduzir o texto em símbolos. Esta matéria ensinou a RESOLVER. Juntar as duas coisas é o que finalmente permite responder a um problema sem tentativa e erro — e é por isso que a equação foi inventada.",
+      "O roteiro completo tem cinco passos, e nenhum deles é dispensável: nomear a incógnita, traduzir o texto em equação, resolver, voltar ao que foi PERGUNTADO, e conferir no enunciado.",
+      "O quarto passo é o mais esquecido de todos. Muitas vezes o problema não pede x: pede o dobro dele, ou a outra quantidade, ou a soma das duas. Achar x e parar é responder a uma pergunta que ninguém fez — e a conta pode estar toda certa.",
+      "Conferir tem de ser feito no TEXTO, e não na equação. Se a tradução saiu errada, a conta certa em cima dela continua dando resposta errada, e a equação nunca vai reclamar. Só voltar ao enunciado, frase por frase, revela esse tipo de engano.",
+      "E quando a resposta não faz sentido no mundo — idade negativa, meia pessoa, mais dinheiro do que existia —, o problema quase nunca é da conta: é do modelo. Vale voltar ao passo 2 e reler o que cada letra estava representando."
+    ],
+    "destaque": "Achar x nem sempre é responder. Volte ao texto e veja o que foi perguntado.",
+    "imagem": "eq-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "O dobro de um número, menos 7, dá 23. Qual é o número?",
+    "imagem": "eq-res-problema",
+    "passos": [
+      {
+        "titulo": "Dê nome ao que se procura",
+        "explicacao": "A pergunta é sobre o número, então é ele que ganha a letra. Escrever isso evita confundir a incógnita com outra quantidade depois.",
+        "conta": "x = o número procurado"
+      },
+      {
+        "titulo": "Traduza a frase em equação",
+        "explicacao": "O dobro é multiplicação por 2; \"menos 7\" é subtração; \"dá 23\" é o sinal de igual. A ordem das palavras vira a ordem das operações.",
+        "conta": "2x − 7 = 23"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Termo solto primeiro, multiplicação depois, sempre nos dois lados.",
+        "conta": "2x = 30 → x = 15"
+      },
+      {
+        "titulo": "Volte ao texto e confira",
+        "explicacao": "A pergunta pedia o número, e é isso que x representa — então 15 é mesmo a resposta. E cada frase do enunciado tem de bater.",
+        "conta": "o dobro de 15 é 30 · 30 − 7 = 23 ✓"
+      }
+    ],
+    "fecho": "Se a pergunta fosse \"qual é o dobro do número?\", a resposta seria 30, com a mesma equação e a mesma conta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A soma de um número com o triplo dele dá 48. Qual é o número? Digite apenas o número.",
+      "imagem": "eq-q-soma-triplo",
+      "dica": "Chame o número de x e escreva o triplo com a mesma letra. Em quantas parcelas iguais o 48 se reparte?",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 divide 48 por 3, contando só o triplo. O número original também entra na soma, então são quatro parcelas iguais no total, e não três."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é o TRIPLO do número, e não o número. A conta chegou perto, mas a pergunta é sobre a quantidade menor — a que recebeu a letra."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 divide o total ao meio, o que valeria se as duas quantidades fossem iguais. Uma delas é três vezes a outra, então as partes não têm o mesmo tamanho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza em equação",
+          "explicacao": "O número é x e o triplo dele é 3x; a soma dos dois é 48.",
+          "conta": "x + 3x = 48"
+        },
+        {
+          "titulo": "Junte os termos semelhantes",
+          "explicacao": "As duas parcelas têm a mesma letra, então se juntam numa só.",
+          "conta": "4x = 48"
+        },
+        {
+          "titulo": "Divida e confira no texto",
+          "explicacao": "O valor achado tem de fechar a frase do enunciado, e não só a conta.",
+          "conta": "x = 12 · 12 + 36 = 48 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ana tem 5 anos a mais que Bruno, e juntos eles têm 37 anos. Quantos anos tem Bruno? Digite apenas o número.",
+      "imagem": "eq-q-idades",
+      "dica": "Dê a letra para a idade MENOR: assim a outra sai por soma, e não por subtração.",
+      "formato": "numero",
+      "resposta": 16,
+      "unidade": "anos",
+      "errosComuns": [
+        {
+          "resposta": "21",
+          "porque": "21 é a idade de ANA, que de fato tem 5 anos a mais. A conta está certa e a pergunta é outra: quem foi perguntado foi Bruno."
+        },
+        {
+          "resposta": "18.5",
+          "porque": "18,5 divide 37 ao meio, como se os dois tivessem a mesma idade. Os 5 anos de diferença precisam sair do total antes de a divisão acontecer."
+        },
+        {
+          "resposta": "32",
+          "porque": "32 é o valor de 2b depois de tirar os 5 anos, e não a idade de Bruno. Falta o último passo: repartir esse total entre os dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Nomeie a idade menor",
+          "explicacao": "Chamando Bruno de b, Ana fica sendo b + 5 sem precisar de outra letra.",
+          "conta": "Bruno = b · Ana = b + 5"
+        },
+        {
+          "titulo": "Escreva a equação do total",
+          "explicacao": "As duas idades juntas dão 37, e os termos com letra se juntam.",
+          "conta": "b + (b + 5) = 37 → 2b + 5 = 37"
+        },
+        {
+          "titulo": "Resolva e volte à pergunta",
+          "explicacao": "Foi perguntada a idade de Bruno, que é justamente a letra escolhida.",
+          "conta": "2b = 32 → b = 16 · 16 + 21 = 37 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 29 — Alunos com óculos"
+      },
+      "enunciado": "A sexta parte dos alunos de uma classe usa óculos. Dentre os que usam óculos, a terça parte são meninas; além disso, quatro meninos usam óculos. Quantos alunos tem essa classe? Digite apenas o número.",
+      "imagem": "eq-q-oculos",
+      "dica": "Se a terça parte dos que usam óculos são meninas, que fração deles são meninos? Escreva essa quantidade em função do total da classe.",
+      "formato": "numero",
+      "resposta": 36,
+      "unidade": "alunos",
+      "errosComuns": [
+        {
+          "resposta": "72",
+          "porque": "72 trata os 4 meninos como se fossem a TERÇA parte dos que usam óculos. Mas a terça parte são as meninas: os meninos são os dois terços restantes."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 multiplica 4 por 6, como se todos os que usam óculos fossem meninos. Uma parte deles são meninas, então quem usa óculos é mais que 4."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é quantos alunos usam óculos, e não o total da classe. Eles são apenas a sexta parte dela, então a classe é seis vezes maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Nomeie o total da classe",
+          "explicacao": "É o que a pergunta pede, então é ele que recebe a letra.",
+          "conta": "x = alunos da classe"
+        },
+        {
+          "titulo": "Escreva quem usa óculos",
+          "explicacao": "A sexta parte da classe usa óculos, e desses a terça parte são meninas — logo dois terços são meninos.",
+          "conta": "óculos = x ÷ 6 · meninos = 2/3 disso"
+        },
+        {
+          "titulo": "Monte a equação",
+          "explicacao": "Dois terços de um sexto dão um nono da classe, e essa quantidade é 4.",
+          "conta": "x ÷ 9 = 4"
+        },
+        {
+          "titulo": "Resolva e confira no texto",
+          "explicacao": "Vale refazer o enunciado inteiro com o número achado, frase por frase.",
+          "conta": "x = 36 · 36÷6 = 6 · 6÷3 = 2 meninas · 6−2 = 4 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 74 — Qual é o maior?"
+      },
+      "enunciado": "Sabe-se que a − 1 = b + 2 = c − 3 = d + 4. Qual é o maior dentre os números a, b, c e d?",
+      "imagem": "eq-q-qual-maior",
+      "dica": "Todos chegam ao mesmo valor depois da operação. Quem precisou perder mais para chegar lá começou maior.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O número c" },
+        { "rotulo": "B", "texto": "O número a" },
+        { "rotulo": "C", "texto": "O número d" },
+        { "rotulo": "D", "texto": "São todos iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O número a",
+          "porque": "O a também perde para chegar ao valor comum, mas perde só 1, enquanto o c perde 3. Quem precisou perder MAIS é que começou mais alto."
+        },
+        {
+          "resposta": "O número d",
+          "porque": "O d é justamente o menor: ele precisa GANHAR 4 para chegar ao valor comum, então começou 4 abaixo dele. Ganhar indica que o número era pequeno."
+        },
+        {
+          "resposta": "São todos iguais",
+          "porque": "O que é igual são as quatro EXPRESSÕES, e não os quatro números. Como cada um sofre uma operação diferente antes de chegar ao mesmo valor, eles próprios têm de ser diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Dê nome ao valor comum",
+          "explicacao": "As quatro expressões valem a mesma coisa, então vale chamar esse valor de k.",
+          "conta": "a − 1 = b + 2 = c − 3 = d + 4 = k"
+        },
+        {
+          "titulo": "Escreva cada número em função de k",
+          "explicacao": "Cada igualdade vira uma equação simples, resolvida somando ou tirando dos dois lados.",
+          "conta": "a = k+1 · b = k−2 · c = k+3 · d = k−4"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Todos são o mesmo k com um acréscimo diferente, então basta comparar os acréscimos.",
+          "conta": "+3 > +1 > −2 > −4 → c é o maior"
+        }
+      ]
+    }
+  ]
+}

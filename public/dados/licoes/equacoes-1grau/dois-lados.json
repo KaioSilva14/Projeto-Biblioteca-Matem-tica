@@ -1,0 +1,208 @@
+{
+  "id": "dois-lados",
+  "numero": 4,
+  "titulo": "A letra nos dois lados",
+  "pergunta": "E se o x aparecer dos dois lados da igualdade?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui a letra ficava sempre de um lado só. Em 5x + 2 = 3x + 10 ela aparece nos dois, e isso costuma assustar mais do que devia: o método não muda em nada, só ganha um passo a mais no começo.",
+      "O passo novo é juntar as letras num lado só. E a ferramenta é a mesma de sempre — como se pode tirar a mesma coisa dos dois lados, dá para tirar 3x dos dois. Do lado direito o 3x some; do esquerdo, 5x menos 3x deixa 2x. Sobra 2x + 2 = 10, que é uma equação da lição anterior.",
+      "Vale escolher com cuidado QUAL dos dois tirar: sempre o de menor coeficiente. Tirando 3x, a letra sobra positiva do lado esquerdo. Tirando 5x, sobraria −2x do lado direito, e trabalhar com coeficiente negativo dá mais chance de escorregar num sinal.",
+      "Depois desse passo não há nada de novo. Tire o termo solto, desfaça a multiplicação, confira na equação original substituindo nos DOIS lados — que agora é ainda mais importante, porque os dois lados têm conta para fazer.",
+      "Há também um caso curioso, e ele fecha uma porta que a matéria anterior tinha deixado aberta: às vezes as letras somem dos dois lados ao mesmo tempo. Se o que sobra é verdadeiro, como 5 = 5, a igualdade vale para qualquer x. Se o que sobra é falso, como 5 = 8, não vale para nenhum."
+    ],
+    "destaque": "Tire o menor coeficiente dos dois lados: a letra sobra positiva e o resto é o de sempre.",
+    "imagem": "eq-ideia-dois-lados"
+  },
+  "resolvido": {
+    "enunciado": "Resolva a equação 5x + 2 = 3x + 10.",
+    "imagem": "eq-res-dois-lados",
+    "passos": [
+      {
+        "titulo": "Escolha qual letra tirar",
+        "explicacao": "Os coeficientes são 5 e 3. Tirando o menor, o que sobrar do outro lado fica positivo, e é isso que se quer.",
+        "conta": "menor coeficiente: 3x"
+      },
+      {
+        "titulo": "Tire 3x dos dois lados",
+        "explicacao": "À direita o termo com letra desaparece; à esquerda, 5x menos 3x deixa 2x. A igualdade continua valendo porque a retirada foi feita nos dois.",
+        "conta": "5x − 3x + 2 = 3x − 3x + 10 → 2x + 2 = 10"
+      },
+      {
+        "titulo": "Agora é a equação da lição passada",
+        "explicacao": "Tire o termo solto e depois desfaça a multiplicação, na ordem de sempre.",
+        "conta": "2x = 8 → x = 4"
+      },
+      {
+        "titulo": "Confira nos dois lados",
+        "explicacao": "Com letra nos dois lados, conferir exige calcular os dois separadamente e comparar os números que saem.",
+        "conta": "5(4)+2 = 22 · 3(4)+10 = 22 ✓"
+      }
+    ],
+    "fecho": "O passo novo foi só o primeiro. Depois dele, a equação virou uma que você já sabia resolver."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Resolva a equação 4x + 3 = 2x + 15. Digite apenas o número.",
+      "imagem": "eq-q-4x-2x",
+      "dica": "Comece tirando dos dois lados o termo com letra de menor coeficiente.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 soma o 3 ao 15 em vez de tirá-lo, e divide por 2. O 3 está sendo acrescentado do lado esquerdo, então ele sai por subtração — sobra 12, e não 18."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o valor de 2x depois dos dois primeiros passos, e não o de x. Falta repartir esse total entre as duas parcelas iguais."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 divide 12 pelo 4 do enunciado, mas depois de tirar 2x dos dois lados o coeficiente já não é 4: sobraram apenas duas parcelas de x do lado esquerdo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire 2x dos dois lados",
+          "explicacao": "É o menor coeficiente, então o que sobra fica positivo.",
+          "conta": "2x + 3 = 15"
+        },
+        {
+          "titulo": "Tire o termo solto",
+          "explicacao": "O 3 sai dos dois lados, como na lição anterior.",
+          "conta": "2x = 12"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "Os dois lados da equação original têm de dar o mesmo número.",
+          "conta": "x = 6 · 27 = 27 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolva a equação 6x + 4 = 2x + 20. Digite apenas o número.",
+      "imagem": "eq-q-6x-2x",
+      "dica": "Junte as letras de um lado só e os números do outro, sempre tirando dos dois lados.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é o valor de 4x depois de juntar tudo, e não o de x. É o passo do meio: ainda falta dividir esse total pelas quatro parcelas iguais."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 soma o 4 ao 20 em vez de tirá-lo. O 4 está sendo acrescentado do lado esquerdo, então sai por subtração — o lado direito fica com 16."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 divide 16 por 8, como se os coeficientes 6 e 2 fossem somados. Ao tirar 2x dos dois lados eles se SUBTRAEM, e o que sobra do lado esquerdo é 4x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire 2x dos dois lados",
+          "explicacao": "O menor coeficiente sai, e o lado esquerdo fica com 6x menos 2x.",
+          "conta": "4x + 4 = 20"
+        },
+        {
+          "titulo": "Tire o termo solto",
+          "explicacao": "Com as letras já juntas de um lado, o 4 sai dos dois lados como em qualquer equação de duas operações.",
+          "conta": "4x = 16"
+        },
+        {
+          "titulo": "Divida e confira",
+          "explicacao": "Calculando os dois lados do enunciado com o valor achado.",
+          "conta": "x = 4 · 28 = 28 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Resolva a equação 3x + 8 = 7x. Digite apenas o número.",
+      "imagem": "eq-q-3x-7x",
+      "dica": "Aqui um dos lados só tem letra. Tirar o menor coeficiente ainda é o melhor primeiro passo.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "0.8",
+          "porque": "0,8 divide 8 por 10, somando os coeficientes 3 e 7. Ao tirar 3x dos dois lados eles se subtraem: o que sobra do lado direito é 4x, e não 10x."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o termo solto do enunciado, e não o valor da letra. Testando: 3 × 8 + 8 daria 32, enquanto 7 × 8 daria 56."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o coeficiente que sobra depois do primeiro passo, quando a equação vira 8 = 4x. Ele diz em quantas parcelas o 8 se reparte, e não quanto vale cada uma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire 3x dos dois lados",
+          "explicacao": "É o menor coeficiente. Do lado esquerdo sobra só o termo solto; do direito, 7x menos 3x.",
+          "conta": "8 = 4x"
+        },
+        {
+          "titulo": "Divida por 4",
+          "explicacao": "Quatro parcelas iguais valendo 8, então cada uma vale 2.",
+          "conta": "x = 2"
+        },
+        {
+          "titulo": "Confira nos dois lados",
+          "explicacao": "Os dois lados do enunciado têm de dar o mesmo número.",
+          "conta": "3(2)+8 = 14 · 7(2) = 14 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Ao resolver uma equação, as letras sumiram dos dois lados e sobrou 5 = 5. O que isso quer dizer?",
+      "imagem": "eq-q-sobrou-5",
+      "dica": "Repare que o que sobrou é uma afirmação verdadeira, e que ela não depende mais do valor da letra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que a igualdade é verdadeira para qualquer valor de x" },
+        { "rotulo": "B", "texto": "Que a equação não tem solução nenhuma" },
+        { "rotulo": "C", "texto": "Que x vale 5" },
+        { "rotulo": "D", "texto": "Que houve erro de conta em algum passo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que a equação não tem solução nenhuma",
+          "porque": "É o caso oposto. Sem solução seria se sobrasse algo FALSO, como 5 = 8. Aqui sobrou uma afirmação verdadeira, e verdadeira sem depender de x nenhum."
+        },
+        {
+          "resposta": "Que x vale 5",
+          "porque": "O 5 que sobrou não é o valor da letra: a letra desapareceu antes disso. Ela sumiu porque os dois lados tinham exatamente a mesma quantidade dela."
+        },
+        {
+          "resposta": "Que houve erro de conta em algum passo",
+          "porque": "Não há erro nenhum: isso acontece quando os dois lados eram a mesma expressão escrita de jeitos diferentes. É uma identidade, como n + n = 2n."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que sobrou",
+          "explicacao": "A frase que restou é verdadeira e não menciona a letra em lugar nenhum.",
+          "conta": "5 = 5"
+        },
+        {
+          "titulo": "Veja o que isso significa",
+          "explicacao": "Se a igualdade vale sem depender de x, então vale para todo x que se queira colocar.",
+          "conta": "vale para qualquer valor"
+        },
+        {
+          "titulo": "Compare com o outro caso",
+          "explicacao": "Se tivesse sobrado uma afirmação falsa, nenhum valor serviria — os dois casos são opostos.",
+          "conta": "5 = 8 → sem solução"
+        }
+      ]
+    }
+  ]
+}

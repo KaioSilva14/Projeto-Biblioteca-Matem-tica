@@ -53,7 +53,13 @@ export function paraNumero(entrada: string): number {
     // receberia NaN — contado como erro e sem diagnóstico nenhum. Vale
     // também para travessão e meia-risca, que aparecem em texto colado.
     .replace(/[‐‑‒–—―−]/g, "-")
-    .replace(/\.(?=\d{3}\b)/g, "")
+    // Ponto como separador de milhar ("1.500" = mil e quinhentos), mas SO
+    // quando o grupo antes dele comeca por algarismo diferente de zero.
+    // Sem essa ressalva, "0.045" digitado por quem usa o ponto como
+    // separador decimal virava 45 - e era assim que o motor lia sete
+    // diagnosticos ja publicados, que por isso nunca apareciam. Ninguem
+    // escreve "0.500" querendo dizer quinhentos.
+    .replace(/(?<=[1-9]\d{0,2})\.(?=\d{3}\b)/g, "")
     .replace(",", ".");
   if (limpo === "") return NaN;
   return Number(limpo);

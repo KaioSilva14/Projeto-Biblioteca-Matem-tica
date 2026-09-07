@@ -1,0 +1,214 @@
+{
+  "id": "igualdade",
+  "numero": 5,
+  "titulo": "Igualdade e equilíbrio",
+  "pergunta": "O que o sinal de igual quer dizer de verdade?",
+  "ideia": {
+    "paragrafos": [
+      "Durante anos o sinal de igual foi lido como \"dá\": 3 + 4 = 7, a conta acabou, o resultado vem depois. Essa leitura funciona na aritmética e atrapalha na álgebra, porque ela não é o que o sinal afirma. O que ele afirma é mais simples e mais forte: os dois lados VALEM o mesmo.",
+      "A imagem que resolve isso é a balança de dois pratos. Uma igualdade é uma balança em equilíbrio: não importa o que está em cada prato, o peso dos dois é o mesmo. Ler 12 = 3 + 9 da direita para a esquerda continua verdadeiro, porque equilíbrio não tem lado de chegada.",
+      "Quando entra uma letra, a igualdade vira uma EQUAÇÃO — e uma equação não é verdadeira nem falsa por si só: ela depende do valor da letra. A igualdade x + 3 = 10 é verdadeira quando x vale 7 e falsa em todos os outros casos. É por isso que resolver uma equação é responder a uma pergunta.",
+      "Testar um valor é substituí-lo nos DOIS lados e comparar os números que saem. Isso não precisa de técnica nenhuma e já resolve bastante coisa — inclusive serve para conferir uma resposta achada por qualquer outro caminho.",
+      "Nem toda igualdade com letra é uma equação a resolver. Algumas são verdadeiras para qualquer valor, como n + 0 = n ou n + n = 2n: são regras gerais, e não perguntas. E algumas são falsas para todo valor, como x = x + 1 — nenhum número é igual a ele mesmo mais um."
+    ],
+    "destaque": "Uma equação é uma pergunta: para qual valor da letra os dois lados ficam iguais?",
+    "imagem": "alg-ideia-balanca"
+  },
+  "resolvido": {
+    "enunciado": "O valor x = 4 torna verdadeira a igualdade 3x + 2 = 14?",
+    "imagem": "alg-res-igualdade",
+    "passos": [
+      {
+        "titulo": "Separe os dois lados",
+        "explicacao": "Antes de calcular qualquer coisa, vale enxergar a igualdade como duas expressões que estão sendo comparadas.",
+        "conta": "esquerdo: 3x + 2 · direito: 14"
+      },
+      {
+        "titulo": "Substitua no lado que tem letra",
+        "explicacao": "O valor a testar entra no lugar de x, com parênteses para a multiplicação ficar visível.",
+        "conta": "3(4) + 2"
+      },
+      {
+        "titulo": "Calcule esse lado até virar um número",
+        "explicacao": "A multiplicação vem antes da soma, como sempre.",
+        "conta": "12 + 2 = 14"
+      },
+      {
+        "titulo": "Compare os dois números",
+        "explicacao": "Se os dois lados derem o mesmo número, a igualdade é verdadeira para aquele valor; se derem números diferentes, é falsa.",
+        "conta": "14 = 14 → verdadeira"
+      }
+    ],
+    "fecho": "Testar não é chutar: é conferir. E confere-se sempre calculando os dois lados, nunca só um."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual valor de x torna verdadeira a igualdade x + 6 = 15? Digite apenas o número.",
+      "imagem": "alg-q-x6",
+      "dica": "Pense na balança: de um lado x e mais 6, do outro 15. Quanto falta para o primeiro prato chegar a 15?",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "21",
+          "porque": "21 soma os dois números que aparecem. Mas o 15 é o total do lado esquerdo INTEIRO, então ele já contém o 6 — somar de novo passa do valor em vez de chegar nele."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é o valor do lado direito, e não o valor de x. Do lado esquerdo, além de x, há 6 unidades que também fazem parte desse total."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é um número que já estava escrito na igualdade, e a letra é justamente o que ainda não se sabe. Testando: 6 + 6 dá 12, e não 15."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que falta no prato",
+          "explicacao": "O lado esquerdo já tem 6 garantidos e precisa chegar a 15.",
+          "conta": "x + 6 = 15"
+        },
+        {
+          "titulo": "Descubra o valor da letra",
+          "explicacao": "O que falta para completar o total é exatamente o que x vale.",
+          "conta": "15 − 6 = 9"
+        },
+        {
+          "titulo": "Confira nos dois lados",
+          "explicacao": "Substituir e comparar é o que garante que a resposta serve.",
+          "conta": "9 + 6 = 15 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas igualdades é verdadeira para QUALQUER valor de n?",
+      "imagem": "alg-q-sempre",
+      "dica": "Teste cada uma com dois ou três valores diferentes. Basta um valor falhar para a igualdade não valer sempre.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "n + n = 2n" },
+        { "rotulo": "B", "texto": "n + 2 = 2n" },
+        { "rotulo": "C", "texto": "n × n = 2n" },
+        { "rotulo": "D", "texto": "n − 1 = n" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "n + 2 = 2n",
+          "porque": "Essa igualdade é verdadeira só quando n vale 2, e falsa em todos os outros casos. Com n = 5 os dois lados dão 7 e 10, então ela não vale sempre."
+        },
+        {
+          "resposta": "n × n = 2n",
+          "porque": "Confunde multiplicar n por ele mesmo com dobrá-lo. Isso só coincide em n = 0 e n = 2; com n = 5 os lados dão 25 e 10."
+        },
+        {
+          "resposta": "n − 1 = n",
+          "porque": "Essa é falsa para todo valor: nenhum número é igual a ele mesmo depois de perder 1. Uma igualdade que nunca dá certo não tem solução nenhuma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste com um valor qualquer",
+          "explicacao": "Um valor já derruba as candidatas erradas, porque basta falhar uma vez.",
+          "conta": "n=5: 5+5 = 10 · 2×5 = 10 ✓"
+        },
+        {
+          "titulo": "Teste com outro bem diferente",
+          "explicacao": "Se a igualdade vale sempre, ela tem de valer também nos valores incômodos.",
+          "conta": "n=0: 0+0 = 0 · 2×0 = 0 ✓"
+        },
+        {
+          "titulo": "Entenda por que ela sempre vale",
+          "explicacao": "Somar uma quantidade a ela mesma é a definição de dobrar, então os dois lados dizem a mesma coisa.",
+          "conta": "n + n = 2n sempre"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual valor de x torna verdadeira a igualdade 4x − 3 = 17? Digite apenas o número.",
+      "imagem": "alg-q-testar",
+      "dica": "Descubra primeiro quanto vale 4x. Se ao tirar 3 sobra 17, quanto havia antes de tirar?",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "3.5",
+          "porque": "3,5 sai de tirar mais 3 do 17 e dividir por 4. Mas o 3 já foi retirado no lado esquerdo: para desfazer isso é preciso somá-lo de volta, e não subtraí-lo outra vez."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é o resultado de 17 − 3 e para por aí. Mesmo que a conta estivesse certa, ela daria o valor de 4x, e ainda faltaria descobrir quanto vale um x sozinho."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é quanto vale 4x, e não quanto vale x. Como são quatro parcelas iguais, ainda falta dividir esse total por 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Descubra o valor de 4x",
+          "explicacao": "Se retirar 3 deixou 17, então antes de retirar havia 3 unidades a mais.",
+          "conta": "17 + 3 = 20"
+        },
+        {
+          "titulo": "Reparta entre os quatro",
+          "explicacao": "O termo 4x são quatro parcelas iguais a x, então o total se divide por 4.",
+          "conta": "20 ÷ 4 = 5"
+        },
+        {
+          "titulo": "Confira nos dois lados",
+          "explicacao": "Substituindo o valor achado, os dois lados têm de dar o mesmo número.",
+          "conta": "4 × 5 − 3 = 17 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa equação, o que o sinal de igual afirma?",
+      "imagem": "alg-q-o-que-e-igual",
+      "dica": "Pense na balança em equilíbrio, e no que aconteceria se a igualdade fosse lida de trás para a frente.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que os dois lados valem o mesmo número" },
+        { "rotulo": "B", "texto": "Que o resultado da conta vem logo depois dele" },
+        { "rotulo": "C", "texto": "Que a letra vale zero" },
+        { "rotulo": "D", "texto": "Que a conta chegou ao fim" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que o resultado da conta vem logo depois dele",
+          "porque": "É a leitura da aritmética, em que o igual parece uma seta apontando para a resposta. Mas 12 = 3 + 9 é tão verdadeiro quanto 3 + 9 = 12: o sinal não tem lado de chegada."
+        },
+        {
+          "resposta": "Que a letra vale zero",
+          "porque": "O sinal de igual não atribui valor nenhum à letra. Ele afirma uma relação entre os dois lados, e é essa relação que depois permite descobrir quanto a letra vale."
+        },
+        {
+          "resposta": "Que a conta chegou ao fim",
+          "porque": "Numa equação o igual costuma aparecer no COMEÇO do trabalho, e não no fim: ele descreve a situação que ainda vai ser resolvida."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia como uma balança",
+          "explicacao": "Os dois pratos estão equilibrados, e é isso que o sinal registra.",
+          "conta": "lado esquerdo = lado direito"
+        },
+        {
+          "titulo": "Vire a igualdade de lado",
+          "explicacao": "Se o sinal apenas anunciasse um resultado, inverter os lados quebraria a frase. Não quebra.",
+          "conta": "2x + 4 = 12 · 12 = 2x + 4"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "O que o sinal afirma é uma igualdade de valor, e não uma ordem de leitura.",
+          "conta": "mesmo valor dos dois lados"
+        }
+      ]
+    }
+  ]
+}

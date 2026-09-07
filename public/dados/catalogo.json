@@ -149,13 +149,15 @@
           "id": "algebra-inicial",
           "titulo": "Linguagem algébrica",
           "resumo": "Quando a letra vira número, e por que isso ajuda.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/algebra-inicial.json"
         },
         {
           "id": "equacoes-1grau",
           "titulo": "Equações do 1º grau",
           "resumo": "Descobrir o valor que faz a igualdade ficar verdadeira.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/equacoes-1grau.json"
         },
         {
           "id": "inequacoes",

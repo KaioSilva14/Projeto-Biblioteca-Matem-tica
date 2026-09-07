@@ -1,0 +1,41 @@
+{
+  "id": "equacoes-1grau",
+  "titulo": "Equações do 1º grau",
+  "ano": 7,
+  "descricao": "Linguagem algébrica ensinou a escrever com letras; aqui a letra é finalmente descoberta. Seis lições construídas sobre uma ideia só — o que se faz de um lado tem de ser feito do outro —, da equação de um passo até os problemas em que a equação substitui a tentativa e erro.",
+  "pergunta": "Como achar o valor da letra sem ficar adivinhando?",
+  "videos": [
+    {
+      "id": "TLkqE_CWY2E",
+      "titulo": "EQUAÇÃO DO PRIMEIRO 1º GRAU",
+      "canal": "Gis com Giz",
+      "descricao": "Aula de base, do começo ao fim, com muitos exemplos resolvidos devagar. Serve para reforçar as lições 1 a 3, se o método ainda parecer mecânico."
+    },
+    {
+      "id": "1e1eu8iQKOI",
+      "titulo": "Equação do 1° grau : Princípio aditivo / princípio multiplicativo",
+      "canal": "Hw Matemática",
+      "descricao": "Dá nome ao que as lições 1 e 2 fazem: princípio aditivo e princípio multiplicativo. Vale para quem vai encontrar esses termos na prova ou no livro."
+    },
+    {
+      "id": "FZRGSvImiGw",
+      "titulo": "Problema envolvendo Equação do primeiro grau e Números Consecutivos  -  Com a professora Gis",
+      "canal": "Marcos Aba Matemática",
+      "descricao": "Um problema de texto modelado e resolvido por inteiro. Complementa a lição 6, principalmente a parte de traduzir antes de calcular."
+    },
+    {
+      "id": "it8AytNbkGA",
+      "titulo": "EQUAÇÃO DO 1º GRAU - RESUMÃO",
+      "canal": "Gis com Giz",
+      "descricao": "Revisão rápida com os tipos de equação mais cobrados. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "equilibrio", "arquivo": "/dados/licoes/equacoes-1grau/equilibrio.json" },
+    { "id": "isolar", "arquivo": "/dados/licoes/equacoes-1grau/isolar.json" },
+    { "id": "duas-operacoes", "arquivo": "/dados/licoes/equacoes-1grau/duas-operacoes.json" },
+    { "id": "dois-lados", "arquivo": "/dados/licoes/equacoes-1grau/dois-lados.json" },
+    { "id": "parenteses-fracoes", "arquivo": "/dados/licoes/equacoes-1grau/parenteses-fracoes.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/equacoes-1grau/problemas.json" }
+  ]
+}

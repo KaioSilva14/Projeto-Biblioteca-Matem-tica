@@ -1,0 +1,199 @@
+{
+  "id": "semelhantes",
+  "numero": 4,
+  "titulo": "Termos semelhantes",
+  "pergunta": "Por que 3x + 2x junta e 3x + 2 não junta?",
+  "ideia": {
+    "paragrafos": [
+      "Numa expressão, cada pedaço que está sendo somado ou subtraído é um TERMO. Em 3x + 2y − 5 há três termos: 3x, 2y e −5. Repare que o sinal faz parte do termo — quem separa os termos é o + e o −, e não o × nem o ÷.",
+      "Todo termo tem duas partes. O COEFICIENTE é o número da frente; a PARTE LITERAL são as letras com os seus expoentes. Em 7x² o coeficiente é 7 e a parte literal é x². Quando não aparece número nenhum, o coeficiente é 1, porque x é o mesmo que 1x.",
+      "Termos SEMELHANTES são os que têm exatamente a mesma parte literal, e só eles podem ser juntados. Juntar é somar os coeficientes e manter a parte literal: 3x + 2x = 5x, pelo mesmo motivo que três caixas mais duas caixas dão cinco caixas. A caixa não vira outra coisa no caminho.",
+      "Já 3x + 2 não junta, porque não são a mesma coisa: uma é caixa e a outra é moeda solta. E 3x com 3x² também não junta — a parte literal tem de bater INTEIRA, expoente incluído. Se x valer 4, os dois valem 12 e 48, o que mostra que nunca foram a mesma quantidade.",
+      "Simplificar uma expressão é juntar tudo o que dá e parar. O resultado costuma ter menos termos e diz exatamente a mesma coisa — é a mesma expressão, arrumada. É esse arrumar que deixa tudo pronto para a matéria seguinte, em que as expressões passam a ficar dos dois lados de uma igualdade."
+    ],
+    "destaque": "Só se somam os termos que têm exatamente a mesma parte literal.",
+    "imagem": "alg-ideia-semelhantes"
+  },
+  "resolvido": {
+    "enunciado": "Simplifique a expressão 5x + 3 − 2x + 7.",
+    "imagem": "alg-res-semelhantes",
+    "passos": [
+      {
+        "titulo": "Marque cada termo com o seu sinal",
+        "explicacao": "O sinal que vem antes pertence ao termo. Separar assim evita perder um menos no meio do caminho, que é o erro mais comum daqui.",
+        "conta": "+5x · +3 · −2x · +7"
+      },
+      {
+        "titulo": "Junte os termos com x",
+        "explicacao": "Os dois têm a mesma parte literal, então basta somar os coeficientes respeitando os sinais.",
+        "conta": "5x − 2x = 3x"
+      },
+      {
+        "titulo": "Junte os números soltos",
+        "explicacao": "Eles também são semelhantes entre si: nenhum dos dois tem letra.",
+        "conta": "3 + 7 = 10"
+      },
+      {
+        "titulo": "Escreva o resultado sem misturar as famílias",
+        "explicacao": "As duas partes ficam lado a lado, somadas mas não fundidas. Escrever 13x seria juntar caixa com moeda.",
+        "conta": "3x + 10"
+      }
+    ],
+    "fecho": "Confira substituindo: com x = 2, a expressão original dá 16, e 3x + 10 também."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Simplifique a expressão 7a − 3a + 2.",
+      "imagem": "alg-q-7a",
+      "dica": "Separe o que tem a letra do que não tem, e junte cada família por conta própria.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "4a + 2" },
+        { "rotulo": "B", "texto": "6a" },
+        { "rotulo": "C", "texto": "4a" },
+        { "rotulo": "D", "texto": "6" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6a",
+          "porque": "Junta tudo numa família só, fazendo 7 − 3 + 2. O 2 não tem letra, então ele não pode entrar na conta dos termos com a — com a = 10, a expressão vale 42 e 6a valeria 60."
+        },
+        {
+          "resposta": "4a",
+          "porque": "Acerta a parte com a letra e some com o 2. Ele continua ali: 7a − 3a resolve só metade da expressão, e o que sobra tem de ser escrito junto."
+        },
+        {
+          "resposta": "6",
+          "porque": "Some com a letra, como se ela pudesse ser descartada. A letra não desaparece na simplificação: ela só some quando os coeficientes zeram, o que não é o caso aqui."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte os termos com a",
+          "explicacao": "Os dois têm a mesma parte literal, então somam-se os coeficientes.",
+          "conta": "7a − 3a = 4a"
+        },
+        {
+          "titulo": "Deixe o número solto onde está",
+          "explicacao": "Ele não é semelhante a nenhum outro termo, então fica como está.",
+          "conta": "4a + 2"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Simplifique 6m + 2m − 3m e digite o coeficiente do resultado.",
+      "imagem": "alg-q-coeficiente",
+      "dica": "Todos os termos têm a mesma letra, então basta acertar os sinais ao somar os números.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 soma os três coeficientes, como se o último também estivesse entrando. O sinal antes do 3m é de menos, e ele manda tirar, e não acrescentar."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 subtrai os dois últimos, calculando 6 − 2 − 3. O sinal antes do 2m é de mais: só o 3m está sendo retirado."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 sai de 6 − 2 + 3, com os dois sinais trocados de lugar. Cada sinal pertence ao termo que vem logo depois dele, e trocá-los muda o resultado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira que todos são semelhantes",
+          "explicacao": "Os três têm a mesma parte literal, então os três entram na mesma conta.",
+          "conta": "6m · +2m · −3m"
+        },
+        {
+          "titulo": "Some os coeficientes com o sinal",
+          "explicacao": "Acrescenta-se o 2 e retira-se o 3, na ordem em que aparecem.",
+          "conta": "6 + 2 − 3 = 5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Entre os termos 4x², 4x e 7x², quais são semelhantes entre si?",
+      "imagem": "alg-q-parte-literal",
+      "dica": "O que decide não é o número da frente: é a letra com o expoente dela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "4x² e 7x²" },
+        { "rotulo": "B", "texto": "4x² e 4x" },
+        { "rotulo": "C", "texto": "Os três são semelhantes" },
+        { "rotulo": "D", "texto": "Nenhum é semelhante ao outro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "4x² e 4x",
+          "porque": "Olha para o coeficiente 4, que é igual nos dois, mas quem define a semelhança é a parte literal. Uma é x² e a outra é x, e com x = 3 elas valem 36 e 12."
+        },
+        {
+          "resposta": "Os três são semelhantes",
+          "porque": "Todos têm a letra x, mas com expoentes diferentes. O expoente faz parte da parte literal, então x e x² são quantidades distintas e não se somam."
+        },
+        {
+          "resposta": "Nenhum é semelhante ao outro",
+          "porque": "Dois deles têm exatamente a mesma parte literal, x², e isso basta para serem semelhantes. Coeficientes diferentes não atrapalham — é justamente eles que vão ser somados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe a parte literal de cada termo",
+          "explicacao": "O coeficiente fica de fora da comparação; ele só entra depois, na soma.",
+          "conta": "x² · x · x²"
+        },
+        {
+          "titulo": "Compare as partes literais",
+          "explicacao": "Semelhantes são os que têm a parte literal idêntica, expoente incluído.",
+          "conta": "4x² e 7x² → 11x²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Simplifique 8y + 5 − 3y − 2 e calcule o valor da expressão para y = 4. Digite apenas o número.",
+      "imagem": "alg-q-simplificar-valor",
+      "dica": "Simplifique primeiro e substitua depois — dá menos conta e menos chance de errar um sinal.",
+      "formato": "numero",
+      "resposta": 23,
+      "errosComuns": [
+        {
+          "resposta": "32",
+          "porque": "32 vem de juntar tudo num termo só, chegando a 8y e substituindo. Os números soltos não podem entrar na conta dos termos com y: são famílias diferentes."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é apenas 5y, ou seja, a parte com a letra. Depois de simplificar ainda sobra um número solto, e ele entra na soma final."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 junta certo os termos com y, mas deixa o 5 intocado e esquece o −2. Os dois números soltos são semelhantes entre si e precisam ser somados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte os termos com y",
+          "explicacao": "Os dois têm a mesma parte literal, então somam-se os coeficientes com os sinais.",
+          "conta": "8y − 3y = 5y"
+        },
+        {
+          "titulo": "Junte os números soltos",
+          "explicacao": "Eles são semelhantes entre si, e o sinal de menos pertence ao 2.",
+          "conta": "5 − 2 = 3"
+        },
+        {
+          "titulo": "Substitua na expressão simplificada",
+          "explicacao": "Agora a conta é curta, porque a expressão tem só dois termos.",
+          "conta": "5 × 4 + 3 = 23"
+        }
+      ]
+    }
+  ]
+}

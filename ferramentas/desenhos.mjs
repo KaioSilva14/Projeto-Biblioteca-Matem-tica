@@ -16,6 +16,10 @@ export const TRACO_FORTE = "#c9c0ad";
 export const CHEIO = "#dad2c1";
 export const DESTAQUE = "#f7f5f0";
 export const TEXTO = "#c9c0ad";
+// A superfície única do DESIGN.md. Os PNGs têm fundo transparente, então
+// esta cor só é usada para VAZAR miolo — a bolinha aberta da inequação,
+// que precisa apagar o tracinho da reta por baixo dela.
+export const CANVAS = "#2b2622";
 export const FONTE = "Inter, system-ui, sans-serif";
 export const FONTE_MONO = "'DM Mono', ui-monospace, monospace";
 
@@ -1702,7 +1706,7 @@ const inteiro = (n) => (n < 0 ? MENOS + Math.abs(n) : String(n));
  * para a direita ou para a esquerda, e não aplicar uma regra decorada.
  */
 export function retaInteiros({
-  de = -8, ate = 8, marcados = [], salto, rotuloCada = 1, subdivisoes = 1, rotulo = "",
+  de = -8, ate = 8, marcados = [], salto, intervalo, rotuloCada = 1, subdivisoes = 1, rotulo = "",
 }) {
   const divisoes = ate - de;
   // O passo mínimo é o que os RÓTULOS escritos pedem, e não um número fixo.
@@ -1751,6 +1755,30 @@ export function retaInteiros({
     if (v % rotuloCada === 0 || zero) {
       corpo += texto(x, y + 30, inteiro(v), {
         tamanho: 12, cor: zero ? DESTAQUE : TRACO_FORTE, peso: zero ? 500 : 400, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  // O conjunto solução de uma inequação: faixa grossa saindo do ponto para o
+  // lado que serve, e bolinha ABERTA quando o próprio ponto não entra.
+  //
+  // A distinção aberta/fechada não é enfeite — ela é a diferença entre < e ≤,
+  // e é a única coisa na figura que diz se o extremo faz parte da resposta.
+  // Como o fundo do PNG é transparente, "aberta" é um círculo vazado de traço
+  // grosso, que sobre a canvas quente lê como furo.
+  if (intervalo) {
+    const paraDireita = intervalo.sentido === "maior";
+    const xPonto = X(intervalo.ponto);
+    const xFim = paraDireita ? X(ate) + 16 : X(de) - 16;
+    corpo += `<line x1="${xPonto}" y1="${y}" x2="${xFim}" y2="${y}" stroke="${DESTAQUE}" stroke-width="5" stroke-linecap="round" stroke-opacity="0.85"/>`;
+    const dir = paraDireita ? 1 : -1;
+    corpo += `<polygon points="${xFim + 8 * dir},${y} ${xFim - 3 * dir},${y - 6} ${xFim - 3 * dir},${y + 6}" fill="${DESTAQUE}"/>`;
+    corpo += intervalo.incluso
+      ? `<circle cx="${xPonto}" cy="${y}" r="6.5" fill="${DESTAQUE}" stroke="${DESTAQUE}" stroke-width="2"/>`
+      : `<circle cx="${xPonto}" cy="${y}" r="6" fill="${CANVAS}" stroke="${DESTAQUE}" stroke-width="3"/>`;
+    if (intervalo.rotulo) {
+      corpo += texto(xPonto, y - 22, esc(intervalo.rotulo), {
+        tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
       });
     }
   }
@@ -2024,5 +2052,314 @@ export function tabelaProporcional({ titulos, colunas, fatores = [], fatoresBaix
   });
 
   if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+// ═════════════════════════ Linguagem algébrica ═════════════════════════
+//
+// Esta é a primeira matéria sem figura óbvia: não há barra para dividir nem
+// ângulo para medir, porque o objeto de estudo é a LETRA. O bloco foi
+// decidido antes do conteúdo, justamente para a regra "toda questão tem
+// imagem" não virar enfeite.
+//
+// São três metáforas, e cada uma carrega uma ideia:
+//
+//   · a SEQUÊNCIA mostra de onde a letra vem — ela é o que sobra quando a
+//     gente para de desenhar a figura 1, a figura 2, a figura 3;
+//   · a BALANÇA mostra o que uma igualdade quer dizer — os dois pratos
+//     pesam o mesmo, e é isso e só isso que o sinal de igual afirma;
+//   · o TOKEN (caixinha com letra, moeda com número) mostra por que 3x + 2x
+//     junta e 3x + 2 não junta: caixa soma com caixa, moeda com moeda.
+//
+// A caixa e a moeda são desenhadas pelo mesmo helper nos três geradores, de
+// propósito: o aluno tem de reconhecer o mesmo objeto na balança e fora dela.
+
+const TOKEN = 32;
+const TOKEN_OP = 20;
+const OPERADORES = ["+", "−", "=", "·", "×"];
+
+/** Um token é moeda quando é número puro, e caixinha quando tem letra. */
+function tokenEhNumero(t) {
+  return /^[0-9]+([.,][0-9]+)?$/.test(String(t).trim());
+}
+
+function larguraToken(t) {
+  return OPERADORES.includes(String(t).trim()) ? TOKEN_OP : TOKEN;
+}
+
+/**
+ * Desenha um token no canto (x, y).
+ *
+ * Moeda para o número, caixa para a letra. A distinção é de FORMA, e não de
+ * cor — o DESIGN.md não tem paleta de acento, e mesmo se tivesse, a diferença
+ * entre "coisa contada" e "coisa desconhecida" não é decorativa.
+ */
+function desenhaToken(x, y, t) {
+  const s = String(t).trim();
+  if (OPERADORES.includes(s)) {
+    return texto(x + TOKEN_OP / 2, y + TOKEN / 2, esc(s), {
+      tamanho: 17, cor: TEXTO, fonte: FONTE_MONO,
+    });
+  }
+  if (tokenEhNumero(s)) {
+    return `<circle cx="${x + TOKEN / 2}" cy="${y + TOKEN / 2}" r="${TOKEN / 2 - 1}" fill="${CHEIO}" fill-opacity="0.2" stroke="${TRACO_FORTE}" stroke-width="1.6"/>`
+      + texto(x + TOKEN / 2, y + TOKEN / 2, esc(s), { tamanho: 13, cor: DESTAQUE, fonte: FONTE_MONO });
+  }
+  return `<rect x="${x}" y="${y}" width="${TOKEN}" height="${TOKEN}" rx="3" fill="${CHEIO}" fill-opacity="0.55" stroke="${TRACO_FORTE}" stroke-width="1.6"/>`
+    + texto(x + TOKEN / 2, y + TOKEN / 2, esc(s), { tamanho: 14, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+}
+
+/** Largura ocupada por uma fileira de tokens, com o vão entre eles. */
+function larguraFileira(tokens, vao = 6) {
+  if (!tokens.length) return 0;
+  return tokens.reduce((s, t) => s + larguraToken(t) + vao, 0) - vao;
+}
+
+function desenhaFileira(x, y, tokens, vao = 6) {
+  let corpo = "", cursor = x;
+  for (const t of tokens) {
+    corpo += desenhaToken(cursor, y, t);
+    cursor += larguraToken(t) + vao;
+  }
+  return corpo;
+}
+
+/**
+ * Fileiras de tokens, com rótulo à esquerda.
+ *
+ * É o desenho de termos semelhantes: caixa junta com caixa, moeda com moeda,
+ * e o que não é do mesmo tipo fica lado a lado sem se somar. Os operadores
+ * ("+", "=") entram na própria fileira, sem caixa em volta.
+ */
+export function tokensAlgebricos({ linhas, rotulo = "" }) {
+  const rotuloMax = Math.max(0, ...linhas.map((l) => String(l.rotulo ?? "").length));
+  const mEsq = rotuloMax ? Math.round(rotuloMax * 7.4) + 22 : 14;
+  const larguraFileiras = Math.max(...linhas.map((l) => larguraFileira(l.tokens)));
+  const alturaLinha = TOKEN + 18;
+  const larguraDesenho = mEsq + larguraFileiras + 16;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = linhas.length * alturaLinha + 12 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  let corpo = "";
+
+  linhas.forEach((linha, i) => {
+    const y = 10 + i * alturaLinha;
+    if (linha.rotulo) {
+      corpo += texto(recuo + mEsq - 12, y + TOKEN / 2, esc(linha.rotulo), { tamanho: 12, ancora: "end" });
+    }
+    corpo += desenhaFileira(recuo + mEsq, y, linha.tokens);
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/**
+ * Balança de dois pratos.
+ *
+ * O sinal de igual não é "a conta dá": é "os dois lados valem o mesmo". A
+ * balança diz isso sem precisar de frase, e é a figura que sustenta a lição
+ * de igualdade — e, na matéria seguinte, a de equação.
+ *
+ * `inclinacao` ("esquerda" | "direita") pende a travessa para o lado mais
+ * pesado. Fica reservada para desigualdade: numa igualdade a travessa é
+ * horizontal, sempre.
+ */
+export function balanca({ esquerda, direita, inclinacao = null, rotulo = "", porLinha = 4 }) {
+  const arruma = (tokens) => {
+    const linhas = [];
+    for (let i = 0; i < tokens.length; i += porLinha) linhas.push(tokens.slice(i, i + porLinha));
+    return linhas;
+  };
+  const pratos = [arruma(esquerda), arruma(direita)];
+  const larguraPrato = Math.max(112, ...pratos.flat().map((linha) => larguraFileira(linha) + 20));
+  const alturaLinha = TOKEN + 7;
+  const alturaTokens = Math.max(...pratos.map((p) => p.length)) * alturaLinha + 6;
+
+  const meiaEnvergadura = larguraPrato / 2 + 14;
+  const larguraDesenho = meiaEnvergadura * 2 + larguraPrato + 16;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const cx = largura / 2;
+
+  const yTravessa = 16;
+  const desnivel = inclinacao === "esquerda" ? 13 : inclinacao === "direita" ? -13 : 0;
+  const yPrato = yTravessa + 16 + alturaTokens;
+  const yBase = yPrato + 13 + 26 + Math.abs(desnivel);
+  const altura = yBase + 14 + (rotulo ? 20 : 0);
+
+  const pontas = [
+    { x: cx - meiaEnvergadura, dy: desnivel, linhas: pratos[0] },
+    { x: cx + meiaEnvergadura, dy: -desnivel, linhas: pratos[1] },
+  ];
+  let corpo = "";
+
+  corpo += `<path d="M ${cx - 9} ${yBase} L ${cx - 3} ${yTravessa + 4} L ${cx + 3} ${yTravessa + 4} L ${cx + 9} ${yBase} Z" fill="${CHEIO}" fill-opacity="0.14" stroke="${TRACO}" stroke-width="1.5"/>`;
+  corpo += `<line x1="${cx - 30}" y1="${yBase}" x2="${cx + 30}" y2="${yBase}" stroke="${TRACO_FORTE}" stroke-width="3" stroke-linecap="round"/>`;
+
+  corpo += `<line x1="${pontas[0].x}" y1="${yTravessa + pontas[0].dy}" x2="${pontas[1].x}" y2="${yTravessa + pontas[1].dy}" stroke="${TRACO_FORTE}" stroke-width="3" stroke-linecap="round"/>`;
+  corpo += `<circle cx="${cx}" cy="${yTravessa}" r="4.5" fill="${DESTAQUE}"/>`;
+
+  for (const ponta of pontas) {
+    const topo = yTravessa + ponta.dy;
+    const base = yPrato + ponta.dy;
+    const esq = ponta.x - larguraPrato / 2, dir = ponta.x + larguraPrato / 2;
+    // As cordas prendem PARA DENTRO da borda, e não nos cantos do prato.
+    // Presas no canto, elas formavam um triângulo que envolvia a pilha
+    // inteira de fichas, e a balança virava um emaranhado de linhas —
+    // justamente na figura em que se quer contar as fichas de olho.
+    const preso = larguraPrato * 0.22;
+    corpo += `<line x1="${(esq + preso).toFixed(1)}" y1="${base.toFixed(1)}" x2="${ponta.x.toFixed(1)}" y2="${(topo + 2).toFixed(1)}" stroke="${TRACO}" stroke-width="1.3" stroke-opacity="0.7"/>`;
+    corpo += `<line x1="${(dir - preso).toFixed(1)}" y1="${base.toFixed(1)}" x2="${ponta.x.toFixed(1)}" y2="${(topo + 2).toFixed(1)}" stroke="${TRACO}" stroke-width="1.3" stroke-opacity="0.7"/>`;
+    corpo += `<path d="M ${esq.toFixed(1)} ${base.toFixed(1)} L ${dir.toFixed(1)} ${base.toFixed(1)} L ${(dir - 14).toFixed(1)} ${(base + 13).toFixed(1)} L ${(esq + 14).toFixed(1)} ${(base + 13).toFixed(1)} Z" fill="${CHEIO}" fill-opacity="0.2" stroke="${TRACO_FORTE}" stroke-width="2"/>`;
+    ponta.linhas.forEach((linha, i) => {
+      const y = base - 4 - (ponta.linhas.length - i) * alturaLinha + 7;
+      corpo += desenhaFileira(ponta.x - larguraFileira(linha) / 2, y, linha);
+    });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 9, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/**
+ * Barra dividida em pedaços nomeados, com a chave do total por cima.
+ *
+ * É o diagrama de fita: mostra a ESTRUTURA de um problema sem entregar o
+ * valor da incógnita. Por isso os pedaços são esquemáticos — a largura de
+ * cada um vem de `unidades`, que descreve o que o enunciado JÁ diz (2x é o
+ * dobro de x), e nunca do valor procurado.
+ */
+export function barraIncognita({ partes, total = "", largura = 380, rotulo = "" }) {
+  const unidadesTotal = partes.reduce((s, p) => s + (p.unidades ?? 1), 0);
+  const m = 10;
+  const alturaChave = total ? 32 : 6;
+  const alturaBarra = 62;
+  const L = comRotulo(largura, rotulo);
+  const altura = alturaChave + alturaBarra + 16 + (rotulo ? 22 : 0);
+  const recuo = (L - largura) / 2;
+  const util = largura - m * 2;
+  let corpo = "";
+  let x = recuo + m;
+
+  for (const parte of partes) {
+    const w = (util * (parte.unidades ?? 1)) / unidadesTotal;
+    const y = alturaChave + 6;
+    corpo += `<rect x="${x.toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="${alturaBarra}" fill="${CHEIO}" fill-opacity="${parte.conhecido ? 0.16 : 0.5}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+    corpo += texto((x + w / 2).toFixed(1), y + alturaBarra / 2, esc(parte.rotulo), {
+      tamanho: 15, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+    });
+    x += w;
+  }
+
+  if (total) {
+    const x1 = recuo + m, x2 = recuo + m + util, y = alturaChave - 6;
+    corpo += `<path d="M ${x1} ${y} L ${x1} ${y - 7} L ${x2} ${y - 7} L ${x2} ${y}" fill="none" stroke="${TRACO}" stroke-width="1.6"/>`;
+    corpo += texto((x1 + x2) / 2, y - 19, esc(total), { tamanho: 14, cor: DESTAQUE, fonte: FONTE_MONO });
+  }
+
+  if (rotulo) corpo += texto(L / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(L, altura, corpo);
+}
+
+/**
+ * A máquina: entra um número, sai outro, e dentro dela está a expressão.
+ *
+ * O valor numérico é isso — a letra é uma entrada, e a expressão é o que a
+ * máquina faz com ela. Quando a saída é "?", a figura mostra o cenário sem
+ * responder a pergunta.
+ */
+export function maquinaFuncao({ regra, pares, rotulo = "" }) {
+  const larguraCaixa = Math.max(112, Math.round(String(regra).length * 11) + 34);
+  const larguraLado = Math.max(
+    40,
+    ...pares.map((p) => String(p.entra).length * 9 + 14),
+    ...pares.map((p) => String(p.sai).length * 9 + 14)
+  );
+  const seta = 40;
+  const alturaLinha = 34;
+  const alturaCaixa = Math.max(72, pares.length * alturaLinha + 26);
+  const larguraDesenho = (larguraLado + seta) * 2 + larguraCaixa + 12;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = 22 + alturaCaixa + 16 + (rotulo ? 20 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+
+  const xCaixa = recuo + 6 + larguraLado + seta;
+  const yCaixa = 22;
+  let corpo = "";
+
+  corpo += texto(recuo + 6 + larguraLado / 2, 11, "entra", { tamanho: 11 });
+  corpo += texto(xCaixa + larguraCaixa + seta + larguraLado / 2, 11, "sai", { tamanho: 11 });
+
+  corpo += `<rect x="${xCaixa}" y="${yCaixa}" width="${larguraCaixa}" height="${alturaCaixa}" rx="4" fill="${CHEIO}" fill-opacity="0.16" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+  corpo += texto(xCaixa + larguraCaixa / 2, yCaixa + alturaCaixa / 2, esc(regra), {
+    tamanho: 17, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+  });
+
+  pares.forEach((par, i) => {
+    const y = yCaixa + alturaCaixa / 2 + (i - (pares.length - 1) / 2) * alturaLinha;
+    corpo += texto(recuo + 6 + larguraLado / 2, y, esc(par.entra), {
+      tamanho: 14, cor: DESTAQUE, fonte: FONTE_MONO,
+    });
+    const xe = recuo + 6 + larguraLado + 4;
+    corpo += `<line x1="${xe}" y1="${y}" x2="${xe + seta - 14}" y2="${y}" stroke="${TRACO}" stroke-width="1.6"/>`;
+    corpo += `<polygon points="${xe + seta - 6},${y} ${xe + seta - 15},${y - 4.5} ${xe + seta - 15},${y + 4.5}" fill="${TRACO}"/>`;
+
+    const xs = xCaixa + larguraCaixa + 4;
+    corpo += `<line x1="${xs}" y1="${y}" x2="${xs + seta - 14}" y2="${y}" stroke="${TRACO}" stroke-width="1.6"/>`;
+    corpo += `<polygon points="${xs + seta - 6},${y} ${xs + seta - 15},${y - 4.5} ${xs + seta - 15},${y + 4.5}" fill="${TRACO}"/>`;
+    corpo += texto(xs + seta + larguraLado / 2 - 4, y, esc(par.sai), {
+      tamanho: 14, cor: DESTAQUE, fonte: FONTE_MONO,
+    });
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 9, esc(rotulo), { tamanho: 14 });
+  return svg(largura, altura, corpo);
+}
+
+/**
+ * Uma sequência de figuras que crescem por um passo constante.
+ *
+ * O gerador CALCULA a própria figura a partir de `a` e `b`: a figura n tem n
+ * grupos de `a` quadradinhos mais `b` fixos, ou seja, a·n + b peças. É de
+ * propósito, e pela mesma razão de `fatoracao` e `fatoresRepetidos` — o
+ * desenho não tem como discordar do enunciado. Ninguém digita a contagem.
+ *
+ * `mostrarTotal` fica falso nas questões que PEDEM a contagem: ali o número
+ * embaixo da figura seria a resposta desenhada.
+ */
+export function sequenciaFiguras({ a, b = 0, quantos = 3, cel = 17, mostrarTotal = true, rotulo = "" }) {
+  const colunas = (n) => n + (b > 0 ? 1 : 0);
+  const alturaGrade = Math.max(a, b) * cel;
+  const vao = 26;
+  const larguras = [];
+  for (let n = 1; n <= quantos; n++) larguras.push(colunas(n) * cel);
+  const larguraFiguras = larguras.reduce((s, w) => s + w + vao, 0) - vao;
+  const largura = comRotulo(larguraFiguras + 24, rotulo);
+  const alturaRodape = mostrarTotal ? 38 : 24;
+  const altura = 14 + alturaGrade + alturaRodape + (rotulo ? 20 : 0);
+  const yBase = 14 + alturaGrade;
+  let corpo = "";
+  let x = (largura - larguraFiguras) / 2;
+
+  for (let n = 1; n <= quantos; n++) {
+    const larguraFig = colunas(n) * cel;
+    for (let g = 0; g < n; g++) {
+      for (let k = 0; k < a; k++) {
+        corpo += `<rect x="${x + g * cel}" y="${yBase - (k + 1) * cel}" width="${cel}" height="${cel}" fill="${CHEIO}" fill-opacity="0.5" stroke="${TRACO_FORTE}" stroke-width="1.4"/>`;
+      }
+    }
+    for (let k = 0; k < b; k++) {
+      corpo += `<rect x="${x + n * cel}" y="${yBase - (k + 1) * cel}" width="${cel}" height="${cel}" fill="none" stroke="${TRACO}" stroke-width="1.4" stroke-dasharray="3 2"/>`;
+    }
+    corpo += texto(x + larguraFig / 2, yBase + 15, `figura ${n}`, { tamanho: 11 });
+    if (mostrarTotal) {
+      corpo += texto(x + larguraFig / 2, yBase + 31, String(a * n + b), {
+        tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+    x += larguraFig + vao;
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 8, esc(rotulo), { tamanho: 14 });
   return svg(largura, altura, corpo);
 }

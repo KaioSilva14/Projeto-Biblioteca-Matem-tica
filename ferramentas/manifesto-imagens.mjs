@@ -24,6 +24,7 @@ import {
   grafico, tabela,
   retaInteiros, termometro, saldo, predio,
   razao, tabelaProporcional,
+  sequenciaFiguras, balanca, barraIncognita, maquinaFuncao, tokensAlgebricos,
 } from "./desenhos.mjs";
 
 /** Colunas do quadro de ordens usadas nas licoes de decimais. */
@@ -5157,6 +5158,691 @@ export const MANIFESTO = [
           cabecalho: ["preço", "40% dele"],
           linhas: [["R$ 50", "R$ 20"], ["R$ 300", "R$ 120"]],
           rotulo: "a mesma taxa, valores bem diferentes", larguraCol: 122,
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════════════ Linguagem algébrica (7º ano) ═══════════════════════
+  //
+  // A primeira matéria sem figura óbvia. As imagens vêm do bloco decidido
+  // ANTES do conteúdo: a sequência (de onde a letra vem), a balança (o que a
+  // igualdade afirma), o token (por que semelhante junta), a fita (a estrutura
+  // do problema) e a máquina (a expressão avaliada num valor).
+  //
+  // Cuidado recorrente aqui: a figura não pode responder a pergunta. Nas
+  // questões que pedem uma contagem, a sequência vai sem os totais; nas que
+  // pedem um valor, a máquina mostra "?" na saída.
+  ...(() => {
+    return [
+      // --- lição 1: a letra no lugar do número ---
+      {
+        id: "alg-ideia-letra", pasta: "licoes",
+        alt: "Quatro figuras de uma sequência que cresce de dois em dois quadradinhos, com a contagem embaixo de cada uma.",
+        desenho: () => sequenciaFiguras({
+          a: 2, b: 1, quantos: 4, rotulo: "cada figura ganha 2 quadradinhos",
+        }),
+      },
+      {
+        id: "alg-res-sequencia", pasta: "licoes",
+        alt: "Três figuras de uma sequência que cresce de três em três quadradinhos, com a contagem embaixo de cada uma.",
+        desenho: () => sequenciaFiguras({
+          a: 3, b: 1, quantos: 3, rotulo: "4, 7 e 10 — de 3 em 3",
+        }),
+      },
+      {
+        id: "alg-q-figura-10", pasta: "questoes",
+        alt: "Máquina com a expressão 2n mais 1, mostrando a entrada 10 e a saída em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "2n + 1",
+          pares: [{ entra: "1", sai: "3" }, { entra: "10", sai: "?" }],
+        }),
+      },
+      {
+        id: "alg-q-achar-expressao", pasta: "questoes",
+        alt: "Três figuras de uma sequência que cresce de quatro em quatro quadradinhos, com a contagem embaixo de cada uma.",
+        desenho: () => sequenciaFiguras({
+          a: 4, b: 2, quantos: 3, rotulo: "a figura 1 tem 6",
+        }),
+      },
+      {
+        id: "alg-q-regra-geral", pasta: "questoes",
+        alt: "Duas fileiras de caixinhas com letras, uma escrita a mais b e a outra b mais a.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "a + b", tokens: ["a", "+", "b"] },
+            { rotulo: "b + a", tokens: ["b", "+", "a"] },
+          ],
+          rotulo: "vale para quaisquer números",
+        }),
+      },
+      {
+        id: "alg-q-figura-8", pasta: "questoes",
+        alt: "Três figuras de uma sequência que cresce de dois em dois quadradinhos, com a contagem embaixo de cada uma.",
+        desenho: () => sequenciaFiguras({
+          a: 2, b: 1, quantos: 3, rotulo: "e a sequência continua",
+        }),
+      },
+
+      // --- lição 2: escrever com letras ---
+      {
+        id: "alg-ideia-traduzir", pasta: "licoes",
+        alt: "Tabela com frases em português e as expressões correspondentes.",
+        desenho: () => tabela({
+          cabecalho: ["a frase", "vira"],
+          linhas: [
+            ["o dobro de n", "2n"],
+            ["n mais 3", "n + 3"],
+            ["o dobro de n, mais 3", "2n + 3"],
+            ["o dobro da soma de n com 3", "2(n + 3)"],
+          ],
+          rotulo: "o parêntese guarda a ordem", larguraCol: 152,
+        }),
+      },
+      {
+        id: "alg-res-traduzir", pasta: "licoes",
+        alt: "Barra dividida em dois pedaços iguais chamados b e um pedaço de 3, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "b" }, { rotulo: "b" }, { rotulo: "3", conhecido: true }],
+          total: "total = 25",
+          rotulo: "Bruno, Bruno de novo, e os 3 a mais de Ana",
+        }),
+      },
+      {
+        id: "alg-q-triplo", pasta: "questoes",
+        alt: "Barra dividida em três pedaços iguais chamados n, com a chave do triplo por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "n" }, { rotulo: "n" }, { rotulo: "n" }],
+          total: "o triplo de n",
+        }),
+      },
+      {
+        id: "alg-q-parenteses", pasta: "questoes",
+        alt: "Tabela com a ordem em que as duas operações da frase acontecem.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que a frase manda fazer"],
+          linhas: [["1º", "somar o número com 5"], ["2º", "dobrar o resultado"]],
+          rotulo: "o dobro da soma", larguraCol: 168,
+        }),
+      },
+      {
+        id: "alg-q-juntos", pasta: "questoes",
+        alt: "Barra com dois pedaços iguais chamados b e um pedaço de 4, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "b" }, { rotulo: "b" }, { rotulo: "4", conhecido: true }],
+          total: "os dois juntos",
+          rotulo: "Bruno tem b; Ana tem b e mais 4",
+        }),
+      },
+      {
+        id: "alg-q-turma", pasta: "questoes",
+        alt: "Barra com um pedaço chamado m e outro do dobro do tamanho chamado 2m.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "m" }, { rotulo: "2m", unidades: 2 }],
+          total: "total de alunos",
+          rotulo: "meninas e o dobro de meninos",
+        }),
+      },
+
+      // --- lição 3: valor numérico ---
+      {
+        id: "alg-ideia-valor", pasta: "licoes",
+        alt: "Máquina com a expressão 2n mais 3, mostrando três entradas e as saídas correspondentes.",
+        desenho: () => maquinaFuncao({
+          regra: "2n + 3",
+          pares: [{ entra: "1", sai: "5" }, { entra: "2", sai: "7" }, { entra: "3", sai: "9" }],
+          rotulo: "um valor de saída para cada entrada",
+        }),
+      },
+      {
+        id: "alg-res-valor", pasta: "licoes",
+        alt: "Tabela com o valor de cada uma das duas letras.",
+        desenho: () => tabela({
+          cabecalho: ["letra", "valor"],
+          linhas: [["a", "4"], ["b", "5"]],
+          rotulo: "quanto vale 3a² − 2b?", larguraCol: 104,
+        }),
+      },
+      {
+        id: "alg-q-5n8", pasta: "questoes",
+        alt: "Máquina com a expressão 5n menos 8, mostrando a entrada 6 e a saída em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "5n − 8",
+          pares: [{ entra: "6", sai: "?" }],
+        }),
+      },
+      {
+        id: "alg-q-quadrado", pasta: "questoes",
+        alt: "Máquina com a expressão 2n ao quadrado, mostrando a entrada 3 e a saída em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "2n²",
+          pares: [{ entra: "3", sai: "?" }],
+        }),
+      },
+      {
+        id: "alg-q-duas-letras", pasta: "questoes",
+        alt: "Tabela com o valor de cada uma das duas letras.",
+        desenho: () => tabela({
+          cabecalho: ["letra", "valor"],
+          linhas: [["a", "7"], ["b", "4"]],
+          rotulo: "quanto vale 3a + b?", larguraCol: 104,
+        }),
+      },
+      {
+        id: "alg-q-passo", pasta: "questoes",
+        alt: "Máquina com a expressão 3n mais 1, mostrando três entradas seguidas e só a primeira saída preenchida.",
+        desenho: () => maquinaFuncao({
+          regra: "3n + 1",
+          pares: [{ entra: "1", sai: "4" }, { entra: "2", sai: "?" }, { entra: "3", sai: "?" }],
+        }),
+      },
+
+      // --- lição 4: termos semelhantes ---
+      {
+        id: "alg-ideia-semelhantes", pasta: "licoes",
+        alt: "Duas fileiras de caixinhas com a letra x: três mais duas em cima, cinco embaixo.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "3x + 2x", tokens: ["x", "x", "x", "+", "x", "x"] },
+            { rotulo: "junta em", tokens: ["x", "x", "x", "x", "x"] },
+          ],
+          rotulo: "caixa junta com caixa",
+        }),
+      },
+      {
+        id: "alg-res-semelhantes", pasta: "licoes",
+        alt: "Duas fileiras separadas: uma com caixinhas de x e outra com moedas de números.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "com x", tokens: ["x", "x", "x", "x", "x", "−", "x", "x"] },
+            { rotulo: "sem x", tokens: ["3", "+", "7"] },
+          ],
+          rotulo: "duas famílias, dois totais",
+        }),
+      },
+      {
+        id: "alg-q-7a", pasta: "questoes",
+        alt: "Três fileiras de fichas: sete caixinhas de a, três caixinhas de a e duas moedas.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "7a", tokens: ["a", "a", "a", "a", "a", "a", "a"] },
+            { rotulo: "− 3a", tokens: ["a", "a", "a"] },
+            { rotulo: "+ 2", tokens: ["1", "1"] },
+          ],
+        }),
+      },
+      {
+        id: "alg-q-coeficiente", pasta: "questoes",
+        alt: "Três fileiras de caixinhas com a letra m, uma para cada termo da expressão.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "6m", tokens: ["m", "m", "m", "m", "m", "m"] },
+            { rotulo: "+ 2m", tokens: ["m", "m"] },
+            { rotulo: "− 3m", tokens: ["m", "m", "m"] },
+          ],
+        }),
+      },
+      {
+        id: "alg-q-parte-literal", pasta: "questoes",
+        alt: "Tabela com cada termo e o coeficiente dele.",
+        desenho: () => tabela({
+          cabecalho: ["termo", "coeficiente"],
+          linhas: [["4x²", "4"], ["4x", "4"], ["7x²", "7"]],
+          rotulo: "o coeficiente não decide a semelhança", larguraCol: 116,
+        }),
+      },
+      {
+        id: "alg-q-simplificar-valor", pasta: "questoes",
+        alt: "Máquina com a expressão 8y mais 5 menos 3y menos 2, mostrando a entrada 4 e a saída em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "8y + 5 − 3y − 2",
+          pares: [{ entra: "4", sai: "?" }],
+        }),
+      },
+
+      // --- lição 5: igualdade e equilíbrio ---
+      {
+        id: "alg-ideia-balanca", pasta: "licoes",
+        alt: "Balança em equilíbrio, com uma caixinha x e uma moeda de 3 num prato e uma moeda de 10 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "3"], direita: ["10"],
+          rotulo: "os dois pratos pesam o mesmo",
+        }),
+      },
+      {
+        id: "alg-res-igualdade", pasta: "licoes",
+        alt: "Balança em equilíbrio, com três caixinhas x e duas moedas de 1 num prato e uma moeda de 14 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "1", "1"], direita: ["14"],
+          rotulo: "x = 4 deixa a balança assim?",
+        }),
+      },
+      {
+        id: "alg-q-x6", pasta: "questoes",
+        alt: "Balança em equilíbrio, com uma caixinha x e uma moeda de 6 num prato e uma moeda de 15 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "6"], direita: ["15"],
+        }),
+      },
+      {
+        id: "alg-q-sempre", pasta: "questoes",
+        alt: "Tabela com três valores de n e o que valem n mais 2 e 2n em cada um deles.",
+        desenho: () => tabela({
+          cabecalho: ["n", "n + 2", "2n"],
+          linhas: [["1", "3", "2"], ["2", "4", "4"], ["3", "5", "6"]],
+          rotulo: "coincidir uma vez não é valer sempre", larguraCol: 84,
+        }),
+      },
+      {
+        id: "alg-q-testar", pasta: "questoes",
+        alt: "Máquina com a expressão 4x menos 3, mostrando a saída 17 e a entrada em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "4x − 3",
+          pares: [{ entra: "?", sai: "17" }],
+        }),
+      },
+      {
+        id: "alg-q-o-que-e-igual", pasta: "questoes",
+        alt: "Balança em equilíbrio, com duas caixinhas x e uma moeda de 4 num prato e uma moeda de 12 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "4"], direita: ["12"],
+          rotulo: "uma igualdade com letra",
+        }),
+      },
+
+      // --- lição 6: modelar com letras ---
+      {
+        id: "alg-ideia-modelar", pasta: "licoes",
+        alt: "Barra com um pedaço chamado menor x e outro do dobro do tamanho chamado maior x mais 7.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "menor: x" }, { rotulo: "maior: x + 7", unidades: 2 }],
+          total: "a soma dos dois",
+          rotulo: "nomeie sempre a menor quantidade",
+        }),
+      },
+      {
+        id: "alg-res-modelar", pasta: "licoes",
+        alt: "Barra dividida em três pedaços chamados a, 2a e 3a, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "a" }, { rotulo: "2a", unidades: 2 }, { rotulo: "3a", unidades: 3 }],
+          total: "120 figurinhas",
+          rotulo: "Ana, Bruno e Caio",
+        }),
+      },
+      {
+        id: "alg-q-dois-numeros", pasta: "questoes",
+        alt: "Barra com um pedaço chamado x e outro três vezes maior chamado 3x, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "x" }, { rotulo: "3x", unidades: 3 }],
+          total: "60",
+        }),
+      },
+      {
+        id: "alg-q-caneta", pasta: "questoes",
+        alt: "Tabela com o preço da caneta e o do caderno escritos com a mesma letra.",
+        desenho: () => tabela({
+          cabecalho: ["item", "preço"],
+          linhas: [["caneta", "c"], ["caderno", "c + 4"]],
+          rotulo: "duas canetas e um caderno", larguraCol: 116,
+        }),
+      },
+      {
+        id: "alg-q-idade", pasta: "questoes",
+        alt: "Tabela com a idade de Pedro há quatro anos, hoje e daqui a oito anos, escritas com a mesma letra.",
+        desenho: () => tabela({
+          cabecalho: ["quando", "idade"],
+          linhas: [["há 4 anos", "p − 4"], ["hoje", "p"], ["daqui a 8 anos", "p + 8"]],
+          rotulo: "a futura é o dobro da passada", larguraCol: 124,
+        }),
+      },
+      {
+        id: "alg-q-cidades", pasta: "questoes",
+        alt: "Rodovia reta dividida nos três trechos entre as quatro cidades, com a chave da distância total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "A→B" }, { rotulo: "B→C" }, { rotulo: "C→D" }],
+          total: "de A até D = 80 km",
+          rotulo: "os trechos não estão em escala",
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════════════ Equações do 1º grau (7º ano) ═══════════════════════
+  //
+  // A matéria mais barata do ano em desenho: nenhum gerador novo. A balança
+  // de Linguagem algébrica foi feita pensando aqui, e é ela que carrega o
+  // conteúdo — o princípio de operar nos DOIS lados só é óbvio quando os dois
+  // pratos estão desenhados.
+  //
+  // A balança só entra onde a equação é de soma: ela não sabe desenhar um
+  // termo negativo, e forçá-la a isso seria mentir na figura. Onde há
+  // subtração ou divisão, quem trabalha é a `maquinaFuncao` de entrada
+  // aberta — a máquina invertida, que mostra a saída e pergunta a entrada.
+  ...(() => {
+    return [
+      // --- lição 1: o princípio da balança ---
+      {
+        id: "eq-ideia-equilibrio", pasta: "licoes",
+        alt: "Duas fileiras de fichas: em cima uma caixinha x com cinco moedas igualando doze, embaixo a caixinha sozinha.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "um lado", tokens: ["x", "+", "1", "1", "1", "1", "1"] },
+            { rotulo: "o outro", tokens: ["12"] },
+            { rotulo: "tiro 5", tokens: ["x", "=", "7"] },
+          ],
+          rotulo: "sai dos dois, e a igualdade sobrevive",
+        }),
+      },
+      {
+        id: "eq-res-equilibrio", pasta: "licoes",
+        alt: "Balança em equilíbrio, com uma caixinha x e uma moeda de 8 num prato e uma moeda de 21 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "8"], direita: ["21"],
+          rotulo: "quanto pesa a caixinha?",
+        }),
+      },
+      {
+        id: "eq-q-menos-7", pasta: "questoes",
+        alt: "Máquina com a expressão x menos 7, mostrando a saída 12 e a entrada em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "x − 7",
+          pares: [{ entra: "?", sai: "12" }],
+        }),
+      },
+      {
+        id: "eq-q-por-que-dois-lados", pasta: "questoes",
+        alt: "Balança em equilíbrio, com uma caixinha x e uma moeda de 5 num prato e uma moeda de 12 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "5"], direita: ["12"],
+          rotulo: "os dois pratos pesam o mesmo",
+        }),
+      },
+      {
+        id: "eq-q-letra-a-direita", pasta: "questoes",
+        alt: "Balança em equilíbrio, com uma moeda de 23 no prato esquerdo e uma caixinha x com uma moeda de 8 no direito.",
+        desenho: () => balanca({
+          esquerda: ["23"], direita: ["x", "8"],
+          rotulo: "a letra também pode ficar à direita",
+        }),
+      },
+      {
+        id: "eq-q-conferir", pasta: "questoes",
+        alt: "Tabela com o que está escrito de cada lado da igualdade.",
+        desenho: () => tabela({
+          cabecalho: ["lado", "o que está escrito"],
+          linhas: [["esquerdo", "x + 9"], ["direito", "15"]],
+          rotulo: "conferir é calcular os dois", larguraCol: 132,
+        }),
+      },
+
+      // --- lição 2: multiplicar e dividir os dois lados ---
+      {
+        id: "eq-ideia-inversas", pasta: "licoes",
+        alt: "Tabela com cada operação grudada na letra e a operação que a desfaz.",
+        desenho: () => tabela({
+          cabecalho: ["gruda no x", "desfaz"],
+          linhas: [["+ 5", "− 5"], ["− 5", "+ 5"], ["× 4", "÷ 4"], ["÷ 3", "× 3"]],
+          rotulo: "cada uma se desfaz pela inversa", larguraCol: 108,
+        }),
+      },
+      {
+        id: "eq-res-isolar", pasta: "licoes",
+        alt: "Balança em equilíbrio, com seis caixinhas x num prato e uma moeda de 42 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "x", "x", "x"], direita: ["42"],
+          rotulo: "seis caixinhas iguais pesam 42",
+        }),
+      },
+      {
+        id: "eq-q-5x", pasta: "questoes",
+        alt: "Balança em equilíbrio, com cinco caixinhas x num prato e uma moeda de 45 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "x", "x"], direita: ["45"],
+        }),
+      },
+      {
+        id: "eq-q-dividido-4", pasta: "questoes",
+        alt: "Máquina com a expressão x dividido por 4, mostrando a saída 7 e a entrada em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "x ÷ 4",
+          pares: [{ entra: "?", sai: "7" }],
+        }),
+      },
+      {
+        id: "eq-q-oito-x", pasta: "questoes",
+        alt: "Duas fileiras de quatro caixinhas x cada uma, e uma moeda de 56 numa terceira fileira.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "8x", tokens: ["x", "x", "x", "x"] },
+            { rotulo: "e mais", tokens: ["x", "x", "x", "x"] },
+            { rotulo: "vale", tokens: ["56"] },
+          ],
+        }),
+      },
+      {
+        id: "eq-q-dois-x-nove", pasta: "questoes",
+        alt: "Balança em equilíbrio, com duas caixinhas x num prato e uma moeda de 9 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x"], direita: ["9"],
+          rotulo: "duas caixinhas iguais pesam 9",
+        }),
+      },
+
+      // --- lição 3: quando há duas operações ---
+      {
+        id: "eq-ideia-ordem", pasta: "licoes",
+        alt: "Tabela com a ordem em que a máquina fez as operações e a ordem inversa para desfazê-las.",
+        desenho: () => tabela({
+          cabecalho: ["a máquina fez", "para voltar"],
+          linhas: [["× 3", "÷ 3"], ["+ 5", "− 5"]],
+          rotulo: "desfaz-se de trás para frente", larguraCol: 120,
+        }),
+      },
+      {
+        id: "eq-res-duas", pasta: "licoes",
+        alt: "Balança em equilíbrio, com três caixinhas x e uma moeda de 5 num prato e uma moeda de 20 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "5"], direita: ["20"],
+          rotulo: "o que sai primeiro do prato?",
+        }),
+      },
+      {
+        id: "eq-q-4x7", pasta: "questoes",
+        alt: "Balança em equilíbrio, com quatro caixinhas x e uma moeda de 7 num prato e uma moeda de 31 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "x", "7"], direita: ["31"],
+        }),
+      },
+      {
+        id: "eq-q-5x3", pasta: "questoes",
+        alt: "Máquina com a expressão 5x menos 3, mostrando a saída 22 e a entrada em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "5x − 3",
+          pares: [{ entra: "?", sai: "22" }],
+        }),
+      },
+      {
+        id: "eq-q-primeiro-passo", pasta: "questoes",
+        alt: "Balança em equilíbrio, com seis caixinhas x e uma moeda de 4 num prato e uma moeda de 28 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "x", "x", "x", "4"], direita: ["28"],
+        }),
+      },
+      {
+        id: "eq-q-zero", pasta: "questoes",
+        alt: "Máquina com a expressão 2x mais 9, mostrando a saída 9 e a entrada em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "2x + 9",
+          pares: [{ entra: "?", sai: "9" }],
+        }),
+      },
+
+      // --- lição 4: a letra nos dois lados ---
+      {
+        id: "eq-ideia-dois-lados", pasta: "licoes",
+        alt: "Balança em equilíbrio, com cinco caixinhas x e uma moeda de 2 num prato e três caixinhas x com uma moeda de 10 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "x", "x", "2"], direita: ["x", "x", "x", "10"],
+          rotulo: "caixinhas dos dois lados",
+        }),
+      },
+      {
+        id: "eq-res-dois-lados", pasta: "licoes",
+        alt: "Duas fileiras de fichas, uma com cinco caixinhas e duas moedas, outra com três caixinhas e uma moeda de 10.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "5x + 2", tokens: ["x", "x", "x", "x", "x", "+", "1", "1"] },
+            { rotulo: "3x + 10", tokens: ["x", "x", "x", "+", "10"] },
+          ],
+          rotulo: "os dois valem o mesmo",
+        }),
+      },
+      {
+        id: "eq-q-4x-2x", pasta: "questoes",
+        alt: "Balança em equilíbrio, com quatro caixinhas x e uma moeda de 3 num prato e duas caixinhas x com uma moeda de 15 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "x", "3"], direita: ["x", "x", "15"],
+        }),
+      },
+      {
+        id: "eq-q-6x-2x", pasta: "questoes",
+        alt: "Balança em equilíbrio, com seis caixinhas x e uma moeda de 4 num prato e duas caixinhas x com uma moeda de 20 no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "x", "x", "x", "4"], direita: ["x", "x", "20"],
+        }),
+      },
+      {
+        id: "eq-q-3x-7x", pasta: "questoes",
+        alt: "Balança em equilíbrio, com três caixinhas x e uma moeda de 8 num prato e sete caixinhas x no outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "x", "x", "8"], direita: ["x", "x", "x", "x", "x", "x", "x"],
+        }),
+      },
+      {
+        id: "eq-q-sobrou-5", pasta: "questoes",
+        alt: "Uma fileira com duas moedas de 5 separadas pelo sinal de igual, e nenhuma caixinha.",
+        desenho: () => tokensAlgebricos({
+          linhas: [{ rotulo: "sobrou", tokens: ["5", "=", "5"] }],
+          rotulo: "e a letra sumiu dos dois lados",
+        }),
+      },
+
+      // --- lição 5: parênteses e frações ---
+      {
+        id: "eq-ideia-preparar", pasta: "licoes",
+        alt: "Tabela com o que fazer antes de resolver quando a equação tem parênteses ou fração.",
+        desenho: () => tabela({
+          cabecalho: ["a equação tem", "prepare assim"],
+          linhas: [["parênteses", "2(x + 3) → 2x + 6"], ["fração", "x ÷ 3 = 5 → x = 15"]],
+          rotulo: "primeiro limpar, depois isolar", larguraCol: 148,
+        }),
+      },
+      {
+        id: "eq-res-parenteses", pasta: "licoes",
+        alt: "Barra dividida em dois pedaços iguais, cada um marcado como x mais 3, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "x + 3" }, { rotulo: "x + 3" }],
+          total: "14",
+          rotulo: "duas cópias inteiras do pedaço",
+        }),
+      },
+      {
+        id: "eq-q-3-parenteses", pasta: "questoes",
+        alt: "Barra dividida em três pedaços iguais, cada um marcado como x mais 2, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "x + 2" }, { rotulo: "x + 2" }, { rotulo: "x + 2" }],
+          total: "21",
+        }),
+      },
+      {
+        id: "eq-q-fracao-mais-um", pasta: "questoes",
+        alt: "Máquina com a expressão x dividido por 4 mais 1, mostrando a saída 6 e a entrada em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "x ÷ 4 + 1",
+          pares: [{ entra: "?", sai: "6" }],
+        }),
+      },
+      {
+        id: "eq-q-abrir", pasta: "questoes",
+        alt: "Barra dividida em dois pedaços iguais, cada um marcado como x mais 5.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "x + 5" }, { rotulo: "x + 5" }],
+          total: "2(x + 5)",
+          rotulo: "duas cópias do mesmo pedaço",
+        }),
+      },
+      {
+        id: "eq-q-fracao-menos", pasta: "questoes",
+        alt: "Tabela com a ordem dos dois passos necessários para isolar a letra.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que desfazer"],
+          linhas: [["1º", "o − 3"], ["2º", "o ÷ 2"]],
+          rotulo: "de trás para frente", larguraCol: 118,
+        }),
+      },
+
+      // --- lição 6: resolver problemas com equação ---
+      {
+        id: "eq-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com os cinco passos do roteiro, de nomear a incógnita a conferir no texto.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "dar nome à incógnita"],
+            ["2", "traduzir em equação"],
+            ["3", "resolver"],
+            ["4", "voltar à pergunta"],
+            ["5", "conferir no texto"],
+          ],
+          rotulo: "o passo 4 é o mais esquecido", larguraCol: 150,
+        }),
+      },
+      {
+        id: "eq-res-problema", pasta: "licoes",
+        alt: "Máquina com a expressão 2x menos 7, mostrando a saída 23 e a entrada em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "2x − 7",
+          pares: [{ entra: "?", sai: "23" }],
+          rotulo: "qual número entrou?",
+        }),
+      },
+      {
+        id: "eq-q-soma-triplo", pasta: "questoes",
+        alt: "Barra com um pedaço chamado x e outro três vezes maior chamado 3x, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "x" }, { rotulo: "3x", unidades: 3 }],
+          total: "48",
+        }),
+      },
+      {
+        id: "eq-q-idades", pasta: "questoes",
+        alt: "Barra com dois pedaços iguais chamados b e um pedaço de 5, com a chave do total por cima.",
+        desenho: () => barraIncognita({
+          partes: [{ rotulo: "b" }, { rotulo: "b" }, { rotulo: "5", conhecido: true }],
+          total: "37 anos",
+          rotulo: "Bruno, Bruno de novo, e os 5 a mais de Ana",
+        }),
+      },
+      {
+        id: "eq-q-oculos", pasta: "questoes",
+        alt: "Tabela com o que o enunciado diz sobre a classe, sobre quem usa óculos e sobre os meninos.",
+        desenho: () => tabela({
+          cabecalho: ["quem", "quantos"],
+          linhas: [
+            ["usam óculos", "a sexta parte"],
+            ["meninas de óculos", "a terça parte deles"],
+            ["meninos de óculos", "4"],
+          ],
+          rotulo: "quantos alunos tem a classe?", larguraCol: 152,
+        }),
+      },
+      {
+        id: "eq-q-qual-maior", pasta: "questoes",
+        alt: "Tabela com cada uma das quatro letras e a operação que é feita com ela.",
+        desenho: () => tabela({
+          cabecalho: ["número", "o que se faz com ele"],
+          linhas: [["a", "tira 1"], ["b", "soma 2"], ["c", "tira 3"], ["d", "soma 4"]],
+          rotulo: "e os quatro chegam ao mesmo valor", larguraCol: 142,
         }),
       },
     ];
