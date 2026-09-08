@@ -1,0 +1,194 @@
+{
+  "id": "media",
+  "numero": 2,
+  "titulo": "A média, e o que ela supõe",
+  "pergunta": "O que a média realmente afirma sobre o conjunto?",
+  "ideia": {
+    "paragrafos": [
+      "A média é a mais conhecida das três, e o cálculo dela já veio do 6º ano: some tudo e divida pela quantidade de valores. O que esta lição acrescenta não é a conta — é entender o que ela significa e onde ela falha.",
+      "A média responde a uma pergunta bem específica: se todo o total fosse redistribuído em partes IGUAIS, quanto caberia a cada um? Por isso ela é a medida do \"nivelamento\". Cinco notas 6, 7, 8, 9 e 10 somam 40, e 40 repartidos igualmente entre cinco provas dão 8 em cada.",
+      "Daí saem duas propriedades úteis. A primeira é que a média sempre fica entre o menor e o maior valor — nunca fora deles, porque nivelar não cria nem destrói total. A segunda é que multiplicar a média pela quantidade devolve a SOMA, e essa volta resolve boa parte dos problemas.",
+      "É essa segunda propriedade que responde à pergunta mais comum da escola: quanto preciso tirar na última prova? Se a média desejada é 8 em quatro provas, a soma precisa ser 32; tirando o que já foi feito, sobra a nota que falta.",
+      "E a fraqueza da média está no próprio nivelamento: ela usa TODOS os valores na soma, então um valor muito destoante puxa o resultado inteiro. Um só número fora do padrão desloca a média sem deslocar o resto do conjunto — e é por isso que as outras duas medidas existem."
+    ],
+    "destaque": "Média × quantidade = soma. É essa volta que resolve a maioria dos problemas.",
+    "imagem": "es-ideia-media"
+  },
+  "resolvido": {
+    "enunciado": "Um aluno tirou 6, 7, 8, 9 e 10 em cinco provas. Qual foi a média dele?",
+    "imagem": "es-res-media",
+    "passos": [
+      {
+        "titulo": "Some todos os valores",
+        "explicacao": "A soma é o total que vai ser repartido igualmente entre as provas.",
+        "conta": "6 + 7 + 8 + 9 + 10 = 40"
+      },
+      {
+        "titulo": "Conte quantos valores são",
+        "explicacao": "É por essa quantidade que o total será dividido — cinco provas, cinco partes.",
+        "conta": "5 provas"
+      },
+      {
+        "titulo": "Divida",
+        "explicacao": "O resultado é quanto caberia a cada prova se as notas fossem niveladas.",
+        "conta": "40 ÷ 5 = 8"
+      },
+      {
+        "titulo": "Confira o intervalo",
+        "explicacao": "A média tem de cair entre a menor e a maior nota. Se sair fora disso, houve erro na soma ou na contagem.",
+        "conta": "6 ≤ 8 ≤ 10 ✓"
+      }
+    ],
+    "fecho": "Repare que a média coincidiu com uma das notas por acaso. Ela não precisa ser um valor do conjunto."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a média dos números 4, 6, 8 e 10? Digite apenas o número.",
+      "imagem": "es-q-media-4-10",
+      "dica": "Some os quatro valores e divida pela quantidade deles.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "28",
+          "porque": "28 é a SOMA dos quatro valores, e ela é só o primeiro passo. Falta dividir pela quantidade de números para saber quanto cabe a cada um."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é um dos valores da lista, e não a média deles. Testando: se todos valessem 8, a soma daria 32, e não os 28 que os números realmente somam."
+        },
+        {
+          "resposta": "9.33",
+          "porque": "9,33 divide a soma por 3 em vez de 4. São quatro números na lista, então o total se reparte em quatro partes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os valores",
+          "explicacao": "O total é o que vai ser repartido igualmente.",
+          "conta": "4 + 6 + 8 + 10 = 28"
+        },
+        {
+          "titulo": "Divida pela quantidade",
+          "explicacao": "São quatro números, então o total se divide em quatro partes iguais.",
+          "conta": "28 ÷ 4 = 7"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Três caixas pesam 12 kg, 15 kg e 18 kg. Qual é o peso médio delas? Digite apenas o número.",
+      "imagem": "es-q-media-caixas",
+      "dica": "O peso médio é quanto cada caixa pesaria se o peso total fosse dividido igualmente entre elas.",
+      "formato": "numero",
+      "resposta": 15,
+      "unidade": "kg",
+      "errosComuns": [
+        {
+          "resposta": "45",
+          "porque": "45 é o peso TOTAL das três caixas. A média é quanto caberia a cada uma se esse total fosse repartido igualmente."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a diferença entre a caixa mais pesada e a mais leve. Isso mede o espalhamento, e não o valor típico do conjunto."
+        },
+        {
+          "resposta": "22.5",
+          "porque": "22,5 divide o total por 2 em vez de 3. São três caixas, então o peso total se reparte em três partes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os pesos",
+          "explicacao": "O total é o peso das três caixas juntas.",
+          "conta": "12 + 15 + 18 = 45"
+        },
+        {
+          "titulo": "Divida por três",
+          "explicacao": "Repartindo o total igualmente entre as três caixas.",
+          "conta": "45 ÷ 3 = 15 kg"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um aluno tirou 6, 8 e 9 nas três primeiras provas. Quanto ele precisa tirar na quarta para fechar média 8? Digite apenas o número.",
+      "imagem": "es-q-quarta-nota",
+      "dica": "Descubra qual soma as quatro provas precisam ter, e tire o que já foi feito.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é a média desejada, e não a nota que falta. Como as três primeiras somam 23 e seriam necessários 24 para média 8 em três, a quarta precisa compensar."
+        },
+        {
+          "resposta": "32",
+          "porque": "32 é a SOMA que as quatro provas precisam alcançar. Falta descontar dessa soma os 23 pontos que as três primeiras já garantiram."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 não chega lá: com 6, 8, 9 e 7 a soma é 30, e a média fica em 7,5. Faltaria meio ponto para atingir a média pedida."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a soma necessária",
+          "explicacao": "Média vezes quantidade devolve a soma: quatro provas com média 8.",
+          "conta": "8 × 4 = 32"
+        },
+        {
+          "titulo": "Tire o que já foi feito",
+          "explicacao": "As três primeiras provas já contribuíram com parte desse total.",
+          "conta": "6 + 8 + 9 = 23"
+        },
+        {
+          "titulo": "Ache o que falta e confira",
+          "explicacao": "A diferença é a nota necessária, e vale refazer a média com ela.",
+          "conta": "32 − 23 = 9 · (6+8+9+9)÷4 = 8 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A média de um conjunto pode ser maior que o maior valor dele?",
+      "imagem": "es-q-media-intervalo",
+      "dica": "Pense no que o nivelamento faz: ele redistribui o total, sem criar nem destruir nada.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: ela fica sempre entre o menor e o maior valor" },
+        { "rotulo": "B", "texto": "Sim, quando há muitos valores no conjunto" },
+        { "rotulo": "C", "texto": "Sim, quando um dos valores é muito grande" },
+        { "rotulo": "D", "texto": "Só quando todos os valores são iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, quando há muitos valores no conjunto",
+          "porque": "A quantidade de valores não empurra a média para fora do intervalo. Somar mais números também aumenta o divisor, então o resultado continua entre o menor e o maior."
+        },
+        {
+          "resposta": "Sim, quando um dos valores é muito grande",
+          "porque": "Um valor muito grande PUXA a média para cima, e às vezes bastante — mas nunca além dele próprio, porque os outros valores continuam entrando na conta e são menores."
+        },
+        {
+          "resposta": "Só quando todos os valores são iguais",
+          "porque": "Nesse caso a média é igual a todos eles, e portanto igual ao maior — mas nunca maior. Esse é justamente o caso extremo em que ela encosta no limite."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Pense no nivelamento",
+          "explicacao": "A média redistribui o total em partes iguais, sem acrescentar nada.",
+          "conta": "o total não muda"
+        },
+        {
+          "titulo": "Veja os dois extremos",
+          "explicacao": "Se todos os valores fossem o maior, a média seria ele. Como há valores menores, ela fica abaixo disso.",
+          "conta": "menor ≤ média ≤ maior"
+        }
+      ]
+    }
+  ]
+}

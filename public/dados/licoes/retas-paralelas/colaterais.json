@@ -1,0 +1,195 @@
+{
+  "id": "colaterais",
+  "numero": 5,
+  "titulo": "Colaterais: os que somam 180°",
+  "pergunta": "Existe algum par que não seja de ângulos iguais?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui todos os pares que ganharam nome eram de ângulos IGUAIS: correspondentes, alternos internos, alternos externos. Falta o último par, e ele é o único diferente — os colaterais não são iguais, são suplementares.",
+      "COLATERAL quer dizer \"do mesmo lado\", e é exatamente isso: os colaterais ficam do MESMO lado da transversal, um em cada cruzamento. É o contrário dos alternos, que se alternavam de lado.",
+      "A separação entre internos e externos é a mesma da lição passada. Colaterais internos ficam dentro da faixa entre as paralelas; colaterais externos ficam fora dela. Dois pares de cada tipo, como sempre.",
+      "E a propriedade: entre paralelas, ângulos colaterais somam 180°. Também não é regra nova. Um colateral interno é o vizinho de um alterno interno — e vizinhos formam meia volta, como a lição 1 já dizia. A igualdade de um vira a soma do outro.",
+      "Vale um cuidado prático que a próxima lição vai cobrar. Reconhecer o par errado troca uma igualdade por uma subtração e vice-versa, e o resultado sai errado sem nenhum aviso. Antes de calcular, decida sempre duas coisas: mesmo lado ou lados opostos, dentro ou fora da faixa."
+    ],
+    "destaque": "Colaterais ficam do mesmo lado da transversal, e somam 180°.",
+    "imagem": "rp-ideia-colaterais"
+  },
+  "resolvido": {
+    "enunciado": "As retas r e s são paralelas e um ângulo interno mede 110°. Quanto mede o ângulo x, colateral interno a ele?",
+    "imagem": "rp-res-colaterais",
+    "passos": [
+      {
+        "titulo": "Confirme que os dois são internos",
+        "explicacao": "Os dois estão dentro da faixa entre as paralelas, o que descarta o caso dos externos.",
+        "conta": "os dois são internos"
+      },
+      {
+        "titulo": "Confira que estão do mesmo lado",
+        "explicacao": "Os dois ficam do mesmo lado da transversal. É isso que faz deles colaterais, e não alternos — e é o que troca a igualdade por uma soma.",
+        "conta": "mesmo lado da transversal"
+      },
+      {
+        "titulo": "Aplique a propriedade",
+        "explicacao": "Colaterais entre paralelas somam 180°, então o que se procura é o que falta para completar essa soma.",
+        "conta": "110° + x = 180°"
+      },
+      {
+        "titulo": "Resolva e confira",
+        "explicacao": "Tirando 110 de 180 sobra a medida procurada, e vale conferir que ela é mesmo um dos dois valores da figura.",
+        "conta": "x = 70° · 110 + 70 = 180 ✓"
+      }
+    ],
+    "fecho": "Se você tivesse lido o par como alterno, teria respondido 110° — a mesma figura, e a resposta errada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As retas são paralelas e um ângulo interno mede 65°. Quanto mede o colateral interno a ele? Digite apenas o número.",
+      "imagem": "rp-q-col-65",
+      "dica": "Colaterais ficam do mesmo lado da transversal. Eles são iguais ou somam alguma coisa?",
+      "formato": "numero",
+      "resposta": 115,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "65",
+          "porque": "65 seria a resposta se o par fosse de alternos ou correspondentes, que são iguais. Colaterais ficam do MESMO lado da transversal e somam 180°."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 completa 90° com o 65°. A soma que vale entre colaterais é a de meia volta, 180°, e não a do ângulo reto."
+        },
+        {
+          "resposta": "295",
+          "porque": "295 completa a volta inteira, 360°. Dois colaterais cobrem apenas meia volta juntos, porque um deles é vizinho do alterno do outro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o par",
+          "explicacao": "Os dois estão entre as paralelas e do mesmo lado da transversal.",
+          "conta": "colaterais internos"
+        },
+        {
+          "titulo": "Complete a meia volta",
+          "explicacao": "Colaterais somam 180°, então basta ver quanto falta.",
+          "conta": "180 − 65 = 115°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O que acontece com dois ângulos colaterais internos entre retas paralelas?",
+      "imagem": "rp-q-o-que-col",
+      "dica": "Este é o único par da matéria que não é de ângulos iguais.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "São suplementares: somam 180°" },
+        { "rotulo": "B", "texto": "São iguais, como todos os outros pares" },
+        { "rotulo": "C", "texto": "Somam 90°" },
+        { "rotulo": "D", "texto": "Somam 360°" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "São iguais, como todos os outros pares",
+          "porque": "Correspondentes e alternos são iguais, mas os colaterais são a exceção. Eles ficam do mesmo lado da transversal, e um é vizinho do alterno do outro."
+        },
+        {
+          "resposta": "Somam 90°",
+          "porque": "Noventa graus é o ângulo reto, e ele não aparece em nenhuma relação desta matéria, a não ser quando a transversal é perpendicular às paralelas."
+        },
+        {
+          "resposta": "Somam 360°",
+          "porque": "360° é a volta completa, formada pelos QUATRO ângulos de um cruzamento. Dois colaterais cobrem só metade disso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça a posição",
+          "explicacao": "Colateral quer dizer do mesmo lado: os dois ficam do mesmo lado da transversal, um em cada cruzamento.",
+          "conta": "mesmo lado"
+        },
+        {
+          "titulo": "Veja de onde vem a soma",
+          "explicacao": "Um colateral é vizinho do alterno do outro, e vizinhos formam meia volta.",
+          "conta": "somam 180°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "As retas são paralelas e um ângulo externo mede 140°. Quanto mede o colateral externo a ele? Digite apenas o número.",
+      "imagem": "rp-q-col-externo",
+      "dica": "A propriedade dos colaterais vale igual para os externos: o que muda é só a região onde ficam.",
+      "formato": "numero",
+      "resposta": 40,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "140",
+          "porque": "140 seria a resposta se o par fosse alterno externo, que é de ângulos iguais. Colaterais ficam do mesmo lado da transversal e somam 180°."
+        },
+        {
+          "resposta": "220",
+          "porque": "220 soma 80 ao valor dado. A relação é de SOMA com o suplementar: os dois juntos precisam dar 180°, então o outro é menor que 140°."
+        },
+        {
+          "resposta": "70",
+          "porque": "70 é a metade de 140°. Nenhuma relação entre paralelas divide medida ao meio: aqui o que existe é o complemento para 180°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confirme que os dois são externos",
+          "explicacao": "Os dois ficam fora da faixa entre as paralelas, e do mesmo lado da transversal.",
+          "conta": "colaterais externos"
+        },
+        {
+          "titulo": "Complete a meia volta",
+          "explicacao": "A propriedade é a mesma dos internos: os dois somam 180°.",
+          "conta": "180 − 140 = 40°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "As retas são paralelas. Dois ângulos colaterais internos medem 3x e x. Quanto vale x? Digite apenas o número.",
+      "imagem": "rp-q-col-algebra",
+      "dica": "Escreva a soma que a propriedade garante, junte os termos semelhantes e resolva a equação.",
+      "formato": "numero",
+      "resposta": 45,
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 sai de dividir 180 por 3, contando só o termo 3x. O outro ângulo também entra na soma, então são quatro parcelas de x no total, e não três."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 divide 180 ao meio, o que valeria se os dois ângulos fossem iguais. Um deles é o triplo do outro, então as partes não têm o mesmo tamanho."
+        },
+        {
+          "resposta": "135",
+          "porque": "135 é a medida do ângulo 3x, e não o valor de x. Achado o x, ainda é preciso olhar o que a pergunta pediu — e ela pediu a letra."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a soma",
+          "explicacao": "A propriedade garante que os dois colaterais internos completam meia volta.",
+          "conta": "3x + x = 180"
+        },
+        {
+          "titulo": "Junte os termos semelhantes",
+          "explicacao": "Os dois têm a mesma letra, então se juntam num só.",
+          "conta": "4x = 180"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Dividindo por 4, e conferindo que os dois ângulos somam mesmo 180°.",
+          "conta": "x = 45 · 135 + 45 = 180 ✓"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "id": "alternos",
+  "numero": 4,
+  "titulo": "Alternos internos e externos",
+  "pergunta": "E os ângulos que ficam em lados opostos da transversal?",
+  "ideia": {
+    "paragrafos": [
+      "Os correspondentes ficam do mesmo lado da transversal. O segundo par de nomes é justamente o contrário: os ângulos ALTERNOS ficam em lados OPOSTOS dela, um em cada cruzamento. É daí que vem o nome — eles se alternam de lado.",
+      "Para separar os alternos em dois tipos, vale marcar a faixa entre as duas paralelas. Os ângulos que ficam dentro dessa faixa são INTERNOS; os que ficam fora dela, acima da primeira reta ou abaixo da segunda, são EXTERNOS.",
+      "Juntando as duas ideias: alternos INTERNOS ficam entre as paralelas e em lados opostos da transversal. Alternos EXTERNOS ficam fora das paralelas e também em lados opostos. São dois pares de cada tipo.",
+      "E a propriedade é a mesma dos correspondentes: entre paralelas, ângulos alternos são IGUAIS. Não é uma regra nova para decorar — ela sai da anterior. Um alterno interno é o oposto pelo vértice de um correspondente, e as duas igualdades se encadeiam.",
+      "Vale enxergar esse encadeamento pelo menos uma vez, porque ele mostra que a matéria inteira se apoia numa propriedade só. Correspondente é igual; oposto pelo vértice é igual; logo o alterno, que é oposto de um correspondente, também é igual."
+    ],
+    "destaque": "Alternos ficam em lados opostos da transversal, e também são iguais.",
+    "imagem": "rp-ideia-alternos"
+  },
+  "resolvido": {
+    "enunciado": "As retas r e s são paralelas e um ângulo mede 55°. Quanto mede o ângulo x, alterno interno a ele?",
+    "imagem": "rp-res-alternos",
+    "passos": [
+      {
+        "titulo": "Localize a faixa entre as paralelas",
+        "explicacao": "Os dois ângulos estão dentro dela, o que já garante que são internos e não externos.",
+        "conta": "os dois são internos"
+      },
+      {
+        "titulo": "Confira que estão em lados opostos",
+        "explicacao": "Um fica à esquerda da transversal e o outro à direita. É isso que faz deles alternos, e não colaterais.",
+        "conta": "lados opostos da transversal"
+      },
+      {
+        "titulo": "Aplique a propriedade",
+        "explicacao": "Entre paralelas, alternos internos são iguais, então a medida se repete sem conta nenhuma.",
+        "conta": "x = 55°"
+      },
+      {
+        "titulo": "Confira pelo caminho longo",
+        "explicacao": "O correspondente do de 55° também mede 55°, e x é o oposto pelo vértice desse correspondente. As duas igualdades levam ao mesmo lugar.",
+        "conta": "55° → correspondente 55° → oposto 55° ✓"
+      }
+    ],
+    "fecho": "O caminho longo não é obrigatório, mas mostra de onde a propriedade vem — e é isso que a torna fácil de lembrar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As retas são paralelas e um ângulo mede 47°. Quanto mede o ângulo alterno interno a ele? Digite apenas o número.",
+      "imagem": "rp-q-alt-47",
+      "dica": "Alternos ficam em lados opostos da transversal. O que a propriedade diz sobre a medida deles?",
+      "formato": "numero",
+      "resposta": 47,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "133",
+          "porque": "133 é o suplementar de 47°, que é a medida dos COLATERAIS. Alternos ficam em lados opostos da transversal e são iguais, não suplementares."
+        },
+        {
+          "resposta": "43",
+          "porque": "43 completa 90° com o 47°. Nenhuma relação entre paralelas usa o ângulo reto: aqui a medida simplesmente se repete."
+        },
+        {
+          "resposta": "94",
+          "porque": "94 dobra o 47°. A propriedade dos alternos não soma nem multiplica: ela afirma que os dois ângulos têm exatamente a mesma medida."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o par",
+          "explicacao": "Os dois estão entre as paralelas e em lados opostos da transversal.",
+          "conta": "alternos internos"
+        },
+        {
+          "titulo": "Aplique a propriedade",
+          "explicacao": "Entre paralelas, alternos são iguais.",
+          "conta": "47°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Onde ficam dois ângulos alternos internos?",
+      "imagem": "rp-q-onde-alt",
+      "dica": "São duas condições ao mesmo tempo: uma sobre a faixa entre as paralelas, outra sobre o lado da transversal.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Entre as paralelas e em lados opostos da transversal" },
+        { "rotulo": "B", "texto": "Entre as paralelas e do mesmo lado da transversal" },
+        { "rotulo": "C", "texto": "Fora das paralelas e em lados opostos da transversal" },
+        { "rotulo": "D", "texto": "No mesmo cruzamento, um de frente para o outro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Entre as paralelas e do mesmo lado da transversal",
+          "porque": "Acerta a parte interna e erra o lado. Ficando do MESMO lado da transversal, o par é de colaterais internos — e esses somam 180° em vez de serem iguais."
+        },
+        {
+          "resposta": "Fora das paralelas e em lados opostos da transversal",
+          "porque": "Descreve os alternos EXTERNOS. Eles também são iguais, mas ficam fora da faixa entre as duas retas, e não dentro dela."
+        },
+        {
+          "resposta": "No mesmo cruzamento, um de frente para o outro",
+          "porque": "Isso são os opostos pelo vértice. Qualquer par de alternos envolve os dois cruzamentos, com um ângulo em cada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Marque a faixa entre as retas",
+          "explicacao": "Internos são os que ficam dentro dela; externos, os que ficam fora.",
+          "conta": "internos → entre as paralelas"
+        },
+        {
+          "titulo": "Veja o lado da transversal",
+          "explicacao": "Alternos se alternam de lado: um à esquerda, outro à direita.",
+          "conta": "lados opostos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "As retas são paralelas e um ângulo externo mede 130°. Quanto mede o alterno externo a ele? Digite apenas o número.",
+      "imagem": "rp-q-alt-externo",
+      "dica": "A propriedade dos alternos vale igual para os externos: o que muda é só a região onde eles ficam.",
+      "formato": "numero",
+      "resposta": 130,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "50",
+          "porque": "50 é o suplementar de 130°, ou seja, o outro valor da figura. Ele aparece nos vizinhos e nos colaterais, e não no alterno."
+        },
+        {
+          "resposta": "65",
+          "porque": "65 é a metade de 130°. A propriedade dos alternos repete a medida inteira: não há divisão em lugar nenhum."
+        },
+        {
+          "resposta": "230",
+          "porque": "230 soma 100 ao valor dado, sem motivo na figura. Nenhum ângulo dessa construção passa de 180°, porque todos cabem em meia volta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confirme que os dois são externos",
+          "explicacao": "Os dois ficam fora da faixa entre as paralelas: um acima da primeira reta, outro abaixo da segunda.",
+          "conta": "alternos externos"
+        },
+        {
+          "titulo": "Aplique a propriedade",
+          "explicacao": "Alternos são iguais, internos ou externos.",
+          "conta": "130°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "As retas são paralelas. Dois ângulos alternos internos medem x + 20 e 70°. Quanto vale x? Digite apenas o número.",
+      "imagem": "rp-q-alt-algebra",
+      "dica": "Escreva a igualdade que a propriedade garante e resolva como equação do 1º grau.",
+      "formato": "numero",
+      "resposta": 50,
+      "errosComuns": [
+        {
+          "resposta": "90",
+          "porque": "90 soma 20 ao 70 em vez de tirar. Na equação x + 20 = 70, os 20 estão sendo acrescentados ao x, então para isolá-lo é preciso subtrair."
+        },
+        {
+          "resposta": "70",
+          "porque": "70 é a medida do ângulo, e não o valor de x. A igualdade dá x + 20 = 70, então o x é o que sobra depois de tirar os 20."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é o número que acompanha o x no enunciado, e não o valor dele. Testando: com x = 20 o ângulo mediria 40°, e não os 70° do alterno."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a igualdade",
+          "explicacao": "A propriedade garante que os dois alternos internos têm a mesma medida.",
+          "conta": "x + 20 = 70"
+        },
+        {
+          "titulo": "Resolva a equação",
+          "explicacao": "Tirando 20 dos dois lados, como em qualquer equação do 1º grau.",
+          "conta": "x = 50"
+        },
+        {
+          "titulo": "Confira na figura",
+          "explicacao": "Com x = 50, o ângulo x + 20 mede 70°, igual ao alterno dado.",
+          "conta": "50 + 20 = 70 ✓"
+        }
+      ]
+    }
+  ]
+}

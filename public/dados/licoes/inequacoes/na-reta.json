@@ -1,0 +1,210 @@
+{
+  "id": "na-reta",
+  "numero": 2,
+  "titulo": "Desenhar a resposta na reta",
+  "pergunta": "Como mostrar infinitas respostas de uma vez?",
+  "ideia": {
+    "paragrafos": [
+      "Listar as soluções de uma inequação não funciona: elas são infinitas, e qualquer lista para no meio do caminho. O jeito de mostrar todas de uma vez é desenhar na reta numérica — e o desenho vira a própria resposta.",
+      "O desenho tem duas partes. Uma BOLINHA marca o valor de fronteira, e uma FAIXA grossa sai dela para o lado que serve, terminando numa seta que avisa que aquilo continua para sempre.",
+      "A bolinha carrega uma informação que a faixa não carrega: se a fronteira entra ou não. Cheia para ≤ e ≥, porque nesses sinais o extremo faz parte. Vazada para < e >, porque neles o extremo fica de fora — o furo no meio da bolinha é justamente o buraco na resposta.",
+      "O lado da faixa sai direto do sinal. Os sinais de maior, > e ≥, apontam para a direita, onde ficam os números maiores. Os de menor, < e ≤, apontam para a esquerda.",
+      "Repare que esse desenho diz três coisas ao mesmo tempo: onde está a fronteira, se ela entra e para que lado a resposta continua. São exatamente as três informações que a inequação carrega, e é por isso que o desenho substitui a lista."
+    ],
+    "destaque": "Bolinha cheia inclui o extremo; bolinha vazada deixa ele de fora.",
+    "imagem": "in-ideia-reta"
+  },
+  "resolvido": {
+    "enunciado": "Desenhe na reta numérica a solução de x ≥ −2.",
+    "imagem": "in-res-reta",
+    "passos": [
+      {
+        "titulo": "Ache a fronteira",
+        "explicacao": "É o número que aparece do outro lado do sinal. Ele é o ponto onde a resposta começa ou termina.",
+        "conta": "fronteira = −2"
+      },
+      {
+        "titulo": "Decida a bolinha",
+        "explicacao": "O sinal é ≥, que quer dizer maior OU IGUAL. Como o igual está incluído, o próprio −2 faz parte da resposta, e a bolinha é cheia.",
+        "conta": "≥ → bolinha cheia"
+      },
+      {
+        "titulo": "Decida o lado da faixa",
+        "explicacao": "Maior quer dizer à direita na reta, então a faixa sai do −2 e vai crescendo, com seta na ponta.",
+        "conta": "≥ → faixa para a direita"
+      },
+      {
+        "titulo": "Leia o desenho de volta",
+        "explicacao": "Conferir é traduzir a figura outra vez em palavras e ver se bate com a inequação de partida.",
+        "conta": "de −2 para cima, com o −2 incluído"
+      }
+    ],
+    "fecho": "Trocando ≥ por >, muda só a bolinha: mesma faixa, mesmo lado, mas com o −2 fora da resposta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na reta numérica, o que uma bolinha VAZADA quer dizer?",
+      "imagem": "in-q-vazada",
+      "dica": "Pense em qual par de sinais produz uma bolinha vazada, e no que esses sinais têm em comum.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que o número da fronteira não faz parte da resposta" },
+        { "rotulo": "B", "texto": "Que o número da fronteira faz parte da resposta" },
+        { "rotulo": "C", "texto": "Que a resposta só tem números negativos" },
+        { "rotulo": "D", "texto": "Que a inequação não tem nenhuma solução" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que o número da fronteira faz parte da resposta",
+          "porque": "Essa é a bolinha CHEIA, usada com ≤ e ≥. A vazada tem um furo no meio justamente para mostrar que ali há um buraco na resposta."
+        },
+        {
+          "resposta": "Que a resposta só tem números negativos",
+          "porque": "A bolinha não diz nada sobre sinal de número. Em x > 3 a bolinha é vazada e a resposta é toda positiva; o que ela informa é só se o extremo entra."
+        },
+        {
+          "resposta": "Que a inequação não tem nenhuma solução",
+          "porque": "A faixa que sai da bolinha mostra infinitas soluções. O único número excluído pela bolinha vazada é o da própria fronteira."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja de que sinal ela vem",
+          "explicacao": "A bolinha vazada aparece com < e com >, os sinais que não têm o igual embutido.",
+          "conta": "< e > → vazada"
+        },
+        {
+          "titulo": "Traduza o furo",
+          "explicacao": "Sem o igual, o valor da fronteira empataria — e empate não serve para esses sinais.",
+          "conta": "a fronteira fica de fora"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual inequação está desenhada nesta reta?",
+      "imagem": "in-q-ler-reta",
+      "dica": "Olhe duas coisas: se a bolinha é cheia ou vazada, e para que lado a faixa aponta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "x ≥ 2" },
+        { "rotulo": "B", "texto": "x > 2" },
+        { "rotulo": "C", "texto": "x ≤ 2" },
+        { "rotulo": "D", "texto": "x = 2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "x > 2",
+          "porque": "O lado está certo, mas a bolinha do desenho é cheia, e bolinha cheia quer dizer que o 2 entra na resposta. O sinal > deixaria o 2 de fora e pediria bolinha vazada."
+        },
+        {
+          "resposta": "x ≤ 2",
+          "porque": "Esse sinal manda a faixa para a ESQUERDA, cobrindo os números menores que 2. No desenho a faixa sai do 2 e vai para a direita."
+        },
+        {
+          "resposta": "x = 2",
+          "porque": "Uma igualdade marcaria só o ponto 2, sem faixa nenhuma. A faixa com seta mostra que a resposta continua indefinidamente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a bolinha",
+          "explicacao": "Ela está cheia, então o número da fronteira faz parte da resposta e o sinal tem o igual embutido.",
+          "conta": "cheia → ≤ ou ≥"
+        },
+        {
+          "titulo": "Leia o lado",
+          "explicacao": "A faixa aponta para a direita, ou seja, para os números maiores que a fronteira.",
+          "conta": "direita → maior"
+        },
+        {
+          "titulo": "Junte as duas leituras",
+          "explicacao": "Maior, com o igual incluído, é o sinal ≥.",
+          "conta": "x ≥ 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na inequação x > 6, qual é o menor número inteiro que faz parte da resposta? Digite apenas o número.",
+      "imagem": "in-q-menor-que-serve",
+      "dica": "A bolinha no 6 é vazada. Ande para a direita e pare no primeiro inteiro que estiver dentro da faixa.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "O 6 é a fronteira, e a bolinha nele é vazada. Ele empata em vez de superar, e empate não serve para o sinal de maior estrito."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 está na resposta, mas não é o menor que está. Entre 6 e 8 existe o 7, que também é inteiro e também é maior que 6."
+        },
+        {
+          "resposta": "6.5",
+          "porque": "6,5 é de fato maior que 6, e seria uma boa resposta se a pergunta não pedisse um INTEIRO. Entre os inteiros, o primeiro que passa de 6 é o 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Descarte a fronteira",
+          "explicacao": "A bolinha vazada avisa que o próprio 6 está fora da resposta.",
+          "conta": "6 > 6 ✗"
+        },
+        {
+          "titulo": "Ande para dentro da faixa",
+          "explicacao": "O primeiro inteiro à direita do 6 já está coberto pela faixa.",
+          "conta": "7 > 6 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Como fica o desenho da solução de x ≤ −1 na reta?",
+      "imagem": "in-q-desenhar",
+      "dica": "Decida duas coisas separadamente: a bolinha (o sinal tem igual?) e o lado (maior ou menor?).",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Bolinha cheia no −1 e faixa para a esquerda" },
+        { "rotulo": "B", "texto": "Bolinha vazada no −1 e faixa para a esquerda" },
+        { "rotulo": "C", "texto": "Bolinha cheia no −1 e faixa para a direita" },
+        { "rotulo": "D", "texto": "Bolinha vazada no −1 e faixa para a direita" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Bolinha vazada no −1 e faixa para a esquerda",
+          "porque": "Acerta o lado e erra a bolinha. O sinal ≤ tem o igual embutido, então o próprio −1 faz parte da resposta e a bolinha é cheia."
+        },
+        {
+          "resposta": "Bolinha cheia no −1 e faixa para a direita",
+          "porque": "Acerta a bolinha e erra o lado. O sinal é de MENOR ou igual, e menor quer dizer à esquerda na reta — onde ficam −2, −3 e assim por diante."
+        },
+        {
+          "resposta": "Bolinha vazada no −1 e faixa para a direita",
+          "porque": "Erra as duas coisas ao mesmo tempo. Esse desenho corresponde a x > −1, que é quase o oposto da inequação dada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o risquinho do sinal",
+          "explicacao": "O traço embaixo do sinal é o igual, e ele manda incluir a fronteira.",
+          "conta": "≤ → bolinha cheia"
+        },
+        {
+          "titulo": "Olhe a direção do sinal",
+          "explicacao": "Menor aponta para os valores menores, que na reta estão à esquerda.",
+          "conta": "≤ → faixa para a esquerda"
+        },
+        {
+          "titulo": "Confira com um valor",
+          "explicacao": "Um número da faixa tem de satisfazer a inequação, e um de fora tem de falhar.",
+          "conta": "−3 ≤ −1 ✓ · 0 ≤ −1 ✗"
+        }
+      ]
+    }
+  ]
+}

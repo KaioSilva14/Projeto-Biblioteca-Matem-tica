@@ -1,0 +1,200 @@
+{
+  "id": "o-numero-pi",
+  "numero": 2,
+  "titulo": "De onde vem o π",
+  "pergunta": "Por que aparece sempre o mesmo número?",
+  "ideia": {
+    "paragrafos": [
+      "Pegue qualquer objeto redondo — uma tampa, um prato, uma roda de bicicleta. Meça a volta dele com um barbante e meça o diâmetro com uma régua. Depois divida a volta pelo diâmetro. Não importa o objeto: o resultado é sempre por volta de 3,14.",
+      "Isso não é coincidência, e é uma das descobertas mais antigas da matemática. Em toda circunferência, o comprimento da volta e o diâmetro guardam a mesma razão. Círculo grande, círculo pequeno, tanto faz — se um cresce, o outro cresce junto e na mesma proporção.",
+      "Esse número tem nome próprio: π, a letra grega pi. Ele responde a uma pergunta bem concreta — quantas vezes o diâmetro cabe na volta. E a resposta é: cabe três vezes, e ainda sobra um pedacinho de pouco mais de um décimo do diâmetro.",
+      "O π é um número que nunca acaba e nunca repete um padrão: 3,14159265… Por isso, na prática, ele é sempre arredondado. Nesta matéria usamos 3,14, que já é preciso o bastante para qualquer conta escolar.",
+      "Vale guardar a definição, e não só o valor. O π não é um número solto que aparece nas fórmulas por acaso: ele É a razão entre a volta e o diâmetro. Quando você escreve C = π × d, está apenas dizendo de volta o que a definição afirma."
+    ],
+    "destaque": "π é quantas vezes o diâmetro cabe na volta: três vezes e um pouco.",
+    "imagem": "ci-ideia-pi"
+  },
+  "resolvido": {
+    "enunciado": "Um prato tem 10 cm de diâmetro, e um barbante que dá a volta nele mede 31,4 cm. Quanto dá a volta dividida pelo diâmetro?",
+    "imagem": "ci-res-pi",
+    "passos": [
+      {
+        "titulo": "Separe as duas medidas",
+        "explicacao": "Uma é o comprimento da volta, medida com o barbante; a outra é o diâmetro, medido com a régua.",
+        "conta": "volta = 31,4 · diâmetro = 10"
+      },
+      {
+        "titulo": "Divida a volta pelo diâmetro",
+        "explicacao": "É essa divisão que responde quantas vezes o diâmetro cabe na volta.",
+        "conta": "31,4 ÷ 10 = 3,14"
+      },
+      {
+        "titulo": "Repita com outro objeto",
+        "explicacao": "Num prato de 20 cm de diâmetro, a volta mede 62,8 cm — e a divisão dá o mesmo número.",
+        "conta": "62,8 ÷ 20 = 3,14"
+      },
+      {
+        "titulo": "Reconheça o número",
+        "explicacao": "Esse valor que aparece em todo círculo é o π, e é por isso que ele entra em todas as fórmulas desta matéria.",
+        "conta": "π ≈ 3,14"
+      }
+    ],
+    "fecho": "Repare que o prato maior tem volta maior E diâmetro maior. A razão entre os dois é que não muda."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma roda tem 2 m de diâmetro, e uma volta completa dela mede 6,28 m. Quanto dá a volta dividida pelo diâmetro? Digite apenas o número.",
+      "imagem": "ci-q-roda-razao",
+      "dica": "É uma divisão só: o comprimento da volta pelo diâmetro.",
+      "formato": "numero",
+      "resposta": 3.14,
+      "errosComuns": [
+        {
+          "resposta": "12.56",
+          "porque": "12,56 multiplica em vez de dividir. A pergunta é quantas vezes o diâmetro CABE na volta, e caber é uma divisão."
+        },
+        {
+          "resposta": "4.28",
+          "porque": "4,28 subtrai o diâmetro da volta. A razão entre duas medidas se acha dividindo uma pela outra, e não tirando uma da outra."
+        },
+        {
+          "resposta": "0.32",
+          "porque": "0,32 divide o diâmetro pela volta, ou seja, inverteu a ordem. A pergunta é quantos diâmetros cabem na volta, então a volta é que vai em cima."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a divisão",
+          "explicacao": "A volta é a medida maior e vai em cima; o diâmetro vai embaixo.",
+          "conta": "6,28 ÷ 2"
+        },
+        {
+          "titulo": "Calcule e reconheça",
+          "explicacao": "O resultado é o mesmo número que aparece em qualquer círculo.",
+          "conta": "= 3,14 (o π)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O que o número π representa?",
+      "imagem": "ci-q-o-que-e-pi",
+      "dica": "Volte à definição: ele é a resposta de uma divisão entre duas medidas do círculo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quantas vezes o diâmetro cabe na volta da circunferência" },
+        { "rotulo": "B", "texto": "O comprimento da volta de qualquer circunferência" },
+        { "rotulo": "C", "texto": "A metade do raio de um círculo" },
+        { "rotulo": "D", "texto": "Um número escolhido por convenção para facilitar as contas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O comprimento da volta de qualquer circunferência",
+          "porque": "O comprimento muda de círculo para círculo — quanto maior o círculo, maior a volta. O que não muda é a RAZÃO entre a volta e o diâmetro, e é ela que vale π."
+        },
+        {
+          "resposta": "A metade do raio de um círculo",
+          "porque": "A metade do raio depende do tamanho do círculo e não tem nada de especial. O π é um número fixo, igual em todos os círculos que existem."
+        },
+        {
+          "resposta": "Um número escolhido por convenção para facilitar as contas",
+          "porque": "Ele não foi escolhido: foi MEDIDO, e depois demonstrado. Qualquer um pode encontrá-lo com um barbante e uma régua, e o valor sempre dá o mesmo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte à divisão",
+          "explicacao": "O π é o resultado de dividir a volta pelo diâmetro.",
+          "conta": "π = volta ÷ diâmetro"
+        },
+        {
+          "titulo": "Traduza o que a divisão pergunta",
+          "explicacao": "Dividir uma medida por outra responde quantas vezes a segunda cabe na primeira.",
+          "conta": "quantos diâmetros cabem na volta"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Se uma circunferência for muito maior que outra, o valor de π muda?",
+      "imagem": "ci-q-pi-muda",
+      "dica": "Pense no que acontece com a volta E com o diâmetro quando o círculo cresce.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: é sempre o mesmo, em qualquer circunferência" },
+        { "rotulo": "B", "texto": "Sim: quanto maior a circunferência, maior o π" },
+        { "rotulo": "C", "texto": "Sim: quanto maior a circunferência, menor o π" },
+        { "rotulo": "D", "texto": "Só muda se o raio for um número quebrado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim: quanto maior a circunferência, maior o π",
+          "porque": "A volta de fato aumenta, mas o diâmetro aumenta junto e na mesma proporção. Como o π é a razão entre os dois, ele fica exatamente igual."
+        },
+        {
+          "resposta": "Sim: quanto maior a circunferência, menor o π",
+          "porque": "Nem a volta nem a razão diminuem quando o círculo cresce. As duas medidas crescem lado a lado, e o quociente entre elas se mantém."
+        },
+        {
+          "resposta": "Só muda se o raio for um número quebrado",
+          "porque": "O valor do raio não interfere na razão. Com raio 1, 2,5 ou 100, dividir a volta pelo diâmetro dá sempre o mesmo 3,14…"
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste com um círculo pequeno",
+          "explicacao": "Com diâmetro 10, a volta mede 31,4.",
+          "conta": "31,4 ÷ 10 = 3,14"
+        },
+        {
+          "titulo": "Teste com um bem maior",
+          "explicacao": "Com diâmetro 100, a volta mede 314 — dez vezes maior, como o diâmetro.",
+          "conta": "314 ÷ 100 = 3,14"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "As duas medidas crescem juntas, então a razão entre elas não muda.",
+          "conta": "π é constante"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Aproximadamente quantos diâmetros INTEIROS cabem na volta de uma circunferência? Digite apenas o número.",
+      "imagem": "ci-q-quantos-diametros",
+      "dica": "O π vale 3,14. Quantas vezes inteiras isso representa?",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "diâmetros",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "Quatro diâmetros passariam da volta: seriam 4 vezes o diâmetro contra os 3,14 que a volta realmente mede. Cabem três inteiros e sobra um pedaço."
+        },
+        {
+          "resposta": "2",
+          "porque": "Dois diâmetros cobrem bem menos que a volta inteira. O π vale mais de 3, então há espaço para um terceiro diâmetro completo."
+        },
+        {
+          "resposta": "3.14",
+          "porque": "3,14 é o valor exato do π, mas a pergunta é sobre diâmetros INTEIROS. Cabem três inteiros, e o 0,14 é a sobra que não completa outro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o valor do π",
+          "explicacao": "Ele diz quantos diâmetros cabem na volta, contando também os pedaços.",
+          "conta": "π ≈ 3,14"
+        },
+        {
+          "titulo": "Conte só os inteiros",
+          "explicacao": "Três diâmetros cabem por completo, e o que passa disso é uma sobra menor que um diâmetro.",
+          "conta": "3 inteiros e uma sobra"
+        }
+      ]
+    }
+  ]
+}

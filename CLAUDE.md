@@ -19,10 +19,7 @@ Perímetro, Área, Sólidos e volume, Grandezas e medidas, Plano cartesiano,
 Gráficos e tabelas e Média aritmética. Cada matéria concluída emite
 certificado.
 
-**O 7º ano está em andamento: 7 das 13 matérias publicadas** — Números
-inteiros, Números racionais, Razão e proporção, Regra de três, Porcentagem e
-juros simples, Linguagem algébrica e Equações do 1º grau. O bloco de
-proporcionalidade está fechado, e o de álgebra vai pela metade.
+**O 7º ano está COMPLETO: 13 de 13 matérias.** Assim como o 6º.
 
 ## Stack
 
@@ -34,7 +31,7 @@ proporcionalidade está fechado, e o de álgebra vai pela metade.
   saída compilada como ESM nos testes. A raiz não pode virar `type: module`
   porque `server.js` usa `require`. Não apagar.
 - Scripts: `npm run build`, `npm start`, `npm run dev`, `npm run imagens`,
-  `npm test`.
+  `npm run figuras`, `npm run videos`, `npm test`.
 
 ## Design — leia o DESIGN.md
 
@@ -158,7 +155,7 @@ O player só é carregado no clique; antes disso a página não fala com o YouTu
 **Toda questão tem imagem, e imagem é arquivo PNG em `/assets`.** A página
 nunca desenha figura em tempo de execução.
 
-- `ferramentas/desenhos.mjs` — 52 geradores paramétricos de SVG: roda, barra,
+- `ferramentas/desenhos.mjs` — 57 geradores paramétricos de SVG: roda, barra,
   barras empilhadas, barras comparadas, rodas comparadas, grade, reta numérica,
   reta decimal, coleção, recipientes, barra de etapas, corte duplo, barra por
   categorias, preço por parte, quadro de ordens, conta armada, arranjos
@@ -296,11 +293,94 @@ nunca desenha figura em tempo de execução.
   `unidades`, que descreve o que o enunciado JÁ diz (2x é o dobro de x), e
   nunca do valor procurado — uma fita em escala entregaria a incógnita.
 
+  Inequações também saiu sem gerador novo, e estreou a `inclinacao` da
+  `balanca`, que existia desde Linguagem algébrica sem nunca ter aparecido numa
+  imagem publicada: a travessa pendendo é o que distingue < de =. Duas coisas
+  que ela obrigou a arrumar — a altura do SVG passou a somar o desnível, senão
+  o prato que desce invadia a base e a balança parecia apoiada no chão; e a
+  `retaInteiros` ganhou `intervalo`, com bolinha no extremo e faixa para o lado
+  que serve.
+
+  **A bolinha aberta é o único lugar do site que pinta com a cor da canvas.**
+  Os PNGs têm fundo transparente, então `fill="none"` deixava o tracinho da
+  reta atravessar o círculo por dentro — virava um "Ө", e não um furo. A
+  constante `CANVAS` existe só para vazar esse miolo. E a distinção entre
+  bolinha cheia e vazada não é enfeite: é a diferença entre ≤ e <, e é a única
+  coisa na figura que diz se o extremo entra na resposta. Um teste lê o SVG de
+  volta e confere as duas.
+
   Equações do 1º grau saiu inteira desse bloco, sem gerador novo — que era o
   objetivo de tê-lo decidido antes do conteúdo. Duas medidas de lá valem
   guardar: uma fileira de tokens com `x + 1 1 1 1 1 = 12` passa de 460px e cai
   para 0,62 em 320px, e quebrada em três fileiras curtas sobe para 0,85; e a
   balança de 7 fichas num prato mede 376px, que é o teto confortável dela.
+
+- **Bloco de geometria do 7º ano** (`paralelasTransversal`), o primeiro
+  gerador novo desde o 6º ano — nada da álgebra servia, e `retasCruzadas`
+  desenha duas retas se cortando, não três. Ele mantém de propósito a mesma
+  convenção de setores do irmão do 6º (a=[0,θ], b=[θ,180], c, d), porque o
+  aluno vem de lá e trocar a ordem no meio do caminho custaria mais do que
+  economizaria.
+
+  **A regra que não pode ser quebrada: o `graus` passado é o ângulo REALMENTE
+  desenhado, e os rótulos têm de bater com ele.** Os setores a e c medem
+  `graus`; b e d medem 180 − graus. Rotular um setor com 70° e passar
+  `graus: 65` produz figura que desmente o próprio rótulo — o defeito que a
+  revisão do 6º ano achou em três figuras. Um teste percorre todas as imagens
+  da matéria, mede a transversal por trigonometria e reprova qualquer rótulo
+  que não seja um dos dois valores daquele desenho.
+
+  Duas medidas de celular que ele obrigou a tomar: o comprimento das paralelas
+  CEDE quando a transversal é muito inclinada (com braço fixo, uma transversal
+  de 140° fazia a figura passar de 430px e cair para 0,66 em 320px), e as
+  quatro chamadas de `retasCruzadas` da lição 1 precisam passar
+  `largura: 380` — a largura padrão dele é 420, que dá 0,69.
+
+- **`figuraPlana` constrói o triângulo (e o quadrilátero) A PARTIR DOS
+  ÂNGULOS**, quando recebe `angulos`. É a correção mais importante do bloco de
+  geometria do 7º ano: as FORMAS nomeadas têm ângulos fixos — o
+  "triangulo-retangulo" abre 37,2° e não 35°, o "obtusangulo" abre 126° e não
+  100°, e o "quadrilatero" abre 70,9/76/89,8/123,4. Rotular qualquer uma delas
+  com os ângulos do enunciado produzia figura que desmente o próprio rótulo,
+  que é exatamente o defeito que a revisão do 6º ano tinha encontrado em três
+  desenhos. Dez figuras desta matéria estavam assim antes de o teste medir.
+
+  O triângulo sai do encontro das duas retas que partem dos cantos da base com
+  as inclinações pedidas. O quadrilátero é mais delicado: quatro ângulos não
+  determinam um quadrilátero, então o primeiro lado é fixado em 1 e os dois
+  últimos saem da condição de FECHAMENTO — o segundo lado é procurado numa
+  lista até os outros dois saírem positivos, senão o contorno se cruzaria.
+
+  Ele ganhou também `arcosVertices`: sem o arco, um rótulo "70°" solto dentro
+  da figura pode ser lido como NOME do vértice, e a matéria de soma dos
+  ângulos depende dessa leitura. O arco precisa de ângulos contínuos — passar
+  (350, 20) para o helper `arco` desenhava o reflexo em vez do ângulo interno.
+
+- **`varetas` e `trianguloParalela`**, os dois geradores novos da matéria.
+  O primeiro mostra o que NÃO pode ser desenhado: um triângulo que não fecha.
+  Com os dois menores emendados em cima e o maior embaixo, dá para VER que as
+  pontas não se encontram — e isso não caberia num desenho de triângulo,
+  justamente porque ele não existe. O segundo desenha o triângulo com uma
+  paralela à base pelo vértice de cima, que é a DEMONSTRAÇÃO da soma 180°:
+  sem ela a lição 2 viraria decoreba.
+
+- **`piDesenrolado`**, o gerador que EXPLICA o π: o círculo com o diâmetro
+  marcado em cima, e embaixo a volta esticada numa fita repartida em três
+  diâmetros mais uma sobra. Existe pelo mesmo motivo de `trianguloParalela` —
+  sem ele o π vira número decorado. **As medidas dele são calculadas com o π
+  de verdade, e não com 3,14 arredondado**: a sobra desenhada tem de ser a
+  sobra real, e um teste mede a fita do SVG para garantir isso.
+
+  O `circulo` do 6º ano ganhou `medidas`, porque as questões precisam rotular
+  VALORES ("5 cm") onde antes só cabia a palavra "raio".
+
+- **`gradeDados`**, a grade 6×6 dos dois dados, e o único gerador que
+  Probabilidade pediu. Ela não é detalhe da matéria: é a matéria. Ninguém
+  acredita que somar 7 é seis vezes mais provável que somar 12 até ver as 36
+  células e contar. Ela CALCULA as somas e decide as células destacadas por
+  uma FUNÇÃO — `destacar: (a, b) => a + b === 7` —, então a figura não tem
+  como discordar do enunciado, e um teste conta as células marcadas de volta
+  do SVG.
 
 - `ferramentas/manifesto-imagens.mjs` — a lista de todas as imagens.
 - `npm run imagens` rasteriza tudo com o Chrome headless em 2x, fundo
@@ -501,9 +581,86 @@ linhas a partir de quatro itens, e a mesma escala subiu de 0,51 para 0,99.
 Antes de publicar figura nova, medir a escala em 320 e 390px. Abaixo de ~0,7
 o desenho precisa ser reorganizado, e não reduzido.
 
+**456px é o teto de largura**, e não uma escolha por figura: é o que dá 0,65
+em 320px, um pouco acima do patamar que fechou o 6º ano. Trinta e três figuras estavam acima
+dele — as piores a 0,55 —, quase todas por largura PADRÃO do gerador, e não
+por decisão de conteúdo: `barraEtapas`, `barraCategorias`, `retaDecimal` e
+`saltos` nasceram com 500 e 520. Todas passaram para 456 sem nada se
+encavalar, conferido pela auditoria de texto.
+
+Onde a largura não é parâmetro, quem cede é o arranjo: `arranjos` quebra em
+mais filas quando a fileira passaria de 456px, como `angulosComparados` e
+`figurasComparadas` já faziam. A figura dos divisores de 24 saiu de 504px
+(0,57) para 376px (0,77).
+
 `angulosComparados` e `figurasComparadas` já fazem isso sozinhos: a partir de
 quatro itens quebram em duas linhas. Os dois casos mediam 0,51 e 0,62 e
 passaram para 0,99 e 0,98.
+
+### Auditoria de texto nas figuras
+
+O gerador escreve texto e confia que ele cabe: nada no código mede a largura
+que a fonte de verdade vai ocupar. Foi assim que uma tabela de Probabilidade
+foi publicada com "depois, contando o que saiu" atravessando a borda da
+célula — o defeito que abriu esta revisão.
+
+`npm run figuras` (`ferramentas/auditar-figuras.mjs`) sobe o próprio Chrome,
+carrega as 1008 figuras, espera `document.fonts.ready` e mede cada `<text>`.
+Ele sai com código 1 quando acha problema — então encadear com `;`, e não com
+`&&`, como já vale para `npm run videos`. Ela procura três coisas, e as três já pegaram defeito
+real:
+
+- **texto fora da caixa do SVG** — rótulo cortado na borda da figura;
+- **texto fora da célula** — o que apareceu na tela do usuário;
+- **dois textos encavalados** — o pior dos três, porque não corta nada: só
+  produz um texto ilegível que parece de propósito. Seis figuras estavam
+  assim, publicadas: "−3/4" e "−1/2" viravam "−3/1/42", e os três ângulos de
+  um triângulo achatado saíam empilhados como "401·00°40°".
+
+**A medição tem de ser em coordenadas de TELA, e não `getBBox()`.** O
+`getBBox` devolve a caixa no sistema local do elemento e ignora o transform
+dos ancestrais — e o helper `fechar` alarga a caixa transladando o desenho
+dentro de um `<g>`. Medindo por `getBBox`, 39 rótulos já corretos apareciam
+como se vazassem, e a lista de achados era três vezes maior que a real.
+
+E só as MOLDURAS contam como célula: a barra de um gráfico também é um
+`rect`, e o rótulo do patamar da média passa por cima dela de propósito.
+
+### Medir texto sem canvas: `larguraTexto`
+
+Três helpers resolvem quase todo transbordo, e todo gerador que escreve
+rótulo deve passar por eles:
+
+- `larguraTexto(txt, tamanho, mono)` estima a largura por classe de
+  caractere. Não é exata, mas erra por poucos pixels — o suficiente, porque
+  toda folga é somada em cima dela;
+- `comRotulo(largura, rotulo)` devolve a largura mínima da caixa;
+- **`fechar(largura, altura, corpo, rotulo)` alarga a caixa E RECENTRA o
+  desenho.** Alargar sem recentrar não resolve nada: o rótulo continua
+  centrado na largura antiga e sai pela esquerda.
+
+O mesmo vale para margem lateral: no `bloco`, os 46px chutados à esquerda
+deixavam "10 cm" começar 3px fora da caixa. A margem sai da largura do
+rótulo, e à direita ainda desconta a profundidade — porque o rótulo daquele
+lado é escrito a `p/2 + 16` do canto.
+
+### O rótulo procura o vão, e o valor desvia da linha
+
+Duas regras do `grafico` que saíram desta revisão:
+
+- **o rótulo do patamar da média testa os quatro cantos** e fica no que menos
+  encosta em barra e em valor escrito. A regra antiga escolhia só entre acima
+  e abaixo, encostado no eixo, e numa primeira coluna da altura da média o
+  texto caía espremido dentro dela;
+- **o valor de uma coluna desvia da linha de referência.** Ele é escrito 11px
+  acima do topo, e quando a coluna fica um passo abaixo da média a linha
+  passava por cima dele: com o eixo de 0 a 15, a média 9 cortava ao meio os
+  "8" do gráfico.
+
+A mesma disciplina em outros dois lugares: os rótulos de ponto da
+`retaInteiros` sobem uma linha quando encostariam no vizinho, e o rótulo de
+vértice da `figuraPlana` sai para FORA da figura quando os três não cabem
+dentro — num triângulo de 40°, 40° e 100° o miolo tem uns 50px de altura.
 
 ### Figura que desmente o próprio rótulo
 
@@ -542,30 +699,154 @@ chutado, que nem batia com os 38px reais.
 A revisão de fechamento percorreu as 107 páginas e as 352 questões no navegador
 e não deixou defeito conhecido.
 
-**O 7º ano está em andamento: 7 de 13 matérias** — 44 lições, 176 questões,
-528 diagnósticos, 252 imagens e 28 vídeos.
+**O 7º ano está COMPLETO: 13 de 13 matérias** — 80 lições, 320 questões,
+960 diagnósticos, 468 imagens e 52 vídeos. **A revisão de fechamento está
+feita**: as 200 páginas foram rastreadas num viewport de 320px e não sobrou
+"Carregando" preso, imagem com naturalWidth 0, vazamento horizontal nem link
+com "undefined".
 
 O 7º ano tem **13 matérias**, nesta ordem: ~~Números inteiros~~, ~~Números
 racionais~~, ~~Razão e proporção~~, ~~Regra de três~~, ~~Porcentagem e juros
-simples~~, ~~Linguagem algébrica~~ e ~~Equações do 1º grau~~ (prontas),
-Inequações, Retas paralelas e transversais, Triângulos e quadriláteros,
-Circunferência e círculo, Média/moda/mediana e Probabilidade.
+simples~~, ~~Linguagem algébrica~~, ~~Equações do 1º grau~~, ~~Inequações~~ e
+~~Retas paralelas e transversais~~, ~~Triângulos e quadriláteros~~ e
+~~Circunferência e círculo~~, ~~Média/moda/mediana~~ e ~~Probabilidade~~ —
+todas prontas.
 
-A próxima é **Inequações**, e ela sai quase de graça em desenho: reusa o bloco
-de álgebra inteiro e finalmente usa a `inclinacao` da `balanca`, que existe
-desde Linguagem algébrica e ainda não apareceu em nenhuma imagem publicada —
-a balança pendendo para um lado é exatamente o que distingue < de =. O ponto
-de conteúdo que ela precisa acertar é o único lugar em que o método de
-Equações QUEBRA: multiplicar ou dividir os dois lados por um número negativo
-inverte o sinal da desigualdade. A lição 2 de Equações já deixa o gancho, ao
-dizer que dividir os dois lados mantém a igualdade — mantém a igualdade, e não
-a desigualdade.
+**O próximo passo é o 8º ano** — o catálogo tem os quatro anos, mas só os dois
+primeiros foram escritos.
+
+O que a revisão de fechamento do 7º deixou medido, e vale como linha de base
+para a próxima:
+
+- **200 páginas · 498 figuras · 0 achado estrutural.** O percurso questão por
+  questão já tinha sido feito matéria a matéria durante a construção, com 0
+  achados em cada uma.
+- **Pior escala em 320px: 0,65**, contra 0,57 antes desta revisão. As 58
+  figuras abaixo de 0,70 ficam todas entre 0,65 e 0,68 — são as retas
+  numéricas e as listas de 460px, e levá-las acima de 0,70 é decisão de
+  conteúdo, não de largura: teriam de mostrar menos de uma vez.
+- **A auditoria de texto passou a existir**, e é ela que torna seguro apertar
+  largura: sem uma medição da fonte de verdade, encolher uma figura troca um
+  transbordo por um encavalamento.
 
 Uma observação que continua valendo:
 
 - **Média, moda e mediana reaproveita `grafico` e `tabela` inteiros**, e é
   continuação direta da Média aritmética do 6º — inclusive do gancho que a
   lição 5 de lá deixou aberto sobre o que a média não conta.
+
+**O que Probabilidade deixou registrado:**
+
+- **A matéria é contagem, e o teste CONTA.** Ele monta os 36 pares de dados de
+  verdade e confere cada afirmação das lições contra essa varredura — nada é
+  calculado por fórmula. É assim que a distribuição inteira das somas
+  (1,2,3,4,5,6,5,4,3,2,1) é verificada, e que o 7 é provado ser a mais
+  provável em vez de afirmado.
+- **A lição 5 combate um erro de intuição específico**: contar as 11 SOMAS em
+  vez dos 36 PARES. O erro tem uma raiz clara, e a lição a nomeia — tratar
+  (1,6) e (6,1) como o mesmo caso. Os dados são objetos distintos.
+- **A lição 6 separa probabilidade de frequência**, e desmonta a falácia do
+  apostador: a moeda não tem memória, e cinco caras seguidas não deixam a
+  próxima devendo uma coroa.
+- Nenhuma questão da OBMEP aqui, pelo mesmo motivo registrado no débito do 6º
+  ano: o Banco de Questões não cobre estatística nem probabilidade descritiva.
+
+**O que Média, moda e mediana deixou registrado:**
+
+- **Nenhum gerador novo**: `grafico` e `tabela` do 6º ano serviram inteiros, e
+  o `referencia` do gráfico (o patamar da média em linha tracejada) vale aqui
+  a mesma regra de lá — só entra onde a média JÁ é conhecida.
+- **A lição 5 é a razão de a matéria existir.** Cinco salários de 2, 2, 2, 2 e
+  42 mil dão média 10 e mediana 2: quatro das cinco pessoas ganham menos que a
+  média, e ninguém ganha exatamente ela. O teste confere isso em muitos
+  conjuntos, e não só no exemplo — aumentar o maior valor move a média e deixa
+  a mediana parada, sempre.
+- **A armadilha da mediana é não ordenar**, e há questão feita para isso: a
+  lista chega embaralhada e o valor do meio SEM ordenar é outro. O teste
+  registra a diferença explicitamente.
+- **Tabela de frequência não é lista de valores.** "Nota 7 — 5 alunos" entra
+  na média cinco vezes, e o teste mostra que a média dessa tabela (7,75) não é
+  a média entre 7 e 9.
+
+**O que Circunferência e círculo deixou registrado:**
+
+- **O π é definido antes de ser usado.** A lição 2 chega nele pela medição —
+  volta dividida por diâmetro, sempre o mesmo número — e só a lição 3 escreve
+  a fórmula. Escrever C = 2πr antes disso seria pedir para decorar.
+- **O teste usa o MESMO π da matéria (3,14) para conferir as respostas**, e o
+  π exato para conferir as RELAÇÕES. Misturar os dois acusaria erro em toda
+  resposta publicada, porque 3,14 é aproximação: o que precisa valer com o π
+  exato é que dobrar o raio quadruplica a área, e isso é propriedade da
+  fórmula, não do valor.
+- **A lição 5 é a que fica na cabeça**: dobrar o raio dobra o comprimento mas
+  quadruplica a área, porque o raio está ao quadrado. O teste confere isso
+  para os fatores 2, 3, 4 e 10, e o fecho justifica por que duas pizzas
+  pequenas quase nunca valem mais que uma grande.
+- **O verificador de vídeos agora apara as pontas do título**, além de
+  normalizar em NFC. A API devolveu um título com espaço sobrando no fim e ele
+  acusou divergência num vídeo perfeitamente certo — o segundo ruído desse
+  tipo, depois do Unicode decomposto.
+
+**O que Triângulos e quadriláteros deixou registrado:**
+
+- **A figura precisa ser CONSTRUÍDA a partir do enunciado, e não escolhida de
+  um catálogo.** Dez figuras da matéria rotulavam ângulos que a forma não
+  tinha, e só o teste que mede o polígono do SVG pegou isso. Daí veio o
+  `angulos` do `figuraPlana` — a mesma disciplina de `fatoracao` e
+  `sequenciaFiguras`, agora em geometria.
+- **A soma 180° é demonstrada, e não afirmada.** A lição 2 traça a paralela
+  pelo vértice, usa os alternos internos da matéria anterior e mostra os três
+  ângulos formando um raso. A lição 5 se apoia nela: o quadrilátero se parte
+  em dois triângulos, então soma o dobro. É por isso que a ordem das lições
+  não pode ser trocada.
+- **A condição de existência é a única pergunta de sim ou não da geometria
+  até aqui**, e o teste a confere por força bruta em 12 × 12 × 24 trios,
+  exigindo que "fecha" seja exatamente equivalente a o terceiro lado estar
+  entre a diferença e a soma dos outros dois. O caso do EMPATE (3, 5 e 8) é
+  conferido à parte: ele encaixa mas achata a figura numa reta.
+- **O erro que a lição 6 avisa é medido no teste**: usar 180° onde deveria ser
+  360° erra por exatamente 180 graus, e há uma asserção registrando isso.
+
+**O que Retas paralelas e transversais deixou registrado:**
+
+- **A matéria inteira se apoia numa propriedade só**, e as lições dizem isso
+  em voz alta: correspondentes são iguais; alternos são iguais porque um
+  alterno é o oposto pelo vértice de um correspondente; colaterais somam 180°
+  porque um colateral é vizinho do alterno do outro. O teste confere o
+  encadeamento, e não só o resultado.
+- **O teste MEDE o ângulo desenhado.** Além de recalcular as respostas, ele lê
+  as três retas do SVG, confere por trigonometria que duas são paralelas de
+  verdade e que a transversal está no ângulo pedido, e percorre todas as
+  figuras da matéria exigindo que todo rótulo numérico seja um dos dois
+  valores que aquele desenho produz.
+- **Os pares algébricos amarram a matéria à anterior.** Quatro questões dão os
+  ângulos como 2x, x + 20, 3x e 4x, e resolver exige a equação do 1º grau da
+  matéria passada — inclusive uma com letra dos dois lados (2x + 10 =
+  3x − 20). O teste resolve todas por busca, nunca pela fórmula.
+- A lição 6 fecha com a conferência que vale para qualquer figura da matéria:
+  **se aparecer um terceiro valor de ângulo, alguma coisa saiu errada** — só
+  existem dois, e eles somam 180°.
+
+**O que Inequações deixou registrado:**
+
+- **Ela existe por causa de uma exceção.** Quase tudo de Equações vale igual;
+  o que muda é que multiplicar ou dividir os dois lados por um NEGATIVO
+  inverte o sinal. O teste prova as duas metades por força bruta antes de usar
+  qualquer coisa: varre pares de números e confere que somar e tirar nunca
+  mexem no sentido, que multiplicar por positivo mantém e que por negativo
+  inverte — sempre.
+- **Nenhuma inequação é resolvida isolando a letra no teste.** Todas saem por
+  busca sobre a faixa, e o teste ainda compara o conjunto achado com o que o
+  isolamento daria: com coeficiente negativo, exige que isolar SEM inverter dê
+  conjunto diferente. É a prova de que a regra da lição 4 é necessária.
+- **O arredondamento de problema de teto é sempre para baixo**, e há teste
+  varrendo vários limites quebrados. Foi o motivo de a lição 6 ganhar um quinto
+  passo no roteiro que Equações não tinha: ver se a resposta cabe inteira.
+- **O verificador de vídeos comparava título por `===`.** A API do YouTube às
+  vezes devolve o texto DECOMPOSTO (o "ç" como c + cedilha combinante), o que
+  dá bytes diferentes para títulos visualmente idênticos — e ele acusava
+  divergência num vídeo perfeitamente certo. Agora normaliza os dois lados em
+  NFC antes de comparar.
 
 **O que Equações do 1º grau deixou registrado:**
 
@@ -640,9 +921,21 @@ de inteiros {n, d} e só converte para decimal no fim. Sem isso, meia dúzia de
 asserções falharia por erro de arredondamento em vez de erro de conteúdo.
 
 Débito conhecido do 6º ano: nenhum defeito, mas Plano cartesiano, Gráficos e
-tabelas e Média aritmética saíram só com questão escrita para o site. As três
-são temas ricos no Banco de Questões da OBMEP — Média aritmética em especial,
-que é assunto clássico de olimpíada e não depende de figura.
+tabelas e Média aritmética saíram só com questão escrita para o site.
+
+**E esse débito, na parte de estatística, é para ser riscado da lista.** A
+nota antiga dizia que média era "assunto clássico de olimpíada"; foi procurado
+e não é. Uma busca em CINCO Bancos de Questões (2010, 2012, 2014, 2016 e 2017)
+não achou uma única ocorrência de "média aritmética", "moda" ou "mediana dos
+dados" — as ocorrências de "mediana" são todas de geometria, e "mediatriz" e
+"imediato" enchem o grep de ruído. O Banco é de aritmética, geometria,
+combinatória e teoria dos números; estatística descritiva não é tema dele.
+Média, moda e mediana e Probabilidade saem com questão própria, e não é
+dívida: é a fonte que não cobre o assunto.
+
+Os links do Banco por ano ficam em `obmep.org.br/banco.htm`, montados por
+JavaScript mas com o id do Drive visível — o download direto continua sendo
+`https://drive.google.com/uc?export=download&id=<ID>`.
 
 Custo real por matéria, medido nas duas primeiras: 6 a 8 lições, ~4 questões
 por lição, ~6 imagens por lição, 3 vídeos verificados, e a verificação

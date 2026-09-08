@@ -1,0 +1,41 @@
+{
+  "id": "retas-paralelas",
+  "titulo": "Retas paralelas e transversais",
+  "ano": 7,
+  "descricao": "Uma reta corta duas paralelas e nascem oito ângulos — mas só dois valores. Seis lições que vão de por que isso acontece até encadear as três propriedades para achar um ângulo que não tem par direto com o dado.",
+  "pergunta": "Por que oito ângulos produzem só dois valores diferentes?",
+  "videos": [
+    {
+      "id": "9Cw6kd1GPkY",
+      "titulo": "Ângulos formados por duas retas paralelas cortadas por uma transversal - 7º ano",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Aula de base, feita para esta série. Serve para reforçar as lições 2 e 3, se a figura dos oito ângulos ainda parecer confusa."
+    },
+    {
+      "id": "I22iFO1FWpc",
+      "titulo": "Saiba a diferença entre ângulos correspondentes, alternos e colaterais.",
+      "canal": "Vanessa Sol",
+      "descricao": "Só sobre distinguir os três pares, que é o assunto das lições 3, 4 e 5. Vale para quem ainda troca alternos com colaterais."
+    },
+    {
+      "id": "GT0vBg9h20M",
+      "titulo": "ÂNGULOS CORRESPONDENTES | ÂNGULOS FORMADOS POR RETAS PARALELAS CORTADAS POR UMA TRANSVERSAL|",
+      "canal": "Gis com Giz",
+      "descricao": "Foca nos correspondentes, que é a propriedade da qual as outras duas saem. Complementa a lição 3 com o passo a passo devagar."
+    },
+    {
+      "id": "P4-NL2FBtK0",
+      "titulo": "ÂNGULOS FORMADOS POR RETAS PARALELAS CORTADAS POR UMA TRANSVERSAL - EXERCÍCIOS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Lista de exercícios resolvidos do começo ao fim. Serve como fechamento, depois das seis lições, para treinar o encadeamento da lição 6."
+    }
+  ],
+  "licoes": [
+    { "id": "paralelas", "arquivo": "/dados/licoes/retas-paralelas/paralelas.json" },
+    { "id": "transversal", "arquivo": "/dados/licoes/retas-paralelas/transversal.json" },
+    { "id": "correspondentes", "arquivo": "/dados/licoes/retas-paralelas/correspondentes.json" },
+    { "id": "alternos", "arquivo": "/dados/licoes/retas-paralelas/alternos.json" },
+    { "id": "colaterais", "arquivo": "/dados/licoes/retas-paralelas/colaterais.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/retas-paralelas/problemas.json" }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "id": "resolver",
+  "numero": 3,
+  "titulo": "Resolver como se fosse equação",
+  "pergunta": "Dá para usar o mesmo método de Equações?",
+  "ideia": {
+    "paragrafos": [
+      "A boa notícia é que quase tudo o que você aprendeu resolvendo equações vale aqui, sem mudar nada. Somar ou tirar a mesma coisa dos dois lados mantém a desigualdade — se a balança já estava pendendo para um lado, tirar o mesmo peso dos dois pratos não muda para que lado ela pende.",
+      "Um exemplo direto: em x + 4 > 9, tirando 4 dos dois lados sobra x > 5. Repare que o sinal ficou exatamente o mesmo. A operação mexeu nos números, e não no sentido da comparação.",
+      "Multiplicar ou dividir os dois lados por um número POSITIVO também mantém o sinal. Em 3x < 12, dividir tudo por 3 dá x < 4, e continua sendo menor. Ampliar ou reduzir as duas quantidades na mesma proporção não muda qual delas é a maior.",
+      "Vale conferir sempre, e conferir aqui tem um jeito próprio: escolha um número de DENTRO do intervalo achado e teste na inequação original. Se ele funciona, o sentido provavelmente está certo.",
+      "E vale fazer o teste do contrário também: escolha um número de FORA do intervalo e confira que ele falha. Se os dois servirem, alguma coisa saiu errada — provavelmente o sentido do sinal."
+    ],
+    "destaque": "Somar, tirar, multiplicar e dividir por positivo: o sinal não muda.",
+    "imagem": "in-ideia-mantem"
+  },
+  "resolvido": {
+    "enunciado": "Resolva a inequação 4x + 3 ≤ 19.",
+    "imagem": "in-res-resolver",
+    "passos": [
+      {
+        "titulo": "Tire o termo solto dos dois lados",
+        "explicacao": "A ordem é a mesma das equações: primeiro sai o que está somado. Tirar 3 dos dois lados não mexe no sentido da desigualdade.",
+        "conta": "4x + 3 − 3 ≤ 19 − 3 → 4x ≤ 16"
+      },
+      {
+        "titulo": "Divida os dois lados por 4",
+        "explicacao": "O 4 é positivo, então a divisão mantém o sinal ≤ exatamente como estava.",
+        "conta": "4x ÷ 4 ≤ 16 ÷ 4 → x ≤ 4"
+      },
+      {
+        "titulo": "Confira com um valor de dentro",
+        "explicacao": "O 4 está incluído porque o sinal tem o igual. Substituindo, os dois lados empatam — e empate serve para ≤.",
+        "conta": "x=4 → 19 ≤ 19 ✓"
+      },
+      {
+        "titulo": "Confira com um valor de fora",
+        "explicacao": "Um número que ficou fora do intervalo tem obrigatoriamente de falhar. Se ele passasse, o sentido estaria trocado.",
+        "conta": "x=5 → 23 ≤ 19 ✗"
+      }
+    ],
+    "fecho": "Os dois testes juntos valem mais que um: um confirma o intervalo, o outro confirma que ele não é maior do que devia."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Resolva a inequação x + 7 > 12. Qual é o menor número inteiro que serve? Digite apenas o número.",
+      "imagem": "in-q-mais-sete",
+      "dica": "Tire 7 dos dois lados e depois lembre que o sinal de maior deixa a fronteira de fora.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é a fronteira: com ele os dois lados empatam em 12. O sinal é de maior estrito, então empate não serve e o 5 fica de fora."
+        },
+        {
+          "resposta": "19",
+          "porque": "19 soma 7 ao 12 em vez de tirar. O 7 está sendo acrescentado ao x do lado esquerdo, então para isolá-lo é preciso subtrair."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o número que acompanha o x no enunciado, e não o valor procurado. Testando: 7 + 7 dá 14, que de fato passa de 12 — mas o 6 também passa e é menor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire 7 dos dois lados",
+          "explicacao": "A subtração desfaz a soma e não mexe no sentido do sinal.",
+          "conta": "x > 5"
+        },
+        {
+          "titulo": "Escolha o menor inteiro da faixa",
+          "explicacao": "Como o 5 fica de fora, o primeiro inteiro que entra é o seguinte.",
+          "conta": "6 + 7 = 13 > 12 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolva a inequação 3x < 21. Qual é o maior número inteiro que serve? Digite apenas o número.",
+      "imagem": "in-q-3x21",
+      "dica": "Divida os dois lados por 3. Como 3 é positivo, o sinal continua o mesmo.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é a fronteira: o triplo dele dá exatamente 21, e o sinal é de menor estrito. Empatar não serve, então o 7 fica de fora."
+        },
+        {
+          "resposta": "63",
+          "porque": "63 multiplica 21 por 3, mas a multiplicação por 3 já está feita no enunciado. Para desfazê-la é preciso dividir."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 tira 3 de 21, tratando a multiplicação como se fosse soma. Em 3x o número está multiplicando a letra, então a inversa é a divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida os dois lados por 3",
+          "explicacao": "O 3 é positivo, então o sinal de menor continua sendo de menor.",
+          "conta": "x < 7"
+        },
+        {
+          "titulo": "Escolha o maior inteiro da faixa",
+          "explicacao": "O 7 não entra, então o maior que entra é o anterior a ele.",
+          "conta": "3 × 6 = 18 < 21 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Ao dividir os dois lados de 5x ≥ 30 por 5, o que acontece com o sinal ≥?",
+      "imagem": "in-q-sinal-positivo",
+      "dica": "Repare no sinal do número pelo qual se está dividindo. Ele é positivo ou negativo?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Continua o mesmo, porque 5 é positivo" },
+        { "rotulo": "B", "texto": "Vira ≤, porque houve uma divisão" },
+        { "rotulo": "C", "texto": "Vira =, porque a divisão fecha a conta" },
+        { "rotulo": "D", "texto": "Some, porque o x fica sozinho" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Vira ≤, porque houve uma divisão",
+          "porque": "Não é a divisão que inverte o sinal, e sim o SINAL DO NÚMERO usado. Dividir por um positivo mantém tudo; a inversão só aparece com número negativo."
+        },
+        {
+          "resposta": "Vira =, porque a divisão fecha a conta",
+          "porque": "Nenhuma operação transforma desigualdade em igualdade. Isolar a letra deixa a resposta mais simples de ler, mas ela continua sendo um intervalo."
+        },
+        {
+          "resposta": "Some, porque o x fica sozinho",
+          "porque": "O sinal é o que dá sentido à afirmação — sem ele não sobraria nada dizendo o que x é. Isolar a letra não apaga a comparação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o número da divisão",
+          "explicacao": "Dividir os dois lados por 5 é reduzir as duas quantidades na mesma proporção.",
+          "conta": "5 é positivo"
+        },
+        {
+          "titulo": "Veja o que isso preserva",
+          "explicacao": "Reduzir os dois igualmente não muda qual era o maior, então a comparação continua valendo no mesmo sentido.",
+          "conta": "5x ≥ 30 → x ≥ 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Resolva a inequação 2x − 5 ≤ 9. Qual é o maior número inteiro que serve? Digite apenas o número.",
+      "imagem": "in-q-2x5",
+      "dica": "Some 5 aos dois lados e divida por 2. Preste atenção no risquinho do sinal na hora de escolher o inteiro.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 serve, mas não é o maior que serve. O sinal ≤ tem o igual embutido, então a fronteira 7 também entra — com ela os dois lados empatam em 9."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é o valor de 2x depois do primeiro passo, e não o de x. Falta repartir esse total entre as duas parcelas iguais."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 tira 5 do 9 e divide por 2, mas o 5 JÁ estava sendo subtraído no lado esquerdo. Para desfazer uma subtração é preciso somar, chegando a 14."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some 5 aos dois lados",
+          "explicacao": "A soma desfaz a subtração e não mexe no sentido do sinal.",
+          "conta": "2x ≤ 14"
+        },
+        {
+          "titulo": "Divida por 2",
+          "explicacao": "O 2 é positivo, então o sinal ≤ permanece.",
+          "conta": "x ≤ 7"
+        },
+        {
+          "titulo": "Escolha o maior inteiro da faixa",
+          "explicacao": "Como o igual está incluído, a própria fronteira serve.",
+          "conta": "2 × 7 − 5 = 9 ≤ 9 ✓"
+        }
+      ]
+    }
+  ]
+}

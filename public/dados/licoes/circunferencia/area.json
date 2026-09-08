@@ -1,0 +1,191 @@
+{
+  "id": "area",
+  "numero": 4,
+  "titulo": "A área do círculo",
+  "pergunta": "Quanto cabe dentro da circunferência?",
+  "ideia": {
+    "paragrafos": [
+      "O comprimento mede a linha; a área mede a região. São perguntas diferentes: uma responde quanto barbante dá a volta, a outra quanto papel cobre o disco. E, como sempre em área, o resultado sai em unidades quadradas.",
+      "A fórmula da área do círculo é A = π × r², e ela usa sempre o RAIO — nunca o diâmetro. Esse é o descuido mais comum da matéria: um problema que dá o diâmetro exige converter para raio antes de qualquer conta.",
+      "A ordem das operações também derruba muita resposta. O expoente pertence só ao r, então primeiro se eleva o raio ao quadrado e só depois se multiplica por π. Fazer o contrário elevaria o produto inteiro, o que dá um número bem diferente.",
+      "Vale entender de onde vem o r². Imagine fatiar o círculo em muitos setores finos e encaixá-los alternados, como dentes de zíper: a figura que aparece vai ficando parecida com um retângulo de base igual a metade da volta e altura igual ao raio. E πr × r dá justamente πr².",
+      "Para conferir o tamanho da resposta, um truque simples: a área do círculo é sempre um pouco menor que a área do quadrado que o encaixa, que mede (2r)² = 4r². Como π é pouco mais de 3, a área do círculo fica em torno de três quartos desse quadrado."
+    ],
+    "destaque": "A = π × r², sempre com o raio — e eleva-se ao quadrado antes de multiplicar.",
+    "imagem": "ci-ideia-area"
+  },
+  "resolvido": {
+    "enunciado": "Um círculo tem raio de 5 cm. Qual é a área dele? Use π = 3,14.",
+    "imagem": "ci-res-area",
+    "passos": [
+      {
+        "titulo": "Escreva a fórmula",
+        "explicacao": "A área usa o raio elevado ao quadrado, multiplicado por π.",
+        "conta": "A = π × r²"
+      },
+      {
+        "titulo": "Eleve o raio ao quadrado primeiro",
+        "explicacao": "O expoente pertence só ao r, então essa é a primeira operação a ser feita.",
+        "conta": "5² = 25"
+      },
+      {
+        "titulo": "Multiplique por π",
+        "explicacao": "Só agora o π entra, multiplicando o resultado da potência.",
+        "conta": "3,14 × 25 = 78,5"
+      },
+      {
+        "titulo": "Escreva a unidade certa",
+        "explicacao": "Área se mede em unidades quadradas, porque cobre uma região e não uma linha.",
+        "conta": "78,5 cm²"
+      }
+    ],
+    "fecho": "O quadrado que encaixa esse círculo tem 10 × 10 = 100 cm². A área do círculo é pouco menos, como esperado."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um círculo tem raio de 3 cm. Qual é a área dele? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-area-r3",
+      "dica": "Eleve o raio ao quadrado primeiro, e só depois multiplique por π.",
+      "formato": "numero",
+      "resposta": 28.26,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "18.84",
+          "porque": "18,84 é o COMPRIMENTO dessa circunferência, que sai de 2πr. A pergunta é sobre a área, que usa o raio ao quadrado."
+        },
+        {
+          "resposta": "9.42",
+          "porque": "9,42 é π vezes o raio, sem elevar ao quadrado. O expoente 2 não é enfeite: ele é o que transforma uma medida linear numa medida de região."
+        },
+        {
+          "resposta": "88.74",
+          "porque": "88,74 eleva o produto inteiro ao quadrado, calculando (π × 3)². O expoente pertence só ao raio, então ele age antes da multiplicação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve o raio",
+          "explicacao": "Primeiro a potência, como manda a ordem das operações.",
+          "conta": "3² = 9"
+        },
+        {
+          "titulo": "Multiplique por π",
+          "explicacao": "O resultado da potência é que entra na multiplicação.",
+          "conta": "3,14 × 9 = 28,26 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um círculo tem raio de 10 cm. Qual é a área dele? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-area-r10",
+      "dica": "O mesmo caminho de sempre: quadrado do raio, depois multiplicação por π.",
+      "formato": "numero",
+      "resposta": 314,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "62.8",
+          "porque": "62,8 é o COMPRIMENTO dessa circunferência. Área e comprimento respondem a perguntas diferentes, e a área usa o raio ao quadrado."
+        },
+        {
+          "resposta": "31.4",
+          "porque": "31,4 é π vezes o raio, sem o quadrado. Faltou elevar o 10 antes de multiplicar — e 10² é 100, não 10."
+        },
+        {
+          "resposta": "1256",
+          "porque": "1256 usa o diâmetro (20) no lugar do raio. A fórmula da área pede o RAIO, e usar o diâmetro quadruplica o resultado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve o raio",
+          "explicacao": "Dez ao quadrado é cem: é o resultado da potência que entra na multiplicação.",
+          "conta": "10² = 100"
+        },
+        {
+          "titulo": "Multiplique por π",
+          "explicacao": "Multiplicando o resultado da potência pelo π.",
+          "conta": "3,14 × 100 = 314 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um círculo tem diâmetro de 8 cm. Qual é a área dele? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-area-d8",
+      "dica": "A fórmula da área pede o raio. O enunciado deu o diâmetro — converta antes de calcular.",
+      "formato": "numero",
+      "resposta": 50.24,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "200.96",
+          "porque": "200,96 usa o diâmetro no lugar do raio. Como a fórmula eleva ao quadrado, esse engano multiplica o resultado por quatro, e não por dois."
+        },
+        {
+          "resposta": "25.12",
+          "porque": "25,12 é o COMPRIMENTO dessa circunferência (π × 8). A pergunta é sobre a área da região, e não sobre a volta."
+        },
+        {
+          "resposta": "12.56",
+          "porque": "12,56 é π vezes o raio, sem elevar ao quadrado. Faltou a potência, que é o que dá à área a sua natureza de medida quadrada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Converta para raio",
+          "explicacao": "O raio é metade do diâmetro, e é ele que a fórmula pede.",
+          "conta": "8 ÷ 2 = 4 cm"
+        },
+        {
+          "titulo": "Eleve e multiplique",
+          "explicacao": "Quadrado do raio, depois multiplicação por π.",
+          "conta": "4² = 16 · 3,14 × 16 = 50,24 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a diferença entre calcular o comprimento e calcular a área de um círculo?",
+      "imagem": "ci-q-comp-vs-area",
+      "dica": "Pense no que cada um mede na prática, e na unidade em que a resposta sai.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O comprimento mede a linha da volta; a área mede a região de dentro" },
+        { "rotulo": "B", "texto": "São a mesma medida, com fórmulas diferentes" },
+        { "rotulo": "C", "texto": "O comprimento serve para círculos pequenos e a área para os grandes" },
+        { "rotulo": "D", "texto": "A área é sempre o dobro do comprimento" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "São a mesma medida, com fórmulas diferentes",
+          "porque": "Não são: uma sai em centímetros e a outra em centímetros QUADRADOS. Grandezas com unidades diferentes não podem ser a mesma coisa."
+        },
+        {
+          "resposta": "O comprimento serve para círculos pequenos e a área para os grandes",
+          "porque": "O tamanho do círculo não escolhe a fórmula. Quem escolhe é a pergunta: cercar pede comprimento, cobrir pede área, em qualquer tamanho."
+        },
+        {
+          "resposta": "A área é sempre o dobro do comprimento",
+          "porque": "Não existe relação fixa entre as duas — elas nem têm a mesma unidade. Com raio 2 os valores até coincidem em número, e com raio 10 a área é cinco vezes maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que cada uma mede",
+          "explicacao": "Uma percorre o contorno; a outra cobre a superfície.",
+          "conta": "linha × região"
+        },
+        {
+          "titulo": "Olhe as unidades",
+          "explicacao": "Comprimento sai em cm; área sai em cm², porque cobre duas dimensões.",
+          "conta": "cm × cm²"
+        }
+      ]
+    }
+  ]
+}

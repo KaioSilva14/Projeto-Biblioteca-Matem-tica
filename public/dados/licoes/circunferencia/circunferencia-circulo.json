@@ -1,0 +1,196 @@
+{
+  "id": "circunferencia-circulo",
+  "numero": 1,
+  "titulo": "A linha e a região",
+  "pergunta": "Circunferência e círculo são a mesma coisa?",
+  "ideia": {
+    "paragrafos": [
+      "No dia a dia as duas palavras se misturam, mas em matemática elas nomeiam coisas diferentes. A CIRCUNFERÊNCIA é a linha — o contorno, e nada além dele. O CÍRCULO é a região: a linha mais tudo o que está dentro dela.",
+      "A diferença aparece na hora de medir. Numa pista de corrida circular, o que se corre é a circunferência; o que se cerca é a circunferência; mas o que se pinta, se planta ou se cobre é o círculo. Uma é comprimento e se mede em metros; a outra é área e se mede em metros quadrados.",
+      "Toda circunferência nasce de duas informações: um ponto, o CENTRO, e uma distância, o RAIO. A circunferência é o conjunto de todos os pontos que estão exatamente a essa distância do centro — nem mais perto, nem mais longe. É por isso que ela sai perfeitamente redonda.",
+      "Ligando dois pontos da linha por um segmento reto, aparece uma CORDA. Quando essa corda passa pelo centro, ela é a maior possível e ganha nome próprio: DIÂMETRO. E o diâmetro vale sempre o dobro do raio, porque atravessa o círculo inteiro em vez de ir só do centro até a borda.",
+      "Essa relação simples — d = 2r — é usada o tempo todo daqui para a frente. Os problemas dão ora o raio, ora o diâmetro, e converter um no outro costuma ser o primeiro passo de tudo."
+    ],
+    "destaque": "Circunferência é a linha; círculo é a região. E o diâmetro é o dobro do raio.",
+    "imagem": "ci-ideia-linha-regiao"
+  },
+  "resolvido": {
+    "enunciado": "Uma circunferência tem raio de 6 cm. Qual é o diâmetro dela? E se outra tiver diâmetro de 18 cm, qual é o raio?",
+    "imagem": "ci-res-raio-diametro",
+    "passos": [
+      {
+        "titulo": "Lembre o que cada um mede",
+        "explicacao": "O raio vai do centro até a linha; o diâmetro atravessa de um lado ao outro, passando pelo centro. São dois raios em linha reta.",
+        "conta": "d = 2r"
+      },
+      {
+        "titulo": "Ache o diâmetro da primeira",
+        "explicacao": "Com o raio conhecido, basta dobrar para atravessar o círculo inteiro.",
+        "conta": "2 × 6 = 12 cm"
+      },
+      {
+        "titulo": "Ache o raio da segunda",
+        "explicacao": "Agora o caminho é o contrário: o raio é metade do diâmetro.",
+        "conta": "18 ÷ 2 = 9 cm"
+      },
+      {
+        "titulo": "Confira o sentido das contas",
+        "explicacao": "O diâmetro tem sempre de sair maior que o raio, e o raio menor que o diâmetro. Se der o contrário, a conta foi invertida.",
+        "conta": "12 > 6 ✓ · 9 < 18 ✓"
+      }
+    ],
+    "fecho": "Trocar raio por diâmetro é o erro mais caro desta matéria: ele dobra ou divide pela metade todo o resto."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a diferença entre circunferência e círculo?",
+      "imagem": "ci-q-diferenca",
+      "dica": "Uma delas inclui a parte de dentro; a outra é só o contorno.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A circunferência é a linha; o círculo é a linha mais a região de dentro" },
+        { "rotulo": "B", "texto": "O círculo é a linha; a circunferência é a região de dentro" },
+        { "rotulo": "C", "texto": "São a mesma coisa, com dois nomes diferentes" },
+        { "rotulo": "D", "texto": "A circunferência é maior que o círculo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O círculo é a linha; a circunferência é a região de dentro",
+          "porque": "Inverte os dois nomes. A palavra circunferência tem a ver com \"contornar\", e é justamente o contorno; o círculo é a região cheia."
+        },
+        {
+          "resposta": "São a mesma coisa, com dois nomes diferentes",
+          "porque": "No dia a dia se usam como sinônimos, mas em matemática eles medem coisas diferentes: uma tem comprimento em metros, a outra tem área em metros quadrados."
+        },
+        {
+          "resposta": "A circunferência é maior que o círculo",
+          "porque": "Não faz sentido comparar os dois por tamanho, porque eles nem medem a mesma grandeza. Uma é comprimento e a outra é área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe o que é linha",
+          "explicacao": "A circunferência é só o contorno, o conjunto dos pontos que ficam à mesma distância do centro.",
+          "conta": "circunferência = contorno"
+        },
+        {
+          "titulo": "Separe o que é região",
+          "explicacao": "O círculo é essa linha junto com tudo o que ela cerca.",
+          "conta": "círculo = contorno + interior"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma circunferência tem raio de 7 cm. Qual é o diâmetro dela? Digite apenas o número.",
+      "imagem": "ci-q-diametro-7",
+      "dica": "O diâmetro atravessa o círculo inteiro passando pelo centro. Quantos raios cabem nele?",
+      "formato": "numero",
+      "resposta": 14,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "3.5",
+          "porque": "3,5 é METADE do raio, ou seja, a conta foi feita ao contrário. O diâmetro é maior que o raio, e não menor: ele atravessa o círculo inteiro."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o próprio raio, que o enunciado já deu. O diâmetro é outra medida — o dobro dessa, porque vai de um lado ao outro."
+        },
+        {
+          "resposta": "21",
+          "porque": "21 triplica o raio. O diâmetro é formado por exatamente DOIS raios em linha reta: um de cada lado do centro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os raios",
+          "explicacao": "Do centro para um lado é um raio; do centro para o outro lado é outro raio.",
+          "conta": "d = 2r"
+        },
+        {
+          "titulo": "Dobre",
+          "explicacao": "Com o raio de 7 cm, o diâmetro é o dobro disso.",
+          "conta": "2 × 7 = 14 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma circunferência tem diâmetro de 18 cm. Qual é o raio dela? Digite apenas o número.",
+      "imagem": "ci-q-raio-18",
+      "dica": "Agora o caminho é o contrário do anterior: partindo do diâmetro, como se chega ao raio?",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 dobra o diâmetro, mas a relação já está aplicada: o diâmetro é que vale dois raios. Para voltar ao raio é preciso dividir por 2."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é o próprio diâmetro, que o enunciado deu. O raio vai só do centro até a borda, então mede metade disso."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 divide por 3 em vez de por 2. O diâmetro é formado por dois raios, e não por três: ele atravessa uma vez de cada lado do centro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre a relação",
+          "explicacao": "O diâmetro vale dois raios, então o raio vale metade do diâmetro.",
+          "conta": "r = d ÷ 2"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Metade de 18 é a medida procurada.",
+          "conta": "18 ÷ 2 = 9 cm"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Como se chama o segmento que liga dois pontos da circunferência passando pelo centro?",
+      "imagem": "ci-q-corda-diametro",
+      "dica": "Toda corda liga dois pontos da linha, mas só uma delas passa exatamente pelo centro.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Diâmetro" },
+        { "rotulo": "B", "texto": "Raio" },
+        { "rotulo": "C", "texto": "Uma corda qualquer" },
+        { "rotulo": "D", "texto": "Circunferência" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Raio",
+          "porque": "O raio liga o CENTRO a um ponto da linha, e não dois pontos da linha entre si. Ele tem uma ponta no meio, e não na borda."
+        },
+        {
+          "resposta": "Uma corda qualquer",
+          "porque": "Toda corda liga dois pontos da linha, e o diâmetro é uma delas — a que passa pelo centro. Quando ela tem essa propriedade, ganha nome próprio e é a maior de todas."
+        },
+        {
+          "resposta": "Circunferência",
+          "porque": "A circunferência é a linha curva inteira, e não um segmento reto. O que a pergunta descreve é um segmento que atravessa a região."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que é uma corda",
+          "explicacao": "Qualquer segmento que liga dois pontos da circunferência.",
+          "conta": "corda: dois pontos da linha"
+        },
+        {
+          "titulo": "Acrescente a condição do centro",
+          "explicacao": "A corda que passa pelo centro é a maior possível, e recebe nome próprio.",
+          "conta": "diâmetro"
+        }
+      ]
+    }
+  ]
+}

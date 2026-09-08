@@ -1,0 +1,195 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Probabilidade na vida",
+  "pergunta": "O que a probabilidade promete, e o que ela não promete?",
+  "ideia": {
+    "paragrafos": [
+      "O roteiro completo tem três passos, e o primeiro é o que mais custa: descrever o espaço amostral. Depois vem contar os casos favoráveis, e por último dividir. Quando o problema parece difícil, quase sempre é o primeiro passo que ainda não foi feito direito.",
+      "Quando a contagem confunde, LISTE. Uma tabela, uma grade, uma árvore de possibilidades — qualquer coisa que ponha os casos no papel. É lento e é infalível, e foi assim que a lição passada mostrou que somar 7 tem seis jeitos.",
+      "É preciso entender o que a probabilidade promete. Uma chance de 1/2 não garante que, em duas jogadas, uma vai dar certo. Ela diz que, em MUITAS jogadas, o resultado aparece em cerca de metade delas. Quanto mais tentativas, mais perto a realidade chega da previsão.",
+      "Daí sai a defesa contra um engano famoso: a moeda não tem memória. Se saiu cara cinco vezes seguidas, a probabilidade da próxima continua sendo 1/2 — a moeda não sabe o que aconteceu antes e não está \"devendo\" uma coroa a ninguém.",
+      "E vale distinguir probabilidade de FREQUÊNCIA. A probabilidade é calculada antes, contando os casos possíveis; a frequência é observada depois, contando o que realmente aconteceu. As duas se aproximam com muitas repetições, mas nunca precisam bater exatamente."
+    ],
+    "destaque": "A moeda não tem memória. O que saiu antes não muda a chance do próximo.",
+    "imagem": "pb-ideia-vida"
+  },
+  "resolvido": {
+    "enunciado": "Jogando dois dados, qual é a probabilidade de a soma ser um número par?",
+    "imagem": "pb-res-par-dados",
+    "passos": [
+      {
+        "titulo": "Descreva o espaço amostral",
+        "explicacao": "São os pares de faces, e não as somas. Seis faces em cada dado dão trinta e seis pares.",
+        "conta": "36 casos possíveis"
+      },
+      {
+        "titulo": "Descubra quando a soma é par",
+        "explicacao": "Soma par acontece quando os dois dados são pares ou quando os dois são ímpares. Um par com um ímpar sempre dá soma ímpar.",
+        "conta": "par+par ou ímpar+ímpar"
+      },
+      {
+        "titulo": "Conte cada grupo",
+        "explicacao": "Há três faces pares e três ímpares em cada dado, então cada grupo dá três vezes três combinações.",
+        "conta": "3×3 + 3×3 = 9 + 9 = 18"
+      },
+      {
+        "titulo": "Monte a fração e simplifique",
+        "explicacao": "Dezoito casos favoráveis em trinta e seis possíveis — exatamente metade.",
+        "conta": "18/36 = 1/2"
+      }
+    ],
+    "fecho": "Metade faz sentido: par e ímpar se alternam pela grade inteira, sem favorecer nenhum dos dois."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Jogando dois dados, em quantos dos 36 casos a soma é par? Digite apenas o número.",
+      "imagem": "pb-q-soma-par",
+      "dica": "A soma é par quando os dois dados são pares ou quando os dois são ímpares.",
+      "formato": "numero",
+      "resposta": 18,
+      "unidade": "casos",
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 conta só os casos em que os DOIS dados são pares. Falta o outro grupo: dois ímpares também somam par, e são mais nove casos."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a quantidade de jeitos de somar 7, que é uma soma ímpar. A pergunta é sobre todas as somas pares juntas."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é o total de casos possíveis. Nem todos dão soma par: exatamente metade deles dá, e a outra metade dá soma ímpar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe os dois grupos",
+          "explicacao": "Soma par acontece com dois pares ou com dois ímpares.",
+          "conta": "par+par e ímpar+ímpar"
+        },
+        {
+          "titulo": "Conte cada um e some",
+          "explicacao": "Três faces pares e três ímpares em cada dado.",
+          "conta": "3×3 + 3×3 = 18"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Jogando dois dados, em quantos dos 36 casos a soma é maior que 9? Digite apenas o número.",
+      "imagem": "pb-q-maior-9",
+      "dica": "Somas maiores que 9 são 10, 11 e 12. Conte os jeitos de cada uma e some.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "casos",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 conta as somas possíveis (10, 11 e 12) em vez dos casos. Cada soma acontece de uma quantidade diferente de jeitos: três, dois e um."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 pode vir de contar as somas de 9 em diante, incluindo o próprio 9. \"Maior que 9\" deixa o 9 de fora: começa no 10."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é a menor soma que satisfaz a condição, e não a quantidade de casos. São seis pares de faces que dão soma acima de 9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste as somas que servem",
+          "explicacao": "Maior que 9 quer dizer 10, 11 ou 12.",
+          "conta": "10, 11 e 12"
+        },
+        {
+          "titulo": "Conte os jeitos de cada uma",
+          "explicacao": "Somar 10 tem três jeitos, 11 tem dois e 12 tem um.",
+          "conta": "3 + 2 + 1 = 6 casos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa moeda honesta saiu cara cinco vezes seguidas. Qual é a probabilidade de sair cara na próxima jogada? Responda em decimal, digitando apenas o número.",
+      "imagem": "pb-q-memoria",
+      "dica": "A moeda registra de alguma forma o que já aconteceu?",
+      "formato": "numero",
+      "resposta": 0.5,
+      "errosComuns": [
+        {
+          "resposta": "0",
+          "porque": "0 diria que é impossível sair cara de novo, o que não é verdade. A moeda não fica \"proibida\" de repetir: cada jogada é independente das anteriores."
+        },
+        {
+          "resposta": "0.1",
+          "porque": "0,1 supõe que a chance diminui a cada repetição, como se a moeda estivesse devendo uma coroa. A moeda não tem memória: a chance continua a mesma."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 diria que sair cara é certo, como se a sequência fosse continuar por inércia. As jogadas anteriores não influenciam a próxima em nenhuma direção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe só a próxima jogada",
+          "explicacao": "O espaço amostral dela continua sendo cara ou coroa.",
+          "conta": "2 casos possíveis"
+        },
+        {
+          "titulo": "Ignore o histórico",
+          "explicacao": "A moeda não guarda o que saiu antes, e nada nela mudou.",
+          "conta": "1 ÷ 2 = 0,5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma moeda honesta foi jogada 10 vezes e saiu cara 7 vezes. O que isso indica?",
+      "imagem": "pb-q-frequencia",
+      "dica": "Pense na diferença entre o que foi calculado antes e o que foi observado depois.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Nada de errado: com poucas jogadas, a frequência pode se afastar da probabilidade" },
+        { "rotulo": "B", "texto": "Que a moeda está viciada" },
+        { "rotulo": "C", "texto": "Que a probabilidade de cara mudou para 0,7" },
+        { "rotulo": "D", "texto": "Que nas próximas 10 jogadas sairá coroa 7 vezes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que a moeda está viciada",
+          "porque": "Sete caras em dez jogadas é perfeitamente comum numa moeda honesta. Para desconfiar seria preciso um desvio parecido em MUITAS jogadas, e não em dez."
+        },
+        {
+          "resposta": "Que a probabilidade de cara mudou para 0,7",
+          "porque": "Confunde frequência observada com probabilidade. A probabilidade é calculada pelos casos possíveis e continua 0,5; o 0,7 é apenas o que aconteceu nessas dez jogadas."
+        },
+        {
+          "resposta": "Que nas próximas 10 jogadas sairá coroa 7 vezes",
+          "porque": "Essa é a ideia de que a moeda \"compensa\" resultados, e ela é falsa. Cada jogada é independente: nada obriga o futuro a corrigir o passado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe os dois conceitos",
+          "explicacao": "A probabilidade é calculada antes; a frequência é observada depois.",
+          "conta": "0,5 calculado · 0,7 observado"
+        },
+        {
+          "titulo": "Veja o tamanho da amostra",
+          "explicacao": "Com poucas jogadas, é normal a frequência se afastar bastante da probabilidade.",
+          "conta": "10 jogadas é pouco"
+        },
+        {
+          "titulo": "Pense no que aconteceria com muitas",
+          "explicacao": "Com mil jogadas, a frequência de caras costuma ficar bem perto de 0,5.",
+          "conta": "mais jogadas → mais perto"
+        }
+      ]
+    }
+  ]
+}

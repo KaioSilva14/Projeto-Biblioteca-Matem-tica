@@ -1,0 +1,196 @@
+{
+  "id": "comprimento",
+  "numero": 3,
+  "titulo": "O comprimento da volta",
+  "pergunta": "Como calcular a volta sem medir com barbante?",
+  "ideia": {
+    "paragrafos": [
+      "A lição anterior mostrou que a volta dividida pelo diâmetro dá sempre π. Basta reescrever essa frase de outro jeito para ter a fórmula: se a volta dividida pelo diâmetro é π, então a volta é π vezes o diâmetro.",
+      "Em símbolos, C = π × d. E como o diâmetro é o dobro do raio, dá para escrever a mesma coisa em função do raio: C = 2 × π × r. As duas fórmulas dizem exatamente o mesmo — a escolha é só de conveniência, conforme o que o problema dá.",
+      "Na prática, o primeiro passo de todo exercício é olhar o que foi dado. Se veio o raio, use C = 2πr. Se veio o diâmetro, use C = πd. Se você usar a fórmula errada para o dado que tem, o resultado sai com o dobro ou a metade do valor.",
+      "Vale ter uma noção de tamanho para conferir. Como π é pouco mais de 3, a volta é sempre um pouco mais que três diâmetros — ou pouco mais que seis raios. Se a sua resposta ficar menor que o diâmetro, ou muito maior que seis raios, alguma coisa saiu errada.",
+      "E a fórmula funciona nos dois sentidos. Conhecendo a volta, dá para achar o diâmetro dividindo por π — que é o que se faz quando se sabe quanto uma roda percorre e se quer saber o tamanho dela."
+    ],
+    "destaque": "C = π × d, ou C = 2 × π × r. São a mesma fórmula, escrita de dois jeitos.",
+    "imagem": "ci-ideia-comprimento"
+  },
+  "resolvido": {
+    "enunciado": "Uma circunferência tem raio de 5 cm. Qual é o comprimento dela? Use π = 3,14.",
+    "imagem": "ci-res-comprimento",
+    "passos": [
+      {
+        "titulo": "Veja o que foi dado",
+        "explicacao": "O enunciado deu o raio, então a fórmula que usa o raio direto é a mais confortável.",
+        "conta": "r = 5 cm → C = 2πr"
+      },
+      {
+        "titulo": "Substitua os valores",
+        "explicacao": "Cada letra recebe o seu número, com o π valendo 3,14 nesta matéria.",
+        "conta": "C = 2 × 3,14 × 5"
+      },
+      {
+        "titulo": "Calcule",
+        "explicacao": "Multiplicando na ordem em que aparecem, sem pressa.",
+        "conta": "6,28 × 5 = 31,4 cm"
+      },
+      {
+        "titulo": "Confira a ordem de grandeza",
+        "explicacao": "O diâmetro é 10 cm, e a volta tem de ser pouco mais que três diâmetros. Trinta e um está certinho.",
+        "conta": "3 × 10 = 30, e deu 31,4 ✓"
+      }
+    ],
+    "fecho": "Pelo diâmetro daria o mesmo: 3,14 × 10 = 31,4. As duas fórmulas nunca discordam."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma circunferência tem raio de 3 cm. Qual é o comprimento dela? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-comp-r3",
+      "dica": "O raio foi dado, então use C = 2 × π × r.",
+      "formato": "numero",
+      "resposta": 18.84,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "9.42",
+          "porque": "9,42 é π vezes o RAIO, esquecendo o 2. A fórmula com raio precisa dobrar, porque o π multiplica o diâmetro, que vale dois raios."
+        },
+        {
+          "resposta": "28.26",
+          "porque": "28,26 é a ÁREA desse círculo, que sai de π × r². A pergunta é sobre o comprimento da volta, que é uma medida linear."
+        },
+        {
+          "resposta": "6.28",
+          "porque": "6,28 é 2 × π, sem multiplicar pelo raio. Esse valor sozinho seria o comprimento de uma circunferência de raio 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a fórmula",
+          "explicacao": "Como veio o raio, a fórmula direta é a que usa 2πr.",
+          "conta": "C = 2 × 3,14 × 3"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Multiplicando os três fatores na ordem em que aparecem, sem pressa.",
+          "conta": "6,28 × 3 = 18,84 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma circunferência tem diâmetro de 10 cm. Qual é o comprimento dela? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-comp-d10",
+      "dica": "Agora veio o diâmetro, então a fórmula mais curta é C = π × d.",
+      "formato": "numero",
+      "resposta": 31.4,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "62.8",
+          "porque": "62,8 usa a fórmula do raio com o valor do diâmetro, dobrando de novo o que já estava dobrado. Com o diâmetro em mãos, basta multiplicar por π uma vez."
+        },
+        {
+          "resposta": "15.7",
+          "porque": "15,7 usa o raio (5 cm) na fórmula do diâmetro. Os dois erros se combinam: era preciso ou dobrar o raio, ou usar o diâmetro direto."
+        },
+        {
+          "resposta": "78.5",
+          "porque": "78,5 é a ÁREA do círculo de raio 5. A pergunta é sobre o comprimento da volta, e não sobre a região de dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a fórmula",
+          "explicacao": "Com o diâmetro dado, o caminho curto é multiplicar direto por π.",
+          "conta": "C = 3,14 × 10"
+        },
+        {
+          "titulo": "Calcule e confira",
+          "explicacao": "O resultado tem de ser pouco mais que três diâmetros.",
+          "conta": "31,4 cm ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma circunferência tem comprimento de 62,8 cm. Qual é o diâmetro dela? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-comp-inverso",
+      "dica": "A fórmula funciona nos dois sentidos. Se a volta é π vezes o diâmetro, como se volta ao diâmetro?",
+      "formato": "numero",
+      "resposta": 20,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "197.19",
+          "porque": "197,19 multiplica por π em vez de dividir. A multiplicação já foi feita para chegar aos 62,8 — para desfazê-la é preciso dividir."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o RAIO dessa circunferência, e não o diâmetro. Dividir a volta por π dá o diâmetro direto; o raio seria metade disso."
+        },
+        {
+          "resposta": "59.66",
+          "porque": "59,66 subtrai π da volta. A relação entre volta e diâmetro é de multiplicação, então desfazê-la pede divisão, e não subtração."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a relação",
+          "explicacao": "A volta é π vezes o diâmetro, e é esse produto que já vale 62,8.",
+          "conta": "62,8 = 3,14 × d"
+        },
+        {
+          "titulo": "Desfaça a multiplicação",
+          "explicacao": "Dividindo os dois lados por π, como em qualquer equação do 1º grau.",
+          "conta": "62,8 ÷ 3,14 = 20 cm"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "As fórmulas C = 2πr e C = πd dão resultados diferentes?",
+      "imagem": "ci-q-duas-formulas",
+      "dica": "Lembre da relação entre raio e diâmetro, e substitua uma na outra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: como d = 2r, as duas são a mesma fórmula" },
+        { "rotulo": "B", "texto": "Sim: a primeira dá o dobro da segunda" },
+        { "rotulo": "C", "texto": "Sim: a primeira serve para círculos e a segunda para circunferências" },
+        { "rotulo": "D", "texto": "Não, mas só quando o raio é um número inteiro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim: a primeira dá o dobro da segunda",
+          "porque": "Daria, se as duas recebessem o mesmo número. Mas uma recebe o raio e a outra o diâmetro, e o diâmetro já é o dobro do raio — o que compensa exatamente o 2."
+        },
+        {
+          "resposta": "Sim: a primeira serve para círculos e a segunda para circunferências",
+          "porque": "As duas calculam o comprimento da circunferência. Para o círculo — a região — a fórmula é outra, e ela usa o raio ao quadrado."
+        },
+        {
+          "resposta": "Não, mas só quando o raio é um número inteiro",
+          "porque": "A igualdade entre as duas não depende do valor do raio. Ela vem de d = 2r, que vale para qualquer medida, inteira ou quebrada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua o diâmetro",
+          "explicacao": "Na segunda fórmula, troque d pelo que ele vale em função do raio.",
+          "conta": "C = π × d = π × (2r)"
+        },
+        {
+          "titulo": "Reorganize",
+          "explicacao": "Multiplicação pode ser feita em qualquer ordem, então o resultado é a primeira fórmula.",
+          "conta": "π × 2 × r = 2πr"
+        },
+        {
+          "titulo": "Confira com números",
+          "explicacao": "Com r = 5 e d = 10, as duas dão o mesmo comprimento.",
+          "conta": "2×3,14×5 = 31,4 · 3,14×10 = 31,4 ✓"
+        }
+      ]
+    }
+  ]
+}

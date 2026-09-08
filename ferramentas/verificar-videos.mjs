@@ -54,8 +54,17 @@ for (const arquivo of readdirSync(CURSOS).filter((f) => f.endsWith(".json"))) {
       continue;
     }
 
-    const tituloBate = video.titulo === r.titulo;
-    const canalBate = video.canal === r.canal;
+    // Compara em NFC dos dois lados. A API às vezes devolve o título
+    // DECOMPOSTO (o "ç" vem como c + cedilha combinante), o que dá bytes
+    // diferentes para textos visualmente idênticos — e o verificador acusava
+    // divergência num vídeo perfeitamente certo. Achado em Inequações.
+    // Normaliza em NFC e apara as pontas. A API às vezes devolve o texto
+    // DECOMPOSTO (o "ç" como c + cedilha combinante) e às vezes com espaço
+    // sobrando no fim do título — nenhum dos dois é informação, e os dois
+    // já acusaram divergência em vídeo perfeitamente certo.
+    const igual = (a, b) => String(a).normalize("NFC").trim() === String(b).normalize("NFC").trim();
+    const tituloBate = igual(video.titulo, r.titulo);
+    const canalBate = igual(video.canal, r.canal);
 
     if (tituloBate && canalBate) {
       console.log(`  ok  ${video.id}  ${r.canal}`);

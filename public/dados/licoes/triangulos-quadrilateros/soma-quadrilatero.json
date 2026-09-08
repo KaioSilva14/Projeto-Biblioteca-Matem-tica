@@ -1,0 +1,201 @@
+{
+  "id": "soma-quadrilatero",
+  "numero": 5,
+  "titulo": "Os quatro ângulos somam 360°",
+  "pergunta": "E num quadrilátero, quanto dá a soma?",
+  "ideia": {
+    "paragrafos": [
+      "A soma dos ângulos internos de um quadrilátero é sempre 360°, e a demonstração é mais curta que a do triângulo — porque ela se apoia na anterior em vez de começar do zero.",
+      "Trace uma diagonal, ligando dois vértices opostos. O quadrilátero fica partido em dois triângulos, e nenhum ângulo se perde nem se cria no caminho: os ângulos dos dois triângulos, juntos, são exatamente os quatro ângulos do quadrilátero, alguns deles repartidos em dois pedaços pela diagonal.",
+      "Como cada triângulo soma 180°, os dois somam 360°. É todo o argumento — e ele mostra por que o resultado do triângulo precisava vir primeiro.",
+      "A mesma ideia continua valendo para figuras de mais lados, e vale guardar: um polígono de cinco lados se parte em três triângulos e soma 540°; um de seis se parte em quatro e soma 720°. Sempre dois triângulos a menos que o número de lados.",
+      "Nos paralelogramos a soma se distribui de um jeito ainda mais organizado. Ângulos OPOSTOS são iguais, e ângulos vizinhos somam 180° — o que faz sentido, porque cada par de lados paralelos está sendo cortado pelos outros dois lados, que funcionam como transversais."
+    ],
+    "destaque": "Um quadrilátero se parte em dois triângulos, então soma 2 × 180° = 360°.",
+    "imagem": "tq-ideia-soma360"
+  },
+  "resolvido": {
+    "enunciado": "Um quadrilátero tem três ângulos medindo 100°, 80° e 110°. Quanto mede o quarto?",
+    "imagem": "tq-res-soma360",
+    "passos": [
+      {
+        "titulo": "Escreva a relação",
+        "explicacao": "Os quatro ângulos internos de qualquer quadrilátero somam a volta completa.",
+        "conta": "100 + 80 + 110 + x = 360"
+      },
+      {
+        "titulo": "Some os três conhecidos",
+        "explicacao": "Juntando o que já se sabe, descobre-se quanto do total está ocupado.",
+        "conta": "100 + 80 + 110 = 290"
+      },
+      {
+        "titulo": "Complete a volta",
+        "explicacao": "O que falta para 360° é a medida do ângulo que sobrou.",
+        "conta": "360 − 290 = 70°"
+      },
+      {
+        "titulo": "Confira",
+        "explicacao": "Refazendo a soma com o valor achado, ela precisa fechar exatamente na volta completa.",
+        "conta": "100 + 80 + 110 + 70 = 360 ✓"
+      }
+    ],
+    "fecho": "O método é o mesmo do triângulo — só muda o total, porque são dois triângulos em vez de um."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um quadrilátero tem três ângulos medindo 90°, 90° e 120°. Quanto mede o quarto? Digite apenas o número.",
+      "imagem": "tq-q-soma-90-90-120",
+      "dica": "Some os três conhecidos e veja quanto falta para completar 360°.",
+      "formato": "numero",
+      "resposta": 60,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 é a soma dos três ângulos dados, e não o quarto. Esse valor é o que já está ocupado da volta: o quarto é o que ainda falta."
+        },
+        {
+          "resposta": "-120",
+          "porque": "−120 sai de completar 180° com os três, mas 180° é a soma dos ângulos de um TRIÂNGULO. O quadrilátero soma o dobro disso."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 repete um dos ângulos dados. Testando: com dois de 90°, um de 120° e mais um de 120°, a soma daria 420°, que passa da volta completa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os conhecidos",
+          "explicacao": "Os três ângulos dados já ocupam parte do total.",
+          "conta": "90 + 90 + 120 = 300"
+        },
+        {
+          "titulo": "Complete até 360°",
+          "explicacao": "O que sobra da volta completa é o quarto ângulo.",
+          "conta": "360 − 300 = 60°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um quadrilátero tem três ângulos medindo 85°, 95° e 100°. Quanto mede o quarto? Digite apenas o número.",
+      "imagem": "tq-q-soma-85-95-100",
+      "dica": "O procedimento é o mesmo de sempre: somar os conhecidos e completar a volta.",
+      "formato": "numero",
+      "resposta": 80,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "280",
+          "porque": "280 é a soma dos três ângulos dados. Ele diz quanto da volta já foi ocupado, e não quanto mede o ângulo que falta."
+        },
+        {
+          "resposta": "-100",
+          "porque": "−100 completa 180° com os três, mas essa é a soma de um triângulo. Num quadrilátero o total é 360°, e a resposta é positiva."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 é um chute pelo ângulo reto, e não fecha a conta. Com ele a soma daria 370°, dez graus além da volta completa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os conhecidos",
+          "explicacao": "Juntando os três ângulos que o enunciado dá.",
+          "conta": "85 + 95 + 100 = 280"
+        },
+        {
+          "titulo": "Complete e confira",
+          "explicacao": "O que falta para 360° é a medida procurada, e vale refazer a soma inteira.",
+          "conta": "360 − 280 = 80° ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a soma dos ângulos internos de um quadrilátero é 360°?",
+      "imagem": "tq-q-por-que-360",
+      "dica": "Pense no que acontece ao traçar uma diagonal ligando dois vértices opostos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ele se divide em dois triângulos, e cada um soma 180°" },
+        { "rotulo": "B", "texto": "Porque ele tem quatro lados, e 4 × 90 dá 360" },
+        { "rotulo": "C", "texto": "Porque toda volta completa mede 360°" },
+        { "rotulo": "D", "texto": "Porque os ângulos opostos são iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque ele tem quatro lados, e 4 × 90 dá 360",
+          "porque": "A conta dá o número certo por acaso, mas o raciocínio só valeria se os quatro ângulos fossem retos. Num quadrilátero torto a soma continua 360° sem nenhum ângulo de 90°."
+        },
+        {
+          "resposta": "Porque toda volta completa mede 360°",
+          "porque": "A volta completa mede 360°, mas os ângulos internos de um quadrilátero não estão em volta de um ponto — eles estão em quatro cantos diferentes. A coincidência do número precisa ser explicada."
+        },
+        {
+          "resposta": "Porque os ângulos opostos são iguais",
+          "porque": "Isso vale só nos paralelogramos, e a soma 360° vale em QUALQUER quadrilátero, inclusive nos que não têm nenhum par de lados paralelos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Trace uma diagonal",
+          "explicacao": "Ligando dois vértices opostos, a figura fica partida em duas.",
+          "conta": "2 triângulos"
+        },
+        {
+          "titulo": "Confira que nada se perde",
+          "explicacao": "Os ângulos dos dois triângulos, juntos, são exatamente os quatro do quadrilátero, alguns repartidos pela diagonal.",
+          "conta": "mesmos ângulos"
+        },
+        {
+          "titulo": "Some os dois",
+          "explicacao": "Cada triângulo soma 180°, então os dois somam o dobro.",
+          "conta": "2 × 180 = 360°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num paralelogramo, um dos ângulos mede 70°. Quanto mede o ângulo OPOSTO a ele? Digite apenas o número.",
+      "imagem": "tq-q-paralelogramo-oposto",
+      "dica": "Num paralelogramo os ângulos opostos têm uma relação simples entre si — e não é a de somar 180°.",
+      "formato": "numero",
+      "resposta": 70,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "110",
+          "porque": "110 é o suplementar de 70°, e essa é a medida dos ângulos VIZINHOS no paralelogramo. Os opostos, um de frente para o outro, são iguais."
+        },
+        {
+          "resposta": "290",
+          "porque": "290 completa 360° com o 70°. A volta completa é a soma dos QUATRO ângulos, e não de apenas dois deles."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 completa 90° com o 70°. Nenhuma relação do paralelogramo usa o ângulo reto, a não ser quando ele é um retângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize o oposto",
+          "explicacao": "É o ângulo do canto de frente, que não compartilha nenhum lado com o dado.",
+          "conta": "canto oposto"
+        },
+        {
+          "titulo": "Aplique a propriedade",
+          "explicacao": "Num paralelogramo os ângulos opostos são iguais.",
+          "conta": "70°"
+        },
+        {
+          "titulo": "Confira com a soma",
+          "explicacao": "Os dois de 70° e os dois vizinhos de 110° fecham a volta completa.",
+          "conta": "70 + 110 + 70 + 110 = 360 ✓"
+        }
+      ]
+    }
+  ]
+}

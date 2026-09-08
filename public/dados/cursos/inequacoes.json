@@ -1,0 +1,41 @@
+{
+  "id": "inequacoes",
+  "titulo": "Inequações",
+  "ano": 7,
+  "descricao": "Quase tudo o que Equações ensinou continua valendo — menos num ponto, e é esse ponto que a matéria existe para acertar. Seis lições que vão de por que a resposta vira um intervalo até os problemas de limite do dia a dia, passando pela única regra que não existe em equação nenhuma.",
+  "pergunta": "Por que às vezes o sinal da desigualdade vira do avesso?",
+  "videos": [
+    {
+      "id": "pecamqaz9f4",
+      "titulo": "INEQUAÇÃO DO 1º GRAU | MATEMÁTICA  \\Prof. Gis/ - AULA 1",
+      "canal": "Gis com Giz",
+      "descricao": "Aula de base, feita para esta série, com o passo a passo bem devagar. Serve para reforçar as lições 1 a 3, se o método ainda parecer estranho."
+    },
+    {
+      "id": "A-I4R4jd97E",
+      "titulo": "Inequação do 1º Grau  - Por que inverte o sinal ?????",
+      "canal": "Julio Bara - Matemática",
+      "descricao": "Só sobre a inversão do sinal, que é o assunto da lição 4. Vale para quem quer ouvir a explicação de outro jeito antes de aceitar a regra."
+    },
+    {
+      "id": "zKvKRX9CpuQ",
+      "titulo": "Por que uma desigualdade inverte? [Inequações: aula 1 de 7] – Vou te ensinar 31",
+      "canal": "Estude Matemática",
+      "descricao": "Explica a inversão pelo raciocínio, e não pela decoreba. Complementa a lição 4 para quem quer entender o motivo, e não só aplicar."
+    },
+    {
+      "id": "qrnOtSD1vF8",
+      "titulo": "COMO RESOLVER INEQUAÇÃO DO 1º GRAU",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Revisão rápida com os tipos de exercício mais cobrados em prova. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/inequacoes/o-que-e.json" },
+    { "id": "na-reta", "arquivo": "/dados/licoes/inequacoes/na-reta.json" },
+    { "id": "resolver", "arquivo": "/dados/licoes/inequacoes/resolver.json" },
+    { "id": "inverter", "arquivo": "/dados/licoes/inequacoes/inverter.json" },
+    { "id": "traduzir", "arquivo": "/dados/licoes/inequacoes/traduzir.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/inequacoes/problemas.json" }
+  ]
+}

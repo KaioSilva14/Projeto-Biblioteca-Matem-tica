@@ -1,0 +1,206 @@
+{
+  "id": "quadrilateros",
+  "numero": 4,
+  "titulo": "A família dos quadriláteros",
+  "pergunta": "Um quadrado também é retângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Quadrilátero é toda figura fechada de quatro lados. Diferente dos triângulos, que são rígidos, um quadrilátero pode ser amassado sem mudar os lados — e por isso a família tem mais membros, cada um com uma exigência a mais que o anterior.",
+      "O primeiro nome importante é PARALELOGRAMO: quadrilátero com os dois pares de lados opostos paralelos. Só isso já garante bastante coisa — nele, lados opostos são iguais e ângulos opostos também.",
+      "Dentro dos paralelogramos moram três casos especiais. O RETÂNGULO é o paralelogramo com os quatro ângulos retos. O LOSANGO é o paralelogramo com os quatro lados iguais. E o QUADRADO tem as duas coisas ao mesmo tempo: quatro lados iguais e quatro ângulos retos.",
+      "É aí que entra a pergunta desta lição. Como o quadrado cumpre a exigência do retângulo, ele É um retângulo — um retângulo especial, com os lados todos iguais. Pelo mesmo motivo ele também é losango e também é paralelogramo. A recíproca é que não vale: nem todo retângulo é quadrado.",
+      "Fora da família dos paralelogramos fica o TRAPÉZIO, que tem apenas UM par de lados paralelos. Ele não é paralelogramo justamente porque lhe falta o segundo par — e é o único da lista que fica de fora."
+    ],
+    "destaque": "Todo quadrado é retângulo e é losango. O contrário é que não vale.",
+    "imagem": "tq-ideia-familia"
+  },
+  "resolvido": {
+    "enunciado": "Uma figura tem quatro lados, com os dois pares de lados opostos paralelos e iguais, mas seus ângulos não são retos. Que quadrilátero é esse?",
+    "imagem": "tq-res-paralelogramo",
+    "passos": [
+      {
+        "titulo": "Conte os pares de lados paralelos",
+        "explicacao": "São dois pares, e é justamente isso que define o paralelogramo. Com apenas um par, a figura seria um trapézio.",
+        "conta": "2 pares paralelos → paralelogramo"
+      },
+      {
+        "titulo": "Descarte o retângulo",
+        "explicacao": "O retângulo exige os quatro ângulos retos, e o enunciado diz que eles não são.",
+        "conta": "sem ângulo reto → não é retângulo"
+      },
+      {
+        "titulo": "Descarte o losango",
+        "explicacao": "O losango exige os quatro lados iguais. Aqui só se sabe que os OPOSTOS são iguais, o que todo paralelogramo já tem.",
+        "conta": "opostos iguais ≠ quatro iguais"
+      },
+      {
+        "titulo": "Fique com o nome geral",
+        "explicacao": "Sem as exigências extras, o nome que a figura merece é o do grupo maior a que ela pertence.",
+        "conta": "paralelogramo"
+      }
+    ],
+    "fecho": "Quando nenhuma exigência extra é cumprida, o nome certo é o mais geral que ainda descreve a figura."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Como se chama o quadrilátero que tem os quatro lados iguais e os quatro ângulos retos?",
+      "imagem": "tq-q-quadrado",
+      "dica": "São duas exigências ao mesmo tempo. Qual figura cumpre as duas?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quadrado" },
+        { "rotulo": "B", "texto": "Losango" },
+        { "rotulo": "C", "texto": "Retângulo" },
+        { "rotulo": "D", "texto": "Trapézio" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Losango",
+          "porque": "O losango cumpre metade: ele exige os quatro lados iguais, mas não exige ângulos retos. Um losango \"torto\" continua sendo losango."
+        },
+        {
+          "resposta": "Retângulo",
+          "porque": "O retângulo cumpre a outra metade: ele exige os quatro ângulos retos, mas não que os lados sejam todos iguais. Uma porta é retângulo e não é quadrado."
+        },
+        {
+          "resposta": "Trapézio",
+          "porque": "O trapézio tem apenas UM par de lados paralelos, então nem paralelogramo ele é. Está fora do grupo em que as duas exigências fazem sentido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe as duas exigências",
+          "explicacao": "Uma fala dos lados e a outra dos ângulos, e a figura precisa cumprir as duas.",
+          "conta": "4 lados iguais + 4 ângulos retos"
+        },
+        {
+          "titulo": "Ache quem cumpre as duas",
+          "explicacao": "Losango cumpre a primeira, retângulo cumpre a segunda, e só uma figura cumpre ambas.",
+          "conta": "quadrado"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Como se chama o quadrilátero que tem apenas um par de lados paralelos?",
+      "imagem": "tq-q-trapezio",
+      "dica": "Contar os pares de lados paralelos é o que separa este quadrilátero de todos os outros da lista.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Trapézio" },
+        { "rotulo": "B", "texto": "Paralelogramo" },
+        { "rotulo": "C", "texto": "Losango" },
+        { "rotulo": "D", "texto": "Retângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Paralelogramo",
+          "porque": "O paralelogramo exige DOIS pares de lados paralelos. Com apenas um par, falta metade da exigência, e a figura fica fora dessa família."
+        },
+        {
+          "resposta": "Losango",
+          "porque": "O losango é um paralelogramo com os quatro lados iguais, então ele já tem os dois pares paralelos. A figura da pergunta tem só um par."
+        },
+        {
+          "resposta": "Retângulo",
+          "porque": "O retângulo também é paralelogramo, com os dois pares paralelos e mais os ângulos retos. Ele exige mais, e não menos, que a figura descrita."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os pares paralelos",
+          "explicacao": "Um par só é a marca registrada desta figura.",
+          "conta": "1 par paralelo"
+        },
+        {
+          "titulo": "Veja quem fica de fora dos paralelogramos",
+          "explicacao": "Todos os outros nomes da lista exigem dois pares.",
+          "conta": "trapézio"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Todo quadrado é também um retângulo?",
+      "imagem": "tq-q-quadrado-retangulo",
+      "dica": "Confira se o quadrado cumpre a exigência que define o retângulo, e não o contrário.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque ele tem os quatro ângulos retos" },
+        { "rotulo": "B", "texto": "Não, porque os lados do quadrado são todos iguais" },
+        { "rotulo": "C", "texto": "Não, porque são figuras com nomes diferentes" },
+        { "rotulo": "D", "texto": "Só quando o quadrado for grande o bastante" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque os lados do quadrado são todos iguais",
+          "porque": "Ter os lados iguais é uma exigência A MAIS, e não um impedimento. O retângulo não proíbe lados iguais: ele só não exige que sejam."
+        },
+        {
+          "resposta": "Não, porque são figuras com nomes diferentes",
+          "porque": "Nomes diferentes não separam as famílias. Um quadrado é um caso particular de retângulo, do mesmo jeito que o retângulo é um caso particular de paralelogramo."
+        },
+        {
+          "resposta": "Só quando o quadrado for grande o bastante",
+          "porque": "Tamanho não muda classificação nenhuma nesta matéria. O que classifica são os lados e os ângulos, e eles são os mesmos em qualquer quadrado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o retângulo exige",
+          "explicacao": "Ser paralelogramo e ter os quatro ângulos retos. Nada é dito sobre os lados serem iguais ou diferentes.",
+          "conta": "4 ângulos retos"
+        },
+        {
+          "titulo": "Confira se o quadrado cumpre",
+          "explicacao": "O quadrado tem os quatro ângulos retos, então cumpre a exigência e entra na família.",
+          "conta": "cumpre → é retângulo"
+        },
+        {
+          "titulo": "Repare que a volta não vale",
+          "explicacao": "Um retângulo comum não tem os quatro lados iguais, então ele não é quadrado.",
+          "conta": "nem todo retângulo é quadrado"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos lados iguais tem um losango? Digite apenas o número.",
+      "imagem": "tq-q-losango",
+      "dica": "O losango é o paralelogramo definido por uma exigência sobre os lados. Quantos ela alcança?",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "lados",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Dois lados iguais é o que TODO paralelogramo já tem, aos pares. O losango exige mais que isso: os quatro do mesmo tamanho."
+        },
+        {
+          "resposta": "3",
+          "porque": "Três lados iguais não define nenhum quadrilátero da lista. A exigência do losango alcança os quatro lados de uma vez."
+        },
+        {
+          "resposta": "0",
+          "porque": "Zero descreveria um quadrilátero qualquer, sem lados iguais. O losango é justamente o caso em que todos eles medem o mesmo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre a definição",
+          "explicacao": "Losango é o paralelogramo cujos lados têm todos a mesma medida.",
+          "conta": "todos iguais"
+        },
+        {
+          "titulo": "Conte os lados",
+          "explicacao": "Como todo quadrilátero tem quatro lados, e neste todos são iguais, o total é quatro.",
+          "conta": "4 lados"
+        }
+      ]
+    }
+  ]
+}

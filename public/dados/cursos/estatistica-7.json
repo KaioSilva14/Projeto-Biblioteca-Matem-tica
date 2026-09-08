@@ -1,0 +1,41 @@
+{
+  "id": "estatistica-7",
+  "titulo": "Média, moda e mediana",
+  "ano": 7,
+  "descricao": "Continuação direta da Média aritmética do 6º ano, e resposta ao que aquela lição deixou em aberto: o que a média não conta. Seis lições sobre os três jeitos de resumir um conjunto de dados — e sobre quando escolher o resumo errado deixa de ser detalhe e vira desinformação.",
+  "pergunta": "Por que existem três medidas de resumo em vez de uma?",
+  "videos": [
+    {
+      "id": "f0ox1pfqsw0",
+      "titulo": "MÉDIA, MODA E MEDIANA - 7º ANO",
+      "canal": "Professora Mari Calhau",
+      "descricao": "Aula de base, feita para esta série, com as três medidas apresentadas juntas. Serve para reforçar as lições 1 a 4."
+    },
+    {
+      "id": "7uQ7CBApAFk",
+      "titulo": "Média, mediana e moda - Khan Academy em Português (7º ano)",
+      "canal": "Khan Academy em Português de Portugal",
+      "descricao": "Explicação curta e direta, com exemplos resolvidos passo a passo. Bom para quem quer ouvir a definição de outro jeito antes de treinar."
+    },
+    {
+      "id": "wkWri2UOhBY",
+      "titulo": "7º Ano | Matemática | Aula 157 - Medidas em Estatística: Moda e Mediana - Parte 1",
+      "canal": "Aula Paraná",
+      "descricao": "Foca na moda e na mediana, que são as duas medidas novas desta matéria. Complementa as lições 3 e 4."
+    },
+    {
+      "id": "uAtPI64xep4",
+      "titulo": "MÉDIA, MEDIANA E MODA  -  ESTATÍSTICA  -  Com Marcos Aba",
+      "canal": "Marcos Aba Matemática",
+      "descricao": "Lista de exercícios resolvidos do começo ao fim. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "tres-resumos", "arquivo": "/dados/licoes/estatistica-7/tres-resumos.json" },
+    { "id": "media", "arquivo": "/dados/licoes/estatistica-7/media.json" },
+    { "id": "mediana", "arquivo": "/dados/licoes/estatistica-7/mediana.json" },
+    { "id": "moda", "arquivo": "/dados/licoes/estatistica-7/moda.json" },
+    { "id": "qual-usar", "arquivo": "/dados/licoes/estatistica-7/qual-usar.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/estatistica-7/problemas.json" }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "moda",
+  "numero": 4,
+  "titulo": "A moda, o valor que mais aparece",
+  "pergunta": "E quando os dados nem são números?",
+  "ideia": {
+    "paragrafos": [
+      "A moda é a mais simples das três de calcular e a mais diferente das outras duas em natureza: ela é o valor que aparece o maior número de vezes. Não há soma nem ordenação — há contagem.",
+      "Justamente por só precisar contar, ela é a única que funciona com dados que não são números. A cor mais vendida, o time mais torcido, o sabor mais pedido, o tamanho de camiseta que mais sai do estoque: nenhuma dessas perguntas aceita média nem mediana, mas todas aceitam moda.",
+      "Ela também é a única das três que pode não ser única. Se dois valores empatam na maior contagem, os dois são moda — o conjunto é chamado de bimodal. E se nenhum valor se repete mais que os outros, o conjunto simplesmente não tem moda.",
+      "Repare que a moda pode estar longe do centro. Num conjunto onde o menor valor se repete muito, a moda vai ser esse valor pequeno, mesmo que a maior parte dos dados esteja acima dele. Ela responde \"o que mais aparece\", e não \"o que fica no meio\".",
+      "É por isso que ela é a medida do comércio e da produção. Uma loja quer saber qual tamanho estocar mais, e não o tamanho médio dos clientes — que pode nem existir como tamanho de camiseta."
+    ],
+    "destaque": "A moda só conta repetições, e é a única que funciona com dados não numéricos.",
+    "imagem": "es-ideia-moda"
+  },
+  "resolvido": {
+    "enunciado": "Numa pesquisa, os números de irmãos dos alunos foram 2, 3, 3, 5 e 7. Qual é a moda?",
+    "imagem": "es-res-moda",
+    "passos": [
+      {
+        "titulo": "Conte cada valor",
+        "explicacao": "A moda não precisa de ordem nem de soma: precisa de uma contagem de quantas vezes cada valor aparece.",
+        "conta": "2 → 1 vez · 3 → 2 vezes · 5 → 1 · 7 → 1"
+      },
+      {
+        "titulo": "Ache a maior contagem",
+        "explicacao": "É a frequência mais alta que interessa, e não o valor mais alto.",
+        "conta": "maior contagem = 2"
+      },
+      {
+        "titulo": "Veja qual valor tem essa contagem",
+        "explicacao": "O valor que alcançou a maior frequência é a moda do conjunto.",
+        "conta": "moda = 3"
+      },
+      {
+        "titulo": "Confira se há empate",
+        "explicacao": "Se outro valor também aparecesse duas vezes, o conjunto teria duas modas.",
+        "conta": "só o 3 aparece duas vezes ✓"
+      }
+    ],
+    "fecho": "Repare que a moda é 3, mas a média desse conjunto é 4. As duas descrevem coisas diferentes."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a moda do conjunto 4, 7, 7, 9 e 12? Digite apenas o número.",
+      "imagem": "es-q-moda-simples",
+      "dica": "Conte quantas vezes cada valor aparece e escolha o que aparece mais.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é o MAIOR valor do conjunto, e não o que mais se repete. A moda olha a frequência, e não o tamanho do número."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é quantas VEZES o 7 aparece, e não o valor da moda. A moda é o próprio número que se repete, e não a contagem dele."
+        },
+        {
+          "resposta": "7.8",
+          "porque": "7,8 é a média do conjunto. A moda não soma nem divide nada: ela apenas identifica o valor de maior frequência."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as repetições",
+          "explicacao": "Só um valor aparece mais de uma vez.",
+          "conta": "7 aparece 2 vezes; os outros, 1"
+        },
+        {
+          "titulo": "Escolha o de maior frequência",
+          "explicacao": "O valor com a maior contagem é a moda.",
+          "conta": "moda = 7"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um conjunto de dados pode ter mais de uma moda?",
+      "imagem": "es-q-duas-modas",
+      "dica": "Pense no que acontece quando dois valores empatam na maior contagem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim: quando dois ou mais valores empatam na maior frequência" },
+        { "rotulo": "B", "texto": "Não: a moda é sempre única" },
+        { "rotulo": "C", "texto": "Só se o conjunto tiver uma quantidade par de dados" },
+        { "rotulo": "D", "texto": "Sim, mas apenas em conjuntos com mais de dez valores" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não: a moda é sempre única",
+          "porque": "A média e a mediana é que são sempre únicas. A moda depende de contagem, e contagens podem empatar — nesse caso o conjunto tem duas modas, e é chamado de bimodal."
+        },
+        {
+          "resposta": "Só se o conjunto tiver uma quantidade par de dados",
+          "porque": "A paridade da quantidade importa para a MEDIANA, e não para a moda. Um conjunto com cinco valores como 1, 1, 2, 3, 3 tem duas modas."
+        },
+        {
+          "resposta": "Sim, mas apenas em conjuntos com mais de dez valores",
+          "porque": "O tamanho do conjunto não decide nada. Bastam quatro valores como 1, 1, 2, 2 para haver empate na maior frequência."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste com um exemplo",
+          "explicacao": "No conjunto 1, 1, 2, 3, 3 o valor 1 aparece duas vezes e o 3 também.",
+          "conta": "1 → 2 vezes · 3 → 2 vezes"
+        },
+        {
+          "titulo": "Veja o empate",
+          "explicacao": "Como os dois têm a maior contagem, os dois são moda.",
+          "conta": "duas modas: 1 e 3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma loja quer saber qual tamanho de camiseta estocar em maior quantidade. Qual medida deve usar?",
+      "imagem": "es-q-loja",
+      "dica": "Pergunte-se qual das três responde \"o que mais sai\", e qual delas funciona com tamanhos como P, M e G.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A moda, porque ela indica o tamanho mais vendido" },
+        { "rotulo": "B", "texto": "A média, porque ela representa o cliente típico" },
+        { "rotulo": "C", "texto": "A mediana, porque ela fica no meio dos tamanhos" },
+        { "rotulo": "D", "texto": "Qualquer uma das três, porque todas dão o mesmo resultado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A média, porque ela representa o cliente típico",
+          "porque": "A média exigiria somar tamanhos, o que não faz sentido com P, M e G. E mesmo com números ela poderia dar um valor que não existe como tamanho de camiseta."
+        },
+        {
+          "resposta": "A mediana, porque ela fica no meio dos tamanhos",
+          "porque": "Ela daria o tamanho central da lista ordenada, que não é o mesmo que o mais vendido. A loja quer estocar o que MAIS SAI, e isso é frequência."
+        },
+        {
+          "resposta": "Qualquer uma das três, porque todas dão o mesmo resultado",
+          "porque": "As três só coincidem em conjuntos muito bem comportados. Aqui duas delas nem podem ser calculadas, porque os dados não são numéricos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o tipo de dado",
+          "explicacao": "Tamanhos como P, M e G não se somam nem têm um meio natural bem definido.",
+          "conta": "dado não numérico"
+        },
+        {
+          "titulo": "Veja a pergunta",
+          "explicacao": "A loja quer o que aparece com mais frequência, para não faltar estoque.",
+          "conta": "o mais vendido = moda"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "No conjunto 4, 5, 6, 7 e 8, nenhum valor se repete. Qual é a moda?",
+      "imagem": "es-q-sem-moda",
+      "dica": "A moda depende de repetição. E se não houver nenhuma?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O conjunto não tem moda" },
+        { "rotulo": "B", "texto": "A moda é 6, o valor do meio" },
+        { "rotulo": "C", "texto": "A moda é 8, o maior valor" },
+        { "rotulo": "D", "texto": "Todos os cinco valores são moda" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A moda é 6, o valor do meio",
+          "porque": "O 6 é a MEDIANA desse conjunto, e também a média. A moda é outra coisa: ela exige que algum valor se repita mais que os demais."
+        },
+        {
+          "resposta": "A moda é 8, o maior valor",
+          "porque": "O maior valor não tem nada a ver com frequência. Aqui todos aparecem exatamente uma vez, então nenhum se destaca por repetição."
+        },
+        {
+          "resposta": "Todos os cinco valores são moda",
+          "porque": "É uma leitura possível do empate, mas a convenção usada na escola é dizer que o conjunto NÃO tem moda quando nenhum valor se repete mais que os outros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as frequências",
+          "explicacao": "Cada valor aparece exatamente uma vez.",
+          "conta": "todos com contagem 1"
+        },
+        {
+          "titulo": "Procure o destaque",
+          "explicacao": "Sem nenhum valor se repetindo mais que os demais, não há moda.",
+          "conta": "conjunto sem moda"
+        }
+      ]
+    }
+  ]
+}

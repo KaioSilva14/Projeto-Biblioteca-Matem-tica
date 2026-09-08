@@ -1,0 +1,189 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Ler dados de verdade",
+  "pergunta": "Como tirar as três medidas de uma tabela ou de um gráfico?",
+  "ideia": {
+    "paragrafos": [
+      "Fora dos exercícios, os dados não chegam numa lista pronta: chegam numa tabela, num gráfico de colunas, numa planilha. O primeiro trabalho é EXTRAIR os valores — e só depois calcular. Ler errado a figura estraga qualquer conta que venha depois.",
+      "Num gráfico de colunas, cada coluna é um valor. Vale conferir a escala do eixo antes de anotar: uma coluna que chega à terceira marca não vale necessariamente 3. E vale desconfiar de eixo que não começa no zero, como a lição de gráficos enganosos do 6º ano mostrou.",
+      "Numa tabela de frequência, o cuidado é outro. Quando uma linha diz \"nota 7 — 5 alunos\", isso não é um valor: são cinco. Para a média, o 7 entra na soma cinco vezes; para a moda, é a linha de maior frequência; para a mediana, é preciso imaginar a lista inteira com todas as repetições.",
+      "A propriedade da soma continua sendo a mais útil. Média vezes quantidade devolve o total, e isso resolve as perguntas invertidas: quanto falta para atingir certa média, ou qual era o valor removido quando a média mudou.",
+      "Por fim, vale sempre olhar a resposta com desconfiança. A média tem de cair entre o menor e o maior valor; a mediana tem de ser um valor central; a moda tem de ser um dos valores que aparecem. Se alguma das três escapar disso, houve erro na leitura ou na conta."
+    ],
+    "destaque": "Extraia os valores da figura primeiro. Depois calcule — nunca o contrário.",
+    "imagem": "es-ideia-ler"
+  },
+  "resolvido": {
+    "enunciado": "Um gráfico mostra as vendas de cinco dias: 10, 20, 30, 40 e 50 unidades. Calcule a média e a mediana.",
+    "imagem": "es-res-ler",
+    "passos": [
+      {
+        "titulo": "Extraia os valores do gráfico",
+        "explicacao": "Antes de qualquer conta, anote o que cada coluna vale, conferindo a escala do eixo.",
+        "conta": "10, 20, 30, 40, 50"
+      },
+      {
+        "titulo": "Calcule a média",
+        "explicacao": "Some tudo e divida pela quantidade de dias.",
+        "conta": "150 ÷ 5 = 30"
+      },
+      {
+        "titulo": "Calcule a mediana",
+        "explicacao": "Os valores já estão em ordem e são cinco, então o terceiro é o central.",
+        "conta": "10, 20, [30], 40, 50 → 30"
+      },
+      {
+        "titulo": "Interprete a coincidência",
+        "explicacao": "As duas deram 30 porque o conjunto é simétrico: os valores crescem em passos iguais e não há nenhum destoante.",
+        "conta": "média = mediana = 30"
+      }
+    ],
+    "fecho": "Quando média e mediana coincidem, é sinal de que o conjunto é bem comportado — sem extremos puxando nada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As vendas de cinco dias foram 10, 20, 30, 40 e 50 unidades. Qual é a média diária? Digite apenas o número.",
+      "imagem": "es-q-vendas-media",
+      "dica": "Some as vendas dos cinco dias e divida pela quantidade de dias.",
+      "formato": "numero",
+      "resposta": 30,
+      "unidade": "unidades",
+      "errosComuns": [
+        {
+          "resposta": "150",
+          "porque": "150 é o TOTAL vendido nos cinco dias. A média é quanto teria sido vendido por dia se as vendas fossem iguais em todos eles."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é a média entre o menor e o maior valor apenas. A média usa todos os cinco dias, e os dias de venda baixa também contam."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a quantidade de dias, e não a média das vendas. Ela é o divisor da conta, e não o resultado dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as vendas",
+          "explicacao": "O total dos cinco dias é o que será repartido.",
+          "conta": "10+20+30+40+50 = 150"
+        },
+        {
+          "titulo": "Divida pelos dias",
+          "explicacao": "São cinco dias, então o total se divide em cinco partes iguais.",
+          "conta": "150 ÷ 5 = 30"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa tabela, cinco alunos tiraram nota 7 e três alunos tiraram nota 9. Qual é a moda das notas? Digite apenas o número.",
+      "imagem": "es-q-tabela-moda",
+      "dica": "Na tabela de frequência, a moda é a nota da linha com a maior contagem de alunos.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é a maior NOTA, mas só três alunos a tiraram. A moda é a nota que mais se repete, e a nota 7 aparece cinco vezes."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a quantidade de alunos que tirou a nota mais comum, e não a nota em si. A moda é o valor que se repete, e não quantas vezes ele aparece."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o ponto entre as duas notas, ou uma média aproximada. A moda é sempre um dos valores que realmente aparecem nos dados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia as frequências",
+          "explicacao": "A tabela já traz a contagem de cada nota.",
+          "conta": "nota 7 → 5 alunos · nota 9 → 3"
+        },
+        {
+          "titulo": "Escolha a de maior contagem",
+          "explicacao": "A moda é o valor com a frequência mais alta.",
+          "conta": "moda = 7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Seis medições têm média 12. Qual é a soma delas? Digite apenas o número.",
+      "imagem": "es-q-soma-inversa",
+      "dica": "A relação entre média, soma e quantidade funciona nos dois sentidos.",
+      "formato": "numero",
+      "resposta": 72,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 divide 12 por 6, mas a divisão já foi feita para chegar à média. Para voltar à soma é preciso multiplicar."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 soma 12 com 6. A relação entre média e soma é de multiplicação: a média é a soma dividida pela quantidade."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a própria média, que já foi dada. A soma é bem maior, porque é o total que foi repartido entre as seis medições."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a relação",
+          "explicacao": "A média é a soma dividida pela quantidade de valores.",
+          "conta": "12 = soma ÷ 6"
+        },
+        {
+          "titulo": "Desfaça a divisão",
+          "explicacao": "Multiplicando os dois lados por 6, como em qualquer equação do 1º grau.",
+          "conta": "6 × 12 = 72"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um gráfico de colunas tem o eixo vertical começando em 50, e não em zero. O que é preciso cuidar ao ler a média a partir dele?",
+      "imagem": "es-q-eixo-cortado",
+      "dica": "Lembre da lição de gráficos enganosos: o que o eixo cortado faz com a aparência das colunas?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Ler o valor de cada coluna na escala, e não comparar as alturas de olho" },
+        { "rotulo": "B", "texto": "Nada: o eixo cortado não muda os valores das colunas" },
+        { "rotulo": "C", "texto": "Somar 50 a cada valor lido, para corrigir o corte" },
+        { "rotulo": "D", "texto": "Usar a moda, porque a média não funciona com eixo cortado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Nada: o eixo cortado não muda os valores das colunas",
+          "porque": "Os valores realmente não mudam, mas a APARÊNCIA muda muito: uma coluna pode parecer o triplo da outra sem ser. Quem lê de olho, e não pela escala, anota valores errados."
+        },
+        {
+          "resposta": "Somar 50 a cada valor lido, para corrigir o corte",
+          "porque": "Não há nada a corrigir nos valores: o eixo cortado já mostra o número certo em cada marca. O que ele distorce é a comparação visual entre as alturas."
+        },
+        {
+          "resposta": "Usar a moda, porque a média não funciona com eixo cortado",
+          "porque": "As três medidas funcionam normalmente, desde que os valores sejam lidos corretamente. O problema é de leitura da figura, e não de qual medida usar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o efeito do corte",
+          "explicacao": "Com o eixo começando acima do zero, as diferenças entre as colunas parecem maiores do que são.",
+          "conta": "a aparência engana"
+        },
+        {
+          "titulo": "Leia pela escala",
+          "explicacao": "Cada coluna vale o que a marca do eixo indica, e é esse número que entra na conta.",
+          "conta": "anote o valor, não a altura"
+        }
+      ]
+    }
+  ]
+}

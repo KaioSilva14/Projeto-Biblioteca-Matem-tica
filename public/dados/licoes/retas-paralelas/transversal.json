@@ -1,0 +1,201 @@
+{
+  "id": "transversal",
+  "numero": 2,
+  "titulo": "A transversal e os oito ângulos",
+  "pergunta": "Oito ângulos, e quantos valores diferentes?",
+  "ideia": {
+    "paragrafos": [
+      "Uma reta que corta duas outras é chamada de TRANSVERSAL. Quando as duas cortadas são paralelas, o que aparece é a figura mais usada de toda a geometria do 7º ano — e a mais econômica, como esta lição vai mostrar.",
+      "A transversal cruza cada paralela num ponto, e cada cruzamento forma quatro ângulos, exatamente como na lição passada. Dois cruzamentos, quatro ângulos em cada: oito ao todo.",
+      "Oito ângulos parecem oito medidas para descobrir, mas não são. Dentro de cada cruzamento, a lição 1 já resolveu quase tudo: os opostos pelo vértice são iguais e os vizinhos somam 180°. Sabendo um, sabem-se os quatro daquele ponto.",
+      "E o segundo cruzamento não traz novidade nenhuma, porque as retas são PARALELAS. A transversal encontra as duas exatamente com a mesma inclinação — não teria como ser diferente, já que as duas seguem na mesma direção. Então os quatro ângulos de baixo repetem os quatro de cima.",
+      "O resultado é uma economia enorme: entre os oito ângulos existem apenas DOIS valores diferentes, e eles somam 180°. Descobrindo um único ângulo da figura, todos os outros sete saem sem esforço."
+    ],
+    "destaque": "Oito ângulos, dois valores. E os dois valores somam 180°.",
+    "imagem": "rp-ideia-transversal"
+  },
+  "resolvido": {
+    "enunciado": "Uma transversal corta duas retas paralelas, e um dos oito ângulos mede 65°. Quais são todas as medidas que aparecem na figura?",
+    "imagem": "rp-res-oito",
+    "passos": [
+      {
+        "titulo": "Complete o cruzamento onde está o ângulo dado",
+        "explicacao": "O oposto pelo vértice repete a medida, e os dois vizinhos completam meia volta com ela.",
+        "conta": "65° · 65° · 115° · 115°"
+      },
+      {
+        "titulo": "Passe para o outro cruzamento",
+        "explicacao": "Como as duas retas são paralelas, a transversal as encontra com a mesma inclinação. Os quatro ângulos de lá repetem os quatro de cá.",
+        "conta": "os mesmos 65° e 115°"
+      },
+      {
+        "titulo": "Conte os valores diferentes",
+        "explicacao": "Oito ângulos foram determinados, mas eles assumem apenas dois valores distintos.",
+        "conta": "só 65° e 115°"
+      },
+      {
+        "titulo": "Confira a relação entre os dois",
+        "explicacao": "Os dois valores são sempre suplementares, porque cada par de vizinhos forma uma reta.",
+        "conta": "65 + 115 = 180 ✓"
+      }
+    ],
+    "fecho": "Quatro ângulos medem 65° e quatro medem 115°. Nunca há um terceiro valor — desde que as retas sejam paralelas."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma transversal corta duas retas paralelas. Quantos ângulos se formam ao todo? Digite apenas o número.",
+      "imagem": "rp-q-quantos",
+      "dica": "Conte quantos cruzamentos existem e quantos ângulos cada cruzamento forma.",
+      "formato": "numero",
+      "resposta": 8,
+      "unidade": "ângulos",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é a quantidade de ângulos de UM cruzamento só. Como a transversal corta duas retas, ela cria dois pontos de cruzamento, cada um com seus quatro."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é a quantidade de VALORES diferentes que aparecem, e não a quantidade de ângulos. São oito ângulos desenhados, repetindo dois valores."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 contaria três ângulos por cruzamento, ou dois cruzamentos de três. Cada vez que duas retas se cortam, formam-se quatro ângulos em volta do ponto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os cruzamentos",
+          "explicacao": "A transversal encontra cada uma das duas paralelas num ponto diferente.",
+          "conta": "2 cruzamentos"
+        },
+        {
+          "titulo": "Multiplique pelos ângulos de cada um",
+          "explicacao": "Duas retas que se cortam formam quatro ângulos em volta do ponto de encontro.",
+          "conta": "2 × 4 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa dessas figuras, um ângulo mede 50°. Quanto mede o ângulo vizinho a ele, no mesmo cruzamento? Digite apenas o número.",
+      "imagem": "rp-q-suplementar",
+      "dica": "Vizinhos no mesmo cruzamento continuam formando uma reta, como na lição anterior.",
+      "formato": "numero",
+      "resposta": 130,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "50",
+          "porque": "50 é a medida do oposto pelo vértice, que fica de frente. O vizinho está ao lado e forma com ele uma reta inteira, então precisa completar 180°."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 completa 90° com o 50°. A soma que vale entre vizinhos é a de meia volta, 180°, e não a do ângulo reto."
+        },
+        {
+          "resposta": "310",
+          "porque": "310 completa a volta inteira, 360°. Isso é o que sobra depois de tirar um dos quatro ângulos, e não a medida de um vizinho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use a propriedade do cruzamento",
+          "explicacao": "Ter uma transversal não muda o que acontece dentro de cada cruzamento: vizinhos formam meia volta.",
+          "conta": "50° + vizinho = 180°"
+        },
+        {
+          "titulo": "Complete",
+          "explicacao": "O que falta para 180° é a medida procurada.",
+          "conta": "180 − 50 = 130°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos VALORES diferentes de ângulo aparecem quando uma transversal corta duas paralelas?",
+      "imagem": "rp-q-valores",
+      "dica": "Os oito ângulos são muitos, mas veja quantas medidas distintas eles realmente assumem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Apenas dois, e eles somam 180°" },
+        { "rotulo": "B", "texto": "Oito, um para cada ângulo" },
+        { "rotulo": "C", "texto": "Quatro, um para cada canto" },
+        { "rotulo": "D", "texto": "Depende da inclinação da transversal" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Oito, um para cada ângulo",
+          "porque": "Confunde quantidade de ângulos com quantidade de medidas. Os oito existem, mas se repetem: quatro deles têm um valor e quatro têm o outro."
+        },
+        {
+          "resposta": "Quatro, um para cada canto",
+          "porque": "Dentro de um cruzamento já há repetição, porque os opostos pelo vértice são iguais. Cada cruzamento tem quatro ângulos e apenas dois valores."
+        },
+        {
+          "resposta": "Depende da inclinação da transversal",
+          "porque": "A inclinação muda QUAIS são os dois valores, mas não a quantidade deles. Seja qual for a inclinação, sempre aparecem dois valores somando 180°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe um cruzamento",
+          "explicacao": "Os opostos pelo vértice são iguais, então os quatro ângulos dali têm só dois valores.",
+          "conta": "1 cruzamento → 2 valores"
+        },
+        {
+          "titulo": "Olhe o outro",
+          "explicacao": "Como as retas são paralelas, a transversal as corta com a mesma inclinação e os valores se repetem.",
+          "conta": "os mesmos 2 valores"
+        },
+        {
+          "titulo": "Veja a relação entre eles",
+          "explicacao": "Os dois valores são vizinhos em algum cruzamento, então formam meia volta juntos.",
+          "conta": "os dois somam 180°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa figura de duas paralelas com uma transversal, um dos oito ângulos mede 72°. Quantos dos oito ângulos medem exatamente 72°? Digite apenas o número.",
+      "imagem": "rp-q-quantos-iguais",
+      "dica": "São oito ângulos repartidos igualmente entre dois valores. Quantos ficam com cada valor?",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "ângulos",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 conta só os opostos pelo vértice de um cruzamento. O outro cruzamento repete os mesmos ângulos, o que dobra essa contagem."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o total de ângulos da figura, mas eles não têm todos a mesma medida. Metade mede 72° e a outra metade mede o suplementar, 108°."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 seria o caso de nenhum outro ângulo repetir a medida. Como os opostos pelo vértice são iguais, sempre há pelo menos um par com o mesmo valor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte no cruzamento de cima",
+          "explicacao": "O ângulo dado e o oposto pelo vértice dele têm a mesma medida.",
+          "conta": "2 ângulos de 72°"
+        },
+        {
+          "titulo": "Repita no cruzamento de baixo",
+          "explicacao": "Por serem paralelas, os quatro ângulos de lá repetem os de cá.",
+          "conta": "mais 2 de 72°"
+        },
+        {
+          "titulo": "Some e confira o total",
+          "explicacao": "Os outros quatro medem 108°, e os oito juntos fecham a figura.",
+          "conta": "4 de 72° e 4 de 108°"
+        }
+      ]
+    }
+  ]
+}

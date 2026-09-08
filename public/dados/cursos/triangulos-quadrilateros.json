@@ -1,0 +1,41 @@
+{
+  "id": "triangulos-quadrilateros",
+  "titulo": "Triângulos e quadriláteros",
+  "ano": 7,
+  "descricao": "Seis lições sobre as duas figuras planas mais usadas: como classificá-las, por que a soma dos ângulos é sempre a mesma, e o caso em que três medidas simplesmente não formam triângulo nenhum. A soma 180° é demonstrada com as paralelas da matéria anterior.",
+  "pergunta": "Por que a soma dos ângulos dá sempre o mesmo, em qualquer triângulo?",
+  "videos": [
+    {
+      "id": "KzzrV8zVShA",
+      "titulo": "ÂNGULOS NO TRIÂNGULO - SOMA DOS ÂNGULOS INTERNOS DE UM TRIÂNGULO  \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Aula de base sobre a soma 180°, com o passo a passo devagar. Serve para reforçar a lição 2, se a demonstração pela paralela ainda parecer abstrata."
+    },
+    {
+      "id": "rlHgC1PKTzI",
+      "titulo": "7°ano-Condições de existência de um triângulo; Soma das medidas dos ângulos internos de um triângulo",
+      "canal": "Prof. Gerdal Marques",
+      "descricao": "Cobre a condição de existência junto com a soma dos ângulos, que são as lições 2 e 3. Bom para quem quer os dois assuntos ligados numa aula só."
+    },
+    {
+      "id": "0spijJ6tpXo",
+      "titulo": "Matemática 7° ano | Soma das medidas dos ângulos internos de um quadrilátero",
+      "canal": "Prof. Télico Oliveira",
+      "descricao": "Só sobre o quadrilátero e o argumento dos dois triângulos, que é a lição 5. Vale para ver a divisão pela diagonal sendo feita na tela."
+    },
+    {
+      "id": "3uVnqzE4lAE",
+      "titulo": "TRIÂNGULOS: Soma dos Ângulos Internos de um Triângulo - Exercícios e Exemplos - 7º Ano - AULA 41",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Lista de exercícios resolvidos do começo ao fim. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "triangulos", "arquivo": "/dados/licoes/triangulos-quadrilateros/triangulos.json" },
+    { "id": "soma-triangulo", "arquivo": "/dados/licoes/triangulos-quadrilateros/soma-triangulo.json" },
+    { "id": "existencia", "arquivo": "/dados/licoes/triangulos-quadrilateros/existencia.json" },
+    { "id": "quadrilateros", "arquivo": "/dados/licoes/triangulos-quadrilateros/quadrilateros.json" },
+    { "id": "soma-quadrilatero", "arquivo": "/dados/licoes/triangulos-quadrilateros/soma-quadrilatero.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/triangulos-quadrilateros/problemas.json" }
+  ]
+}

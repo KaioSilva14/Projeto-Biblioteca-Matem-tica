@@ -1,0 +1,205 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Encadear para achar o ângulo",
+  "pergunta": "Como achar um ângulo que não tem par direto com o dado?",
+  "ideia": {
+    "paragrafos": [
+      "As três propriedades já estão na mesa: correspondentes iguais, alternos iguais, colaterais suplementares. Nesta lição elas param de aparecer uma por vez. O problema dá um ângulo e pede outro que não tem relação direta com ele — e o caminho é passar por um terceiro.",
+      "O método é sempre o mesmo: em vez de procurar uma regra que ligue o dado ao pedido, ande de ângulo em ângulo. Do ângulo dado para o correspondente dele; do correspondente para o vizinho; do vizinho para o alterno. Cada passo usa uma propriedade que você já conhece.",
+      "Antes de cada passo, decida em voz alta duas coisas: os dois ângulos estão do mesmo lado da transversal ou em lados opostos? Estão dentro da faixa entre as paralelas ou fora dela? Essas duas perguntas separam todos os pares que existem, e responder errado troca uma igualdade por uma subtração.",
+      "Há sempre mais de um caminho, e todos levam ao mesmo lugar. Se dois caminhos derem respostas diferentes, algum passo leu o par errado — e refazer pelo outro caminho é a maneira mais rápida de descobrir onde.",
+      "Por fim, a conferência que fecha qualquer figura desta matéria: no fim das contas só podem existir dois valores, e eles têm de somar 180°. Se aparecer um terceiro valor, alguma coisa saiu errada."
+    ],
+    "destaque": "Ande de ângulo em ângulo. Cada passo usa uma propriedade que você já sabe.",
+    "imagem": "rp-ideia-encadear"
+  },
+  "resolvido": {
+    "enunciado": "As retas r e s são paralelas. Um ângulo mede 75°. Quanto mede o ângulo x, que é colateral interno do alterno interno dele?",
+    "imagem": "rp-res-encadear",
+    "passos": [
+      {
+        "titulo": "Dê o primeiro passo",
+        "explicacao": "O alterno interno do ângulo de 75° fica em lado oposto da transversal, dentro da faixa entre as paralelas. Alternos são iguais.",
+        "conta": "alterno interno = 75°"
+      },
+      {
+        "titulo": "Dê o segundo passo",
+        "explicacao": "Agora o colateral interno desse ângulo de 75°: mesmo lado da transversal, ainda dentro da faixa. Colaterais somam 180°.",
+        "conta": "75° + x = 180°"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "O que falta para completar a meia volta é a medida procurada.",
+        "conta": "x = 105°"
+      },
+      {
+        "titulo": "Confira por outro caminho",
+        "explicacao": "O colateral interno do ângulo original já mede 105°, e x é o correspondente dele. Dois caminhos, mesma resposta.",
+        "conta": "105° ✓"
+      }
+    ],
+    "fecho": "Só apareceram 75° e 105° na figura inteira, e 75 + 105 = 180. É a conferência que fecha qualquer figura desta matéria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As retas são paralelas e um ângulo mede 112°. Quanto mede o ângulo vizinho ao correspondente dele? Digite apenas o número.",
+      "imagem": "rp-q-enc-112",
+      "dica": "Dois passos: primeiro ache o correspondente, depois o vizinho dele no mesmo cruzamento.",
+      "formato": "numero",
+      "resposta": 68,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "112",
+          "porque": "112 para no primeiro passo: essa é a medida do correspondente. Falta o segundo passo, que é achar o VIZINHO dele — e vizinhos somam 180°."
+        },
+        {
+          "resposta": "248",
+          "porque": "248 completa 360° com o 112°. Vizinhos formam meia volta, e não a volta inteira: a soma que vale aqui é 180°."
+        },
+        {
+          "resposta": "56",
+          "porque": "56 é a metade de 112°. Nenhuma das propriedades desta matéria divide medida ao meio — o que existe são igualdades e complementos para 180°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o correspondente",
+          "explicacao": "Ele ocupa a mesma posição no outro cruzamento, e entre paralelas é igual.",
+          "conta": "correspondente = 112°"
+        },
+        {
+          "titulo": "Ache o vizinho dele",
+          "explicacao": "Vizinhos no mesmo cruzamento formam uma reta, então completam 180°.",
+          "conta": "180 − 112 = 68°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "As retas são paralelas. Dois ângulos alternos internos medem 2x + 10 e 3x − 20. Quanto vale x? Digite apenas o número.",
+      "imagem": "rp-q-enc-algebra",
+      "dica": "Alternos internos são iguais. Isso dá uma equação com a letra dos dois lados.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "70",
+          "porque": "70 é a MEDIDA do ângulo, e não o valor de x. Substituindo x = 30 nas duas expressões, as duas dão 70° — mas a pergunta foi sobre a letra."
+        },
+        {
+          "resposta": "38",
+          "porque": "38 sai de tratar os alternos como suplementares, resolvendo 2x + 10 + 3x − 20 = 180. Alternos entre paralelas são IGUAIS, e não somam 180°."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 sai de somar as letras em vez de subtraí-las ao juntar os dois lados. Tirando 2x dos dois lados sobra x − 20 = 10, e não 5x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a igualdade",
+          "explicacao": "Alternos internos entre paralelas têm a mesma medida.",
+          "conta": "2x + 10 = 3x − 20"
+        },
+        {
+          "titulo": "Junte as letras de um lado",
+          "explicacao": "Tirando 2x dos dois lados, o menor coeficiente sai e a letra sobra positiva.",
+          "conta": "10 = x − 20"
+        },
+        {
+          "titulo": "Resolva e confira nos dois",
+          "explicacao": "Somando 20 aos dois lados, e substituindo nas duas expressões para ver se batem.",
+          "conta": "x = 30 · 70 = 70 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "As retas são paralelas. Dois ângulos colaterais internos medem 5x e 4x. Quanto mede o MAIOR deles? Digite apenas o número.",
+      "imagem": "rp-q-enc-colateral",
+      "dica": "Monte a soma dos colaterais, ache x e depois volte para responder o que foi perguntado.",
+      "formato": "numero",
+      "resposta": 100,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o valor de x, e não a medida do ângulo. Achado o x, ainda falta o último passo: multiplicar pelo coeficiente do maior, que é 5."
+        },
+        {
+          "resposta": "80",
+          "porque": "80 é a medida do MENOR dos dois, o de 4x. A pergunta pediu o maior, que é o de coeficiente 5."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 divide 180 ao meio, o que valeria se os dois ângulos fossem iguais. Um tem coeficiente 5 e o outro 4, então eles não são do mesmo tamanho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a soma",
+          "explicacao": "Colaterais internos entre paralelas completam meia volta.",
+          "conta": "5x + 4x = 180"
+        },
+        {
+          "titulo": "Resolva a equação",
+          "explicacao": "Juntando os termos semelhantes e dividindo pelos nove.",
+          "conta": "9x = 180 → x = 20"
+        },
+        {
+          "titulo": "Volte à pergunta",
+          "explicacao": "Foi pedido o maior dos dois ângulos, que é o de coeficiente 5.",
+          "conta": "5 × 20 = 100° · 100 + 80 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa figura de duas paralelas com uma transversal, aparecem os valores 130° e 50°. Um aluno afirmou que existe também um ângulo de 60° na figura. Ele está certo?",
+      "imagem": "rp-q-enc-terceiro",
+      "dica": "Lembre de quantos valores diferentes uma figura dessas pode ter, e da relação entre eles.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: só existem dois valores, e eles já são 130° e 50°" },
+        { "rotulo": "B", "texto": "Sim, porque são oito ângulos e cabem vários valores" },
+        { "rotulo": "C", "texto": "Sim, se a transversal for bem inclinada" },
+        { "rotulo": "D", "texto": "Não dá para saber sem medir a figura" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque são oito ângulos e cabem vários valores",
+          "porque": "Os oito ângulos existem, mas se repetem: quatro têm um valor e quatro têm o outro. A quantidade de ângulos não é a quantidade de medidas."
+        },
+        {
+          "resposta": "Sim, se a transversal for bem inclinada",
+          "porque": "A inclinação decide QUAIS são os dois valores, e não quantos. Uma vez fixada a figura, os valores já estão determinados — aqui, 130° e 50°."
+        },
+        {
+          "resposta": "Não dá para saber sem medir a figura",
+          "porque": "Dá, e é justamente a vantagem das propriedades: elas dispensam a régua. Sabendo que as retas são paralelas e conhecendo um ângulo, todos os outros ficam decididos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o limite da figura",
+          "explicacao": "Duas paralelas cortadas por uma transversal produzem apenas dois valores de ângulo.",
+          "conta": "só 2 valores"
+        },
+        {
+          "titulo": "Confira os dois que já apareceram",
+          "explicacao": "Eles têm de ser suplementares, e são.",
+          "conta": "130 + 50 = 180 ✓"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Com os dois valores já ocupados e somando 180°, não sobra lugar para um terceiro.",
+          "conta": "não existe 60° ali"
+        }
+      ]
+    }
+  ]
+}

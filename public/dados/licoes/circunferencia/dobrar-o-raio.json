@@ -1,0 +1,196 @@
+{
+  "id": "dobrar-o-raio",
+  "numero": 5,
+  "titulo": "O que acontece ao dobrar o raio",
+  "pergunta": "Dobrando o raio, a área também dobra?",
+  "ideia": {
+    "paragrafos": [
+      "Parece que sim, mas não. Dobrar o raio dobra o comprimento e QUADRUPLICA a área. É uma das ideias mais úteis desta matéria, e uma das que mais surpreende — inclusive fora da escola, na hora de escolher entre duas pizzas.",
+      "O comprimento se comporta como esperado. Em C = 2πr o raio aparece uma vez só, multiplicado por números fixos: se o raio dobra, tudo dobra junto. Uma circunferência de raio 6 tem exatamente o dobro da volta de uma de raio 3.",
+      "A área é outra história, porque em A = πr² o raio aparece ELEVADO AO QUADRADO. Dobrar o raio dobra o r e dobra de novo o segundo r, o que multiplica o resultado por 2 × 2 = 4. Um círculo de raio 6 tem quatro vezes a área de um de raio 3, e não duas.",
+      "A regra vale para qualquer fator. Se o raio triplica, o comprimento triplica e a área fica 9 vezes maior. Se o raio fica 10 vezes maior, a área fica 100 vezes maior. Sempre o fator ao quadrado, porque a área tem duas dimensões e o comprimento tem uma.",
+      "Isso explica um caso prático conhecido. Uma pizza de 40 cm de diâmetro não tem o dobro da massa de uma de 20 cm: tem QUATRO vezes. Duas pizzas pequenas quase nunca valem mais que uma grande, e agora dá para justificar isso com conta."
+    ],
+    "destaque": "Dobrando o raio, o comprimento dobra mas a área fica 4 vezes maior.",
+    "imagem": "ci-ideia-dobrar"
+  },
+  "resolvido": {
+    "enunciado": "Um círculo tem raio 3 cm e outro tem raio 6 cm. Compare o comprimento e a área dos dois. Use π = 3,14.",
+    "imagem": "ci-res-dobrar",
+    "passos": [
+      {
+        "titulo": "Calcule os dois comprimentos",
+        "explicacao": "A fórmula do comprimento usa o raio uma vez só, então o resultado acompanha o crescimento dele.",
+        "conta": "2×3,14×3 = 18,84 · 2×3,14×6 = 37,68"
+      },
+      {
+        "titulo": "Compare os comprimentos",
+        "explicacao": "Dividindo o maior pelo menor, vê-se quantas vezes ele cresceu.",
+        "conta": "37,68 ÷ 18,84 = 2"
+      },
+      {
+        "titulo": "Calcule as duas áreas",
+        "explicacao": "Agora o raio entra ao quadrado, e é aí que a diferença aparece.",
+        "conta": "3,14×9 = 28,26 · 3,14×36 = 113,04"
+      },
+      {
+        "titulo": "Compare as áreas",
+        "explicacao": "O mesmo raio dobrado produz quatro vezes a área, porque o fator 2 é elevado ao quadrado junto com o raio.",
+        "conta": "113,04 ÷ 28,26 = 4"
+      }
+    ],
+    "fecho": "O raio dobrou uma vez só, mas na área ele dobrou duas — uma para cada dimensão da região."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma circunferência de raio 4 cm tem comprimento 25,12 cm. Qual é o comprimento de uma de raio 8 cm? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-dobrar-comp",
+      "dica": "O raio dobrou. No comprimento, o raio aparece elevado a quê?",
+      "formato": "numero",
+      "resposta": 50.24,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "100.48",
+          "porque": "100,48 quadruplica, que é o que acontece com a ÁREA. No comprimento o raio aparece uma vez só, então dobrar o raio apenas dobra o resultado."
+        },
+        {
+          "resposta": "200.96",
+          "porque": "200,96 é a ÁREA do círculo de raio 8, e não o comprimento da circunferência. A pergunta é sobre a volta."
+        },
+        {
+          "resposta": "25.12",
+          "porque": "25,12 é o comprimento do círculo ORIGINAL, de raio 4. Como o raio dobrou, o comprimento tem de mudar também."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja como o raio entra",
+          "explicacao": "Em C = 2πr ele aparece uma vez só, multiplicado por números fixos.",
+          "conta": "raio dobra → C dobra"
+        },
+        {
+          "titulo": "Dobre e confira pela fórmula",
+          "explicacao": "O resultado tem de bater com o cálculo direto.",
+          "conta": "2 × 25,12 = 50,24 · 2×3,14×8 = 50,24 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um círculo de raio 4 cm tem área 50,24 cm². Qual é a área de um círculo de raio 8 cm? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-dobrar-area",
+      "dica": "O raio dobrou. Na área, o raio aparece ao quadrado — o que isso faz com o fator 2?",
+      "formato": "numero",
+      "resposta": 200.96,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "100.48",
+          "porque": "100,48 apenas dobra a área, que é o que acontece com o COMPRIMENTO. Como o raio está ao quadrado, o fator 2 também é elevado ao quadrado: são quatro vezes."
+        },
+        {
+          "resposta": "50.24",
+          "porque": "50,24 é a área do círculo ORIGINAL, de raio 4. Com o raio dobrado, a área muda — e muda bastante."
+        },
+        {
+          "resposta": "150.72",
+          "porque": "150,72 triplica a área. O fator certo é o quadrado do que multiplicou o raio: dois ao quadrado dá quatro, e não três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja como o raio entra",
+          "explicacao": "Em A = πr² ele aparece elevado ao quadrado.",
+          "conta": "raio ×2 → área ×2²"
+        },
+        {
+          "titulo": "Multiplique por 4 e confira",
+          "explicacao": "O resultado tem de bater com o cálculo direto pela fórmula.",
+          "conta": "4 × 50,24 = 200,96 · 3,14×64 = 200,96 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Dobrando o raio de um círculo, o que acontece com a área dele?",
+      "imagem": "ci-q-o-que-acontece",
+      "dica": "Olhe onde o raio aparece na fórmula da área, e o que o expoente faz com o fator que o multiplica.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Fica 4 vezes maior" },
+        { "rotulo": "B", "texto": "Fica 2 vezes maior" },
+        { "rotulo": "C", "texto": "Fica 8 vezes maior" },
+        { "rotulo": "D", "texto": "Não muda, porque o π continua o mesmo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Fica 2 vezes maior",
+          "porque": "Isso é o que acontece com o COMPRIMENTO, onde o raio aparece uma vez só. Na área ele está ao quadrado, e o fator 2 é elevado junto."
+        },
+        {
+          "resposta": "Fica 8 vezes maior",
+          "porque": "Oito seria 2³, que vale para VOLUME — três dimensões. A área tem duas dimensões, então o fator é elevado ao quadrado: 2² = 4."
+        },
+        {
+          "resposta": "Não muda, porque o π continua o mesmo",
+          "porque": "O π realmente não muda, mas ele não é o único fator da fórmula. O raio mudou, e é ele que carrega o tamanho do círculo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a área com o raio dobrado",
+          "explicacao": "Substituindo r por 2r na fórmula.",
+          "conta": "A = π × (2r)²"
+        },
+        {
+          "titulo": "Abra o quadrado",
+          "explicacao": "O expoente alcança o 2 e o r, então os dois são elevados.",
+          "conta": "(2r)² = 4r²"
+        },
+        {
+          "titulo": "Compare com a original",
+          "explicacao": "A nova área é quatro vezes a de antes.",
+          "conta": "4 × πr²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Se o raio de um círculo fica 3 vezes maior, a área fica quantas vezes maior? Digite apenas o número.",
+      "imagem": "ci-q-triplicar",
+      "dica": "A regra é a mesma de dobrar: o fator que multiplica o raio entra ao quadrado.",
+      "formato": "numero",
+      "resposta": 9,
+      "unidade": "vezes",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "Três vezes é o que acontece com o COMPRIMENTO, onde o raio aparece uma vez. Na área o fator é elevado ao quadrado."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 dobra o fator 3 em vez de elevá-lo ao quadrado. Três ao quadrado é 3 × 3, que dá 9, e não 3 × 2."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é 3³, o fator que valeria para VOLUME. Como a área tem duas dimensões, o expoente é 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua na fórmula",
+          "explicacao": "O raio novo é três vezes o antigo.",
+          "conta": "A = π × (3r)²"
+        },
+        {
+          "titulo": "Eleve o fator ao quadrado",
+          "explicacao": "O expoente alcança tanto o 3 quanto o r.",
+          "conta": "(3r)² = 9r² → 9 vezes"
+        }
+      ]
+    }
+  ]
+}

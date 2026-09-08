@@ -16,6 +16,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 // Os testes de geometria medem o SVG gerado, e não só o JSON do conteúdo.
 import * as desenhos from "../ferramentas/desenhos.mjs";
+import { MANIFESTO as manifesto } from "../ferramentas/manifesto-imagens.mjs";
 import { paraNumero } from "../public/js/util.js";
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
@@ -3752,6 +3753,1259 @@ teste("equações · lição 6 — modelar, resolver e voltar à pergunta", () =
     assert.equal(Math.min(a, b, c, d), d, "e o menor é sempre o d");
   }
   alt("equacoes-1grau", "problemas", "q4", "O número c");
+});
+
+// ---------- Inequações (7º ano) ----------
+//
+// A matéria existe por causa de UMA afirmação: operar nos dois lados preserva
+// a desigualdade, exceto ao multiplicar ou dividir por negativo, quando o
+// sinal inverte. O teste não aceita isso de graça — ele varre a faixa e prova
+// os dois casos, e só depois usa o resultado para conferir as questões.
+//
+// Nenhuma inequação daqui é resolvida isolando a letra. Todas são resolvidas
+// por BUSCA sobre a faixa, exatamente como as equações da matéria anterior.
+
+const SINAIS = {
+  "<": (a, b) => a < b,
+  ">": (a, b) => a > b,
+  "<=": (a, b) => a <= b,
+  ">=": (a, b) => a >= b,
+};
+
+/** Todos os inteiros da faixa que satisfazem a inequação, sem isolar nada. */
+function inteirosQueServem(esquerdo, sinal, direito, de = -60, ate = 60) {
+  const serve = [];
+  for (let x = de; x <= ate; x++) {
+    if (SINAIS[sinal](esquerdo(x), direito(x))) serve.push(x);
+  }
+  return serve;
+}
+
+teste("inequações · operar nos dois lados preserva o sentido, menos por negativo", () => {
+  // A afirmação inteira da matéria, conferida antes de ser usada.
+  for (let a = -25; a <= 25; a += 2) {
+    for (let b = -25; b <= 25; b += 2) {
+      if (a === b) continue;
+      const menor = a < b;
+
+      for (const k of [-9, -3, -1, 1, 4, 7]) {
+        // somar e tirar nunca mexem no sentido, nem com k negativo
+        assert.equal(a + k < b + k, menor, `somar ${k} em ${a} e ${b}`);
+        assert.equal(a - k < b - k, menor, `tirar ${k} de ${a} e ${b}`);
+
+        // multiplicar mantém com positivo e INVERTE com negativo
+        if (k > 0) {
+          assert.equal(a * k < b * k, menor, `× ${k} (positivo)`);
+          assert.equal(a / k < b / k, menor, `÷ ${k} (positivo)`);
+        } else {
+          assert.equal(a * k < b * k, !menor, `× ${k} (negativo) tinha de inverter`);
+          assert.equal(a / k < b / k, !menor, `÷ ${k} (negativo) tinha de inverter`);
+        }
+      }
+    }
+  }
+});
+
+teste("inequações · lição 1 — a resposta é um conjunto", () => {
+  // O exemplo resolvido: inteiros de 0 a 10 com x + 3 < 8
+  const doExemplo = inteirosQueServem((x) => x + 3, "<", () => 8, 0, 10);
+  assert.deepEqual(doExemplo, [0, 1, 2, 3, 4], "o exemplo resolvido não fecha");
+  assert.ok(!doExemplo.includes(5), "o 5 empata, e empate não serve para <");
+  // e com ≤ o 5 entraria — é o que o fecho da lição afirma
+  assert.deepEqual(inteirosQueServem((x) => x + 3, "<=", () => 8, 0, 10), [0, 1, 2, 3, 4, 5]);
+
+  alt("inequacoes", "o-que-e", "q1", "Que o dobro de x é maior que 10");
+  // q2: quantos dos três valores dados satisfazem 3x > 20
+  num("inequacoes", "o-que-e", "q2", [4, 7, 10].filter((x) => 3 * x > 20).length);
+  // q3: menor inteiro com x > 4,5, achado por busca
+  num("inequacoes", "o-que-e", "q3", inteirosQueServem((x) => x, ">", () => 4.5, 0, 20)[0]);
+  alt("inequacoes", "o-que-e", "q4", "Infinitas: todos os números menores que 5");
+
+  // a q4 afirma que x < 5 tem infinitas soluções: o teste mostra que a
+  // quantidade cresce sem parar conforme a faixa examinada aumenta.
+  const a = inteirosQueServem((x) => x, "<", () => 5, -50, 4).length;
+  const b = inteirosQueServem((x) => x, "<", () => 5, -500, 4).length;
+  assert.ok(b > a * 5, "ampliar a faixa tem de aumentar a contagem");
+});
+
+teste("inequações · lição 2 — bolinha, lado e o que a figura afirma", () => {
+  alt("inequacoes", "na-reta", "q1", "Que o número da fronteira não faz parte da resposta");
+  alt("inequacoes", "na-reta", "q2", "x ≥ 2");
+  num("inequacoes", "na-reta", "q3", inteirosQueServem((x) => x, ">", () => 6, 0, 20)[0]);
+  alt("inequacoes", "na-reta", "q4", "Bolinha cheia no −1 e faixa para a esquerda");
+
+  // A regra bolinha/lado, conferida contra o conjunto solução de verdade.
+  const casos = [
+    { sinal: ">", ponto: 3, incluso: false, sentido: "maior" },
+    { sinal: ">=", ponto: -2, incluso: true, sentido: "maior" },
+    { sinal: "<", ponto: 5, incluso: false, sentido: "menor" },
+    { sinal: "<=", ponto: -1, incluso: true, sentido: "menor" },
+  ];
+  for (const c of casos) {
+    const serve = inteirosQueServem((x) => x, c.sinal, () => c.ponto);
+    // a fronteira entra se e só se o sinal tem o igual
+    assert.equal(serve.includes(c.ponto), c.incluso, `fronteira de x ${c.sinal} ${c.ponto}`);
+    // e o lado bate com o sentido declarado no manifesto
+    const paraDireita = serve.every((x) => x >= c.ponto);
+    assert.equal(paraDireita, c.sentido === "maior", `lado de x ${c.sinal} ${c.ponto}`);
+  }
+
+  // A figura desenhada é lida de volta: a bolinha da q2 tem de ser CHEIA.
+  const svg = desenhos.retaInteiros({
+    de: -3, ate: 7, intervalo: { ponto: 2, sentido: "maior", incluso: true },
+  });
+  assert.ok(/r="6\.5" fill="#f7f5f0"/.test(svg), "x ≥ 2 tem de sair com bolinha cheia");
+  const vazada = desenhos.retaInteiros({
+    de: -2, ate: 8, intervalo: { ponto: 3, sentido: "maior", incluso: false },
+  });
+  assert.ok(/r="6" fill="#2b2622"/.test(vazada), "x > 3 tem de sair com bolinha vazada");
+});
+
+teste("inequações · lição 3 — o sinal não muda com positivo", () => {
+  // O exemplo resolvido, achado por busca.
+  const doExemplo = inteirosQueServem((x) => 4 * x + 3, "<=", () => 19);
+  assert.equal(Math.max(...doExemplo), 4, "o exemplo resolvido não fecha");
+  assert.ok(doExemplo.includes(4), "com ≤ a fronteira entra");
+
+  num("inequacoes", "resolver", "q1", inteirosQueServem((x) => x + 7, ">", () => 12)[0]);
+  num("inequacoes", "resolver", "q2", Math.max(...inteirosQueServem((x) => 3 * x, "<", () => 21)));
+  alt("inequacoes", "resolver", "q3", "Continua o mesmo, porque 5 é positivo");
+  num("inequacoes", "resolver", "q4", Math.max(...inteirosQueServem((x) => 2 * x - 5, "<=", () => 9)));
+
+  // Resolver isolando dá o MESMO conjunto que resolver por busca — conferido
+  // em muitos coeficientes positivos, que é o alcance desta lição.
+  for (let a = 1; a <= 6; a++) {
+    for (let b = -8; b <= 8; b += 4) {
+      for (let c = -12; c <= 12; c += 6) {
+        const porBusca = inteirosQueServem((x) => a * x + b, "<=", () => c);
+        const porIsolamento = [];
+        for (let x = -60; x <= 60; x++) if (x <= (c - b) / a) porIsolamento.push(x);
+        assert.deepEqual(porBusca, porIsolamento, `${a}x + ${b} ≤ ${c}`);
+      }
+    }
+  }
+});
+
+teste("inequações · lição 4 — a inversão, e só ela", () => {
+  // O exemplo resolvido: −2x > 8 tem de dar x < −4, e não x > −4.
+  const doExemplo = inteirosQueServem((x) => -2 * x, ">", () => 8);
+  assert.equal(Math.max(...doExemplo), -5, "o exemplo resolvido não fecha");
+  assert.ok(!doExemplo.includes(-3), "sem inverter, o −3 entraria errado");
+  assert.ok(!doExemplo.includes(-4), "a fronteira empata e não serve para >");
+
+  alt("inequacoes", "inverter", "q1", "−2 > −7");
+  num("inequacoes", "inverter", "q2", inteirosQueServem((x) => -3 * x, "<", () => 12)[0]);
+  alt("inequacoes", "inverter", "q3", "Vira ≤");
+  num("inequacoes", "inverter", "q4", inteirosQueServem((x) => -x + 2, "<=", () => 6)[0]);
+
+  // Isolar SEM inverter dá conjunto errado; isolar INVERTENDO dá o certo.
+  // Conferido em toda a faixa de coeficientes negativos.
+  for (let a = -6; a <= -1; a++) {
+    for (let c = -12; c <= 12; c += 4) {
+      const porBusca = inteirosQueServem((x) => a * x, "<", () => c);
+      const invertendo = [];
+      const semInverter = [];
+      for (let x = -60; x <= 60; x++) {
+        if (x > c / a) invertendo.push(x);
+        if (x < c / a) semInverter.push(x);
+      }
+      assert.deepEqual(porBusca, invertendo, `${a}x < ${c}: invertendo`);
+      assert.notDeepEqual(porBusca, semInverter, `${a}x < ${c}: sem inverter tinha de dar errado`);
+    }
+  }
+
+  // E o caso mais simples de todos, o da ideia: 3 < 5 mas −3 > −5.
+  assert.ok(3 < 5);
+  assert.ok(-3 > -5);
+  assert.ok(2 < 7);
+  assert.ok(-2 > -7, "é a resposta da q1");
+});
+
+teste("inequações · lição 5 — as palavras que viram sinal", () => {
+  // O dicionário da lição, conferido pelo que cada frase ACEITA no extremo.
+  const aceitaOExtremo = { ">": false, ">=": true, "<": false, "<=": true };
+  for (const [sinal, deveriaAceitar] of Object.entries(aceitaOExtremo)) {
+    assert.equal(SINAIS[sinal](18, 18), deveriaAceitar, `18 ${sinal} 18`);
+  }
+
+  alt("inequacoes", "traduzir", "q1", "p ≥ 12");
+  alt("inequacoes", "traduzir", "q3", "Menos de 30");
+
+  // Elevador do exemplo resolvido: 3 pessoas de 70 kg num limite de 450.
+  const jaDentro = 3 * 70;
+  assert.equal(jaDentro, 210);
+  const aindaCabe = Math.max(...inteirosQueServem((x) => jaDentro + x, "<=", () => 450, 0, 400));
+  assert.equal(aindaCabe, 240, "o exemplo resolvido não fecha");
+
+  // Ingressos: o maior inteiro que cabe, e o seguinte tem de estourar.
+  const ingressos = inteirosQueServem((x) => 15 * x, "<=", () => 100, 0, 50);
+  const maxIngressos = Math.max(...ingressos);
+  assert.equal(maxIngressos, 6);
+  assert.ok(15 * (maxIngressos + 1) > 100, "7 ingressos têm de estourar os R$ 100");
+  num("inequacoes", "traduzir", "q2", maxIngressos);
+
+  // Média: a menor nota que fecha média 7 com um 5 na primeira prova.
+  const notas = inteirosQueServem((x) => (5 + x) / 2, ">=", () => 7, 0, 10);
+  assert.equal(Math.min(...notas), 9);
+  assert.ok((5 + 8) / 2 < 7, "com 8 a média não chega a 7");
+  num("inequacoes", "traduzir", "q4", Math.min(...notas));
+});
+
+teste("inequações · lição 6 — o intervalo, e o que cabe dentro dele", () => {
+  // Canetas do exemplo resolvido: 7x + 10 ≤ 60, com o inteiro e o seguinte.
+  const canetas = inteirosQueServem((x) => 7 * x + 10, "<=", () => 60, 0, 30);
+  assert.equal(Math.max(...canetas), 7, "o exemplo resolvido não fecha");
+  assert.equal(60 - 7 * 7, 11, "com 7 canetas sobram R$ 11");
+  assert.ok(60 - 7 * 8 < 10, "com 8 canetas a sobra fica abaixo dos R$ 10");
+
+  // q1: táxi 5 + 2x ≤ 27
+  const km = inteirosQueServem((x) => 5 + 2 * x, "<=", () => 27, 0, 50);
+  assert.equal(Math.max(...km), 11);
+  assert.ok(5 + 2 * 12 > 27, "12 km já estouram");
+  num("inequacoes", "problemas", "q1", Math.max(...km));
+
+  // q2: itens 12x ≤ 80, com o mínimo de 4 da promoção como distração
+  const itens = inteirosQueServem((x) => 12 * x, "<=", () => 80, 0, 30);
+  assert.equal(Math.max(...itens), 6);
+  assert.ok(itens.includes(4), "o mínimo da promoção continua dentro do intervalo");
+  assert.ok(12 * 7 > 80, "7 itens estouram os R$ 80");
+  num("inequacoes", "problemas", "q2", Math.max(...itens));
+
+  alt("inequacoes", "problemas", "q3", "6 pessoas");
+  // e o arredondamento da q3 é para BAIXO, sempre, em problema de teto
+  for (const limite of [6.4, 7.9, 12.1, 3.5]) {
+    const cabe = inteirosQueServem((x) => x, "<=", () => limite, 0, 50);
+    assert.equal(Math.max(...cabe), Math.floor(limite), `teto ${limite}`);
+  }
+
+  // q4: estacionamento 6 + 4(x − 1) ≤ 30
+  const horas = inteirosQueServem((x) => 6 + 4 * (x - 1), "<=", () => 30, 1, 40);
+  assert.equal(Math.max(...horas), 7);
+  assert.equal(6 + 4 * (7 - 1), 30, "7 horas dão exatamente R$ 30");
+  assert.ok(6 + 4 * (8 - 1) > 30, "8 horas estouram");
+  num("inequacoes", "problemas", "q4", Math.max(...horas));
+});
+
+// ---------- Retas paralelas e transversais (7º ano) ----------
+//
+// Geometria pede a conferência que o bloco do 6º ano estabeleceu: além de
+// recalcular as respostas, o teste importa o gerador, lê as coordenadas do
+// SVG e MEDE com trigonometria o ângulo desenhado. Se a figura e o rótulo
+// discordarem, o aluno vê uma coisa e lê outra — foi assim que três figuras
+// erradas apareceram na revisão do 6º.
+
+/** Ângulo de um segmento com a horizontal, em graus, na faixa [0, 180). */
+function anguloDoSegmento([x1, y1, x2, y2]) {
+  const a = (Math.atan2(-(y2 - y1), x2 - x1) * 180) / Math.PI;
+  return ((a % 180) + 180) % 180;
+}
+
+/** As três retas grossas da figura, já como ângulos. */
+function retasDoSvg(svg) {
+  return [...svg.matchAll(/<line x1="([\-0-9.]+)" y1="([\-0-9.]+)" x2="([\-0-9.]+)" y2="([\-0-9.]+)"[^>]*stroke-width="2\.5"/g)]
+    .map((m) => anguloDoSegmento(m.slice(1, 5).map(Number)));
+}
+
+/** Medida de cada setor: a e c valem θ; b e d valem 180 − θ. */
+const setor = (chave, t) => (chave === "a" || chave === "c" ? t : 180 - t);
+
+teste("paralelas · o desenho tem duas retas paralelas de verdade", () => {
+  // Não basta o gerador prometer paralelismo: o teste mede as três retas do
+  // SVG e exige que duas tenham exatamente o mesmo ângulo, e a terceira não.
+  for (const g of [40, 55, 62, 90, 118, 140]) {
+    const svg = desenhos.paralelasTransversal({ graus: g, cima: { a: "x" } });
+    const angs = retasDoSvg(svg);
+    assert.equal(angs.length, 3, `graus ${g}: esperava três retas no SVG`);
+
+    const horizontais = angs.filter((a) => Math.abs(a) < 1e-6);
+    assert.equal(horizontais.length, 2, `graus ${g}: as duas paralelas deviam ser horizontais`);
+
+    const transversal = angs.find((a) => Math.abs(a) > 1e-6);
+    assert.ok(
+      Math.abs(transversal - g) < 0.5,
+      `graus ${g}: a transversal foi desenhada a ${transversal.toFixed(2)}°`
+    );
+  }
+});
+
+teste("paralelas · a figura nunca desmente o rótulo", () => {
+  // Percorre TODAS as figuras publicadas da matéria, mede a transversal e
+  // exige que todo rótulo numérico seja um dos dois valores que aquele
+  // desenho realmente produz.
+  const daMateria = manifesto.filter((x) => x.id.startsWith("rp-"));
+  assert.ok(daMateria.length >= 30, "esperava as figuras da matéria no manifesto");
+
+  let conferidos = 0;
+  for (const item of daMateria) {
+    const svg = item.desenho();
+    const angs = retasDoSvg(svg);
+    if (angs.length !== 3) continue;              // retasCruzadas e tabelas
+    const transversal = angs.find((a) => Math.abs(a) > 1e-6);
+    if (transversal === undefined) continue;      // transversal perpendicular
+
+    const valores = [Math.round(transversal), Math.round(180 - transversal)];
+    for (const m of svg.matchAll(/font-size="14"[^>]*>([0-9]+)°</g)) {
+      const rotulo = Number(m[1]);
+      assert.ok(
+        valores.includes(rotulo),
+        `${item.id}: rótulo ${rotulo}° numa figura cujos setores medem ${valores.join(" e ")}`
+      );
+      conferidos += 1;
+    }
+  }
+  assert.ok(conferidos >= 20, `esperava conferir ao menos 20 rótulos, conferi ${conferidos}`);
+});
+
+teste("paralelas · lição 1 — opostos pelo vértice e vizinhos", () => {
+  // Duas retas cruzando: os quatro ângulos fecham 360°, opostos são iguais e
+  // vizinhos somam 180°. Conferido em toda a faixa, e não só no exemplo.
+  for (let t = 1; t < 180; t++) {
+    const quatro = [t, 180 - t, t, 180 - t];
+    assert.equal(quatro.reduce((s, v) => s + v, 0), 360, `θ=${t}: a volta não fecha`);
+    assert.equal(quatro[0], quatro[2], "opostos pelo vértice");
+    assert.equal(quatro[0] + quatro[1], 180, "vizinhos");
+  }
+
+  assert.equal(180 - 70, 110, "o exemplo resolvido não fecha");
+  num("retas-paralelas", "paralelas", "q1", 35);
+  num("retas-paralelas", "paralelas", "q2", 180 - 35);
+  alt("retas-paralelas", "paralelas", "q3", "Retas de um mesmo plano que nunca se cruzam");
+  num("retas-paralelas", "paralelas", "q4", 360 / 4);
+});
+
+teste("paralelas · lição 2 — oito ângulos, dois valores", () => {
+  // Monta os oito ângulos a partir da inclinação e confere que eles assumem
+  // exatamente dois valores distintos, somando 180°, para qualquer θ.
+  for (let t = 5; t < 180; t += 5) {
+    if (t === 90) continue;                       // aí os dois valores coincidem
+    const oito = [];
+    for (const onde of ["cima", "baixo"]) {
+      for (const c of ["a", "b", "c", "d"]) oito.push(setor(c, t));
+    }
+    assert.equal(oito.length, 8, "são oito ângulos");
+    const distintos = [...new Set(oito)];
+    assert.equal(distintos.length, 2, `θ=${t}: apareceram ${distintos.length} valores`);
+    assert.equal(distintos[0] + distintos[1], 180, `θ=${t}: os dois valores deviam somar 180`);
+    // e cada valor aparece exatamente quatro vezes
+    for (const v of distintos) {
+      assert.equal(oito.filter((x) => x === v).length, 4, `θ=${t}: contagem de ${v}°`);
+    }
+  }
+
+  num("retas-paralelas", "transversal", "q1", 2 * 4);
+  num("retas-paralelas", "transversal", "q2", 180 - 50);
+  alt("retas-paralelas", "transversal", "q3", "Apenas dois, e eles somam 180°");
+  num("retas-paralelas", "transversal", "q4", 4);
+});
+
+teste("paralelas · lição 3 — correspondentes são iguais", () => {
+  // Correspondentes = mesma chave nos dois cruzamentos.
+  for (let t = 5; t < 180; t += 5) {
+    for (const c of ["a", "b", "c", "d"]) {
+      assert.equal(setor(c, t), setor(c, t), `correspondentes ${c} em θ=${t}`);
+    }
+  }
+
+  assert.equal(setor("c", 50), 50, "o exemplo resolvido não fecha");
+  num("retas-paralelas", "correspondentes", "q1", 65);
+  alt("retas-paralelas", "correspondentes", "q2", "Ocupam a mesma posição nos dois cruzamentos");
+  num("retas-paralelas", "correspondentes", "q3", 118);
+  // q4: 2x = 80, resolvido por busca como em Equações
+  const serve = [];
+  for (let x = 0; x <= 180; x++) if (2 * x === 80) serve.push(x);
+  assert.deepEqual(serve, [40]);
+  num("retas-paralelas", "correspondentes", "q4", serve[0]);
+});
+
+teste("paralelas · lição 4 — alternos são iguais, e vêm dos correspondentes", () => {
+  // Alternos internos: cima.c e baixo.a. Alternos externos: cima.b e baixo.d.
+  for (let t = 5; t < 180; t += 5) {
+    assert.equal(setor("c", t), setor("a", t), `alternos internos em θ=${t}`);
+    assert.equal(setor("b", t), setor("d", t), `alternos externos em θ=${t}`);
+    // e o encadeamento que a lição afirma: alterno = oposto do correspondente
+    const correspondente = setor("a", t);         // baixo.a é correspondente de cima.a
+    const opostoDele = setor("c", t);             // cima.c é oposto de cima.a
+    assert.equal(correspondente, opostoDele, `encadeamento em θ=${t}`);
+  }
+
+  assert.equal(setor("c", 55), 55, "o exemplo resolvido não fecha");
+  num("retas-paralelas", "alternos", "q1", 47);
+  alt("retas-paralelas", "alternos", "q2", "Entre as paralelas e em lados opostos da transversal");
+  num("retas-paralelas", "alternos", "q3", 130);
+  const serve = [];
+  for (let x = 0; x <= 180; x++) if (x + 20 === 70) serve.push(x);
+  assert.deepEqual(serve, [50]);
+  num("retas-paralelas", "alternos", "q4", serve[0]);
+});
+
+teste("paralelas · lição 5 — colaterais somam 180°", () => {
+  // Colaterais internos: cima.c e baixo.b. Colaterais externos: cima.a e baixo.d.
+  for (let t = 5; t < 180; t += 5) {
+    assert.equal(setor("c", t) + setor("b", t), 180, `colaterais internos em θ=${t}`);
+    assert.equal(setor("a", t) + setor("d", t), 180, `colaterais externos em θ=${t}`);
+    // e eles NUNCA são iguais, a não ser com transversal perpendicular
+    if (t !== 90) {
+      assert.notEqual(setor("c", t), setor("b", t), `θ=${t}: colaterais não podiam ser iguais`);
+    }
+  }
+
+  assert.equal(180 - 110, 70, "o exemplo resolvido não fecha");
+  num("retas-paralelas", "colaterais", "q1", 180 - 65);
+  alt("retas-paralelas", "colaterais", "q2", "São suplementares: somam 180°");
+  num("retas-paralelas", "colaterais", "q3", 180 - 140);
+  // q4: 3x + x = 180, por busca
+  const serve = [];
+  for (let x = 0; x <= 180; x++) if (3 * x + x === 180) serve.push(x);
+  assert.deepEqual(serve, [45]);
+  num("retas-paralelas", "colaterais", "q4", serve[0]);
+});
+
+teste("paralelas · lição 6 — encadear dá o mesmo por qualquer caminho", () => {
+  // O resolvido: de 75° até o colateral interno do alterno interno.
+  // Caminho 1: alterno (igual) → colateral (suplementar).
+  // Caminho 2: colateral (suplementar) → correspondente (igual).
+  for (let t = 5; t < 180; t += 5) {
+    const caminho1 = 180 - setor("c", t);         // alterno e depois colateral
+    const caminho2 = setor("b", t);               // colateral e depois correspondente
+    assert.equal(caminho1, caminho2, `θ=${t}: os dois caminhos discordaram`);
+  }
+  assert.equal(180 - 75, 105, "o exemplo resolvido não fecha");
+
+  num("retas-paralelas", "problemas", "q1", 180 - 112);
+
+  // q2: alternos internos 2x + 10 e 3x − 20, por busca
+  const q2 = [];
+  for (let x = 0; x <= 180; x++) if (2 * x + 10 === 3 * x - 20) q2.push(x);
+  assert.deepEqual(q2, [30]);
+  assert.equal(2 * 30 + 10, 70, "as duas expressões têm de dar o mesmo ângulo");
+  assert.equal(3 * 30 - 20, 70);
+  num("retas-paralelas", "problemas", "q2", q2[0]);
+
+  // q3: colaterais 5x e 4x; a pergunta é o MAIOR ângulo, e não o x
+  const q3 = [];
+  for (let x = 0; x <= 180; x++) if (5 * x + 4 * x === 180) q3.push(x);
+  assert.deepEqual(q3, [20]);
+  const maior = Math.max(5 * q3[0], 4 * q3[0]);
+  assert.equal(maior, 100);
+  assert.equal(5 * q3[0] + 4 * q3[0], 180, "os dois colaterais têm de fechar 180");
+  num("retas-paralelas", "problemas", "q3", maior);
+
+  alt("retas-paralelas", "problemas", "q4", "Não: só existem dois valores, e eles já são 130° e 50°");
+  assert.equal(130 + 50, 180, "os dois valores da q4 têm de ser suplementares");
+});
+
+// ---------- Triângulos e quadriláteros (7º ano) ----------
+//
+// Geometria de novo, então a conferência vai além de recalcular respostas: o
+// teste lê o polígono do SVG de volta, mede cada ângulo interno com
+// trigonometria e exige que os rótulos batam. Foi para isso que `figuraPlana`
+// ganhou `angulos` — as formas do catálogo têm ângulos fixos, e rotulá-las
+// com os do enunciado produzia figura que desmente o próprio rótulo.
+
+/** Ângulos internos de um polígono lido do SVG, em graus. */
+function angulosDoPoligono(P) {
+  return P.map((_, i) => {
+    const v = P[i], u = P[(i + 1) % P.length], w = P[(i - 1 + P.length) % P.length];
+    const a1 = Math.atan2(u[1] - v[1], u[0] - v[0]);
+    const a2 = Math.atan2(w[1] - v[1], w[0] - v[0]);
+    const x = Math.abs((a1 - a2) * 180 / Math.PI);
+    return x > 180 ? 360 - x : x;
+  });
+}
+
+/** O polígono da figura, já em coordenadas. */
+function poligonoDoSvg(svg) {
+  const m = svg.match(/<polygon points="([^"]+)" fill="#dad2c1"/);
+  return m ? m[1].split(" ").map((p) => p.split(",").map(Number)) : null;
+}
+
+teste("triângulos · o gerador desenha os ângulos que lhe pedem", () => {
+  // Sem isso, nada mais neste bloco vale: é a garantia de que a figura pode
+  // ser construída a partir do enunciado em vez de escolhida de um catálogo.
+  const casos = [[90, 35], [30, 60], [40, 40], [45, 65], [50, 60], [70, 70], [60, 60]];
+  for (const [a, b] of casos) {
+    const P = poligonoDoSvg(desenhos.figuraPlana({ angulos: [a, b], rotulosVertices: ["", "", ""] }));
+    const medidos = angulosDoPoligono(P);
+    const esperados = [a, b, 180 - a - b];
+    esperados.forEach((e, i) => {
+      assert.ok(
+        Math.abs(medidos[i] - e) < 0.3,
+        `pedi ${esperados.join("/")} e o desenho saiu ${medidos.map((x) => x.toFixed(1)).join("/")}`
+      );
+    });
+    assert.ok(Math.abs(medidos.reduce((s, v) => s + v, 0) - 180) < 0.3, "os três têm de somar 180");
+  }
+
+  // e o mesmo para os quadriláteros
+  for (const q of [[100, 80, 110, 70], [90, 90, 120, 60], [85, 95, 100, 80], [70, 110, 70, 110]]) {
+    const P = poligonoDoSvg(desenhos.figuraPlana({ angulos: q, rotulosVertices: ["", "", "", ""] }));
+    const medidos = angulosDoPoligono(P);
+    q.forEach((e, i) => {
+      assert.ok(
+        Math.abs(medidos[i] - e) < 0.5,
+        `pedi ${q.join("/")} e o desenho saiu ${medidos.map((x) => x.toFixed(1)).join("/")}`
+      );
+    });
+    assert.ok(Math.abs(medidos.reduce((s, v) => s + v, 0) - 360) < 0.5, "os quatro têm de somar 360");
+  }
+});
+
+teste("triângulos · a figura nunca desmente o rótulo", () => {
+  // Percorre todas as figuras publicadas da matéria e confere cada rótulo
+  // numérico contra o ângulo realmente desenhado naquele vértice.
+  const daMateria = manifesto.filter((x) => x.id.startsWith("tq-"));
+  assert.ok(daMateria.length >= 30, "esperava as figuras da matéria no manifesto");
+
+  let conferidos = 0;
+  for (const item of daMateria) {
+    const svg = item.desenho();
+    const P = poligonoDoSvg(svg);
+    if (!P) continue;                                  // tabelas e varetas
+    const medidos = angulosDoPoligono(P);
+    const soma = medidos.reduce((s, v) => s + v, 0);
+    assert.ok(
+      Math.abs(soma - (P.length - 2) * 180) < 0.6,
+      `${item.id}: os ângulos somam ${soma.toFixed(1)}`
+    );
+    for (const m of svg.matchAll(/font-size="13"[^>]*>([0-9]+)°</g)) {
+      const rotulo = Number(m[1]);
+      assert.ok(
+        medidos.some((x) => Math.abs(x - rotulo) < 1.2),
+        `${item.id}: rótulo ${rotulo}° numa figura cujos ângulos são ${medidos.map((x) => x.toFixed(1)).join(", ")}`
+      );
+      conferidos += 1;
+    }
+  }
+  assert.ok(conferidos >= 15, `esperava conferir ao menos 15 rótulos, conferi ${conferidos}`);
+});
+
+teste("triângulos · lição 1 — os dois nomes de cada triângulo", () => {
+  // A classificação pelos lados e a classificação pelos ângulos são
+  // independentes: o teste monta todos os cruzamentos possíveis e confere.
+  const porLados = (a, b, c) =>
+    a === b && b === c ? "equilátero" : (a === b || b === c || a === c ? "isósceles" : "escaleno");
+  const porAngulos = (x, y, z) => {
+    const maior = Math.max(x, y, z);
+    return maior > 90 ? "obtusângulo" : maior === 90 ? "retângulo" : "acutângulo";
+  };
+
+  assert.equal(porLados(5, 5, 8), "isósceles", "o exemplo resolvido não fecha");
+  assert.equal(porAngulos(40, 40, 100), "obtusângulo", "o exemplo resolvido não fecha");
+  assert.equal(40 + 40 + 100, 180, "os ângulos do exemplo têm de somar 180");
+
+  alt("triangulos-quadrilateros", "triangulos", "q1", "Escaleno");
+  alt("triangulos-quadrilateros", "triangulos", "q2", "Obtusângulo");
+  num("triangulos-quadrilateros", "triangulos", "q3", 2);
+  num("triangulos-quadrilateros", "triangulos", "q4", 180 / 3);
+
+  // Nenhum triângulo pode ter dois ângulos de 90° ou mais: o teste varre a
+  // faixa e mostra que sobraria zero ou menos para o terceiro.
+  for (let x = 90; x <= 170; x += 5) {
+    for (let y = 90; y <= 170; y += 5) {
+      assert.ok(180 - x - y <= 0, `${x}° e ${y}° não deixariam nada para o terceiro`);
+    }
+  }
+});
+
+teste("triângulos · lição 2 — a soma 180° e a demonstração", () => {
+  assert.equal(180 - 50 - 60, 70, "o exemplo resolvido não fecha");
+
+  num("triangulos-quadrilateros", "soma-triangulo", "q1", 180 - 45 - 65);
+  num("triangulos-quadrilateros", "soma-triangulo", "q2", 180 - 90 - 35);
+  alt("triangulos-quadrilateros", "soma-triangulo", "q3",
+    "Porque, traçando uma paralela por um vértice, os três formam um ângulo raso");
+  num("triangulos-quadrilateros", "soma-triangulo", "q4", 180 / 3);
+
+  // A demonstração da lição: os dois alternos internos mais o ângulo do topo
+  // formam meia volta. Conferido em toda a faixa de triângulos possíveis.
+  for (let a = 10; a < 170; a += 5) {
+    for (let b = 10; a + b < 175; b += 5) {
+      const c = 180 - a - b;
+      // os alternos repetem os ângulos da base, e os três cobrem a paralela
+      assert.equal(a + c + b, 180, `triângulo ${a}/${b}/${c}`);
+      assert.ok(c > 0, "o terceiro ângulo tem de existir");
+    }
+  }
+});
+
+teste("triângulos · lição 3 — a condição de existência", () => {
+  const fecha = (x, y, z) => {
+    const l = [x, y, z].sort((p, q) => p - q);
+    return l[0] + l[1] > l[2];
+  };
+
+  assert.equal(fecha(3, 4, 6), true, "o exemplo resolvido não fecha");
+  assert.equal(fecha(3, 5, 8), false, "o empate citado no fecho tinha de falhar");
+
+  alt("triangulos-quadrilateros", "existencia", "q1", "Não, porque 2 + 3 é menor que 9");
+  alt("triangulos-quadrilateros", "existencia", "q2", "Sim, porque 5 + 6 é maior que 10");
+
+  // Com lados 4 e 9, varre TODOS os terceiros lados inteiros e confere que a
+  // faixa que fecha é exatamente de 6 a 12 — os dois extremos das questões.
+  const servem = [];
+  for (let t = 1; t <= 40; t++) if (fecha(4, 9, t)) servem.push(t);
+  assert.equal(Math.min(...servem), 6, "o menor terceiro lado inteiro");
+  assert.equal(Math.max(...servem), 12, "o maior terceiro lado inteiro");
+  assert.ok(!servem.includes(5), "o 5 dá empate e não pode entrar");
+  assert.ok(!servem.includes(13), "o 13 dá empate e não pode entrar");
+  num("triangulos-quadrilateros", "existencia", "q3", Math.min(...servem));
+  num("triangulos-quadrilateros", "existencia", "q4", Math.max(...servem));
+
+  // A regra vale nos dois sentidos: se fecha, o terceiro está entre a
+  // diferença e a soma dos outros dois. Conferido por força bruta.
+  for (let a = 1; a <= 12; a++) {
+    for (let b = 1; b <= 12; b++) {
+      for (let c = 1; c <= 24; c++) {
+        const naFaixa = c > Math.abs(a - b) && c < a + b;
+        assert.equal(fecha(a, b, c), naFaixa, `${a}, ${b}, ${c}`);
+      }
+    }
+  }
+});
+
+teste("triângulos · lição 4 — a família dos quadriláteros", () => {
+  // As exigências de cada nome, escritas como propriedades a conferir.
+  const quadrado = { paralelo: 2, ladosIguais: 4, retos: 4 };
+  const retangulo = { paralelo: 2, ladosIguais: 2, retos: 4 };
+  const losango = { paralelo: 2, ladosIguais: 4, retos: 0 };
+  const trapezio = { paralelo: 1, ladosIguais: 0, retos: 0 };
+
+  // Um quadrado cumpre TUDO o que o retângulo exige, e por isso é retângulo.
+  assert.ok(quadrado.paralelo >= retangulo.paralelo && quadrado.retos >= retangulo.retos);
+  // E cumpre o que o losango exige.
+  assert.ok(quadrado.paralelo >= losango.paralelo && quadrado.ladosIguais >= losango.ladosIguais);
+  // Mas o retângulo comum NÃO cumpre o do quadrado.
+  assert.ok(retangulo.ladosIguais < quadrado.ladosIguais, "nem todo retângulo é quadrado");
+  // E o trapézio fica fora dos paralelogramos.
+  assert.ok(trapezio.paralelo < 2, "o trapézio não é paralelogramo");
+
+  alt("triangulos-quadrilateros", "quadrilateros", "q1", "Quadrado");
+  alt("triangulos-quadrilateros", "quadrilateros", "q2", "Trapézio");
+  alt("triangulos-quadrilateros", "quadrilateros", "q3", "Sim, porque ele tem os quatro ângulos retos");
+  num("triangulos-quadrilateros", "quadrilateros", "q4", 4);
+});
+
+teste("triângulos · lição 5 — a soma 360° e os polígonos maiores", () => {
+  // A regra geral que a lição enuncia: um polígono de n lados se parte em
+  // n − 2 triângulos, então soma (n − 2) × 180°.
+  const soma = (n) => (n - 2) * 180;
+  assert.equal(soma(3), 180);
+  assert.equal(soma(4), 360);
+  assert.equal(soma(5), 540, "o valor citado na lição");
+  assert.equal(soma(6), 720, "o valor citado na lição");
+
+  assert.equal(360 - 100 - 80 - 110, 70, "o exemplo resolvido não fecha");
+  num("triangulos-quadrilateros", "soma-quadrilatero", "q1", 360 - 90 - 90 - 120);
+  num("triangulos-quadrilateros", "soma-quadrilatero", "q2", 360 - 85 - 95 - 100);
+  alt("triangulos-quadrilateros", "soma-quadrilatero", "q3",
+    "Porque ele se divide em dois triângulos, e cada um soma 180°");
+  num("triangulos-quadrilateros", "soma-quadrilatero", "q4", 70);
+
+  // No paralelogramo: opostos iguais e vizinhos suplementares, para todo ângulo.
+  for (let a = 10; a <= 170; a += 5) {
+    const vizinho = 180 - a;
+    assert.equal(a + vizinho + a + vizinho, 360, `paralelogramo de ${a}°`);
+  }
+});
+
+teste("triângulos · lição 6 — juntar tudo numa figura só", () => {
+  // Isósceles: sabendo o ângulo do vértice, os da base saem por busca.
+  const daBase = (vertice) => {
+    const serve = [];
+    for (let x = 1; x <= 179; x++) if (vertice + 2 * x === 180) serve.push(x);
+    return serve;
+  };
+  assert.deepEqual(daBase(40), [70], "o exemplo resolvido não fecha");
+  num("triangulos-quadrilateros", "problemas", "q1", daBase(40)[0]);
+  assert.deepEqual(daBase(100), [40], "o caso citado no fecho");
+
+  // x, 2x, 3x resolvido por busca, e não pela fórmula
+  const q2 = [];
+  for (let x = 1; x <= 180; x++) if (x + 2 * x + 3 * x === 180) q2.push(x);
+  assert.deepEqual(q2, [30]);
+  assert.deepEqual([q2[0], 2 * q2[0], 3 * q2[0]], [30, 60, 90]);
+  assert.equal(30 + 60 + 90, 180, "os três ângulos têm de fechar");
+  num("triangulos-quadrilateros", "problemas", "q2", q2[0]);
+
+  num("triangulos-quadrilateros", "problemas", "q3", 360 - 90 - 90 - 60);
+  num("triangulos-quadrilateros", "problemas", "q4", 180 - 110);
+
+  // A confusão que a lição avisa: usar 180 onde deveria ser 360 erra por
+  // exatamente 180 graus, e o teste registra isso.
+  assert.equal((360 - 90 - 90 - 60) - (180 - 90 - 90 - 60), 180);
+});
+
+// ---------- Circunferência e círculo (7º ano) ----------
+//
+// A matéria usa π = 3,14, e o teste usa o MESMO valor: conferir com o π de
+// verdade acusaria erro em toda resposta publicada, porque 3,14 é uma
+// aproximação. O que o teste faz é garantir que a aproximação foi aplicada de
+// forma consistente, e que as relações estruturais (dobrar o raio quadruplica
+// a área) valem com o π exato também.
+
+const PI = 3.14;
+const comprimento = (r) => 2 * PI * r;
+const area = (r) => PI * r * r;
+/** Compara em centavos de unidade, para o ponto flutuante não atrapalhar. */
+const perto = (a, b) => Math.abs(a - b) < 1e-9;
+
+teste("círculo · o desenho do π mostra três diâmetros e uma sobra", () => {
+  // A figura que explica o π é medida de volta: a fita tem de ter o
+  // comprimento da circunferência de verdade, e as marcas do diâmetro têm de
+  // caber três vezes, sobrando um pedaço menor que um diâmetro.
+  for (const d of [60, 78, 88, 100]) {
+    const svg = desenhos.piDesenrolado({ diametro: d });
+    // a fita é a linha grossa horizontal
+    const fita = [...svg.matchAll(/<line x1="([0-9.]+)" y1="([0-9.]+)" x2="([0-9.]+)" y2="\2"[^>]*stroke-width="3"/g)]
+      .map((m) => Number(m[3]) - Number(m[1]));
+    assert.equal(fita.length, 1, `diâmetro ${d}: esperava uma fita só`);
+    assert.ok(
+      Math.abs(fita[0] - Math.PI * d) < 0.5,
+      `diâmetro ${d}: a fita mede ${fita[0].toFixed(1)} e a volta é ${(Math.PI * d).toFixed(1)}`
+    );
+    // e a sobra é o que passa de três diâmetros
+    const sobra = fita[0] - 3 * d;
+    assert.ok(sobra > 0, "tem de sobrar alguma coisa depois de três diâmetros");
+    assert.ok(sobra < d, "a sobra tem de ser menor que um diâmetro inteiro");
+  }
+});
+
+teste("círculo · lição 1 — a linha, a região e o dobro", () => {
+  const diametro = (r) => 2 * r;
+  const raio = (d) => d / 2;
+
+  assert.equal(diametro(6), 12, "o exemplo resolvido não fecha");
+  assert.equal(raio(18), 9, "o exemplo resolvido não fecha");
+
+  alt("circunferencia", "circunferencia-circulo", "q1",
+    "A circunferência é a linha; o círculo é a linha mais a região de dentro");
+  num("circunferencia", "circunferencia-circulo", "q2", diametro(7));
+  num("circunferencia", "circunferencia-circulo", "q3", raio(18));
+  alt("circunferencia", "circunferencia-circulo", "q4", "Diâmetro");
+
+  // As duas conversões são inversas uma da outra, em toda a faixa.
+  for (let r = 1; r <= 60; r++) {
+    assert.equal(raio(diametro(r)), r, `raio ${r}`);
+    assert.ok(diametro(r) > r, "o diâmetro é sempre maior que o raio");
+  }
+});
+
+teste("círculo · lição 2 — o π é a razão, e ela não muda", () => {
+  // A afirmação central: volta ÷ diâmetro dá o mesmo em QUALQUER círculo.
+  // Conferida com o π exato, e não com a aproximação.
+  const razoes = [];
+  for (let d = 1; d <= 200; d += 7) {
+    razoes.push((Math.PI * d) / d);
+  }
+  for (const r of razoes) {
+    assert.ok(Math.abs(r - Math.PI) < 1e-12, "a razão tem de ser sempre a mesma");
+  }
+  assert.equal(new Set(razoes.map((x) => x.toFixed(10))).size, 1, "um único valor");
+
+  assert.ok(perto(31.4 / 10, 3.14), "o exemplo resolvido não fecha");
+  assert.ok(perto(62.8 / 20, 3.14), "o segundo prato do resolvido não fecha");
+
+  num("circunferencia", "o-numero-pi", "q1", 6.28 / 2);
+  alt("circunferencia", "o-numero-pi", "q2", "Quantas vezes o diâmetro cabe na volta da circunferência");
+  alt("circunferencia", "o-numero-pi", "q3", "Não: é sempre o mesmo, em qualquer circunferência");
+  num("circunferencia", "o-numero-pi", "q4", Math.floor(Math.PI));
+  assert.equal(Math.floor(Math.PI), 3, "cabem três diâmetros inteiros");
+});
+
+teste("círculo · lição 3 — as duas fórmulas do comprimento", () => {
+  // C = 2πr e C = πd são a MESMA fórmula: conferido em toda a faixa.
+  for (let r = 1; r <= 50; r++) {
+    assert.ok(perto(2 * PI * r, PI * (2 * r)), `raio ${r}: as duas fórmulas discordaram`);
+  }
+
+  assert.ok(perto(comprimento(5), 31.4), "o exemplo resolvido não fecha");
+  num("circunferencia", "comprimento", "q1", comprimento(3));
+  num("circunferencia", "comprimento", "q2", PI * 10);
+  // q3 é a fórmula ao contrário: dado o comprimento, achar o diâmetro
+  num("circunferencia", "comprimento", "q3", 62.8 / PI);
+  alt("circunferencia", "comprimento", "q4", "Não: como d = 2r, as duas são a mesma fórmula");
+
+  // ida e volta: do raio ao comprimento e de volta ao raio
+  for (let r = 1; r <= 40; r++) {
+    assert.ok(perto(comprimento(r) / (2 * PI), r), `ida e volta com raio ${r}`);
+  }
+});
+
+teste("círculo · lição 4 — a área usa o raio ao quadrado", () => {
+  assert.ok(perto(area(5), 78.5), "o exemplo resolvido não fecha");
+  num("circunferencia", "area", "q1", area(3));
+  num("circunferencia", "area", "q2", area(10));
+  num("circunferencia", "area", "q3", area(8 / 2));
+  alt("circunferencia", "area", "q4",
+    "O comprimento mede a linha da volta; a área mede a região de dentro");
+
+  // O erro previsto de usar o diâmetro no lugar do raio quadruplica a área —
+  // e é isso que o diagnóstico da q3 afirma.
+  for (let r = 1; r <= 30; r++) {
+    assert.ok(perto(area(2 * r), 4 * area(r)), `usar o diâmetro em vez do raio, com r = ${r}`);
+  }
+
+  // E a área é sempre menor que a do quadrado que encaixa o círculo, como o
+  // último parágrafo da lição afirma.
+  for (let r = 1; r <= 30; r++) {
+    const quadrado = (2 * r) ** 2;
+    assert.ok(area(r) < quadrado, `o círculo de raio ${r} tem de caber no quadrado`);
+    assert.ok(area(r) > quadrado * 0.7, "e ocupa mais de 70% dele");
+  }
+});
+
+teste("círculo · lição 5 — dobrar o raio quadruplica a área", () => {
+  // A afirmação central da lição, conferida com o π EXATO para não depender
+  // da aproximação: é uma propriedade da fórmula, e não do valor de π.
+  const areaExata = (r) => Math.PI * r * r;
+  const compExato = (r) => 2 * Math.PI * r;
+
+  for (let r = 1; r <= 40; r++) {
+    for (const fator of [2, 3, 4, 10]) {
+      assert.ok(
+        Math.abs(compExato(fator * r) - fator * compExato(r)) < 1e-9,
+        `raio ×${fator}: o comprimento tinha de multiplicar por ${fator}`
+      );
+      assert.ok(
+        Math.abs(areaExata(fator * r) - fator * fator * areaExata(r)) < 1e-9,
+        `raio ×${fator}: a área tinha de multiplicar por ${fator * fator}`
+      );
+    }
+  }
+
+  // O exemplo resolvido, com o π da matéria
+  assert.ok(perto(comprimento(6) / comprimento(3), 2), "o comprimento tinha de dobrar");
+  assert.ok(perto(area(6) / area(3), 4), "a área tinha de quadruplicar");
+
+  num("circunferencia", "dobrar-o-raio", "q1", comprimento(8));
+  num("circunferencia", "dobrar-o-raio", "q2", area(8));
+  alt("circunferencia", "dobrar-o-raio", "q3", "Fica 4 vezes maior");
+  num("circunferencia", "dobrar-o-raio", "q4", 3 * 3);
+
+  // e o erro previsto do 27 é mesmo o fator de VOLUME, como o diagnóstico diz
+  assert.equal(3 ** 3, 27);
+});
+
+teste("círculo · lição 6 — decidir entre borda e superfície", () => {
+  assert.ok(perto(PI * 50, 157), "o exemplo resolvido não fecha");
+  // e o fecho: quantas voltas em 10 metros
+  assert.ok(Math.abs(1000 / 157 - 6.369) < 0.01, "o fecho do resolvido");
+
+  num("circunferencia", "problemas", "q1", area(15));
+  num("circunferencia", "problemas", "q2", comprimento(10));
+  // q3 é a fórmula da área ao contrário
+  num("circunferencia", "problemas", "q3", Math.sqrt(12.56 / PI));
+  alt("circunferencia", "problemas", "q4",
+    "O comprimento para as grades e a área para o calçamento");
+
+  // A ida e volta da área: do raio à área e de volta ao raio.
+  for (let r = 1; r <= 30; r++) {
+    assert.ok(perto(Math.sqrt(area(r) / PI), r), `ida e volta da área com raio ${r}`);
+  }
+
+  // Uma roda que dá uma volta percorre exatamente o comprimento dela.
+  for (const d of [50, 60, 70, 26]) {
+    const porVolta = PI * d;
+    assert.ok(porVolta > d, "uma volta anda mais que o diâmetro");
+    assert.ok(porVolta < 4 * d, "e menos que quatro diâmetros");
+  }
+});
+
+// ---------- Média, moda e mediana (7º ano) ----------
+//
+// O teste reimplementa as três medidas do zero e confere as PROPRIEDADES que
+// as lições afirmam, por força bruta — não só o resultado das questões.
+//
+// A afirmação que dá sentido à matéria é que a mediana resiste a valores
+// extremos e a média não. Isso é conferido em muitos conjuntos, e não só no
+// exemplo dos salários.
+
+const somaDe = (v) => v.reduce((s, x) => s + x, 0);
+const mediaDe = (v) => somaDe(v) / v.length;
+const medianaDe = (v) => {
+  const o = [...v].sort((a, b) => a - b);
+  const n = o.length;
+  return n % 2 ? o[(n - 1) / 2] : (o[n / 2 - 1] + o[n / 2]) / 2;
+};
+const modasDe = (v) => {
+  const c = new Map();
+  for (const x of v) c.set(x, (c.get(x) ?? 0) + 1);
+  const maior = Math.max(...c.values());
+  return [...c.entries()].filter(([, n]) => n === maior).map(([x]) => x).sort((a, b) => a - b);
+};
+
+teste("estatística · as três medidas, e o que cada uma exige", () => {
+  const idades = [7, 8, 8, 9, 13];
+  assert.equal(mediaDe(idades), 9, "o exemplo resolvido não fecha");
+  assert.equal(medianaDe(idades), 8, "o exemplo resolvido não fecha");
+  assert.deepEqual(modasDe(idades), [8], "o exemplo resolvido não fecha");
+
+  alt("estatistica-7", "tres-resumos", "q1", "O valor que fica no meio, com os dados colocados em ordem");
+  alt("estatistica-7", "tres-resumos", "q2",
+    "A moda, porque é a única que funciona com dados que não são números");
+  alt("estatistica-7", "tres-resumos", "q3", "Que existe algum valor bem alto puxando a média para cima");
+  num("estatistica-7", "tres-resumos", "q4", 3);
+
+  // A afirmação da q3: média acima da mediana indica peso do lado alto.
+  // Conferida construindo conjuntos com um valor destoante para cima.
+  for (let extremo = 20; extremo <= 100; extremo += 10) {
+    const v = [2, 3, 4, 5, extremo];
+    assert.ok(mediaDe(v) > medianaDe(v), `com extremo ${extremo}, a média tinha de passar da mediana`);
+  }
+  // e o simétrico: extremo para baixo joga a média abaixo da mediana
+  for (let extremo = -50; extremo <= -10; extremo += 10) {
+    const v = [extremo, 20, 21, 22, 23];
+    assert.ok(mediaDe(v) < medianaDe(v), `com extremo ${extremo}, a média tinha de ficar abaixo`);
+  }
+});
+
+teste("estatística · lição 2 — a média nivela, e fica entre os extremos", () => {
+  assert.equal(mediaDe([6, 7, 8, 9, 10]), 8, "o exemplo resolvido não fecha");
+
+  num("estatistica-7", "media", "q1", mediaDe([4, 6, 8, 10]));
+  num("estatistica-7", "media", "q2", mediaDe([12, 15, 18]));
+  // q3 é a propriedade da soma: quanto falta na quarta prova para média 8
+  const faltando = 8 * 4 - somaDe([6, 8, 9]);
+  assert.equal(faltando, 9);
+  assert.equal(mediaDe([6, 8, 9, faltando]), 8, "com a nota achada, a média tem de fechar");
+  num("estatistica-7", "media", "q3", faltando);
+  alt("estatistica-7", "media", "q4", "Não: ela fica sempre entre o menor e o maior valor");
+
+  // A média NUNCA sai do intervalo — conferido em muitos conjuntos.
+  for (let semente = 1; semente <= 60; semente++) {
+    const v = [semente, semente * 2, semente + 7, 100 - semente, semente * 3 + 1];
+    const m = mediaDe(v);
+    assert.ok(m >= Math.min(...v) - 1e-9, `média abaixo do mínimo em ${v}`);
+    assert.ok(m <= Math.max(...v) + 1e-9, `média acima do máximo em ${v}`);
+  }
+
+  // E média × quantidade devolve a soma, sempre.
+  for (let n = 2; n <= 12; n++) {
+    const v = Array.from({ length: n }, (_, i) => i * 3 + 2);
+    assert.ok(Math.abs(mediaDe(v) * n - somaDe(v)) < 1e-9, `soma com ${n} valores`);
+  }
+});
+
+teste("estatística · lição 3 — a mediana é posição, não tamanho", () => {
+  assert.equal(medianaDe([3, 5, 7, 9, 11]), 7, "o exemplo resolvido não fecha");
+  // o fecho: trocar o 11 por 110 não move a mediana, mas move a média
+  assert.equal(medianaDe([3, 5, 7, 9, 110]), 7, "a mediana tinha de ficar parada");
+  assert.equal(mediaDe([3, 5, 7, 9, 11]), 7);
+  assert.equal(mediaDe([3, 5, 7, 9, 110]), 26.8, "a média tinha de disparar");
+
+  num("estatistica-7", "mediana", "q1", medianaDe([2, 4, 6, 8, 10, 12]));
+  // q2 exige ORDENAR antes: a lista vem embaralhada
+  assert.equal(medianaDe([5, 1, 9, 3, 7]), 5);
+  assert.notEqual([5, 1, 9, 3, 7][2], 5, "o valor do meio SEM ordenar é outro — é a armadilha da questão");
+  num("estatistica-7", "mediana", "q2", medianaDe([5, 1, 9, 3, 7]));
+  num("estatistica-7", "mediana", "q3", medianaDe([10, 20, 30, 40]));
+  alt("estatistica-7", "mediana", "q4", "Não muda, porque a mediana olha a posição e não o tamanho");
+
+  // A propriedade central: aumentar o MAIOR valor não move a mediana.
+  for (let semente = 1; semente <= 40; semente++) {
+    const base = [semente, semente + 2, semente + 4, semente + 6, semente + 8];
+    const antes = medianaDe(base);
+    const depois = medianaDe([...base.slice(0, 4), base[4] * 10]);
+    assert.equal(antes, depois, `mediana se moveu com base ${semente}`);
+    assert.notEqual(mediaDe(base), mediaDe([...base.slice(0, 4), base[4] * 10]), "a média tinha de mudar");
+  }
+
+  // Com quantidade par, a mediana pode não estar no conjunto — e tudo bem.
+  assert.equal(medianaDe([10, 20, 30, 40]), 25);
+  assert.ok(![10, 20, 30, 40].includes(25), "a mediana não precisa ser um dos valores");
+});
+
+teste("estatística · lição 4 — a moda conta, e pode não ser única", () => {
+  assert.deepEqual(modasDe([2, 3, 3, 5, 7]), [3], "o exemplo resolvido não fecha");
+  assert.equal(mediaDe([2, 3, 3, 5, 7]), 4, "o fecho compara a moda com a média");
+
+  num("estatistica-7", "moda", "q1", modasDe([4, 7, 7, 9, 12])[0]);
+  alt("estatistica-7", "moda", "q2", "Sim: quando dois ou mais valores empatam na maior frequência");
+  alt("estatistica-7", "moda", "q3", "A moda, porque ela indica o tamanho mais vendido");
+  alt("estatistica-7", "moda", "q4", "O conjunto não tem moda");
+
+  // O exemplo bimodal citado na resolução da q2
+  assert.deepEqual(modasDe([1, 1, 2, 3, 3]), [1, 3], "o conjunto tinha de ter duas modas");
+  // e o conjunto sem repetição, da q4
+  assert.deepEqual(modasDe([4, 5, 6, 7, 8]), [4, 5, 6, 7, 8], "todos empatam com frequência 1");
+  const semRepetir = [4, 5, 6, 7, 8];
+  const contagens = new Map();
+  for (const x of semRepetir) contagens.set(x, (contagens.get(x) ?? 0) + 1);
+  assert.equal(Math.max(...contagens.values()), 1, "nenhum valor se repete → conjunto sem moda");
+
+  // A moda é sempre um valor que APARECE nos dados, ao contrário da mediana.
+  for (let semente = 1; semente <= 30; semente++) {
+    const v = [semente, semente, semente + 5, semente + 9];
+    for (const m of modasDe(v)) assert.ok(v.includes(m), `moda ${m} não está em ${v}`);
+  }
+});
+
+teste("estatística · lição 5 — a mediana resiste e a média não", () => {
+  const salarios = [2, 2, 2, 2, 42];
+  assert.equal(mediaDe(salarios), 10, "o exemplo resolvido não fecha");
+  assert.equal(medianaDe(salarios), 2, "o exemplo resolvido não fecha");
+  // quatro das cinco pessoas ganham menos que a média — é o argumento da lição
+  assert.equal(salarios.filter((s) => s < mediaDe(salarios)).length, 4);
+  assert.ok(!salarios.includes(mediaDe(salarios)), "ninguém ganha exatamente a média");
+
+  num("estatistica-7", "qual-usar", "q1", mediaDe(salarios));
+  num("estatistica-7", "qual-usar", "q2", medianaDe(salarios));
+  alt("estatistica-7", "qual-usar", "q3", "A mediana, porque ela não é afetada pelos valores extremos");
+  alt("estatistica-7", "qual-usar", "q4", "Não: o crescimento pode estar concentrado em poucas pessoas");
+
+  // A afirmação da q4: a média pode subir com a maioria parada.
+  for (let ganho = 10; ganho <= 200; ganho += 10) {
+    const antes = [2, 2, 2, 2, 2];
+    const depois = [2, 2, 2, 2, 2 + ganho];
+    assert.ok(mediaDe(depois) > mediaDe(antes), `a média tinha de subir com ganho ${ganho}`);
+    assert.equal(medianaDe(depois), medianaDe(antes), "e a mediana tinha de ficar parada");
+    // quatro das cinco pessoas continuam exatamente iguais
+    assert.equal(depois.filter((x) => x === 2).length, 4);
+  }
+});
+
+teste("estatística · lição 6 — extrair da figura antes de calcular", () => {
+  const vendas = [10, 20, 30, 40, 50];
+  assert.equal(mediaDe(vendas), 30, "o exemplo resolvido não fecha");
+  assert.equal(medianaDe(vendas), 30, "num conjunto simétrico as duas coincidem");
+
+  num("estatistica-7", "problemas", "q1", mediaDe(vendas));
+  // q2 lê uma tabela de frequência: nota 7 cinco vezes, nota 9 três vezes
+  const daTabela = [...Array(5).fill(7), ...Array(3).fill(9)];
+  assert.equal(daTabela.length, 8, "a tabela descreve oito alunos");
+  assert.deepEqual(modasDe(daTabela), [7]);
+  num("estatistica-7", "problemas", "q2", modasDe(daTabela)[0]);
+  // q3 é a propriedade da soma ao contrário
+  num("estatistica-7", "problemas", "q3", 12 * 6);
+  alt("estatistica-7", "problemas", "q4",
+    "Ler o valor de cada coluna na escala, e não comparar as alturas de olho");
+
+  // A leitura da tabela de frequência tem de repetir o valor: a média de
+  // [7,7,7,7,7,9,9,9] não é a média entre 7 e 9.
+  assert.notEqual(mediaDe(daTabela), mediaDe([7, 9]));
+  assert.ok(Math.abs(mediaDe(daTabela) - 7.75) < 1e-9);
+
+  // E a figura do eixo cortado da q4 é conferida de volta pelo SVG: com base
+  // em 50, as colunas 60, 70 e 80 NÃO ficam na proporção 6:7:8.
+  const svg = desenhos.grafico({
+    dados: [{ rotulo: "a", valor: 60 }, { rotulo: "b", valor: 70 }, { rotulo: "c", valor: 80 }],
+    passo: 10, base: 50,
+  });
+  const alturas = [...svg.matchAll(/<rect[^>]*height="([0-9.]+)"/g)].map((m) => Number(m[1]));
+  assert.equal(alturas.length, 3, "esperava três colunas");
+  const razaoDesenhada = alturas[2] / alturas[0];
+  assert.ok(razaoDesenhada > 2.5, `com o eixo em 50, a terceira coluna vira ${razaoDesenhada.toFixed(1)}× a primeira`);
+  assert.ok(80 / 60 < 1.4, "mas os valores reais estão bem mais próximos que isso");
+});
+
+// ---------- Probabilidade (7º ano) ----------
+//
+// A matéria inteira é contagem, então o teste CONTA — por força bruta, sem
+// fórmula. Ele varre os 36 pares de dados de verdade e confere cada afirmação
+// das lições contra essa varredura.
+//
+// E a grade dos dois dados é lida de volta do SVG: o gerador decide as
+// células destacadas por uma função, e o teste conta as células marcadas para
+// garantir que a figura mostra o que o enunciado afirma.
+
+/** Todos os pares possíveis de dois dados de seis faces. */
+const PARES_DE_DADOS = (() => {
+  const p = [];
+  for (let a = 1; a <= 6; a++) for (let b = 1; b <= 6; b++) p.push([a, b]);
+  return p;
+})();
+
+const contarPares = (condicao) => PARES_DE_DADOS.filter(([a, b]) => condicao(a, b)).length;
+
+/** Células destacadas na figura, lidas de volta do SVG. */
+const celulasMarcadas = (svg) => [...svg.matchAll(/fill-opacity="0\.55"/g)].length;
+
+teste("probabilidade · a grade dos dados desenha o que o enunciado afirma", () => {
+  // O espaço amostral tem mesmo 36 pares, contados um a um.
+  assert.equal(PARES_DE_DADOS.length, 36);
+
+  const casos = [
+    ["soma 7", (a, b) => a + b === 7],
+    ["soma 12", (a, b) => a + b === 12],
+    ["soma par", (a, b) => (a + b) % 2 === 0],
+    ["soma maior que 9", (a, b) => a + b > 9],
+  ];
+  for (const [nome, cond] of casos) {
+    const svg = desenhos.gradeDados({ destacar: cond });
+    assert.equal(
+      celulasMarcadas(svg), contarPares(cond),
+      `${nome}: a figura destacou um número de células diferente da contagem`
+    );
+  }
+
+  // e as somas escritas na grade são as somas de verdade
+  const svg = desenhos.gradeDados({});
+  const escritas = [...svg.matchAll(/font-size="12"[^>]*>([0-9]+)</g)].map((m) => Number(m[1]));
+  assert.equal(escritas.length, 36, "esperava uma soma por célula");
+  const esperadas = PARES_DE_DADOS.map(([a, b]) => a + b).sort((x, y) => x - y);
+  assert.deepEqual([...escritas].sort((x, y) => x - y), esperadas, "as somas desenhadas não batem");
+});
+
+teste("probabilidade · lição 1 — favoráveis sobre possíveis", () => {
+  assert.ok(Math.abs(1 / 6 - 0.1667) < 0.001, "o exemplo resolvido não fecha");
+
+  num("probabilidade-7", "o-que-e", "q1", 1 / 2);
+  alt("probabilidade-7", "o-que-e", "q2", "Não: toda probabilidade fica entre 0 e 1");
+  num("probabilidade-7", "o-que-e", "q3", 3 / 10);
+  alt("probabilidade-7", "o-que-e", "q4", "Zero, porque nenhuma face tem o número 7");
+
+  // Toda probabilidade calculada como favoráveis/possíveis cai entre 0 e 1.
+  for (let possiveis = 1; possiveis <= 40; possiveis++) {
+    for (let favoraveis = 0; favoraveis <= possiveis; favoraveis++) {
+      const p = favoraveis / possiveis;
+      assert.ok(p >= 0 && p <= 1, `${favoraveis}/${possiveis} saiu fora do intervalo`);
+    }
+  }
+  // o impossível dá 0 e a certeza dá 1
+  assert.equal(0 / 6, 0);
+  assert.equal(6 / 6, 1);
+});
+
+teste("probabilidade · lição 2 — o princípio multiplicativo", () => {
+  assert.equal(2 * 3, 6, "o exemplo resolvido não fecha");
+  // e a listagem citada no resolvido tem mesmo seis combinações
+  const combinacoes = [];
+  for (const c of ["C1", "C2"]) for (const p of ["P1", "P2", "P3"]) combinacoes.push(c + p);
+  assert.equal(combinacoes.length, 6);
+  assert.equal(new Set(combinacoes).size, 6, "nenhuma combinação pode se repetir");
+
+  num("probabilidade-7", "espaco-amostral", "q1", 2 * 6);
+  num("probabilidade-7", "espaco-amostral", "q2", 4 * 3);
+  alt("probabilidade-7", "espaco-amostral", "q3", "Espaço amostral");
+  num("probabilidade-7", "espaco-amostral", "q4", 2 * 2);
+
+  // O princípio conferido por LISTAGEM, e não pela fórmula: montar todos os
+  // pares e contar tem de dar o mesmo que multiplicar.
+  for (let m = 1; m <= 8; m++) {
+    for (let n = 1; n <= 8; n++) {
+      const lista = [];
+      for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) lista.push(`${i}-${j}`);
+      assert.equal(lista.length, m * n, `${m} × ${n}`);
+      assert.equal(new Set(lista).size, m * n, "sem repetição");
+    }
+  }
+});
+
+teste("probabilidade · lição 3 — vários favoráveis e o complementar", () => {
+  const faces = [1, 2, 3, 4, 5, 6];
+  assert.equal(faces.filter((f) => f % 2 === 0).length, 3, "o exemplo resolvido não fecha");
+  assert.equal(3 / 6, 0.5);
+
+  // q1: maior que 4 deixa o próprio 4 de fora
+  const maiorQue4 = faces.filter((f) => f > 4);
+  assert.deepEqual(maiorQue4, [5, 6]);
+  assert.ok(!maiorQue4.includes(4), "o 4 não é maior que 4 — é a armadilha da questão");
+  num("probabilidade-7", "calcular", "q1", 0.33);
+
+  num("probabilidade-7", "calcular", "q2", 4 / (4 + 3 + 3));
+  num("probabilidade-7", "calcular", "q3", 1 - 0.3);
+  alt("probabilidade-7", "calcular", "q4", "Sair um número menor que 5");
+
+  // A q4 afirma que "menor que 5" é o mais provável dos quatro eventos.
+  const eventos = {
+    "menor que 5": faces.filter((f) => f < 5).length,
+    "par": faces.filter((f) => f % 2 === 0).length,
+    "maior que 4": faces.filter((f) => f > 4).length,
+    "o 6": faces.filter((f) => f === 6).length,
+  };
+  assert.deepEqual(eventos, { "menor que 5": 4, par: 3, "maior que 4": 2, "o 6": 1 });
+  const vencedor = Object.entries(eventos).sort((a, b) => b[1] - a[1])[0][0];
+  assert.equal(vencedor, "menor que 5");
+
+  // O complementar sempre fecha 1, em toda a faixa.
+  for (let f = 0; f <= 6; f++) {
+    assert.ok(Math.abs(f / 6 + (6 - f) / 6 - 1) < 1e-9, `complementar de ${f}/6`);
+  }
+});
+
+teste("probabilidade · lição 4 — as três formas dizem o mesmo", () => {
+  // fração → decimal → porcentagem, conferido em muitas frações
+  for (let d = 1; d <= 20; d++) {
+    for (let n = 0; n <= d; n++) {
+      const decimal = n / d;
+      const porcento = decimal * 100;
+      assert.ok(Math.abs(porcento / 100 - decimal) < 1e-12, `${n}/${d}`);
+      assert.ok(decimal >= 0 && decimal <= 1, "decimal fora do intervalo");
+      assert.ok(porcento >= 0 && porcento <= 100, "porcentagem fora do intervalo");
+    }
+  }
+
+  assert.equal((3 / 5) * 100, 60, "o exemplo resolvido não fecha");
+  num("probabilidade-7", "formas", "q1", (1 / 4) * 100);
+  num("probabilidade-7", "formas", "q2", 40 / 100);
+  alt("probabilidade-7", "formas", "q3", "5/13, porque dá cerca de 0,385");
+  alt("probabilidade-7", "formas", "q4", "Que houve erro, porque nenhuma probabilidade passa de 100%");
+
+  // A comparação da q3: 5/13 é MESMO maior que 3/8, apesar de parecer perto.
+  assert.ok(5 / 13 > 3 / 8, "5/13 tinha de ser maior");
+  assert.ok(Math.abs(3 / 8 - 0.375) < 1e-9);
+  assert.ok(Math.abs(5 / 13 - 0.385) < 0.001);
+});
+
+teste("probabilidade · lição 5 — 7 sai seis vezes mais que 12", () => {
+  const jeitos = (soma) => contarPares((a, b) => a + b === soma);
+
+  assert.equal(PARES_DE_DADOS.length, 36, "o denominador da matéria");
+  assert.equal(jeitos(7), 6, "o exemplo resolvido não fecha");
+  assert.equal(jeitos(12), 1, "o exemplo resolvido não fecha");
+  assert.equal(jeitos(7) / jeitos(12), 6, "a afirmação central da lição");
+
+  num("probabilidade-7", "dois-dados", "q1", 36);
+  num("probabilidade-7", "dois-dados", "q2", jeitos(7));
+  num("probabilidade-7", "dois-dados", "q3", jeitos(12));
+  num("probabilidade-7", "dois-dados", "q4", jeitos(7) / jeitos(12));
+
+  // A lição afirma que 7 é a soma MAIS provável de todas: conferido varrendo
+  // as onze somas possíveis, e não afirmado.
+  const contagens = {};
+  for (let soma = 2; soma <= 12; soma++) contagens[soma] = jeitos(soma);
+  assert.deepEqual(contagens, { 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 7: 6, 8: 5, 9: 4, 10: 3, 11: 2, 12: 1 });
+  const maisProvavel = Object.entries(contagens).sort((a, b) => b[1] - a[1])[0][0];
+  assert.equal(Number(maisProvavel), 7, "o 7 tinha de ser a soma mais provável");
+  // e a soma de todas as contagens tem de fechar o espaço amostral
+  assert.equal(Object.values(contagens).reduce((s, x) => s + x, 0), 36);
+
+  // O erro que a lição avisa: as 11 somas NÃO são igualmente prováveis.
+  assert.notEqual(contagens[7], contagens[12], "se fossem iguais, a lição não existiria");
+  // e (1,6) é mesmo diferente de (6,1)
+  const setePares = PARES_DE_DADOS.filter(([a, b]) => a + b === 7);
+  assert.ok(setePares.some(([a, b]) => a === 1 && b === 6));
+  assert.ok(setePares.some(([a, b]) => a === 6 && b === 1));
+});
+
+teste("probabilidade · lição 6 — soma par, e a moeda sem memória", () => {
+  const par = contarPares((a, b) => (a + b) % 2 === 0);
+  assert.equal(par, 18, "o exemplo resolvido não fecha");
+  assert.equal(par / 36, 0.5, "soma par é exatamente metade");
+
+  // O argumento do resolvido: par+par mais ímpar+ímpar.
+  const parPar = contarPares((a, b) => a % 2 === 0 && b % 2 === 0);
+  const imparImpar = contarPares((a, b) => a % 2 === 1 && b % 2 === 1);
+  assert.equal(parPar, 9);
+  assert.equal(imparImpar, 9);
+  assert.equal(parPar + imparImpar, par, "os dois grupos têm de cobrir todos os casos de soma par");
+
+  num("probabilidade-7", "problemas", "q1", par);
+  num("probabilidade-7", "problemas", "q2", contarPares((a, b) => a + b > 9));
+  num("probabilidade-7", "problemas", "q3", 0.5);
+  alt("probabilidade-7", "problemas", "q4",
+    "Nada de errado: com poucas jogadas, a frequência pode se afastar da probabilidade");
+
+  // A q2 conferida pela decomposição citada na resolução: 10, 11 e 12.
+  const dezOnzeDoze = [10, 11, 12].map((s) => contarPares((a, b) => a + b === s));
+  assert.deepEqual(dezOnzeDoze, [3, 2, 1]);
+  assert.equal(dezOnzeDoze.reduce((s, x) => s + x, 0), contarPares((a, b) => a + b > 9));
+
+  // A moeda não tem memória: a probabilidade da próxima jogada é sempre 1/2,
+  // independentemente de quantas caras vieram antes.
+  for (let carasSeguidas = 0; carasSeguidas <= 20; carasSeguidas++) {
+    assert.equal(1 / 2, 0.5, `depois de ${carasSeguidas} caras, continua 1/2`);
+  }
 });
 
 teste("as igualdades escritas nas contas são verdadeiras", () => {

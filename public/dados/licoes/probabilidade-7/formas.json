@@ -1,0 +1,200 @@
+{
+  "id": "formas",
+  "numero": 4,
+  "titulo": "Fração, decimal e porcentagem",
+  "pergunta": "Por que a mesma chance aparece de três jeitos?",
+  "ideia": {
+    "paragrafos": [
+      "A probabilidade nasce como fração, porque nasce de uma divisão. Mas ela aparece na vida em três roupas diferentes: 1/4, 0,25 e 25% dizem exatamente a mesma coisa, e vale saber trocar de uma para outra sem pensar muito.",
+      "A fração é a forma mais honesta, porque mostra de onde o número veio: 1 caso favorável em 4 possíveis. Ela é a melhor para explicar o raciocínio, e a única que deixa a contagem visível.",
+      "O decimal sai dividindo o numerador pelo denominador. Ele é o melhor para COMPARAR duas probabilidades: dizer qual é maior entre 3/8 e 5/13 dá trabalho na forma de fração, mas com 0,375 e 0,385 a resposta é imediata.",
+      "A porcentagem é o decimal multiplicado por 100, e é a forma que o jornal e a previsão do tempo usam — porque é a mais fácil de entender de ouvido. \"Trinta por cento de chance de chuva\" comunica melhor que \"probabilidade 0,3\".",
+      "As três formas obedecem ao mesmo limite. Entre 0 e 1 no decimal, entre 0% e 100% na porcentagem, e entre 0/n e n/n na fração. Uma probabilidade de 120% é tão impossível quanto uma de 1,2 — é sempre sinal de erro na contagem."
+    ],
+    "destaque": "1/4, 0,25 e 25% são a mesma probabilidade em três roupas.",
+    "imagem": "pb-ideia-formas"
+  },
+  "resolvido": {
+    "enunciado": "A probabilidade de um evento é 3/5. Escreva-a em decimal e em porcentagem.",
+    "imagem": "pb-res-formas",
+    "passos": [
+      {
+        "titulo": "Leia o que a fração diz",
+        "explicacao": "Três casos favoráveis em cinco possíveis. É a forma que mostra a contagem por trás do número.",
+        "conta": "3 favoráveis em 5"
+      },
+      {
+        "titulo": "Passe para decimal",
+        "explicacao": "Basta efetuar a divisão que a fração representa.",
+        "conta": "3 ÷ 5 = 0,6"
+      },
+      {
+        "titulo": "Passe para porcentagem",
+        "explicacao": "Porcentagem é o decimal comparado com 100, então multiplica-se por 100.",
+        "conta": "0,6 × 100 = 60%"
+      },
+      {
+        "titulo": "Confira o intervalo nas três formas",
+        "explicacao": "Cada roupa tem o seu limite, e os três dizem a mesma coisa.",
+        "conta": "3/5 < 1 · 0,6 < 1 · 60% < 100% ✓"
+      }
+    ],
+    "fecho": "Sessenta por cento quer dizer que, em cem tentativas, o evento aconteceria em cerca de sessenta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A probabilidade de um evento é 1/4. Quanto é isso em porcentagem? Digite apenas o número.",
+      "imagem": "pb-q-um-quarto",
+      "dica": "Primeiro passe a fração para decimal, e só depois multiplique por 100.",
+      "formato": "numero",
+      "resposta": 25,
+      "unidade": "%",
+      "errosComuns": [
+        {
+          "resposta": "0.25",
+          "porque": "0,25 é a forma DECIMAL, e ela está certa como decimal. Para virar porcentagem falta multiplicar por 100."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o denominador da fração, ou seja, a quantidade de casos possíveis. A porcentagem sai da divisão inteira, e não de um dos números dela."
+        },
+        {
+          "resposta": "75",
+          "porque": "75% é a probabilidade do evento NÃO acontecer, porque três dos quatro casos são desfavoráveis. A pergunta é sobre o próprio evento."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Passe para decimal",
+          "explicacao": "Efetuando a divisão que a fração representa.",
+          "conta": "1 ÷ 4 = 0,25"
+        },
+        {
+          "titulo": "Multiplique por 100",
+          "explicacao": "A porcentagem compara o valor com cem.",
+          "conta": "0,25 × 100 = 25%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma previsão diz que a chance de chuva é de 40%. Quanto é isso em decimal? Digite apenas o número.",
+      "imagem": "pb-q-quarenta",
+      "dica": "Agora o caminho é o contrário: da porcentagem para o decimal.",
+      "formato": "numero",
+      "resposta": 0.4,
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é o valor em PORCENTAGEM, que o enunciado já deu. O decimal é esse número dividido por 100, e fica sempre entre 0 e 1."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 divide por 10 em vez de por 100. Porcentagem compara com cem, então a conversão para decimal divide por 100."
+        },
+        {
+          "resposta": "0.04",
+          "porque": "0,04 divide por 1000. Quarenta por cento é quase metade, e 0,04 seria quatro por cento — dez vezes menos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que a porcentagem é",
+          "explicacao": "Ela compara o valor com cem partes.",
+          "conta": "40% = 40 em 100"
+        },
+        {
+          "titulo": "Divida por 100",
+          "explicacao": "O decimal é a fração efetuada, e ele fica sempre entre 0 e 1.",
+          "conta": "40 ÷ 100 = 0,4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual das duas probabilidades é maior: 3/8 ou 5/13?",
+      "imagem": "pb-q-comparar-formas",
+      "dica": "Comparar frações de denominadores diferentes dá trabalho. Passe as duas para decimal.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5/13, porque dá cerca de 0,385" },
+        { "rotulo": "B", "texto": "3/8, porque dá cerca de 0,375" },
+        { "rotulo": "C", "texto": "São iguais" },
+        { "rotulo": "D", "texto": "3/8, porque tem o denominador menor" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/8, porque dá cerca de 0,375",
+          "porque": "O valor decimal está certo, mas 0,375 é MENOR que 0,385. A comparação está invertida: quem tem o decimal maior é a probabilidade maior."
+        },
+        {
+          "resposta": "São iguais",
+          "porque": "Elas são próximas, mas não iguais: 0,375 contra 0,385. A diferença é pequena, e é justamente por isso que passar para decimal ajuda a decidir."
+        },
+        {
+          "resposta": "3/8, porque tem o denominador menor",
+          "porque": "Denominador menor não significa fração maior — depende também do numerador. Comparar frações exige um denominador comum ou a conversão para decimal."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Passe as duas para decimal",
+          "explicacao": "É o jeito mais rápido de comparar frações de denominadores diferentes.",
+          "conta": "3 ÷ 8 = 0,375 · 5 ÷ 13 ≈ 0,385"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "O decimal maior corresponde à probabilidade maior.",
+          "conta": "0,385 > 0,375"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Alguém calculou uma probabilidade e chegou a 120%. O que isso indica?",
+      "imagem": "pb-q-impossivel-porcento",
+      "dica": "Lembre do limite máximo da probabilidade em cada uma das três formas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que houve erro, porque nenhuma probabilidade passa de 100%" },
+        { "rotulo": "B", "texto": "Que o evento é muito provável mesmo" },
+        { "rotulo": "C", "texto": "Que o evento vai acontecer mais de uma vez" },
+        { "rotulo": "D", "texto": "Que o resultado precisa ser arredondado para 100%" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que o evento é muito provável mesmo",
+          "porque": "Muito provável é perto de 100%, e nunca acima. Cem por cento já é a certeza absoluta, e não existe nada mais certo que isso."
+        },
+        {
+          "resposta": "Que o evento vai acontecer mais de uma vez",
+          "porque": "Probabilidade não conta quantas vezes algo acontece: ela mede a chance de acontecer numa tentativa. Repetições são outra coisa, contada por frequência."
+        },
+        {
+          "resposta": "Que o resultado precisa ser arredondado para 100%",
+          "porque": "Arredondar esconderia o problema em vez de resolvê-lo. Um valor acima de 100% quase sempre vem de contar casos favoráveis a mais que os possíveis — vale refazer a contagem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o teto",
+          "explicacao": "No máximo, todos os casos possíveis são favoráveis.",
+          "conta": "favoráveis ≤ possíveis"
+        },
+        {
+          "titulo": "Traduza para porcentagem",
+          "explicacao": "Esse máximo corresponde a 100%, e nada pode passar dele.",
+          "conta": "0% ≤ P ≤ 100%"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Um valor acima disso denuncia erro na contagem, e não um evento especial.",
+          "conta": "recontar os casos"
+        }
+      ]
+    }
+  ]
+}

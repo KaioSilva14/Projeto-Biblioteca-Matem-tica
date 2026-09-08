@@ -1,0 +1,206 @@
+{
+  "id": "existencia",
+  "numero": 3,
+  "titulo": "Quando o triângulo não fecha",
+  "pergunta": "Três medidas quaisquer formam um triângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Pegue três varetas de 2 cm, 3 cm e 9 cm e tente montar um triângulo. Não dá. As duas menores, esticadas juntas, alcançam apenas 5 cm — não chegam nem perto de cobrir os 9 cm da maior. As pontas nunca se encontram.",
+      "Essa é a CONDIÇÃO DE EXISTÊNCIA do triângulo, e ela é diferente de tudo que veio antes nesta matéria: não é uma medida a calcular, é uma pergunta de sim ou não. Antes de resolver qualquer coisa sobre um triângulo, vale conferir se ele existe.",
+      "A regra é curta: a soma dos dois lados menores tem de ser MAIOR que o lado maior. Com 3, 4 e 6 funciona, porque 3 + 4 dá 7, que passa de 6. Com 2, 3 e 9 não funciona, porque 2 + 3 dá 5, que não chega a 9.",
+      "O caso do empate merece atenção. Se a soma dos dois menores der exatamente o maior — como em 3, 5 e 8 —, as varetas se encaixam mas ficam todas na mesma linha reta. Não sobra nenhuma altura, e uma figura achatada não é triângulo. Por isso a regra exige MAIOR, e não maior ou igual.",
+      "Uma consequência útil: conhecendo dois lados, o terceiro não pode ser qualquer coisa. Ele fica preso entre a diferença e a soma dos outros dois — maior que a diferença para as pontas se encontrarem, menor que a soma para nada esticar demais."
+    ],
+    "destaque": "A soma dos dois lados menores tem de ser maior que o lado maior.",
+    "imagem": "tq-ideia-existencia"
+  },
+  "resolvido": {
+    "enunciado": "É possível montar um triângulo com lados de 3 cm, 4 cm e 6 cm?",
+    "imagem": "tq-res-existencia",
+    "passos": [
+      {
+        "titulo": "Separe o maior dos três",
+        "explicacao": "É ele que os outros dois precisam alcançar, então vale identificá-lo antes de qualquer conta.",
+        "conta": "maior = 6"
+      },
+      {
+        "titulo": "Some os dois menores",
+        "explicacao": "Esticados em linha, os dois menores formam o caminho que precisa cobrir o maior e ainda sobrar.",
+        "conta": "3 + 4 = 7"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "A soma passou do lado maior, então as duas pontas se encontram acima da base e a figura fecha.",
+        "conta": "7 > 6 ✓"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "Com a condição satisfeita, o triângulo existe — e é escaleno, porque os três lados são diferentes.",
+        "conta": "existe"
+      }
+    ],
+    "fecho": "Se o maior fosse 7 em vez de 6, daria empate e a figura ficaria achatada numa reta. Sete ainda não serviria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "É possível montar um triângulo com lados de 2 cm, 3 cm e 9 cm?",
+      "imagem": "tq-q-nao-fecha",
+      "dica": "Some os dois menores e compare com o maior. Eles conseguem alcançá-lo?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque 2 + 3 é menor que 9" },
+        { "rotulo": "B", "texto": "Sim, porque as três medidas são diferentes" },
+        { "rotulo": "C", "texto": "Sim, porque 9 é maior que 2 e que 3" },
+        { "rotulo": "D", "texto": "Não, porque nenhum dos lados é igual a outro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque as três medidas são diferentes",
+          "porque": "Lados diferentes fazem o triângulo ser escaleno, mas isso não garante que ele exista. A condição olha para a SOMA dos dois menores, e aqui ela dá só 5."
+        },
+        {
+          "resposta": "Sim, porque 9 é maior que 2 e que 3",
+          "porque": "O maior lado ser maior que cada um dos outros é sempre verdade, em qualquer trio. O que decide é se ele é menor que a soma dos dois, e 9 não é menor que 5."
+        },
+        {
+          "resposta": "Não, porque nenhum dos lados é igual a outro",
+          "porque": "A conclusão está certa e o motivo é outro. Triângulos escalenos existem aos montes: o problema aqui é que 2 + 3 não alcança o 9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os dois menores",
+          "explicacao": "É esse total que precisa passar do lado maior.",
+          "conta": "2 + 3 = 5"
+        },
+        {
+          "titulo": "Compare com o maior",
+          "explicacao": "Cinco não chega a nove, então as pontas não se encontram.",
+          "conta": "5 < 9 → não fecha"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "É possível montar um triângulo com lados de 5 cm, 6 cm e 10 cm?",
+      "imagem": "tq-q-fecha",
+      "dica": "Some os dois menores e compare com o maior, como no exemplo resolvido.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque 5 + 6 é maior que 10" },
+        { "rotulo": "B", "texto": "Não, porque 10 é maior que 5 e que 6" },
+        { "rotulo": "C", "texto": "Não, porque 5 + 6 é diferente de 10" },
+        { "rotulo": "D", "texto": "Sim, porque 10 é o dobro de 5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque 10 é maior que 5 e que 6",
+          "porque": "O maior lado é sempre maior que cada um dos outros dois — isso vale em qualquer trio e não impede nada. O que conta é a comparação com a SOMA deles, que aqui dá 11."
+        },
+        {
+          "resposta": "Não, porque 5 + 6 é diferente de 10",
+          "porque": "A condição não pede igualdade, e sim que a soma seja MAIOR que o lado maior. Onze é diferente de dez justamente por ser maior, e é isso que faz o triângulo existir."
+        },
+        {
+          "resposta": "Sim, porque 10 é o dobro de 5",
+          "porque": "A conclusão está certa e o motivo não tem relação com a regra. Ser o dobro de outro lado não decide nada: o que decide é 5 + 6 passar de 10."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os dois menores",
+          "explicacao": "Cinco e seis são os menores, e o dez é o maior.",
+          "conta": "5 + 6 = 11"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Onze passa de dez, então sobra folga para as pontas se encontrarem acima da base.",
+          "conta": "11 > 10 → existe"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um triângulo tem dois lados medindo 4 cm e 9 cm. Qual é o menor valor INTEIRO possível para o terceiro lado? Digite apenas o número.",
+      "imagem": "tq-q-menor-lado",
+      "dica": "O terceiro lado precisa ser maior que a diferença entre os dois dados. Depois, escolha o menor inteiro que serve.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é exatamente a diferença entre 9 e 4, e nesse valor a figura fica achatada numa reta: 4 + 5 dá exatamente 9. A condição exige MAIOR que a diferença."
+        },
+        {
+          "resposta": "4",
+          "porque": "Com o terceiro lado valendo 4, os dois menores somam 8, que não alcança o 9. As pontas não se encontrariam."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é a SOMA dos dois lados dados, que é o limite superior. A pergunta é sobre o menor valor possível, e não sobre o maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o limite de baixo",
+          "explicacao": "O terceiro lado tem de ser maior que a diferença entre os dois dados, senão a figura não fecha.",
+          "conta": "9 − 4 = 5"
+        },
+        {
+          "titulo": "Escolha o menor inteiro acima dele",
+          "explicacao": "Como o próprio 5 daria uma figura achatada, o primeiro que serve é o seguinte.",
+          "conta": "6 cm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Com 6, os dois menores somam 10 e passam do maior, que é 9.",
+          "conta": "4 + 6 = 10 > 9 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo tem dois lados medindo 4 cm e 9 cm. Qual é o maior valor INTEIRO possível para o terceiro lado? Digite apenas o número.",
+      "imagem": "tq-q-maior-lado",
+      "dica": "Agora o terceiro lado é que vira o maior. Ele precisa ser menor que a soma dos outros dois.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "cm",
+      "errosComuns": [
+        {
+          "resposta": "13",
+          "porque": "13 é exatamente a soma de 4 com 9, e nesse valor a figura fica achatada numa reta. A condição exige MENOR que a soma, então o 13 não serve."
+        },
+        {
+          "resposta": "14",
+          "porque": "Com 14, os dois menores passam a ser 4 e 9, que somam 13 e não alcançam o 14. O triângulo não fecharia."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a diferença entre os dois lados, que é o limite de BAIXO. A pergunta é sobre o maior valor possível, e não sobre o menor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o limite de cima",
+          "explicacao": "Se o terceiro lado for o maior, ele precisa ser menor que a soma dos outros dois.",
+          "conta": "4 + 9 = 13"
+        },
+        {
+          "titulo": "Escolha o maior inteiro abaixo dele",
+          "explicacao": "Como o próprio 13 daria empate, o último que serve é o anterior.",
+          "conta": "12 cm"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Com 12, os dois menores são 4 e 9, que somam 13 e passam do 12.",
+          "conta": "4 + 9 = 13 > 12 ✓"
+        }
+      ]
+    }
+  ]
+}

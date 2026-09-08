@@ -26,6 +26,7 @@
     "dev:build": "tsc --watch",
     "imagens": "node ferramentas/gerar-imagens.mjs",
     "test": "npm run build && node tests/conteudo.test.mjs && node tests/motor.test.mjs && node tests/pagina.test.mjs",
-    "videos": "node ferramentas/verificar-videos.mjs"
+    "videos": "node ferramentas/verificar-videos.mjs",
+    "figuras": "node ferramentas/auditar-figuras.mjs"
   }
 }

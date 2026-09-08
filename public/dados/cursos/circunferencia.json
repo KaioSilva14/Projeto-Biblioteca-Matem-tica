@@ -1,0 +1,41 @@
+{
+  "id": "circunferencia",
+  "titulo": "Circunferência e círculo",
+  "ano": 7,
+  "descricao": "Seis lições sobre a figura mais redonda da matemática: a diferença entre a linha e a região, de onde o π realmente vem, como calcular a volta e a área — e por que dobrar o raio quadruplica a área, o que decide qual pizza vale mais a pena.",
+  "pergunta": "Por que aparece sempre o mesmo número, em qualquer círculo?",
+  "videos": [
+    {
+      "id": "vyoAs3gsLaI",
+      "titulo": "Comprimento da circunferência e o número pi",
+      "canal": "Gis com Giz",
+      "descricao": "Liga o π ao comprimento, que é o caminho das lições 2 e 3. Serve para quem quer ver a razão entre volta e diâmetro sendo construída na tela."
+    },
+    {
+      "id": "Ld5TmPB5XK0",
+      "titulo": "CIRCUNFERÊNCIA E CÍRCULO | ÁREA E COMPRIMENTO | EXERCÍCIOS E FÓRMULAS",
+      "canal": "MARCEMÁTICA",
+      "descricao": "Cobre as duas fórmulas lado a lado, que é justamente onde mais se confunde. Complementa as lições 3 e 4."
+    },
+    {
+      "id": "3RKjclErNMo",
+      "titulo": "COMPRIMENTO DA CIRCUNFERÊNCIA EXERCÍCIOS | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só exercícios de comprimento, resolvidos devagar. Bom para treinar a lição 3 antes de passar para a área."
+    },
+    {
+      "id": "ZJvkD2zEFVQ",
+      "titulo": "CIRCUNFERÊNCIA E CÍRCULO | RÁPIDO e FÁCIL",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Revisão rápida com os tipos de exercício mais cobrados em prova. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "circunferencia-circulo", "arquivo": "/dados/licoes/circunferencia/circunferencia-circulo.json" },
+    { "id": "o-numero-pi", "arquivo": "/dados/licoes/circunferencia/o-numero-pi.json" },
+    { "id": "comprimento", "arquivo": "/dados/licoes/circunferencia/comprimento.json" },
+    { "id": "area", "arquivo": "/dados/licoes/circunferencia/area.json" },
+    { "id": "dobrar-o-raio", "arquivo": "/dados/licoes/circunferencia/dobrar-o-raio.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/circunferencia/problemas.json" }
+  ]
+}

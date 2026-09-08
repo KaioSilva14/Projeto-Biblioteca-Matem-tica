@@ -1,0 +1,199 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "Quando a resposta é um intervalo",
+  "pergunta": "E quando a resposta não é um número só?",
+  "ideia": {
+    "paragrafos": [
+      "Uma equação pergunta qual valor deixa os dois lados iguais, e a resposta costuma ser um número. Mas muita pergunta da vida não é assim. \"Tendo R$ 50, quanto posso gastar?\" não tem uma resposta — tem um monte delas, e todas valem.",
+      "Uma INEQUAÇÃO é igualzinha a uma equação, com um sinal de desigualdade no lugar do igual. São quatro: < é menor que, > é maior que, ≤ é menor ou igual a, e ≥ é maior ou igual a.",
+      "A balança volta, agora fora do equilíbrio. Se x + 2 < 10, o prato da esquerda é o mais leve, e a travessa pende para o outro lado. Não há empate, e é exatamente isso que a inequação afirma.",
+      "A resposta de uma inequação é um CONJUNTO de valores. Em x < 5 servem o 4, o 3, o 0, o −7 e também o 4,9 — todos os números menores que 5, sem exceção e sem fim.",
+      "Os dois pares de símbolos não são a mesma coisa, e a diferença aparece na vida real. \"Menos de 18 anos\" deixa quem tem 18 de fora; \"no máximo 18 anos\" inclui essa pessoa. É um risquinho embaixo do sinal, e ele muda quem entra."
+    ],
+    "destaque": "Equação tem resposta; inequação tem conjunto de respostas.",
+    "imagem": "in-ideia-balanca"
+  },
+  "resolvido": {
+    "enunciado": "Quais números inteiros de 0 a 10 tornam verdadeira a inequação x + 3 < 8?",
+    "imagem": "in-res-testar",
+    "passos": [
+      {
+        "titulo": "Leia o que a inequação afirma",
+        "explicacao": "Ela não diz que x mais 3 é igual a 8: diz que fica ABAIXO de 8. Empatar em 8 já não serve, porque o sinal é o de menor estrito.",
+        "conta": "x + 3 < 8"
+      },
+      {
+        "titulo": "Teste alguns valores",
+        "explicacao": "Substituir e comparar é o mesmo método de testar uma equação, agora olhando para o lado da desigualdade em vez do empate.",
+        "conta": "x=1 → 4 < 8 ✓ · x=4 → 7 < 8 ✓"
+      },
+      {
+        "titulo": "Ache a fronteira",
+        "explicacao": "Em x = 5 os dois lados empatam em 8, e empate não vale para o sinal <. Então o 5 é justamente onde a coisa deixa de funcionar.",
+        "conta": "x=5 → 8 < 8 ✗"
+      },
+      {
+        "titulo": "Escreva o conjunto",
+        "explicacao": "Todos os inteiros do intervalo pedido que ficam abaixo da fronteira, sem incluir a própria fronteira.",
+        "conta": "0, 1, 2, 3, 4 → cinco valores"
+      }
+    ],
+    "fecho": "Se o sinal fosse ≤, o 5 entraria e seriam seis valores. Um risquinho muda a resposta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O que a inequação 2x > 10 afirma?",
+      "imagem": "in-q-2x10",
+      "dica": "Leia símbolo por símbolo: o que é 2x, e o que o sinal > está dizendo sobre ele?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que o dobro de x é maior que 10" },
+        { "rotulo": "B", "texto": "Que o dobro de x é igual a 10" },
+        { "rotulo": "C", "texto": "Que x é maior que 10" },
+        { "rotulo": "D", "texto": "Que x vale exatamente 5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que o dobro de x é igual a 10",
+          "porque": "Isso seria a equação 2x = 10, com resposta única. O sinal escrito é o de maior, e ele afirma que um lado passa do outro — nunca que os dois empatam."
+        },
+        {
+          "resposta": "Que x é maior que 10",
+          "porque": "Quem passa de 10 é o DOBRO de x, e não o x sozinho. Com x = 6, o dobro dá 12 e a inequação é verdadeira, embora 6 não seja maior que 10."
+        },
+        {
+          "resposta": "Que x vale exatamente 5",
+          "porque": "O 5 é a fronteira, o valor em que o dobro empata com 10. Como o sinal é de maior estrito, ele é justamente o valor que NÃO serve."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza cada pedaço",
+          "explicacao": "O 2 encostado no x quer dizer multiplicação, e o sinal > compara os dois lados.",
+          "conta": "2x = o dobro de x"
+        },
+        {
+          "titulo": "Leia a afirmação inteira",
+          "explicacao": "A inequação diz que esse dobro fica acima de 10, seja qual for o x que satisfaça isso.",
+          "conta": "dobro de x > 10"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Testando x = 4, x = 7 e x = 10 na inequação 3x > 20, quantos desses três valores servem? Digite apenas o número.",
+      "imagem": "in-q-testar-tres",
+      "dica": "Calcule o triplo de cada um e veja quais passam de 20.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "Três seria se todos servissem, mas o triplo de 4 é 12, e 12 não passa de 20. Só os dois maiores conseguem ultrapassar a marca."
+        },
+        {
+          "resposta": "1",
+          "porque": "Um seria se apenas o maior servisse. O triplo de 7 é 21, que já passa de 20 — por pouco, mas passa, e isso basta para o sinal de maior."
+        },
+        {
+          "resposta": "0",
+          "porque": "Zero diria que nenhum serve. Os triplos de 7 e de 10 dão 21 e 30, e os dois ficam acima de 20."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule o triplo de cada um",
+          "explicacao": "Substituir é o mesmo trabalho de sempre; o que muda é a comparação no fim.",
+          "conta": "12 · 21 · 30"
+        },
+        {
+          "titulo": "Compare cada resultado com 20",
+          "explicacao": "Só entram os que ficam acima de 20, sem empatar.",
+          "conta": "12 ✗ · 21 ✓ · 30 ✓ → 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é o menor número INTEIRO que torna verdadeira a inequação x > 4,5? Digite apenas o número.",
+      "imagem": "in-q-menor-inteiro",
+      "dica": "Ande na reta para a direita a partir de 4,5 e pare no primeiro inteiro que aparecer.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é menor que 4,5, e não maior. Na reta ele fica à ESQUERDA da fronteira, ou seja, do lado que a inequação não aceita."
+        },
+        {
+          "resposta": "4.5",
+          "porque": "4,5 não é inteiro, e além disso ele empata com a fronteira — e o sinal é de maior estrito, que não aceita empate."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 serve, mas não é o MENOR que serve. Entre 4,5 e 6 ainda existe o 5, que também é inteiro e também é maior que 4,5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize a fronteira",
+          "explicacao": "O 4,5 fica exatamente entre o 4 e o 5, e ele próprio não faz parte da resposta.",
+          "conta": "4 · 4,5 · 5"
+        },
+        {
+          "titulo": "Ande para o lado que serve",
+          "explicacao": "O sinal é de maior, então a resposta está à direita. O primeiro inteiro dessa direção é o 5.",
+          "conta": "5 > 4,5 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantas soluções tem a inequação x < 5?",
+      "imagem": "in-q-quantas",
+      "dica": "Pense se dá para listar todas. Lembre que os números não são só os inteiros.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Infinitas: todos os números menores que 5" },
+        { "rotulo": "B", "texto": "Uma só: o número 4" },
+        { "rotulo": "C", "texto": "Cinco: 0, 1, 2, 3 e 4" },
+        { "rotulo": "D", "texto": "Nenhuma, porque falta um sinal de igual" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Uma só: o número 4",
+          "porque": "Confunde inequação com equação. O 4 serve, mas o 3 também, e o 0, e o −12, e o 4,9 — nada na inequação escolhe um valor entre eles."
+        },
+        {
+          "resposta": "Cinco: 0, 1, 2, 3 e 4",
+          "porque": "Lista só os inteiros de 0 a 4 e esquece dois grupos enormes: os negativos, que também são menores que 5, e os quebrados, como 4,7."
+        },
+        {
+          "resposta": "Nenhuma, porque falta um sinal de igual",
+          "porque": "O sinal de desigualdade não é uma equação incompleta: ele é uma afirmação por si só. E ela é verdadeira para uma infinidade de valores."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe a reta",
+          "explicacao": "Tudo o que está à esquerda do 5 serve, e essa parte da reta não tem fim.",
+          "conta": "… −3, 0, 2, 4, 4,9 …"
+        },
+        {
+          "titulo": "Lembre dos quebrados",
+          "explicacao": "Entre dois inteiros quaisquer ainda cabem infinitos números, e todos eles contam.",
+          "conta": "4,5 · 4,9 · 4,99 …"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "A resposta não é uma lista: é um pedaço inteiro da reta.",
+          "conta": "infinitas soluções"
+        }
+      ]
+    }
+  ]
+}

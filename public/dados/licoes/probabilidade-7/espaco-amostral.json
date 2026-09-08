@@ -1,0 +1,191 @@
+{
+  "id": "espaco-amostral",
+  "numero": 2,
+  "titulo": "Contar todos os casos possíveis",
+  "pergunta": "Qual é a parte difícil da probabilidade?",
+  "ideia": {
+    "paragrafos": [
+      "A fórmula da probabilidade é uma divisão, e dividir é fácil. O trabalho de verdade está antes: descobrir quantos casos POSSÍVEIS existem. Errar essa contagem estraga tudo o que vem depois, por mais certa que a divisão esteja.",
+      "O conjunto de todos os resultados possíveis tem nome: ESPAÇO AMOSTRAL. Numa moeda ele tem dois elementos — cara e coroa. Num dado, seis. Numa urna com dez bolas, dez. Quando o experimento é simples assim, contar é só olhar.",
+      "A dificuldade aparece quando duas coisas acontecem juntas. Jogar uma moeda E um dado não dá 2 nem 6 resultados: dá 12, porque cada resultado da moeda pode vir acompanhado de cada resultado do dado. Cara com 1, cara com 2, e assim por diante até coroa com 6.",
+      "Essa é a regra que resolve quase tudo: o PRINCÍPIO MULTIPLICATIVO. Se uma escolha tem m possibilidades e outra tem n, as duas juntas têm m × n. Duas camisas e três calças dão seis combinações — e dá para desenhar o retângulo de duas linhas por três colunas e contar os pontinhos.",
+      "Quando a contagem fica confusa, listar resolve. Escrever todos os casos numa tabela ou numa grade é lento, mas nunca engana — e é exatamente o que a lição 5 vai fazer com os dois dados, onde a intuição erra feio."
+    ],
+    "destaque": "Duas escolhas independentes de m e n possibilidades dão m × n casos.",
+    "imagem": "pb-ideia-espaco"
+  },
+  "resolvido": {
+    "enunciado": "Uma pessoa tem 2 camisas e 3 calças. Quantas combinações diferentes de roupa ela pode montar?",
+    "imagem": "pb-res-combinacoes",
+    "passos": [
+      {
+        "titulo": "Separe as duas escolhas",
+        "explicacao": "São duas decisões independentes: qual camisa e qual calça. Uma não interfere na outra.",
+        "conta": "2 camisas · 3 calças"
+      },
+      {
+        "titulo": "Veja quantas opções cada camisa abre",
+        "explicacao": "Escolhida uma camisa, ainda restam três calças para combinar com ela. O mesmo vale para a outra camisa.",
+        "conta": "cada camisa → 3 combinações"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Duas camisas, cada uma com três possibilidades, dão o total de combinações.",
+        "conta": "2 × 3 = 6"
+      },
+      {
+        "titulo": "Confira listando",
+        "explicacao": "Quando o número é pequeno, listar tudo é a conferência mais segura que existe.",
+        "conta": "C1P1, C1P2, C1P3, C2P1, C2P2, C2P3 ✓"
+      }
+    ],
+    "fecho": "O retângulo de 2 por 3 na figura é a própria conta: contar os pontinhos dá o mesmo que multiplicar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Jogando uma moeda e um dado ao mesmo tempo, quantos resultados diferentes são possíveis? Digite apenas o número.",
+      "imagem": "pb-q-moeda-dado",
+      "dica": "Para cada resultado da moeda, quantos resultados o dado pode dar?",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "resultados",
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 soma 2 com 6 em vez de multiplicar. As duas coisas acontecem JUNTAS, então cada resultado da moeda se combina com cada resultado do dado."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 conta só os resultados do dado e esquece a moeda. Sair cara com 3 e sair coroa com 3 são resultados diferentes do experimento."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 conta só os resultados da moeda. O dado também está sendo jogado, e o resultado dele faz parte de cada caso possível."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte cada experimento",
+          "explicacao": "A moeda tem dois resultados e o dado tem seis.",
+          "conta": "2 e 6"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cada resultado da moeda pode vir com qualquer resultado do dado.",
+          "conta": "2 × 6 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um cardápio tem 4 tipos de lanche e 3 tipos de suco. Quantos pedidos diferentes de lanche com suco dá para fazer? Digite apenas o número.",
+      "imagem": "pb-q-cardapio",
+      "dica": "Cada lanche pode ser pedido com qualquer um dos sucos.",
+      "formato": "numero",
+      "resposta": 12,
+      "unidade": "pedidos",
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 soma 4 com 3, mas as escolhas são combinadas e não somadas. Somar responderia \"quantos itens há no cardápio\", que é outra pergunta."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 conta só os lanches. Cada um deles pode ser pedido com três sucos diferentes, o que triplica a quantidade de pedidos possíveis."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 seria o caso de haver um lanche e um suco só. Com quatro e três opções, há bem mais combinações — basta imaginar a grade de 4 por 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe as escolhas",
+          "explicacao": "Escolher o lanche e escolher o suco são decisões independentes.",
+          "conta": "4 lanches · 3 sucos"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cada lanche abre três possibilidades de pedido.",
+          "conta": "4 × 3 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Como se chama o conjunto de todos os resultados possíveis de um experimento?",
+      "imagem": "pb-q-nome",
+      "dica": "É o nome que dá o denominador da fração da probabilidade.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Espaço amostral" },
+        { "rotulo": "B", "texto": "Casos favoráveis" },
+        { "rotulo": "C", "texto": "Probabilidade" },
+        { "rotulo": "D", "texto": "Frequência" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Casos favoráveis",
+          "porque": "Os favoráveis são só os resultados que interessam para a pergunta — eles formam uma parte do espaço amostral, e vão no numerador da fração."
+        },
+        {
+          "resposta": "Probabilidade",
+          "porque": "A probabilidade é o número que sai da divisão, e não o conjunto dos resultados. O espaço amostral é o que fornece o denominador dela."
+        },
+        {
+          "resposta": "Frequência",
+          "porque": "Frequência é quantas vezes algo aconteceu de verdade, contando repetições observadas. O espaço amostral lista o que PODE acontecer, antes de qualquer experimento."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o conjunto reúne",
+          "explicacao": "Ele lista tudo o que pode sair, sem escolher o que interessa.",
+          "conta": "todos os resultados possíveis"
+        },
+        {
+          "titulo": "Dê o nome",
+          "explicacao": "Esse conjunto é o espaço amostral, e o tamanho dele vai no denominador.",
+          "conta": "espaço amostral"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Jogando duas moedas, quantos resultados diferentes são possíveis? Digite apenas o número.",
+      "imagem": "pb-q-duas-moedas",
+      "dica": "Cuidado: cara-coroa e coroa-cara são resultados diferentes, porque as moedas são duas.",
+      "formato": "numero",
+      "resposta": 4,
+      "unidade": "resultados",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 conta os resultados de UMA moeda. Com duas, cada resultado da primeira se combina com cada resultado da segunda."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 conta duas caras, duas coroas e \"uma de cada\" como um caso só. Mas cara-coroa e coroa-cara são resultados diferentes, porque as moedas são distinguíveis."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 seria o total com TRÊS moedas, porque 2 × 2 × 2 dá 8. Com duas moedas são apenas dois fatores na multiplicação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique o princípio",
+          "explicacao": "Cada moeda tem dois resultados, e as duas são jogadas juntas.",
+          "conta": "2 × 2 = 4"
+        },
+        {
+          "titulo": "Confira listando",
+          "explicacao": "Com números pequenos, listar é a conferência mais segura.",
+          "conta": "CC, CK, KC, KK"
+        }
+      ]
+    }
+  ]
+}

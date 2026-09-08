@@ -1,0 +1,201 @@
+{
+  "id": "soma-triangulo",
+  "numero": 2,
+  "titulo": "Os três ângulos somam 180°",
+  "pergunta": "Por que a soma dá sempre o mesmo, em qualquer triângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Desenhe um triângulo qualquer, meça os três ângulos e some: dá 180°. Desenhe outro, bem diferente, e some de novo: 180° outra vez. Isso não é coincidência nem aproximação de medição — é uma propriedade que vale para todo triângulo que existe, e a matéria passada permite demonstrá-la.",
+      "A demonstração cabe numa figura. Trace, pelo vértice de cima, uma reta PARALELA à base do triângulo. Agora os dois lados que sobem até esse vértice viraram transversais, cortando duas paralelas — que é exatamente a situação da matéria anterior.",
+      "Olhe o que aparece na paralela de cima. De um lado, um ângulo alterno interno do ângulo da base esquerda: os dois são iguais. Do outro, um alterno interno do ângulo da base direita: iguais também. E no meio, o próprio ângulo do vértice de cima.",
+      "Os três, lado a lado sobre a reta paralela, formam um ângulo raso — meia volta, 180°. Como dois deles são cópias dos ângulos da base, a soma dos três ângulos do triângulo é essa mesma meia volta.",
+      "Daí sai o uso prático: conhecendo dois ângulos de um triângulo, o terceiro está determinado. E daí sai também o que a lição 1 prometeu explicar — dois ângulos retos já somariam 180° sozinhos, sem sobrar nada para o terceiro, então nenhum triângulo pode ter dois."
+    ],
+    "destaque": "A soma é 180° porque os três ângulos formam um raso sobre uma paralela.",
+    "imagem": "tq-ideia-soma180"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo tem dois ângulos medindo 50° e 60°. Quanto mede o terceiro?",
+    "imagem": "tq-res-soma180",
+    "passos": [
+      {
+        "titulo": "Escreva a relação",
+        "explicacao": "Os três ângulos internos de qualquer triângulo somam meia volta.",
+        "conta": "50 + 60 + x = 180"
+      },
+      {
+        "titulo": "Some o que já se conhece",
+        "explicacao": "Juntando os dois ângulos dados, sabe-se quanto do total já está ocupado.",
+        "conta": "50 + 60 = 110"
+      },
+      {
+        "titulo": "Complete a meia volta",
+        "explicacao": "O que falta para 180° é a medida do ângulo que sobrou.",
+        "conta": "180 − 110 = 70°"
+      },
+      {
+        "titulo": "Confira somando os três",
+        "explicacao": "Vale refazer a soma com o valor achado, para ver se ela fecha certo.",
+        "conta": "50 + 60 + 70 = 180 ✓"
+      }
+    ],
+    "fecho": "Como os três são menores que 90°, este triângulo é acutângulo — a lição 1 continua valendo aqui."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo tem dois ângulos medindo 45° e 65°. Quanto mede o terceiro? Digite apenas o número.",
+      "imagem": "tq-q-soma-45-65",
+      "dica": "Some os dois ângulos conhecidos e veja quanto falta para completar 180°.",
+      "formato": "numero",
+      "resposta": 70,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "110",
+          "porque": "110 é a soma dos dois ângulos dados, e não o terceiro. Esse valor é o que já está ocupado dos 180°: o terceiro é o que ainda falta."
+        },
+        {
+          "resposta": "250",
+          "porque": "250 completa 360° com os dois dados. A volta inteira vale para os ângulos em torno de um ponto; os de um triângulo somam meia volta."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 completa 90° com o 70°, ou sai de alguma conta com o ângulo reto. A relação do triângulo é com 180°, e não com 90°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os conhecidos",
+          "explicacao": "Os dois ângulos dados já ocupam parte do total.",
+          "conta": "45 + 65 = 110"
+        },
+        {
+          "titulo": "Complete até 180°",
+          "explicacao": "O que sobra da meia volta é o terceiro ângulo.",
+          "conta": "180 − 110 = 70°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo retângulo tem um ângulo de 35°, além do ângulo reto. Quanto mede o terceiro? Digite apenas o número.",
+      "imagem": "tq-q-retangulo",
+      "dica": "Num triângulo retângulo um dos ângulos já vale 90°. Some esse com o 35° antes de completar.",
+      "formato": "numero",
+      "resposta": 55,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "125",
+          "porque": "125 é a soma do ângulo reto com os 35°, ou seja, o quanto já está ocupado. O terceiro ângulo é o que falta para chegar a 180°."
+        },
+        {
+          "resposta": "145",
+          "porque": "145 completa 180° com apenas os 35°, esquecendo o ângulo reto. Num triângulo retângulo o 90° também entra na soma dos três."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 seria o caso de os dois ângulos não retos serem iguais. Aqui um deles vale 35°, então o outro precisa compensar a diferença."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre do ângulo reto",
+          "explicacao": "Num triângulo retângulo, um dos ângulos mede 90° por definição.",
+          "conta": "90 + 35 + x = 180"
+        },
+        {
+          "titulo": "Some e complete",
+          "explicacao": "O que já está ocupado sai do total, e sobra a medida procurada.",
+          "conta": "180 − 125 = 55°"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Os três somados têm de fechar meia volta.",
+          "conta": "90 + 35 + 55 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a soma dos ângulos internos de um triângulo é sempre 180°?",
+      "imagem": "tq-q-por-que-180",
+      "dica": "Pense na reta paralela traçada pelo vértice de cima, e no que ela cria com os lados do triângulo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque, traçando uma paralela por um vértice, os três formam um ângulo raso" },
+        { "rotulo": "B", "texto": "Porque 180 é a metade de 360, e o triângulo é metade de um quadrilátero" },
+        { "rotulo": "C", "texto": "Porque foi medido em muitos triângulos e sempre deu isso" },
+        { "rotulo": "D", "texto": "Porque cada ângulo mede 60°, e três vezes 60 dá 180" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque 180 é a metade de 360, e o triângulo é metade de um quadrilátero",
+          "porque": "Um quadrilátero de fato se divide em dois triângulos, e isso explica o 360° dele a partir do 180° do triângulo — mas na ordem inversa. O 180° é que precisa ser demonstrado primeiro."
+        },
+        {
+          "resposta": "Porque foi medido em muitos triângulos e sempre deu isso",
+          "porque": "Medir muitos casos sugere a propriedade, mas não prova. A demonstração com a paralela garante que vale para TODO triângulo, inclusive os que ninguém desenhou."
+        },
+        {
+          "resposta": "Porque cada ângulo mede 60°, e três vezes 60 dá 180",
+          "porque": "Só o equilátero tem os três ângulos de 60°. A soma dá 180° em qualquer triângulo, mesmo com os três ângulos bem diferentes entre si."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Trace a paralela",
+          "explicacao": "Passando pelo vértice de cima, paralela à base, os dois lados viram transversais.",
+          "conta": "duas paralelas e duas transversais"
+        },
+        {
+          "titulo": "Use os alternos internos",
+          "explicacao": "Os dois ângulos que aparecem na paralela são alternos internos dos ângulos da base, então repetem as medidas deles.",
+          "conta": "alternos são iguais"
+        },
+        {
+          "titulo": "Some sobre a reta",
+          "explicacao": "Os três ficam lado a lado sobre a paralela, formando meia volta.",
+          "conta": "a + c + b = 180°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo tem os três ângulos iguais. Quanto mede cada um? Digite apenas o número.",
+      "imagem": "tq-q-tres-iguais",
+      "dica": "Se os três são iguais, o total se reparte em três partes do mesmo tamanho.",
+      "formato": "numero",
+      "resposta": 60,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "90",
+          "porque": "Três ângulos de 90° somariam 270°, muito mais que os 180° disponíveis. Um triângulo nem pode ter dois ângulos retos, quanto mais três."
+        },
+        {
+          "resposta": "180",
+          "porque": "180° é a soma dos três, e não a medida de cada um. Um ângulo sozinho de 180° seria uma reta, e não caberia num triângulo."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 sai de dividir 360 por três. A soma dos ângulos de um triângulo é meia volta, e não a volta completa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a soma",
+          "explicacao": "Os três são iguais, então cada um vale a mesma coisa e juntos dão 180°.",
+          "conta": "3 × x = 180"
+        },
+        {
+          "titulo": "Reparta",
+          "explicacao": "Dividindo o total em três partes iguais.",
+          "conta": "180 ÷ 3 = 60°"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "paralelas",
+  "numero": 1,
+  "titulo": "Retas que nunca se encontram",
+  "pergunta": "O que muda quando duas retas são paralelas?",
+  "ideia": {
+    "paragrafos": [
+      "Duas retas num mesmo plano só têm dois destinos possíveis: ou elas se cruzam em algum ponto, ou não se cruzam nunca. As que se cruzam são chamadas CONCORRENTES; as que não se cruzam, por mais que sejam prolongadas, são PARALELAS.",
+      "Paralelas não é o mesmo que \"próximas\" nem que \"parecidas\". O que define é a distância entre elas ser sempre a mesma, em qualquer ponto. É por isso que os trilhos de um trem, as linhas de um caderno e as bordas de uma régua são paralelas — e é por isso que elas nunca se tocam.",
+      "Entre as concorrentes há um caso especial: quando os quatro ângulos formados são iguais, cada um mede 90° e as retas são PERPENDICULARES. Elas continuam sendo concorrentes; só se cruzam de um jeito particular.",
+      "Quando duas retas se cruzam, aparecem quatro ângulos, e eles não são independentes. Os que ficam um de frente para o outro são OPOSTOS PELO VÉRTICE e têm sempre a mesma medida. Os que ficam lado a lado são suplementares: somam 180°, porque juntos formam meia volta.",
+      "Isso já basta para descobrir os quatro ângulos sabendo apenas um. Se um deles mede 70°, o oposto também mede 70°, e os outros dois medem 110° cada. Uma medida só revela a figura inteira — e é essa ideia que a próxima lição estende para duas retas paralelas de uma vez."
+    ],
+    "destaque": "Opostos pelo vértice são iguais; vizinhos somam 180°.",
+    "imagem": "rp-ideia-paralelas"
+  },
+  "resolvido": {
+    "enunciado": "Duas retas se cruzam e um dos ângulos formados mede 70°. Quanto medem os outros três?",
+    "imagem": "rp-res-cruzadas",
+    "passos": [
+      {
+        "titulo": "Ache o oposto pelo vértice",
+        "explicacao": "O ângulo que fica exatamente de frente para o de 70° é oposto pelo vértice, e opostos pelo vértice têm sempre a mesma medida.",
+        "conta": "oposto = 70°"
+      },
+      {
+        "titulo": "Use a meia volta para o vizinho",
+        "explicacao": "O ângulo ao lado do de 70° completa com ele um meio giro, porque os dois juntos cobrem uma reta inteira.",
+        "conta": "180° − 70° = 110°"
+      },
+      {
+        "titulo": "O quarto sai do mesmo jeito",
+        "explicacao": "Ele é oposto pelo vértice ao de 110°, então repete essa medida.",
+        "conta": "quarto = 110°"
+      },
+      {
+        "titulo": "Confira somando tudo",
+        "explicacao": "Os quatro ângulos juntos cobrem uma volta completa, e volta completa é 360°.",
+        "conta": "70 + 110 + 70 + 110 = 360 ✓"
+      }
+    ],
+    "fecho": "Uma medida só revelou as quatro. É esse encadeamento que a matéria inteira vai usar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Duas retas se cruzam e um dos ângulos mede 35°. Quanto mede o ângulo oposto pelo vértice a ele? Digite apenas o número.",
+      "imagem": "rp-q-opv",
+      "dica": "Opostos pelo vértice ficam um de frente para o outro, e têm sempre a mesma medida.",
+      "formato": "numero",
+      "resposta": 35,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "145",
+          "porque": "145 é o suplementar, ou seja, o ângulo VIZINHO. Vizinhos somam 180°, mas o oposto pelo vértice fica de frente e repete a medida."
+        },
+        {
+          "resposta": "55",
+          "porque": "55 completa 90° com o 35°. A soma que aparece aqui é a de meia volta, 180°, e mesmo assim só entre vizinhos — o oposto nem precisa de soma."
+        },
+        {
+          "resposta": "325",
+          "porque": "325 completa a volta inteira, 360°. Isso seria o que sobra tirando um dos quatro ângulos, e não a medida de um deles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize o oposto",
+          "explicacao": "Ele é o que fica na diagonal, sem encostar no de 35° a não ser pelo ponto de cruzamento.",
+          "conta": "de frente para o de 35°"
+        },
+        {
+          "titulo": "Aplique a propriedade",
+          "explicacao": "Opostos pelo vértice são sempre iguais, sem exceção e sem conta.",
+          "conta": "35°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Duas retas se cruzam e um dos ângulos mede 35°. Quanto mede o ângulo vizinho a ele? Digite apenas o número.",
+      "imagem": "rp-q-vizinho",
+      "dica": "O ângulo vizinho, junto com o de 35°, cobre uma reta inteira. Quantos graus tem meia volta?",
+      "formato": "numero",
+      "resposta": 145,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "35",
+          "porque": "35 é a medida do oposto pelo vértice, e não do vizinho. Vizinhos formam juntos uma reta, então precisam somar 180° — dois de 35° dariam só 70°."
+        },
+        {
+          "resposta": "55",
+          "porque": "55 completa 90° com o 35°. Isso valeria se os dois juntos formassem um ângulo reto, mas eles formam meia volta, que é o dobro disso."
+        },
+        {
+          "resposta": "325",
+          "porque": "325 completa 360°. A volta inteira é formada pelos QUATRO ângulos, e não por apenas dois — dois vizinhos cobrem só metade dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que os dois formam juntos",
+          "explicacao": "Um ângulo e o vizinho dele, somados, cobrem exatamente uma reta.",
+          "conta": "35° + vizinho = 180°"
+        },
+        {
+          "titulo": "Complete a meia volta",
+          "explicacao": "O que falta para 180° é a medida procurada.",
+          "conta": "180 − 35 = 145°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que são retas paralelas?",
+      "imagem": "rp-q-o-que-sao",
+      "dica": "Pense no que acontece se as duas retas forem prolongadas para sempre, nos dois sentidos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Retas de um mesmo plano que nunca se cruzam" },
+        { "rotulo": "B", "texto": "Retas que se cruzam formando ângulos de 90°" },
+        { "rotulo": "C", "texto": "Retas que estão muito próximas uma da outra" },
+        { "rotulo": "D", "texto": "Retas que têm o mesmo comprimento" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Retas que se cruzam formando ângulos de 90°",
+          "porque": "Essas são as PERPENDICULARES, que são um caso de retas concorrentes. Paralelas são justamente as que não se cruzam em ponto nenhum."
+        },
+        {
+          "resposta": "Retas que estão muito próximas uma da outra",
+          "porque": "Distância pequena não faz paralelismo. Duas retas podem estar próximas e ainda assim se cruzarem um pouco adiante, se não mantiverem a mesma distância."
+        },
+        {
+          "resposta": "Retas que têm o mesmo comprimento",
+          "porque": "Reta não tem comprimento: ela continua para sempre nos dois sentidos. O que se mede é a distância ENTRE as duas, e é ela que se mantém constante."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe os dois destinos possíveis",
+          "explicacao": "Duas retas de um mesmo plano ou se cruzam em algum ponto, ou não se cruzam nunca.",
+          "conta": "concorrentes ou paralelas"
+        },
+        {
+          "titulo": "Fique com o segundo caso",
+          "explicacao": "As que nunca se cruzam mantêm a mesma distância em qualquer ponto, por mais que sejam prolongadas.",
+          "conta": "paralelas"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quanto mede cada um dos ângulos formados por duas retas perpendiculares? Digite apenas o número.",
+      "imagem": "rp-q-perpendiculares",
+      "dica": "Nas perpendiculares os quatro ângulos são iguais, e juntos eles fecham uma volta completa.",
+      "formato": "numero",
+      "resposta": 90,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "180",
+          "porque": "180° é meia volta, formada por DOIS dos quatro ângulos juntos. Cada um deles sozinho vale a metade disso."
+        },
+        {
+          "resposta": "360",
+          "porque": "360° é a volta inteira, formada pelos quatro ângulos somados. Como eles são iguais, cada um vale um quarto desse total."
+        },
+        {
+          "resposta": "45",
+          "porque": "45° seria o caso de OITO ângulos iguais fechando a volta. Duas retas se cruzando formam quatro, e 360 dividido por 4 dá o dobro disso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os ângulos",
+          "explicacao": "Duas retas que se cruzam formam quatro ângulos em volta do ponto.",
+          "conta": "4 ângulos"
+        },
+        {
+          "titulo": "Reparta a volta completa",
+          "explicacao": "Nas perpendiculares os quatro são iguais, então a volta se divide em quatro partes iguais.",
+          "conta": "360 ÷ 4 = 90°"
+        }
+      ]
+    }
+  ]
+}

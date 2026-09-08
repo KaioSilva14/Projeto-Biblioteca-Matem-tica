@@ -1,0 +1,198 @@
+{
+  "id": "mediana",
+  "numero": 3,
+  "titulo": "A mediana, o valor do meio",
+  "pergunta": "Como achar o meio de um conjunto de dados?",
+  "ideia": {
+    "paragrafos": [
+      "A mediana é o valor que fica exatamente no meio dos dados, depois de colocá-los em ordem. Metade do conjunto está abaixo dela e metade está acima — é uma medida de POSIÇÃO, e não de nivelamento.",
+      "O primeiro passo é sempre ordenar, e não dá para pular. Uma lista embaralhada tem um valor no meio que não significa nada: o meio da lista só vira o meio dos dados depois que eles estão em ordem crescente.",
+      "Com uma quantidade ÍMPAR de valores, existe um do meio, e ele é a mediana. Em 3, 5, 7, 9 e 11 o terceiro valor é o 7: sobram dois abaixo e dois acima.",
+      "Com quantidade PAR não existe um só do meio — existem dois. A mediana é a média desses dois. Em 2, 4, 6, 8, 10 e 12 os do meio são 6 e 8, e a mediana é 7. Repare que o 7 não está na lista, e isso é normal.",
+      "A força da mediana é justamente o que ela ignora. Ela não olha o TAMANHO dos valores, só a posição deles. Trocar o maior número da lista por outro dez vezes maior não move a mediana um centímetro — e é por isso que ela resiste a valores destoantes, ao contrário da média."
+    ],
+    "destaque": "Ordene primeiro. Com quantidade par, a mediana é a média dos dois do meio.",
+    "imagem": "es-ideia-mediana"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a mediana dos números 3, 5, 7, 9 e 11?",
+    "imagem": "es-res-mediana",
+    "passos": [
+      {
+        "titulo": "Coloque em ordem",
+        "explicacao": "A mediana só faz sentido com os dados ordenados. Aqui eles já vieram em ordem crescente, mas conferir custa nada.",
+        "conta": "3, 5, 7, 9, 11"
+      },
+      {
+        "titulo": "Conte quantos são",
+        "explicacao": "A quantidade decide o caminho: ímpar tem um do meio, par tem dois.",
+        "conta": "5 valores → ímpar"
+      },
+      {
+        "titulo": "Ache a posição central",
+        "explicacao": "Com cinco valores, o do meio é o terceiro — sobram dois de cada lado.",
+        "conta": "3, 5, [7], 9, 11"
+      },
+      {
+        "titulo": "Confira o equilíbrio",
+        "explicacao": "Metade dos dados tem de ficar abaixo da mediana e metade acima.",
+        "conta": "2 abaixo · 2 acima ✓"
+      }
+    ],
+    "fecho": "Se o 11 virasse 110, a mediana continuaria 7. A média saltaria de 7 para 26,8."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a mediana dos números 2, 4, 6, 8, 10 e 12? Digite apenas o número.",
+      "imagem": "es-q-mediana-par",
+      "dica": "São seis valores, uma quantidade par. Quantos ficam no meio, e o que se faz com eles?",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é apenas o primeiro dos dois valores centrais. Com quantidade par, a mediana é a média dos DOIS do meio, e não um deles escolhido."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o segundo dos dois valores centrais. Como são seis números, o meio cai entre o 6 e o 8, e a mediana é a média dos dois."
+        },
+        {
+          "resposta": "42",
+          "porque": "42 é a SOMA de todos os valores. A mediana é uma medida de posição: ela não soma o conjunto inteiro, só olha o centro da lista ordenada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a ordem e a quantidade",
+          "explicacao": "Os valores já estão em ordem, e são seis — quantidade par.",
+          "conta": "6 valores → par"
+        },
+        {
+          "titulo": "Ache os dois do meio",
+          "explicacao": "Com seis valores, o terceiro e o quarto são os centrais.",
+          "conta": "2, 4, [6, 8], 10, 12"
+        },
+        {
+          "titulo": "Tire a média deles",
+          "explicacao": "A mediana é o ponto entre os dois valores centrais.",
+          "conta": "(6 + 8) ÷ 2 = 7"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a mediana dos números 5, 1, 9, 3 e 7? Digite apenas o número.",
+      "imagem": "es-q-mediana-desordenada",
+      "dica": "Cuidado: a lista não está em ordem. Ordene antes de procurar o do meio.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é o valor que está no meio da lista COMO ELA FOI ESCRITA, sem ordenar. A posição central só vale depois que os dados são colocados em ordem crescente."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é a soma dos cinco valores. A mediana não soma nada: ela olha a posição do valor central na lista ordenada."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é a diferença entre valores vizinhos, ou alguma conta com os extremos. A mediana é um dos próprios valores, quando a quantidade é ímpar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ordene",
+          "explicacao": "Este é o passo que a lista embaralhada exige, e o que mais se esquece.",
+          "conta": "1, 3, 5, 7, 9"
+        },
+        {
+          "titulo": "Pegue o do meio",
+          "explicacao": "São cinco valores, então o terceiro é o central.",
+          "conta": "1, 3, [5], 7, 9"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a mediana dos números 10, 20, 30 e 40? Digite apenas o número.",
+      "imagem": "es-q-mediana-quatro",
+      "dica": "Quatro valores: quantidade par de novo. A mediana pode não estar na lista.",
+      "formato": "numero",
+      "resposta": 25,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o primeiro dos dois valores centrais. Com quantidade par, é preciso tirar a média dos dois — e o resultado nem sempre está na lista."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é o segundo dos dois centrais. A mediana fica no ponto entre 20 e 30, e não em um deles."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é a soma dos quatro valores. Essa soma serviria para calcular a média (que também daria 25), mas a mediana se acha por posição, e não somando tudo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache os dois centrais",
+          "explicacao": "Com quatro valores em ordem, o segundo e o terceiro são os do meio.",
+          "conta": "10, [20, 30], 40"
+        },
+        {
+          "titulo": "Tire a média deles",
+          "explicacao": "A mediana é o ponto entre os dois, mesmo que ele não apareça na lista.",
+          "conta": "(20 + 30) ÷ 2 = 25"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa lista, o maior valor foi trocado por outro dez vezes maior. O que acontece com a mediana?",
+      "imagem": "es-q-mediana-resiste",
+      "dica": "Pense se a POSIÇÃO do valor do meio muda quando o maior valor cresce.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não muda, porque a mediana olha a posição e não o tamanho" },
+        { "rotulo": "B", "texto": "Fica dez vezes maior também" },
+        { "rotulo": "C", "texto": "Aumenta um pouco, mas não dez vezes" },
+        { "rotulo": "D", "texto": "Diminui, para compensar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Fica dez vezes maior também",
+          "porque": "Isso aconteceria se todos os valores fossem multiplicados. Só um mudou, e ele continua sendo o maior — a ordem não mudou, e o valor do meio é o mesmo."
+        },
+        {
+          "resposta": "Aumenta um pouco, mas não dez vezes",
+          "porque": "É o que acontece com a MÉDIA, que soma todos os valores. A mediana não soma nada: ela só olha quem está no centro da lista ordenada."
+        },
+        {
+          "resposta": "Diminui, para compensar",
+          "porque": "Nenhuma medida de tendência central diminui quando um valor aumenta. A mediana simplesmente não se move, porque a posição central continua ocupada pelo mesmo número."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que muda na ordem",
+          "explicacao": "O maior valor continua sendo o maior, então a posição de todos os outros permanece igual.",
+          "conta": "a ordem não muda"
+        },
+        {
+          "titulo": "Olhe o centro",
+          "explicacao": "O valor do meio é o mesmo de antes, porque nada trocou de lugar.",
+          "conta": "mediana igual"
+        },
+        {
+          "titulo": "Compare com a média",
+          "explicacao": "A média usaria o novo valor na soma e subiria bastante — é essa diferença que dá utilidade à mediana.",
+          "conta": "média sobe · mediana fica"
+        }
+      ]
+    }
+  ]
+}

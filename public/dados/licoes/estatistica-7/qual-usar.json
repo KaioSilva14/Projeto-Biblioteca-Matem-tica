@@ -1,0 +1,196 @@
+{
+  "id": "qual-usar",
+  "numero": 5,
+  "titulo": "Quando a média engana",
+  "pergunta": "Qual dos três resumos escolher?",
+  "ideia": {
+    "paragrafos": [
+      "Imagine uma empresa com cinco pessoas, ganhando 2, 2, 2, 2 e 42 mil reais por mês. A média dá 10 mil. E essa média, apesar de calculada certinho, descreve mal a empresa: quatro das cinco pessoas ganham muito menos que isso, e ninguém ganha exatamente 10.",
+      "O culpado é o 42, um valor que destoa de todos os outros. Como a média soma tudo, um único valor extremo puxa o resultado inteiro — e quanto menor o conjunto, mais ele puxa. A mediana desse mesmo grupo é 2 mil, e essa sim descreve o que a maioria vive.",
+      "Daí sai a regra prática mais útil desta matéria: quando o conjunto tem valores muito destoantes, prefira a MEDIANA. Quando os valores são parecidos entre si, tanto faz — média e mediana ficam próximas, e a média é mais fácil de calcular.",
+      "A moda entra por outro caminho. Ela é a escolha quando a pergunta é sobre o que mais aparece, e a única possível quando os dados não são números. Ninguém pergunta a cor média das camisetas vendidas.",
+      "E vale desconfiar de manchete com média, porque a escolha do resumo é uma decisão de quem escreve. \"Renda média cresceu\" pode ser verdade enquanto a maioria ficou igual ou piorou, se o crescimento se concentrou em poucos. Perguntar pela mediana é a defesa."
+    ],
+    "destaque": "Com valores destoantes, use a mediana. A média sente o extremo; a mediana não.",
+    "imagem": "es-ideia-engana"
+  },
+  "resolvido": {
+    "enunciado": "Numa empresa de cinco pessoas, os salários são 2, 2, 2, 2 e 42 mil reais. Calcule a média e a mediana, e decida qual descreve melhor a empresa.",
+    "imagem": "es-res-engana",
+    "passos": [
+      {
+        "titulo": "Calcule a média",
+        "explicacao": "Somando tudo e dividindo por cinco, como sempre. O 42 entra na soma com todo o seu peso.",
+        "conta": "(2+2+2+2+42) ÷ 5 = 50 ÷ 5 = 10"
+      },
+      {
+        "titulo": "Calcule a mediana",
+        "explicacao": "Os valores já estão em ordem, e são cinco: o do meio é o terceiro.",
+        "conta": "2, 2, [2], 2, 42 → 2"
+      },
+      {
+        "titulo": "Compare com a realidade do grupo",
+        "explicacao": "Quatro das cinco pessoas ganham 2 mil. A média de 10 mil não descreve nenhuma delas, e nem sequer é um valor que alguém receba.",
+        "conta": "4 de 5 ganham 2 mil"
+      },
+      {
+        "titulo": "Escolha o resumo",
+        "explicacao": "A mediana representa o que a maioria vive; a média foi distorcida por um único salário muito alto.",
+        "conta": "a mediana (2 mil) descreve melhor"
+      }
+    ],
+    "fecho": "A média não está errada — ela responde outra pergunta. O erro é usá-la para descrever o salário típico."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa empresa, os salários são 2, 2, 2, 2 e 42 mil reais. Qual é a média? Digite apenas o número.",
+      "imagem": "es-q-salarios-media",
+      "dica": "Some os cinco salários e divida por cinco, mesmo que o resultado pareça estranho.",
+      "formato": "numero",
+      "resposta": 10,
+      "unidade": "mil reais",
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é a MEDIANA e também a moda desse conjunto, e ela de fato descreve melhor a empresa. Mas a pergunta é sobre a média, que soma todos os valores — inclusive o 42."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é a SOMA dos cinco salários. Falta dividir pela quantidade de pessoas para chegar à média."
+        },
+        {
+          "resposta": "22",
+          "porque": "22 é a média entre o menor e o maior salário. A média usa TODOS os valores, e não só os dois extremos — os quatro salários de 2 mil puxam o resultado para baixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os cinco",
+          "explicacao": "Todos entram na soma, inclusive o valor destoante.",
+          "conta": "2+2+2+2+42 = 50"
+        },
+        {
+          "titulo": "Divida por cinco",
+          "explicacao": "São cinco pessoas, então o total se reparte em cinco partes.",
+          "conta": "50 ÷ 5 = 10 mil"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Na mesma empresa, com salários 2, 2, 2, 2 e 42 mil, qual é a mediana? Digite apenas o número.",
+      "imagem": "es-q-salarios-mediana",
+      "dica": "São cinco valores em ordem. Qual deles ocupa a posição central?",
+      "formato": "numero",
+      "resposta": 2,
+      "unidade": "mil reais",
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é a MÉDIA desse conjunto. A mediana não soma nada: ela olha só qual valor está no meio da lista ordenada, e esse valor é 2."
+        },
+        {
+          "resposta": "42",
+          "porque": "42 é o maior salário, que fica na última posição. A mediana é o valor central — o terceiro de cinco —, e não o extremo."
+        },
+        {
+          "resposta": "22",
+          "porque": "22 é a média entre os dois extremos. A mediana com cinco valores é simplesmente o terceiro deles, sem nenhuma conta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a ordem",
+          "explicacao": "Os valores já estão em ordem crescente.",
+          "conta": "2, 2, 2, 2, 42"
+        },
+        {
+          "titulo": "Pegue o do meio",
+          "explicacao": "Com cinco valores, o terceiro é o central — dois abaixo e dois acima.",
+          "conta": "2, 2, [2], 2, 42 → 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num conjunto de dados com alguns valores muito destoantes dos demais, qual medida costuma descrever melhor o conjunto?",
+      "imagem": "es-q-qual-escolher",
+      "dica": "Pense em qual das duas é afetada pelo tamanho dos valores extremos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A mediana, porque ela não é afetada pelos valores extremos" },
+        { "rotulo": "B", "texto": "A média, porque ela usa todos os valores" },
+        { "rotulo": "C", "texto": "Tanto faz: as duas sempre dão resultados parecidos" },
+        { "rotulo": "D", "texto": "A moda, porque ela é a mais fácil de calcular" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A média, porque ela usa todos os valores",
+          "porque": "É verdade que ela usa todos, e esse é justamente o problema: um valor muito destoante entra na soma com todo o peso e desloca o resultado para longe da maioria."
+        },
+        {
+          "resposta": "Tanto faz: as duas sempre dão resultados parecidos",
+          "porque": "Elas ficam próximas em conjuntos bem comportados, mas podem ficar muito distantes com valores extremos — como os salários em que a média deu 10 e a mediana deu 2."
+        },
+        {
+          "resposta": "A moda, porque ela é a mais fácil de calcular",
+          "porque": "Facilidade de cálculo não é critério de escolha. A moda responde \"o que mais aparece\", que pode ser uma boa pergunta — mas não é a de descrever o valor típico com extremos presentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que cada uma usa",
+          "explicacao": "A média soma tudo, então o tamanho dos valores pesa. A mediana só olha a posição central.",
+          "conta": "soma × posição"
+        },
+        {
+          "titulo": "Aplique ao caso com extremos",
+          "explicacao": "Se um valor destoa muito, ele desloca a média e deixa a mediana intacta.",
+          "conta": "mediana resiste"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma notícia diz que a renda MÉDIA de um país cresceu. Isso garante que a maior parte da população melhorou de vida?",
+      "imagem": "es-q-manchete",
+      "dica": "Lembre do exemplo dos salários: a média subiu por causa de quantas pessoas?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: o crescimento pode estar concentrado em poucas pessoas" },
+        { "rotulo": "B", "texto": "Sim: se a média subiu, todos subiram" },
+        { "rotulo": "C", "texto": "Sim, desde que a população não tenha aumentado" },
+        { "rotulo": "D", "texto": "Não dá para saber nada com dados estatísticos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim: se a média subiu, todos subiram",
+          "porque": "A média sobe se a SOMA sobe, e a soma pode subir com um único valor aumentando muito. No exemplo dos salários, quatro pessoas ganham 2 mil e a média é 10."
+        },
+        {
+          "resposta": "Sim, desde que a população não tenha aumentado",
+          "porque": "O tamanho da população muda o divisor, mas não resolve o problema. Mesmo com população fixa, o crescimento da soma pode vir de poucos."
+        },
+        {
+          "resposta": "Não dá para saber nada com dados estatísticos",
+          "porque": "Dá, sim — desde que se peça o resumo certo. A mediana da renda responderia exatamente essa pergunta, dizendo o que acontece com quem está no meio."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre como a média sobe",
+          "explicacao": "Basta a soma total aumentar, e a soma pode crescer por causa de poucos valores.",
+          "conta": "soma sobe → média sobe"
+        },
+        {
+          "titulo": "Pergunte pelo outro resumo",
+          "explicacao": "A mediana diria o que aconteceu com quem está no meio da distribuição.",
+          "conta": "peça a mediana"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Círculos no mundo",
+  "pergunta": "Quando é comprimento e quando é área?",
+  "ideia": {
+    "paragrafos": [
+      "Fora da escola, ninguém pede \"calcule o comprimento da circunferência\". Pede para cercar um canteiro, para saber quanto uma roda anda, para escolher entre duas pizzas. O primeiro trabalho de todo problema é traduzir a situação numa das duas perguntas.",
+      "Um teste que quase nunca falha: se a coisa acontece na BORDA, é comprimento. Cercar, contornar, dar a volta, passar fita em volta, medir quanto a roda percorre — tudo isso é a linha. Se a coisa acontece na SUPERFÍCIE, é área. Pintar, cobrir, plantar, forrar, comparar o tamanho de duas pizzas.",
+      "Depois de escolher a pergunta, o cuidado é com o dado. Os dois cálculos usam medidas diferentes: o comprimento aceita raio ou diâmetro conforme a fórmula escolhida, e a área exige sempre o raio. Um enunciado que dá o diâmetro pede uma conversão antes de tudo.",
+      "A roda merece um parágrafo próprio, porque é o caso mais comum. Quando uma roda dá uma volta completa sem escorregar, ela percorre no chão exatamente o comprimento da circunferência dela. Por isso a distância de uma volta é πd — e o número de voltas para percorrer certa distância é essa distância dividida por πd.",
+      "E as fórmulas continuam funcionando ao contrário. Sabendo a área, dá para achar o raio: divida por π e tire a raiz quadrada. Sabendo o comprimento, divida por π para achar o diâmetro. É a mesma disciplina das equações — desfazer as operações na ordem inversa."
+    ],
+    "destaque": "Na borda é comprimento; na superfície é área.",
+    "imagem": "ci-ideia-borda-superficie"
+  },
+  "resolvido": {
+    "enunciado": "Uma roda de carrinho tem 50 cm de diâmetro. Quanto ela percorre em uma volta completa? Use π = 3,14.",
+    "imagem": "ci-res-roda",
+    "passos": [
+      {
+        "titulo": "Decida qual é a pergunta",
+        "explicacao": "A roda toca o chão pela borda, e é a borda que se desenrola conforme ela gira. Então a resposta é o comprimento da circunferência.",
+        "conta": "acontece na borda → comprimento"
+      },
+      {
+        "titulo": "Escolha a fórmula pelo dado",
+        "explicacao": "O enunciado deu o diâmetro, então a fórmula direta é a que usa o diâmetro.",
+        "conta": "C = π × d"
+      },
+      {
+        "titulo": "Calcule",
+        "explicacao": "Multiplicando o π pelo diâmetro.",
+        "conta": "3,14 × 50 = 157 cm"
+      },
+      {
+        "titulo": "Interprete a resposta",
+        "explicacao": "Uma volta completa da roda leva o carrinho 157 cm para a frente — pouco mais de um metro e meio.",
+        "conta": "157 cm por volta"
+      }
+    ],
+    "fecho": "Para saber quantas voltas dá em 10 metros, bastaria dividir 1000 cm por 157."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma pizza redonda tem 15 cm de raio. Qual é a área dela? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-pizza",
+      "dica": "A massa da pizza cobre uma superfície, e não uma linha. Qual das duas fórmulas responde isso?",
+      "formato": "numero",
+      "resposta": 706.5,
+      "unidade": "cm²",
+      "errosComuns": [
+        {
+          "resposta": "94.2",
+          "porque": "94,2 é o COMPRIMENTO da borda dessa pizza. Ele responderia quanto de recheio cabe na crosta, e não quanta massa há no total."
+        },
+        {
+          "resposta": "47.1",
+          "porque": "47,1 é π vezes o raio, sem elevar ao quadrado. Faltou a potência, que é justamente o que transforma a medida em área."
+        },
+        {
+          "resposta": "2826",
+          "porque": "2826 usa o diâmetro (30) no lugar do raio. Como a fórmula eleva ao quadrado, esse engano multiplica a resposta por quatro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida a pergunta",
+          "explicacao": "A massa cobre a superfície do disco, então é área.",
+          "conta": "A = π × r²"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Quadrado do raio primeiro, depois a multiplicação.",
+          "conta": "15² = 225 · 3,14 × 225 = 706,5 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um canteiro circular tem 10 m de raio e será cercado com tela. Quantos metros de tela são necessários? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-canteiro",
+      "dica": "A tela vai em volta do canteiro, acompanhando a borda.",
+      "formato": "numero",
+      "resposta": 62.8,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "314",
+          "porque": "314 é a ÁREA desse canteiro, em metros quadrados. Ela diria quanta grama plantar, mas a tela acompanha a borda, que é o comprimento."
+        },
+        {
+          "resposta": "31.4",
+          "porque": "31,4 é π vezes o raio, sem o 2. Como o enunciado deu o raio, a fórmula precisa dobrar — o π multiplica o diâmetro, que vale dois raios."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é o diâmetro do canteiro, e não a volta dele. A tela percorre o contorno curvo, que é pouco mais de três diâmetros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida a pergunta",
+          "explicacao": "Cercar acontece na borda, então é comprimento.",
+          "conta": "C = 2 × π × r"
+        },
+        {
+          "titulo": "Calcule",
+          "explicacao": "Com o raio dado, a fórmula com o 2 é a direta.",
+          "conta": "2 × 3,14 × 10 = 62,8 m"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um círculo tem área de 12,56 m². Qual é o raio dele? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ci-q-area-inversa",
+      "dica": "Desfaça as operações na ordem inversa: primeiro a multiplicação por π, depois o quadrado.",
+      "formato": "numero",
+      "resposta": 2,
+      "unidade": "metros",
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é o valor de r², e não de r. O último passo ficou faltando: tirar a raiz quadrada para desfazer a potência."
+        },
+        {
+          "resposta": "39.44",
+          "porque": "39,44 multiplica por π em vez de dividir. A multiplicação já foi feita para chegar à área — para desfazê-la é preciso dividir."
+        },
+        {
+          "resposta": "6.28",
+          "porque": "6,28 divide a área por 2 em vez de por π, ou mistura a fórmula do comprimento. A área usa π e o quadrado do raio, sem nenhum 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desfaça a multiplicação",
+          "explicacao": "Dividindo a área por π sobra o quadrado do raio.",
+          "conta": "12,56 ÷ 3,14 = 4"
+        },
+        {
+          "titulo": "Desfaça a potência",
+          "explicacao": "A raiz quadrada é o que desfaz o quadrado.",
+          "conta": "√4 = 2 m"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "Refazendo o caminho para a frente, a área tem de voltar a ser a do enunciado.",
+          "conta": "3,14 × 2² = 12,56 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma praça circular será cercada com grades e o chão dela será todo calçado. Que medidas o engenheiro precisa calcular?",
+      "imagem": "ci-q-praca",
+      "dica": "São duas coisas diferentes acontecendo: uma na borda e outra na superfície.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O comprimento para as grades e a área para o calçamento" },
+        { "rotulo": "B", "texto": "A área para as grades e o comprimento para o calçamento" },
+        { "rotulo": "C", "texto": "Só a área, porque ela já inclui a borda" },
+        { "rotulo": "D", "texto": "Só o comprimento, porque a praça é redonda" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A área para as grades e o comprimento para o calçamento",
+          "porque": "Inverte as duas. As grades ficam em volta, acompanhando a borda; o calçamento cobre o chão inteiro, que é a superfície."
+        },
+        {
+          "resposta": "Só a área, porque ela já inclui a borda",
+          "porque": "A área mede a região, mas não diz quantos metros tem o contorno. Para comprar grade é preciso saber o comprimento, em metros lineares."
+        },
+        {
+          "resposta": "Só o comprimento, porque a praça é redonda",
+          "porque": "O formato não decide nada aqui. Calçar o chão é cobrir uma superfície, e superfície se mede em metros quadrados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe as duas tarefas",
+          "explicacao": "Uma acontece no contorno e a outra no chão inteiro.",
+          "conta": "grades: borda · calçamento: superfície"
+        },
+        {
+          "titulo": "Escolha a fórmula de cada uma",
+          "explicacao": "Borda pede comprimento; superfície pede área.",
+          "conta": "C = 2πr · A = πr²"
+        },
+        {
+          "titulo": "Repare nas unidades",
+          "explicacao": "A grade é comprada em metros; o calçamento, em metros quadrados.",
+          "conta": "m e m²"
+        }
+      ]
+    }
+  ]
+}

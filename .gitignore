@@ -4,3 +4,6 @@ node_modules/
 logs/
 *.log
 npm-debug.log*
+CLAUDE.md
+ferramentas/.temp-imagens/
+ferramentas/.temp-auditoria/

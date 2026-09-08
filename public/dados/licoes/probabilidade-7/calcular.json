@@ -1,0 +1,189 @@
+{
+  "id": "calcular",
+  "numero": 3,
+  "titulo": "Calcular a probabilidade",
+  "pergunta": "E quando mais de um resultado serve?",
+  "ideia": {
+    "paragrafos": [
+      "Até agora os casos favoráveis eram um só: uma face do dado, uma cara da moeda. Mas a maioria das perguntas reais aceita vários resultados. \"Sair um número par\" num dado é satisfeito por 2, por 4 e por 6 — são três casos favoráveis, e não um.",
+      "O método não muda: continua sendo contar os favoráveis e dividir pelos possíveis. O que muda é o cuidado na primeira contagem, porque agora é preciso listar todos os resultados que satisfazem a condição, sem esquecer nenhum e sem contar duas vezes.",
+      "No dado, sair par dá 3 favoráveis em 6 possíveis, ou seja, 3/6 — que simplifica para 1/2, ou meio a meio. Faz sentido: metade das faces é par. Simplificar a fração costuma revelar o significado.",
+      "Vale sempre conferir com o bom senso. Uma probabilidade de 1/2 quer dizer que, jogando muitas vezes, aquilo acontece em cerca de metade delas. Se o número que saiu não combina com a sua intuição sobre o experimento, vale recontar os favoráveis.",
+      "E há um atalho útil: a probabilidade de algo NÃO acontecer é 1 menos a probabilidade de acontecer. Se sair um número maior que 4 tem probabilidade 2/6, então não sair tem 4/6 — porque juntos eles cobrem todos os casos possíveis."
+    ],
+    "destaque": "Conte todos os resultados que servem. Simplificar a fração costuma revelar o significado.",
+    "imagem": "pb-ideia-varios"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a probabilidade de sair um número par ao jogar um dado comum?",
+    "imagem": "pb-res-par",
+    "passos": [
+      {
+        "titulo": "Liste os favoráveis",
+        "explicacao": "São os resultados que satisfazem a condição. Vale escrever todos, para não esquecer nem repetir nenhum.",
+        "conta": "2, 4 e 6 → 3 favoráveis"
+      },
+      {
+        "titulo": "Conte os possíveis",
+        "explicacao": "O espaço amostral continua sendo as seis faces do dado.",
+        "conta": "6 possíveis"
+      },
+      {
+        "titulo": "Monte a fração",
+        "explicacao": "Favoráveis em cima, possíveis embaixo, como sempre.",
+        "conta": "3/6"
+      },
+      {
+        "titulo": "Simplifique e interprete",
+        "explicacao": "Um meio quer dizer que, jogando muitas vezes, sai par em cerca de metade delas — o que combina com metade das faces ser par.",
+        "conta": "3/6 = 1/2"
+      }
+    ],
+    "fecho": "A probabilidade de NÃO sair par é a outra metade: 1 − 1/2 = 1/2."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a probabilidade de sair um número maior que 4 ao jogar um dado comum? Responda em fração decimal com duas casas, digitando apenas o número.",
+      "imagem": "pb-q-maior-4",
+      "dica": "Liste quais faces são maiores que 4. Cuidado: o próprio 4 não é maior que 4.",
+      "formato": "numero",
+      "resposta": 0.33,
+      "tolerancia": 0.01,
+      "errosComuns": [
+        {
+          "resposta": "0.5",
+          "porque": "0,5 contaria três faces favoráveis, o que aconteceria se o 4 entrasse na conta. \"Maior que 4\" deixa o próprio 4 de fora: só o 5 e o 6 servem."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é a quantidade de casos favoráveis, e não a probabilidade. Falta dividir pelos seis casos possíveis."
+        },
+        {
+          "resposta": "0.67",
+          "porque": "0,67 é a probabilidade de NÃO sair um número maior que 4, porque quatro das seis faces são 4 ou menos. A pergunta é sobre as duas maiores."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os favoráveis",
+          "explicacao": "Maior que 4 quer dizer estritamente acima, então o 4 fica de fora.",
+          "conta": "5 e 6 → 2 favoráveis"
+        },
+        {
+          "titulo": "Divida pelos possíveis",
+          "explicacao": "Os casos possíveis continuam sendo as seis faces do dado, mesmo que só duas sirvam.",
+          "conta": "2 ÷ 6 = 1/3 ≈ 0,33"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa urna há 4 bolas azuis, 3 vermelhas e 3 verdes. Qual é a probabilidade de sair uma bola azul? Responda em decimal, digitando apenas o número.",
+      "imagem": "pb-q-urna",
+      "dica": "Some todas as bolas para achar os casos possíveis, antes de dividir.",
+      "formato": "numero",
+      "resposta": 0.4,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é a quantidade de bolas azuis, e não a probabilidade. Ela é o numerador; falta dividir pelo total de bolas da urna."
+        },
+        {
+          "resposta": "0.44",
+          "porque": "0,44 divide 4 por 9, esquecendo uma bola na contagem do total. Somando todas: 4 azuis mais 3 vermelhas mais 3 verdes dão 10."
+        },
+        {
+          "resposta": "0.6",
+          "porque": "0,6 é a probabilidade de a bola NÃO ser azul, porque seis das dez são de outras cores. A pergunta é sobre as azuis."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some para achar o total",
+          "explicacao": "Os casos possíveis são todas as bolas da urna, de qualquer cor.",
+          "conta": "4 + 3 + 3 = 10"
+        },
+        {
+          "titulo": "Divida os favoráveis pelo total",
+          "explicacao": "As azuis são os casos favoráveis, e o total de bolas são os casos possíveis.",
+          "conta": "4 ÷ 10 = 0,4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A probabilidade de chover amanhã é 0,3. Qual é a probabilidade de NÃO chover? Digite apenas o número.",
+      "imagem": "pb-q-complementar",
+      "dica": "Chover e não chover cobrem todas as possibilidades. Quanto elas somam juntas?",
+      "formato": "numero",
+      "resposta": 0.7,
+      "errosComuns": [
+        {
+          "resposta": "0.3",
+          "porque": "0,3 é a probabilidade de CHOVER, que o enunciado já deu. A de não chover é o que falta para completar a certeza."
+        },
+        {
+          "resposta": "-0.3",
+          "porque": "−0,3 troca o sinal em vez de completar. Probabilidade nunca é negativa: o cálculo é 1 menos o valor dado, e não o oposto dele."
+        },
+        {
+          "resposta": "0.6",
+          "porque": "0,6 seria o complemento se o total fosse 0,9. As duas possibilidades juntas cobrem tudo, então somam exatamente 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que as duas cobrem",
+          "explicacao": "Ou chove, ou não chove: as duas juntas esgotam as possibilidades.",
+          "conta": "chover + não chover = 1"
+        },
+        {
+          "titulo": "Complete",
+          "explicacao": "O que falta para 1 é a probabilidade do contrário.",
+          "conta": "1 − 0,3 = 0,7"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num dado comum, qual destes eventos é mais provável?",
+      "imagem": "pb-q-comparar",
+      "dica": "Conte os casos favoráveis de cada um antes de comparar.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sair um número menor que 5" },
+        { "rotulo": "B", "texto": "Sair um número par" },
+        { "rotulo": "C", "texto": "Sair o número 6" },
+        { "rotulo": "D", "texto": "Sair um número maior que 4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sair um número par",
+          "porque": "Par tem três casos favoráveis (2, 4 e 6), o que dá 3/6. \"Menor que 5\" tem quatro (1, 2, 3 e 4), então é mais provável."
+        },
+        {
+          "resposta": "Sair o número 6",
+          "porque": "Esse é o MENOS provável de todos: um único caso favorável em seis. Quanto menos resultados servem, menor a probabilidade."
+        },
+        {
+          "resposta": "Sair um número maior que 4",
+          "porque": "Só o 5 e o 6 servem, o que dá dois casos favoráveis em seis. É o dobro de \"sair o 6\", mas ainda a metade de \"menor que 5\"."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os favoráveis de cada um",
+          "explicacao": "Como o denominador é o mesmo nos quatro, basta comparar os numeradores.",
+          "conta": "menor que 5 → 4 · par → 3 · maior que 4 → 2 · o 6 → 1"
+        },
+        {
+          "titulo": "Escolha o maior",
+          "explicacao": "Mais casos favoráveis, maior a probabilidade.",
+          "conta": "4/6 é o maior"
+        }
+      ]
+    }
+  ]
+}

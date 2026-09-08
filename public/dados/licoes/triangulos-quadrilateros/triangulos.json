@@ -1,0 +1,196 @@
+{
+  "id": "triangulos",
+  "numero": 1,
+  "titulo": "Os tipos de triângulo",
+  "pergunta": "Por que o mesmo triângulo tem dois nomes?",
+  "ideia": {
+    "paragrafos": [
+      "O triângulo é a figura mais simples que se pode fechar com segmentos de reta: com dois lados não dá para fechar nada, e com três já dá. Também é a mais rígida — é por isso que ele aparece em telhados, pontes e torres, onde nada pode entortar.",
+      "Todo triângulo pode ser classificado de duas maneiras diferentes, e as duas valem ao mesmo tempo. A primeira olha para os LADOS: com três lados iguais ele é EQUILÁTERO, com pelo menos dois iguais é ISÓSCELES, e com os três diferentes é ESCALENO.",
+      "A segunda classificação olha para os ÂNGULOS. Se os três forem menores que 90°, ele é ACUTÂNGULO. Se um deles for exatamente 90°, é RETÂNGULO. E se um deles passar de 90°, é OBTUSÂNGULO.",
+      "Repare que um triângulo nunca pode ter dois ângulos retos nem dois obtusos — a próxima lição vai mostrar por quê. No máximo um dos três escapa de ser agudo, e é justamente esse que dá o nome da segunda classificação.",
+      "Como as duas classificações são independentes, todo triângulo carrega os dois nomes. Um triângulo de lados 5, 5 e 8 é isósceles pelos lados; se um dos ângulos dele mede 100°, ele é obtusângulo pelos ângulos. Dizer só um dos dois nomes conta metade da história."
+    ],
+    "destaque": "Todo triângulo tem dois nomes: um pelos lados, outro pelos ângulos.",
+    "imagem": "tq-ideia-tipos"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo tem lados 5 cm, 5 cm e 8 cm, e seus ângulos medem 40°, 40° e 100°. Como ele se classifica?",
+    "imagem": "tq-res-classificar",
+    "passos": [
+      {
+        "titulo": "Olhe primeiro os lados",
+        "explicacao": "Dois lados medem 5 cm e o terceiro mede 8 cm. Ter pelo menos dois lados iguais já basta para o nome.",
+        "conta": "5 = 5 ≠ 8 → isósceles"
+      },
+      {
+        "titulo": "Agora olhe os ângulos",
+        "explicacao": "Procure o maior dos três e compare com 90°: é ele que decide a segunda classificação.",
+        "conta": "maior ângulo = 100°"
+      },
+      {
+        "titulo": "Compare com o ângulo reto",
+        "explicacao": "Cem graus passa de noventa, então o triângulo tem um ângulo obtuso.",
+        "conta": "100° > 90° → obtusângulo"
+      },
+      {
+        "titulo": "Junte os dois nomes",
+        "explicacao": "As duas classificações valem juntas, e cada uma conta uma coisa diferente sobre a mesma figura.",
+        "conta": "isósceles e obtusângulo"
+      }
+    ],
+    "fecho": "Repare que os dois ângulos iguais ficam opostos aos dois lados iguais. Num triângulo isósceles isso vale sempre."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Como se chama um triângulo que tem os três lados de medidas diferentes?",
+      "imagem": "tq-q-escaleno",
+      "dica": "Esta classificação é a que olha para os lados, e não para os ângulos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Escaleno" },
+        { "rotulo": "B", "texto": "Isósceles" },
+        { "rotulo": "C", "texto": "Equilátero" },
+        { "rotulo": "D", "texto": "Obtusângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Isósceles",
+          "porque": "Isósceles é o que tem pelo menos DOIS lados iguais. Se os três são diferentes, não há nenhum par igual, e o nome é outro."
+        },
+        {
+          "resposta": "Equilátero",
+          "porque": "Equilátero quer dizer lados iguais — os três. É o extremo oposto do que a pergunta descreve, que é ter os três diferentes."
+        },
+        {
+          "resposta": "Obtusângulo",
+          "porque": "Obtusângulo é uma classificação pelos ÂNGULOS, e a pergunta fala de lados. Um triângulo de lados diferentes pode ter qualquer tipo de ângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja qual classificação está sendo pedida",
+          "explicacao": "A pergunta fala em medidas dos lados, então a resposta está no primeiro grupo de nomes.",
+          "conta": "pelos lados"
+        },
+        {
+          "titulo": "Escolha o caso dos três diferentes",
+          "explicacao": "Três iguais é equilátero, dois iguais é isósceles, e nenhum par igual é escaleno.",
+          "conta": "escaleno"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo tem um ângulo de 100°. Como ele se classifica quanto aos ângulos?",
+      "imagem": "tq-q-obtusangulo",
+      "dica": "Compare o maior ângulo com 90°. Ele fica abaixo, exatamente igual ou acima?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Obtusângulo" },
+        { "rotulo": "B", "texto": "Retângulo" },
+        { "rotulo": "C", "texto": "Acutângulo" },
+        { "rotulo": "D", "texto": "Escaleno" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Retângulo",
+          "porque": "Retângulo é quando um ângulo mede exatamente 90°. Aqui o ângulo passa disso — são 100°, dez graus além do ângulo reto."
+        },
+        {
+          "resposta": "Acutângulo",
+          "porque": "Acutângulo exige que os TRÊS ângulos fiquem abaixo de 90°. Basta um passar disso para o triângulo receber outro nome."
+        },
+        {
+          "resposta": "Escaleno",
+          "porque": "Escaleno é uma classificação pelos LADOS, e a pergunta é sobre os ângulos. Um triângulo pode ser escaleno e obtusângulo ao mesmo tempo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare com o ângulo reto",
+          "explicacao": "O ângulo reto mede 90°, e é ele que separa os três casos.",
+          "conta": "100° > 90°"
+        },
+        {
+          "titulo": "Escolha o nome",
+          "explicacao": "Um ângulo maior que o reto é chamado de obtuso, e o triângulo que o contém é obtusângulo.",
+          "conta": "obtusângulo"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No mínimo quantos lados iguais tem um triângulo isósceles? Digite apenas o número.",
+      "imagem": "tq-q-isosceles",
+      "dica": "Leia a definição com cuidado: ela diz \"pelo menos\", e isso muda a resposta.",
+      "formato": "numero",
+      "resposta": 2,
+      "unidade": "lados",
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "Três lados iguais é o EQUILÁTERO. Ele também conta como isósceles, porque tem pelo menos dois iguais, mas o mínimo exigido pela definição é dois."
+        },
+        {
+          "resposta": "1",
+          "porque": "Um lado sozinho não forma par com ninguém, e a definição fala de lados IGUAIS entre si. Um triângulo com nenhum par igual é escaleno."
+        },
+        {
+          "resposta": "0",
+          "porque": "Zero lados iguais descreve o escaleno, que é justamente o triângulo com os três lados diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a definição",
+          "explicacao": "Isósceles é o triângulo com pelo menos dois lados de mesma medida.",
+          "conta": "pelo menos 2"
+        },
+        {
+          "titulo": "Veja o mínimo",
+          "explicacao": "Com três iguais ele continua sendo isósceles, mas o mínimo que a definição exige são dois.",
+          "conta": "2 lados"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo equilátero, quanto mede cada ângulo interno? Digite apenas o número.",
+      "imagem": "tq-q-equilatero",
+      "dica": "Os três lados iguais fazem os três ângulos serem iguais, e a soma deles é 180°.",
+      "formato": "numero",
+      "resposta": 60,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "90",
+          "porque": "Noventa graus é o ângulo reto, e três deles somariam 270°. Os ângulos de um triângulo somam 180°, então cada um do equilátero é bem menor que o reto."
+        },
+        {
+          "resposta": "180",
+          "porque": "180° é a SOMA dos três ângulos, e não a medida de cada um. Como os três são iguais, cada um vale um terço desse total."
+        },
+        {
+          "resposta": "120",
+          "porque": "120° divide 360° por três, mas a volta completa não é a soma dos ângulos de um triângulo. A soma deles é meia volta, que é 180°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use os lados iguais",
+          "explicacao": "Com os três lados iguais, os três ângulos também ficam iguais.",
+          "conta": "os três são iguais"
+        },
+        {
+          "titulo": "Reparta a soma",
+          "explicacao": "Os ângulos de qualquer triângulo somam 180°, e aqui esse total se divide em três partes iguais.",
+          "conta": "180 ÷ 3 = 60°"
+        }
+      ]
+    }
+  ]
+}

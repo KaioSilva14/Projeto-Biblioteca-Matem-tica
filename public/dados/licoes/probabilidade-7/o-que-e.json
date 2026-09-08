@@ -1,0 +1,194 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "Medir a chance",
+  "pergunta": "Dá para colocar número na sorte?",
+  "ideia": {
+    "paragrafos": [
+      "Algumas coisas a gente sabe que vão acontecer: solta uma pedra e ela cai. Outras a gente sabe que não vão: um dado comum não cai no 7. Mas a maior parte da vida fica no meio — pode acontecer ou não, e é justamente esse meio que a PROBABILIDADE mede.",
+      "A ideia é simples e antiga: conte de quantos jeitos o que você quer pode acontecer, conte de quantos jeitos QUALQUER coisa pode acontecer, e divida o primeiro pelo segundo. Os jeitos que servem chamam-se casos FAVORÁVEIS; todos os jeitos possíveis, casos POSSÍVEIS.",
+      "Num dado comum, sair 3 tem um caso favorável — só a face 3 — e seis casos possíveis, que são as seis faces. A probabilidade é 1 em 6. Numa moeda, sair cara é 1 em 2.",
+      "Isso tudo só vale com uma condição, e ela precisa ser dita: os casos possíveis têm de ser IGUALMENTE prováveis. Um dado viciado, ou uma urna com bolas de tamanhos diferentes, quebra a conta — a divisão pressupõe que nenhum caso tem vantagem sobre outro.",
+      "E o resultado sempre cai entre 0 e 1. Zero é o impossível (nenhum caso favorável), 1 é a certeza (todos os casos são favoráveis), e o resto fica no meio. Se a sua conta der um número negativo ou maior que 1, houve erro em algum lugar."
+    ],
+    "destaque": "Probabilidade é casos favoráveis divididos por casos possíveis.",
+    "imagem": "pb-ideia-chance"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a probabilidade de sair o número 3 ao jogar um dado comum?",
+    "imagem": "pb-res-dado",
+    "passos": [
+      {
+        "titulo": "Conte os casos possíveis",
+        "explicacao": "Um dado comum tem seis faces, e todas têm a mesma chance de sair. É esse total que vai no denominador.",
+        "conta": "6 faces possíveis"
+      },
+      {
+        "titulo": "Conte os casos favoráveis",
+        "explicacao": "Só uma das faces traz o número 3, então há um único jeito de o que se quer acontecer.",
+        "conta": "1 face favorável"
+      },
+      {
+        "titulo": "Monte a fração",
+        "explicacao": "Os favoráveis vão em cima e os possíveis embaixo, sempre nessa ordem.",
+        "conta": "1 ÷ 6 = 1/6"
+      },
+      {
+        "titulo": "Confira o intervalo",
+        "explicacao": "Um sexto é um número entre 0 e 1, como toda probabilidade tem de ser.",
+        "conta": "0 < 1/6 < 1 ✓"
+      }
+    ],
+    "fecho": "Repare que a conta só vale porque as seis faces têm a mesma chance. Num dado viciado, ela não valeria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Ao jogar uma moeda comum, qual é a probabilidade de sair cara? Responda em fração decimal, digitando apenas o número.",
+      "imagem": "pb-q-moeda",
+      "dica": "Conte quantos resultados a moeda pode dar, e quantos deles são cara.",
+      "formato": "numero",
+      "resposta": 0.5,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 é a probabilidade da CERTEZA, e sair cara não é certo. Uma moeda tem dois resultados possíveis, e cara é apenas um deles."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o número de casos POSSÍVEIS, e não a probabilidade. Ele é o denominador da fração; o resultado é 1 dividido por 2."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é a probabilidade do IMPOSSÍVEL, e sair cara é perfeitamente possível. Zero valeria para algo que não pode acontecer, como a moeda cair de pé."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os possíveis",
+          "explicacao": "A moeda pode dar cara ou coroa, e os dois têm a mesma chance.",
+          "conta": "2 possíveis"
+        },
+        {
+          "titulo": "Conte os favoráveis e divida",
+          "explicacao": "Só um dos dois resultados é cara.",
+          "conta": "1 ÷ 2 = 0,5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma probabilidade pode dar 1,5?",
+      "imagem": "pb-q-intervalo",
+      "dica": "Pense no que significa a probabilidade valer 1, e se dá para passar disso.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: toda probabilidade fica entre 0 e 1" },
+        { "rotulo": "B", "texto": "Sim, quando o evento é muito provável" },
+        { "rotulo": "C", "texto": "Sim, quando há mais de um caso favorável" },
+        { "rotulo": "D", "texto": "Só quando os casos não são igualmente prováveis" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, quando o evento é muito provável",
+          "porque": "Muito provável é perto de 1, e nunca acima. O valor 1 já representa a certeza absoluta, e não existe nada mais certo que a certeza."
+        },
+        {
+          "resposta": "Sim, quando há mais de um caso favorável",
+          "porque": "Mais casos favoráveis aumentam a probabilidade, mas os favoráveis são sempre um subconjunto dos possíveis — no máximo iguais a eles, o que dá exatamente 1."
+        },
+        {
+          "resposta": "Só quando os casos não são igualmente prováveis",
+          "porque": "Casos com chances diferentes realmente quebram a fórmula da divisão, mas mesmo assim a probabilidade continua entre 0 e 1. Passar de 1 é sempre erro de conta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o máximo possível",
+          "explicacao": "No melhor dos casos, todos os casos possíveis são favoráveis.",
+          "conta": "favoráveis = possíveis"
+        },
+        {
+          "titulo": "Calcule esse máximo",
+          "explicacao": "Um número dividido por ele mesmo dá 1, e esse é o teto.",
+          "conta": "6 ÷ 6 = 1"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa caixa há 10 bolas, sendo 3 vermelhas. Tirando uma bola sem olhar, qual é a probabilidade de ela ser vermelha? Responda em decimal, digitando apenas o número.",
+      "imagem": "pb-q-bolas",
+      "dica": "As bolas vermelhas são os casos favoráveis. Todas as bolas são os casos possíveis.",
+      "formato": "numero",
+      "resposta": 0.3,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é a quantidade de bolas vermelhas, e não a probabilidade. Ela é o numerador da fração; falta dividir pelo total de bolas."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o total de bolas, ou seja, os casos possíveis. Esse número vai no denominador, e não é a resposta."
+        },
+        {
+          "resposta": "0.7",
+          "porque": "0,7 é a probabilidade de a bola NÃO ser vermelha, porque sete das dez são de outras cores. A pergunta é sobre as vermelhas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe favoráveis e possíveis",
+          "explicacao": "As vermelhas servem; todas as bolas podem sair.",
+          "conta": "3 favoráveis · 10 possíveis"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "A probabilidade é a razão entre os dois.",
+          "conta": "3 ÷ 10 = 0,3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a probabilidade de um dado comum cair no número 7?",
+      "imagem": "pb-q-impossivel",
+      "dica": "Conte quantas faces do dado trazem o número 7.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Zero, porque nenhuma face tem o número 7" },
+        { "rotulo": "B", "texto": "1/6, como qualquer outro número" },
+        { "rotulo": "C", "texto": "1/7, porque o número procurado é o 7" },
+        { "rotulo": "D", "texto": "Depende da força com que o dado é jogado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/6, como qualquer outro número",
+          "porque": "Um sexto vale para os números que EXISTEM no dado, de 1 a 6. O 7 não está em nenhuma face, então não há caso favorável nenhum."
+        },
+        {
+          "resposta": "1/7, porque o número procurado é o 7",
+          "porque": "O número procurado não vira denominador. O denominador é a quantidade de casos possíveis, que continua sendo 6 — as seis faces."
+        },
+        {
+          "resposta": "Depende da força com que o dado é jogado",
+          "porque": "A força muda o resultado de cada jogada, mas não cria uma face que não existe. Nenhum lançamento pode produzir um 7 num dado de seis faces."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os favoráveis",
+          "explicacao": "Nenhuma das seis faces traz o número 7.",
+          "conta": "0 favoráveis"
+        },
+        {
+          "titulo": "Monte a fração",
+          "explicacao": "Zero dividido por qualquer número dá zero — a probabilidade do impossível.",
+          "conta": "0 ÷ 6 = 0"
+        }
+      ]
+    }
+  ]
+}

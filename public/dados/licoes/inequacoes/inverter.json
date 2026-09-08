@@ -1,0 +1,214 @@
+{
+  "id": "inverter",
+  "numero": 4,
+  "titulo": "A regra que só existe aqui",
+  "pergunta": "Por que às vezes o sinal vira do avesso?",
+  "ideia": {
+    "paragrafos": [
+      "Existe um lugar, e um só, em que o método herdado das equações QUEBRA. É quando os dois lados são multiplicados ou divididos por um número NEGATIVO. Essa é a única diferença real entre resolver equação e resolver inequação, e é onde quase todo erro acontece.",
+      "Dá para ver o problema sem letra nenhuma. Comece com 3 < 5, que é verdade. Multiplique os dois lados por −1: de um lado fica −3, do outro −5. E −3 é MAIOR que −5. A afirmação se inverteu sozinha.",
+      "Na reta dos inteiros isso fica visível. Multiplicar por −1 é espelhar em torno do zero, e espelhar troca a ordem: quem estava mais à esquerda passa a estar mais à direita. Como a comparação é sobre posição na reta, ela vira junto.",
+      "Daí sai a regra, que não tem exceção: ao multiplicar ou dividir os dois lados por um número negativo, INVERTA o sinal da desigualdade. O < vira >, o ≤ vira ≥, e o mesmo nos dois sentidos.",
+      "Em equação nada disso aparecia, porque o sinal de igual não tem sentido para inverter — o espelho troca a ordem, mas não desfaz um empate. A lição 2 de Equações dizia que dividir os dois lados mantém a igualdade, e continua sendo verdade: mantém a igualdade, e não a desigualdade."
+    ],
+    "destaque": "Multiplicou ou dividiu por negativo? Vire o sinal da desigualdade.",
+    "imagem": "in-ideia-espelho"
+  },
+  "resolvido": {
+    "enunciado": "Resolva a inequação −2x > 8.",
+    "imagem": "in-res-inverter",
+    "passos": [
+      {
+        "titulo": "Veja o que está grudado na letra",
+        "explicacao": "O x está multiplicado por −2, e o sinal desse número é o que decide se a regra da inversão entra em cena.",
+        "conta": "−2 é negativo"
+      },
+      {
+        "titulo": "Divida pelos dois lados e inverta",
+        "explicacao": "A divisão por −2 desfaz a multiplicação, e por ser um número negativo ela obriga o sinal a virar: o maior vira menor.",
+        "conta": "−2x ÷ (−2) → x < 8 ÷ (−2) → x < −4"
+      },
+      {
+        "titulo": "Confira com um valor de dentro",
+        "explicacao": "Escolha um número do intervalo achado e teste na inequação original, sem atalho.",
+        "conta": "x=−5 → −2(−5) = 10 > 8 ✓"
+      },
+      {
+        "titulo": "Confira com um valor de fora",
+        "explicacao": "Este teste é o que pega a inversão esquecida: se o sinal tivesse ficado como estava, este número passaria.",
+        "conta": "x=−3 → −2(−3) = 6 > 8 ✗"
+      }
+    ],
+    "fecho": "Sem inverter, a resposta seria x > −4 — e o −3 estaria dentro dela, embora não sirva. O teste de fora denuncia na hora."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Sabendo que 2 < 7, o que se pode afirmar sobre −2 e −7?",
+      "imagem": "in-q-espelho",
+      "dica": "Localize os dois negativos na reta e veja qual deles está mais à direita.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "−2 > −7" },
+        { "rotulo": "B", "texto": "−2 < −7" },
+        { "rotulo": "C", "texto": "−2 = −7" },
+        { "rotulo": "D", "texto": "Não dá para comparar números negativos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "−2 < −7",
+          "porque": "Repete a ordem dos positivos, mas trocar o sinal espelha a reta e inverte a ordem. Na reta, −2 fica à direita de −7, e quem está à direita é o maior."
+        },
+        {
+          "resposta": "−2 = −7",
+          "porque": "Trocar o sinal dos dois não os torna iguais: eles continuam a sete e a dois passos do zero, cada um para o seu lado. A distância entre eles nem mudou."
+        },
+        {
+          "resposta": "Não dá para comparar números negativos",
+          "porque": "Dá, sim, e é a mesma comparação de sempre: quem está mais à direita na reta é o maior. Foi assim que Números inteiros ensinou a comparar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize os dois na reta",
+          "explicacao": "O −7 fica bem longe do zero para a esquerda; o −2 fica bem mais perto.",
+          "conta": "−7 … −2 … 0"
+        },
+        {
+          "titulo": "Compare pela posição",
+          "explicacao": "Na reta numérica, o número da direita é sempre o maior.",
+          "conta": "−2 > −7"
+        },
+        {
+          "titulo": "Veja o que aconteceu com a ordem",
+          "explicacao": "Nos positivos o 2 era o menor; nos negativos o −2 virou o maior. O espelho trocou a ordem.",
+          "conta": "2 < 7, mas −2 > −7"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolva a inequação −3x < 12. Qual é o menor número inteiro que serve? Digite apenas o número.",
+      "imagem": "in-q-menos3x",
+      "dica": "Divida os dois lados por −3 e lembre de inverter o sinal, porque o número é negativo.",
+      "formato": "numero",
+      "resposta": -3,
+      "errosComuns": [
+        {
+          "resposta": "-4",
+          "porque": "−4 é a fronteira: com ele os dois lados empatam em 12, e o sinal é de menor estrito. Empate não serve, então o −4 fica de fora do intervalo."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 sai de não inverter o sinal, chegando a x < −4 em vez de x > −4. Testando: −3 × (−5) dá 15, que não é menor que 12."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 troca o sinal do resultado. A fronteira é −4, e não 4: dividir 12 por −3 dá um número negativo, porque os sinais são diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida por −3 e inverta",
+          "explicacao": "Dividir por um negativo obriga o sinal a virar: o menor passa a ser maior.",
+          "conta": "x > 12 ÷ (−3) → x > −4"
+        },
+        {
+          "titulo": "Escolha o menor inteiro da faixa",
+          "explicacao": "Como o −4 fica de fora, o primeiro inteiro que entra é o seguinte, andando para a direita.",
+          "conta": "−3 > −4 ✓"
+        },
+        {
+          "titulo": "Confira no enunciado",
+          "explicacao": "Substituindo na inequação original, o resultado tem mesmo de ficar abaixo de 12.",
+          "conta": "−3 × (−3) = 9 < 12 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Ao dividir os dois lados de −5x ≥ 20 por −5, o que acontece com o sinal?",
+      "imagem": "in-q-inverter-sinal",
+      "dica": "O que decide não é a operação, e sim o sinal do número usado nela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Vira ≤" },
+        { "rotulo": "B", "texto": "Continua ≥" },
+        { "rotulo": "C", "texto": "Vira =" },
+        { "rotulo": "D", "texto": "Vira >" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Continua ≥",
+          "porque": "Seria assim se o número fosse positivo. Como −5 é negativo, a divisão espelha os dois lados na reta e a ordem entre eles se inverte."
+        },
+        {
+          "resposta": "Vira =",
+          "porque": "Nenhuma operação transforma desigualdade em igualdade. A inversão troca o SENTIDO da comparação, e não o fato de haver uma comparação."
+        },
+        {
+          "resposta": "Vira >",
+          "porque": "Inverte o sentido mas perde o risquinho do igual. A inversão troca ≥ por ≤ e < por >: o igual embutido continua embutido depois de virar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o sinal do número",
+          "explicacao": "A divisão é por −5, que é negativo, e é isso que dispara a regra.",
+          "conta": "−5 < 0"
+        },
+        {
+          "titulo": "Inverta mantendo o igual",
+          "explicacao": "O ≥ vira ≤: o sentido troca, mas o traço do igual continua ali.",
+          "conta": "≥ → ≤"
+        },
+        {
+          "titulo": "Confira com um valor",
+          "explicacao": "A inequação vira x ≤ −4, e um número desse intervalo tem de satisfazer o enunciado original.",
+          "conta": "x=−5 → −5(−5) = 25 ≥ 20 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Resolva a inequação −x + 2 ≤ 6. Qual é o menor número inteiro que serve? Digite apenas o número.",
+      "imagem": "in-q-menos-x",
+      "dica": "Tire o 2 dos dois lados primeiro. Depois, para tirar o sinal de menos do x, é preciso inverter.",
+      "formato": "numero",
+      "resposta": -4,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 esquece que a fronteira é negativa. Depois de tirar o 2, sobra −x ≤ 4; ao dividir por −1 o sinal inverte E o número vira −4."
+        },
+        {
+          "resposta": "-3",
+          "porque": "−3 serve, mas não é o menor que serve. O sinal ≤ inclui a fronteira, então o próprio −4 entra: com ele os dois lados empatam em 6."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 soma 2 ao 6 em vez de tirar. O 2 está sendo acrescentado do lado esquerdo, então para isolá-lo é preciso subtrair dos dois lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire o 2 dos dois lados",
+          "explicacao": "O termo solto sai primeiro, e a subtração não mexe no sentido do sinal.",
+          "conta": "−x ≤ 4"
+        },
+        {
+          "titulo": "Divida por −1 e inverta",
+          "explicacao": "O x está multiplicado por −1, que é negativo, então o sinal vira ao desfazer isso.",
+          "conta": "x ≥ −4"
+        },
+        {
+          "titulo": "Escolha o menor inteiro da faixa",
+          "explicacao": "Como o igual está incluído, a própria fronteira faz parte da resposta.",
+          "conta": "−(−4) + 2 = 6 ≤ 6 ✓"
+        }
+      ]
+    }
+  ]
+}

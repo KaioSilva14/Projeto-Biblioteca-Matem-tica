@@ -1,0 +1,201 @@
+{
+  "id": "tres-resumos",
+  "numero": 1,
+  "titulo": "Três jeitos de resumir",
+  "pergunta": "Por que existem três medidas em vez de uma?",
+  "ideia": {
+    "paragrafos": [
+      "Quando alguém pergunta \"como foi a turma na prova?\", ninguém responde lendo as trinta notas em voz alta. A resposta que se espera é um número só, que represente o conjunto inteiro. Esse número é uma MEDIDA DE TENDÊNCIA CENTRAL — um resumo.",
+      "Existem três resumos usados o tempo todo, e eles não são versões concorrentes da mesma coisa: cada um responde a uma pergunta diferente. A MÉDIA responde \"quanto caberia a cada um, se tudo fosse dividido igualmente\". A MEDIANA responde \"qual é o valor do meio, quando se coloca tudo em ordem\". A MODA responde \"qual valor mais se repete\".",
+      "Num conjunto bem comportado, os três dão respostas parecidas e a escolha quase não importa. A diferença aparece quando um valor destoa muito dos outros — e é aí que escolher o resumo errado deixa de ser detalhe e vira desinformação.",
+      "Repare também no que cada um exige. Média e mediana só funcionam com números: não dá para somar nem ordenar cores. A moda funciona com qualquer coisa que se possa contar — a cor mais pedida, o sabor mais vendido, o tamanho mais procurado.",
+      "Esta matéria continua a Média aritmética do 6º ano, e responde justamente ao que aquela lição deixou em aberto: o que a média NÃO conta. A resposta é que existem outros dois resumos, e que às vezes é um deles que descreve melhor o conjunto."
+    ],
+    "destaque": "Média, mediana e moda respondem a três perguntas diferentes sobre o mesmo conjunto.",
+    "imagem": "es-ideia-tres"
+  },
+  "resolvido": {
+    "enunciado": "Cinco amigos têm 7, 8, 8, 9 e 13 anos. Calcule a média, a mediana e a moda dessas idades.",
+    "imagem": "es-res-tres",
+    "passos": [
+      {
+        "titulo": "Calcule a média",
+        "explicacao": "Some todas as idades e divida pela quantidade de pessoas. É o quanto caberia a cada um se as idades fossem repartidas igualmente.",
+        "conta": "(7+8+8+9+13) ÷ 5 = 45 ÷ 5 = 9"
+      },
+      {
+        "titulo": "Ordene para achar a mediana",
+        "explicacao": "A mediana exige os valores em ordem. Aqui eles já estão, e como são cinco, o do meio é o terceiro.",
+        "conta": "7, 8, [8], 9, 13 → 8"
+      },
+      {
+        "titulo": "Conte as repetições para achar a moda",
+        "explicacao": "A moda é o valor que aparece mais vezes. O 8 aparece duas vezes e todos os outros aparecem uma.",
+        "conta": "moda = 8"
+      },
+      {
+        "titulo": "Compare os três",
+        "explicacao": "A média ficou maior que os outros dois porque o 13 puxou o total para cima. Mediana e moda ignoraram esse valor destoante.",
+        "conta": "média 9 · mediana 8 · moda 8"
+      }
+    ],
+    "fecho": "A média é a única das três que sentiu o 13. Guardar isso já resolve metade da matéria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O que a MEDIANA de um conjunto de números representa?",
+      "imagem": "es-q-o-que-mediana",
+      "dica": "O nome vem de \"meio\". Mas meio de quê — da soma, ou da lista?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O valor que fica no meio, com os dados colocados em ordem" },
+        { "rotulo": "B", "texto": "O valor que mais se repete no conjunto" },
+        { "rotulo": "C", "texto": "A soma dos valores dividida pela quantidade deles" },
+        { "rotulo": "D", "texto": "A diferença entre o maior e o menor valor" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O valor que mais se repete no conjunto",
+          "porque": "Isso é a MODA. A mediana não conta repetições: ela olha só a posição do valor depois que a lista é colocada em ordem."
+        },
+        {
+          "resposta": "A soma dos valores dividida pela quantidade deles",
+          "porque": "Isso é a MÉDIA. Ela usa todos os valores na conta; a mediana usa só a posição central, e ignora o tamanho dos extremos."
+        },
+        {
+          "resposta": "A diferença entre o maior e o menor valor",
+          "porque": "Essa é a amplitude, que mede o espalhamento e não a tendência central. Ela diz o quanto os dados variam, e não qual valor os representa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ordene os dados",
+          "explicacao": "Sem ordenar, a posição do meio não quer dizer nada.",
+          "conta": "primeiro colocar em ordem"
+        },
+        {
+          "titulo": "Pegue o do meio",
+          "explicacao": "Com a lista ordenada, o valor central é a mediana.",
+          "conta": "o do meio"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa loja, a cor mais vendida de camiseta foi a preta. Qual das três medidas responde a esse tipo de pergunta?",
+      "imagem": "es-q-moda-cor",
+      "dica": "Pense em quais das três exigem que os dados sejam números.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A moda, porque é a única que funciona com dados que não são números" },
+        { "rotulo": "B", "texto": "A média, porque ela resume qualquer conjunto" },
+        { "rotulo": "C", "texto": "A mediana, porque basta colocar as cores em ordem" },
+        { "rotulo": "D", "texto": "Nenhuma: cor não pode ser resumida" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A média, porque ela resume qualquer conjunto",
+          "porque": "A média precisa somar os valores e dividir, e não existe soma de cores. Ela só funciona com dados numéricos."
+        },
+        {
+          "resposta": "A mediana, porque basta colocar as cores em ordem",
+          "porque": "Cores não têm uma ordem natural — preto não é maior nem menor que azul. Sem ordem, não existe valor do meio."
+        },
+        {
+          "resposta": "Nenhuma: cor não pode ser resumida",
+          "porque": "Pode, sim: basta contar quantas vezes cada uma aparece e ver qual ganha. É exatamente isso que a moda faz."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Descarte as que exigem número",
+          "explicacao": "Média precisa somar; mediana precisa ordenar. Cor não permite nem uma coisa nem outra.",
+          "conta": "média ✗ · mediana ✗"
+        },
+        {
+          "titulo": "Fique com a que só conta",
+          "explicacao": "A moda apenas conta repetições, e contar funciona com qualquer categoria.",
+          "conta": "moda ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num conjunto de idades, a média deu 9 e a mediana deu 8. O que isso sugere?",
+      "imagem": "es-q-media-maior",
+      "dica": "Lembre de qual das duas medidas sente o tamanho dos valores extremos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que existe algum valor bem alto puxando a média para cima" },
+        { "rotulo": "B", "texto": "Que houve erro de conta, porque as duas deveriam ser iguais" },
+        { "rotulo": "C", "texto": "Que o conjunto tem exatamente 9 pessoas" },
+        { "rotulo": "D", "texto": "Que a moda também vale 9" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que houve erro de conta, porque as duas deveriam ser iguais",
+          "porque": "Elas não precisam ser iguais — só coincidem em conjuntos bem simétricos. A diferença entre as duas é uma informação útil, e não um erro."
+        },
+        {
+          "resposta": "Que o conjunto tem exatamente 9 pessoas",
+          "porque": "O 9 é o valor da média, e não a quantidade de dados. A média não diz nada sobre quantos valores foram usados para calculá-la."
+        },
+        {
+          "resposta": "Que a moda também vale 9",
+          "porque": "A moda depende das repetições, e nada aqui diz qual valor se repete mais. Ela pode ser qualquer um dos valores do conjunto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que cada uma usa",
+          "explicacao": "A média soma todos os valores, então valores grandes pesam nela. A mediana só olha a posição do meio.",
+          "conta": "média sente os extremos"
+        },
+        {
+          "titulo": "Interprete a diferença",
+          "explicacao": "Se a média está acima da mediana, é porque algo do lado alto está puxando a soma.",
+          "conta": "média > mediana → valor alto"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantas medidas de tendência central foram apresentadas nesta lição? Digite apenas o número.",
+      "imagem": "es-q-quantas",
+      "dica": "São os três resumos que dão nome à matéria.",
+      "formato": "numero",
+      "resposta": 3,
+      "unidade": "medidas",
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "Uma só seria a média, que é a que o 6º ano já tinha ensinado. Esta matéria acrescenta outras duas justamente porque a média não dá conta de tudo."
+        },
+        {
+          "resposta": "2",
+          "porque": "Duas deixaria uma de fora. Além da média e da mediana, existe a moda — a única que funciona com dados que não são números."
+        },
+        {
+          "resposta": "4",
+          "porque": "Quatro incluiria a amplitude, que mede o espalhamento e não a tendência central. Ela diz o quanto os dados variam, e não qual valor os representa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste as três",
+          "explicacao": "Cada uma responde a uma pergunta diferente sobre o mesmo conjunto.",
+          "conta": "média, mediana e moda"
+        },
+        {
+          "titulo": "Conte",
+          "explicacao": "São os três resumos que a matéria vai tratar, um por lição.",
+          "conta": "3 medidas"
+        }
+      ]
+    }
+  ]
+}

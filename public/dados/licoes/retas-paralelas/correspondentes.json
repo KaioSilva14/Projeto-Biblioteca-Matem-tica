@@ -1,0 +1,195 @@
+{
+  "id": "correspondentes",
+  "numero": 3,
+  "titulo": "Ângulos correspondentes",
+  "pergunta": "Quais ângulos ocupam a mesma posição nos dois cruzamentos?",
+  "ideia": {
+    "paragrafos": [
+      "A lição passada mostrou que os oito ângulos assumem só dois valores. Agora começa a parte útil: dar NOME aos pares, para saber de cara quais são iguais sem precisar refazer o raciocínio toda vez.",
+      "O primeiro par é o mais fácil de enxergar. Dois ângulos são CORRESPONDENTES quando ocupam a mesma posição relativa nos dois cruzamentos — o de cima à direita com o de cima à direita, o de baixo à esquerda com o de baixo à esquerda, e assim por diante.",
+      "Um jeito de reconhecer: imagine deslizar o cruzamento de cima ao longo da transversal até ele cair em cima do de baixo. Os ângulos que se encaixam perfeitamente um sobre o outro são os correspondentes. Quatro pares, um para cada canto.",
+      "E a propriedade é direta: quando as retas são paralelas, ângulos correspondentes são IGUAIS. Isso não é coincidência nem aproximação — é consequência de a transversal cortar as duas retas com a mesma inclinação, que é o que paralelismo significa.",
+      "Essa é a propriedade fundadora da matéria. As outras duas, que vêm nas próximas lições, saem desta combinada com o que a lição 1 já ensinou. Vale guardá-la bem: correspondentes, mesma posição, mesma medida."
+    ],
+    "destaque": "Correspondentes ocupam a mesma posição nos dois cruzamentos, e são iguais.",
+    "imagem": "rp-ideia-correspondentes"
+  },
+  "resolvido": {
+    "enunciado": "Na figura, as retas r e s são paralelas e um ângulo mede 50°. Quanto mede o ângulo x, que é correspondente a ele?",
+    "imagem": "rp-res-correspondentes",
+    "passos": [
+      {
+        "titulo": "Confirme que as retas são paralelas",
+        "explicacao": "A propriedade só vale com paralelas. Sem isso, os dois cruzamentos não teriam nenhuma obrigação de repetir as medidas.",
+        "conta": "r ∥ s"
+      },
+      {
+        "titulo": "Confira que os dois são correspondentes",
+        "explicacao": "Os dois ocupam a mesma posição em relação à transversal e à paralela de cada um: mesmo lado, mesma altura relativa.",
+        "conta": "mesma posição nos dois cruzamentos"
+      },
+      {
+        "titulo": "Aplique a propriedade",
+        "explicacao": "Correspondentes entre paralelas são iguais, então não há conta a fazer: a medida se repete.",
+        "conta": "x = 50°"
+      },
+      {
+        "titulo": "Confira pelo suplementar",
+        "explicacao": "Se x vale 50°, o vizinho dele tem de valer 130° — e isso bate com o outro valor da figura.",
+        "conta": "50 + 130 = 180 ✓"
+      }
+    ],
+    "fecho": "Repare que a resposta saiu sem nenhuma conta. Reconhecer o par já é resolver."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "As retas são paralelas e um ângulo mede 65°. Quanto mede o ângulo correspondente a ele? Digite apenas o número.",
+      "imagem": "rp-q-corr-65",
+      "dica": "Correspondentes ocupam a mesma posição nos dois cruzamentos. O que a propriedade diz sobre a medida deles?",
+      "formato": "numero",
+      "resposta": 65,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "115",
+          "porque": "115 é o suplementar de 65°, ou seja, o outro valor que aparece na figura. Ele é a medida dos vizinhos, e não a do correspondente."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 completa 90° com o 65°. Nenhuma relação desta matéria usa o ângulo reto: entre correspondentes a medida simplesmente se repete."
+        },
+        {
+          "resposta": "130",
+          "porque": "130 dobra o 65°. Correspondentes não somam nem multiplicam nada — eles têm exatamente a mesma medida quando as retas são paralelas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o par",
+          "explicacao": "Os dois ângulos ocupam a mesma posição em relação à transversal, cada um no seu cruzamento.",
+          "conta": "são correspondentes"
+        },
+        {
+          "titulo": "Aplique a propriedade",
+          "explicacao": "Entre paralelas, correspondentes são iguais.",
+          "conta": "65°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O que caracteriza dois ângulos correspondentes?",
+      "imagem": "rp-q-o-que-corr",
+      "dica": "Pense em deslizar um cruzamento sobre o outro ao longo da transversal, e ver quais ângulos se encaixam.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Ocupam a mesma posição nos dois cruzamentos" },
+        { "rotulo": "B", "texto": "Ficam um de frente para o outro no mesmo cruzamento" },
+        { "rotulo": "C", "texto": "Ficam em lados opostos da transversal" },
+        { "rotulo": "D", "texto": "Somam sempre 180°" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Ficam um de frente para o outro no mesmo cruzamento",
+          "porque": "Isso descreve os opostos pelo vértice, que também são iguais mas vivem num cruzamento só. Correspondentes sempre envolvem os DOIS cruzamentos."
+        },
+        {
+          "resposta": "Ficam em lados opostos da transversal",
+          "porque": "Essa é a descrição dos ângulos alternos, que vêm na próxima lição. Correspondentes ficam do MESMO lado da transversal."
+        },
+        {
+          "resposta": "Somam sempre 180°",
+          "porque": "Correspondentes são iguais, e não suplementares. Dois ângulos iguais só somariam 180° se cada um medisse 90°, que é um caso particular."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Deslize um cruzamento sobre o outro",
+          "explicacao": "Movendo o cruzamento de cima ao longo da transversal até cair sobre o de baixo, quatro pares se encaixam.",
+          "conta": "4 pares correspondentes"
+        },
+        {
+          "titulo": "Descreva a posição",
+          "explicacao": "Cada par ocupa o mesmo canto, do mesmo lado da transversal, em cruzamentos diferentes.",
+          "conta": "mesma posição, cruzamentos diferentes"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "As retas são paralelas e um dos ângulos mede 118°. Quanto mede o ângulo x, correspondente a ele? Digite apenas o número.",
+      "imagem": "rp-q-corr-118",
+      "dica": "A propriedade vale para qualquer medida, inclusive para ângulos maiores que 90°.",
+      "formato": "numero",
+      "resposta": 118,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "62",
+          "porque": "62 é o suplementar de 118°, ou seja, o outro valor da figura. Ele aparece nos vizinhos, e não no correspondente."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é a meia volta inteira, formada por dois ângulos vizinhos juntos. Um ângulo sozinho da figura nunca chega a esse valor."
+        },
+        {
+          "resposta": "59",
+          "porque": "59 é a metade de 118°. A propriedade dos correspondentes não divide nem multiplica nada: ela repete a medida como está."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o par",
+          "explicacao": "Os dois estão na mesma posição relativa, cada um no seu cruzamento.",
+          "conta": "são correspondentes"
+        },
+        {
+          "titulo": "Repita a medida",
+          "explicacao": "Entre paralelas, correspondentes são iguais, sejam agudos ou obtusos.",
+          "conta": "x = 118°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "As retas são paralelas. Dois ângulos correspondentes medem 2x e 80°. Quanto vale x? Digite apenas o número.",
+      "imagem": "rp-q-corr-algebra",
+      "dica": "Escreva a igualdade que a propriedade garante e resolva como uma equação do 1º grau.",
+      "formato": "numero",
+      "resposta": 40,
+      "errosComuns": [
+        {
+          "resposta": "160",
+          "porque": "160 multiplica 80 por 2 em vez de dividir. Como 2x é o dobro de x, para achar x a partir de 2x é preciso dividir por 2."
+        },
+        {
+          "resposta": "80",
+          "porque": "80 é o valor do ÂNGULO, e não o de x. A igualdade dá 2x = 80, e o x é a metade disso — a pergunta é sobre a letra, e não sobre a medida."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 sairia de 2x = 100, ou seja, de usar o suplementar de 80°. Correspondentes são iguais, então o 2x se iguala ao próprio 80."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a igualdade",
+          "explicacao": "A propriedade garante que os dois correspondentes têm a mesma medida.",
+          "conta": "2x = 80"
+        },
+        {
+          "titulo": "Resolva a equação",
+          "explicacao": "Dividindo os dois lados por 2, como em qualquer equação do 1º grau.",
+          "conta": "x = 40"
+        },
+        {
+          "titulo": "Confira na figura",
+          "explicacao": "Com x = 40, o ângulo 2x mede 80°, que é exatamente o correspondente dado.",
+          "conta": "2 × 40 = 80 ✓"
+        }
+      ]
+    }
+  ]
+}

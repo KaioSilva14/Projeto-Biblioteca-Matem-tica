@@ -1,0 +1,211 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Decidir com inequação",
+  "pergunta": "Como a inequação resolve um problema de verdade?",
+  "ideia": {
+    "paragrafos": [
+      "O roteiro é o mesmo de Equações, com um passo a mais no fim: nomear a incógnita, traduzir o texto — agora com sinal de desigualdade —, resolver, voltar ao que foi perguntado e, por último, verificar se a resposta precisa ser um número inteiro.",
+      "Esse passo final é novo e é o que mais derruba resposta certa. A inequação entrega um intervalo inteiro; o mundo às vezes só aceita alguns valores dele. Ninguém compra 6,7 ingressos nem convida 4,3 pessoas.",
+      "O erro clássico é arredondar para o lado errado. Se a conta dá x ≤ 6,67 e x é uma quantidade, a resposta é 6 — arredondar para 7 passa do limite, que era justamente o que a inequação proibia. Em problema de teto, arredonda-se sempre para baixo.",
+      "Quando o problema pede \"o maior possível\" ou \"o menor possível\", a resposta é a fronteira do intervalo. Mas só depois de conferir duas coisas: se o sinal permite a fronteira e se ela é um número aceitável para aquela grandeza.",
+      "Conferir aqui tem uma receita própria: teste o valor escolhido E o valor seguinte. Se o escolhido cabe e o seguinte estoura, ele é mesmo o extremo. Um teste só não distingue a resposta certa da resposta quase certa."
+    ],
+    "destaque": "A inequação dá o intervalo; o problema escolhe dentro dele.",
+    "imagem": "in-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Com R$ 60, quantas canetas de R$ 7 dá para comprar, guardando pelo menos R$ 10 para o lanche?",
+    "imagem": "in-res-canetas",
+    "passos": [
+      {
+        "titulo": "Dê nome ao que se procura",
+        "explicacao": "A pergunta é sobre a quantidade de canetas, então é ela que recebe a letra.",
+        "conta": "x = número de canetas"
+      },
+      {
+        "titulo": "Traduza guardando o limite",
+        "explicacao": "O gasto com canetas mais os 10 reais reservados não pode passar dos 60 que existem. \"Pelo menos 10 guardados\" vira um teto para o gasto.",
+        "conta": "7x + 10 ≤ 60"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Tire o termo solto e depois divida por 7, que é positivo e mantém o sinal.",
+        "conta": "7x ≤ 50 → x ≤ 7,14…"
+      },
+      {
+        "titulo": "Escolha o inteiro e teste o seguinte",
+        "explicacao": "Sete canetas cabem com folga; oito estouram. Testar os dois é o que prova que 7 é mesmo o máximo.",
+        "conta": "7 → gasta 49, sobra 11 ✓ · 8 → gasta 56, sobra 4 ✗"
+      }
+    ],
+    "fecho": "O intervalo dizia 7,14. Como caneta não se compra em pedaço, a resposta útil é o 7."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um táxi cobra R$ 5 fixos mais R$ 2 por quilômetro rodado. Com R$ 27, quantos quilômetros no máximo dá para andar? Digite apenas o número.",
+      "imagem": "in-q-taxi",
+      "dica": "A parte fixa é paga uma vez só; o resto do dinheiro é que se divide pelos quilômetros.",
+      "formato": "numero",
+      "resposta": 11,
+      "unidade": "km",
+      "errosComuns": [
+        {
+          "resposta": "22",
+          "porque": "22 é o dinheiro que sobra depois da parte fixa, e não a quantidade de quilômetros. Falta o último passo: repartir esses R$ 22 pelos R$ 2 de cada quilômetro."
+        },
+        {
+          "resposta": "13.5",
+          "porque": "13,5 divide os R$ 27 inteiros por 2, esquecendo a bandeirada. Os R$ 5 fixos são cobrados antes do primeiro quilômetro e precisam sair da conta primeiro."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 subtrai 5 de 11 sem motivo, ou divide o que sobra por um valor errado. A parte fixa sai uma vez só, e depois disso é uma divisão simples por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a inequação",
+          "explicacao": "O valor fixo mais o valor por quilômetro não pode passar do dinheiro disponível.",
+          "conta": "5 + 2x ≤ 27"
+        },
+        {
+          "titulo": "Tire a parte fixa",
+          "explicacao": "Os R$ 5 saem dos dois lados, sem mexer no sinal.",
+          "conta": "2x ≤ 22"
+        },
+        {
+          "titulo": "Divida e confira o seguinte",
+          "explicacao": "Onze quilômetros custam exatamente 27; doze já passariam.",
+          "conta": "x ≤ 11 · 12 km → R$ 29 ✗"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa promoção é preciso levar pelo menos 4 itens. Cada item custa R$ 12 e você tem R$ 80. Quantos itens no máximo dá para levar? Digite apenas o número.",
+      "imagem": "in-q-itens",
+      "dica": "O mínimo da promoção não é o que a pergunta quer. Descubra quantos itens cabem no dinheiro.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "itens",
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 arredonda para cima, mas 7 itens custam R$ 84 e o dinheiro é R$ 80. Num problema de teto, o arredondamento é sempre para baixo."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o MÍNIMO exigido pela promoção, e a pergunta é sobre o máximo que o dinheiro permite. As duas informações existem, mas respondem a coisas diferentes."
+        },
+        {
+          "resposta": "6.67",
+          "porque": "6,67 é o resultado exato da divisão e descreve bem o intervalo. Só que item não se leva em pedaço: a resposta útil é o maior inteiro que cabe."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a inequação do gasto",
+          "explicacao": "Cada item custa 12, e o total não pode passar do dinheiro.",
+          "conta": "12x ≤ 80"
+        },
+        {
+          "titulo": "Divida os dois lados por 12",
+          "explicacao": "O 12 é positivo, então o sinal continua o mesmo.",
+          "conta": "x ≤ 6,66…"
+        },
+        {
+          "titulo": "Escolha o inteiro e confira",
+          "explicacao": "Seis itens cabem e ainda respeitam o mínimo de 4 exigido pela promoção.",
+          "conta": "6 × 12 = 72 ≤ 80 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma inequação de um problema resultou em x ≤ 6,4, sendo x um número de pessoas. Qual é a resposta do problema?",
+      "imagem": "in-q-arredondar",
+      "dica": "Pense em qual dos valores do intervalo é possível na prática, e qual deles é o maior.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "6 pessoas" },
+        { "rotulo": "B", "texto": "7 pessoas" },
+        { "rotulo": "C", "texto": "6,4 pessoas" },
+        { "rotulo": "D", "texto": "Qualquer número até 6,4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "7 pessoas",
+          "porque": "7 arredonda para cima e sai do intervalo: a inequação dizia no máximo 6,4, e 7 é mais que isso. Num teto, o arredondamento correto é para baixo."
+        },
+        {
+          "resposta": "6,4 pessoas",
+          "porque": "6,4 respeita a inequação, mas não existe no mundo: pessoa não se conta pela metade. O intervalo está certo e a resposta precisa ser um valor possível dentro dele."
+        },
+        {
+          "resposta": "Qualquer número até 6,4",
+          "porque": "Isso descreve o intervalo, e não a resposta do problema. Quando se pergunta quantas pessoas, espera-se um número — e, num teto, o maior que couber."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o intervalo",
+          "explicacao": "Tudo o que for menor ou igual a 6,4 satisfaz a inequação.",
+          "conta": "x ≤ 6,4"
+        },
+        {
+          "titulo": "Filtre pelo que é possível",
+          "explicacao": "Pessoa é quantidade contável, então só os inteiros do intervalo interessam.",
+          "conta": "… 4, 5, 6"
+        },
+        {
+          "titulo": "Escolha o maior deles",
+          "explicacao": "O maior inteiro que cabe no intervalo é a resposta, e o seguinte já estouraria.",
+          "conta": "6 ≤ 6,4 ✓ · 7 ≤ 6,4 ✗"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um estacionamento cobra R$ 6 pela primeira hora e R$ 4 por cada hora seguinte. Com R$ 30, quantas horas no máximo dá para ficar? Digite apenas o número.",
+      "imagem": "in-q-estacionamento",
+      "dica": "A primeira hora tem preço próprio. Só as horas depois dela custam R$ 4 cada.",
+      "formato": "numero",
+      "resposta": 7,
+      "unidade": "horas",
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 divide por 4 o que sobra depois da bandeirada e esquece de somar a primeira hora, que também foi paga. Aquelas 6 horas seguintes vêm depois da 1ª."
+        },
+        {
+          "resposta": "7.5",
+          "porque": "7,5 divide os R$ 30 inteiros por 4, tratando todas as horas pelo mesmo preço. A primeira custa R$ 6, e essa diferença precisa entrar na conta."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 divide os R$ 30 pelos R$ 6 da primeira hora, como se todas custassem isso. Só a primeira hora tem esse preço; as seguintes custam R$ 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe a primeira hora",
+          "explicacao": "Ela tem preço próprio, e as demais é que custam R$ 4 cada uma.",
+          "conta": "6 + 4 × (x − 1) ≤ 30"
+        },
+        {
+          "titulo": "Simplifique o lado esquerdo",
+          "explicacao": "Abrindo o parêntese e juntando os termos soltos, a inequação fica na forma de sempre.",
+          "conta": "4x + 2 ≤ 30 → 4x ≤ 28"
+        },
+        {
+          "titulo": "Divida e teste o seguinte",
+          "explicacao": "Sete horas custam exatamente 30; oito passariam de 34, o que confirma o extremo.",
+          "conta": "x ≤ 7 · 8 h → R$ 34 ✗"
+        }
+      ]
+    }
+  ]
+}

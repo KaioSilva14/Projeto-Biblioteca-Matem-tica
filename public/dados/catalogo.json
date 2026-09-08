@@ -163,37 +163,43 @@
           "id": "inequacoes",
           "titulo": "Inequações",
           "resumo": "Quando a resposta não é um número, e sim um intervalo.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/inequacoes.json"
         },
         {
           "id": "retas-paralelas",
           "titulo": "Retas paralelas e transversais",
           "resumo": "Os ângulos que aparecem quando uma reta corta duas paralelas.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/retas-paralelas.json"
         },
         {
           "id": "triangulos-quadrilateros",
           "titulo": "Triângulos e quadriláteros",
           "resumo": "Propriedades, soma dos ângulos e condição de existência.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/triangulos-quadrilateros.json"
         },
         {
           "id": "circunferencia",
           "titulo": "Circunferência e círculo",
           "resumo": "O número π e o que ele mede de verdade.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/circunferencia.json"
         },
         {
           "id": "estatistica-7",
           "titulo": "Média, moda e mediana",
           "resumo": "Três jeitos de resumir um conjunto de dados.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/estatistica-7.json"
         },
         {
           "id": "probabilidade-7",
           "titulo": "Probabilidade",
           "resumo": "Contar o que pode acontecer, e medir a chance.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/probabilidade-7.json"
         }
       ]
     },

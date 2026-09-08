@@ -1,0 +1,195 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Achar o ângulo que falta",
+  "pergunta": "Como juntar tudo para resolver uma figura inteira?",
+  "ideia": {
+    "paragrafos": [
+      "As peças estão todas na mesa: soma 180° no triângulo, 360° no quadrilátero, ângulos iguais no isósceles, opostos iguais no paralelogramo, e a condição de existência para saber se a figura sequer é possível. Nesta lição elas param de aparecer uma por vez.",
+      "O roteiro é o mesmo das outras matérias de geometria: identifique que figura é, escreva a relação que ela obedece, e só então calcule. Pular a identificação é o erro que mais custa — a mesma conta num triângulo e num quadrilátero dá resultados diferentes por 180°.",
+      "Quando o enunciado dá os ângulos em função de uma letra, a matéria de Equações volta a trabalhar. Três ângulos escritos como x, 2x e 3x viram a equação 6x = 180, e o resto é a álgebra de sempre — inclusive o cuidado de voltar à pergunta, porque nem sempre é o x que se pede.",
+      "Num triângulo isósceles vale lembrar de onde vêm os ângulos iguais: eles ficam opostos aos lados iguais. Sabendo o ângulo do vértice, os dois da base saem dividindo o que sobra por dois, porque são iguais entre si.",
+      "E a conferência é sempre a mesma: some tudo no fim e veja se fecha no total da figura. Se um triângulo não der 180° ou um quadrilátero não der 360°, algum passo saiu errado — e é melhor descobrir isso agora do que na prova."
+    ],
+    "destaque": "Identifique a figura antes de calcular: 180° e 360° não são intercambiáveis.",
+    "imagem": "tq-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Num triângulo isósceles, o ângulo do vértice mede 40°. Quanto mede cada um dos ângulos da base?",
+    "imagem": "tq-res-isosceles",
+    "passos": [
+      {
+        "titulo": "Identifique a figura e o que ela garante",
+        "explicacao": "É um triângulo isósceles, então dois de seus ângulos são iguais — os que ficam opostos aos dois lados iguais, ou seja, os da base.",
+        "conta": "os dois da base são iguais"
+      },
+      {
+        "titulo": "Escreva a soma",
+        "explicacao": "Os três ângulos somam 180°, e dois deles têm a mesma medida desconhecida.",
+        "conta": "40 + x + x = 180"
+      },
+      {
+        "titulo": "Isole a parte desconhecida",
+        "explicacao": "Tirando o ângulo do vértice, sobra o que os dois da base ocupam juntos.",
+        "conta": "2x = 180 − 40 = 140"
+      },
+      {
+        "titulo": "Reparta e confira",
+        "explicacao": "Como os dois são iguais, o que sobrou se divide ao meio — e a soma dos três precisa fechar.",
+        "conta": "x = 70° · 40 + 70 + 70 = 180 ✓"
+      }
+    ],
+    "fecho": "Se o ângulo do vértice fosse 100°, os da base dariam 40° cada. O método não muda, só o número."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo isósceles, os dois ângulos da base são iguais e o ângulo do vértice mede 40°. Quanto mede cada ângulo da base? Digite apenas o número.",
+      "imagem": "tq-q-isosceles-40",
+      "dica": "Tire o ângulo do vértice de 180° e reparta o que sobrar entre os dois ângulos iguais.",
+      "formato": "numero",
+      "resposta": 70,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "140",
+          "porque": "140 é quanto os DOIS ângulos da base ocupam juntos. Como eles são iguais, ainda falta repartir esse total ao meio."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é a medida do ângulo do VÉRTICE, que o enunciado já deu. Os da base são maiores, porque dividem entre si o que sobra dos 180°."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 sairia de tirar 40 de 140, ou de alguma conta com 180 pela metade. O caminho é tirar o vértice do total e depois dividir por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire o ângulo do vértice",
+          "explicacao": "O que sobra dos 180° é o que os dois ângulos da base ocupam juntos.",
+          "conta": "180 − 40 = 140"
+        },
+        {
+          "titulo": "Reparta entre os dois",
+          "explicacao": "Como eles são iguais, cada um fica com metade.",
+          "conta": "140 ÷ 2 = 70°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Os três ângulos de um triângulo medem x, 2x e 3x. Quanto vale x? Digite apenas o número.",
+      "imagem": "tq-q-x-2x-3x",
+      "dica": "Escreva a soma dos três, junte os termos semelhantes e resolva a equação.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 divide 180 por três, contando os três ângulos como se fossem iguais. Eles não são: um é o dobro e outro é o triplo, o que dá seis partes no total."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 é a medida do maior ângulo, o de 3x, e não o valor de x. Achado o x, ainda é preciso olhar o que a pergunta pediu."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 sairia de dividir 180 por cinco, somando os coeficientes errado. Um mais dois mais três dá seis parcelas de x, e não cinco."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a soma",
+          "explicacao": "Os três ângulos de um triângulo somam 180°.",
+          "conta": "x + 2x + 3x = 180"
+        },
+        {
+          "titulo": "Junte os termos semelhantes",
+          "explicacao": "Os três têm a mesma letra, então se juntam num só.",
+          "conta": "6x = 180"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "Dividindo por 6, e conferindo que os três ângulos achados somam 180°.",
+          "conta": "x = 30 · 30 + 60 + 90 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um quadrilátero tem três ângulos medindo 90°, 90° e 60°. Quanto mede o quarto? Digite apenas o número.",
+      "imagem": "tq-q-quad-90-90-60",
+      "dica": "Identifique primeiro a figura: é quadrilátero, então o total não é 180°.",
+      "formato": "numero",
+      "resposta": 120,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "240",
+          "porque": "240 é a soma dos três ângulos dados, e não o quarto. Ele é o que ainda falta para completar a volta."
+        },
+        {
+          "resposta": "-60",
+          "porque": "−60 sai de usar 180° como total, que é a soma de um TRIÂNGULO. Num quadrilátero são 360°, porque ele se parte em dois triângulos."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 repete um dos ângulos dados. Testando: dois de 90°, mais dois de 60°, dariam 300° — sessenta graus a menos que a volta completa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique a figura",
+          "explicacao": "São quatro ângulos, então a soma é a de um quadrilátero.",
+          "conta": "total = 360°"
+        },
+        {
+          "titulo": "Some os conhecidos e complete",
+          "explicacao": "O que falta da volta é a medida procurada.",
+          "conta": "360 − 240 = 120°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num paralelogramo, um dos ângulos mede 110°. Quanto mede o ângulo VIZINHO a ele? Digite apenas o número.",
+      "imagem": "tq-q-paralelogramo-vizinho",
+      "dica": "Vizinhos num paralelogramo têm relação de soma, e não de igualdade. Os opostos é que são iguais.",
+      "formato": "numero",
+      "resposta": 70,
+      "unidade": "graus",
+      "errosComuns": [
+        {
+          "resposta": "110",
+          "porque": "110 é a medida do ângulo OPOSTO, que de fato é igual. O vizinho é o do canto ao lado, e ele completa 180° com o ângulo dado."
+        },
+        {
+          "resposta": "250",
+          "porque": "250 completa 360° com o 110°. A volta completa é a soma dos quatro ângulos, e não de dois vizinhos."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 completa 90° com o 110°... o que nem é possível, já que 110 já passa de 90. A relação entre vizinhos é a de somar 180°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre a relação dos vizinhos",
+          "explicacao": "Num paralelogramo, dois ângulos vizinhos somam 180° — os lados paralelos funcionam como duas retas cortadas por uma transversal.",
+          "conta": "110 + x = 180"
+        },
+        {
+          "titulo": "Complete",
+          "explicacao": "O que falta para a meia volta é a medida procurada.",
+          "conta": "180 − 110 = 70°"
+        },
+        {
+          "titulo": "Confira a volta inteira",
+          "explicacao": "Os dois de 110° e os dois de 70° têm de fechar 360°.",
+          "conta": "110 + 70 + 110 + 70 = 360 ✓"
+        }
+      ]
+    }
+  ]
+}

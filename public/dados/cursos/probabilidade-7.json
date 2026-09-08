@@ -1,0 +1,41 @@
+{
+  "id": "probabilidade-7",
+  "titulo": "Probabilidade",
+  "ano": 7,
+  "descricao": "A matéria que fecha o 7º ano. Seis lições sobre medir a chance — e sobre o trabalho que ninguém vê: contar os casos possíveis. A lição 5 existe para um fato que quase todo mundo erra na intuição: somar 7 com dois dados é seis vezes mais provável que somar 12.",
+  "pergunta": "Por que somar 7 com dois dados é mais provável que somar 12?",
+  "videos": [
+    {
+      "id": "V6sv3yomjWo",
+      "titulo": "MATEMÁTICA | PRATICANDO PROBABILIDADE | Espaço Amostral | 7º ANO | 3° Bimestre | Prof. Saris F.",
+      "canal": "Centro Municipal de Ensino a Distância",
+      "descricao": "Aula feita para esta série, com foco no espaço amostral. Serve para reforçar as lições 1 e 2, se contar os casos possíveis ainda parecer confuso."
+    },
+    {
+      "id": "NZE1EYZFrwE",
+      "titulo": "PROBABILIDADE: CONCEITOS BÁSICOS, EXPERIMENTO ALEATÓRIO, ESPAÇO AMOSTRAL E EVENTO 👩‍🏫 GISELE RAMOS",
+      "canal": "Professora Gisele Ramos - Matemática",
+      "descricao": "Dá nome a cada peça — experimento, espaço amostral, evento. Vale para quem vai encontrar esses termos na prova ou no livro."
+    },
+    {
+      "id": "fDKuB9Zd174",
+      "titulo": "Qual é o espaço amostral para o lançamento de dois dados? - Probabilidade - Habilidades da BNCC",
+      "canal": "Estudando Matemática",
+      "descricao": "Só sobre a grade dos dois dados, que é o assunto da lição 5. Bom para ver as 36 combinações sendo montadas na tela."
+    },
+    {
+      "id": "KyI3dpH_eN0",
+      "titulo": "PROBABILIDADE - LANÇAMENTO DE DOIS DADOS",
+      "canal": "Matematica 100cola - profcicerosilveira",
+      "descricao": "Exercícios resolvidos com dois dados, do começo ao fim. Serve como fechamento, depois das seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/probabilidade-7/o-que-e.json" },
+    { "id": "espaco-amostral", "arquivo": "/dados/licoes/probabilidade-7/espaco-amostral.json" },
+    { "id": "calcular", "arquivo": "/dados/licoes/probabilidade-7/calcular.json" },
+    { "id": "formas", "arquivo": "/dados/licoes/probabilidade-7/formas.json" },
+    { "id": "dois-dados", "arquivo": "/dados/licoes/probabilidade-7/dois-dados.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/probabilidade-7/problemas.json" }
+  ]
+}

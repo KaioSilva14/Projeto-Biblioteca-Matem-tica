@@ -1,0 +1,210 @@
+{
+  "id": "traduzir",
+  "numero": 5,
+  "titulo": "As palavras que viram sinal",
+  "pergunta": "Como \"no máximo\" e \"pelo menos\" viram símbolos?",
+  "ideia": {
+    "paragrafos": [
+      "Fora da escola, inequação aparece em palavras, e não em símbolos. Placas, regras, promoções e bulas estão cheias de limites escritos em português. Traduzir bem essas frases é o que decide o problema — depois disso, resolver é o de sempre.",
+      "O dicionário é curto e vale decorar pelo uso: \"mais de\" vira >, \"menos de\" vira <, \"pelo menos\", \"no mínimo\" e \"a partir de\" viram ≥, e \"no máximo\" e \"até\" viram ≤.",
+      "O par que mais confunde é justamente o que separa os dois grupos. \"Mais de 18\" deixa quem tem 18 de fora; \"pelo menos 18\" inclui essa pessoa. Uma palavra diferente muda quem entra na resposta, e num problema real isso pode ser a diferença entre poder e não poder.",
+      "Cuidado também com QUEM a frase está limitando. \"Gastar no máximo R$ 50\" vira gasto ≤ 50 — o gasto é que fica preso, e não o 50. Trocar os lados sem trocar o sinal escreve outra coisa.",
+      "Por fim, um detalhe que a inequação sozinha não resolve: quando a quantidade é contável — pessoas, ingressos, cadeiras —, a resposta ainda precisa ser um número inteiro. A inequação entrega o intervalo; o bom senso escolhe dentro dele."
+    ],
+    "destaque": "\"Pelo menos\" inclui o número; \"mais de\" deixa ele de fora.",
+    "imagem": "in-ideia-palavras"
+  },
+  "resolvido": {
+    "enunciado": "Um elevador suporta no máximo 450 kg. Já há dentro dele 3 pessoas de 70 kg cada. Quanto peso ainda pode entrar?",
+    "imagem": "in-res-elevador",
+    "passos": [
+      {
+        "titulo": "Traduza a expressão-chave",
+        "explicacao": "\"No máximo\" quer dizer que o total pode chegar a 450, mas não passar disso. Em símbolos, isso é o sinal de menor ou igual.",
+        "conta": "total ≤ 450"
+      },
+      {
+        "titulo": "Calcule o que já está dentro",
+        "explicacao": "As três pessoas já ocupam parte do limite, e esse peso não pode ser esquecido na conta.",
+        "conta": "3 × 70 = 210 kg"
+      },
+      {
+        "titulo": "Monte a inequação",
+        "explicacao": "O peso que já está lá, somado ao que ainda vai entrar, é o que precisa respeitar o limite.",
+        "conta": "210 + x ≤ 450"
+      },
+      {
+        "titulo": "Resolva e interprete",
+        "explicacao": "Tirando 210 dos dois lados sobra o intervalo. Como o sinal tem o igual, exatamente 240 kg ainda é permitido.",
+        "conta": "x ≤ 240 kg"
+      }
+    ],
+    "fecho": "Se a placa dissesse \"menos de 450 kg\", os 240 kg exatos já estariam proibidos. A palavra muda o limite."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Como se escreve em símbolos a frase \"pelo menos 12 pessoas\", chamando de p o número de pessoas?",
+      "imagem": "in-q-pelo-menos",
+      "dica": "Pergunte-se se um grupo de exatamente 12 pessoas atende à frase ou não.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "p ≥ 12" },
+        { "rotulo": "B", "texto": "p > 12" },
+        { "rotulo": "C", "texto": "p ≤ 12" },
+        { "rotulo": "D", "texto": "p < 12" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "p > 12",
+          "porque": "Acerta o sentido e perde o igual. \"Pelo menos 12\" quer dizer que 12 já basta, e o sinal > exigiria 13 para começar a valer."
+        },
+        {
+          "resposta": "p ≤ 12",
+          "porque": "Inverte o sentido: isso é um teto, e \"pelo menos\" é um piso. A frase diz o mínimo necessário, não o máximo permitido."
+        },
+        {
+          "resposta": "p < 12",
+          "porque": "Inverte o sentido e ainda exclui o 12. Essa expressão descreveria grupos pequenos demais, que são exatamente os que a frase quer proibir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste o próprio 12",
+          "explicacao": "Um grupo de 12 pessoas atende a \"pelo menos 12\", então o 12 faz parte da resposta.",
+          "conta": "12 serve"
+        },
+        {
+          "titulo": "Escolha o sinal com igual",
+          "explicacao": "Como a fronteira entra e o que se quer é dali para cima, o sinal é o de maior ou igual.",
+          "conta": "p ≥ 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um ingresso custa R$ 15. Com R$ 100, quantos ingressos no máximo dá para comprar? Digite apenas o número.",
+      "imagem": "in-q-ingressos",
+      "dica": "Monte a inequação do gasto e depois lembre que não se compra pedaço de ingresso.",
+      "formato": "numero",
+      "resposta": 6,
+      "unidade": "ingressos",
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 arredonda para cima, mas 7 ingressos custam R$ 105 e o dinheiro é R$ 100. Em problema de limite, arredondar para cima estoura justamente o limite."
+        },
+        {
+          "resposta": "6.67",
+          "porque": "6,67 é o resultado exato da divisão, e ele está certo como intervalo. Só que ingresso não se compra pela metade: a resposta precisa ser o maior inteiro que cabe."
+        },
+        {
+          "resposta": "85",
+          "porque": "85 subtrai 15 de 100, respondendo quanto sobraria depois de um ingresso. A pergunta é quantos ingressos cabem no total, o que pede divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a inequação",
+          "explicacao": "O gasto é 15 por ingresso, e ele não pode passar do dinheiro disponível.",
+          "conta": "15x ≤ 100"
+        },
+        {
+          "titulo": "Divida os dois lados por 15",
+          "explicacao": "O 15 é positivo, então o sinal continua o mesmo.",
+          "conta": "x ≤ 6,66…"
+        },
+        {
+          "titulo": "Escolha o inteiro que cabe",
+          "explicacao": "Como só valem quantidades inteiras, a resposta é o maior inteiro dentro do intervalo.",
+          "conta": "6 × 15 = 90 ≤ 100 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual frase corresponde à inequação x < 30?",
+      "imagem": "in-q-frase",
+      "dica": "Olhe duas coisas no sinal: para que lado ele aponta e se tem o traço do igual.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Menos de 30" },
+        { "rotulo": "B", "texto": "No máximo 30" },
+        { "rotulo": "C", "texto": "Pelo menos 30" },
+        { "rotulo": "D", "texto": "Mais de 30" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "No máximo 30",
+          "porque": "Acerta o sentido e erra o igual. \"No máximo 30\" permite exatamente 30 e seria escrito com ≤; o sinal < deixa o 30 de fora."
+        },
+        {
+          "resposta": "Pelo menos 30",
+          "porque": "Inverte o sentido: isso é um piso, e o sinal < descreve um teto. A frase certa fala de valores abaixo de 30, e não acima."
+        },
+        {
+          "resposta": "Mais de 30",
+          "porque": "Inverte o sentido. \"Mais de 30\" seria x > 30, que cobre exatamente a parte da reta que o sinal < deixa de fora."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a direção do sinal",
+          "explicacao": "Ele aponta para valores menores que 30, ou seja, para a esquerda na reta.",
+          "conta": "< → abaixo de 30"
+        },
+        {
+          "titulo": "Veja se há igual",
+          "explicacao": "Não há traço embaixo do sinal, então o próprio 30 não entra.",
+          "conta": "30 não serve"
+        },
+        {
+          "titulo": "Escolha a frase",
+          "explicacao": "A expressão que exclui o extremo e fica abaixo dele é \"menos de\".",
+          "conta": "menos de 30"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Para fechar o bimestre com média 7 em duas provas, e tendo tirado 5 na primeira, qual é a nota mínima necessária na segunda? Digite apenas o número.",
+      "imagem": "in-q-media",
+      "dica": "A média de duas provas é a soma dividida por 2. Escreva que essa média precisa ser pelo menos 7.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é a média desejada, e não a nota da segunda prova. Como a primeira ficou abaixo de 7, a segunda precisa ficar acima para compensar."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é a SOMA que as duas provas precisam alcançar. Falta descontar dessa soma os 5 pontos que a primeira prova já garantiu."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 não chega lá: com 5 e 8 a soma é 13, e a média fica em 6,5. Faltaria meio ponto para atingir a média pedida."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a média",
+          "explicacao": "Com duas provas, a média é a soma das duas dividida por 2.",
+          "conta": "(5 + x) ÷ 2 ≥ 7"
+        },
+        {
+          "titulo": "Multiplique os dois lados por 2",
+          "explicacao": "O 2 é positivo, então o sinal continua o mesmo e a fração some.",
+          "conta": "5 + x ≥ 14"
+        },
+        {
+          "titulo": "Tire o 5 e interprete",
+          "explicacao": "O que sobra é a nota mínima. Como o sinal tem o igual, exatamente 9 já basta.",
+          "conta": "x ≥ 9 · (5+9) ÷ 2 = 7 ✓"
+        }
+      ]
+    }
+  ]
+}
