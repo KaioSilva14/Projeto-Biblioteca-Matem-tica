@@ -1,0 +1,190 @@
+{
+  "id": "base-vezes-altura",
+  "numero": 1,
+  "titulo": "Área da base vezes altura",
+  "pergunta": "Por que a mesma fórmula serve para sólidos de formatos diferentes?",
+  "ideia": {
+    "paragrafos": [
+      "No 6º ano o volume da caixa saiu de contar cubinhos: quantos cabem numa camada, e quantas camadas cabem na caixa. A conta virou comprimento × largura × altura. Esta matéria não vai derrubar essa fórmula — vai mostrar que ela é um caso particular de uma ideia mais simples.",
+      "Repare no que os dois primeiros fatores estavam fazendo. Comprimento × largura é a área da BASE da caixa, e nada mais. O terceiro fator, a altura, só diz quantas camadas dessas foram empilhadas. Escrita assim, a fórmula fica: volume é área da base vezes altura.",
+      "E dita assim, ela não menciona retângulo em lugar nenhum. Se a base for um triângulo, uma camada de espessura 1 tem o volume da área desse triângulo; empilhar h camadas multiplica por h. O argumento é o mesmo, e o formato da base entra só no cálculo da área — que é o assunto da matéria anterior.",
+      "O sólido que se obtém empilhando cópias iguais de uma figura plana chama-se PRISMA. A figura empilhada é a base, e a distância entre as duas bases é a altura. Um bloco é um prisma de base retangular; uma barra de chocolate de seção triangular é um prisma de base triangular. E o cilindro é o que sai quando a base é um círculo.",
+      "Um cuidado que atravessa a matéria inteira: a ALTURA do prisma é a distância entre as duas bases, e não se confunde com a altura da figura que serve de base. Num prisma de base triangular há duas alturas em jogo — a do triângulo, que entra no cálculo da área da base, e a do prisma, que multiplica essa área depois. Confundir as duas é o erro mais comum daqui em diante.",
+      "Vale reparar também que a fórmula não pede o formato da base, e sim a ÁREA dela. Se o problema já disser que a base mede 15 cm², o formato deixou de importar: pode ser triângulo, hexágono ou uma figura sem nome. Multiplique pela altura e pronto."
+    ],
+    "destaque": "Volume é área da base vezes altura. O formato da base entra só no cálculo da área — depois disso, o argumento é sempre o mesmo.",
+    "imagem": "vl8-ideia-camadas"
+  },
+  "resolvido": {
+    "enunciado": "Um prisma tem base triangular. O triângulo da base tem 6 cm de base e 4 cm de altura, e o prisma tem 10 cm de altura. Qual é o volume?",
+    "imagem": "vl8-res-prisma-tri",
+    "passos": [
+      {
+        "titulo": "Separe as duas alturas",
+        "explicacao": "Uma é do triângulo e serve para a área da base; a outra é do prisma e empilha as camadas.",
+        "conta": "altura do triângulo 4 · altura do prisma 10"
+      },
+      {
+        "titulo": "Calcule a área da base",
+        "explicacao": "A base é um triângulo, e área de triângulo é base vezes altura dividido por 2.",
+        "conta": "6 × 4 ÷ 2 = 12"
+      },
+      {
+        "titulo": "Empilhe as camadas",
+        "explicacao": "Cada camada de 1 cm de espessura vale 12 cm³, e são 10 camadas.",
+        "conta": "12 × 10 = 120"
+      }
+    ],
+    "fecho": "A fórmula do bloco não foi usada em momento nenhum — e não precisava: a base não era retângulo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um prisma tem área da base igual a 15 cm² e altura de 8 cm. Qual é o volume dele, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "vl8-q-base-dada",
+      "dica": "O formato da base não foi informado, e não faz falta: a fórmula pede a área dela.",
+      "formato": "numero",
+      "resposta": 120,
+      "errosComuns": [
+        {
+          "resposta": "23",
+          "porque": "23 é 15 + 8, somando a área da base com a altura. Somar uma área a um comprimento não produz volume nenhum — são grandezas de tipos diferentes. Volume sai da multiplicação."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é 15 × 8 ÷ 2. Essa divisão por 2 vem da fórmula do triângulo, e aqui não há triângulo: a área da base já foi dada pronta, e ela só precisa ser multiplicada pela altura."
+        },
+        {
+          "resposta": "240",
+          "porque": "240 é o dobro de 15 × 8, como se as camadas fossem contadas duas vezes. São 8 camadas de 15 cm³ cada uma, e nada nesse cálculo se repete."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que foi dado",
+          "explicacao": "A área da base veio pronta, então o formato dela não interessa.",
+          "conta": "base 15 cm² · altura 8 cm"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cada camada de 1 cm vale 15 cm³, e são 8 camadas.",
+          "conta": "15 × 8 = 120"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que a fórmula comprimento × largura × altura é um caso particular de área da base × altura?",
+      "imagem": "vl8-q-caso-particular",
+      "dica": "Olhe o que os dois primeiros fatores calculam juntos quando a base é um retângulo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque comprimento × largura já é a área da base retangular" },
+        { "rotulo": "B", "texto": "Porque toda base é retangular" },
+        { "rotulo": "C", "texto": "Porque as duas fórmulas dão resultados diferentes" },
+        { "rotulo": "D", "texto": "Porque a altura aparece nas duas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque toda base é retangular",
+          "porque": "A base pode ser qualquer figura plana: triângulo, trapézio, hexágono ou círculo. É justamente por isso que a fórmula geral existe — se toda base fosse retângulo, ela não seria necessária."
+        },
+        {
+          "resposta": "Porque as duas fórmulas dão resultados diferentes",
+          "porque": "Elas dão exatamente o mesmo número quando a base é retangular, e é por isso que uma contém a outra. Se discordassem, uma das duas estaria errada."
+        },
+        {
+          "resposta": "Porque a altura aparece nas duas",
+          "porque": "A altura aparece nas duas, mas isso sozinho não explica nada — ela apareceria igual em fórmulas sem relação. O que liga as duas é que comprimento × largura É a área da base."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte os dois primeiros fatores",
+          "explicacao": "Numa base retangular, comprimento e largura são os lados dela.",
+          "conta": "comprimento × largura = área da base"
+        },
+        {
+          "titulo": "Reescreva a fórmula",
+          "explicacao": "Trocando os dois fatores pela área que eles calculam, sobra a fórmula geral.",
+          "conta": "área da base × altura"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um prisma tem volume de 168 cm³ e área da base igual a 24 cm². Quanto mede a altura dele, em centímetros? Digite apenas o número.",
+      "imagem": "vl8-q-altura-inversa",
+      "dica": "O volume saiu de uma multiplicação. Para voltar de um dos fatores, desfaça a multiplicação.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "144",
+          "porque": "144 é 168 − 24, subtraindo a área do volume. Elas não podem ser subtraídas uma da outra: o volume veio de uma multiplicação, então quem a desfaz é a divisão."
+        },
+        {
+          "resposta": "4032",
+          "porque": "4 032 é 168 × 24, multiplicando quando era preciso dividir. Se a altura fosse 4 032 cm, o volume passaria de 96 mil cm³ — muito longe dos 168 informados."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 sai de dividir 24 por 2, ou de dobrar a metade do resultado — nenhuma dessas contas tem lugar aqui. A altura é o volume dividido pela área da base."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o que se sabe",
+          "explicacao": "O volume é a área da base multiplicada pela altura, e os dois primeiros foram dados.",
+          "conta": "24 × altura = 168"
+        },
+        {
+          "titulo": "Desfaça a multiplicação",
+          "explicacao": "Dividindo o volume pela área da base sobra exatamente a altura.",
+          "conta": "168 ÷ 24 = 7"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num prisma de base triangular, o que a altura do TRIÂNGULO faz na conta do volume?",
+      "imagem": "vl8-q-duas-alturas",
+      "dica": "Há duas alturas em jogo, e cada uma entra num momento diferente do cálculo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Entra no cálculo da área da base, e não multiplica o volume" },
+        { "rotulo": "B", "texto": "É a mesma coisa que a altura do prisma" },
+        { "rotulo": "C", "texto": "Multiplica a área da base, como a altura do prisma" },
+        { "rotulo": "D", "texto": "Não serve para nada no volume" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "É a mesma coisa que a altura do prisma",
+          "porque": "São medidas de coisas diferentes: uma é a altura de uma figura PLANA, medida dentro da base, e a outra é a distância entre as duas bases. Um prisma pode ter base de altura 4 cm e 30 cm de altura própria."
+        },
+        {
+          "resposta": "Multiplica a área da base, como a altura do prisma",
+          "porque": "Quem multiplica a área da base é a altura do PRISMA. A altura do triângulo é usada antes, para descobrir quanto vale essa área — usar as duas como multiplicadoras contaria a mesma medida duas vezes."
+        },
+        {
+          "resposta": "Não serve para nada no volume",
+          "porque": "Sem ela não há como calcular a área da base triangular, que é base × altura ÷ 2. Ela é indispensável — só entra num momento anterior do cálculo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a área da base",
+          "explicacao": "A altura do triângulo entra aqui, junto com a base dele.",
+          "conta": "área = base × altura do triângulo ÷ 2"
+        },
+        {
+          "titulo": "Empilhe as camadas",
+          "explicacao": "Só agora entra a altura do prisma, multiplicando a área encontrada.",
+          "conta": "volume = área da base × altura do prisma"
+        }
+      ]
+    }
+  ]
+}

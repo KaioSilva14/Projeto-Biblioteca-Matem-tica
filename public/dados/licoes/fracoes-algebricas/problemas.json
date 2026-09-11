@@ -1,0 +1,194 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Juntar tudo",
+  "pergunta": "Como escolher o que fazer diante de uma expressão com frações?",
+  "ideia": {
+    "paragrafos": [
+      "As cinco lições deram as operações uma a uma. Na prática elas aparecem misturadas, e o que decide o caminho é a OPERAÇÃO que liga as frações — não a cara delas.",
+      "O roteiro cabe em três linhas. Se a operação é multiplicação ou divisão, não é preciso denominador comum: multiplique direto, ou inverta a segunda e multiplique. Se é soma ou subtração, o denominador comum é obrigatório antes de qualquer coisa. E em todos os casos, simplifique no fim.",
+      "A ordem entre simplificar e operar também importa, e a escolha é prática. Na multiplicação, simplificar ANTES economiza trabalho, porque evita escrever produtos grandes que depois teriam de ser cortados. Na soma, simplificar antes não ajuda: o denominador comum vai mudar tudo mesmo.",
+      "As restrições vão junto o caminho inteiro. Todo denominador que aparece — na expressão original, ou depois de uma inversão — proíbe o valor que o anula. Elas não somem quando a fração simplifica: em (x²−9)/(x+3), a resposta é x − 3, mas o x = −3 continua proibido, porque a expressão original não existe lá.",
+      "E há o motivo maior de tudo isso, que reaparece no 9º ano: expressões em forma de fração aparecem em toda equação com incógnita no denominador. Saber somar e simplificar essas frações é o que permite resolvê-las."
+    ],
+    "destaque": "A operação decide o caminho. Multiplicação e divisão não pedem denominador comum; soma e subtração, sim.",
+    "imagem": "fa-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Simplifique (x² − 4)/(x + 2) e diga qual valor de x fica proibido.",
+    "imagem": "fa-res-juntar",
+    "passos": [
+      {
+        "titulo": "Ache a restrição antes de mexer",
+        "explicacao": "Ela vem da expressão ORIGINAL, e continua valendo depois de simplificar.",
+        "conta": "x + 2 = 0 → x ≠ −2"
+      },
+      {
+        "titulo": "Fatore o numerador",
+        "explicacao": "Dois termos, os dois quadrados, com sinal de menos — diferença de quadrados.",
+        "conta": "x² − 4 = (x + 2)(x − 2)"
+      },
+      {
+        "titulo": "Corte o fator repetido",
+        "explicacao": "O (x + 2) multiplica em cima e é todo o denominador embaixo.",
+        "conta": "sobra x − 2"
+      },
+      {
+        "titulo": "Escreva a resposta com a condição",
+        "explicacao": "A expressão simplificada vale o mesmo, exceto no ponto que a original proibia.",
+        "conta": "x − 2, para x ≠ −2"
+      }
+    ],
+    "fecho": "A restrição sobrevive à simplificação: ela é da expressão original, e não da forma final."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa multiplicação de frações algébricas, é preciso achar o denominador comum?",
+      "imagem": "fa-q-precisa-mmc",
+      "dica": "Lembre para qual operação o denominador comum existe.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, o denominador comum é só para soma e subtração" },
+        { "rotulo": "B", "texto": "Sim, sempre que houver frações" },
+        { "rotulo": "C", "texto": "Sim, mas só quando os denominadores têm letra" },
+        { "rotulo": "D", "texto": "Só quando as frações têm o mesmo numerador" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, sempre que houver frações",
+          "porque": "O denominador comum serve para SOMAR partes do mesmo tamanho, e multiplicação não junta partes: ela multiplica em cima e embaixo. Exigi-lo aqui só daria trabalho a mais."
+        },
+        {
+          "resposta": "Sim, mas só quando os denominadores têm letra",
+          "porque": "A letra não muda a regra: (2/3) × (5/7) também se multiplica direto, sem denominador comum. O que decide é a operação, e não o tipo de número."
+        },
+        {
+          "resposta": "Só quando as frações têm o mesmo numerador",
+          "porque": "O numerador não decide nada nessa escolha. Quem decide é a operação: multiplicação e divisão vão direto; soma e subtração precisam igualar os denominadores."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre para que ele serve",
+          "explicacao": "Só se somam partes que têm o mesmo tamanho, e o denominador comum é o que iguala esses tamanhos.",
+          "conta": "soma e subtração"
+        },
+        {
+          "titulo": "Veja o que a multiplicação faz",
+          "explicacao": "Ela junta os numeradores em cima e os denominadores embaixo, sem precisar igualar nada.",
+          "conta": "(a/b) × (c/d) = ac/bd"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Simplificando (x² − 4)/(x + 2), qual valor de x continua proibido? Digite apenas o número (com o sinal, se for negativo).",
+      "imagem": "fa-q-restricao-fica",
+      "dica": "A restrição vem da expressão original, e não da forma simplificada.",
+      "formato": "numero",
+      "resposta": -2,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Com x = 2 o denominador vale 4, e a fração existe normalmente. O proibido resolve x + 2 = 0, o que dá x = −2: o 2 passa para o outro lado trocando de sinal."
+        },
+        {
+          "resposta": "0",
+          "porque": "Nenhum valor está sendo dividido por x sozinho aqui: o denominador é x + 2, e ele zera em −2. Com x = 0 a fração vale −4 ÷ 2, ou seja, −2."
+        },
+        {
+          "resposta": "4",
+          "porque": "O 4 aparece dentro do x² − 4, mas ele está no NUMERADOR e não impõe restrição. Só o denominador decide onde a fração deixa de existir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale o denominador original a zero",
+          "explicacao": "A restrição nasce da expressão como ela veio, antes de simplificar.",
+          "conta": "x + 2 = 0"
+        },
+        {
+          "titulo": "Resolva e mantenha a condição",
+          "explicacao": "Mesmo depois de cortar, a expressão original não existe nesse ponto.",
+          "conta": "x = −2 → resposta x − 2, com x ≠ −2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Efetuando (x/4) ÷ (x/2), qual número se obtém? Digite o resultado em decimal.",
+      "imagem": "fa-q-dividir-final",
+      "dica": "Inverta a segunda fração e corte o que se repete antes de multiplicar.",
+      "formato": "numero",
+      "resposta": 0.5,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 sai de inverter a fração errada — a primeira em vez da segunda. A regra conserva a primeira: (x/4) × (2/x), o que dá 2 ÷ 4, ou seja, 0,5."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 multiplica os denominadores sem inverter nada, tratando a divisão como multiplicação. Dividir por uma fração é multiplicar pelo inverso dela."
+        },
+        {
+          "resposta": "0.25",
+          "porque": "0,25 seria 2 sobre 8, ou 1 sobre 4. Depois de inverter e cortar o x, sobram 2 em cima e 4 embaixo, o que dá 0,5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Inverta a segunda",
+          "explicacao": "A divisão vira multiplicação pelo inverso.",
+          "conta": "(x/4) × (2/x)"
+        },
+        {
+          "titulo": "Corte e efetue",
+          "explicacao": "O x cancela com o x, e sobram os números.",
+          "conta": "2 ÷ 4 = 0,5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa multiplicação de frações, por que compensa simplificar ANTES de multiplicar?",
+      "imagem": "fa-q-simplificar-antes",
+      "dica": "Compare o tamanho dos números com que se trabalha em cada ordem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque evita escrever produtos grandes que teriam de ser cortados depois" },
+        { "rotulo": "B", "texto": "Porque o resultado fica diferente se simplificar depois" },
+        { "rotulo": "C", "texto": "Porque depois de multiplicar não dá mais para simplificar" },
+        { "rotulo": "D", "texto": "Porque simplificar antes muda o valor para melhor" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o resultado fica diferente se simplificar depois",
+          "porque": "O resultado é o MESMO nas duas ordens — a vantagem é só de trabalho. Se desse valores diferentes, uma das duas ordens estaria errada, e nenhuma está."
+        },
+        {
+          "resposta": "Porque depois de multiplicar não dá mais para simplificar",
+          "porque": "Dá sim: 4x/2x simplifica normalmente para 2. A questão é que chegar a 4x/2x foi trabalho desnecessário, já que os fatores podiam ter sido cortados antes."
+        },
+        {
+          "resposta": "Porque simplificar antes muda o valor para melhor",
+          "porque": "Simplificar nunca muda o valor, nem para melhor nem para pior: a fração simplificada vale exatamente o mesmo. Ela só fica mais fácil de ler e de calcular."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare as duas ordens",
+          "explicacao": "Multiplicando primeiro, aparecem produtos que depois precisam ser desfeitos.",
+          "conta": "(x/2)×(4/x) → 4x/2x → 2"
+        },
+        {
+          "titulo": "E cortando antes",
+          "explicacao": "Os fatores repetidos somem antes de virarem produto, e a conta fica curta.",
+          "conta": "x com x, 4 com 2 → 2"
+        }
+      ]
+    }
+  ]
+}

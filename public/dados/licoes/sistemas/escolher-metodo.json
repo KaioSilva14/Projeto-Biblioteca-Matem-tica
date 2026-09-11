@@ -1,0 +1,200 @@
+{
+  "id": "escolher-metodo",
+  "numero": 4,
+  "titulo": "Qual método usar",
+  "pergunta": "Os dois métodos dão a mesma resposta?",
+  "ideia": {
+    "paragrafos": [
+      "Sim, e isso vale registrar antes de tudo: substituição e adição levam sempre ao mesmo par. A solução de um sistema é o par que fecha as duas equações, e isso não depende do caminho tomado para achá-lo. Escolher método é conforto, não correção.",
+      "A substituição vai melhor quando alguma letra já está isolada, ou quando isolá-la é barato. Em y = x + 2 ou x = 2y − 4, o primeiro passo do método já está feito, e é só trocar.",
+      "A adição vai melhor quando os coeficientes de uma letra já são opostos, como +y e −y — aí a soma cancela sozinha. E também quando eles são fáceis de tornar opostos com uma multiplicação pequena, como +2y e −y, que pede só multiplicar uma equação por 2.",
+      "O caso em que a escolha mais importa é aquele em que isolar criaria fração. Em 3x + 2y = 12 e 5x − 2y = 4, isolar o x da primeira daria x = (12 − 2y)/3, e a conta seguiria com frações. Já pela adição, os coeficientes de y já são opostos: somando, os y somem e sobra 8x = 16.",
+      "Vale um hábito que economiza tempo: antes de escolher, olhe os coeficientes das duas letras nas duas equações. Se algum par já for oposto, a adição resolve em um passo. Se alguma letra estiver sozinha, a substituição resolve em um passo. Se nenhuma das duas coisas valer, os dois métodos dão trabalho parecido."
+    ],
+    "destaque": "Os dois chegam ao mesmo par. Escolher é economia de trabalho, e não questão de certo e errado.",
+    "imagem": "si-ideia-escolher"
+  },
+  "resolvido": {
+    "enunciado": "Qual método é mais rápido para 3x + 2y = 12 e 5x − 2y = 4? Resolva por ele.",
+    "imagem": "si-res-escolher",
+    "passos": [
+      {
+        "titulo": "Olhe os coeficientes",
+        "explicacao": "Antes de começar, veja se alguma letra já está isolada ou tem coeficientes opostos.",
+        "conta": "y: +2 e −2 → já são opostos"
+      },
+      {
+        "titulo": "Escolha a adição",
+        "explicacao": "Com coeficientes opostos, somar as equações cancela o y sem preparo nenhum.",
+        "conta": "(3x + 2y) + (5x − 2y) = 12 + 4"
+      },
+      {
+        "titulo": "Resolva o que sobrou",
+        "explicacao": "Os y se cancelam e resta uma equação de uma incógnita.",
+        "conta": "8x = 16 → x = 2"
+      },
+      {
+        "titulo": "Volte para achar o y",
+        "explicacao": "Substituindo em qualquer uma das originais.",
+        "conta": "3(2) + 2y = 12 → 2y = 6 → y = 3"
+      }
+    ],
+    "fecho": "Pela substituição daria o mesmo (2, 3), mas com frações no caminho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Os métodos da substituição e da adição podem dar respostas diferentes para o mesmo sistema?",
+      "imagem": "si-q-mesma-resposta",
+      "dica": "Pense no que define a solução de um sistema, e se isso depende do método.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: a solução é o par que fecha as duas equações, e isso não muda com o método" },
+        { "rotulo": "B", "texto": "Sim, cada método tem a sua própria resposta" },
+        { "rotulo": "C", "texto": "Sim, quando os números são grandes" },
+        { "rotulo": "D", "texto": "Só quando o sistema tem números negativos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, cada método tem a sua própria resposta",
+          "porque": "Se fosse assim, um dos dois estaria errado. Os dois métodos apenas eliminam uma letra por caminhos diferentes; o par que fecha as duas equações é o mesmo, e dá para conferir substituindo."
+        },
+        {
+          "resposta": "Sim, quando os números são grandes",
+          "porque": "O tamanho dos números afeta o trabalho da conta, e não o resultado. A solução continua sendo o par que satisfaz as duas equações."
+        },
+        {
+          "resposta": "Só quando o sistema tem números negativos",
+          "porque": "Negativos exigem cuidado com sinais, mas não mudam a solução. Os dois métodos continuam chegando ao mesmo par — e conferir substituindo mostra isso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre a definição",
+          "explicacao": "A solução é o par que fecha as duas equações ao mesmo tempo.",
+          "conta": "serve nas duas"
+        },
+        {
+          "titulo": "Veja o que os métodos fazem",
+          "explicacao": "Eles só eliminam uma letra por caminhos diferentes; a condição de ser solução não muda.",
+          "conta": "mesmo par"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "No sistema 3x + 2y = 12 e 5x − 2y = 4, qual método resolve com menos trabalho?",
+      "imagem": "si-q-qual-metodo",
+      "dica": "Olhe os coeficientes do y nas duas equações e veja se já são opostos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A adição, porque os coeficientes do y já são opostos" },
+        { "rotulo": "B", "texto": "A substituição, porque o x tem coeficiente menor" },
+        { "rotulo": "C", "texto": "A substituição, porque há duas equações" },
+        { "rotulo": "D", "texto": "Nenhum: este sistema não tem solução" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A substituição, porque o x tem coeficiente menor",
+          "porque": "Coeficiente pequeno não basta: isolar o x da primeira daria x = (12 − 2y)/3, e a conta seguiria com frações. Já a soma cancela o y de imediato, sem preparo."
+        },
+        {
+          "resposta": "A substituição, porque há duas equações",
+          "porque": "Todo sistema desta matéria tem duas equações, então isso não distingue nada. O que decide é a FORMA delas: coeficientes opostos favorecem a adição."
+        },
+        {
+          "resposta": "Nenhum: este sistema não tem solução",
+          "porque": "Ele tem, e é o par (2, 3): conferindo, 3×2 + 2×3 dá 12 e 5×2 − 2×3 dá 4. Os dois métodos chegam lá; um deles só chega mais rápido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe os coeficientes do y",
+          "explicacao": "Um é +2 e o outro é −2, ou seja, já são opostos.",
+          "conta": "+2y e −2y"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Somando as equações, o y some sem nenhuma preparação.",
+          "conta": "8x = 16"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Resolvendo 3x + 2y = 12 e 5x − 2y = 4, quanto vale x? Digite apenas o número.",
+      "imagem": "si-q-resolver-adicao",
+      "dica": "Some as duas equações: o y se cancela sozinho.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o valor de y, e não de x. Somando as equações sai 8x = 16, o que dá x = 2 — e só então o y aparece como 3."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é o lado direito da equação somada, ou seja, o valor de 8x. Ainda falta dividir os dois lados por 8."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o coeficiente do x depois da soma, e não o valor dele. De 8x = 16, o x sai dividindo: 16 ÷ 8 = 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as duas equações",
+          "explicacao": "Os coeficientes do y são opostos, então ele se cancela.",
+          "conta": "3x + 5x = 8x  ·  12 + 4 = 16"
+        },
+        {
+          "titulo": "Isole o x",
+          "explicacao": "Divida os dois lados pelo coeficiente que sobrou.",
+          "conta": "8x = 16 → x = 2"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual sinal indica que a SUBSTITUIÇÃO vai ser o caminho mais curto?",
+      "imagem": "si-q-sinal-substituicao",
+      "dica": "Pense no primeiro passo desse método e no que ele custa em cada caso.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Uma das letras já aparecer sozinha de um lado" },
+        { "rotulo": "B", "texto": "Os coeficientes de uma letra serem opostos" },
+        { "rotulo": "C", "texto": "As duas equações terem números pares" },
+        { "rotulo": "D", "texto": "O sistema ter solução inteira" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Os coeficientes de uma letra serem opostos",
+          "porque": "Coeficientes opostos favorecem a ADIÇÃO: somando as equações, aquela letra se cancela sozinha. A substituição prefere uma letra já isolada."
+        },
+        {
+          "resposta": "As duas equações terem números pares",
+          "porque": "A paridade dos números não influencia a escolha. O que decide é a forma: letra isolada puxa para a substituição, coeficientes opostos puxam para a adição."
+        },
+        {
+          "resposta": "O sistema ter solução inteira",
+          "porque": "Só dá para saber se a solução é inteira DEPOIS de resolver, então isso não serve para escolher o método antes. E os dois métodos funcionam com qualquer tipo de solução."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o primeiro passo do método",
+          "explicacao": "Ele começa isolando uma letra numa das equações.",
+          "conta": "y = x + 2"
+        },
+        {
+          "titulo": "Conte o custo",
+          "explicacao": "Se a letra já está sozinha, esse passo sai de graça e o método fica curto.",
+          "conta": "letra isolada → substituição"
+        }
+      ]
+    }
+  ]
+}

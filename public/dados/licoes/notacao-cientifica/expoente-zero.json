@@ -1,0 +1,184 @@
+{
+  "id": "expoente-zero",
+  "numero": 2,
+  "titulo": "Expoente zero e expoente negativo",
+  "pergunta": "Como uma potência pode ter expoente zero, se o expoente conta fatores?",
+  "ideia": {
+    "paragrafos": [
+      "Se o expoente conta fatores, 10⁰ deveria ser uma lista vazia — e 10⁻¹ nem isso. A pergunta é justa, e a resposta não é uma definição imposta: é o único valor que mantém o padrão que já existia.",
+      "Desça a escada das potências de 10 e olhe o que acontece a cada degrau. De 10³ para 10² o valor cai de 1000 para 100; de 10² para 10¹, de 100 para 10. Toda vez que o expoente cai de um, o valor divide por dez. Não há exceção nessa regra até aqui.",
+      "Agora continue descendo, sem mudar nada. Depois de 10¹ = 10 vem 10⁰, e dez dividido por dez é 1. Depois vem 10⁻¹, e um dividido por dez é 0,1. Depois 10⁻² = 0,01. Ninguém decidiu que 10⁰ vale 1: esse é o valor que sobra quando o padrão continua.",
+      "É por isso que qualquer base elevada a zero dá 1, e não zero. Descendo a escada do 5, os valores são 125, 25, 5 e depois 5 ÷ 5, que é 1. O mesmo acontece com 2, com 7 e com qualquer outro número — sempre a última divisão leva a base a se cancelar consigo mesma.",
+      "E o expoente negativo tem uma leitura curta: ele inverte. 10⁻³ é 1 dividido por 10³, ou seja, 1/1000, que é 0,001. Do mesmo jeito, 2⁻³ é 1 dividido por 2³, que é 1/8. O sinal de menos no expoente não deixa o número negativo — deixa ele pequeno."
+    ],
+    "destaque": "10⁰ = 1 não é regra decorada: é o degrau que sobra quando a escada continua.",
+    "imagem": "nc-ideia-escada"
+  },
+  "resolvido": {
+    "enunciado": "Quanto vale 10⁻³, escrito como número decimal?",
+    "imagem": "nc-res-escada",
+    "passos": [
+      {
+        "titulo": "Comece de onde você já sabe",
+        "explicacao": "O 10⁰ vale 1, porque é o degrau logo abaixo do 10¹ dividido por dez.",
+        "conta": "10¹ = 10 · 10⁰ = 10 ÷ 10 = 1"
+      },
+      {
+        "titulo": "Desça três degraus",
+        "explicacao": "Cada degrau abaixo divide o valor por dez, exatamente como acontecia lá em cima.",
+        "conta": "10⁻¹ = 0,1 · 10⁻² = 0,01 · 10⁻³ = 0,001"
+      },
+      {
+        "titulo": "Confira pela outra leitura",
+        "explicacao": "Expoente negativo inverte a potência, e a fração tem de dar o mesmo valor decimal.",
+        "conta": "1 ÷ 10³ = 1 ÷ 1000 = 0,001"
+      },
+      {
+        "titulo": "Repare no sinal",
+        "explicacao": "O resultado é positivo e pequeno. O menos está no expoente, e não no valor.",
+        "conta": "0,001 > 0"
+      }
+    ],
+    "fecho": "Expoente negativo não faz o número ficar negativo. Faz ele ficar pequeno."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale 7⁰? Digite apenas o número.",
+      "imagem": "nc-q-sete-zero",
+      "dica": "Desça a escada do 7 um degrau abaixo de 7¹ e faça a divisão que todo degrau manda fazer.",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "0",
+          "porque": "0 lê o expoente como se ele fosse o resultado, ou como se \"nenhum fator\" valesse nada. Descendo a escada, o degrau abaixo de 7¹ = 7 é 7 ÷ 7, que dá 1 — e não zero."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 ignora o expoente zero, como se ele não fizesse nada. Ele faz: manda descer um degrau abaixo de 7¹, e descer um degrau divide pela base."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o degrau de cima",
+          "explicacao": "A potência de expoente 1 é a própria base, sem repetição nenhuma.",
+          "conta": "7¹ = 7"
+        },
+        {
+          "titulo": "Desça um degrau",
+          "explicacao": "Descer um degrau divide pela base, e a base se cancela consigo mesma.",
+          "conta": "7 ÷ 7 = 1 → 7⁰ = 1"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale 10⁻², escrito como número decimal? Digite apenas o número.",
+      "imagem": "nc-q-dez-menos-dois",
+      "dica": "São dois degraus abaixo do 10⁰, e cada degrau divide por dez.",
+      "formato": "numero",
+      "resposta": 0.01,
+      "errosComuns": [
+        {
+          "resposta": "-100",
+          "porque": "−100 põe o sinal de menos no valor. O menos está no EXPOENTE, e o que ele faz é inverter a potência: 10⁻² é 1 dividido por 100, um número positivo e pequeno."
+        },
+        {
+          "resposta": "0.1",
+          "porque": "0,1 é 10⁻¹, um degrau só abaixo do 10⁰. O expoente −2 manda descer dois degraus, e cada um divide por dez outra vez."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é 10², como se o sinal do expoente não contasse. Ele conta, e inverte: em vez de multiplicar por cem, divide por cem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Inverta a potência",
+          "explicacao": "O expoente negativo manda dividir 1 pela potência de expoente positivo.",
+          "conta": "10⁻² = 1 ÷ 10²"
+        },
+        {
+          "titulo": "Efetue",
+          "explicacao": "Cem partes de um inteiro, escrito em decimal.",
+          "conta": "1 ÷ 100 = 0,01"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto vale 2⁻³, escrito como número decimal? Digite apenas o número.",
+      "imagem": "nc-q-dois-menos-tres",
+      "dica": "A regra do expoente negativo vale para qualquer base, não só para o 10.",
+      "formato": "numero",
+      "resposta": 0.125,
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é 2³, ignorando o sinal do expoente. O menos inverte a potência: em vez de 8, o valor é 1 dividido por 8."
+        },
+        {
+          "resposta": "-8",
+          "porque": "−8 põe o menos no valor em vez de usá-lo para inverter. Potência de base positiva nunca dá resultado negativo, por mais negativo que seja o expoente."
+        },
+        {
+          "resposta": "0.001",
+          "porque": "0,001 é 10⁻³, e não 2⁻³ — usou a base 10 no lugar da base 2. A regra do expoente negativo é a mesma, mas quem é invertido é o 2³, que vale 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a potência positiva",
+          "explicacao": "Primeiro o valor de 2³, que é o número que vai ser invertido.",
+          "conta": "2³ = 8"
+        },
+        {
+          "titulo": "Inverta",
+          "explicacao": "O expoente negativo manda dividir 1 por esse valor, e a fração vira decimal.",
+          "conta": "1 ÷ 8 = 0,125"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que 5⁰ vale 1, e não 0?",
+      "imagem": "nc-q-por-que-um",
+      "dica": "Pense no que acontece com o valor a cada degrau que se desce na escada das potências de 5.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque descendo a escada cada degrau divide por 5, e 5 ÷ 5 = 1" },
+        { "rotulo": "B", "texto": "Porque zero fatores multiplicados dão zero" },
+        { "rotulo": "C", "texto": "Porque o 1 é o menor número possível" },
+        { "rotulo": "D", "texto": "Porque foi combinado assim, sem motivo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque zero fatores multiplicados dão zero",
+          "porque": "Esse raciocínio troca multiplicação por soma. Somar nada dá zero, mas multiplicar nada deixa o resultado no ponto de partida da multiplicação, que é 1 — e é isso que a escada mostra ao dividir 5 por 5."
+        },
+        {
+          "resposta": "Porque o 1 é o menor número possível",
+          "porque": "O 1 não é o menor número: 0,1 e 0,001 são menores, e aparecem logo abaixo dele na própria escada, como 10⁻¹ e 10⁻³. O motivo de 5⁰ valer 1 é a divisão do degrau, e não um limite inferior."
+        },
+        {
+          "resposta": "Porque foi combinado assim, sem motivo",
+          "porque": "Há motivo, e ele é forte: qualquer outro valor quebraria o padrão de dividir pela base a cada degrau, e junto com ele quebrariam as propriedades da lição 1. O valor 1 é o único que mantém tudo de pé."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva os degraus de cima",
+          "explicacao": "Cada degrau abaixo divide o valor pela base, que aqui é 5.",
+          "conta": "5³ = 125 · 5² = 25 · 5¹ = 5"
+        },
+        {
+          "titulo": "Continue o padrão",
+          "explicacao": "O degrau seguinte é o expoente zero, e a divisão é a mesma de sempre.",
+          "conta": "5 ÷ 5 = 1 → 5⁰ = 1"
+        }
+      ]
+    }
+  ]
+}

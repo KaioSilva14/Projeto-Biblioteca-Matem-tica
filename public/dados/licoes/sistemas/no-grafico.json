@@ -1,0 +1,194 @@
+{
+  "id": "no-grafico",
+  "numero": 5,
+  "titulo": "A solução no gráfico",
+  "pergunta": "O que a solução de um sistema é, no desenho?",
+  "ideia": {
+    "paragrafos": [
+      "Esta é a lição que faz a matéria não virar receita. Até agora o sistema foi resolvido por contas; aqui ele é DESENHADO — e a solução deixa de ser um par de números que apareceu no fim para virar um lugar no plano.",
+      "Comece por uma equação sozinha. A lição 1 mostrou que x + y = 5 tem infinitas soluções: (0,5), (1,4), (2,3), (5,0) e muitas outras. Marcando todos esses pares no plano cartesiano do 6º ano, eles não ficam espalhados — eles formam uma RETA. Toda equação com duas incógnitas, dessas que aparecem aqui, desenha uma reta.",
+      "Agora as duas equações juntas. Cada uma desenha a sua reta, e cada reta reúne todos os pares que satisfazem aquela equação. O par que satisfaz as DUAS tem de estar nas duas retas ao mesmo tempo — ou seja, no ponto onde elas se cruzam.",
+      "É por isso que um sistema comum tem uma solução só: duas retas diferentes se cruzam num ponto, e num ponto apenas. E é por isso que a resposta é um PAR: um ponto do plano precisa de duas coordenadas para ser localizado.",
+      "A leitura gráfica também explica os casos estranhos, que às vezes aparecem na prova. Se as duas retas forem paralelas, elas nunca se cruzam e o sistema não tem solução. Se as duas equações desenharem a MESMA reta, todo ponto dela serve, e as soluções são infinitas. Nos dois casos, o desenho responde antes de qualquer conta."
+    ],
+    "destaque": "Cada equação é uma reta. A solução é o ponto onde as duas se cruzam.",
+    "imagem": "si-ideia-duas-retas"
+  },
+  "resolvido": {
+    "enunciado": "Desenhe as retas de x + y = 5 e x − y = 1 e leia a solução no gráfico.",
+    "imagem": "si-res-encontro",
+    "passos": [
+      {
+        "titulo": "Ache pares da primeira equação",
+        "explicacao": "Escolha valores para x e calcule o y correspondente; dois pares já determinam a reta.",
+        "conta": "(0, 5) e (5, 0)"
+      },
+      {
+        "titulo": "Ache pares da segunda",
+        "explicacao": "O mesmo processo, agora com a outra equação.",
+        "conta": "(1, 0) e (5, 4)"
+      },
+      {
+        "titulo": "Trace as duas retas",
+        "explicacao": "Cada reta reúne TODOS os pares que satisfazem a sua equação.",
+        "conta": "duas retas no mesmo plano"
+      },
+      {
+        "titulo": "Leia o cruzamento",
+        "explicacao": "O ponto que está nas duas retas é o par que serve nas duas equações.",
+        "conta": "cruzam em (3, 2)"
+      }
+    ],
+    "fecho": "Conferindo pelas contas: 3 + 2 = 5 e 3 − 2 = 1. O desenho e a álgebra concordam."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No plano cartesiano, o que representa a solução de um sistema de duas equações?",
+      "imagem": "si-q-o-que-e-solucao",
+      "dica": "Cada equação vira uma reta. O que o par solução tem de ter em relação às duas?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O ponto onde as duas retas se cruzam" },
+        { "rotulo": "B", "texto": "O ponto onde cada reta corta o eixo vertical" },
+        { "rotulo": "C", "texto": "A área entre as duas retas" },
+        { "rotulo": "D", "texto": "O ponto mais alto das duas retas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O ponto onde cada reta corta o eixo vertical",
+          "porque": "Esse ponto pertence a UMA reta só, e a solução precisa pertencer às duas. Além disso são dois pontos diferentes, um por reta, e a solução do sistema é um par único."
+        },
+        {
+          "resposta": "A área entre as duas retas",
+          "porque": "A solução é um par de números, ou seja, um ponto — e não uma região. Uma área conteria infinitos pares, e a maioria deles não satisfaz nenhuma das duas equações."
+        },
+        {
+          "resposta": "O ponto mais alto das duas retas",
+          "porque": "Retas não têm ponto mais alto: elas continuam para sempre nos dois sentidos. O que localiza a solução é o cruzamento, e não a altura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que cada reta reúne",
+          "explicacao": "Cada uma junta todos os pares que satisfazem a sua própria equação.",
+          "conta": "reta = todas as soluções de uma equação"
+        },
+        {
+          "titulo": "Ache o que serve nas duas",
+          "explicacao": "Um par que está nas duas retas satisfaz as duas equações ao mesmo tempo.",
+          "conta": "o cruzamento"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "As retas de x + y = 5 e x − y = 1 se cruzam num ponto. Qual é a coordenada x desse ponto? Digite apenas o número.",
+      "imagem": "si-q-ler-encontro",
+      "dica": "Resolva o sistema pelo método que preferir — o resultado é a coordenada do cruzamento.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é a coordenada y do cruzamento, e não a x. O ponto é (3, 2): a primeira coordenada é sempre a horizontal, como no plano cartesiano do 6º ano."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é onde a primeira reta corta os eixos, e não onde as duas se cruzam. O cruzamento é o único ponto que pertence às duas retas."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o lado direito da segunda equação, e também onde ela corta o eixo horizontal. O cruzamento das duas retas fica em outro lugar: x = 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as duas equações",
+          "explicacao": "Os coeficientes do y são opostos, então ele se cancela.",
+          "conta": "2x = 6 → x = 3"
+        },
+        {
+          "titulo": "Confirme no desenho",
+          "explicacao": "O ponto de cruzamento fica sobre o 3 do eixo horizontal.",
+          "conta": "(3, 2)"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Se as duas retas de um sistema forem PARALELAS, quantas soluções ele tem? Digite apenas o número.",
+      "imagem": "si-q-paralelas",
+      "dica": "Lembre da matéria de retas paralelas do 7º ano: paralelas se encontram?",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "Uma solução exige um ponto de cruzamento, e retas paralelas nunca se cruzam — foi o que a matéria de Retas paralelas do 7º ano definiu. Sem cruzamento, não há par que sirva nas duas."
+        },
+        {
+          "resposta": "2",
+          "porque": "Duas retas distintas nunca se cruzam em dois pontos: ou se cruzam em um, ou são paralelas e não se cruzam, ou são a mesma reta. Duas soluções é impossível."
+        },
+        {
+          "resposta": "-1",
+          "porque": "Quantidade de soluções nunca é negativa: ela conta pares, e contagem começa em zero. Sem cruzamento, a contagem é zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que são paralelas",
+          "explicacao": "São retas que mantêm sempre a mesma distância e nunca se encontram.",
+          "conta": "sem ponto comum"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Sem ponto comum, não existe par que satisfaça as duas equações.",
+          "conta": "0 soluções"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que a solução de um sistema é um PAR de números, e não um número só?",
+      "imagem": "si-q-por-que-par",
+      "dica": "Pense no que é preciso informar para localizar um ponto no plano.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ela é um ponto do plano, e todo ponto precisa de duas coordenadas" },
+        { "rotulo": "B", "texto": "Porque há duas equações no sistema" },
+        { "rotulo": "C", "texto": "Porque os métodos são dois" },
+        { "rotulo": "D", "texto": "Porque uma resposta só seria pequena demais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque há duas equações no sistema",
+          "porque": "A quantidade de equações é o que garante uma solução ÚNICA, e não o que faz a resposta ser um par. O par vem das duas INCÓGNITAS: cada uma precisa de um valor."
+        },
+        {
+          "resposta": "Porque os métodos são dois",
+          "porque": "Os métodos são caminhos para achar a resposta, e não parte dela. Com um método só, a resposta continuaria sendo um par — porque as incógnitas continuariam sendo duas."
+        },
+        {
+          "resposta": "Porque uma resposta só seria pequena demais",
+          "porque": "O tamanho da resposta não é critério de nada. O par existe porque há duas incógnitas a determinar, e cada uma precisa do seu valor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as incógnitas",
+          "explicacao": "São duas letras a descobrir, e cada uma precisa de um valor próprio.",
+          "conta": "x e y"
+        },
+        {
+          "titulo": "Ligue ao desenho",
+          "explicacao": "A solução é um ponto do plano, e localizar um ponto exige duas coordenadas.",
+          "conta": "(x, y)"
+        }
+      ]
+    }
+  ]
+}

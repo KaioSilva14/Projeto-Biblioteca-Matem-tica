@@ -1,0 +1,59 @@
+{
+  "id": "poligonos",
+  "titulo": "Ângulos e polígonos",
+  "ano": 8,
+  "descricao": "A fórmula (n − 2) × 180° é a coisa mais decorada do 8º ano, e o \"n − 2\" não diz nada a quem só a memorizou. Aqui ele aparece na figura antes de aparecer na fórmula: traçando as diagonais de um vértice, o polígono se parte em triângulos — e sempre em dois a menos que o número de lados.",
+  "pergunta": "De onde vem o \"menos dois\" da fórmula dos ângulos internos?",
+  "videos": [
+    {
+      "id": "ZCc2kopxAhY",
+      "titulo": "Soma dos ângulos internos de um polígono | Rioeduca na TV – Matemática - 8º Ano",
+      "canal": "MultiRio",
+      "descricao": "Aula de TV escrita para esta série, com a dedução feita devagar. Serve para a lição 2, se a triangulação ainda parecer truque."
+    },
+    {
+      "id": "LI8rDyEMQ74",
+      "titulo": "POLÍGONOS | RÁPIDO e FÁCIL",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Passa pela classificação, pelos ângulos e pelas diagonais em ritmo rápido. Vale como revisão depois das seis lições."
+    },
+    {
+      "id": "ApTxndx3dYY",
+      "titulo": "Número de diagonais e soma dos ângulos internos de um polígono qualquer (SAEPE  08)",
+      "canal": "Marcelo Oliveira",
+      "descricao": "Cobre as duas fórmulas que a matéria mais usa, com exercícios de prova. Bom para as lições 2 e 5."
+    },
+    {
+      "id": "Q6uupSuneu0",
+      "titulo": "Exercícios de Diagonais, soma Ângulos internos  e externos de Polígono regular",
+      "canal": "Gênio da Matemática",
+      "descricao": "Só exercícios resolvidos, dos três tipos. Para treinar depois de entender de onde as fórmulas vêm."
+    }
+  ],
+  "licoes": [
+    {
+      "id": "o-que-e",
+      "arquivo": "/dados/licoes/poligonos/o-que-e.json"
+    },
+    {
+      "id": "soma-internos",
+      "arquivo": "/dados/licoes/poligonos/soma-internos.json"
+    },
+    {
+      "id": "angulo-regular",
+      "arquivo": "/dados/licoes/poligonos/angulo-regular.json"
+    },
+    {
+      "id": "externos",
+      "arquivo": "/dados/licoes/poligonos/externos.json"
+    },
+    {
+      "id": "diagonais",
+      "arquivo": "/dados/licoes/poligonos/diagonais.json"
+    },
+    {
+      "id": "problemas",
+      "arquivo": "/dados/licoes/poligonos/problemas.json"
+    }
+  ]
+}

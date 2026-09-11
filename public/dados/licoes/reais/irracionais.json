@@ -1,0 +1,200 @@
+{
+  "id": "irracionais",
+  "numero": 4,
+  "titulo": "Os números que não são fração",
+  "pergunta": "Existe número decimal que nenhuma fração produz?",
+  "ideia": {
+    "paragrafos": [
+      "As três lições anteriores fecharam um ciclo: toda fração vira decimal exato ou dízima periódica, e toda dízima periódica volta a ser fração. Os dois lados se correspondem perfeitamente. Esses números todos têm nome — são os RACIONAIS, os que se escrevem como razão entre dois inteiros.",
+      "Agora a pergunta que abre a lição: existe algum decimal infinito que NÃO seja periódico? Se existir, ele não pode vir de fração nenhuma, porque toda fração produz período. E existe. Um exemplo fácil de construir é 0,1010010001..., com um zero a mais entre cada par de uns: ele nunca se repete, porque o padrão está sempre mudando.",
+      "Esses números se chamam IRRACIONAIS, e o nome não quer dizer que sejam absurdos — quer dizer apenas que não são razão de inteiros. Os dois mais famosos você já conhece: o π, que a matéria de circunferência do 7º ano usou, e a raiz quadrada de 2.",
+      "A raiz de 2 é o exemplo histórico, e vale saber por quê. Se ela fosse uma fração, o quadrado dela seria o quadrado de uma fração — e dá para provar que nenhum quadrado de fração dá exatamente 2. Os gregos descobriram isso e ficaram incomodados: um número que a régua desenha, mas que nenhuma fração escreve.",
+      "Na prática, o teste mais útil é com raízes. A raiz de um número inteiro só é racional quando o resultado é INTEIRO: √9 é 3, √16 é 4, √25 é 5, e esses são racionais. Já √2, √3, √5, √10 — qualquer raiz que não fecha em inteiro — são irracionais, com decimais infinitos e sem período."
+    ],
+    "destaque": "Toda fração vira dízima periódica. Então quem não é periódico não é fração.",
+    "imagem": "re-ideia-conjuntos"
+  },
+  "resolvido": {
+    "enunciado": "O número 0,1010010001... (com um zero a mais a cada passo) é racional ou irracional?",
+    "imagem": "re-res-nao-periodica",
+    "passos": [
+      {
+        "titulo": "Entenda a regra de formação",
+        "explicacao": "Depois de cada 1 vem um bloco de zeros, e esse bloco cresce de um a cada vez.",
+        "conta": "1, 0, 1, 00, 1, 000, 1, …"
+      },
+      {
+        "titulo": "Procure um período",
+        "explicacao": "Um período seria um bloco fixo se repetindo. Aqui o espaçamento entre os uns aumenta sempre, então nenhum bloco volta igual.",
+        "conta": "sem bloco que se repita"
+      },
+      {
+        "titulo": "Use a lição 1",
+        "explicacao": "Toda fração produz decimal exato ou dízima periódica. Este número não é nem um nem outro.",
+        "conta": "não é exato · não é periódico"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "Se nenhuma fração pode produzi-lo, ele não é racional.",
+        "conta": "irracional"
+      }
+    ],
+    "fecho": "O argumento não foi calcular a fração e falhar: foi mostrar que fração nenhuma poderia dar isso."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destes números é IRRACIONAL?",
+      "imagem": "re-q-qual-irracional",
+      "dica": "Procure o que não é fração nem vira dízima periódica. Cuidado com as raízes que fecham em inteiro.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "√2" },
+        { "rotulo": "B", "texto": "√9" },
+        { "rotulo": "C", "texto": "0,333..." },
+        { "rotulo": "D", "texto": "2/3" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "√9",
+          "porque": "√9 é exatamente 3, um número inteiro — e todo inteiro é racional, porque pode ser escrito como 3/1. A raiz só é irracional quando NÃO fecha em inteiro."
+        },
+        {
+          "resposta": "0,333...",
+          "porque": "0,333... é a dízima periódica de 1/3, e a lição 3 mostrou como voltar dela para a fração. Ter infinitas casas não basta para ser irracional: é preciso não ter período."
+        },
+        {
+          "resposta": "2/3",
+          "porque": "2/3 já está escrito como razão de dois inteiros, que é a definição de racional. Ele vira a dízima 0,666..., periódica como toda fração."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste cada raiz",
+          "explicacao": "A raiz de um inteiro é racional só quando o resultado é inteiro.",
+          "conta": "√9 = 3 ✓ inteiro · √2 = 1,4142… não fecha"
+        },
+        {
+          "titulo": "Teste os decimais",
+          "explicacao": "Dízima periódica sempre tem geratriz, então é racional.",
+          "conta": "0,333… = 1/3 · 2/3 já é fração"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale √49? Digite apenas o número.",
+      "imagem": "re-q-raiz-49",
+      "dica": "Procure o número que, multiplicado por ele mesmo, dá 49.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "24.5",
+          "porque": "24,5 é 49 dividido por 2, e raiz quadrada não é divisão por dois. A raiz procura o número que multiplicado POR ELE MESMO dá 49, e 24,5 × 24,5 passa de 600."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 × 6 dá 36, que fica abaixo de 49. Falta um: 7 × 7 é que dá exatamente 49."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 × 8 dá 64, que passa de 49. O valor certo está um abaixo: 7 × 7 = 49."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Procure o número que se multiplica por si",
+          "explicacao": "Testando os quadrados perto de 49, o 7 fecha exatamente.",
+          "conta": "7 × 7 = 49"
+        },
+        {
+          "titulo": "Classifique",
+          "explicacao": "Como a raiz deu um inteiro, este número é racional — e não irracional.",
+          "conta": "√49 = 7 · racional"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que 0,1010010001... é irracional, mesmo sendo formado só por zeros e uns?",
+      "imagem": "re-q-por-que-irracional",
+      "dica": "Compare com o que a lição 1 garantiu sobre todo decimal que vem de fração.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque não tem período, e toda fração produz um" },
+        { "rotulo": "B", "texto": "Porque tem infinitas casas decimais" },
+        { "rotulo": "C", "texto": "Porque só usa dois algarismos diferentes" },
+        { "rotulo": "D", "texto": "Porque começa com zero" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque tem infinitas casas decimais",
+          "porque": "Ter infinitas casas não basta: 0,333... também tem, e é a fração 1/3. O que separa racional de irracional não é o infinito, e sim a existência de um período."
+        },
+        {
+          "resposta": "Porque só usa dois algarismos diferentes",
+          "porque": "A quantidade de algarismos diferentes não decide: 0,010101... também usa só zeros e uns e é racional, porque tem período 01. Quem decide é a repetição."
+        },
+        {
+          "resposta": "Porque começa com zero",
+          "porque": "Começar com zero é só dizer que o número é menor que 1, o que não tem relação nenhuma com ser fração. 0,5 começa com zero e é 1/2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Procure o período",
+          "explicacao": "O espaço entre os uns cresce sempre, então nenhum bloco volta igual.",
+          "conta": "1, 01, 001, 0001, … sempre diferente"
+        },
+        {
+          "titulo": "Aplique a garantia da lição 1",
+          "explicacao": "Toda fração dá decimal exato ou dízima periódica; sem período e sem fim, não pode vir de fração.",
+          "conta": "irracional"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma raiz quadrada de um número inteiro é racional em qual situação?",
+      "imagem": "re-q-quando-racional",
+      "dica": "Pense nos casos em que a raiz \"fecha\", como √9 e √16.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quando o resultado é um número inteiro" },
+        { "rotulo": "B", "texto": "Quando o número dentro da raiz é par" },
+        { "rotulo": "C", "texto": "Quando o número dentro da raiz é pequeno" },
+        { "rotulo": "D", "texto": "Nunca: toda raiz quadrada é irracional" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Quando o número dentro da raiz é par",
+          "porque": "Ser par não decide: √2 é par por dentro e irracional, e √9 é ímpar por dentro e racional. O que importa é o resultado fechar em inteiro."
+        },
+        {
+          "resposta": "Quando o número dentro da raiz é pequeno",
+          "porque": "O tamanho não decide: √2 é pequeno e irracional, √100 é grande e racional. O critério é o resultado ser um inteiro exato."
+        },
+        {
+          "resposta": "Nunca: toda raiz quadrada é irracional",
+          "porque": "√9 vale exatamente 3, e 3 é racional — pode ser escrito como 3/1. As raízes que fecham em inteiro são racionais; são as outras que não são."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste os casos que fecham",
+          "explicacao": "Quando existe inteiro cujo quadrado é o número, a raiz é esse inteiro.",
+          "conta": "√9 = 3 · √16 = 4 · √25 = 5"
+        },
+        {
+          "titulo": "E os que não fecham",
+          "explicacao": "Sem inteiro que sirva, o decimal é infinito e sem período.",
+          "conta": "√2 = 1,41421356… irracional"
+        }
+      ]
+    }
+  ]
+}

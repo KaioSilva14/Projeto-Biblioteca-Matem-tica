@@ -1,0 +1,203 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Volume e capacidade",
+  "pergunta": "Como passar do volume calculado para a quantidade de líquido que cabe?",
+  "ideia": {
+    "paragrafos": [
+      "Quase todo problema prático de volume termina em litros: quanto cabe na caixa d'água, na piscina, na lata. E a ponte entre as duas linguagens foi construída no 6º ano — 1 mililitro é 1 centímetro cúbico, e 1 litro é o cubo de 10 cm de aresta, ou seja, 1 000 cm³.",
+      "O que esta matéria acrescenta é o METRO CÚBICO, que aparece assim que os objetos crescem. Um metro cúbico é o cubo de 1 m de aresta, e 1 m são 100 cm — então 1 m³ é 100 × 100 × 100 = 1 000 000 cm³. Como cada 1 000 cm³ é um litro, um metro cúbico são 1 000 litros.",
+      "Repare que os fatores de conversão de volume não são os de comprimento. De metro para centímetro o fator é 100; de metro cúbico para centímetro cúbico ele é 100³, ou seja, um milhão. É a lição anterior aparecendo de novo: em três direções, o fator entra três vezes.",
+      "O roteiro de um problema de capacidade tem três passos. Primeiro, deixe todas as medidas na mesma unidade. Segundo, calcule o volume com a fórmula da figura — área da base vezes altura. Terceiro, converta para a unidade que a pergunta pede. Pular o primeiro passo é o que mais derruba resposta certa.",
+      "Uma conferência barata no fim: veja se o número faz sentido no mundo. Uma caixa d'água doméstica guarda alguns milhares de litros; se a sua conta deu 6 litros ou 6 milhões, alguma conversão saiu errada. Ordem de grandeza é a primeira coisa a checar."
+    ],
+    "destaque": "1 cm³ é 1 mL · 1 000 cm³ é 1 L · 1 m³ é 1 000 L. O fator de volume é o de comprimento elevado ao cubo.",
+    "imagem": "vl8-ideia-unidades"
+  },
+  "resolvido": {
+    "enunciado": "Uma caixa d'água tem forma de cilindro, com 1 m de raio e 2 m de altura. Quantos litros ela guarda? Use π = 3,14.",
+    "imagem": "vl8-res-caixa-agua",
+    "passos": [
+      {
+        "titulo": "Confira as unidades",
+        "explicacao": "As duas medidas já estão em metros, então nada precisa ser convertido antes.",
+        "conta": "raio 1 m · altura 2 m"
+      },
+      {
+        "titulo": "Calcule a área da base",
+        "explicacao": "A base é um círculo, então é π vezes o raio ao quadrado.",
+        "conta": "3,14 × 1² = 3,14"
+      },
+      {
+        "titulo": "Calcule o volume",
+        "explicacao": "Multiplicando a área da base pela altura, o resultado sai em metros cúbicos.",
+        "conta": "3,14 × 2 = 6,28"
+      },
+      {
+        "titulo": "Converta para litros",
+        "explicacao": "Cada metro cúbico guarda 1 000 litros.",
+        "conta": "6,28 × 1000 = 6280"
+      }
+    ],
+    "fecho": "6 280 litros é uma caixa d'água grande, mas plausível — o que serve de conferência de ordem de grandeza."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Maria encheu uma caixa em forma de paralelepípedo com 160 mL de água e a apoiou numa de suas faces: a água atingiu 2 cm de altura. Repetindo o experimento apoiada nas outras duas faces, ela obteve alturas de 4 cm e 5 cm. Qual é o volume da caixa, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "vl8-q-obmep-agua",
+      "dica": "Cada apoio dá a área de uma face: a água sempre ocupa 160 cm³, com alturas diferentes.",
+      "formato": "numero",
+      "resposta": 320,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2014,
+        "referencia": "Problema 27 — Água na caixa"
+      },
+      "errosComuns": [
+        {
+          "resposta": "160",
+          "porque": "160 é o volume da ÁGUA, que é o mesmo nos três apoios. A caixa não estava cheia em nenhum deles — a água subia só 2, 4 ou 5 cm —, então a caixa guarda mais que isso."
+        },
+        {
+          "resposta": "1760",
+          "porque": "1 760 é 160 × 11, somando as três alturas e multiplicando. As alturas não se somam: cada uma pertence a um apoio diferente, e é a combinação das três áreas que dá as dimensões."
+        },
+        {
+          "resposta": "22",
+          "porque": "22 é 4 + 8 + 10, a soma das três dimensões da caixa. Elas foram encontradas corretamente, mas o volume é o PRODUTO delas, e não a soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o que cada apoio diz",
+          "explicacao": "Em cada um, a área da face apoiada vezes a altura da água dá os 160 cm³.",
+          "conta": "áreas 80 · 40 · 32"
+        },
+        {
+          "titulo": "Multiplique as três áreas",
+          "explicacao": "Cada dimensão aparece em duas das três faces, então o produto é o volume ao quadrado.",
+          "conta": "80 × 40 × 32 = 102400"
+        },
+        {
+          "titulo": "Volte ao volume",
+          "explicacao": "O volume é o número que multiplicado por si mesmo dá 102 400.",
+          "conta": "320 × 320 = 102400"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um reservatório tem forma de bloco e mede 2 m de comprimento, 1,5 m de largura e 1 m de altura. Quantos litros ele guarda? Digite apenas o número.",
+      "imagem": "vl8-q-reservatorio",
+      "dica": "Calcule o volume em metros cúbicos e converta no fim, com o fator certo.",
+      "formato": "numero",
+      "resposta": 3000,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o volume em METROS CÚBICOS, e a pergunta é em litros. Falta o último passo: cada metro cúbico guarda 1 000 litros."
+        },
+        {
+          "resposta": "300",
+          "porque": "300 usa 100 como fator de conversão, que é o fator de METRO para centímetro. Volume converte pelo fator ao cubo, e de metro cúbico para litro ele vale 1 000."
+        },
+        {
+          "resposta": "3000000",
+          "porque": "3 000 000 é o volume em centímetros cúbicos, que é o mesmo que mililitros. Para chegar a litros ainda falta dividir por 1 000."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule o volume",
+          "explicacao": "Todas as medidas já estão em metros, então o resultado sai em metros cúbicos.",
+          "conta": "2 × 1,5 × 1 = 3"
+        },
+        {
+          "titulo": "Converta para litros",
+          "explicacao": "Cada metro cúbico guarda 1 000 litros.",
+          "conta": "3 × 1000 = 3000"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que 1 metro cúbico equivale a 1 000 litros, se 1 metro equivale a apenas 100 centímetros?",
+      "imagem": "vl8-q-por-que-mil",
+      "dica": "Escreva o metro cúbico como um cubo de 100 cm de aresta e conte quantos cm³ ele tem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque 1 m³ tem 100 × 100 × 100 = 1 000 000 cm³, e cada 1 000 cm³ é um litro" },
+        { "rotulo": "B", "texto": "Porque o fator de conversão de volume é sempre 1 000" },
+        { "rotulo": "C", "texto": "Porque 100 vezes 10 dá 1 000" },
+        { "rotulo": "D", "texto": "Porque 1 litro tem 100 centímetros cúbicos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o fator de conversão de volume é sempre 1 000",
+          "porque": "Não é sempre: de metro cúbico para centímetro cúbico o fator é um MILHÃO. O 1 000 aqui aparece porque a conversão passa por duas etapas, e não porque exista um fator universal."
+        },
+        {
+          "resposta": "Porque 100 vezes 10 dá 1 000",
+          "porque": "A conta bate por acaso, mas não descreve o que acontece. O metro cúbico tem o fator 100 aplicado TRÊS vezes, o que dá um milhão de cm³ — e é dividindo isso por 1 000 que se chega aos litros."
+        },
+        {
+          "resposta": "Porque 1 litro tem 100 centímetros cúbicos",
+          "porque": "1 litro tem 1 000 cm³, e não 100 — é o cubo de 10 cm de aresta, como o 6º ano estabeleceu. Com 100 a conta não fecharia em nenhum dos dois lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o metro cúbico em centímetros",
+          "explicacao": "Ele é o cubo de 1 m de aresta, e 1 m são 100 cm.",
+          "conta": "100 × 100 × 100 = 1000000"
+        },
+        {
+          "titulo": "Converta para litros",
+          "explicacao": "Cada litro vale 1 000 cm³, que é o cubo de 10 cm de aresta.",
+          "conta": "1000000 ÷ 1000 = 1000"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma jarra cilíndrica tem 10 cm de raio e 20 cm de altura. Quantos mililitros ela guarda? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl8-q-jarra",
+      "dica": "Calcule o volume em centímetros cúbicos e lembre da equivalência entre cm³ e mL.",
+      "formato": "numero",
+      "resposta": 6280,
+      "errosComuns": [
+        {
+          "resposta": "628",
+          "porque": "628 é 3,14 × 10 × 20, sem elevar o raio ao quadrado. Com 10 cm de raio, o quadrado vale 100 — e é 100 que multiplica o π."
+        },
+        {
+          "resposta": "314",
+          "porque": "314 é 3,14 × 10², a área da base da jarra. Ela é o primeiro passo, e ainda precisa ser multiplicada pelos 20 cm de altura."
+        },
+        {
+          "resposta": "6,28",
+          "porque": "6,28 é o volume em LITROS, e a pergunta é em mililitros. Como cada litro tem 1 000 mL, falta multiplicar por 1 000."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a área da base",
+          "explicacao": "Elevando o raio ao quadrado e multiplicando pelo π adotado.",
+          "conta": "3,14 × 100 = 314"
+        },
+        {
+          "titulo": "Calcule o volume",
+          "explicacao": "Multiplicando pela altura, o resultado sai em centímetros cúbicos.",
+          "conta": "314 × 20 = 6280"
+        },
+        {
+          "titulo": "Converta para mililitros",
+          "explicacao": "Cada centímetro cúbico é exatamente 1 mililitro.",
+          "conta": "6280 cm³ = 6280 mL"
+        }
+      ]
+    }
+  ]
+}

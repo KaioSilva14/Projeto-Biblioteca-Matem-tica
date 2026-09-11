@@ -1,0 +1,201 @@
+{
+  "id": "pesquisa",
+  "numero": 6,
+  "titulo": "Uma pesquisa do começo ao fim",
+  "pergunta": "Que perguntas fazer diante de qualquer número que você leia?",
+  "ideia": {
+    "paragrafos": [
+      "Esta lição junta as cinco anteriores num roteiro só, que serve tanto para FAZER uma pesquisa quanto para julgar a de outra pessoa. São cinco etapas, e cada uma tem uma armadilha própria.",
+      "A primeira é definir a pergunta e a população. \"Os jovens preferem qual rede social?\" não define nada enquanto não se disser quem são os jovens e de onde. Pergunta vaga produz resposta impossível de interpretar.",
+      "A segunda é escolher a amostra, e é onde mora o viés da lição 2. A pergunta de controle é sempre a mesma: quem esse jeito de escolher deixou de fora? A terceira é coletar os dados, e aqui há uma armadilha menos óbvia — a forma da pergunta influencia a resposta. \"Você concorda que a merenda precisa melhorar?\" induz muito mais o sim do que \"O que você acha da merenda?\".",
+      "A quarta é organizar: tabela de frequências, absolutas e relativas, conferindo que somam o total e 100%. A quinta é apresentar, escolhendo o gráfico que serve — setores para parte do todo, colunas para comparar, linha para acompanhar o tempo — e sem nenhum dos quatro truques da lição 5.",
+      "Do lado de quem LÊ, o roteiro vira uma lista de perguntas. Quem fez a pesquisa, e tinha interesse no resultado? Quantas pessoas foram ouvidas, e como foram escolhidas? A porcentagem incide sobre quantas pessoas? O gráfico começa no zero, e mostra a série inteira?",
+      "Uma pesquisa que não responde a essas perguntas não está necessariamente errada — mas não dá para saber, e isso já é motivo suficiente para não repassar o número adiante. Desconfiar não é cinismo: é o que a matéria ensina a fazer com método."
+    ],
+    "destaque": "Quem fez, quantos ouviu, como escolheu, sobre quantos incide a porcentagem, e onde o eixo começa.",
+    "imagem": "et8-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Uma manchete diz: \"70% dos brasileiros aprovam a medida\". Que perguntas fazer antes de acreditar?",
+    "imagem": "et8-res-manchete",
+    "passos": [
+      {
+        "titulo": "Pergunte pela amostra",
+        "explicacao": "Setenta por cento de quantas pessoas ouvidas, e escolhidas como?",
+        "conta": "quantos · e como"
+      },
+      {
+        "titulo": "Pergunte pela população",
+        "explicacao": "A manchete diz brasileiros, mas a pesquisa pode ter ouvido só uma cidade.",
+        "conta": "quem a amostra representa"
+      },
+      {
+        "titulo": "Pergunte quem encomendou",
+        "explicacao": "Quem tem interesse no resultado pode ter influenciado a pergunta feita.",
+        "conta": "quem pagou a pesquisa"
+      },
+      {
+        "titulo": "Pergunte pela pergunta",
+        "explicacao": "O texto exato da pergunta muda a resposta, mesmo com a mesma amostra.",
+        "conta": "como a pergunta foi feita"
+      }
+    ],
+    "fecho": "Nenhuma das quatro perguntas acusa a pesquisa de errada — elas só pedem o que é preciso para julgá-la."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa pesquisa com 400 pessoas, 120 escolheram a opção A. Qual é a frequência relativa dessa opção, em porcentagem? Digite apenas o número.",
+      "imagem": "et8-q-relativa-400",
+      "dica": "Divida a contagem pelo total de entrevistados e passe para porcentagem.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "120",
+          "porque": "120 é a frequência ABSOLUTA — quantas pessoas escolheram a opção. A relativa é essa contagem dividida pelas 400 entrevistadas."
+        },
+        {
+          "resposta": "400",
+          "porque": "400 é o total de entrevistados, que é o denominador da conta. A pergunta é sobre a fatia que as 120 pessoas representam desse total."
+        },
+        {
+          "resposta": "280",
+          "porque": "280 é 400 − 120, ou seja, quantas pessoas NÃO escolheram a opção A. Além de responder outra coisa, esse número é uma contagem, e não uma porcentagem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida a parte pelo todo",
+          "explicacao": "São 120 respostas entre as 400 pessoas entrevistadas.",
+          "conta": "120 ÷ 400 = 0,3"
+        },
+        {
+          "titulo": "Passe para porcentagem",
+          "explicacao": "Três décimos escritos em centésimos.",
+          "conta": "0,3 = 30%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas perguntas de pesquisa tende a induzir a resposta?",
+      "imagem": "et8-q-pergunta-induz",
+      "dica": "Procure a que já sugere ao entrevistado qual é a resposta esperada.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "\"Você concorda que a merenda precisa melhorar?\"" },
+        { "rotulo": "B", "texto": "\"O que você acha da merenda da escola?\"" },
+        { "rotulo": "C", "texto": "\"Com que frequência você come a merenda?\"" },
+        { "rotulo": "D", "texto": "\"Qual é o seu prato preferido da merenda?\"" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "\"O que você acha da merenda da escola?\"",
+          "porque": "Essa é uma pergunta aberta e neutra: ela não sugere resposta boa nem ruim. Justamente por isso é o formato mais confiável dos quatro."
+        },
+        {
+          "resposta": "\"Com que frequência você come a merenda?\"",
+          "porque": "Ela pergunta sobre um fato, e não sobre opinião — não há resposta sugerida. Pode ser uma pergunta útil numa pesquisa sobre merenda, sem induzir nada."
+        },
+        {
+          "resposta": "\"Qual é o seu prato preferido da merenda?\"",
+          "porque": "Ela supõe que existe um preferido, o que é uma limitação pequena, mas não empurra para uma resposta específica: qualquer prato pode ser escolhido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que a pergunta já afirma",
+          "explicacao": "Dizer \"você concorda que precisa melhorar\" já coloca o problema como um fato.",
+          "conta": "a pergunta traz a conclusão"
+        },
+        {
+          "titulo": "Veja o efeito na resposta",
+          "explicacao": "Discordar exige contrariar o entrevistador, e muita gente evita fazer isso.",
+          "conta": "o sim fica mais fácil"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma pesquisa quer saber quantas horas por dia os alunos de uma escola usam celular. Qual é a população dessa pesquisa?",
+      "imagem": "et8-q-qual-populacao",
+      "dica": "A população é o grupo inteiro sobre o qual a pesquisa quer concluir algo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Todos os alunos da escola" },
+        { "rotulo": "B", "texto": "Os alunos que forem entrevistados" },
+        { "rotulo": "C", "texto": "Todos os alunos do país" },
+        { "rotulo": "D", "texto": "As horas de uso do celular" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Os alunos que forem entrevistados",
+          "porque": "Esses são a AMOSTRA, e não a população. A pesquisa ouve a amostra justamente para concluir algo sobre um grupo maior: a escola inteira."
+        },
+        {
+          "resposta": "Todos os alunos do país",
+          "porque": "A pesquisa foi definida sobre uma escola, então ela não autoriza conclusão sobre o país. Estender o resultado para além da população definida é um erro comum ao divulgar pesquisas."
+        },
+        {
+          "resposta": "As horas de uso do celular",
+          "porque": "As horas são a VARIÁVEL medida — o que se pergunta a cada pessoa. A população é formada pelos indivíduos pesquisados, e não pela medida coletada deles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja sobre quem a pesquisa quer concluir",
+          "explicacao": "A pergunta é sobre os alunos daquela escola.",
+          "conta": "população = alunos da escola"
+        },
+        {
+          "titulo": "Separe da amostra",
+          "explicacao": "Os entrevistados são a parte ouvida para estimar o comportamento do grupo todo.",
+          "conta": "amostra ⊂ população"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma pesquisa foi encomendada e paga pela empresa cujo produto ela avalia. Isso torna o resultado necessariamente falso?",
+      "imagem": "et8-q-quem-encomendou",
+      "dica": "Distinga entre \"o resultado está errado\" e \"há motivo para conferir com mais cuidado\".",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, mas é motivo para checar a amostra e a pergunta com atenção" },
+        { "rotulo": "B", "texto": "Sim, pesquisa paga por interessado é sempre falsa" },
+        { "rotulo": "C", "texto": "Não, e quem pagou não interessa em nada" },
+        { "rotulo": "D", "texto": "Sim, porque empresas não podem fazer pesquisa" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, pesquisa paga por interessado é sempre falsa",
+          "porque": "Sempre é forte demais: existem pesquisas encomendadas e conduzidas com rigor. O que o interesse do financiador cria é um motivo para checar o método, e não uma prova de fraude."
+        },
+        {
+          "resposta": "Não, e quem pagou não interessa em nada",
+          "porque": "Interessa, sim: quem tem interesse no resultado pode escolher a pergunta, a amostra e qual recorte divulgar — tudo sem inventar um número. Saber quem financiou é parte de avaliar a pesquisa."
+        },
+        {
+          "resposta": "Sim, porque empresas não podem fazer pesquisa",
+          "porque": "Podem, e fazem o tempo todo — pesquisa de mercado é uma atividade comum e legítima. O cuidado é com a divulgação seletiva dos resultados, e não com quem coletou os dados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o interesse permite",
+          "explicacao": "Quem encomenda pode influenciar a pergunta, a amostra e o recorte divulgado.",
+          "conta": "motivo para checar"
+        },
+        {
+          "titulo": "Veja o que ele não prova",
+          "explicacao": "Nada disso significa que os dados coletados sejam falsos.",
+          "conta": "checar, e não descartar"
+        }
+      ]
+    }
+  ]
+}

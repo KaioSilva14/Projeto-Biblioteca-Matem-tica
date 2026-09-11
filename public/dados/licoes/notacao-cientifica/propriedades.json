@@ -1,0 +1,188 @@
+{
+  "id": "propriedades",
+  "numero": 1,
+  "titulo": "Multiplicar e dividir potências",
+  "pergunta": "Por que multiplicar potências vira somar expoentes?",
+  "ideia": {
+    "paragrafos": [
+      "No 6º ano a potência entrou como uma contagem: em 2⁵, a base 2 é o fator que se repete e o expoente 5 diz quantas vezes. Toda propriedade desta lição sai daí, e nenhuma precisa ser decorada — basta abrir a potência em fatores e contar.",
+      "Multiplicar duas potências de mesma base é juntar duas listas de fatores. 10³ × 10² é (10 × 10 × 10) vezes (10 × 10): são três fatores mais dois, sete não, cinco. O resultado é 10⁵, e o 5 apareceu de somar 3 com 2 porque somar é o que se faz com quantidades quando se juntam duas pilhas.",
+      "Dividir é o contrário, e pela mesma razão. 10⁵ ÷ 10² tem cinco fatores em cima e dois embaixo; dois de cima cancelam com os dois de baixo, e sobram três. Fica 10³, e o 3 saiu de 5 menos 2. Cancelar é tirar fatores, e tirar é subtrair.",
+      "A terceira propriedade é a que mais confunde, e também é contagem. (10²)³ quer dizer 10² três vezes: (10 × 10)(10 × 10)(10 × 10). São três grupos de dois fatores, ou seja, seis fatores. Fica 10⁶ — e o 6 veio de multiplicar 2 por 3, porque grupos iguais se contam multiplicando.",
+      "Repare que as três só valem com a MESMA base. 2³ × 5² não vira potência nenhuma: as listas de fatores são de coisas diferentes, e não dá para juntá-las numa contagem só. Quem soma esses expoentes está contando maçãs com laranjas."
+    ],
+    "destaque": "O expoente conta fatores. Somar, subtrair e multiplicar expoentes é contar essas listas.",
+    "imagem": "nc-ideia-somar"
+  },
+  "resolvido": {
+    "enunciado": "Quanto vale 2⁴ × 2³?",
+    "imagem": "nc-res-somar",
+    "passos": [
+      {
+        "titulo": "Abra as duas potências",
+        "explicacao": "Cada expoente diz quantas vezes a base aparece. Escrever os fatores tira o mistério da conta.",
+        "conta": "2⁴ = 2 × 2 × 2 × 2 · 2³ = 2 × 2 × 2"
+      },
+      {
+        "titulo": "Junte as duas listas",
+        "explicacao": "Multiplicar as potências é pôr todos esses fatores numa multiplicação só.",
+        "conta": "2 × 2 × 2 × 2 × 2 × 2 × 2"
+      },
+      {
+        "titulo": "Conte quantos ficaram",
+        "explicacao": "São quatro fatores mais três, e é essa contagem que vira o expoente do resultado.",
+        "conta": "4 + 3 = 7 → 2⁷"
+      },
+      {
+        "titulo": "Confira pelo valor",
+        "explicacao": "As duas potências separadas valem 16 e 8, e o produto delas tem de bater com a potência que achamos.",
+        "conta": "16 × 8 = 128 · 2⁷ = 128 ✓"
+      }
+    ],
+    "fecho": "Somar os expoentes não é um atalho misterioso: é a contagem dos fatores que ficaram na lista."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Escrevendo 10⁴ × 10³ como uma única potência de 10, qual é o expoente? Digite apenas o número.",
+      "imagem": "nc-q-10a4-10a3",
+      "dica": "Conte os fatores 10 de cada potência e junte as duas listas numa só.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 multiplica os expoentes em vez de somá-los. Multiplicar expoentes é a regra da potência DE potência, como em (10⁴)³; aqui as duas potências estão sendo multiplicadas entre si, e as listas de fatores só se juntam."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 subtrai os expoentes, que é o que se faz na DIVISÃO. Na divisão fatores de cima cancelam com os de baixo; na multiplicação nada cancela, porque tudo fica na mesma lista."
+        },
+        {
+          "resposta": "43",
+          "porque": "43 é escrever os dois expoentes lado a lado. Eles são quantidades de fatores, e quantidades que se juntam se somam: quatro fatores mais três fatores dão sete."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os fatores",
+          "explicacao": "O expoente diz quantas vezes o 10 aparece em cada potência.",
+          "conta": "10⁴ → 4 fatores · 10³ → 3 fatores"
+        },
+        {
+          "titulo": "Some as duas contagens",
+          "explicacao": "Multiplicar as potências junta os fatores numa lista só, então as quantidades se somam.",
+          "conta": "4 + 3 = 7 → 10⁷"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale 2⁵ × 2²? Digite apenas o número.",
+      "imagem": "nc-q-2a5-2a2",
+      "dica": "Ache primeiro o expoente do resultado e só depois calcule o valor da potência.",
+      "formato": "numero",
+      "resposta": 128,
+      "errosComuns": [
+        {
+          "resposta": "1024",
+          "porque": "1024 é 2¹⁰, ou seja, multiplicou os expoentes (5 × 2) em vez de somá-los. Multiplicar expoentes vale para a potência de potência; aqui as listas de fatores apenas se juntam: 5 mais 2."
+        },
+        {
+          "resposta": "64",
+          "porque": "64 é 2⁶, que sairia de 5 + 1. O expoente da segunda potência é 2, e não 1 — o 2² traz DOIS fatores para a lista."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 multiplica as bases pelos expoentes, tratando 2⁵ como 2 × 5. Potência não é multiplicação da base pelo expoente: 2⁵ é o 2 aparecendo cinco vezes, o que dá 32."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os expoentes",
+          "explicacao": "As bases são iguais, então as duas listas de fatores viram uma só.",
+          "conta": "5 + 2 = 7 → 2⁷"
+        },
+        {
+          "titulo": "Calcule a potência",
+          "explicacao": "Agora é só efetuar: o 2 multiplicado por ele mesmo sete vezes.",
+          "conta": "2⁷ = 128"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Escrevendo 10⁸ ÷ 10³ como uma única potência de 10, qual é o expoente? Digite apenas o número.",
+      "imagem": "nc-q-divisao",
+      "dica": "Pense em quantos fatores estão em cima, quantos embaixo, e quantos sobram depois de cancelar.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 soma os expoentes, que é a regra da MULTIPLICAÇÃO. Na divisão os fatores de baixo cancelam os de cima, então a quantidade diminui em vez de aumentar."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 multiplica os expoentes. Multiplicar vale para a potência de potência, como em (10⁸)³; dividir potências de mesma base subtrai."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 subtrai na ordem errada, fazendo 3 − 8. Quem tem mais fatores é o número de cima, então sobram fatores em cima: a conta é 8 − 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte de cada lado",
+          "explicacao": "São oito fatores 10 em cima e três embaixo, todos iguais.",
+          "conta": "8 em cima · 3 embaixo"
+        },
+        {
+          "titulo": "Cancele e veja o que sobra",
+          "explicacao": "Cada fator de baixo cancela um de cima, e o que sobra fica no numerador.",
+          "conta": "8 − 3 = 5 → 10⁵"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A qual potência de 10 é igual (10³)²?",
+      "imagem": "nc-q-potencia-de-potencia",
+      "dica": "Escreva o que a expressão manda fazer: o 10³ aparecendo duas vezes.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "10⁶" },
+        { "rotulo": "B", "texto": "10⁵" },
+        { "rotulo": "C", "texto": "10⁹" },
+        { "rotulo": "D", "texto": "10³" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "10⁵",
+          "porque": "10⁵ soma os expoentes. Somar vale quando duas potências estão sendo MULTIPLICADAS entre si; aqui uma potência inteira está sendo elevada, o que forma grupos iguais de fatores — e grupos iguais se contam multiplicando."
+        },
+        {
+          "resposta": "10⁹",
+          "porque": "10⁹ eleva o expoente ao quadrado, fazendo 3². O expoente de fora multiplica o de dentro, mas não se aplica a ele mesmo: são dois grupos de três fatores, ou seja, 3 × 2."
+        },
+        {
+          "resposta": "10³",
+          "porque": "10³ ignora o expoente de fora, como se o 2 não fizesse nada. Ele manda repetir o 10³ duas vezes, o que dobra a quantidade de fatores."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que está escrito",
+          "explicacao": "O expoente de fora manda repetir tudo o que está dentro do parêntese.",
+          "conta": "(10³)² = 10³ × 10³"
+        },
+        {
+          "titulo": "Conte os fatores",
+          "explicacao": "São dois grupos de três fatores 10, e grupos iguais se contam multiplicando.",
+          "conta": "3 × 2 = 6 → 10⁶"
+        }
+      ]
+    }
+  ]
+}

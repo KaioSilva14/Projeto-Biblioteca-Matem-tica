@@ -1,0 +1,194 @@
+{
+  "id": "multiplicar-dividir",
+  "numero": 3,
+  "titulo": "Multiplicar e dividir",
+  "pergunta": "As regras do 6º ano continuam valendo com letra?",
+  "ideia": {
+    "paragrafos": [
+      "Multiplicar frações algébricas é igual a multiplicar frações comuns: numerador vezes numerador, denominador vezes denominador. Nada de denominador comum, nada de conversão — é a operação mais simples das quatro, e continua sendo com letras.",
+      "Mas há um cuidado que compensa muito: simplifique ANTES de multiplicar, e não depois. Em (x/2) × (4/x), multiplicar primeiro daria 4x/2x, e só então seria preciso cortar. Cortando antes, o x de cima vai com o x de baixo e o 4 vai com o 2 — sobra 2 direto, sem conta nenhuma.",
+      "Nessa hora vale lembrar que o corte cruza a barra. Numa multiplicação de frações, tudo que está em cima multiplica tudo que está em cima, então o numerador de uma fração pode cortar com o denominador da outra. É por isso que o x da primeira cancela com o x da segunda.",
+      "Dividir é multiplicar pelo inverso, exatamente como no 6º ano: conserva a primeira e inverte a segunda. Em (x/3) ÷ (x/6), a conta vira (x/3) × (6/x), e aí o x corta com o x, o 6 sobre o 3 dá 2, e a resposta é 2.",
+      "E os valores proibidos se acumulam. Ao dividir por x/6, além de 6 não poder ser zero — ele não é —, o próprio x não pode zerar, porque ele vira denominador depois da inversão. Cada denominador que aparece no caminho traz a sua própria restrição."
+    ],
+    "destaque": "Multiplique direto; divida invertendo a segunda. E simplifique ANTES de multiplicar.",
+    "imagem": "fa-ideia-multiplicar"
+  },
+  "resolvido": {
+    "enunciado": "Efetue (x/2) × (4/x).",
+    "imagem": "fa-res-multiplicar",
+    "passos": [
+      {
+        "titulo": "Escreva tudo numa fração só",
+        "explicacao": "Numa multiplicação, os numeradores se juntam em cima e os denominadores embaixo.",
+        "conta": "(x × 4) ÷ (2 × x)"
+      },
+      {
+        "titulo": "Corte o que se repete",
+        "explicacao": "O x aparece multiplicando em cima e embaixo, então sai dos dois lados.",
+        "conta": "x corta com x"
+      },
+      {
+        "titulo": "Simplifique o que sobrou",
+        "explicacao": "Ficaram os números, e eles se simplificam como sempre.",
+        "conta": "4 ÷ 2 = 2"
+      },
+      {
+        "titulo": "Anote a restrição",
+        "explicacao": "O x apareceu como denominador na segunda fração, então ele não pode ser zero.",
+        "conta": "resposta 2, para x ≠ 0"
+      }
+    ],
+    "fecho": "Simplificar antes de multiplicar evitou escrever 4x/2x e ter de cortar depois."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Efetuando (x/3) ÷ (x/6), qual número se obtém? Digite apenas o número.",
+      "imagem": "fa-q-dividir",
+      "dica": "Conserve a primeira fração e inverta a segunda, transformando a divisão em multiplicação.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "0.5",
+          "porque": "0,5 sai de inverter a fração ERRADA — a primeira em vez da segunda. A regra conserva a primeira e inverte a segunda: (x/3) × (6/x), o que dá 2."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 multiplica os denominadores 3 e 6 sem inverter nada, tratando a divisão como multiplicação. Dividir por uma fração é multiplicar pelo inverso dela."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 parece dividir o 6 pelo 2, mas não há 2 na conta. Depois de inverter, sobram 6 em cima e 3 embaixo, o que dá 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Inverta a segunda",
+          "explicacao": "Dividir por uma fração é multiplicar pelo inverso dela.",
+          "conta": "(x/3) × (6/x)"
+        },
+        {
+          "titulo": "Corte e efetue",
+          "explicacao": "O x corta com o x, e sobram os números.",
+          "conta": "6 ÷ 3 = 2"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa multiplicação de duas frações, o numerador da primeira pode cortar com o denominador da segunda?",
+      "imagem": "fa-q-corta-cruzado",
+      "dica": "Pense em onde cada pedaço vai parar quando as duas frações viram uma só.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque tudo que está em cima acaba no mesmo numerador" },
+        { "rotulo": "B", "texto": "Não, cada fração só simplifica consigo mesma" },
+        { "rotulo": "C", "texto": "Só quando os denominadores são iguais" },
+        { "rotulo": "D", "texto": "Só quando as frações têm letras" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, cada fração só simplifica consigo mesma",
+          "porque": "Numa multiplicação as duas frações viram uma só: todos os numeradores se juntam em cima e todos os denominadores embaixo. Por isso o corte cruza a barra livremente."
+        },
+        {
+          "resposta": "Só quando os denominadores são iguais",
+          "porque": "Denominador igual é exigência da SOMA, e não da multiplicação. Ao multiplicar, os denominadores apenas se multiplicam entre si, sejam iguais ou não."
+        },
+        {
+          "resposta": "Só quando as frações têm letras",
+          "porque": "Vale para números também: em (3/4) × (8/9), o 3 corta com o 9 e o 8 com o 4. A letra não muda a regra, que já era assim no 6º ano."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte as duas frações",
+          "explicacao": "Multiplicar reúne todos os numeradores em cima e todos os denominadores embaixo.",
+          "conta": "(a/b) × (c/d) = ac / bd"
+        },
+        {
+          "titulo": "Veja o que isso permite",
+          "explicacao": "Com tudo numa fração só, qualquer fator de cima pode cortar com qualquer fator de baixo.",
+          "conta": "o corte cruza a barra"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Efetuando (2/x) × (x/8), qual número se obtém? Digite o resultado em decimal.",
+      "imagem": "fa-q-multiplicar-corta",
+      "dica": "Corte o x antes de multiplicar, e depois simplifique os números.",
+      "formato": "numero",
+      "resposta": 0.25,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 multiplica os denominadores x e 8 sem cortar o x, e além disso confunde numerador com denominador. Cortando o x, sobram 2 em cima e 8 embaixo, o que dá 0,25."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é 8 dividido por 2, ou seja, a fração invertida. O 2 está em cima e o 8 embaixo, então o resultado é 2 ÷ 8, que dá 0,25."
+        },
+        {
+          "resposta": "0.5",
+          "porque": "0,5 seria 2 sobre 4. Depois de cortar o x, o denominador que sobra é o 8 inteiro, e 2 ÷ 8 dá 0,25."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Corte o x",
+          "explicacao": "Ele está no denominador da primeira e no numerador da segunda.",
+          "conta": "x corta com x"
+        },
+        {
+          "titulo": "Efetue o que sobrou",
+          "explicacao": "Ficaram os números, um em cima e outro embaixo.",
+          "conta": "2 ÷ 8 = 0,25"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Ao dividir uma fração por x/6, por que o x não pode ser zero?",
+      "imagem": "fa-q-restricao-divisao",
+      "dica": "Veja o que acontece com o x depois de a segunda fração ser invertida.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ao inverter, o x vai para o denominador" },
+        { "rotulo": "B", "texto": "Porque o 6 não pode ser zero" },
+        { "rotulo": "C", "texto": "Porque toda letra é proibida de valer zero" },
+        { "rotulo": "D", "texto": "Porque a divisão não aceita números pequenos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o 6 não pode ser zero",
+          "porque": "O 6 é um número fixo e nunca vale zero — ele não impõe restrição nenhuma. Quem traz a restrição é o x, que vira denominador depois da inversão."
+        },
+        {
+          "resposta": "Porque toda letra é proibida de valer zero",
+          "porque": "Letra pode valer zero sem problema: em x/3, o x = 0 dá a fração igual a zero, que é legítimo. A proibição só aparece quando a letra está no DENOMINADOR."
+        },
+        {
+          "resposta": "Porque a divisão não aceita números pequenos",
+          "porque": "Divisão por números pequenos é perfeitamente válida e dá resultados grandes. O que não existe é divisão por zero exato — e é só isso que a restrição evita."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Inverta a segunda fração",
+          "explicacao": "É o que a regra da divisão manda fazer.",
+          "conta": "÷ (x/6) vira × (6/x)"
+        },
+        {
+          "titulo": "Veja onde o x foi parar",
+          "explicacao": "Depois da inversão ele está embaixo, e denominador não pode zerar.",
+          "conta": "x ≠ 0"
+        }
+      ]
+    }
+  ]
+}

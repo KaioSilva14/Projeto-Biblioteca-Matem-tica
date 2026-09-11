@@ -1,0 +1,200 @@
+{
+  "id": "trinomio-quadrado",
+  "numero": 4,
+  "titulo": "O trinômio quadrado perfeito",
+  "pergunta": "Como saber se três termos vieram de um quadrado?",
+  "ideia": {
+    "paragrafos": [
+      "A matéria passada mostrou que (a + b)² dá a² + 2ab + b². Aqui a leitura é ao contrário: quando três termos têm exatamente essa cara, eles vieram de um quadrado — e o nome disso é trinômio quadrado perfeito.",
+      "Em x² + 6x + 9, o primeiro termo é quadrado (x²) e o último também (9 = 3²). As raízes são x e 3. Se este for mesmo um quadrado perfeito, o termo do meio tem de ser duas vezes o produto delas: 2 × x × 3, que dá 6x. E é: então a fatoração é (x + 3)².",
+      "Essa conferência do meio é o coração da lição, e não pode ser pulada. Sem ela, alguém escreveria x² + 7x + 9 como (x + 3)², o que está errado — a expressão até tem os dois quadrados nas pontas, mas o meio não fecha, e ela não é quadrado de nada.",
+      "O sinal do termo do meio diz qual dos dois quadrados usar. Se o meio é positivo, o quadrado é da SOMA: x² + 6x + 9 = (x + 3)². Se é negativo, é da DIFERENÇA: x² − 10x + 25 = (x − 5)². Repare que o último termo é positivo nos dois casos.",
+      "Fica o roteiro de três passos. Primeiro, confira se os termos das pontas são quadrados perfeitos e tire as raízes. Segundo, calcule o dobro do produto delas e compare com o termo do meio. Terceiro, se bater, escreva o quadrado com o sinal do meio."
+    ],
+    "destaque": "As pontas dão as raízes; o meio confirma. Sem a conferência do meio, não há fatoração.",
+    "imagem": "ft-ideia-trinomio"
+  },
+  "resolvido": {
+    "enunciado": "Fatore x² + 6x + 9.",
+    "imagem": "ft-res-trinomio",
+    "passos": [
+      {
+        "titulo": "Confira as pontas",
+        "explicacao": "O primeiro e o último termo precisam ser quadrados perfeitos, para terem raiz exata.",
+        "conta": "x² é quadrado  ·  9 = 3²"
+      },
+      {
+        "titulo": "Tire as duas raízes",
+        "explicacao": "Elas são os candidatos a primeiro e segundo termo do parêntese.",
+        "conta": "√(x²) = x  ·  √9 = 3"
+      },
+      {
+        "titulo": "Confira o termo do meio",
+        "explicacao": "Ele tem de ser exatamente o dobro do produto das duas raízes — este é o passo que não se pula.",
+        "conta": "2 × x × 3 = 6x ✓"
+      },
+      {
+        "titulo": "Escreva o quadrado",
+        "explicacao": "O sinal do meio é de mais, então é o quadrado da soma.",
+        "conta": "(x + 3)²"
+      }
+    ],
+    "fecho": "Se o meio não batesse, a expressão simplesmente não seria quadrado de nada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Fatorando x² + 8x + 16, qual é o número dentro do parêntese? Digite apenas o número.",
+      "imagem": "ft-q-trinomio-16",
+      "dica": "Tire a raiz do último termo e confira se o dobro do produto dá o termo do meio.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é o último termo sem tirar a raiz. O que aparece na expressão é o QUADRADO do número do parêntese, então é preciso tirar a raiz: √16 = 4."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o coeficiente do termo do meio, que é o DOBRO do produto das raízes. O número do parêntese é a raiz do último termo, que é 4 — e o dobro de 4 é justamente 8."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o fator que aparece na conferência do meio (o \"dobro\"), e não o número do parêntese. Ele multiplica as raízes; o que entra no parêntese é a raiz de 16."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire a raiz do último termo",
+          "explicacao": "Ela é o candidato a segundo termo do parêntese.",
+          "conta": "√16 = 4"
+        },
+        {
+          "titulo": "Confira o meio",
+          "explicacao": "O dobro do produto das raízes tem de bater com o termo do meio.",
+          "conta": "2 × x × 4 = 8x ✓ → (x + 4)²"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A expressão x² − 10x + 25 é um trinômio quadrado perfeito. Qual é a forma fatorada dela?",
+      "imagem": "ft-q-trinomio-sinal",
+      "dica": "O sinal do termo do meio diz se o quadrado é da soma ou da diferença.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(x − 5)²" },
+        { "rotulo": "B", "texto": "(x + 5)²" },
+        { "rotulo": "C", "texto": "(x − 25)²" },
+        { "rotulo": "D", "texto": "(x + 5)(x − 5)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(x + 5)²",
+          "porque": "Com o sinal de mais, isso daria x² + 10x + 25 — o termo do meio sairia positivo, e a expressão pede negativo. O sinal do meio é o que decide entre soma e diferença."
+        },
+        {
+          "resposta": "(x − 25)²",
+          "porque": "Isso usa o 25 sem tirar a raiz. O que aparece na expressão é o quadrado do número do parêntese, então entra √25 = 5. Conferindo, (x−25)² teria o termo do meio −50x."
+        },
+        {
+          "resposta": "(x + 5)(x − 5)",
+          "porque": "Essa é a fatoração da DIFERENÇA DE QUADRADOS, e ela dá x² − 25, com dois termos. A expressão aqui tem três termos, então o caso é o trinômio."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire as raízes das pontas",
+          "explicacao": "Elas dão os dois termos do parêntese.",
+          "conta": "√(x²) = x  ·  √25 = 5"
+        },
+        {
+          "titulo": "Use o sinal do meio",
+          "explicacao": "Meio negativo indica quadrado da diferença, e a conferência tem de bater.",
+          "conta": "2 × x × 5 = 10x ✓ → (x − 5)²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A expressão x² + 7x + 9 tem os dois quadrados nas pontas. Ela é um trinômio quadrado perfeito?",
+      "imagem": "ft-q-nao-e-trinomio",
+      "dica": "Faça a conferência do meio: calcule o dobro do produto das raízes e compare.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque o dobro do produto das raízes dá 6x, e não 7x" },
+        { "rotulo": "B", "texto": "Sim, porque as pontas são quadrados perfeitos" },
+        { "rotulo": "C", "texto": "Sim, e a fatoração é (x + 3)²" },
+        { "rotulo": "D", "texto": "Não, porque o 9 não é quadrado perfeito" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque as pontas são quadrados perfeitos",
+          "porque": "As pontas serem quadrados é necessário, mas não basta: falta a conferência do meio. Aqui o dobro do produto das raízes dá 6x, e a expressão tem 7x — então ela não é quadrado de nada."
+        },
+        {
+          "resposta": "Sim, e a fatoração é (x + 3)²",
+          "porque": "(x + 3)² desenvolvido dá x² + 6x + 9, e não x² + 7x + 9. Testando com x = 1: a expressão vale 17, e (1+3)² vale 16 — são números diferentes."
+        },
+        {
+          "resposta": "Não, porque o 9 não é quadrado perfeito",
+          "porque": "O 9 é quadrado perfeito: ele é 3 × 3. O problema não está nas pontas, e sim no meio, que precisaria ser 6x para a expressão fechar como quadrado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire as raízes e calcule o dobro",
+          "explicacao": "As raízes são x e 3, e a conferência pede o dobro do produto delas.",
+          "conta": "2 × x × 3 = 6x"
+        },
+        {
+          "titulo": "Compare com o meio",
+          "explicacao": "O termo do meio da expressão é 7x, que não bate com o 6x exigido.",
+          "conta": "7x ≠ 6x → não é"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num trinômio quadrado perfeito, o último termo pode ser negativo?",
+      "imagem": "ft-q-ultimo-termo",
+      "dica": "Ele é o quadrado do segundo termo do parêntese. O que a lição 3 da matéria passada disse sobre quadrados?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque ele é um quadrado, e todo quadrado é positivo" },
+        { "rotulo": "B", "texto": "Sim, quando o sinal do meio é negativo" },
+        { "rotulo": "C", "texto": "Sim, sempre que o parêntese tem uma diferença" },
+        { "rotulo": "D", "texto": "Depende do valor de x" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, quando o sinal do meio é negativo",
+          "porque": "O sinal do meio muda, mas o do último não: em (x − 5)² o desenvolvimento dá x² − 10x + 25, com o 25 positivo. O último termo vem de (−5) vezes (−5), e menos com menos dá mais."
+        },
+        {
+          "resposta": "Sim, sempre que o parêntese tem uma diferença",
+          "porque": "Mesmo com diferença o último fica positivo: (x − 3)² dá x² − 6x + 9. Só o termo do MEIO acompanha o sinal do parêntese."
+        },
+        {
+          "resposta": "Depende do valor de x",
+          "porque": "O último termo é um número fixo, sem x nenhum: ele é o quadrado do segundo termo do parêntese. Ele não muda com o valor da letra."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja de onde vem o último termo",
+          "explicacao": "Ele é o segundo termo do parêntese multiplicado por ele mesmo.",
+          "conta": "(±b) × (±b) = +b²"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Nos dois casos o resultado é positivo, então uma expressão terminada em número negativo não é quadrado perfeito.",
+          "conta": "último termo > 0 sempre"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Classificar e decidir",
+  "pergunta": "Dado um número qualquer, como saber a que conjunto ele pertence?",
+  "ideia": {
+    "paragrafos": [
+      "As cinco lições montaram um mapa, e vale ter o mapa inteiro na cabeça. Os NATURAIS são os de contar: 0, 1, 2, 3. Os INTEIROS acrescentam os negativos. Os RACIONAIS acrescentam tudo que é razão de inteiros — frações, decimais exatos e dízimas periódicas. E os REAIS acrescentam os irracionais.",
+      "Cada conjunto contém o anterior, e isso tem uma consequência que confunde muita gente: o número 5 é natural, é inteiro, é racional E é real, todos ao mesmo tempo. Perguntar \"5 é natural ou racional?\" é como perguntar se alguém é paulista ou brasileiro.",
+      "Os irracionais são a exceção nesse encaixe, e é por isso que eles aparecem numa caixa ao lado no diagrama. Eles estão dentro dos reais, mas FORA dos racionais — e a palavra irracional quer dizer exatamente isso: não é razão de inteiros.",
+      "Na prática, o roteiro para classificar um número tem três perguntas. Está escrito como fração de inteiros, ou dá para escrever? Se sim, é racional. É um decimal — ele termina, ou tem período? Se sim, é racional. É uma raiz — ela fecha em inteiro? Se sim, é racional. Falhando os três, o número é irracional.",
+      "Uma armadilha que a prova adora: nem todo número com raiz é irracional, e nem todo número com muitas casas decimais é irracional. √36 é 6, e 0,272727... é 3/11. É preciso testar, e não julgar pela aparência."
+    ],
+    "destaque": "Todo natural é inteiro, todo inteiro é racional, todo racional é real. Irracional é o que fica fora dos racionais.",
+    "imagem": "re-ideia-mapa"
+  },
+  "resolvido": {
+    "enunciado": "Classifique o número √36 nos conjuntos a que ele pertence.",
+    "imagem": "re-res-classificar",
+    "passos": [
+      {
+        "titulo": "Efetue a raiz",
+        "explicacao": "Antes de classificar, é preciso saber que número é esse. Procure o inteiro cujo quadrado é 36.",
+        "conta": "6 × 6 = 36 → √36 = 6"
+      },
+      {
+        "titulo": "Teste se é natural",
+        "explicacao": "Os naturais são os números de contar, sem sinal negativo e sem parte decimal.",
+        "conta": "6 é natural ✓"
+      },
+      {
+        "titulo": "Suba pelos conjuntos",
+        "explicacao": "Cada conjunto contém o anterior, então ser natural já garante os outros.",
+        "conta": "natural → inteiro → racional → real"
+      },
+      {
+        "titulo": "Descarte o irracional",
+        "explicacao": "Ele pode ser escrito como razão de inteiros, então não é irracional.",
+        "conta": "6 = 6/1 · racional"
+      }
+    ],
+    "fecho": "A raiz enganava: o símbolo sugere irracional, mas o resultado é um natural."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A quais conjuntos o número −7 pertence?",
+      "imagem": "re-q-menos-sete",
+      "dica": "Comece pelo menor conjunto que serve e suba: cada um contém o anterior.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Inteiro, racional e real" },
+        { "rotulo": "B", "texto": "Natural, inteiro, racional e real" },
+        { "rotulo": "C", "texto": "Só inteiro" },
+        { "rotulo": "D", "texto": "Irracional e real" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Natural, inteiro, racional e real",
+          "porque": "Os naturais são os números de contar, e não incluem negativos — não existe uma quantidade de −7 objetos. O −7 entra a partir dos inteiros."
+        },
+        {
+          "resposta": "Só inteiro",
+          "porque": "Ser inteiro já garante ser racional, porque −7 pode ser escrito como −7/1, uma razão de inteiros. E todo racional é real: os conjuntos se contêm."
+        },
+        {
+          "resposta": "Irracional e real",
+          "porque": "Irracional é quem NÃO pode ser escrito como razão de inteiros, e −7/1 é exatamente isso. O sinal negativo não torna nenhum número irracional."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Descarte os naturais",
+          "explicacao": "Eles começam no zero e seguem para cima, sem negativos.",
+          "conta": "−7 < 0 → não é natural"
+        },
+        {
+          "titulo": "Suba a partir dos inteiros",
+          "explicacao": "Ele é inteiro, e todo inteiro é razão de inteiros, logo racional — e todo racional é real.",
+          "conta": "−7 = −7/1"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destes números NÃO é racional?",
+      "imagem": "re-q-nao-racional",
+      "dica": "Teste um por um: a raiz fecha em inteiro? o decimal tem período? é fração de inteiros?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "√7" },
+        { "rotulo": "B", "texto": "√64" },
+        { "rotulo": "C", "texto": "0,272727..." },
+        { "rotulo": "D", "texto": "−3/5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "√64",
+          "porque": "√64 é exatamente 8, um inteiro — e portanto racional. Ter o símbolo de raiz não torna um número irracional: o que decide é o resultado fechar ou não em inteiro."
+        },
+        {
+          "resposta": "0,272727...",
+          "porque": "Essa é uma dízima periódica de período 27, e toda dízima periódica tem fração geratriz — esta é 27/99, que simplifica para 3/11. Infinitas casas com período continuam sendo racional."
+        },
+        {
+          "resposta": "−3/5",
+          "porque": "−3/5 já está escrito como razão de dois inteiros, que é a definição de racional. O sinal negativo não muda isso — ele dá o decimal exato −0,6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste as raízes",
+          "explicacao": "Procure inteiros cujo quadrado dê o número de dentro.",
+          "conta": "8² = 64 ✓ · nenhum inteiro ao quadrado dá 7"
+        },
+        {
+          "titulo": "Teste os decimais",
+          "explicacao": "Com período, existe geratriz; sem período e sem fim, é irracional.",
+          "conta": "0,272727… = 3/11 · √7 = 2,6457… sem período"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A dízima 0,272727... tem fração geratriz 27/99. Simplificada, qual é o denominador dessa fração? Digite apenas o número.",
+      "imagem": "re-q-simplificar-geratriz",
+      "dica": "Ache o maior divisor comum de 27 e 99 e divida os dois por ele.",
+      "formato": "numero",
+      "resposta": 11,
+      "errosComuns": [
+        {
+          "resposta": "99",
+          "porque": "99 é o denominador ANTES de simplificar. Como 27 e 99 são ambos múltiplos de 9, a fração ainda pode ser reduzida: dividindo os dois por 9, sobra 3/11."
+        },
+        {
+          "resposta": "33",
+          "porque": "33 sairia de dividir só por 3, o que simplifica pela metade do caminho: ficaria 9/33, e o 9 e o 33 ainda têm o 3 em comum. Dividindo por 9 de uma vez, o denominador é 11."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o divisor comum usado para simplificar, e não o denominador do resultado. Ele é o número pelo qual se divide; o denominador que sobra é 99 ÷ 9 = 11."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o divisor comum",
+          "explicacao": "O 27 é 3 × 9 e o 99 é 11 × 9, então os dois são múltiplos de 9.",
+          "conta": "mdc(27, 99) = 9"
+        },
+        {
+          "titulo": "Divida os dois",
+          "explicacao": "Dividir numerador e denominador pelo mesmo número não muda o valor da fração.",
+          "conta": "27 ÷ 9 = 3 · 99 ÷ 9 = 11 → 3/11"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um aluno afirmou: \"todo número com infinitas casas decimais é irracional\". Por que essa afirmação está errada?",
+      "imagem": "re-q-afirmacao-errada",
+      "dica": "Procure um contraexemplo entre as dízimas que você já converteu em fração.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque 0,333... tem infinitas casas e é a fração 1/3" },
+        { "rotulo": "B", "texto": "Porque nenhum número tem infinitas casas decimais" },
+        { "rotulo": "C", "texto": "Porque os irracionais têm poucas casas decimais" },
+        { "rotulo": "D", "texto": "Porque a afirmação está certa" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque nenhum número tem infinitas casas decimais",
+          "porque": "Vários têm: 0,333... e √2 são dois exemplos, um racional e outro irracional. O problema da afirmação não é o infinito existir, e sim ele não decidir sozinho."
+        },
+        {
+          "resposta": "Porque os irracionais têm poucas casas decimais",
+          "porque": "É o contrário: todo irracional tem infinitas casas, e sem período. O que a afirmação erra é achar que só eles têm — as dízimas periódicas também têm, e são racionais."
+        },
+        {
+          "resposta": "Porque a afirmação está certa",
+          "porque": "Ela é falsa, e um contraexemplo basta para derrubá-la: 0,333... tem infinitas casas e é 1/3, uma razão de inteiros. O que caracteriza o irracional é não ter PERÍODO."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Procure um contraexemplo",
+          "explicacao": "Basta um número com infinitas casas que seja racional para a afirmação cair.",
+          "conta": "0,333… = 1/3"
+        },
+        {
+          "titulo": "Corrija a afirmação",
+          "explicacao": "O que falta na frase é a palavra período: infinitas casas SEM repetição.",
+          "conta": "infinitas casas e sem período → irracional"
+        }
+      ]
+    }
+  ]
+}

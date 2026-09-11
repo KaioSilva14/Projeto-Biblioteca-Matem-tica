@@ -1,0 +1,188 @@
+{
+  "id": "quadrado-diferenca",
+  "numero": 3,
+  "titulo": "O quadrado da diferença",
+  "pergunta": "O que muda quando o sinal do meio é de menos?",
+  "ideia": {
+    "paragrafos": [
+      "Agora (a − b)², que é (a − b)(a − b). São os mesmos quatro produtos da lição 1, com uma diferença: o segundo termo carrega um sinal negativo, e ele viaja junto em toda multiplicação de que participa.",
+      "Fazendo com cuidado: a vezes a dá a²; a vezes (−b) dá −ab; (−b) vezes a dá outro −ab; e (−b) vezes (−b) dá +b², porque menos com menos dá mais. Juntando: a² − 2ab + b².",
+      "Duas coisas mudam em relação ao quadrado da soma, e só duas. O termo do meio troca de sinal, porque os dois retângulos agora estão sendo TIRADOS. E o último termo continua POSITIVO, porque ele vem de um número negativo multiplicado por ele mesmo — e todo quadrado é positivo.",
+      "Esse último ponto é onde mais se erra, e o erro é escrever a² − 2ab − b². Vale testar sempre que a dúvida bater: com a = 5 e b = 2, (5 − 2)² é 3², que dá 9. E a fórmula dá 25 − 20 + 4 = 9. Se o último termo fosse negativo, daria 25 − 20 − 4 = 1, que está errado.",
+      "Em palavras, a regra é quase a mesma da lição passada: o quadrado do primeiro, MENOS duas vezes o primeiro pelo segundo, MAIS o quadrado do segundo. Só o sinal do meio muda."
+    ],
+    "destaque": "Só o sinal do MEIO muda. O último termo continua positivo, porque é um quadrado.",
+    "imagem": "pn-ideia-quadrado-dif"
+  },
+  "resolvido": {
+    "enunciado": "Desenvolva (x − 4)².",
+    "imagem": "pn-res-quadrado-dif",
+    "passos": [
+      {
+        "titulo": "Quadrado do primeiro",
+        "explicacao": "O primeiro termo é x, e o sinal de menos não pertence a ele.",
+        "conta": "x × x = x²"
+      },
+      {
+        "titulo": "Duas vezes o primeiro pelo segundo",
+        "explicacao": "O segundo termo é −4, e o sinal viaja junto. São dois produtos iguais.",
+        "conta": "2 × x × (−4) = −8x"
+      },
+      {
+        "titulo": "Quadrado do segundo",
+        "explicacao": "Aqui o negativo se multiplica por ele mesmo, e menos com menos dá mais.",
+        "conta": "(−4) × (−4) = +16"
+      },
+      {
+        "titulo": "Confira com um número",
+        "explicacao": "Substituir um valor qualquer é o teste mais rápido contra erro de sinal.",
+        "conta": "x = 5: (5−4)² = 1 · 25 − 40 + 16 = 1 ✓"
+      }
+    ],
+    "fecho": "(x − 4)² = x² − 8x + 16. Um sinal de menos no meio, e um de mais no fim."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Ao desenvolver (x − 6)², qual é o termo sem x, ou seja, o número solto? Digite apenas o número.",
+      "imagem": "pn-q-dif-6",
+      "dica": "Ele vem do segundo termo multiplicado por ele mesmo. Cuidado com o sinal.",
+      "formato": "numero",
+      "resposta": 36,
+      "errosComuns": [
+        {
+          "resposta": "-36",
+          "porque": "−36 mantém o sinal negativo, mas o último termo vem de (−6) vezes (−6), e menos com menos dá mais. Todo quadrado é positivo, mesmo o quadrado de um número negativo."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é duas vezes 6, que é o coeficiente do termo do MEIO. O número solto é o quadrado do segundo termo, e não o dobro dele."
+        },
+        {
+          "resposta": "-12",
+          "porque": "−12 é o coeficiente do termo do meio, com sinal e tudo. A pergunta é sobre o termo sem letra nenhuma, que é o quadrado de −6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve o segundo termo ao quadrado",
+          "explicacao": "O segundo termo é −6, com o sinal incluído.",
+          "conta": "(−6) × (−6)"
+        },
+        {
+          "titulo": "Aplique a regra dos sinais",
+          "explicacao": "Menos com menos dá mais, então o resultado é positivo.",
+          "conta": "= +36 → x² − 12x + 36"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ao desenvolver (x − 3)², qual é o coeficiente do termo em x? Digite apenas o número (com o sinal, se for negativo).",
+      "imagem": "pn-q-dif-3",
+      "dica": "O termo do meio é duas vezes o primeiro pelo segundo — e o segundo é −3.",
+      "formato": "numero",
+      "resposta": -6,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 acerta o valor e erra o sinal. O segundo termo é −3, e o dobro do produto de x por −3 dá −6x: no quadrado da diferença o termo do meio é negativo."
+        },
+        {
+          "resposta": "-3",
+          "porque": "−3 conta apenas UM dos produtos cruzados. Há dois iguais, um de cada retângulo da figura, então o termo do meio é o dobro."
+        },
+        {
+          "resposta": "-9",
+          "porque": "−9 é o quadrado de 3 com sinal trocado. O quadrado do segundo termo é +9 e vai para o termo SEM x; o do meio é o dobro do produto, que dá −6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique os dois termos",
+          "explicacao": "O segundo carrega o sinal de menos.",
+          "conta": "x × (−3) = −3x"
+        },
+        {
+          "titulo": "Dobre",
+          "explicacao": "São dois produtos cruzados iguais.",
+          "conta": "2 × (−3x) = −6x → x² − 6x + 9"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é o valor de (5 − 2)², calculado pela fórmula do quadrado da diferença? Digite apenas o número.",
+      "imagem": "pn-q-conferir-numero",
+      "dica": "Aplique a² − 2ab + b² com a = 5 e b = 2, e depois confira fazendo a subtração primeiro.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 sai de 25 − 20 − 4, com o último termo negativo. Ele é positivo, porque vem de (−2) vezes (−2): a conta certa é 25 − 20 + 4 = 9, que bate com (5−2)² = 3² = 9."
+        },
+        {
+          "resposta": "21",
+          "porque": "21 é 25 − 4, esquecendo o termo do meio. Ele existe e vale −20 — é o dobro do produto dos dois termos, e ignorá-lo é o erro que a lição 5 discute."
+        },
+        {
+          "resposta": "29",
+          "porque": "29 é 25 + 4, somando os dois quadrados e esquecendo o termo do meio. Com o sinal de menos no parêntese, o termo do meio subtrai 20."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a fórmula",
+          "explicacao": "Com a = 5 e b = 2, os três termos são 25, o dobro de 10, e 4.",
+          "conta": "25 − 20 + 4"
+        },
+        {
+          "titulo": "Confira pelo caminho direto",
+          "explicacao": "Fazendo a subtração dentro do parêntese primeiro, o resultado tem de ser o mesmo.",
+          "conta": "= 9 · (5 − 2)² = 3² = 9 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que o último termo de (a − b)² é POSITIVO, se o sinal dentro do parêntese é de menos?",
+      "imagem": "pn-q-por-que-positivo",
+      "dica": "Escreva de onde vem o último termo: qual número multiplicado por qual?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ele vem de (−b) vezes (−b), e menos com menos dá mais" },
+        { "rotulo": "B", "texto": "Porque o sinal de menos só vale para o termo do meio" },
+        { "rotulo": "C", "texto": "Porque b é sempre um número positivo" },
+        { "rotulo": "D", "texto": "Por convenção, para a fórmula ficar mais bonita" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o sinal de menos só vale para o termo do meio",
+          "porque": "O sinal vale para os TRÊS produtos de que o segundo termo participa — os dois cruzados e o quadrado dele. A diferença é que no quadrado ele aparece duas vezes, e os dois negativos se cancelam."
+        },
+        {
+          "resposta": "Porque b é sempre um número positivo",
+          "porque": "b pode ser qualquer número, inclusive negativo. E mesmo que fosse, o que importa é que o segundo TERMO da expressão é −b, e é ele que se multiplica por si mesmo."
+        },
+        {
+          "resposta": "Por convenção, para a fórmula ficar mais bonita",
+          "porque": "Não há convenção nenhuma: o sinal sai da regra dos sinais, que já valia no 7º ano. Testando com a = 5 e b = 2, só o sinal positivo dá o resultado certo, que é 9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja de onde vem o termo",
+          "explicacao": "Ele é o segundo termo multiplicado por ele mesmo, com sinal e tudo.",
+          "conta": "(−b) × (−b)"
+        },
+        {
+          "titulo": "Aplique a regra dos sinais",
+          "explicacao": "Dois fatores negativos dão produto positivo.",
+          "conta": "= +b²"
+        }
+      ]
+    }
+  ]
+}

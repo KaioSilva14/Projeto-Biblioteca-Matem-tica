@@ -1,0 +1,209 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas de contagem",
+  "pergunta": "Como decidir qual conta o problema está pedindo?",
+  "ideia": {
+    "paragrafos": [
+      "Nenhum enunciado diz \"use o princípio multiplicativo\" nem \"vá pelo complementar\". O trabalho é ler o problema e decidir — e esta lição é o roteiro que organiza as cinco anteriores.",
+      "A primeira pergunta é se há ETAPAS. Se a escolha acontece em partes — uma camisa e uma calça, um cargo e depois outro —, as etapas se multiplicam. Se o enunciado oferece alternativas entre as quais se escolhe uma só, o caso é de soma, e não de multiplicação.",
+      "A segunda pergunta é se a ORDEM importa. Primeiro lugar para Ana e segundo para Beto é diferente do contrário, então ali a ordem conta. Escolher dois representantes sem cargos definidos é outra coisa: Ana e Beto é a mesma dupla que Beto e Ana, e contar as duas separadamente dobraria o resultado sem motivo.",
+      "A terceira é se o que foi escolhido CONTINUA disponível. Numa senha, o mesmo dígito pode se repetir; numa comissão, a mesma pessoa não ocupa dois cargos. É a diferença entre 10 × 10 e 10 × 9, e ela costuma estar escondida numa frase curta do enunciado — \"ninguém pode acumular cargos\" é o aviso típico.",
+      "Só depois disso vem a conta. E vale conferir o resultado num caso pequeno: se o problema fosse com 3 pessoas em vez de 10, daria para listar tudo à mão e comparar com a fórmula. É o mesmo hábito de conferência que as outras matérias pedem — substituir e ver se bate.",
+      "Por último, se a pergunta for de probabilidade e contiver \"pelo menos\", pare e escreva o complementar antes de calcular qualquer coisa. Quase sempre ele encurta o caminho."
+    ],
+    "destaque": "Há etapas? A ordem importa? O escolhido continua disponível? As três respostas decidem a conta.",
+    "imagem": "pb8-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Numa turma de dez alunos, será escolhida uma comissão de três: um porta-voz, um diretor de artes e um assessor técnico. Ninguém pode acumular cargos. De quantas maneiras a comissão pode ser formada?",
+    "imagem": "pb8-res-comissao",
+    "passos": [
+      {
+        "titulo": "Veja se há etapas",
+        "explicacao": "Formar a comissão é preencher três cargos, um de cada vez.",
+        "conta": "três etapas"
+      },
+      {
+        "titulo": "Conte o primeiro cargo",
+        "explicacao": "Qualquer um dos dez alunos pode ser o porta-voz.",
+        "conta": "10 opções"
+      },
+      {
+        "titulo": "Conte os outros dois",
+        "explicacao": "Ninguém acumula cargos, então cada escolha tira uma pessoa da lista.",
+        "conta": "9 · depois 8"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Cada escolha de porta-voz se abre em 9 diretores, e cada uma dessas em 8 assessores.",
+        "conta": "10 × 9 × 8 = 720"
+      }
+    ],
+    "fecho": "Se os cargos pudessem acumular, seriam 10 × 10 × 10 = 1 000 — a frase sobre acumular vale 280 comissões."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa turma de dez alunos, será escolhida uma comissão de três: um porta-voz, um diretor de artes e um assessor técnico. Nenhum aluno pode acumular cargos. De quantas maneiras essa comissão pode ser formada? Digite apenas o número.",
+      "imagem": "pb8-q-obmep-comissao",
+      "dica": "São três etapas. Depois de escolher o porta-voz, quantos alunos sobram para o cargo seguinte?",
+      "formato": "numero",
+      "resposta": 720,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2014,
+        "referencia": "Problema 11 (item a) — Comissões"
+      },
+      "errosComuns": [
+        {
+          "resposta": "1000",
+          "porque": "1 000 é 10 × 10 × 10, que valeria se a mesma pessoa pudesse ocupar mais de um cargo. O enunciado proíbe acumular: cada escolha tira um aluno da lista, então os fatores caem para 9 e 8."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é 10 + 9 + 8, somando as opções das três etapas. Etapas sucessivas se multiplicam — a soma contaria escolhas avulsas, e não comissões formadas."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é 720 ÷ 6, o número de comissões SEM cargos definidos. Aqui os três cargos são diferentes, então trocar quem é porta-voz e quem é assessor forma outra comissão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte cada cargo",
+          "explicacao": "São dez candidatos ao primeiro cargo, nove ao segundo e oito ao terceiro.",
+          "conta": "10 · 9 · 8"
+        },
+        {
+          "titulo": "Multiplique as etapas",
+          "explicacao": "Cada escolha de um cargo se abre em todas as escolhas possíveis do seguinte.",
+          "conta": "10 × 9 × 8 = 720"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ainda na comissão de porta-voz, diretor de artes e assessor técnico: quantas comissões diferentes podem ser formadas usando exatamente os alunos Leandro, Renato e Marcelo? Digite apenas o número.",
+      "imagem": "pb8-q-obmep-tres",
+      "dica": "Os três alunos estão fixos. O que ainda pode variar é quem fica com cada cargo.",
+      "formato": "numero",
+      "resposta": 6,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2014,
+        "referencia": "Problema 11 (item b) — Comissões"
+      },
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 contaria como se houvesse uma única comissão com esses três alunos. Mas os cargos são diferentes: Marcelo como porta-voz não é a mesma comissão que Marcelo como assessor."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é o número de alunos, e não o de comissões. Cada um dos três pode ser o porta-voz, e para cada escolha dessas ainda há duas maneiras de distribuir os outros dois cargos."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 3 × 3, como se o mesmo aluno pudesse repetir cargo. Ninguém acumula: depois de escolher o porta-voz restam dois alunos, e depois do segundo cargo resta um."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha o porta-voz",
+          "explicacao": "Qualquer um dos três alunos pode ocupar esse cargo.",
+          "conta": "3 opções"
+        },
+        {
+          "titulo": "Distribua os outros cargos",
+          "explicacao": "Sobram dois alunos para o segundo cargo e um só para o terceiro.",
+          "conta": "2 · depois 1"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "As três etapas se combinam como sempre.",
+          "conta": "3 × 2 × 1 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma senha tem 2 dígitos, e cada um pode ser qualquer algarismo de 0 a 9, podendo repetir. Quantas senhas diferentes existem? Digite apenas o número.",
+      "imagem": "pb8-q-senha",
+      "dica": "Aqui a repetição é permitida. Isso muda o número de opções da segunda etapa?",
+      "formato": "numero",
+      "resposta": 100,
+      "errosComuns": [
+        {
+          "resposta": "90",
+          "porque": "90 é 10 × 9, que valeria se os dígitos NÃO pudessem repetir. O enunciado permite repetir, então o segundo dígito continua com 10 opções."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 10 + 10, somando as opções das duas etapas. Etapas sucessivas se multiplicam: cada um dos 10 primeiros dígitos se abre em 10 segundos."
+        },
+        {
+          "resposta": "99",
+          "porque": "99 conta os números de 1 a 99, esquecendo que a senha 00 também existe. Como cada posição aceita qualquer algarismo de 0 a 9, o total é 10 × 10."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte o primeiro dígito",
+          "explicacao": "Qualquer algarismo de 0 a 9 pode ocupar a primeira posição.",
+          "conta": "10 opções"
+        },
+        {
+          "titulo": "Conte o segundo",
+          "explicacao": "Como a repetição é permitida, ele também tem 10 opções.",
+          "conta": "10 opções"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "As duas posições são escolhidas em etapas independentes.",
+          "conta": "10 × 10 = 100"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num problema de contagem, qual frase do enunciado avisa que o escolhido sai da lista?",
+      "imagem": "pb8-q-frase-avisa",
+      "dica": "Procure a frase que proíbe alguém ou algo de aparecer duas vezes.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "\"Ninguém pode acumular cargos\", ou equivalente" },
+        { "rotulo": "B", "texto": "\"A ordem não importa\"" },
+        { "rotulo": "C", "texto": "\"Escolha uma opção de cada categoria\"" },
+        { "rotulo": "D", "texto": "\"Cada algarismo pode se repetir\"" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "\"A ordem não importa\"",
+          "porque": "Essa frase avisa outra coisa: que trocar a posição dos escolhidos não forma um caso novo. Ela leva a dividir o resultado, e não a reduzir as opções de cada etapa."
+        },
+        {
+          "resposta": "\"Escolha uma opção de cada categoria\"",
+          "porque": "Essa frase confirma que há ETAPAS, e por isso manda multiplicar. Mas ela não diz nada sobre o escolhido sair da lista — as categorias são independentes entre si."
+        },
+        {
+          "resposta": "\"Cada algarismo pode se repetir\"",
+          "porque": "É exatamente o aviso contrário: ela diz que o escolhido CONTINUA disponível, e por isso todas as etapas mantêm o mesmo número de opções."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que a frase proíbe",
+          "explicacao": "Se alguém não pode ocupar dois cargos, ele sai da lista depois de escolhido.",
+          "conta": "sem repetição"
+        },
+        {
+          "titulo": "Veja o efeito na conta",
+          "explicacao": "Cada etapa passa a ter uma opção a menos que a anterior.",
+          "conta": "10 × 9 × 8, e não 10 × 10 × 10"
+        }
+      ]
+    }
+  ]
+}

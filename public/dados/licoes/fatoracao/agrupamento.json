@@ -1,0 +1,194 @@
+{
+  "id": "agrupamento",
+  "numero": 2,
+  "titulo": "Fatorar por agrupamento",
+  "pergunta": "E quando não há fator comum a TODAS as parcelas?",
+  "ideia": {
+    "paragrafos": [
+      "Olhe para xy + 2x + 3y + 6. Não existe fator comum às quatro parcelas: o x aparece nas duas primeiras, o 3 nas duas últimas, e nada percorre a expressão inteira. A lição 1 não se aplica, e mesmo assim essa expressão fatora.",
+      "A saída é fatorar por partes. Separe as quatro parcelas em dois grupos: xy + 2x de um lado, 3y + 6 do outro. Cada grupo tem fator comum próprio — no primeiro sai o x, no segundo sai o 3. Fica x(y + 2) + 3(y + 2).",
+      "Agora olhe o que apareceu. Os dois parênteses ficaram IGUAIS, e é isso que faz o método funcionar: o (y + 2) virou um fator comum aos dois termos que sobraram. Aplicando a lição 1 outra vez, ele sai na frente e o que resta é (x + 3).",
+      "O resultado é (y + 2)(x + 3). Duas fatorações encadeadas — primeiro dentro de cada grupo, depois entre os grupos — e por isso o método se chama agrupamento.",
+      "O sinal de que o agrupamento deu certo é justamente os dois parênteses ficarem iguais. Se saírem diferentes, o agrupamento foi feito na ordem errada: vale tentar juntar as parcelas de outro jeito, porque a mesma expressão costuma aceitar mais de um agrupamento — e todos levam ao mesmo resultado."
+    ],
+    "destaque": "Fatore cada grupo. Se os dois parênteses ficarem iguais, o caminho estava certo.",
+    "imagem": "ft-ideia-agrupamento"
+  },
+  "resolvido": {
+    "enunciado": "Fatore xy + 2x + 3y + 6.",
+    "imagem": "ft-res-agrupamento",
+    "passos": [
+      {
+        "titulo": "Separe em dois grupos",
+        "explicacao": "Junte as parcelas que têm algo em comum entre si, mesmo que não tenham com as outras.",
+        "conta": "(xy + 2x) + (3y + 6)"
+      },
+      {
+        "titulo": "Fatore cada grupo",
+        "explicacao": "No primeiro grupo o x é comum; no segundo, o 3. Cada um vira um produto.",
+        "conta": "x(y + 2) + 3(y + 2)"
+      },
+      {
+        "titulo": "Repare no parêntese repetido",
+        "explicacao": "Os dois grupos produziram o mesmo parêntese, e agora ele é o fator comum aos dois termos.",
+        "conta": "comum: (y + 2)"
+      },
+      {
+        "titulo": "Coloque em evidência de novo",
+        "explicacao": "É a lição 1 outra vez, agora com um parêntese inteiro no lugar do número.",
+        "conta": "(y + 2)(x + 3)"
+      }
+    ],
+    "fecho": "Confira multiplicando de volta: (y+2)(x+3) dá xy + 3y + 2x + 6, que é a expressão original em outra ordem."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Ao agrupar ax + ay + bx + by nos grupos (ax + ay) e (bx + by), qual parêntese aparece nos dois?",
+      "imagem": "ft-q-parenteses-iguais",
+      "dica": "Fatore cada grupo separadamente e compare o que sobra dentro dos parênteses.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(x + y)" },
+        { "rotulo": "B", "texto": "(a + b)" },
+        { "rotulo": "C", "texto": "(a + x)" },
+        { "rotulo": "D", "texto": "Nenhum: os dois ficam diferentes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(a + b)",
+          "porque": "(a + b) é o que sobra DEPOIS de pôr (x + y) em evidência — é o resultado final, e não o parêntese que aparece nos dois grupos. Fatorando cada grupo, sai a(x+y) e b(x+y)."
+        },
+        {
+          "resposta": "(a + x)",
+          "porque": "O a e o x não ficam juntos dentro do mesmo parêntese: o a é o fator comum do primeiro grupo, e sai para FORA dele. Dentro sobra (x + y)."
+        },
+        {
+          "resposta": "Nenhum: os dois ficam diferentes",
+          "porque": "Eles ficam iguais, e é isso que faz o método funcionar aqui: o primeiro grupo dá a(x+y) e o segundo dá b(x+y). Quando ficam diferentes é sinal de agrupamento na ordem errada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fatore o primeiro grupo",
+          "explicacao": "As duas parcelas têm o a em comum.",
+          "conta": "ax + ay = a(x + y)"
+        },
+        {
+          "titulo": "Fatore o segundo",
+          "explicacao": "Aqui o comum é o b, e o que sobra dentro é o mesmo de antes.",
+          "conta": "bx + by = b(x + y)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A expressão xy + 2x + 3y + 6 fatorada dá (y + 2)(x + ?). Qual número entra no lugar da interrogação? Digite apenas o número.",
+      "imagem": "ft-q-completar",
+      "dica": "Depois de pôr (y + 2) em evidência, o que sobra de cada termo forma o segundo parêntese.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é o número do PRIMEIRO parêntese, que já está escrito como (y + 2). O segundo parêntese é formado pelo que sobra dos dois termos depois da evidência: x e 3."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a última parcela da expressão original, e ela não vai inteira para o parêntese: ela é 3 × 2, e o 3 é a parte que sobra depois de o (y+2) sair."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 soma o 2 com o 3, misturando os dois parênteses. Eles são fatores separados que se multiplicam, e não parcelas que se somam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fatore os dois grupos",
+          "explicacao": "Cada grupo produz o mesmo parêntese, com um fator diferente na frente.",
+          "conta": "x(y + 2) + 3(y + 2)"
+        },
+        {
+          "titulo": "Junte os fatores da frente",
+          "explicacao": "O que sobra dos dois termos, depois de tirar o parêntese comum, forma o segundo fator.",
+          "conta": "(y + 2)(x + 3)"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantas parcelas costuma ter uma expressão que se fatora por agrupamento? Digite apenas o número.",
+      "imagem": "ft-q-quantas-parcelas",
+      "dica": "Pense em quantos grupos se formam e quantas parcelas cada grupo precisa ter.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Com duas parcelas não há o que agrupar: ou elas têm fator comum, e aí é a lição 1, ou não têm, e a expressão não fatora por este caminho. O agrupamento precisa de dois grupos."
+        },
+        {
+          "resposta": "3",
+          "porque": "Com três parcelas não dá para formar dois grupos de duas. O agrupamento clássico junta as parcelas duas a duas, então são quatro."
+        },
+        {
+          "resposta": "6",
+          "porque": "Seis parcelas até podem ser agrupadas, mas não é o caso comum: o método clássico forma dois grupos de duas, totalizando quatro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os grupos",
+          "explicacao": "O método junta as parcelas em dois grupos para fatorar cada um.",
+          "conta": "2 grupos"
+        },
+        {
+          "titulo": "Conte as parcelas de cada grupo",
+          "explicacao": "Cada grupo precisa de duas parcelas para ter um fator comum próprio.",
+          "conta": "2 × 2 = 4 parcelas"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O que indica que o agrupamento foi feito na ordem CERTA?",
+      "imagem": "ft-q-sinal-certo",
+      "dica": "Pense no que precisa acontecer para o segundo passo da fatoração ser possível.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os dois parênteses saem iguais" },
+        { "rotulo": "B", "texto": "Os dois grupos têm o mesmo fator na frente" },
+        { "rotulo": "C", "texto": "O resultado tem quatro parcelas" },
+        { "rotulo": "D", "texto": "Os números ficam todos positivos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Os dois grupos têm o mesmo fator na frente",
+          "porque": "Os fatores da frente são justamente os DIFERENTES — em x(y+2) + 3(y+2), eles são x e 3. Se fossem iguais, a expressão toda teria fator comum e a lição 1 bastaria."
+        },
+        {
+          "resposta": "O resultado tem quatro parcelas",
+          "porque": "Quatro parcelas é o que a expressão tinha ANTES de fatorar. O resultado é um produto de dois parênteses, e é justamente essa mudança de soma para produto que se buscava."
+        },
+        {
+          "resposta": "Os números ficam todos positivos",
+          "porque": "O sinal não decide nada: o agrupamento funciona com negativos também, e às vezes é preciso pôr um número negativo em evidência para os parênteses ficarem iguais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o segundo passo exige",
+          "explicacao": "Para pôr algo em evidência de novo, esse algo precisa aparecer nos dois termos.",
+          "conta": "x(y+2) + 3(y+2)"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Parênteses iguais é a condição para a segunda evidência acontecer.",
+          "conta": "(y+2)(x+3)"
+        }
+      ]
+    }
+  ]
+}

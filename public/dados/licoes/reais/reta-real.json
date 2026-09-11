@@ -1,0 +1,194 @@
+{
+  "id": "reta-real",
+  "numero": 5,
+  "titulo": "Onde eles moram na reta",
+  "pergunta": "Se √2 não é fração, como marcá-lo na reta numérica?",
+  "ideia": {
+    "paragrafos": [
+      "Racionais e irracionais juntos formam os números REAIS, e a reta numérica é o retrato deles: cada ponto da reta é um número real, e cada número real é um ponto da reta. Não sobra buraco nenhum — e essa é a razão de a reta se chamar reta real.",
+      "Antes de saber que os irracionais existiam, dava para imaginar que só os racionais preenchiam a reta. Não preenchem: se você desenhar um quadrado de lado 1 e medir a diagonal dele com a régua, o comprimento é √2. O ponto está lá, desenhado, e nenhuma fração o alcança.",
+      "Para LOCALIZAR um irracional, o caminho é espremê-lo entre dois inteiros. Onde fica √10? Procure os quadrados perfeitos vizinhos: 9 é 3² e 16 é 4². Como 10 está entre 9 e 16, a raiz de 10 está entre 3 e 4. Nada de decorar: a comparação vem dos quadrados.",
+      "Dá para apertar mais, se precisar. 3,1² = 9,61 e 3,2² = 10,24, então √10 está entre 3,1 e 3,2 — mais perto do 3,2. Cada casa decimal a mais é uma tentativa a mais, e nunca acaba: é assim que uma calculadora faz.",
+      "Uma advertência que vale para a vida toda: 3,16 não É a raiz de 10, é uma aproximação dela. Escrever o sinal de igual entre os dois é errado, e o símbolo ≈ existe justamente para isso. O valor exato só se escreve como √10 — o próprio símbolo é a resposta."
+    ],
+    "destaque": "Todo ponto da reta é um número real. Os racionais sozinhos deixariam buracos.",
+    "imagem": "re-ideia-reta"
+  },
+  "resolvido": {
+    "enunciado": "Entre quais dois inteiros consecutivos está √10?",
+    "imagem": "re-res-raiz-10",
+    "passos": [
+      {
+        "titulo": "Procure os quadrados vizinhos",
+        "explicacao": "Liste os quadrados perfeitos até passar de 10, que é o número dentro da raiz.",
+        "conta": "3² = 9 · 4² = 16"
+      },
+      {
+        "titulo": "Encaixe o 10 entre eles",
+        "explicacao": "O número dentro da raiz cai entre esses dois quadrados.",
+        "conta": "9 < 10 < 16"
+      },
+      {
+        "titulo": "Tire a raiz dos três",
+        "explicacao": "A raiz preserva a ordem: quem é maior por dentro continua maior por fora.",
+        "conta": "3 < √10 < 4"
+      },
+      {
+        "titulo": "Aperte, se quiser",
+        "explicacao": "Testando decimais, dá para chegar mais perto — mas nunca exatamente.",
+        "conta": "3,1² = 9,61 · 3,2² = 10,24 → √10 ≈ 3,16"
+      }
+    ],
+    "fecho": "O valor exato continua sendo √10. O 3,16 é só uma aproximação, e por isso leva ≈ e não =."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o maior número inteiro MENOR que √10? Digite apenas o número.",
+      "imagem": "re-q-raiz-10-inteiro",
+      "dica": "Ache o maior quadrado perfeito que não passa de 10 e tire a raiz dele.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é o menor inteiro MAIOR que √10, e não o menor abaixo dela. Como 4² = 16 passa de 10, o 4 fica acima da raiz: o que fica logo abaixo é o 3."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a metade de 10, e raiz quadrada não é divisão por dois. Se fosse 5, teríamos 5 × 5 = 25, bem acima de 10."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o número que está DENTRO da raiz, e não o valor dela. A raiz sempre encolhe números maiores que 1: √10 fica pouco acima de 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os quadrados",
+          "explicacao": "Procure o maior quadrado perfeito que não ultrapassa 10.",
+          "conta": "3² = 9 ≤ 10 · 4² = 16 > 10"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "A raiz de 10 fica entre os dois, então o inteiro logo abaixo é o 3.",
+          "conta": "3 < √10 < 4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o maior número inteiro MENOR que √50? Digite apenas o número.",
+      "imagem": "re-q-raiz-50",
+      "dica": "Procure os dois quadrados perfeitos que espremem o 50.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8² é 64, que passa de 50 — então o 8 fica ACIMA da raiz. O inteiro que fica logo abaixo é o 7, porque 7² = 49 não chega a 50."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é metade de 50, e a raiz não é a metade. Testando: 25 × 25 dá 625, muito acima de 50."
+        },
+        {
+          "resposta": "6",
+          "porque": "6² é 36, que fica abaixo de 50 — mas não é o MAIOR inteiro nessa condição. O 7 também serve, porque 49 ainda não chega a 50."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Esprema entre quadrados",
+          "explicacao": "O 49 é o maior quadrado perfeito que não passa de 50.",
+          "conta": "49 < 50 < 64"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "A ordem se mantém, e a raiz cai entre os dois inteiros.",
+          "conta": "7 < √50 < 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que quer dizer a afirmação \"a reta real não tem buracos\"?",
+      "imagem": "re-q-sem-buracos",
+      "dica": "Pense se sobra algum ponto da reta sem número, ou algum número sem ponto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que todo ponto da reta corresponde a um número real, racional ou irracional" },
+        { "rotulo": "B", "texto": "Que só os números inteiros ficam na reta" },
+        { "rotulo": "C", "texto": "Que a reta é finita e tem começo e fim" },
+        { "rotulo": "D", "texto": "Que os irracionais ficam fora da reta" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que só os números inteiros ficam na reta",
+          "porque": "Os inteiros ocupam apenas os pontos marcados de um em um, e entre dois deles há infinitos outros números — as frações e os irracionais. Se só os inteiros estivessem lá, a reta seria uma fileira de pontos soltos."
+        },
+        {
+          "resposta": "Que a reta é finita e tem começo e fim",
+          "porque": "A reta continua para os dois lados sem parar, e as setas nas pontas dizem isso. \"Sem buracos\" fala do que existe ENTRE os pontos, e não do comprimento dela."
+        },
+        {
+          "resposta": "Que os irracionais ficam fora da reta",
+          "porque": "É o contrário: eles estão na reta, e são justamente eles que tapam os buracos que os racionais deixariam. A diagonal de um quadrado de lado 1 mede √2, e esse ponto está desenhado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que os racionais deixam de fora",
+          "explicacao": "O ponto que marca a diagonal do quadrado de lado 1 existe, e nenhuma fração o alcança.",
+          "conta": "√2 está na reta"
+        },
+        {
+          "titulo": "Junte os dois conjuntos",
+          "explicacao": "Racionais e irracionais juntos ocupam todos os pontos, sem deixar sobra.",
+          "conta": "racionais + irracionais = reais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que se escreve √10 ≈ 3,16 e não √10 = 3,16?",
+      "imagem": "re-q-aproximado",
+      "dica": "Calcule 3,16 × 3,16 e compare com 10.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque 3,16 é uma aproximação: ao quadrado ele não dá exatamente 10" },
+        { "rotulo": "B", "texto": "Porque 3,16 tem duas casas decimais" },
+        { "rotulo": "C", "texto": "Porque raiz quadrada nunca pode ter sinal de igual" },
+        { "rotulo": "D", "texto": "Porque 3,16 é maior que √10" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque 3,16 tem duas casas decimais",
+          "porque": "A quantidade de casas não decide: 0,25 tem duas casas e é exatamente √0,0625. O problema é que nenhuma quantidade FINITA de casas dá √10, porque ele é irracional."
+        },
+        {
+          "resposta": "Porque raiz quadrada nunca pode ter sinal de igual",
+          "porque": "Pode, e com frequência: √9 = 3 é uma igualdade perfeita. O sinal ≈ só aparece quando o valor escrito é aproximado, o que acontece nas raízes irracionais."
+        },
+        {
+          "resposta": "Porque 3,16 é maior que √10",
+          "porque": "3,16 é mesmo um pouco maior — 3,16² dá 9,9856, um pouco MENOR que 10, então 3,16 é um pouco menor que a raiz. Mas o motivo do ≈ não é o lado do erro: é existir erro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve ao quadrado",
+          "explicacao": "Se a igualdade valesse, o quadrado teria de dar 10 exatamente.",
+          "conta": "3,16 × 3,16 = 9,9856"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Falta um pouco para chegar a 10, e nenhuma quantidade finita de casas fecharia essa diferença.",
+          "conta": "9,9856 ≠ 10 → √10 ≈ 3,16"
+        }
+      ]
+    }
+  ]
+}

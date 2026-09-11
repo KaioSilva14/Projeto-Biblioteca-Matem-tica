@@ -1,0 +1,194 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Usar a congruência",
+  "pergunta": "Para que serve provar que dois triângulos são congruentes?",
+  "ideia": {
+    "paragrafos": [
+      "Provar a congruência raramente é o objetivo final. Ela é uma ferramenta: uma vez provada, TODOS os elementos correspondentes ficam iguais — e isso permite descobrir medidas que não estavam no enunciado.",
+      "O roteiro é sempre o mesmo, em três passos. Primeiro, liste o que se sabe sobre os dois triângulos. Segundo, veja se o que se sabe encaixa em LLL, LAL ou ALA — e cuidado com a POSIÇÃO, que é onde os casos que enganam se disfarçam. Terceiro, conclua a congruência e colha a medida que faltava.",
+      "Um exemplo: dois triângulos com lados 5, 6 e 7 cada um são congruentes por LLL. Se num deles o ângulo oposto ao lado 7 mede 78°, no outro o ângulo oposto ao lado 7 também mede 78° — e isso não precisou ser medido, veio da congruência.",
+      "A palavra CORRESPONDENTE é o cuidado do terceiro passo. O lado de 5 de um triângulo corresponde ao lado de 5 do outro, e não a qualquer lado. Trocar a correspondência é o erro que produz respostas erradas mesmo com a congruência provada corretamente.",
+      "Na prática, o que costuma esconder a congruência num problema são os elementos COMUNS aos dois triângulos. Quando dois triângulos partilham um lado, esse lado é igual a ele mesmo — e essa igualdade de graça é muitas vezes o terceiro elemento que faltava para fechar um dos casos."
+    ],
+    "destaque": "Provada a congruência, todos os elementos correspondentes ficam iguais — inclusive os que ninguém mediu.",
+    "imagem": "cg-ideia-usar"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos têm lados 5, 6 e 7. No primeiro, o ângulo oposto ao lado 7 mede 78°. Quanto mede o ângulo oposto ao lado 7 no segundo?",
+    "imagem": "cg-res-usar",
+    "passos": [
+      {
+        "titulo": "Liste o que se sabe",
+        "explicacao": "Os três lados de um coincidem com os três lados do outro.",
+        "conta": "5 = 5 · 6 = 6 · 7 = 7"
+      },
+      {
+        "titulo": "Escolha o caso",
+        "explicacao": "Três lados iguais é exatamente o caso LLL, que não exige ângulo nenhum.",
+        "conta": "LLL ✓"
+      },
+      {
+        "titulo": "Conclua a congruência",
+        "explicacao": "Com o caso cumprido, os seis elementos correspondentes são iguais.",
+        "conta": "os dois triângulos são congruentes"
+      },
+      {
+        "titulo": "Colha a medida correspondente",
+        "explicacao": "O ângulo oposto ao lado 7 de um corresponde ao ângulo oposto ao lado 7 do outro.",
+        "conta": "78°"
+      }
+    ],
+    "fecho": "Ninguém mediu esse ângulo no segundo triângulo: ele veio da congruência."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Dois triângulos são congruentes. Num deles, um lado mede 12 cm. Quanto mede o lado correspondente no outro, em centímetros? Digite apenas o número.",
+      "imagem": "cg-q-lado-correspondente",
+      "dica": "Congruência garante que os elementos correspondentes têm a mesma medida.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 dobraria a medida, o que aconteceria numa AMPLIAÇÃO — dois triângulos semelhantes de escala 2. Congruência é escala 1: as medidas correspondentes são iguais."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a metade, o que também seria uma mudança de escala. Em triângulos congruentes o lado correspondente tem exatamente a mesma medida."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é o triplo. Nenhuma multiplicação entra aqui: a congruência garante igualdade direta entre os elementos correspondentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que a congruência garante",
+          "explicacao": "Recortando um triângulo e sobrepondo ao outro, eles coincidem ponto a ponto.",
+          "conta": "elementos correspondentes iguais"
+        },
+        {
+          "titulo": "Aplique ao lado",
+          "explicacao": "O lado correspondente tem a mesma medida, sem nenhum fator no meio.",
+          "conta": "12 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Dois triângulos partilham um lado. Essa informação ajuda a provar a congruência deles?",
+      "imagem": "cg-q-lado-comum",
+      "dica": "Um lado partilhado tem a mesma medida em qual dos dois triângulos?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque esse lado é igual a ele mesmo — é um elemento de graça" },
+        { "rotulo": "B", "texto": "Não, porque ele pertence aos dois e não conta" },
+        { "rotulo": "C", "texto": "Só se os triângulos forem retângulos" },
+        { "rotulo": "D", "texto": "Não, porque congruência exige triângulos separados" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque ele pertence aos dois e não conta",
+          "porque": "É justamente por pertencer aos dois que ele conta: a medida dele num triângulo é igual à medida dele no outro, porque é o mesmo segmento. Muitas vezes é esse o terceiro elemento que faltava."
+        },
+        {
+          "resposta": "Só se os triângulos forem retângulos",
+          "porque": "Vale para quaisquer triângulos. O ângulo reto às vezes aparece nesses problemas, mas a igualdade do lado partilhado não depende disso."
+        },
+        {
+          "resposta": "Não, porque congruência exige triângulos separados",
+          "porque": "Congruência compara medidas, e nada exige que as figuras sejam separadas. Dois triângulos que partilham um lado — ou até se sobrepõem — podem perfeitamente ser congruentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o lado partilhado é",
+          "explicacao": "Ele é o mesmo segmento, contado como lado de cada um dos triângulos.",
+          "conta": "mesma medida nos dois"
+        },
+        {
+          "titulo": "Use como elemento",
+          "explicacao": "Essa igualdade não precisa ser provada, e completa a lista de um dos casos.",
+          "conta": "um L de graça"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Dois triângulos têm ângulos de 30° e 90° nas pontas de um lado de 10 cm. Por qual caso eles são congruentes?",
+      "imagem": "cg-q-qual-caso",
+      "dica": "Conte quantos lados e quantos ângulos foram dados, e veja onde cada um está.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "ALA, porque o lado está entre os dois ângulos" },
+        { "rotulo": "B", "texto": "LAL, porque há um lado e ângulos" },
+        { "rotulo": "C", "texto": "LLL, porque os lados são iguais" },
+        { "rotulo": "D", "texto": "AAA, porque há dois ângulos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "LAL, porque há um lado e ângulos",
+          "porque": "O LAL pede DOIS lados e um ângulo entre eles, e aqui há só um lado. Com dois ângulos e um lado entre eles, o caso é o ALA."
+        },
+        {
+          "resposta": "LLL, porque os lados são iguais",
+          "porque": "O LLL exige que os três lados sejam conhecidos, e aqui só um foi dado. Os outros dois elementos do enunciado são ângulos."
+        },
+        {
+          "resposta": "AAA, porque há dois ângulos",
+          "porque": "O AAA usaria só ângulos, e além disso ele não garante congruência — falta a medida de tamanho. Aqui o lado de 10 cm foi dado, e é ele que fecha o caso ALA."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os elementos",
+          "explicacao": "Dois ângulos e um lado foram dados.",
+          "conta": "30° · 10 cm · 90°"
+        },
+        {
+          "titulo": "Confira a posição",
+          "explicacao": "O lado está entre os dois ângulos, que é o que o caso exige.",
+          "conta": "ALA ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois triângulos são congruentes. Num deles os ângulos medem 40°, 60° e 80°. Quanto mede o MAIOR ângulo do outro, em graus? Digite apenas o número.",
+      "imagem": "cg-q-maior-angulo",
+      "dica": "Os ângulos correspondentes são iguais — e o maior de um corresponde ao maior do outro.",
+      "formato": "numero",
+      "resposta": 80,
+      "errosComuns": [
+        {
+          "resposta": "180",
+          "porque": "180 é a SOMA dos três ângulos, e não a medida de um deles. O maior dos três é o 80°."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é o MENOR dos três ângulos. A pergunta é sobre o maior, que é o 80°."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é o ângulo do meio. Comparando os três — 40, 60 e 80 —, o maior é o 80°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o maior no primeiro",
+          "explicacao": "Comparando os três valores dados.",
+          "conta": "40 < 60 < 80"
+        },
+        {
+          "titulo": "Passe para o outro",
+          "explicacao": "A congruência garante que os ângulos correspondentes são iguais.",
+          "conta": "80°"
+        }
+      ]
+    }
+  ]
+}

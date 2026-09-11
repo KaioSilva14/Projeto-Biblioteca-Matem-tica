@@ -1,0 +1,194 @@
+{
+  "id": "periodo",
+  "numero": 2,
+  "titulo": "O período da dízima",
+  "pergunta": "O que exatamente se repete, e como escrever isso?",
+  "ideia": {
+    "paragrafos": [
+      "O bloco de algarismos que se repete tem nome: é o PERÍODO da dízima. Em 0,333... o período é 3. Em 0,454545... o período é 45, com dois algarismos. Em 0,285714285714... o período tem seis, e é 285714 — o mesmo bloco voltando sempre na mesma ordem.",
+      "Escrever reticências funciona, mas é impreciso: em 0,4545... dá para adivinhar o período, mas em 0,123123... alguém poderia ler o período como 123 ou como 1231. Por isso existe a barra: ela vai EXATAMENTE em cima do bloco que se repete, e não sobra dúvida.",
+      "Há dois tipos de dízima, e a diferença importa na hora de voltar para a fração. Na dízima SIMPLES, a repetição começa logo depois da vírgula: 0,333... e 0,4545... são assim. Na dízima COMPOSTA existe um pedaço antes do período, chamado anteperíodo: em 0,1666... o 1 aparece uma vez só e nunca mais — o período é o 6, e o 1 é anteperíodo.",
+      "Confundir os dois é o erro mais comum aqui, e ele tem uma causa clara: quem lê 0,1666... rápido vê \"um seis seis seis\" e chuta que o período é 16. Não é: o 1 não volta. Só entra no período o que REPETE.",
+      "O tamanho do período tem um limite, e ele vem da lição passada. Dividindo por 7, existem no máximo seis restos diferentes de zero, então o período não pode passar de seis algarismos. E, de fato, 1/7 tem período de exatamente seis."
+    ],
+    "destaque": "Só entra no período o que volta. O que aparece uma vez só é anteperíodo.",
+    "imagem": "re-ideia-periodo"
+  },
+  "resolvido": {
+    "enunciado": "Efetue 1 ÷ 6 e identifique o período e o anteperíodo.",
+    "imagem": "re-res-um-sexto",
+    "passos": [
+      {
+        "titulo": "Faça o primeiro passo",
+        "explicacao": "O resto 1 vira 10, que cabe uma vez no 6 e deixa resto 4.",
+        "conta": "10 ÷ 6 = 1, resto 4"
+      },
+      {
+        "titulo": "Faça o segundo",
+        "explicacao": "Agora o resto 4 vira 40, que cabe seis vezes no 6 e deixa resto 4 de novo.",
+        "conta": "40 ÷ 6 = 6, resto 4"
+      },
+      {
+        "titulo": "Veja qual resto voltou",
+        "explicacao": "O que voltou foi o 4, e não o 1. Então a repetição começa no segundo algarismo, e não no primeiro.",
+        "conta": "voltou o resto 4"
+      },
+      {
+        "titulo": "Separe as duas partes",
+        "explicacao": "O 1 apareceu uma vez só, antes do ciclo começar; o 6 é quem se repete.",
+        "conta": "0,1666… → anteperíodo 1, período 6"
+      }
+    ],
+    "fecho": "É uma dízima composta, e o que a torna composta é o resto 1 não ter voltado."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na dízima 0,1666..., qual é o período? Digite apenas o número.",
+      "imagem": "re-q-periodo-16",
+      "dica": "Só entra no período o algarismo que volta. Veja qual deles aparece uma vez só.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 inclui o 1, que aparece uma vez só e nunca mais volta. Se o período fosse 16, a dízima seria 0,161616..., que é outro número: repare que não há um segundo 1 em 0,1666..."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o ANTEPERÍODO — a parte que vem antes da repetição começar. O período é o bloco que volta, e nesta dízima quem volta é o 6."
+        },
+        {
+          "resposta": "666",
+          "porque": "666 é o mesmo algarismo escrito três vezes, mas o período é o menor bloco que se repete. Como o 6 sozinho já basta para gerar toda a repetição, o período é 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva mais casas",
+          "explicacao": "Ver a dízima mais longa deixa claro o que volta e o que não volta.",
+          "conta": "0,1666666…"
+        },
+        {
+          "titulo": "Separe o que se repete",
+          "explicacao": "O 1 aparece uma vez; o 6 volta sempre. Só o que volta é período.",
+          "conta": "anteperíodo 1 · período 6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A dízima 0,454545... é simples ou composta?",
+      "imagem": "re-q-simples-composta",
+      "dica": "Veja se a repetição começa logo depois da vírgula ou se existe algum algarismo antes dela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Simples, porque a repetição começa logo depois da vírgula" },
+        { "rotulo": "B", "texto": "Composta, porque o período tem dois algarismos" },
+        { "rotulo": "C", "texto": "Composta, porque o 4 vem antes do 5" },
+        { "rotulo": "D", "texto": "Simples, porque o período tem um algarismo só" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Composta, porque o período tem dois algarismos",
+          "porque": "O tamanho do período não decide nada: 0,454545... tem período de dois algarismos e é simples. O que separa simples de composta é existir ou não um pedaço ANTES da repetição."
+        },
+        {
+          "resposta": "Composta, porque o 4 vem antes do 5",
+          "porque": "O 4 faz parte do período, e não é anteperíodo: ele volta a cada ciclo, junto com o 5. Anteperíodo é o que aparece uma vez só e nunca mais."
+        },
+        {
+          "resposta": "Simples, porque o período tem um algarismo só",
+          "porque": "A classificação está certa, mas o motivo não: o período aqui tem DOIS algarismos, o 4 e o 5. Ela é simples porque a repetição começa colada na vírgula."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache onde a repetição começa",
+          "explicacao": "O bloco 45 aparece logo depois da vírgula, sem nada na frente.",
+          "conta": "0,|454545…"
+        },
+        {
+          "titulo": "Classifique",
+          "explicacao": "Sem anteperíodo, a dízima é simples — o tamanho do período não entra nessa decisão.",
+          "conta": "simples, período 45"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A dízima de 2/7 é 0,285714285714... Quantos algarismos tem o período? Digite apenas o número.",
+      "imagem": "re-q-periodo-7",
+      "dica": "Ache o bloco que se repete e conte os algarismos dele — não os algarismos que aparecem na tela.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 conta os algarismos escritos, que já mostram o bloco DUAS vezes. O período é o bloco que se repete, contado uma vez só: 285714."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o denominador da fração, e não o tamanho do período. Ele é o LIMITE: dividindo por 7 há no máximo seis restos diferentes de zero, então o período tem no máximo seis algarismos."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o numerador da fração. O período sai da divisão inteira, e não de um dos números dela — e neste caso ele tem seis algarismos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o bloco que volta",
+          "explicacao": "Comparando o começo com o que vem depois, o bloco 285714 reaparece igual.",
+          "conta": "0,|285714|285714|…"
+        },
+        {
+          "titulo": "Conte uma vez",
+          "explicacao": "O período é o bloco contado uma única vez, e não a quantidade de algarismos na tela.",
+          "conta": "2-8-5-7-1-4 → 6 algarismos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dividindo por 7, qual é o maior tamanho que o período pode ter?",
+      "imagem": "re-q-limite-periodo",
+      "dica": "O período acaba quando um resto se repete. Quantos restos diferentes de zero existem?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "6 algarismos, porque há 6 restos diferentes de zero" },
+        { "rotulo": "B", "texto": "7 algarismos, porque o divisor é 7" },
+        { "rotulo": "C", "texto": "Não há limite: pode ser qualquer tamanho" },
+        { "rotulo": "D", "texto": "10 algarismos, um para cada algarismo possível" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "7 algarismos, porque o divisor é 7",
+          "porque": "Isso contaria o resto zero junto, e ele não faz parte de ciclo nenhum: quando o resto é zero a conta ACABA, em vez de repetir. Sobram seis restos para formar o período."
+        },
+        {
+          "resposta": "Não há limite: pode ser qualquer tamanho",
+          "porque": "Há limite, e é justamente o que a lição 1 garante: os restos possíveis são finitos, então o ciclo tem de fechar antes de eles acabarem. Sem esse limite, existiria dízima não periódica vinda de fração."
+        },
+        {
+          "resposta": "10 algarismos, um para cada algarismo possível",
+          "porque": "O que limita o período não são os algarismos do quociente, e sim os RESTOS. Dividindo por 7, os restos vão de 0 a 6, independentemente de quais algarismos apareçam na resposta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os restos que geram ciclo",
+          "explicacao": "O resto zero encerra a conta, então só os outros podem se repetir.",
+          "conta": "1, 2, 3, 4, 5, 6 → 6 restos"
+        },
+        {
+          "titulo": "Conclua o limite",
+          "explicacao": "Depois de seis passos, algum resto necessariamente voltou, e o ciclo fecha.",
+          "conta": "período ≤ 6"
+        }
+      ]
+    }
+  ]
+}

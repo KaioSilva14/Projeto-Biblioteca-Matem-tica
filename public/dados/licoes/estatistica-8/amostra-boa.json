@@ -1,0 +1,207 @@
+{
+  "id": "amostra-boa",
+  "numero": 2,
+  "titulo": "Uma amostra que serve",
+  "pergunta": "O que faz uma amostra representar bem a população?",
+  "ideia": {
+    "paragrafos": [
+      "A lição anterior terminou com uma condição escondida: a estimativa só vale SE a amostra representar bem a população. Essa condição é tudo — uma amostra mal escolhida produz números precisos sobre um grupo que não é o que se queria estudar.",
+      "Um exemplo que deixa isso claro. Para saber o esporte preferido dos alunos de uma escola, alguém entrevista 50 pessoas na saída do treino de futebol. O resultado vai apontar futebol com folga, e o número estará correto — para quem estava ali. Ele só não diz nada sobre a escola, porque a amostra foi tirada de um lugar onde os fãs de futebol estão concentrados.",
+      "Esse defeito tem nome: VIÉS. Uma amostra é enviesada quando o jeito de escolhê-la favorece sistematicamente um tipo de resposta. E repare que entrevistar MAIS gente não conserta isso: entrevistar 500 pessoas na saída do treino continuaria apontando futebol. Tamanho não corrige viés.",
+      "O que corrige é o modo de escolher. Numa amostra ALEATÓRIA, todo integrante da população tem a mesma chance de ser escolhido — sorteando os nomes de uma lista de todos os alunos, por exemplo. O sorteio não tem preferência por ninguém, e é exatamente por isso que ele funciona.",
+      "Vale a pena aprender a farejar viés, porque ele aparece o tempo todo fora da escola. Uma enquete respondida só por quem quis responder ouve principalmente quem tinha opinião forte; uma pesquisa feita por telefone fixo às três da tarde não alcança quem trabalha fora. A pergunta útil é sempre a mesma: quem esse jeito de escolher deixou de fora?",
+      "Duas coisas, então, decidem se uma amostra serve — e elas são independentes: ela precisa ser escolhida sem viés E ser grande o bastante para que o acaso não domine o resultado. Falhar em qualquer uma das duas estraga a pesquisa, e a primeira é a que mais passa despercebida."
+    ],
+    "destaque": "Aumentar a amostra não conserta viés. Só o modo de ESCOLHER conserta — e o sorteio é o modo que não tem preferência.",
+    "imagem": "et8-ideia-vies"
+  },
+  "resolvido": {
+    "enunciado": "Para descobrir o esporte preferido dos alunos de uma escola, um aluno entrevistou 50 pessoas na saída do treino de futebol. O resultado apontou futebol com 80%. O que há de errado?",
+    "imagem": "et8-res-vies",
+    "passos": [
+      {
+        "titulo": "Identifique a população",
+        "explicacao": "A pergunta é sobre os alunos da escola inteira.",
+        "conta": "população = todos os alunos"
+      },
+      {
+        "titulo": "Veja de onde veio a amostra",
+        "explicacao": "Foram entrevistadas pessoas que estavam num treino de futebol.",
+        "conta": "amostra = quem treina futebol"
+      },
+      {
+        "titulo": "Nomeie o defeito",
+        "explicacao": "O local da entrevista concentra justamente quem prefere um dos esportes.",
+        "conta": "amostra enviesada"
+      },
+      {
+        "titulo": "Diga o que conserta",
+        "explicacao": "Não é entrevistar mais gente ali, e sim sortear alunos da lista da escola.",
+        "conta": "sorteio entre todos"
+      }
+    ],
+    "fecho": "Os 80% estão certos para quem estava no treino — e não dizem nada sobre a escola."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma pesquisa sobre o esporte preferido dos alunos foi feita na saída do treino de futebol. Aumentar a amostra de 50 para 500 pessoas, no mesmo lugar, resolveria o problema?",
+      "imagem": "et8-q-aumentar-amostra",
+      "dica": "Pense em quem continua sendo entrevistado depois do aumento — e em quem continua de fora.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque o lugar continua concentrando quem prefere futebol" },
+        { "rotulo": "B", "texto": "Sim, porque amostras grandes são sempre confiáveis" },
+        { "rotulo": "C", "texto": "Sim, desde que passe de 10% da escola" },
+        { "rotulo": "D", "texto": "Não, porque 500 é gente demais para uma pesquisa" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque amostras grandes são sempre confiáveis",
+          "porque": "Tamanho não corrige viés. Entrevistar 500 pessoas no treino de futebol dá um retrato muito preciso de quem treina futebol, e continua não dizendo nada sobre o resto da escola."
+        },
+        {
+          "resposta": "Sim, desde que passe de 10% da escola",
+          "porque": "Nenhuma porcentagem conserta uma amostra mal escolhida. Mesmo 50% dos alunos, se todos vierem do mesmo treino, continuariam representando só aquele grupo."
+        },
+        {
+          "resposta": "Não, porque 500 é gente demais para uma pesquisa",
+          "porque": "Amostra grande não é defeito — ela até reduz o efeito do acaso. O problema aqui é de outra natureza: o LUGAR da entrevista favorece sistematicamente uma resposta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja quem é entrevistado",
+          "explicacao": "Com 50 ou com 500, todos saíram do mesmo treino de futebol.",
+          "conta": "mesmo grupo, mais gente"
+        },
+        {
+          "titulo": "Veja quem fica de fora",
+          "explicacao": "Quem não joga futebol continua sem chance de ser entrevistado.",
+          "conta": "o viés continua"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas maneiras de escolher 40 alunos de uma escola produz a amostra menos enviesada?",
+      "imagem": "et8-q-como-sortear",
+      "dica": "Procure o método em que todo aluno da escola tem a mesma chance de ser escolhido.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sortear 40 nomes da lista de todos os alunos da escola" },
+        { "rotulo": "B", "texto": "Entrevistar os 40 primeiros que chegarem de manhã" },
+        { "rotulo": "C", "texto": "Entrevistar 40 alunos de uma mesma turma" },
+        { "rotulo": "D", "texto": "Deixar uma urna na secretaria para quem quiser responder" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Entrevistar os 40 primeiros que chegarem de manhã",
+          "porque": "Quem chega primeiro não é um grupo qualquer: mora perto, vem de carro ou tem rotina mais organizada. Essas características podem estar ligadas justamente ao que a pesquisa quer medir."
+        },
+        {
+          "resposta": "Entrevistar 40 alunos de uma mesma turma",
+          "porque": "Uma turma é um grupo de mesma idade e mesmo turno, e costuma se parecer por dentro mais do que a escola inteira. Os alunos das outras turmas ficam sem nenhuma chance de ser escolhidos."
+        },
+        {
+          "resposta": "Deixar uma urna na secretaria para quem quiser responder",
+          "porque": "Responde quem QUER responder, e isso costuma ser quem tem opinião forte sobre o assunto. Quem é indiferente simplesmente não participa, e some do resultado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Pergunte quem pode ser escolhido",
+          "explicacao": "No sorteio da lista completa, qualquer aluno da escola pode sair.",
+          "conta": "todos com a mesma chance"
+        },
+        {
+          "titulo": "Confira os outros métodos",
+          "explicacao": "Nos demais, o jeito de escolher já favorece um tipo de aluno.",
+          "conta": "sorteio → sem preferência"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma pesquisa sobre hábitos de leitura foi feita entrevistando pessoas na porta de uma biblioteca. Que resultado ela tende a produzir?",
+      "imagem": "et8-q-biblioteca",
+      "dica": "Pense em quem costuma estar na porta de uma biblioteca, comparado com a população em geral.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Uma média de leitura mais alta que a da população" },
+        { "rotulo": "B", "texto": "Uma média de leitura mais baixa que a da população" },
+        { "rotulo": "C", "texto": "Exatamente a média da população" },
+        { "rotulo": "D", "texto": "Um resultado imprevisível, sem tendência nenhuma" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Uma média de leitura mais baixa que a da população",
+          "porque": "Seria o contrário: quem está na porta de uma biblioteca tende a ler MAIS que a média, e não menos. O viés empurra o resultado para cima."
+        },
+        {
+          "resposta": "Exatamente a média da população",
+          "porque": "Só daria a média certa se os frequentadores da biblioteca fossem um retrato fiel da população — e não são, justamente no assunto que a pesquisa mede."
+        },
+        {
+          "resposta": "Um resultado imprevisível, sem tendência nenhuma",
+          "porque": "O viés tem direção previsível, e é isso que o torna perigoso: dá para saber de antemão que o resultado sairá alto. Imprevisível seria o erro do acaso, que é outra coisa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja quem está ali",
+          "explicacao": "Quem frequenta biblioteca costuma ler mais que a média das pessoas.",
+          "conta": "grupo que lê mais"
+        },
+        {
+          "titulo": "Veja o efeito no resultado",
+          "explicacao": "A amostra concentra leitores, então a média medida sai acima da real.",
+          "conta": "resultado puxado para cima"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quais são as duas condições para uma amostra servir?",
+      "imagem": "et8-q-duas-condicoes",
+      "dica": "Uma delas tem a ver com o tamanho; a outra, com o modo de escolher.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Ser escolhida sem viés e ser grande o bastante" },
+        { "rotulo": "B", "texto": "Ser grande e ser feita rapidamente" },
+        { "rotulo": "C", "texto": "Ser pequena e ser escolhida com cuidado" },
+        { "rotulo": "D", "texto": "Passar de 50% da população e ser voluntária" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Ser grande e ser feita rapidamente",
+          "porque": "Rapidez não é critério de qualidade nenhum, e pressa costuma até favorecer o viés — entrevistar quem está mais à mão é o jeito mais rápido e um dos piores."
+        },
+        {
+          "resposta": "Ser pequena e ser escolhida com cuidado",
+          "porque": "O cuidado na escolha está certo, mas o tamanho pequeno não é qualidade: amostra pequena demais deixa o acaso dominar, e o resultado varia muito de uma pesquisa para outra."
+        },
+        {
+          "resposta": "Passar de 50% da população e ser voluntária",
+          "porque": "As duas partes falham. Amostras úteis costumam ser bem menores que metade da população — pesquisas nacionais ouvem alguns milhares —, e a participação voluntária é uma fonte clássica de viés."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o modo de escolher",
+          "explicacao": "Se o método favorece um tipo de resposta, o resultado sai torto de propósito.",
+          "conta": "sem viés"
+        },
+        {
+          "titulo": "Olhe o tamanho",
+          "explicacao": "Amostra pequena demais deixa o acaso decidir o resultado.",
+          "conta": "grande o bastante"
+        }
+      ]
+    }
+  ]
+}

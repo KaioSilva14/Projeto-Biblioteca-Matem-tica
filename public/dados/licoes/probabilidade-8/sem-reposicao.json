@@ -1,0 +1,205 @@
+{
+  "id": "sem-reposicao",
+  "numero": 4,
+  "titulo": "Quando o primeiro muda o segundo",
+  "pergunta": "O que muda quando o que foi sorteado não volta?",
+  "ideia": {
+    "paragrafos": [
+      "Esta é a distinção que a matéria existe para fazer, e ela aparece numa palavra do enunciado: a bola sorteada VOLTA para a urna ou não? A resposta muda a árvore, muda a conta e muda o resultado.",
+      "Quando volta — sorteio COM reposição —, a segunda etapa acontece nas mesmas condições da primeira. A urna está igual, as chances são as mesmas, e os eventos são independentes. Foi o caso da lição anterior.",
+      "Quando não volta — sorteio SEM reposição —, a urna encolheu e uma das bolas sumiu dela. A chance da segunda etapa passa a depender do que saiu na primeira, e os eventos deixam de ser independentes. Na árvore isso fica visível: os ramos da segunda etapa mudam de galho para galho.",
+      "Um exemplo pequeno. Com três bolas A, B e C, sorteando duas COM reposição saem 3 × 3 = 9 resultados, incluindo AA, BB e CC. SEM reposição saem 3 × 2 = 6, porque a segunda etapa só tem duas bolas disponíveis — e AA, BB e CC deixam de existir, já que a bola não pode sair duas vezes.",
+      "Para a probabilidade, a conta continua sendo a multiplicação dos ramos; o que muda é o valor do segundo fator. Numa urna com 4 azuis e 2 vermelhas, a chance de tirar duas azuis sem reposição é 4/6 × 3/5 — o numerador caiu de 4 para 3 porque uma azul já saiu, e o denominador caiu de 6 para 5 porque a urna tem uma bola a menos.",
+      "Repare que sem reposição a chance de repetir a cor DIMINUI, e é fácil entender por quê: cada bola azul retirada deixa a urna proporcionalmente menos azul. É o contrário do que a intuição às vezes sugere, e conferir isso na conta é um bom hábito."
+    ],
+    "destaque": "Se o sorteado não volta, a urna muda — e a chance da segunda etapa depende do que saiu na primeira.",
+    "imagem": "pb8-ideia-sem-reposicao"
+  },
+  "resolvido": {
+    "enunciado": "Uma urna tem as bolas A, B e C. Duas são sorteadas, uma depois da outra, sem devolver a primeira. Quantos resultados diferentes são possíveis?",
+    "imagem": "pb8-res-sem-reposicao",
+    "passos": [
+      {
+        "titulo": "Conte a primeira etapa",
+        "explicacao": "Qualquer uma das três bolas pode sair no primeiro sorteio.",
+        "conta": "3 opções"
+      },
+      {
+        "titulo": "Conte a segunda",
+        "explicacao": "A primeira bola não voltou, então restam duas na urna.",
+        "conta": "2 opções"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Cada primeira bola possível deixa duas segundas bolas possíveis.",
+        "conta": "3 × 2 = 6"
+      },
+      {
+        "titulo": "Compare com a reposição",
+        "explicacao": "Se a bola voltasse, a segunda etapa teria três opções de novo.",
+        "conta": "com reposição: 3 × 3 = 9"
+      }
+    ],
+    "fecho": "Os três resultados que desapareceram são exatamente AA, BB e CC — os que exigiriam a mesma bola duas vezes."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma caixa tem 5 fichas numeradas. Duas são sorteadas, uma depois da outra, sem devolver a primeira. Quantos resultados diferentes são possíveis? Digite apenas o número.",
+      "imagem": "pb8-q-fichas",
+      "dica": "Depois do primeiro sorteio, quantas fichas sobraram na caixa?",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 é 5 × 5, que valeria se a ficha VOLTASSE para a caixa. Como ela não volta, a segunda etapa tem só 4 fichas disponíveis."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é metade de 20, o que sairia se a ORDEM não importasse. Aqui ela importa: tirar a ficha 1 e depois a 3 é um resultado diferente de tirar a 3 e depois a 1."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 5 + 4, somando as opções das duas etapas. Etapas sucessivas se multiplicam: cada uma das 5 primeiras fichas deixa 4 segundas fichas possíveis."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte o primeiro sorteio",
+          "explicacao": "A caixa está cheia, então qualquer uma das cinco pode sair.",
+          "conta": "5 opções"
+        },
+        {
+          "titulo": "Conte o segundo",
+          "explicacao": "A primeira ficha ficou de fora, então restam quatro na caixa.",
+          "conta": "4 opções"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cada primeira ficha possível se abre em quatro segundas.",
+          "conta": "5 × 4 = 20"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O que muda na árvore de possibilidades quando o sorteio passa a ser sem reposição?",
+      "imagem": "pb8-q-o-que-muda-arvore",
+      "dica": "Compare os ramos que saem de galhos diferentes na segunda etapa.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os ramos da segunda etapa mudam conforme o que saiu na primeira" },
+        { "rotulo": "B", "texto": "A árvore passa a ter mais folhas" },
+        { "rotulo": "C", "texto": "A primeira etapa passa a ter menos opções" },
+        { "rotulo": "D", "texto": "Nada muda: a árvore é a mesma" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A árvore passa a ter mais folhas",
+          "porque": "Tem menos. Sem reposição a segunda etapa perde uma opção em cada galho, então o total cai — de 3 × 3 = 9 para 3 × 2 = 6, por exemplo."
+        },
+        {
+          "resposta": "A primeira etapa passa a ter menos opções",
+          "porque": "A primeira etapa acontece com a urna ainda cheia, então ela é idêntica nos dois casos. Quem sente a diferença é a segunda, que encontra a urna já modificada."
+        },
+        {
+          "resposta": "Nada muda: a árvore é a mesma",
+          "porque": "Muda o bastante para alterar o resultado. Sem reposição, o ramo que repetiria a bola retirada deixa de existir — e é por isso que AA, BB e CC somem da lista."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe um galho da segunda etapa",
+          "explicacao": "Se a bola A saiu primeiro, os ramos seguintes são B e C — A não está mais lá.",
+          "conta": "A → B, C"
+        },
+        {
+          "titulo": "Olhe outro galho",
+          "explicacao": "Se saiu B, os ramos seguintes são A e C, que é uma lista diferente.",
+          "conta": "B → A, C"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma urna tem 4 bolas azuis e 2 vermelhas. Duas bolas são sorteadas sem reposição. Qual é a probabilidade de as duas serem azuis, em porcentagem? Digite apenas o número.",
+      "imagem": "pb8-q-urna-sem-volta",
+      "dica": "Depois de tirar uma azul, quantas azuis sobraram — e quantas bolas sobraram ao todo?",
+      "formato": "numero",
+      "resposta": 40,
+      "errosComuns": [
+        {
+          "resposta": "44.4",
+          "porque": "44,4% é a chance COM reposição, 4/6 × 4/6. Sem devolver a primeira bola, a urna fica com 3 azuis em 5, e a segunda chance cai de 4/6 para 3/5."
+        },
+        {
+          "resposta": "67",
+          "porque": "Cerca de 67% é a chance de UM sorteio dar azul, 4 em 6. A pergunta exige que os dois sorteios deem azul, e aí as duas chances se multiplicam."
+        },
+        {
+          "resposta": "20",
+          "porque": "20% sai de multiplicar 4/6 por 3/10, ou de errar o denominador da segunda etapa. Depois de tirar uma bola, restam 5 na urna — e não 10."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Chance do primeiro sorteio",
+          "explicacao": "São 4 azuis entre as 6 bolas da urna.",
+          "conta": "4/6"
+        },
+        {
+          "titulo": "Chance do segundo",
+          "explicacao": "Saiu uma azul e ela não voltou: restam 3 azuis entre 5 bolas.",
+          "conta": "3/5"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "A chance do caminho é o produto das chances dos dois ramos.",
+          "conta": "4/6 × 3/5 = 12/30 = 40%"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa urna com bolas de duas cores, tirar duas da MESMA cor é mais provável com ou sem reposição?",
+      "imagem": "pb8-q-compara-reposicao",
+      "dica": "Pense no que acontece com a proporção da cor retirada depois que uma bola dela sai.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Com reposição, porque a bola retirada não deixa a urna menos daquela cor" },
+        { "rotulo": "B", "texto": "Sem reposição, porque a urna fica menor" },
+        { "rotulo": "C", "texto": "É igual nos dois casos" },
+        { "rotulo": "D", "texto": "Depende só do número total de bolas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sem reposição, porque a urna fica menor",
+          "porque": "A urna fica menor, mas isso não ajuda: some também uma bola da cor que se quer repetir. Com 4 azuis em 6, a chance cai de 4/6 para 3/5 — e 3/5 é menor que 4/6."
+        },
+        {
+          "resposta": "É igual nos dois casos",
+          "porque": "Não é: na urna de 4 azuis e 2 vermelhas, a chance de duas azuis é 44,4% com reposição e 40% sem. A diferença vem toda da segunda etapa."
+        },
+        {
+          "resposta": "Depende só do número total de bolas",
+          "porque": "A comparação vale para qualquer urna com pelo menos duas cores: retirar uma bola sem devolver sempre deixa a urna proporcionalmente menos daquela cor. O total não inverte essa conclusão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja a urna depois do primeiro sorteio",
+          "explicacao": "Sem reposição, saiu uma bola da cor que se quer repetir.",
+          "conta": "menos bolas daquela cor"
+        },
+        {
+          "titulo": "Compare as segundas chances",
+          "explicacao": "Com reposição a proporção volta ao que era; sem reposição, ela cai.",
+          "conta": "4/6 > 3/5"
+        }
+      ]
+    }
+  ]
+}

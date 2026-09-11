@@ -1,0 +1,188 @@
+{
+  "id": "quadrado-soma",
+  "numero": 2,
+  "titulo": "O quadrado da soma",
+  "pergunta": "O que é, na figura, o termo 2ab?",
+  "ideia": {
+    "paragrafos": [
+      "Elevar uma soma ao quadrado quer dizer multiplicá-la por ela mesma: (a + b)² é (a + b)(a + b). Pela lição 1, são quatro produtos — e como os dois parênteses são iguais, os dois cruzados também são, e somados dão o dobro de um deles.",
+      "Fazendo a conta: a vezes a dá a²; a vezes b dá ab; b vezes a dá outro ab; b vezes b dá b². Juntando, a² + ab + ab + b², que é a² + 2ab + b². Esse é o quadrado da soma, e o 2ab é a soma dos dois cruzados.",
+      "Agora a figura, que é onde a fórmula deixa de ser decoreba. Desenhe um quadrado de lado a + b. Ele se parte em quatro pedaços: um quadrado a por a, um quadrado b por b, e DOIS retângulos a por b — um em cima e outro do lado. A área total é a soma das quatro áreas, e ela é exatamente a² + 2ab + b².",
+      "Os dois retângulos são o coração da matéria. Eles ocupam espaço real dentro do quadrado, e é olhando para eles que a pergunta \"por que não é só a² + b²?\" se responde sozinha: porque sobrariam dois buracos retangulares no desenho.",
+      "Em palavras, para guardar: o quadrado do primeiro, mais duas vezes o primeiro pelo segundo, mais o quadrado do segundo. E vale para qualquer coisa no lugar de a e de b — inclusive para (2x + 3)², onde o primeiro é 2x e o quadrado dele é 4x²."
+    ],
+    "destaque": "Os dois retângulos ab existem no desenho. É por isso que o 2ab existe na fórmula.",
+    "imagem": "pn-ideia-quadrado-soma"
+  },
+  "resolvido": {
+    "enunciado": "Desenvolva (x + 3)².",
+    "imagem": "pn-res-quadrado-soma",
+    "passos": [
+      {
+        "titulo": "Escreva o que o quadrado manda fazer",
+        "explicacao": "Elevar ao quadrado é multiplicar a expressão por ela mesma.",
+        "conta": "(x + 3)² = (x + 3)(x + 3)"
+      },
+      {
+        "titulo": "Quadrado do primeiro",
+        "explicacao": "É o pedaço grande da figura, o quadrado de lado x.",
+        "conta": "x × x = x²"
+      },
+      {
+        "titulo": "Duas vezes o primeiro pelo segundo",
+        "explicacao": "São os dois retângulos, um em cima e outro do lado — por isso o dobro.",
+        "conta": "2 × x × 3 = 6x"
+      },
+      {
+        "titulo": "Quadrado do segundo",
+        "explicacao": "É o quadradinho do canto, de lado 3.",
+        "conta": "3 × 3 = 9"
+      }
+    ],
+    "fecho": "(x + 3)² = x² + 6x + 9. Testando com x = 1: (1+3)² dá 16, e 1 + 6 + 9 também dá 16."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Ao desenvolver (x + 5)², qual é o coeficiente do termo em x? Digite apenas o número.",
+      "imagem": "pn-q-soma-5",
+      "dica": "O termo do meio é duas vezes o primeiro pelo segundo. Não esqueça o dobro.",
+      "formato": "numero",
+      "resposta": 10,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 conta apenas UM dos retângulos ab. Na figura há dois — um em cima e outro do lado —, e por isso o termo do meio leva o dobro: 2 × 5 = 10."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é o quadrado de 5, que é o termo SEM x da resposta. O termo do meio é duas vezes o produto dos dois, e não o quadrado do segundo."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 seria o caso em que o termo do meio some, o que só acontece na soma pela diferença — quando os sinais são contrários e os cruzados se cancelam. Aqui os dois são de mais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o produto dos dois",
+          "explicacao": "É a área de um dos retângulos da figura.",
+          "conta": "x × 5 = 5x"
+        },
+        {
+          "titulo": "Dobre",
+          "explicacao": "São dois retângulos iguais, então o termo do meio é o dobro.",
+          "conta": "2 × 5x = 10x → x² + 10x + 25"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um quadrado tem lado 5 + 3. Somando as áreas dos quatro pedaços em que ele se divide, qual é a área total? Digite apenas o número.",
+      "imagem": "pn-q-area-53",
+      "dica": "Some as quatro áreas: o quadrado grande, os dois retângulos e o quadradinho.",
+      "formato": "numero",
+      "resposta": 64,
+      "errosComuns": [
+        {
+          "resposta": "34",
+          "porque": "34 soma só 25 e 9, esquecendo os dois retângulos de área 15 cada. Eles ocupam espaço no desenho: sem eles sobrariam dois buracos no quadrado."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 conta apenas UM dos retângulos: 25 + 15 + 9. A figura tem dois retângulos de 15, um em cima e outro do lado."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a área de um dos retângulos, e não a área total. Ela é a soma dos quatro pedaços: 25, 15, 15 e 9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os quatro pedaços",
+          "explicacao": "Dois quadrados e dois retângulos iguais.",
+          "conta": "25 + 15 + 15 + 9 = 64"
+        },
+        {
+          "titulo": "Confira pelo lado",
+          "explicacao": "O lado inteiro mede 8, e a área do quadrado é o lado ao quadrado.",
+          "conta": "8 × 8 = 64 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Ao desenvolver (2x + 1)², qual é o coeficiente do termo em x²? Digite apenas o número.",
+      "imagem": "pn-q-dois-x",
+      "dica": "O primeiro termo é 2x inteiro, e é ele que vai ao quadrado — não só o x.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 eleva ao quadrado só a letra, deixando o coeficiente de fora. O primeiro termo é 2x inteiro, e (2x)² é 2x vezes 2x, o que dá 4x²."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 trata o primeiro termo como se fosse só x. O 2 faz parte dele, e ao ser elevado ao quadrado vira 4."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 soma o 2 com o 1, misturando os dois termos do parêntese. O coeficiente de x² sai só do PRIMEIRO termo elevado ao quadrado: (2x)² dá 4x², e o 1 não participa dessa parte."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o primeiro termo",
+          "explicacao": "Ele é tudo que está antes do sinal de mais, coeficiente incluído.",
+          "conta": "primeiro = 2x"
+        },
+        {
+          "titulo": "Eleve ao quadrado",
+          "explicacao": "O quadrado atinge o coeficiente e a letra juntos.",
+          "conta": "(2x)² = 2x × 2x = 4x²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na figura do quadrado de lado a + b, o que representam os dois retângulos do meio?",
+      "imagem": "pn-q-o-que-sao",
+      "dica": "Olhe as medidas dos lados de cada retângulo e pense na área deles.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Cada um tem área ab, e juntos formam o termo 2ab" },
+        { "rotulo": "B", "texto": "Cada um tem área a², e juntos formam 2a²" },
+        { "rotulo": "C", "texto": "Eles não têm área: são só linhas de divisão" },
+        { "rotulo": "D", "texto": "Juntos formam o termo b²" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Cada um tem área a², e juntos formam 2a²",
+          "porque": "O retângulo tem lados diferentes: um mede a e o outro mede b. Área a² teria o pedaço quadrado do canto superior esquerdo, que tem os dois lados iguais a a."
+        },
+        {
+          "resposta": "Eles não têm área: são só linhas de divisão",
+          "porque": "Eles são regiões com largura e altura, e não traços: um mede a por b. É justamente por ocuparem área que o 2ab aparece na fórmula."
+        },
+        {
+          "resposta": "Juntos formam o termo b²",
+          "porque": "O b² é o quadradinho do canto inferior direito, com os dois lados iguais a b. Os retângulos do meio têm um lado a e outro b, então a área de cada um é ab."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça os lados de um deles",
+          "explicacao": "Um lado acompanha o a e o outro acompanha o b.",
+          "conta": "lados a e b → área a × b"
+        },
+        {
+          "titulo": "Some os dois",
+          "explicacao": "São dois retângulos iguais, um em cima e outro do lado.",
+          "conta": "ab + ab = 2ab"
+        }
+      ]
+    }
+  ]
+}

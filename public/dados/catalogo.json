@@ -212,73 +212,85 @@
           "id": "notacao-cientifica",
           "titulo": "Potências e notação científica",
           "resumo": "Escrever números gigantes e minúsculos sem encher a folha de zeros.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/notacao-cientifica.json"
         },
         {
           "id": "reais",
           "titulo": "Dízimas e números reais",
           "resumo": "O que acontece quando a divisão não acaba nunca.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/reais.json"
         },
         {
           "id": "produtos-notaveis",
           "titulo": "Produtos notáveis",
           "resumo": "Três padrões que aparecem o tempo todo e valem decorar.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/produtos-notaveis.json"
         },
         {
           "id": "fatoracao",
           "titulo": "Fatoração",
           "resumo": "Transformar soma em multiplicação — e por que isso simplifica tudo.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/fatoracao.json"
         },
         {
           "id": "fracoes-algebricas",
           "titulo": "Frações algébricas",
           "resumo": "As mesmas regras das frações, agora com letras.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/fracoes-algebricas.json"
         },
         {
           "id": "sistemas",
           "titulo": "Sistemas de equações",
           "resumo": "Duas incógnitas, duas equações, um encontro.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/sistemas.json"
         },
         {
           "id": "poligonos",
           "titulo": "Ângulos e polígonos",
           "resumo": "Soma dos ângulos internos e o que isso permite descobrir.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/poligonos.json"
         },
         {
           "id": "congruencia",
           "titulo": "Congruência de triângulos",
           "resumo": "Quando dois triângulos são o mesmo triângulo, e como provar.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/congruencia.json"
         },
         {
           "id": "area-8",
           "titulo": "Áreas de figuras planas",
           "resumo": "Decompor figuras difíceis em figuras fáceis.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/area-8.json"
         },
         {
           "id": "volume-8",
           "titulo": "Volume",
           "resumo": "Prismas, cilindros e a ideia de área da base vezes altura.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/volume-8.json"
         },
         {
           "id": "probabilidade-8",
           "titulo": "Probabilidade",
           "resumo": "Eventos sucessivos e o princípio multiplicativo.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/probabilidade-8.json"
         },
         {
           "id": "estatistica-8",
           "titulo": "Estatística",
           "resumo": "Amostra, população e como um gráfico pode mentir.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/estatistica-8.json"
         }
       ]
     },

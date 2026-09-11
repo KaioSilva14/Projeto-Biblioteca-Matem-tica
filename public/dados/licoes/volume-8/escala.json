@@ -1,0 +1,195 @@
+{
+  "id": "escala",
+  "numero": 5,
+  "titulo": "Quando a medida dobra",
+  "pergunta": "Se todas as medidas de um sólido dobram, o volume dobra também?",
+  "ideia": {
+    "paragrafos": [
+      "Esta é a lição que fica na cabeça, e ela responde a uma pergunta cuja resposta intuitiva está errada. Dobrando todas as medidas de um sólido, o volume NÃO dobra: ele fica oito vezes maior.",
+      "Dá para ver num cubo. Um cubo de 2 cm de aresta tem volume 2 × 2 × 2 = 8 cm³. Dobrando a aresta para 4 cm, o volume vira 4 × 4 × 4 = 64 cm³ — e 64 é oito vezes 8, não duas. O motivo é que a medida foi dobrada em TRÊS direções ao mesmo tempo, e cada dobra multiplica o resultado por 2: 2 × 2 × 2 = 8.",
+      "Isso não é privilégio do cubo. Um bloco de 2 × 3 × 4 tem volume 24; dobrando tudo, ele vira 4 × 6 × 8, que dá 192 — de novo oito vezes. E vale para prisma e cilindro do mesmo jeito, porque dobrar todas as medidas quadruplica a área da base e dobra a altura: 4 × 2 = 8.",
+      "O padrão continua para qualquer fator. Triplicando todas as medidas, o volume fica 3 × 3 × 3 = 27 vezes maior; multiplicando por 10, fica mil vezes maior. Quem multiplica é o fator elevado ao CUBO, e o expoente 3 é o número de direções em que o sólido cresceu.",
+      "Vale comparar com o que aconteceu no plano. Na lição 5 de Circunferência e círculo, dobrar o raio dobrava o comprimento e QUADRUPLICAVA a área — porque a figura plana cresce em duas direções. Comprimento cresce na razão do fator, área na razão do quadrado, volume na razão do cubo. É a mesma ideia contada três vezes.",
+      "Uma consequência prática que costuma surpreender: uma caixa com o dobro das medidas de outra não carrega o dobro — carrega oito vezes mais. E uma pipoca em balde grande custa bem menos que oito baldes pequenos justamente porque o volume cresce muito mais rápido do que as medidas sugerem."
+    ],
+    "destaque": "Comprimento cresce com o fator, área com o quadrado dele, volume com o cubo. Dobrar tudo multiplica o volume por 8.",
+    "imagem": "vl8-ideia-escala"
+  },
+  "resolvido": {
+    "enunciado": "Um cubo tem 2 cm de aresta. Se a aresta dobrar para 4 cm, quantas vezes maior fica o volume?",
+    "imagem": "vl8-res-escala",
+    "passos": [
+      {
+        "titulo": "Meça o cubo pequeno",
+        "explicacao": "No cubo as três medidas são iguais à aresta.",
+        "conta": "2 × 2 × 2 = 8"
+      },
+      {
+        "titulo": "Meça o cubo grande",
+        "explicacao": "Com a aresta dobrada, as três medidas passam a valer 4 cm.",
+        "conta": "4 × 4 × 4 = 64"
+      },
+      {
+        "titulo": "Compare os dois",
+        "explicacao": "A pergunta é quantas vezes o volume cresceu, então os volumes se dividem.",
+        "conta": "64 ÷ 8 = 8"
+      },
+      {
+        "titulo": "Guarde o motivo",
+        "explicacao": "A medida foi dobrada em três direções, e cada uma multiplica por 2.",
+        "conta": "2 × 2 × 2 = 8"
+      }
+    ],
+    "fecho": "O 8 do resultado é o mesmo 2 do enunciado, elevado ao cubo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um cubo de 3 cm de aresta teve todas as medidas dobradas, passando a 6 cm de aresta. Quantas vezes maior ficou o volume? Digite apenas o número.",
+      "imagem": "vl8-q-cubo-dobra",
+      "dica": "Calcule os dois volumes e divida um pelo outro — ou conte em quantas direções a medida dobrou.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é quantas vezes a ARESTA cresceu, e não o volume. Como a medida dobrou em três direções ao mesmo tempo, o volume é multiplicado por 2 × 2 × 2."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é quantas vezes cresceu a ÁREA de cada face — o quadrado do fator, porque a face é plana e cresce em duas direções. O sólido cresce em três, então o fator entra ao cubo."
+        },
+        {
+          "resposta": "189",
+          "porque": "189 é 216 − 27, a diferença entre os dois volumes. A pergunta é quantas VEZES maior, e isso se responde com uma divisão, não com uma subtração."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça os dois cubos",
+          "explicacao": "O de 3 cm e o de 6 cm de aresta.",
+          "conta": "3³ = 27 · 6³ = 216"
+        },
+        {
+          "titulo": "Divida um pelo outro",
+          "explicacao": "É a divisão que responde quantas vezes maior.",
+          "conta": "216 ÷ 27 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que dobrar todas as medidas de um sólido multiplica o volume por 8, e não por 2?",
+      "imagem": "vl8-q-por-que-oito",
+      "dica": "Conte em quantas direções o sólido cresceu, e o que cada uma faz com o resultado.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque a medida dobrou em três direções, e 2 × 2 × 2 dá 8" },
+        { "rotulo": "B", "texto": "Porque 8 é o dobro de 4" },
+        { "rotulo": "C", "texto": "Porque o cubo tem 8 vértices" },
+        { "rotulo": "D", "texto": "Porque o volume sempre cresce mais que as medidas, em qualquer proporção" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque 8 é o dobro de 4",
+          "porque": "8 realmente é o dobro de 4, mas isso não explica de onde o 8 veio. Ele vem de multiplicar o fator 2 por si mesmo três vezes, uma por direção em que o sólido cresceu."
+        },
+        {
+          "resposta": "Porque o cubo tem 8 vértices",
+          "porque": "É coincidência de números: o mesmo fator 8 vale para um bloco de 2 × 3 × 4, que tem 8 vértices, e para um cilindro, que não tem vértice nenhum. O 8 vem do 2 elevado ao cubo."
+        },
+        {
+          "resposta": "Porque o volume sempre cresce mais que as medidas, em qualquer proporção",
+          "porque": "A proporção não é qualquer uma: ela é exatamente o fator elevado ao cubo. Triplicar as medidas multiplica o volume por 27, e não por um número indefinido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as direções",
+          "explicacao": "Um sólido tem comprimento, largura e altura, e as três dobraram.",
+          "conta": "três direções"
+        },
+        {
+          "titulo": "Multiplique os fatores",
+          "explicacao": "Cada direção dobrada multiplica o volume por 2.",
+          "conta": "2 × 2 × 2 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Todas as medidas de um sólido foram multiplicadas por 3. Quantas vezes maior ficou o volume? Digite apenas o número.",
+      "imagem": "vl8-q-triplica",
+      "dica": "O fator entra uma vez por direção em que o sólido cresceu.",
+      "formato": "numero",
+      "resposta": 27,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o fator aplicado a UMA medida. O volume depende das três, e cada uma foi multiplicada por 3 — o que multiplica o resultado por 3 × 3 × 3."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 3², o fator que vale para a ÁREA de uma figura plana, que cresce em duas direções. O sólido cresce em três, então o expoente é 3."
+        },
+        {
+          "resposta": "81",
+          "porque": "81 é 3⁴, um fator a mais do que existe. Só há três direções num sólido — comprimento, largura e altura —, então o expoente para o volume é 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as direções",
+          "explicacao": "O sólido cresceu em três direções, e todas pelo mesmo fator.",
+          "conta": "três direções, fator 3"
+        },
+        {
+          "titulo": "Multiplique os fatores",
+          "explicacao": "Cada direção multiplica o volume por 3.",
+          "conta": "3 × 3 × 3 = 27"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dobrando todas as medidas de uma figura, o que acontece com o comprimento, com a área e com o volume?",
+      "imagem": "vl8-q-tres-crescimentos",
+      "dica": "Cada uma das três mede em um número diferente de direções.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O comprimento dobra, a área quadruplica e o volume fica 8 vezes maior" },
+        { "rotulo": "B", "texto": "Os três dobram" },
+        { "rotulo": "C", "texto": "O comprimento dobra, a área fica 8 vezes maior e o volume quadruplica" },
+        { "rotulo": "D", "texto": "Os três ficam 8 vezes maiores" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Os três dobram",
+          "porque": "Só o comprimento dobra. A área cresce em duas direções e fica quatro vezes maior; o volume cresce em três e fica oito vezes maior."
+        },
+        {
+          "resposta": "O comprimento dobra, a área fica 8 vezes maior e o volume quadruplica",
+          "porque": "Os dois fatores estão trocados. Área é medida em duas direções e vai ao quadrado (4 vezes); volume é medido em três e vai ao cubo (8 vezes)."
+        },
+        {
+          "resposta": "Os três ficam 8 vezes maiores",
+          "porque": "O fator 8 é só do volume. Um segmento de 3 cm dobrado vira 6 cm, e não 24 — o comprimento cresce na razão do próprio fator."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as direções de cada um",
+          "explicacao": "Comprimento mede em uma direção, área em duas, volume em três.",
+          "conta": "1 · 2 · 3 direções"
+        },
+        {
+          "titulo": "Eleve o fator a cada uma",
+          "explicacao": "O expoente é o número de direções em que a medida cresce.",
+          "conta": "2¹ = 2 · 2² = 4 · 2³ = 8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "produtos-notaveis",
+  "titulo": "Produtos notáveis",
+  "ano": 8,
+  "descricao": "Três padrões que aparecem o tempo todo — e que quase todo aluno decora errado. Aqui eles não são decorados: cada um sai de uma FIGURA, o quadrado partido em pedaços, onde dá para ver por que os dois retângulos do meio existem. A lição 5 é dedicada só ao erro mais comum da matéria, porque ele merece.",
+  "pergunta": "Por que (a + b)² não é a² + b²?",
+  "videos": [
+    {
+      "id": "XW1pLSIdjwM",
+      "titulo": "QUADRADO DA SOMA E QUADRADO DA DIFERENÇA DE DOIS TERMOS - PRODUTOS NOTÁVEIS",
+      "canal": "Gis com Giz",
+      "descricao": "Cobre os dois quadrados com calma e muitos exemplos. Serve para as lições 2 e 3, se o termo do meio ainda escapar na hora de escrever."
+    },
+    {
+      "id": "IVxVxeDiP7M",
+      "titulo": "PRODUTOS NOTÁVEIS | PRODUTO DA SOMA PELA DIFERENÇA DE DOIS TERMOS | #03 \\PROF. GIS/",
+      "canal": "Gis com Giz",
+      "descricao": "Só sobre a soma pela diferença, que é o assunto da lição 4. Bom para ver por que o termo do meio some justamente nesse caso."
+    },
+    {
+      "id": "UECy1XbL6w8",
+      "titulo": "PRODUTOS NOTÁVEIS | NUNCA MAIS ERRE",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Passa pelos três produtos de uma vez, em ritmo rápido. Vale como revisão depois das seis lições, e não antes."
+    },
+    {
+      "id": "gs_x8LReYBU",
+      "titulo": "🔴 PRODUTOS NOTÁVEIS 👉🏻 Quadrado da Soma, Quadrado da Diferença, Produto da Soma pela Diferença",
+      "canal": "Matemática Rio com Prof. Rafael Procopio",
+      "descricao": "Aula longa e completa, com a dedução de cada fórmula. Para quem quiser ouvir a justificativa outra vez, com outra voz."
+    }
+  ],
+  "licoes": [
+    { "id": "multiplicar-binomios", "arquivo": "/dados/licoes/produtos-notaveis/multiplicar-binomios.json" },
+    { "id": "quadrado-soma", "arquivo": "/dados/licoes/produtos-notaveis/quadrado-soma.json" },
+    { "id": "quadrado-diferenca", "arquivo": "/dados/licoes/produtos-notaveis/quadrado-diferenca.json" },
+    { "id": "soma-por-diferenca", "arquivo": "/dados/licoes/produtos-notaveis/soma-por-diferenca.json" },
+    { "id": "erro-classico", "arquivo": "/dados/licoes/produtos-notaveis/erro-classico.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/produtos-notaveis/problemas.json" }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "id": "compostas",
+  "numero": 5,
+  "titulo": "Figuras compostas",
+  "pergunta": "Como medir uma figura que não tem fórmula nenhuma?",
+  "ideia": {
+    "paragrafos": [
+      "As quatro lições anteriores deram fórmulas para quatro figuras. Mas o mundo é feito de terrenos, salas, placas e fachadas que não são nenhuma delas. É aqui que a matéria mostra para que servia: uma figura sem fórmula própria se parte em figuras que têm fórmula.",
+      "O procedimento tem três passos e vale sempre. Primeiro, olhe a figura e decida os cortes: linhas que a partam em retângulos, triângulos, trapézios ou losangos. Segundo, descubra as medidas de cada pedaço — elas quase nunca estão todas escritas, e costumam sair de somas e diferenças das medidas que estão. Terceiro, calcule a área de cada pedaço e some tudo.",
+      "O segundo passo é o que dá trabalho, e é onde vale ir devagar. Numa figura em degrau, se a base inteira mede 8 cm e o degrau de cima mede 3 cm, então o degrau de baixo mede 8 − 3 = 5 cm — mesmo que ninguém tenha escrito o 5 no desenho. Descobrir as medidas que faltam é metade do problema.",
+      "O caminho da SUBTRAÇÃO costuma ser mais curto quando a figura parece um retângulo com um pedaço faltando. Em vez de partir o que sobrou em três retângulos, meça o retângulo inteiro e desconte o buraco. As duas contas chegam ao mesmo número; a diferença está em quantos passos você vai dar.",
+      "Um último conselho prático: escolha os cortes ANTES de começar a calcular, e escreva a área de cada pedaço separadamente. A maior parte dos erros nesta parte da matéria não é de fórmula — é de esquecer um pedaço, contar o mesmo pedaço duas vezes, ou usar num pedaço uma medida que pertencia ao outro."
+    ],
+    "destaque": "Não existe fórmula para figura esquisita. Existe corte que a transforma em figuras com fórmula.",
+    "imagem": "ar8-ideia-compostas"
+  },
+  "resolvido": {
+    "enunciado": "Uma figura em degrau tem 8 cm na base e 5 cm de altura total. A parte de cima tem 3 cm de largura e 2 cm de altura. Qual é a área?",
+    "imagem": "ar8-res-degrau",
+    "passos": [
+      {
+        "titulo": "Decida o corte",
+        "explicacao": "Um corte horizontal na altura do degrau parte a figura em dois retângulos.",
+        "conta": "corte na altura de 3 cm"
+      },
+      {
+        "titulo": "Descubra a altura do pedaço de baixo",
+        "explicacao": "A altura total é 5 cm e o degrau de cima ocupa 2 cm dela.",
+        "conta": "5 − 2 = 3"
+      },
+      {
+        "titulo": "Meça os dois retângulos",
+        "explicacao": "O de baixo tem a base inteira; o de cima tem só a largura do degrau.",
+        "conta": "8 × 3 = 24 · 3 × 2 = 6"
+      },
+      {
+        "titulo": "Some os dois pedaços",
+        "explicacao": "A área da figura é a soma das áreas dos dois pedaços.",
+        "conta": "24 + 6 = 30"
+      }
+    ],
+    "fecho": "Por subtração daria o mesmo: o retângulo de 8 por 5 vale 40, e o pedaço que falta no canto vale 5 × 2 = 10."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma figura em degrau tem 8 cm na base e 5 cm de altura total. A parte de cima tem 3 cm de largura e 2 cm de altura. Qual é a área da figura, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-degrau",
+      "dica": "Descubra a altura do pedaço de baixo antes de medir qualquer coisa.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é 8 × 5, o retângulo inteiro em que a figura caberia. Falta descontar o pedaço que o degrau tirou do canto, que vale 5 × 2 = 10 cm²."
+        },
+        {
+          "resposta": "39",
+          "porque": "39 é 8 × 3 mais 3 × 5: o pedaço de cima foi medido com a altura TOTAL da figura. Ele tem só 2 cm de altura, porque os outros 3 cm já foram contados no retângulo de baixo."
+        },
+        {
+          "resposta": "26",
+          "porque": "26 é o perímetro da figura, somando os seis lados do contorno. A pergunta é sobre a superfície ocupada, e não sobre a volta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a altura de baixo",
+          "explicacao": "Do total de 5 cm, o degrau de cima ocupa 2 cm.",
+          "conta": "5 − 2 = 3"
+        },
+        {
+          "titulo": "Meça os dois retângulos",
+          "explicacao": "O de baixo usa a base inteira; o de cima, só a largura do degrau.",
+          "conta": "8 × 3 = 24 · 3 × 2 = 6"
+        },
+        {
+          "titulo": "Some as duas partes",
+          "explicacao": "As áreas dos pedaços somadas dão a área da figura.",
+          "conta": "24 + 6 = 30"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quando vale mais a pena calcular a área por subtração em vez de somar pedaços?",
+      "imagem": "ar8-q-quando-subtrair",
+      "dica": "Pense no formato da figura: em qual deles o retângulo em volta é fácil de enxergar.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quando a figura é um retângulo com um pedaço faltando" },
+        { "rotulo": "B", "texto": "Quando a figura tem mais de quatro lados" },
+        { "rotulo": "C", "texto": "Quando a figura tem algum lado inclinado" },
+        { "rotulo": "D", "texto": "Nunca: subtrair dá resultado diferente de somar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Quando a figura tem mais de quatro lados",
+          "porque": "O número de lados não decide nada. Uma figura de seis lados pode sair mais fácil por soma, e uma de quatro lados com um canto recortado sai melhor por subtração — o que importa é enxergar o retângulo em volta."
+        },
+        {
+          "resposta": "Quando a figura tem algum lado inclinado",
+          "porque": "Lado inclinado costuma pedir triângulo ou trapézio, e não subtração. A subtração é útil quando a figura é um retângulo com um buraco ou um canto faltando."
+        },
+        {
+          "resposta": "Nunca: subtrair dá resultado diferente de somar",
+          "porque": "Os dois caminhos dão exatamente o mesmo número, porque medem a mesma superfície. É a conservação da área da lição 1 que garante isso, e a escolha entre eles é só de conveniência."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o formato",
+          "explicacao": "Se a figura cabe num retângulo faltando só um pedaço, esse retângulo é fácil de medir.",
+          "conta": "retângulo inteiro − buraco"
+        },
+        {
+          "titulo": "Compare o trabalho",
+          "explicacao": "Somar exigiria partir o que sobrou em vários retângulos; subtrair usa dois números.",
+          "conta": "menos passos, mesmo resultado"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma fachada é formada por um retângulo de 6 m de largura por 4 m de altura, com um trapézio em cima: a base maior dele é os mesmos 6 m, a base menor é 2 m e a altura é 3 m. Qual é a área total da fachada, em metros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-fachada",
+      "dica": "Meça as duas partes separadamente e lembre da fórmula do trapézio na parte de cima.",
+      "formato": "numero",
+      "resposta": 36,
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 soma 24 do retângulo com 24 do topo, mas o topo foi calculado como (6 + 2) × 3, sem a divisão por 2. O topo é um trapézio, e a fórmula dele termina em ÷ 2."
+        },
+        {
+          "resposta": "42",
+          "porque": "42 soma 24 com 6 × 3 = 18, tratando o topo como se fosse um retângulo de 6 por 3. O topo estreita de 6 m para 2 m, então ele é um trapézio e ocupa menos que esse retângulo."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 soma 24 com 2 × 3 = 6, usando só a base menor do trapézio. As duas bases entram na fórmula, somadas uma à outra."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça o retângulo",
+          "explicacao": "A parte de baixo é um retângulo comum de 6 por 4.",
+          "conta": "6 × 4 = 24"
+        },
+        {
+          "titulo": "Meça o trapézio",
+          "explicacao": "As bases são 6 m e 2 m, e a altura é 3 m.",
+          "conta": "(6 + 2) × 3 ÷ 2 = 12"
+        },
+        {
+          "titulo": "Some as partes",
+          "explicacao": "A fachada é o retângulo e o trapézio juntos, sem sobreposição.",
+          "conta": "24 + 12 = 36"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma parede mede 6 m por 3 m. Nela há uma janela quadrada de 2 m de lado e uma porta de 1 m por 2 m. Qual é a área que precisa ser pintada, em metros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-parede",
+      "dica": "Meça a parede inteira e desconte tudo que não vai receber tinta.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 é 6 × 3, a parede inteira. A janela e a porta não recebem tinta, então as áreas das duas precisam ser descontadas."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 desconta só a janela, 18 − 4. Falta tirar também a porta, que ocupa 1 × 2 = 2 m² da parede."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 desconta só a porta, 18 − 2. Falta tirar também a janela, que é um quadrado de 2 m de lado e ocupa 4 m²."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça a parede inteira",
+          "explicacao": "Ela é um retângulo de 6 m por 3 m.",
+          "conta": "6 × 3 = 18"
+        },
+        {
+          "titulo": "Meça os dois vãos",
+          "explicacao": "A janela é um quadrado de 2 m de lado, e a porta é um retângulo de 1 por 2.",
+          "conta": "2 × 2 = 4 · 1 × 2 = 2"
+        },
+        {
+          "titulo": "Desconte os dois",
+          "explicacao": "Só a parte cheia da parede recebe tinta.",
+          "conta": "18 − 4 − 2 = 12"
+        }
+      ]
+    }
+  ]
+}

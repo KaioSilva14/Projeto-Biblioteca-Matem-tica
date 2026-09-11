@@ -1,0 +1,194 @@
+{
+  "id": "substituicao",
+  "numero": 2,
+  "titulo": "O método da substituição",
+  "pergunta": "Como transformar duas equações em uma?",
+  "ideia": {
+    "paragrafos": [
+      "A dificuldade de um sistema é ter duas letras. A ideia de todo método é a mesma: fazer uma delas SUMIR, para sobrar uma equação de uma incógnita só — que é o que o 7º ano já ensinou a resolver.",
+      "O método da substituição faz isso trocando uma letra pelo valor dela. Em x + y = 10 e y − x = 2, a segunda equação diz que y é x mais 2. Então, em vez de escrever y na primeira, escrevemos x + 2 no lugar dele: fica x + (x + 2) = 10, uma equação com x sozinho.",
+      "Daí em diante é o 7º ano puro. Abrindo, x + x + 2 = 10, que dá 2x + 2 = 10, e então 2x = 8 e x = 4. A primeira incógnita saiu.",
+      "Falta a segunda, e ela vem de graça: volte a qualquer uma das equações originais com o valor achado. Usando y − x = 2 com x = 4, temos y − 4 = 2, ou seja, y = 6. A solução é o par (4, 6).",
+      "Esse método pede que uma das equações tenha uma letra ISOLADA, ou que seja fácil isolá-la. Quando y já aparece sozinho de um lado, como em y = x + 2, a substituição é imediata. Quando as duas equações têm coeficientes em todas as letras, o método da próxima lição costuma dar menos trabalho."
+    ],
+    "destaque": "Troque uma letra pelo valor dela, e sobra uma equação de uma incógnita só.",
+    "imagem": "si-ideia-substituir"
+  },
+  "resolvido": {
+    "enunciado": "Resolva o sistema x + y = 10 e y − x = 2 pelo método da substituição.",
+    "imagem": "si-res-substituir",
+    "passos": [
+      {
+        "titulo": "Isole uma letra numa equação",
+        "explicacao": "A segunda equação é a mais fácil de mexer: basta passar o x para o outro lado.",
+        "conta": "y − x = 2 → y = x + 2"
+      },
+      {
+        "titulo": "Substitua na OUTRA equação",
+        "explicacao": "Trocar y pelo que ele vale deixa a primeira equação só com x.",
+        "conta": "x + (x + 2) = 10"
+      },
+      {
+        "titulo": "Resolva a equação que sobrou",
+        "explicacao": "É uma equação do 1º grau comum, como as do 7º ano.",
+        "conta": "2x + 2 = 10 → 2x = 8 → x = 4"
+      },
+      {
+        "titulo": "Volte para achar a outra",
+        "explicacao": "Com o x conhecido, qualquer uma das equações originais entrega o y.",
+        "conta": "y = 4 + 2 = 6 → (4, 6)"
+      }
+    ],
+    "fecho": "Confira nas duas: 4 + 6 = 10 e 6 − 4 = 2. As duas fecham."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No sistema x + y = 10 e y = x + 2, substituindo o y na primeira equação, qual equação aparece?",
+      "imagem": "si-q-qual-equacao",
+      "dica": "Troque a letra y pelo que a segunda equação diz que ele vale.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "x + (x + 2) = 10" },
+        { "rotulo": "B", "texto": "x + y + 2 = 10" },
+        { "rotulo": "C", "texto": "(x + 2) = 10" },
+        { "rotulo": "D", "texto": "x + 2 = 10" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "x + y + 2 = 10",
+          "porque": "O y continuou na equação, então nada foi substituído: o objetivo era justamente fazê-lo sumir. Trocar y por x + 2 deixa a equação com uma letra só."
+        },
+        {
+          "resposta": "(x + 2) = 10",
+          "porque": "Isso apagou o x que já estava na primeira equação. A substituição troca só o y; o x original continua ali, somando com o que entrou no lugar do y."
+        },
+        {
+          "resposta": "x + 2 = 10",
+          "porque": "Aqui o x original também sumiu, e o parêntese da substituição foi perdido. A primeira equação era x + y, então depois da troca fica x mais tudo aquilo que o y vale."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o y vale",
+          "explicacao": "A segunda equação já entrega isso pronto.",
+          "conta": "y = x + 2"
+        },
+        {
+          "titulo": "Troque na primeira",
+          "explicacao": "O y sai e o valor dele entra, entre parênteses para nada se perder.",
+          "conta": "x + (x + 2) = 10"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolvendo x + y = 10 e y = x + 2, quanto vale x? Digite apenas o número.",
+      "imagem": "si-q-valor-x",
+      "dica": "Depois de substituir, junte os termos semelhantes e resolva como no 7º ano.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o valor de y, e não de x. Os dois somam 10 e o y é o maior — a pergunta é sobre o menor dos dois."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 seria a resposta se os dois valores fossem iguais, o que aconteceria só se a segunda equação fosse y = x. Aqui o y é 2 unidades maior, então eles não repartem o 10 em partes iguais."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o valor de 2x no meio da conta, antes de dividir por 2. Depois de 2x = 8, ainda falta dividir os dois lados por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua e junte",
+          "explicacao": "Trocando o y, sobram dois termos em x que se somam.",
+          "conta": "x + x + 2 = 10 → 2x + 2 = 10"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Tire o termo solto e depois divida pelo coeficiente.",
+          "conta": "2x = 8 → x = 4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No sistema x + 2y = 8 e x = 2y − 4, quanto vale y? Digite apenas o número.",
+      "imagem": "si-q-substituir-x",
+      "dica": "Aqui é o x que está isolado. Substitua-o na primeira equação.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é o valor de x, e não de y. Substituindo, a equação em y dá 4y − 4 = 8, o que leva a y = 3 — e só então o x sai como 2."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o valor de 4y no meio da conta, antes de dividir. Depois de 4y = 12, ainda falta dividir os dois lados por 4."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o número solto da segunda equação. Ele participa da conta, mas não é a resposta: depois de substituir e resolver, o y vale 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua o x",
+          "explicacao": "A segunda equação já dá o valor dele em função de y.",
+          "conta": "(2y − 4) + 2y = 8"
+        },
+        {
+          "titulo": "Junte e resolva",
+          "explicacao": "Os dois termos em y se somam, e o resto é equação do 1º grau.",
+          "conta": "4y − 4 = 8 → 4y = 12 → y = 3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quando o método da substituição é mais conveniente?",
+      "imagem": "si-q-quando-substituir",
+      "dica": "Pense no primeiro passo do método e no que ele exige da equação.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quando uma das equações já tem uma letra isolada, ou é fácil isolá-la" },
+        { "rotulo": "B", "texto": "Quando as duas equações têm os mesmos coeficientes" },
+        { "rotulo": "C", "texto": "Quando os números do sistema são grandes" },
+        { "rotulo": "D", "texto": "Sempre: ele é o único método que existe" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Quando as duas equações têm os mesmos coeficientes",
+          "porque": "Coeficientes iguais ou opostos favorecem o método da ADIÇÃO, que é o da próxima lição: somando as equações, uma letra some sozinha. A substituição prefere uma letra já isolada."
+        },
+        {
+          "resposta": "Quando os números do sistema são grandes",
+          "porque": "O tamanho dos números não decide o método. O que decide é a FORMA das equações: se dá para isolar uma letra sem criar frações, a substituição vai bem."
+        },
+        {
+          "resposta": "Sempre: ele é o único método que existe",
+          "porque": "Não é o único: a próxima lição mostra o método da adição, e a lição 5 mostra ainda a leitura gráfica. Os três chegam à mesma solução por caminhos diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o primeiro passo",
+          "explicacao": "O método começa isolando uma letra numa das equações.",
+          "conta": "y = x + 2"
+        },
+        {
+          "titulo": "Veja quando isso é barato",
+          "explicacao": "Se a letra já está sozinha, o passo é de graça; se isolá-la criaria frações, o outro método compensa mais.",
+          "conta": "letra isolada → substituição"
+        }
+      ]
+    }
+  ]
+}

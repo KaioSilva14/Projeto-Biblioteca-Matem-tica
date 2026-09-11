@@ -1,0 +1,194 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O que é ser congruente",
+  "pergunta": "Dois triângulos em posições diferentes podem ser o mesmo triângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Dois triângulos são CONGRUENTES quando têm exatamente a mesma forma e o mesmo tamanho — se você recortasse um e colocasse sobre o outro, eles coincidiriam ponto a ponto. Nem sobra, nem falta.",
+      "Posição não entra nessa conta, e é aqui que muita gente tropeça. Um triângulo girado, virado de cabeça para baixo ou espelhado continua congruente ao original: nenhuma dessas coisas muda os lados nem os ângulos dele. O que importa são as MEDIDAS, e não onde a figura está no papel.",
+      "Congruente é diferente de parecido. Dois triângulos com a mesma forma e tamanhos diferentes — um é a ampliação do outro — são SEMELHANTES, e isso é assunto do 9º ano. Congruência exige as duas coisas: mesma forma e mesmo tamanho.",
+      "Ser congruente significa que os três lados são iguais aos três lados correspondentes, E que os três ângulos são iguais aos correspondentes. São seis igualdades ao todo — e aqui está a pergunta que move a matéria: será preciso verificar as seis?",
+      "A resposta é não, e é isso que as próximas lições mostram. Três medidas escolhidas com cuidado já garantem as outras três. Mas a escolha importa: existem trios que garantem e trios que não garantem, e a lição 5 é dedicada aos que enganam."
+    ],
+    "destaque": "Mesma forma E mesmo tamanho. Girar, virar ou espelhar não muda nada disso.",
+    "imagem": "cg-ideia-congruentes"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos têm os mesmos três lados e os mesmos três ângulos, mas um está girado em relação ao outro. Eles são congruentes?",
+    "imagem": "cg-res-girado",
+    "passos": [
+      {
+        "titulo": "Confira as medidas dos lados",
+        "explicacao": "Congruência olha para as medidas, e o enunciado diz que os três lados coincidem.",
+        "conta": "3 lados iguais ✓"
+      },
+      {
+        "titulo": "Confira os ângulos",
+        "explicacao": "Os três ângulos correspondentes também precisam ter a mesma abertura.",
+        "conta": "3 ângulos iguais ✓"
+      },
+      {
+        "titulo": "Descarte a posição",
+        "explicacao": "Girar não altera comprimento de lado nem abertura de ângulo — é o mesmo triângulo, visto de outro jeito.",
+        "conta": "giro não muda medida"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "As seis igualdades valem, então recortando um e sobrepondo ao outro eles coincidiriam.",
+        "conta": "congruentes ✓"
+      }
+    ],
+    "fecho": "O símbolo da congruência é ≅ — um sinal de igual com um til em cima, que junta \"mesma forma\" e \"mesmo tamanho\"."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantas igualdades existem entre dois triângulos congruentes, contando lados e ângulos? Digite apenas o número.",
+      "imagem": "cg-q-quantas-igualdades",
+      "dica": "Conte os lados de um triângulo e os ângulos dele, e some.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 conta só os lados, ou só os ângulos. A congruência garante as duas coisas: três lados iguais MAIS três ângulos iguais."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 seria 3 × 3, como se cada lado se comparasse com cada ângulo. Cada elemento tem UM correspondente no outro triângulo: três pares de lados e três de ângulos."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 conta os elementos dos dois triângulos somados (6 + 6). As IGUALDADES são os pares formados entre eles, e são seis pares."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os elementos de um triângulo",
+          "explicacao": "Ele tem três lados e três ângulos internos.",
+          "conta": "3 + 3 = 6"
+        },
+        {
+          "titulo": "Conte os pares",
+          "explicacao": "Cada elemento de um triângulo tem exatamente um correspondente no outro.",
+          "conta": "6 igualdades"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo foi girado 90° e desenhado ao lado do original. Os dois são congruentes?",
+      "imagem": "cg-q-girado",
+      "dica": "Pense se girar muda o comprimento de algum lado ou a abertura de algum ângulo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque girar não muda lado nem ângulo" },
+        { "rotulo": "B", "texto": "Não, porque estão em posições diferentes" },
+        { "rotulo": "C", "texto": "Não, porque um deles está de lado" },
+        { "rotulo": "D", "texto": "Só se o giro for de 180°" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque estão em posições diferentes",
+          "porque": "Posição não faz parte da definição de congruência, que olha só para as MEDIDAS. Recortando um e sobrepondo ao outro — girando o papel —, eles coincidiriam."
+        },
+        {
+          "resposta": "Não, porque um deles está de lado",
+          "porque": "Estar de lado é uma questão de como a figura foi desenhada, e não de medida. Os lados continuam com o mesmo comprimento e os ângulos com a mesma abertura."
+        },
+        {
+          "resposta": "Só se o giro for de 180°",
+          "porque": "Qualquer giro serve, de qualquer quantidade de graus: nenhum deles altera comprimento ou abertura. O 180° não tem nada de especial nesse sentido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o giro faz",
+          "explicacao": "Ele muda a orientação da figura no papel, e mais nada.",
+          "conta": "lados: iguais · ângulos: iguais"
+        },
+        {
+          "titulo": "Aplique a definição",
+          "explicacao": "Como as seis medidas coincidem, os dois são o mesmo triângulo.",
+          "conta": "congruentes"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Dois triângulos têm os mesmos três ângulos, mas um tem lados que medem o dobro dos do outro. Como se chamam?",
+      "imagem": "cg-q-semelhantes",
+      "dica": "Congruência exige duas coisas. Confira se as duas valem aqui.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Semelhantes, e não congruentes" },
+        { "rotulo": "B", "texto": "Congruentes, porque os ângulos são iguais" },
+        { "rotulo": "C", "texto": "Congruentes, porque a forma é a mesma" },
+        { "rotulo": "D", "texto": "Nem semelhantes nem congruentes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Congruentes, porque os ângulos são iguais",
+          "porque": "Ângulos iguais garantem a mesma FORMA, mas não o mesmo tamanho — e congruência exige as duas coisas. Com lados no dobro, um não caberia sobre o outro."
+        },
+        {
+          "resposta": "Congruentes, porque a forma é a mesma",
+          "porque": "A forma é mesmo a mesma, e é por isso que eles são SEMELHANTES. Falta a segunda exigência da congruência: o tamanho também tem de coincidir."
+        },
+        {
+          "resposta": "Nem semelhantes nem congruentes",
+          "porque": "Eles são semelhantes: ter os mesmos ângulos é exatamente o que define semelhança. O que falta é a igualdade de tamanho, que é o que os impede de serem congruentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a forma",
+          "explicacao": "Mesmos ângulos quer dizer mesma forma — um é a ampliação do outro.",
+          "conta": "forma igual ✓"
+        },
+        {
+          "titulo": "Confira o tamanho",
+          "explicacao": "Os lados de um são o dobro dos do outro, então os tamanhos não coincidem.",
+          "conta": "tamanho ✗ → semelhantes"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo, dois ângulos medem 50° e 60°. Quanto mede o terceiro, em graus? Digite apenas o número.",
+      "imagem": "cg-q-terceiro-angulo",
+      "dica": "Os três ângulos internos de um triângulo somam sempre o mesmo valor.",
+      "formato": "numero",
+      "resposta": 70,
+      "errosComuns": [
+        {
+          "resposta": "110",
+          "porque": "110 é a soma de 50 com 60, e não o que falta para completar. O terceiro ângulo é 180 menos essa soma."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é a diferença entre 60 e 50. A soma dos três ângulos é que vale 180, e o terceiro é o que falta depois de tirar os dois conhecidos."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é a soma dos TRÊS ângulos juntos. Descontando os dois que o enunciado deu, sobra a medida do terceiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os dois conhecidos",
+          "explicacao": "É o que já está ocupado dos 180 graus totais.",
+          "conta": "50 + 60 = 110"
+        },
+        {
+          "titulo": "Tire de 180",
+          "explicacao": "O que sobra é a medida do terceiro ângulo.",
+          "conta": "180 − 110 = 70°"
+        }
+      ]
+    }
+  ]
+}

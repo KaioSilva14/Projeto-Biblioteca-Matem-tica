@@ -1,0 +1,200 @@
+{
+  "id": "escolher-caminho",
+  "numero": 5,
+  "titulo": "Qual caminho usar",
+  "pergunta": "Diante de uma expressão qualquer, por onde começar?",
+  "ideia": {
+    "paragrafos": [
+      "As quatro lições anteriores deram quatro ferramentas, e a prova nunca diz qual usar. Esta lição não ensina caso novo nenhum: ela ensina a escolher, que é justamente onde a matéria costuma desandar.",
+      "A primeira pergunta é sempre a mesma, e vale para qualquer expressão: existe fator comum a TODAS as parcelas? Se existir, tire-o primeiro, antes de qualquer outra coisa. Isso simplifica o que sobra e muitas vezes revela um segundo caso escondido dentro do parêntese.",
+      "Não havendo fator comum, conte os termos. Com dois termos, o candidato é a diferença de quadrados — e vale conferir as três condições da lição 3. Com três, o candidato é o trinômio quadrado perfeito, com a conferência do meio da lição 4. Com quatro, tente o agrupamento.",
+      "A contagem de termos é o atalho mais útil da matéria, mas ela indica um candidato, e não uma certeza. x² + 25 tem dois termos e não fatora; x² + 7x + 9 tem três e não é quadrado perfeito. Depois de escolher o caminho, a conferência daquele caso ainda precisa ser feita.",
+      "E há um caso que junta dois métodos, que é onde a primeira pergunta se paga. Em 2x² − 50, não parece haver caso nenhum: os termos não são quadrados perfeitos. Mas há fator comum 2, e tirando-o fica 2(x² − 25) — e agora, dentro do parêntese, apareceu uma diferença de quadrados. O resultado é 2(x + 5)(x − 5)."
+    ],
+    "destaque": "Fator comum primeiro, sempre. Depois conte os termos: dois, três ou quatro.",
+    "imagem": "ft-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Fatore completamente 2x² − 50.",
+    "imagem": "ft-res-roteiro",
+    "passos": [
+      {
+        "titulo": "Procure fator comum",
+        "explicacao": "Esta é sempre a primeira pergunta, antes de contar termos ou reconhecer padrão.",
+        "conta": "2x² = 2 × x²  ·  50 = 2 × 25 → comum: 2"
+      },
+      {
+        "titulo": "Ponha em evidência",
+        "explicacao": "Tirar o 2 deixa dentro do parêntese uma expressão mais simples de reconhecer.",
+        "conta": "2(x² − 25)"
+      },
+      {
+        "titulo": "Olhe o que ficou dentro",
+        "explicacao": "Agora são dois termos, os dois quadrados, com sinal de menos — o caso da lição 3 apareceu.",
+        "conta": "x² − 25 = (x + 5)(x − 5)"
+      },
+      {
+        "titulo": "Junte tudo",
+        "explicacao": "O fator que saiu no começo continua multiplicando o resultado.",
+        "conta": "2(x + 5)(x − 5)"
+      }
+    ],
+    "fecho": "Sem tirar o 2 primeiro, os termos 2x² e 50 não eram quadrados perfeitos e o caso não apareceria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a PRIMEIRA coisa a verificar diante de uma expressão a fatorar?",
+      "imagem": "ft-q-primeira-pergunta",
+      "dica": "Uma das verificações precisa vir antes das outras, porque ela pode revelar um caso escondido.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Se existe fator comum a todas as parcelas" },
+        { "rotulo": "B", "texto": "Se os termos das pontas são quadrados perfeitos" },
+        { "rotulo": "C", "texto": "Quantos termos a expressão tem" },
+        { "rotulo": "D", "texto": "Se o último termo é positivo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Se os termos das pontas são quadrados perfeitos",
+          "porque": "Essa verificação vem depois, e pode dar falso negativo se feita primeiro: em 2x² − 50 as pontas não são quadrados perfeitos, mas depois de tirar o fator comum 2 elas passam a ser."
+        },
+        {
+          "resposta": "Quantos termos a expressão tem",
+          "porque": "Contar os termos é o segundo passo, e é muito útil — mas só depois de tirar o fator comum, porque tirá-lo pode mudar o que está dentro do parêntese."
+        },
+        {
+          "resposta": "Se o último termo é positivo",
+          "porque": "O sinal do último termo ajuda a decidir entre alguns casos, mas não é por onde se começa. A primeira pergunta é sempre a do fator comum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja por que ela vem antes",
+          "explicacao": "Tirar o fator comum simplifica o que sobra e pode revelar um caso que estava escondido.",
+          "conta": "2x² − 50 → 2(x² − 25)"
+        },
+        {
+          "titulo": "Só então siga o roteiro",
+          "explicacao": "Com o parêntese mais simples, a contagem de termos passa a indicar o caso certo.",
+          "conta": "2 termos → diferença de quadrados"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma expressão sem fator comum tem TRÊS termos. Qual caso deve ser tentado primeiro?",
+      "imagem": "ft-q-tres-termos",
+      "dica": "Cada quantidade de termos aponta para um candidato diferente.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Trinômio quadrado perfeito" },
+        { "rotulo": "B", "texto": "Diferença de quadrados" },
+        { "rotulo": "C", "texto": "Agrupamento" },
+        { "rotulo": "D", "texto": "Fator comum" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Diferença de quadrados",
+          "porque": "Esse caso pede exatamente DOIS termos, e a expressão tem três. Com três termos o candidato é o trinômio, que confere as pontas e o meio."
+        },
+        {
+          "resposta": "Agrupamento",
+          "porque": "O agrupamento junta as parcelas duas a duas, então ele pede quatro termos. Com três, não dá para formar dois grupos completos."
+        },
+        {
+          "resposta": "Fator comum",
+          "porque": "O enunciado já diz que não há fator comum — essa verificação foi feita e falhou. Por isso o roteiro segue para a contagem de termos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os termos",
+          "explicacao": "A contagem indica qual caso é o candidato.",
+          "conta": "3 termos"
+        },
+        {
+          "titulo": "Escolha o candidato e confira",
+          "explicacao": "O trinômio ainda precisa passar pela conferência do termo do meio.",
+          "conta": "trinômio quadrado perfeito"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Fatorando completamente 3x² − 27, quantos fatores aparecem no resultado, contando o número que saiu na frente? Digite apenas o número.",
+      "imagem": "ft-q-quantos-fatores",
+      "dica": "Tire o fator comum primeiro e veja o que sobra dentro do parêntese.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 pararia em 3(x² − 9), sem perceber que o que ficou dentro ainda fatora: x² − 9 é diferença de quadrados e vira (x+3)(x−3). Fatorar COMPLETAMENTE significa ir até o fim."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 seria não fatorar nada. A expressão tem fator comum 3, e depois de tirá-lo o parêntese ainda se abre em dois — são três fatores ao todo."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 fatores seria fatorar demais: depois de 3(x+3)(x−3), nenhum dos parênteses se abre mais. Cada um tem dois termos sem fator comum e sem ser diferença de quadrados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire o fator comum",
+          "explicacao": "O 3 divide as duas parcelas, então ele sai na frente do parêntese.",
+          "conta": "3x² − 27 = 3(x² − 9)"
+        },
+        {
+          "titulo": "Fatore o que ficou dentro",
+          "explicacao": "Sobraram dois termos, os dois quadrados, com sinal de menos.",
+          "conta": "3(x + 3)(x − 3) → 3 fatores"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que a contagem de termos indica um candidato, mas não garante a fatoração?",
+      "imagem": "ft-q-so-candidato",
+      "dica": "Pense em expressões que têm a quantidade certa de termos e mesmo assim não fatoram.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque cada caso ainda tem condições próprias a conferir, como x² + 25 mostra" },
+        { "rotulo": "B", "texto": "Porque a contagem de termos pode mudar durante a conta" },
+        { "rotulo": "C", "texto": "Porque toda expressão fatora de algum jeito" },
+        { "rotulo": "D", "texto": "Porque existem mais de quatro casos de fatoração" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a contagem de termos pode mudar durante a conta",
+          "porque": "A contagem não muda sozinha: ela só muda se o fator comum for tirado antes, e por isso essa verificação vem primeiro. O problema é outro — cada caso tem condições que precisam ser conferidas."
+        },
+        {
+          "resposta": "Porque toda expressão fatora de algum jeito",
+          "porque": "É o contrário: nem toda expressão fatora. x² + 25 tem dois termos, os dois quadrados, e não fatora com coeficientes inteiros — porque o sinal é de mais."
+        },
+        {
+          "resposta": "Porque existem mais de quatro casos de fatoração",
+          "porque": "Existem outros casos além destes quatro, mas não é isso que a pergunta trata: mesmo dentro dos quatro, ter a quantidade certa de termos não basta. As condições de cada caso ainda precisam valer."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste um contraexemplo",
+          "explicacao": "Dois termos apontam para a diferença de quadrados, mas as condições precisam valer.",
+          "conta": "x² + 25 → sinal de mais ✗"
+        },
+        {
+          "titulo": "E outro",
+          "explicacao": "Três termos apontam para o trinômio, mas o meio pode não fechar.",
+          "conta": "x² + 7x + 9 → o meio pedia 6x ✗"
+        }
+      ]
+    }
+  ]
+}

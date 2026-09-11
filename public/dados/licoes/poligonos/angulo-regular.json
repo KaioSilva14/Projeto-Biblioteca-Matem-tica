@@ -1,0 +1,194 @@
+{
+  "id": "angulo-regular",
+  "numero": 3,
+  "titulo": "Cada ângulo de um polígono regular",
+  "pergunta": "Se a soma é conhecida, quanto vale um ângulo sozinho?",
+  "ideia": {
+    "paragrafos": [
+      "A lição passada deu a soma de TODOS os ângulos internos. Agora a pergunta é sobre um deles — e num polígono qualquer não há resposta: os ângulos podem ser todos diferentes, e saber que somam 540° não diz quanto vale cada um.",
+      "Mas no polígono REGULAR há, e o motivo é a definição da lição 1: regular quer dizer que todos os ângulos são iguais. Sendo iguais e somando um total conhecido, cada um vale esse total dividido pela quantidade deles.",
+      "Num pentágono regular, a soma é 540° e são cinco ângulos, então cada um mede 540 ÷ 5 = 108°. Num hexágono regular, 720 ÷ 6 = 120°. Num quadrado, 360 ÷ 4 = 90°, que é o que já se sabia — e a fórmula concordar com o caso conhecido é um bom sinal.",
+      "Juntando as duas lições, a conta fica (n − 2) × 180° ÷ n. Vale mais entender os dois passos do que decorar a fórmula inteira: primeiro a soma, depois a divisão pela quantidade. Quem decora a fórmula de uma vez costuma dividir por (n − 2) em vez de por n.",
+      "E há um limite curioso escondido aí. Quanto mais lados, maior cada ângulo: 60° no triângulo, 90° no quadrado, 108° no pentágono, 120° no hexágono, 150° num polígono de 12 lados. Ele cresce sempre, mas nunca chega a 180° — se chegasse, o vértice seria um ponto no meio de uma reta, e a figura deixaria de ter canto ali."
+    ],
+    "destaque": "Só o polígono REGULAR tem essa resposta: a soma dividida pela quantidade de ângulos.",
+    "imagem": "pg-ideia-regular"
+  },
+  "resolvido": {
+    "enunciado": "Quanto mede cada ângulo interno de um hexágono regular?",
+    "imagem": "pg-res-hexagono-regular",
+    "passos": [
+      {
+        "titulo": "Ache a soma de todos",
+        "explicacao": "É a fórmula da lição passada, com o n valendo 6.",
+        "conta": "(6 − 2) × 180 = 720°"
+      },
+      {
+        "titulo": "Confira que ele é regular",
+        "explicacao": "Sem isso a divisão não vale: num hexágono qualquer, os ângulos podem ser todos diferentes.",
+        "conta": "regular → ângulos iguais"
+      },
+      {
+        "titulo": "Divida pela quantidade",
+        "explicacao": "Como os seis são iguais, cada um leva a mesma fatia do total.",
+        "conta": "720 ÷ 6"
+      },
+      {
+        "titulo": "Efetue",
+        "explicacao": "O resultado é a medida de cada um dos seis ângulos internos.",
+        "conta": "= 120°"
+      }
+    ],
+    "fecho": "É por isso que hexágonos regulares se encaixam sem sobra: três deles num ponto somam 360°."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto mede cada ângulo interno de um pentágono regular, em graus? Digite apenas o número.",
+      "imagem": "pg-q-pentagono-regular",
+      "dica": "Ache a soma primeiro, e só depois divida pela quantidade de ângulos.",
+      "formato": "numero",
+      "resposta": 108,
+      "errosComuns": [
+        {
+          "resposta": "540",
+          "porque": "540 é a soma de TODOS os cinco ângulos. A pergunta é sobre um só, então falta dividir esse total pela quantidade de ângulos."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 divide a soma por 3, que é o número de TRIÂNGULOS da triangulação. A divisão é pela quantidade de ÂNGULOS, que é 5."
+        },
+        {
+          "resposta": "72",
+          "porque": "72 é a medida de cada ângulo EXTERNO do pentágono regular, que é 360 ÷ 5. O interno é o que sobra para completar 180 com ele — assunto da lição 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a soma",
+          "explicacao": "Pela fórmula da lição passada, com n valendo 5.",
+          "conta": "(5 − 2) × 180 = 540°"
+        },
+        {
+          "titulo": "Divida pela quantidade",
+          "explicacao": "São cinco ângulos iguais, então cada um leva a mesma fatia.",
+          "conta": "540 ÷ 5 = 108°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto mede cada ângulo interno de um octógono regular, em graus? Digite apenas o número.",
+      "imagem": "pg-q-octogono-regular",
+      "dica": "São oito lados: ache a soma e divida por oito.",
+      "formato": "numero",
+      "resposta": 135,
+      "errosComuns": [
+        {
+          "resposta": "1080",
+          "porque": "1 080 é a soma dos oito ângulos. Falta dividir por 8 para achar a medida de um deles."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 divide a soma por 6, que é o número de triângulos. A divisão é pela quantidade de ÂNGULOS, e um octógono tem oito."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é a medida de cada ângulo EXTERNO, que é 360 ÷ 8. O interno é o suplemento dele: 180 − 45 = 135."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a soma",
+          "explicacao": "São oito lados, então seis triângulos na triangulação.",
+          "conta": "(8 − 2) × 180 = 1 080°"
+        },
+        {
+          "titulo": "Divida por oito",
+          "explicacao": "Os oito ângulos são iguais, porque o polígono é regular.",
+          "conta": "1 080 ÷ 8 = 135°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num pentágono que NÃO é regular, dá para saber quanto mede um dos ângulos internos sabendo só a soma?",
+      "imagem": "pg-q-nao-regular",
+      "dica": "Pense se existe mais de um jeito de cinco ângulos somarem 540°.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque os ângulos podem ser todos diferentes" },
+        { "rotulo": "B", "texto": "Sim, é sempre a soma dividida por cinco" },
+        { "rotulo": "C", "texto": "Sim, porque todo pentágono tem ângulos de 108°" },
+        { "rotulo": "D", "texto": "Não, porque a soma dos ângulos muda em cada pentágono" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, é sempre a soma dividida por cinco",
+          "porque": "Essa divisão só vale quando os ângulos são IGUAIS, ou seja, no polígono regular. Um pentágono pode ter ângulos de 90°, 100°, 110°, 120° e 120°, que somam 540 e nenhum vale 108."
+        },
+        {
+          "resposta": "Sim, porque todo pentágono tem ângulos de 108°",
+          "porque": "108° é o ângulo do pentágono REGULAR. Num pentágono qualquer, os cinco ângulos só precisam somar 540 — como cada um se distribui é livre."
+        },
+        {
+          "resposta": "Não, porque a soma dos ângulos muda em cada pentágono",
+          "porque": "A soma NÃO muda: ela é 540° em todo pentágono, regular ou não, porque a triangulação vale para qualquer um. O que muda é como esse total se reparte."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que a soma garante",
+          "explicacao": "Ela vale para qualquer pentágono, mas só diz o total.",
+          "conta": "sempre 540°"
+        },
+        {
+          "titulo": "Veja o que falta",
+          "explicacao": "Sem a igualdade entre os ângulos, existem infinitas maneiras de repartir esse total.",
+          "conta": "90 + 100 + 110 + 120 + 120 = 540 também"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Cada ângulo interno de um polígono regular pode chegar a 180°?",
+      "imagem": "pg-q-limite",
+      "dica": "Pense no que aconteceria com o vértice se o ângulo dele fosse exatamente raso.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque aí o vértice deixaria de ser um canto" },
+        { "rotulo": "B", "texto": "Sim, num polígono de 180 lados" },
+        { "rotulo": "C", "texto": "Sim, num polígono com muitos lados" },
+        { "rotulo": "D", "texto": "Não, porque o ângulo diminui conforme os lados aumentam" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, num polígono de 180 lados",
+          "porque": "Com 180 lados o ângulo dá 178°, e não 180 — a conta é (178 × 180) ÷ 180. Ele fica perto, mas o número de lados não é o que determina esse limite."
+        },
+        {
+          "resposta": "Sim, num polígono com muitos lados",
+          "porque": "O ângulo se aproxima de 180° quanto mais lados houver, mas nunca chega: sempre falta um pouco. Chegar exigiria o vértice virar um ponto no meio de uma reta."
+        },
+        {
+          "resposta": "Não, porque o ângulo diminui conforme os lados aumentam",
+          "porque": "É o contrário: ele AUMENTA. São 60° no triângulo, 90° no quadrado, 120° no hexágono, 150° com doze lados. A conclusão está certa, mas o motivo é o oposto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que 180° significaria",
+          "explicacao": "Um ângulo raso deixa os dois lados alinhados, formando uma reta.",
+          "conta": "180° = ângulo raso"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Sem canto naquele ponto, ele deixaria de ser vértice e a figura teria um lado a menos.",
+          "conta": "o ângulo se aproxima de 180°, mas nunca chega"
+        }
+      ]
+    }
+  ]
+}

@@ -25,7 +25,15 @@ import {
   retaInteiros, termometro, saldo, predio,
   razao, tabelaProporcional,
   sequenciaFiguras, balanca, barraIncognita, maquinaFuncao, tokensAlgebricos,
+  escadaPotencias, escalaOrdens, deslocarVirgula,
+  divisaoPeriodica, conjuntosNumericos,
+  quadradoSoma, diferencaQuadrados,
+  retanguloFatores,
+  fracaoAlgebrica,
+  poligonoTriangulado,
+  parTriangulos,
   paralelasTransversal, varetas, trianguloParalela, piDesenrolado, gradeDados,
+  areaPorRecorte, prisma, arvorePossibilidades, setores,
 } from "./desenhos.mjs";
 
 /** Colunas do quadro de ordens usadas nas licoes de decimais. */
@@ -7989,6 +7997,4346 @@ export const MANIFESTO = [
           cabecalho: ["medida", "valor"],
           linhas: [["probabilidade", "0,5"], ["saiu em 10 jogadas", "7 caras"]],
           rotulo: "isso quer dizer que a moeda é viciada?", larguraCol: 152,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Potências e notação científica (8º ano) ----------
+  //
+  // Três regras de revelação valem aqui, e são a razão de os geradores terem
+  // sido escritos com essa ressalva:
+  //
+  //  · `deslocarVirgula` com "tudo" mostra os arcos E o resultado — só na
+  //    ideia e no resolvido. Nas questões que pedem o EXPOENTE ele vai como
+  //    "numero", porque a contagem dos arcos seria a própria resposta; nas
+  //    que pedem o PRIMEIRO FATOR ele pode ir como "arcos", que não entrega;
+  //  · a `escadaPotencias` de uma questão para ANTES do degrau perguntado: o
+  //    padrão fica visível, a resposta não;
+  //  · `fatoresRepetidos` sem `resultado` nas questões, pelo mesmo motivo.
+  ...(() => {
+    return [
+      // --- lição 1: multiplicar e dividir potências ---
+      {
+        id: "nc-ideia-somar", pasta: "licoes",
+        alt: "Três potências de 10 abertas em fatores: dez ao cubo, dez ao quadrado e dez à quinta.",
+        desenho: () => fatoresRepetidos({
+          linhas: [
+            { base: 10, expoente: 3 },
+            { base: 10, expoente: 2 },
+            { base: 10, expoente: 5 },
+          ],
+          rotulo: "três fatores mais dois fatores dão cinco",
+        }),
+      },
+      {
+        id: "nc-res-somar", pasta: "licoes",
+        alt: "As potências 2 elevado a 4 e 2 elevado a 3 abertas em fatores, com os valores 16 e 8.",
+        desenho: () => fatoresRepetidos({
+          linhas: [
+            { base: 2, expoente: 4, resultado: 16 },
+            { base: 2, expoente: 3, resultado: 8 },
+          ],
+          rotulo: "quatro fatores, e mais três fatores",
+        }),
+      },
+      {
+        id: "nc-q-10a4-10a3", pasta: "questoes",
+        alt: "As potências 10 elevado a 4 e 10 elevado a 3 abertas em fatores, sem o resultado.",
+        desenho: () => fatoresRepetidos({
+          linhas: [{ base: 10, expoente: 4 }, { base: 10, expoente: 3 }],
+          rotulo: "quantos fatores ficam numa lista só?",
+        }),
+      },
+      {
+        id: "nc-q-2a5-2a2", pasta: "questoes",
+        alt: "As potências 2 elevado a 5 e 2 elevado a 2 abertas em fatores, sem o resultado.",
+        desenho: () => fatoresRepetidos({
+          linhas: [{ base: 2, expoente: 5 }, { base: 2, expoente: 2 }],
+          rotulo: "a base é a mesma nas duas",
+        }),
+      },
+      {
+        id: "nc-q-divisao", pasta: "questoes",
+        // Aberta em fatores, esta figura media 545px — 0,53 num celular de
+        // 320px. Oito fatores 10 não cabem numa linha, então ela CONTA os
+        // fatores em vez de desenhá-los, que é o que a questão pede mesmo.
+        alt: "Tabela com a quantidade de fatores 10 no numerador e no denominador.",
+        desenho: () => tabela({
+          cabecalho: ["onde", "fatores 10"],
+          linhas: [["em cima", "8"], ["embaixo", "3"]],
+          rotulo: "cada um de baixo cancela um de cima", larguraCol: 128,
+        }),
+      },
+      {
+        id: "nc-q-potencia-de-potencia", pasta: "questoes",
+        alt: "A potência 10 elevado a 3 aberta em três fatores 10, sem o resultado.",
+        desenho: () => fatoresRepetidos({
+          linhas: [{ base: 10, expoente: 3 }],
+          rotulo: "e se este grupo aparecer duas vezes?",
+        }),
+      },
+
+      // --- lição 2: expoente zero e negativo ---
+      {
+        id: "nc-ideia-escada", pasta: "licoes",
+        alt: "Escada das potências de 10, de dez à quarta até dez elevado a menos três, com o degrau do expoente zero destacado.",
+        desenho: () => escadaPotencias({ de: 4, ate: -3, destacar: [0], rotulo: "cada degrau abaixo divide por 10" }),
+      },
+      {
+        id: "nc-res-escada", pasta: "licoes",
+        alt: "Escada das potências de 10 com os degraus de expoente negativo destacados até menos três.",
+        desenho: () => escadaPotencias({ de: 1, ate: -3, destacar: [-3], rotulo: "descer três degraus abaixo do zero" }),
+      },
+      {
+        id: "nc-q-sete-zero", pasta: "questoes",
+        // a escada PARA no expoente 1: o degrau perguntado é o seguinte
+        alt: "Escada das potências de 7, de 7 ao cubo até 7 elevado a 1.",
+        desenho: () => escadaPotencias({ de: 3, ate: 1, base: 7, rotulo: "qual é o próximo degrau?" }),
+      },
+      {
+        id: "nc-q-dez-menos-dois", pasta: "questoes",
+        alt: "Escada das potências de 10, de dez ao cubo até dez elevado a zero.",
+        desenho: () => escadaPotencias({ de: 3, ate: 0, rotulo: "continue descendo dois degraus" }),
+      },
+      {
+        id: "nc-q-dois-menos-tres", pasta: "questoes",
+        alt: "Escada das potências de 2, de 2 ao cubo até 2 elevado a zero.",
+        desenho: () => escadaPotencias({ de: 3, ate: 0, base: 2, rotulo: "a mesma regra vale para a base 2" }),
+      },
+      {
+        id: "nc-q-por-que-um", pasta: "questoes",
+        alt: "Escada das potências de 5, de 5 ao cubo até 5 elevado a 1.",
+        desenho: () => escadaPotencias({ de: 3, ate: 1, base: 5, rotulo: "o que a divisão do próximo degrau dá?" }),
+      },
+
+      // --- lição 3: o que é notação científica ---
+      {
+        id: "nc-ideia-ordens", pasta: "licoes",
+        alt: "Régua de ordens de grandeza com vírus, grão de sal, pessoa, cidade e Terra em potências de 10.",
+        desenho: () => escalaOrdens({
+          itens: [
+            { expoente: -7, rotulo: "vírus" },
+            { expoente: -4, rotulo: "grão de sal" },
+            { expoente: 0, rotulo: "pessoa" },
+            { expoente: 4, rotulo: "cidade" },
+            { expoente: 7, rotulo: "Terra" },
+          ],
+          de: -8, ate: 8, unidade: "metros",
+          rotulo: "cada passo vale dez vezes mais",
+        }),
+      },
+      {
+        id: "nc-res-forma", pasta: "licoes",
+        alt: "Tabela com a forma da notação científica: primeiro fator entre 1 e 10 e potência de base 10.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "o que ela exige"],
+          linhas: [
+            ["primeiro fator", "de 1 até 10"],
+            ["potência", "base 10"],
+          ],
+          rotulo: "3,2 × 10³ cumpre as duas", larguraCol: 140,
+        }),
+      },
+      {
+        id: "nc-q-qual-forma", pasta: "questoes",
+        alt: "Tabela lembrando as duas exigências da notação científica, sem citar nenhum número da questão.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "faixa"],
+          linhas: [
+            ["primeiro fator", "1 ≤ a < 10"],
+            ["potência", "base 10"],
+          ],
+          rotulo: "confira as duas em cada alternativa", larguraCol: 132,
+        }),
+      },
+      {
+        id: "nc-q-valor-47", pasta: "questoes",
+        alt: "A escada das potências de 10 de dez à quinta até dez elevado a 1.",
+        desenho: () => escadaPotencias({ de: 5, ate: 1, destacar: [5], rotulo: "quanto vale a potência de expoente 5?" }),
+      },
+      {
+        id: "nc-q-mantissa-52000", pasta: "questoes",
+        alt: "O número 52 000 escrito em dígitos grandes, sem conversão.",
+        desenho: () => deslocarVirgula({ numero: "52000", casas: -4, revelar: "numero", rotulo: "onde a vírgula precisa parar?" }),
+      },
+      {
+        id: "nc-q-por-que-nao", pasta: "questoes",
+        alt: "Tabela com a faixa exigida para o primeiro fator da notação científica.",
+        desenho: () => tabela({
+          cabecalho: ["primeiro fator", "serve?"],
+          linhas: [
+            ["menor que 1", "não"],
+            ["de 1 até 10", "sim"],
+            ["10 ou mais", "não"],
+          ],
+          rotulo: "só uma faixa é aceita", larguraCol: 132,
+        }),
+      },
+
+      // --- lição 4: números grandes ---
+      {
+        id: "nc-ideia-grande", pasta: "licoes",
+        alt: "O número 45 000 com a vírgula andando quatro casas para a esquerda até virar 4,5 vezes dez à quarta.",
+        desenho: () => deslocarVirgula({ numero: "45000", casas: -4, rotulo: "os zeros viram expoente" }),
+      },
+      {
+        id: "nc-res-grande", pasta: "licoes",
+        alt: "O número 149 600 000 com a vírgula andando oito casas até virar 1,496 vezes dez à oitava.",
+        desenho: () => deslocarVirgula({ numero: "149600000", casas: -8, rotulo: "distância da Terra ao Sol, em km" }),
+      },
+      {
+        id: "nc-q-populacao", pasta: "questoes",
+        alt: "O número 7 500 000 000 escrito em dígitos grandes, sem conversão.",
+        desenho: () => deslocarVirgula({ numero: "7500000000", casas: -9, revelar: "numero", rotulo: "quantas casas até sobrar só o 7?" }),
+      },
+      {
+        id: "nc-q-luz", pasta: "questoes",
+        alt: "O número 300 000 escrito em dígitos grandes, sem conversão.",
+        desenho: () => deslocarVirgula({ numero: "300000", casas: -5, revelar: "numero", rotulo: "velocidade da luz, em km por segundo" }),
+      },
+      {
+        id: "nc-q-segundos-dia", pasta: "questoes",
+        // a questão pede o PRIMEIRO FATOR, então os arcos podem aparecer:
+        // eles contam as casas, e a contagem não é a resposta
+        alt: "O número 86 400 com quatro arcos marcando as casas que a vírgula percorre.",
+        desenho: () => deslocarVirgula({ numero: "86400", casas: -4, revelar: "arcos", rotulo: "onde a vírgula para?" }),
+      },
+      {
+        id: "nc-q-ajustar", pasta: "questoes",
+        alt: "Tabela comparando o primeiro fator 62 com a faixa exigida de 1 a 10.",
+        desenho: () => tabela({
+          cabecalho: ["escrita", "primeiro fator"],
+          linhas: [
+            ["62 × 10³", "62 — fora da faixa"],
+            ["forma correta", "de 1 até 10"],
+          ],
+          rotulo: "o valor está certo; a forma, não", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 5: números pequenos ---
+      {
+        id: "nc-ideia-pequeno", pasta: "licoes",
+        alt: "O número 0,0032 com a vírgula andando três casas para a direita até virar 3,2 vezes dez elevado a menos três.",
+        desenho: () => deslocarVirgula({ numero: "0,0032", casas: 3, rotulo: "andar para a direita pede expoente negativo" }),
+      },
+      {
+        id: "nc-res-pequeno", pasta: "licoes",
+        alt: "O número 0,00042 com a vírgula andando quatro casas até virar 4,2 vezes dez elevado a menos quatro.",
+        desenho: () => deslocarVirgula({ numero: "0,00042", casas: 4, rotulo: "espessura de um fio de cabelo, em metros" }),
+      },
+      {
+        id: "nc-q-um-milionesimo", pasta: "questoes",
+        alt: "O número 0,000001 escrito em dígitos grandes, sem conversão.",
+        desenho: () => deslocarVirgula({ numero: "0,000001", casas: 6, revelar: "numero", rotulo: "conte até passar o algarismo 1" }),
+      },
+      {
+        id: "nc-q-mantissa-pequena", pasta: "questoes",
+        alt: "O número 0,00035 com quatro arcos marcando as casas que a vírgula percorre.",
+        desenho: () => deslocarVirgula({ numero: "0,00035", casas: 4, revelar: "arcos", rotulo: "onde a vírgula para?" }),
+      },
+      {
+        id: "nc-q-atomo", pasta: "questoes",
+        alt: "O número 0,0000000001 escrito em dígitos grandes, sem conversão.",
+        desenho: () => deslocarVirgula({ numero: "0,0000000001", casas: 10, revelar: "numero", rotulo: "diâmetro de um átomo, em metros" }),
+      },
+      {
+        id: "nc-q-sinal-rapido", pasta: "questoes",
+        alt: "Tabela ligando a posição do número em relação a 1 e a 10 ao sinal do expoente.",
+        desenho: () => tabela({
+          cabecalho: ["o número", "expoente"],
+          linhas: [
+            ["menor que 1", "negativo"],
+            ["de 1 até 10", "zero"],
+            ["maior que 10", "positivo"],
+          ],
+          rotulo: "o sinal sai da comparação, não da conta", larguraCol: 128,
+        }),
+      },
+
+      // --- lição 6: comparar e operar ---
+      {
+        id: "nc-ideia-comparar", pasta: "licoes",
+        alt: "Régua de ordens de grandeza com três valores em potências de 10 diferentes.",
+        desenho: () => escalaOrdens({
+          itens: [
+            { expoente: 5, rotulo: "cem mil" },
+            { expoente: 7, rotulo: "dez milhões" },
+            { expoente: 9, rotulo: "um bilhão" },
+          ],
+          de: 4, ate: 10,
+          rotulo: "quem está mais à direita é maior",
+        }),
+      },
+      {
+        id: "nc-res-multiplicar", pasta: "licoes",
+        alt: "Tabela separando a multiplicação em duas partes: os primeiros fatores e as potências.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "conta"],
+          linhas: [
+            ["primeiros fatores", "2 × 3"],
+            ["potências", "10³ × 10⁴"],
+          ],
+          rotulo: "duas contas pequenas em vez de uma grande", larguraCol: 140,
+        }),
+      },
+      {
+        id: "nc-q-multiplicar", pasta: "questoes",
+        alt: "Tabela separando a multiplicação em primeiros fatores e potências, sem os resultados.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "conta"],
+          linhas: [
+            ["primeiros fatores", "2 × 4"],
+            ["potências", "10⁵ × 10³"],
+          ],
+          rotulo: "resolva cada parte separada", larguraCol: 140,
+        }),
+      },
+      {
+        id: "nc-q-comparar", pasta: "questoes",
+        // A primeira versão pendurava "3 × 10⁸ mora aqui" na régua, e quem
+        // está mais à direita é a resposta — a figura entregava a questão.
+        // Ela agora lembra o MÉTODO, sem citar os números do enunciado.
+        alt: "Tabela dizendo que o expoente decide a comparação e o primeiro fator só desempata.",
+        desenho: () => tabela({
+          cabecalho: ["o que olhar", "quando"],
+          linhas: [
+            ["o expoente", "sempre primeiro"],
+            ["o primeiro fator", "só se empatarem"],
+          ],
+          rotulo: "um degrau de expoente vale dez vezes", larguraCol: 146,
+        }),
+      },
+      {
+        id: "nc-q-quantas-vezes", pasta: "questoes",
+        alt: "Régua de ordens de grandeza com a altura de uma pessoa e o diâmetro da Terra.",
+        desenho: () => escalaOrdens({
+          itens: [
+            { expoente: 0, rotulo: "pessoa" },
+            { expoente: 7, rotulo: "Terra" },
+          ],
+          de: -1, ate: 8, unidade: "metros",
+          rotulo: "quantos degraus separam os dois?",
+        }),
+      },
+      {
+        id: "nc-q-ajuste-final", pasta: "questoes",
+        alt: "Tabela mostrando que o primeiro fator 20 está fora da faixa exigida.",
+        desenho: () => tabela({
+          cabecalho: ["escrita", "primeiro fator"],
+          linhas: [
+            ["20 × 10⁵", "20 — fora da faixa"],
+            ["forma correta", "de 1 até 10"],
+          ],
+          rotulo: "a vírgula anda e o expoente compensa", larguraCol: 150,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Dízimas e números reais (8º ano) ----------
+  //
+  // A regra de revelação desta matéria: `divisaoPeriodica` escreve a dízima
+  // com a barra sobre o período, e essa barra É a resposta de qualquer
+  // questão que pergunte o período. Nessas, ela vai com `revelar: "restos"`
+  // — a conta aparece, a conclusão não.
+  ...(() => {
+    const numeroSolto = (txt, rotulo) => deslocarVirgula({ numero: txt, casas: 0, revelar: "numero", rotulo });
+    return [
+      // --- lição 1: a divisão que não acaba ---
+      {
+        id: "re-ideia-resto-volta", pasta: "licoes",
+        alt: "Divisão de 1 por 3 com o resto 1 voltando, e a dízima resultante.",
+        desenho: () => divisaoPeriodica({ dividendo: 1, divisor: 3, rotulo: "o resto 1 volta, e a conta recomeça" }),
+      },
+      {
+        id: "re-res-um-terco", pasta: "licoes",
+        alt: "Divisão de 1 por 3 mostrando o resto que se repete e o quociente 0,3 periódico.",
+        desenho: () => divisaoPeriodica({ dividendo: 1, divisor: 3, rotulo: "o resto nunca chega a zero" }),
+      },
+      {
+        id: "re-q-restos-7", pasta: "questoes",
+        alt: "Tabela com a regra do resto: ele é sempre menor que o divisor.",
+        desenho: () => tabela({
+          cabecalho: ["divisor", "restos possíveis"],
+          linhas: [["3", "0, 1, 2"], ["5", "0, 1, 2, 3, 4"]],
+          rotulo: "o resto nunca alcança o divisor", larguraCol: 132,
+        }),
+      },
+      {
+        id: "re-q-qual-exata", pasta: "questoes",
+        alt: "Tabela ligando os fatores do denominador ao tipo de decimal que a fração produz.",
+        desenho: () => tabela({
+          cabecalho: ["denominador tem", "o decimal"],
+          linhas: [["só 2 e 5", "termina"], ["qualquer outro fator", "vira dízima"]],
+          rotulo: "2 e 5 são os fatores do dez", larguraCol: 158,
+        }),
+      },
+      {
+        id: "re-q-resto-repete", pasta: "questoes",
+        // a figura não pode mostrar os restos: o primeiro deles já é a resposta
+        alt: "Tabela descrevendo os dois passos de cada etapa da divisão decimal.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que acontece"],
+          linhas: [
+            ["baixa um zero", "o resto fica 10 vezes maior"],
+            ["divide", "sai algarismo, sobra resto"],
+          ],
+          rotulo: "acompanhe os restos, passo a passo", larguraCol: 152,
+        }),
+      },
+      {
+        id: "re-q-por-que-periodica", pasta: "questoes",
+        alt: "Tabela com as duas únicas saídas possíveis para uma divisão decimal.",
+        desenho: () => tabela({
+          cabecalho: ["o resto", "e então"],
+          linhas: [["chega a zero", "a conta acaba"], ["repete um valor", "a conta recomeça"]],
+          rotulo: "não há terceira saída", larguraCol: 140,
+        }),
+      },
+
+      // --- lição 2: o período ---
+      {
+        id: "re-ideia-periodo", pasta: "licoes",
+        alt: "Divisão de 1 por 6 mostrando o resto 4 voltando e a dízima 0,16 com barra sobre o 6.",
+        desenho: () => divisaoPeriodica({ dividendo: 1, divisor: 6, rotulo: "o 1 fica fora do período" }),
+      },
+      {
+        id: "re-res-um-sexto", pasta: "licoes",
+        alt: "Divisão de 1 por 6 com os dois passos e o resto 4 se repetindo.",
+        desenho: () => divisaoPeriodica({ dividendo: 1, divisor: 6, rotulo: "quem voltou foi o resto 4, não o 1" }),
+      },
+      {
+        id: "re-q-periodo-16", pasta: "questoes",
+        // com a barra, a figura responderia a questão
+        alt: "A dízima 0,1666666 escrita com muitas casas, sem barra de período.",
+        desenho: () => numeroSolto("0,1666666…", "o que se repete, e o que aparece uma vez só?"),
+      },
+      {
+        id: "re-q-simples-composta", pasta: "questoes",
+        alt: "Tabela distinguindo dízima simples de composta pela existência de anteperíodo.",
+        desenho: () => tabela({
+          cabecalho: ["tipo", "antes do período"],
+          linhas: [["simples", "nada"], ["composta", "há anteperíodo"]],
+          rotulo: "o tamanho do período não entra nisso", larguraCol: 146,
+        }),
+      },
+      {
+        id: "re-q-periodo-7", pasta: "questoes",
+        alt: "A dízima de dois sétimos escrita com doze casas decimais.",
+        desenho: () => numeroSolto("0,285714285714…", "onde o bloco recomeça?"),
+      },
+      {
+        id: "re-q-limite-periodo", pasta: "questoes",
+        alt: "Divisão de 1 por 7 mostrando a sequência de restos, sem o quociente.",
+        desenho: () => divisaoPeriodica({ dividendo: 1, divisor: 7, passos: 8, revelar: "restos", rotulo: "nenhum resto se repete antes de fechar o ciclo" }),
+      },
+
+      // --- lição 3: a fração geratriz ---
+      {
+        id: "re-ideia-geratriz", pasta: "licoes",
+        alt: "Subtração armada de 3,333 menos 0,333 dando 3, com as caudas se cancelando.",
+        desenho: () => contaArmada({
+          linhas: ["3,333…", "0,333…"], operador: "−", resultado: "3",
+          nota: "as caudas infinitas são iguais e somem",
+        }),
+      },
+      {
+        id: "re-res-geratriz", pasta: "licoes",
+        alt: "Subtração armada de 10x menos x, resultando num número inteiro.",
+        desenho: () => contaArmada({
+          linhas: ["3,333…", "0,333…"], operador: "−", resultado: "3",
+          nota: "10x − x = 9x, e do outro lado sobrou 3",
+        }),
+      },
+      {
+        id: "re-q-geratriz-7", pasta: "questoes",
+        // mostra a MECÂNICA com outra dízima, para não entregar esta
+        alt: "Tabela com o roteiro da fração geratriz em três passos.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "chame a dízima de x"],
+            ["2", "multiplique até alinhar"],
+            ["3", "subtraia e isole"],
+          ],
+          rotulo: "o mesmo roteiro para toda dízima simples", larguraCol: 152,
+        }),
+      },
+      {
+        id: "re-q-nove-x", pasta: "questoes",
+        alt: "Subtração armada de 5,555 menos 0,555 com o resultado em aberto.",
+        desenho: () => contaArmada({
+          linhas: ["5,555…", "0,555…"], operador: "−",
+          nota: "o que sobra quando as caudas se cancelam?",
+        }),
+      },
+      {
+        id: "re-q-geratriz-45", pasta: "questoes",
+        alt: "Tabela ligando o tamanho do período à potência de 10 que se usa.",
+        desenho: () => tabela({
+          cabecalho: ["período tem", "multiplique por"],
+          linhas: [["1 algarismo", "10"], ["2 algarismos", "100"], ["3 algarismos", "1000"]],
+          rotulo: "o suficiente para deslocar um ciclo inteiro", larguraCol: 142,
+        }),
+      },
+      {
+        id: "re-q-noventa-nove", pasta: "questoes",
+        alt: "Subtração armada de 9,999 menos 0,999 com o resultado em aberto.",
+        desenho: () => contaArmada({
+          linhas: ["9,999…", "0,999…"], operador: "−",
+          nota: "faça a conta até o fim e aceite o resultado",
+        }),
+      },
+
+      // --- lição 4: os irracionais ---
+      {
+        id: "re-ideia-conjuntos", pasta: "licoes",
+        alt: "Diagrama dos conjuntos numéricos com os irracionais numa caixa ao lado dos racionais.",
+        desenho: () => conjuntosNumericos({
+          exemplos: { naturais: "0, 1, 2", inteiros: "−5", racionais: "3/4", irracionais: "√2   π" },
+          destacar: ["irracionais"],
+          rotulo: "os irracionais ficam dentro dos reais e fora dos racionais",
+        }),
+      },
+      {
+        id: "re-res-nao-periodica", pasta: "licoes",
+        alt: "O número 0,1010010001 escrito com muitas casas, mostrando os blocos de zeros crescendo.",
+        desenho: () => numeroSolto("0,1010010001…", "o espaço entre os uns cresce sempre"),
+      },
+      {
+        id: "re-q-qual-irracional", pasta: "questoes",
+        alt: "Tabela com o roteiro de três testes para decidir se um número é racional.",
+        desenho: () => tabela({
+          cabecalho: ["se o número", "então"],
+          linhas: [
+            ["é fração de inteiros", "racional"],
+            ["é dízima periódica", "racional"],
+            ["é raiz que fecha", "racional"],
+          ],
+          rotulo: "falhando os três, é irracional", larguraCol: 148,
+        }),
+      },
+      {
+        id: "re-q-raiz-49", pasta: "questoes",
+        alt: "Tabela explicando o que a raiz quadrada procura, com dois exemplos que fecham.",
+        desenho: () => tabela({
+          cabecalho: ["raiz", "procura o número que"],
+          linhas: [
+            ["√25 = 5", "5 × 5 = 25"],
+            ["√36 = 6", "6 × 6 = 36"],
+          ],
+          rotulo: "e para o 49, qual número fecha?", larguraCol: 148,
+        }),
+      },
+      {
+        id: "re-q-por-que-irracional", pasta: "questoes",
+        alt: "Comparação entre uma dízima periódica e um decimal sem período.",
+        desenho: () => tabela({
+          cabecalho: ["número", "tem período?"],
+          linhas: [["0,010101…", "sim, o 01"], ["0,1010010001…", "?"]],
+          rotulo: "os dois usam só zeros e uns", larguraCol: 152,
+        }),
+      },
+      {
+        id: "re-q-quando-racional", pasta: "questoes",
+        alt: "Tabela com raízes que fecham em inteiro e raízes que não fecham.",
+        desenho: () => tabela({
+          cabecalho: ["raiz", "resultado"],
+          linhas: [["√16", "4"], ["√25", "5"], ["√2", "1,41421…"]],
+          rotulo: "duas fecham, uma não", larguraCol: 122,
+        }),
+      },
+
+      // --- lição 5: a reta real ---
+      {
+        id: "re-ideia-reta", pasta: "licoes",
+        alt: "Reta numérica de menos dois a cinco com a raiz de dois marcada entre 1 e 2.",
+        desenho: () => retaInteiros({
+          de: -2, ate: 5,
+          marcados: [{ em: 1.41, rotulo: "√2" }, { em: 3.14, rotulo: "π" }],
+          rotulo: "eles têm ponto na reta, e não têm fração",
+        }),
+      },
+      {
+        id: "re-res-raiz-10", pasta: "licoes",
+        alt: "Reta numérica de 0 a 6 com a raiz de dez marcada entre 3 e 4.",
+        desenho: () => retaInteiros({
+          de: 0, ate: 6,
+          marcados: [{ em: 3.162, rotulo: "√10" }],
+          rotulo: "espremida entre 3 e 4, porque 9 < 10 < 16",
+        }),
+      },
+      {
+        id: "re-q-raiz-10-inteiro", pasta: "questoes",
+        // a reta com √10 marcada entregaria a resposta
+        alt: "Exemplo resolvido de como espremer uma raiz entre dois quadrados perfeitos.",
+        desenho: () => tabela({
+          cabecalho: ["exemplo", "conclusão"],
+          linhas: [["25 < 30 < 36", "5 < √30 < 6"]],
+          rotulo: "esprema entre os quadrados vizinhos", larguraCol: 150,
+        }),
+      },
+      {
+        id: "re-q-raiz-50", pasta: "questoes",
+        alt: "Exemplo resolvido de como espremer uma raiz entre dois quadrados perfeitos.",
+        desenho: () => tabela({
+          cabecalho: ["exemplo", "conclusão"],
+          linhas: [["16 < 20 < 25", "4 < √20 < 5"]],
+          rotulo: "o mesmo caminho serve para qualquer raiz", larguraCol: 150,
+        }),
+      },
+      {
+        id: "re-q-sem-buracos", pasta: "questoes",
+        alt: "Reta numérica de menos dois a quatro, sem nenhum ponto marcado.",
+        desenho: () => retaInteiros({ de: -2, ate: 4, rotulo: "o que existe entre dois inteiros?" }),
+      },
+      {
+        id: "re-q-aproximado", pasta: "questoes",
+        alt: "Tabela comparando o quadrado de 3,16 com o número 10.",
+        desenho: () => tabela({
+          cabecalho: ["conta", "resultado"],
+          linhas: [["3,16 × 3,16", "9,9856"], ["queríamos", "10"]],
+          rotulo: "falta um pouco, e sempre vai faltar", larguraCol: 132,
+        }),
+      },
+
+      // --- lição 6: classificar ---
+      {
+        id: "re-ideia-mapa", pasta: "licoes",
+        alt: "Diagrama dos conjuntos numéricos com exemplos em cada um.",
+        desenho: () => conjuntosNumericos({
+          exemplos: { naturais: "0, 1, 7", inteiros: "−3", racionais: "2/5  0,3", irracionais: "√2   π" },
+          rotulo: "cada conjunto contém o anterior",
+        }),
+      },
+      {
+        id: "re-res-classificar", pasta: "licoes",
+        alt: "Diagrama dos conjuntos com os naturais destacados.",
+        desenho: () => conjuntosNumericos({
+          exemplos: { naturais: "6", inteiros: "", racionais: "", irracionais: "√2" },
+          destacar: ["naturais"],
+          rotulo: "sendo natural, ele é também inteiro, racional e real",
+        }),
+      },
+      {
+        id: "re-q-menos-sete", pasta: "questoes",
+        alt: "Diagrama dos conjuntos numéricos sem exemplos, para classificar.",
+        desenho: () => conjuntosNumericos({
+          exemplos: { naturais: "só de contar", inteiros: "com negativos" },
+          rotulo: "de qual caixa o −7 já faz parte?",
+        }),
+      },
+      {
+        id: "re-q-nao-racional", pasta: "questoes",
+        alt: "Tabela com o roteiro de três testes para reconhecer um número racional.",
+        desenho: () => tabela({
+          cabecalho: ["teste", "pergunta"],
+          linhas: [
+            ["fração", "é razão de inteiros?"],
+            ["decimal", "termina ou tem período?"],
+            ["raiz", "fecha em inteiro?"],
+          ],
+          rotulo: "um \"sim\" basta para ser racional", larguraCol: 152,
+        }),
+      },
+      {
+        id: "re-q-simplificar-geratriz", pasta: "questoes",
+        alt: "Tabela com o roteiro para simplificar uma fração em dois passos.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "ache o divisor comum"],
+            ["2", "divida os dois por ele"],
+          ],
+          rotulo: "simplificar não muda o valor da fração", larguraCol: 146,
+        }),
+      },
+      {
+        id: "re-q-afirmacao-errada", pasta: "questoes",
+        alt: "Tabela com dois números de infinitas casas, um racional e outro irracional.",
+        desenho: () => tabela({
+          cabecalho: ["número", "casas decimais"],
+          linhas: [["0,333…", "infinitas"], ["√2 = 1,41421…", "infinitas"]],
+          rotulo: "os dois têm infinitas casas — e um deles é fração", larguraCol: 148,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Produtos notáveis (8º ano) ----------
+  //
+  // O `quadradoSoma` rotula cada região com a área dela, e numa questão que
+  // PERGUNTA o que são os retângulos do meio isso é a resposta desenhada —
+  // lá ele vai com `revelar: "vazio"`.
+  ...(() => {
+    return [
+      // --- lição 1: multiplicar dois binômios ---
+      {
+        id: "pn-ideia-quatro", pasta: "licoes",
+        alt: "Quadrado dividido em quatro regiões, mostrando os quatro produtos de uma multiplicação de binômios.",
+        desenho: () => quadradoSoma({ a: 4, b: 2, rotulo: "cada parcela encontra cada parcela" }),
+      },
+      {
+        id: "pn-res-quatro", pasta: "licoes",
+        alt: "Tabela com os quatro produtos de (x + 2) por (x + 3) e o resultado de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["produto", "resultado"],
+          linhas: [["x · x", "x²"], ["x · 3", "3x"], ["2 · x", "2x"], ["2 · 3", "6"]],
+          rotulo: "os dois do meio são semelhantes e se juntam", larguraCol: 132,
+        }),
+      },
+      {
+        id: "pn-q-coef-meio", pasta: "questoes",
+        alt: "Tabela mostrando de onde vem cada termo do resultado de uma multiplicação de binômios.",
+        desenho: () => tabela({
+          cabecalho: ["termo", "vem de"],
+          linhas: [
+            ["o de x²", "produto dos primeiros"],
+            ["o do meio", "soma dos cruzados"],
+            ["o solto", "produto dos últimos"],
+          ],
+          rotulo: "três termos, quatro produtos", larguraCol: 152,
+        }),
+      },
+      {
+        id: "pn-q-termo-solto", pasta: "questoes",
+        alt: "Quadrado dividido em quatro regiões sem rótulos de área.",
+        desenho: () => quadradoSoma({ a: 4, b: 2, revelar: "vazio", rotulo: "qual pedaço não tem letra nenhuma?" }),
+      },
+      {
+        id: "pn-q-quantos-produtos", pasta: "questoes",
+        alt: "Quadrado dividido em quatro regiões vazias, para contar os pedaços.",
+        desenho: () => quadradoSoma({ a: 3, b: 2, revelar: "vazio", rotulo: "conte os pedaços do desenho" }),
+      },
+      {
+        id: "pn-q-mesmo-parentese", pasta: "questoes",
+        alt: "Tabela comparando parênteses diferentes com parênteses iguais.",
+        desenho: () => tabela({
+          cabecalho: ["parênteses", "os cruzados"],
+          linhas: [["diferentes", "são diferentes"], ["iguais", "são iguais"]],
+          rotulo: "o que acontece quando os dois são o mesmo?", larguraCol: 140,
+        }),
+      },
+
+      // --- lição 2: o quadrado da soma ---
+      {
+        id: "pn-ideia-quadrado-soma", pasta: "licoes",
+        alt: "Quadrado de lado a mais b dividido em a ao quadrado, dois retângulos ab e b ao quadrado.",
+        desenho: () => quadradoSoma({ a: 4, b: 2, rotulo: "os dois retângulos ab são o termo do meio" }),
+      },
+      {
+        id: "pn-res-quadrado-soma", pasta: "licoes",
+        alt: "Quadrado de lado x mais 3 dividido nas quatro regiões, com as áreas nomeadas.",
+        desenho: () => quadradoSoma({ a: 4, b: 1.6, nomes: ["x", "3"], rotulo: "x² em cima, dois retângulos 3x, e 9 no canto" }),
+      },
+      {
+        id: "pn-q-soma-5", pasta: "questoes",
+        alt: "Quadrado dividido em quatro regiões, com os dois retângulos do meio destacados sem rótulo.",
+        desenho: () => quadradoSoma({ a: 4, b: 2, revelar: "vazio", rotulo: "quantos retângulos há no meio?" }),
+      },
+      {
+        id: "pn-q-area-53", pasta: "questoes",
+        alt: "Quadrado de lado 5 mais 3 com a área de cada um dos quatro pedaços.",
+        desenho: () => quadradoSoma({ a: 5, b: 3, revelar: "numeros", rotulo: "some os quatro pedaços" }),
+      },
+      {
+        id: "pn-q-dois-x", pasta: "questoes",
+        alt: "Tabela mostrando que o coeficiente vai junto ao elevar um termo ao quadrado.",
+        desenho: () => tabela({
+          cabecalho: ["termo", "ao quadrado"],
+          linhas: [["3y", "9y²"], ["5m", "25m²"]],
+          rotulo: "o coeficiente é elevado junto com a letra", larguraCol: 130,
+        }),
+      },
+      {
+        id: "pn-q-o-que-sao", pasta: "questoes",
+        // com as áreas escritas, a figura responderia a questão
+        alt: "Quadrado de lado a mais b dividido em quatro regiões, sem os rótulos de área.",
+        desenho: () => quadradoSoma({ a: 4, b: 2, revelar: "vazio", rotulo: "meça os lados de cada pedaço" }),
+      },
+
+      // --- lição 3: o quadrado da diferença ---
+      {
+        id: "pn-ideia-quadrado-dif", pasta: "licoes",
+        alt: "Tabela comparando o quadrado da soma com o quadrado da diferença, termo a termo.",
+        desenho: () => tabela({
+          cabecalho: ["", "os três termos"],
+          linhas: [
+            ["(a + b)²", "a² + 2ab + b²"],
+            ["(a − b)²", "a² − 2ab + b²"],
+          ],
+          rotulo: "só o sinal do meio muda", larguraCol: 138,
+        }),
+      },
+      {
+        id: "pn-res-quadrado-dif", pasta: "licoes",
+        alt: "Tabela com os três termos de (x − 4) ao quadrado e a origem de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["termo", "de onde vem"],
+          linhas: [
+            ["x²", "x · x"],
+            ["−8x", "2 · x · (−4)"],
+            ["+16", "(−4) · (−4)"],
+          ],
+          rotulo: "menos com menos dá mais no último", larguraCol: 138,
+        }),
+      },
+      {
+        id: "pn-q-dif-6", pasta: "questoes",
+        alt: "Tabela com a regra dos sinais para o produto de dois números negativos.",
+        desenho: () => tabela({
+          cabecalho: ["produto", "sinal"],
+          linhas: [["(+) · (−)", "negativo"], ["(−) · (−)", "positivo"]],
+          rotulo: "de onde vem o último termo?", larguraCol: 126,
+        }),
+      },
+      {
+        id: "pn-q-dif-3", pasta: "questoes",
+        alt: "Tabela lembrando que o termo do meio é o dobro do produto dos dois termos.",
+        desenho: () => tabela({
+          cabecalho: ["termo do meio", "é"],
+          linhas: [["no quadrado", "2 × primeiro × segundo"]],
+          rotulo: "e o segundo termo carrega o sinal", larguraCol: 158,
+        }),
+      },
+      {
+        id: "pn-q-conferir-numero", pasta: "questoes",
+        alt: "Tabela com os três termos da fórmula do quadrado da diferença, sem os valores.",
+        desenho: () => tabela({
+          cabecalho: ["termo", "com a = 5 e b = 2"],
+          linhas: [["a²", "25"], ["−2ab", "−20"], ["+b²", "?"]],
+          rotulo: "some os três", larguraCol: 140,
+        }),
+      },
+      {
+        id: "pn-q-por-que-positivo", pasta: "questoes",
+        alt: "Tabela com a regra dos sinais aplicada a um número negativo elevado ao quadrado.",
+        desenho: () => tabela({
+          cabecalho: ["conta", "resultado"],
+          linhas: [["(−3) · (−3)", "+9"], ["(−5) · (−5)", "+25"]],
+          rotulo: "todo quadrado é positivo", larguraCol: 128,
+        }),
+      },
+
+      // --- lição 4: a soma pela diferença ---
+      {
+        id: "pn-ideia-soma-dif", pasta: "licoes",
+        alt: "Quadrado com um canto recortado, rearranjado num retângulo de lados a mais b e a menos b.",
+        desenho: () => diferencaQuadrados({ a: 5, b: 2, rotulo: "o L recortado vira retângulo" }),
+      },
+      {
+        id: "pn-res-soma-dif", pasta: "licoes",
+        alt: "Tabela com os quatro produtos de (x + 5) por (x − 5) e o cancelamento do meio.",
+        desenho: () => tabela({
+          cabecalho: ["produto", "resultado"],
+          linhas: [["x · x", "x²"], ["x · (−5)", "−5x"], ["5 · x", "+5x"], ["5 · (−5)", "−25"]],
+          rotulo: "os dois do meio somam zero", larguraCol: 132,
+        }),
+      },
+      {
+        id: "pn-q-soma-dif-8", pasta: "questoes",
+        alt: "Tabela mostrando o sinal do produto de um número positivo por um negativo.",
+        desenho: () => tabela({
+          cabecalho: ["conta", "sinal do resultado"],
+          linhas: [["(+) · (−)", "negativo"]],
+          rotulo: "o último termo vem de mais vezes menos", larguraCol: 148,
+        }),
+      },
+      {
+        id: "pn-q-102-98", pasta: "questoes",
+        alt: "Reta numérica mostrando 98 e 102 à mesma distância de 100.",
+        desenho: () => retaInteiros({
+          de: 96, ate: 104, rotuloCada: 2,
+          marcados: [{ em: 98, rotulo: "98" }, { em: 100, rotulo: "100" }, { em: 102, rotulo: "102" }],
+          rotulo: "os dois estão à mesma distância do redondo",
+        }),
+      },
+      {
+        id: "pn-q-qual-da", pasta: "questoes",
+        alt: "Tabela com as três formas de produto notável e a quantidade de termos de cada uma.",
+        desenho: () => tabela({
+          cabecalho: ["forma", "quantos termos"],
+          linhas: [
+            ["(a + b)²", "três"],
+            ["(a − b)²", "três"],
+            ["(a + b)(a − b)", "dois"],
+          ],
+          rotulo: "só uma delas dá dois termos", larguraCol: 144,
+        }),
+      },
+      {
+        id: "pn-q-por-que-some", pasta: "questoes",
+        alt: "Tabela comparando os sinais dos dois produtos cruzados em cada caso.",
+        desenho: () => tabela({
+          cabecalho: ["os cruzados", "somados"],
+          linhas: [["+ab e +ab", "2ab"], ["+ab e −ab", "zero"]],
+          rotulo: "quem decide é o sinal", larguraCol: 130,
+        }),
+      },
+
+      // --- lição 5: o erro clássico ---
+      {
+        id: "pn-ideia-erro", pasta: "licoes",
+        alt: "Quadrado de lado a mais b com as quatro regiões nomeadas, mostrando o que a expressão errada deixa de fora.",
+        desenho: () => quadradoSoma({ a: 4, b: 3, rotulo: "a² e b² sozinhos deixariam dois buracos" }),
+      },
+      {
+        id: "pn-res-erro", pasta: "licoes",
+        alt: "Quadrado de lado 3 mais 4 com a área de cada um dos quatro pedaços.",
+        desenho: () => quadradoSoma({ a: 3, b: 4, revelar: "numeros", rotulo: "os dois retângulos somam 24, que é a diferença" }),
+      },
+      {
+        id: "pn-q-testar-25", pasta: "questoes",
+        alt: "Tabela lembrando a ordem das operações num quadrado de soma.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [["1", "resolver o parêntese"], ["2", "elevar ao quadrado"]],
+          rotulo: "a soma vem primeiro", larguraCol: 138,
+        }),
+      },
+      {
+        id: "pn-q-diferenca-vale", pasta: "questoes",
+        alt: "Quadrado de lado 2 mais 5 dividido em quatro regiões, sem os valores.",
+        desenho: () => quadradoSoma({ a: 2, b: 5, revelar: "vazio", rotulo: "quais pedaços a expressão errada esquece?" }),
+      },
+      {
+        id: "pn-q-quando-pode", pasta: "questoes",
+        alt: "Tabela comparando o que há dentro do parêntese em dois casos.",
+        desenho: () => tabela({
+          cabecalho: ["dentro do parêntese", "operação"],
+          linhas: [["(ab)²", "multiplicação"], ["(a + b)²", "soma"]],
+          rotulo: "só uma das duas se reorganiza livremente", larguraCol: 150,
+        }),
+      },
+      {
+        id: "pn-q-o-que-falta", pasta: "questoes",
+        alt: "Quadrado de lado a mais b com as quatro áreas nomeadas.",
+        desenho: () => quadradoSoma({ a: 4, b: 2, rotulo: "quais destes a expressão a² + b² inclui?" }),
+      },
+
+      // --- lição 6: contas de cabeça ---
+      {
+        id: "pn-ideia-mental", pasta: "licoes",
+        alt: "Tabela com três contas difíceis reescritas em torno de números redondos.",
+        desenho: () => tabela({
+          cabecalho: ["conta", "reescrita"],
+          linhas: [
+            ["21²", "(20 + 1)²"],
+            ["19²", "(20 − 1)²"],
+            ["51 × 49", "(50 + 1)(50 − 1)"],
+          ],
+          rotulo: "sempre em torno de um número redondo", larguraCol: 146,
+        }),
+      },
+      {
+        id: "pn-res-mental", pasta: "licoes",
+        alt: "Tabela com os quatro pedaços do quadrado de lado 20 mais 1 e a área de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["pedaço", "área"],
+          linhas: [
+            ["o quadrado de 20", "400"],
+            ["cada retângulo", "20"],
+            ["o quadradinho", "1"],
+          ],
+          rotulo: "400 + 20 + 20 + 1 = 441", larguraCol: 138,
+        }),
+      },
+      {
+        id: "pn-q-19", pasta: "questoes",
+        alt: "Tabela com os três termos do quadrado da diferença e os sinais de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["termo", "sinal"],
+          linhas: [["quadrado do 1º", "+"], ["dobro do produto", "−"], ["quadrado do 2º", "+"]],
+          rotulo: "o do meio subtrai; o último, não", larguraCol: 142,
+        }),
+      },
+      {
+        id: "pn-q-51-49", pasta: "questoes",
+        alt: "Reta numérica mostrando 49 e 51 à mesma distância de 50.",
+        desenho: () => retaInteiros({
+          de: 47, ate: 53,
+          marcados: [{ em: 49, rotulo: "49" }, { em: 51, rotulo: "51" }],
+          rotulo: "a que distância os dois estão do 50?",
+        }),
+      },
+      {
+        id: "pn-q-101", pasta: "questoes",
+        alt: "Tabela com os três termos do quadrado da soma aplicados a um número perto de cem.",
+        desenho: () => tabela({
+          cabecalho: ["termo", "com 100 e 1"],
+          linhas: [["quadrado do 1º", "10 000"], ["dobro do produto", "?"], ["quadrado do 2º", "1"]],
+          rotulo: "o do meio é o dobro do produto", larguraCol: 140,
+        }),
+      },
+      {
+        id: "pn-q-aumentar-lado", pasta: "questoes",
+        alt: "Quadrado de lado x mais 3 dividido em quatro regiões, sem rótulos de área.",
+        desenho: () => quadradoSoma({ a: 5, b: 1.6, nomes: ["x", "3"], revelar: "vazio", rotulo: "quais pedaços são novos?" }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Fatoração (8º ano) ----------
+  //
+  // O `retanguloFatores` mostra o fator comum como ALTURA do retângulo. Numa
+  // questão que PEDE esse fator, ele vai com `revelar: "areas"` — a altura
+  // fica com "?" e o aluno a descobre.
+  ...(() => {
+    return [
+      // --- lição 1: o fator comum ---
+      {
+        id: "ft-ideia-fator-comum", pasta: "licoes",
+        alt: "Retângulo repartido em duas faixas de áreas 6x e 9, com altura comum 3.",
+        desenho: () => retanguloFatores({
+          altura: "3",
+          partes: [{ largura: "2x", area: "6x" }, { largura: "3", area: "9" }],
+          pesos: [2, 1.5],
+          rotulo: "o 3 é o lado que as duas faixas dividem",
+        }),
+      },
+      {
+        id: "ft-res-fator-comum", pasta: "licoes",
+        alt: "Retângulo de altura 3 repartido em faixas de área 6x e 9, com as larguras 2x e 3.",
+        desenho: () => retanguloFatores({
+          altura: "3",
+          partes: [{ largura: "2x", area: "6x" }, { largura: "3", area: "9" }],
+          pesos: [2, 1.5],
+          rotulo: "área = altura × largura = 3(2x + 3)",
+        }),
+      },
+      {
+        id: "ft-q-comum-12-18", pasta: "questoes",
+        alt: "Tabela com o critério do fator comum: ele precisa dividir as duas parcelas.",
+        desenho: () => tabela({
+          cabecalho: ["candidato", "serve se"],
+          linhas: [
+            ["divide as duas", "sim"],
+            ["divide só uma", "não"],
+          ],
+          rotulo: "e entre os que servem, vale o maior", larguraCol: 138,
+        }),
+      },
+      {
+        id: "ft-q-com-letra", pasta: "questoes",
+        alt: "Tabela com as duas parcelas abertas em fatores, mostrando o que se repete.",
+        desenho: () => tabela({
+          cabecalho: ["parcela", "aberta em fatores"],
+          linhas: [["5x²", "5 × x × x"], ["10x", "5 × 2 × x"]],
+          rotulo: "o que aparece nas duas?", larguraCol: 148,
+        }),
+      },
+      {
+        id: "ft-q-qual-saiu", pasta: "questoes",
+        alt: "Retângulo repartido em faixas de área 8x e 12, com a altura em aberto.",
+        desenho: () => retanguloFatores({
+          altura: "?",
+          partes: [{ largura: "2x", area: "8x" }, { largura: "3", area: "12" }],
+          pesos: [2, 1.5], revelar: "areas",
+          rotulo: "qual altura devolve estas duas áreas?",
+        }),
+      },
+      {
+        id: "ft-q-por-que-sai", pasta: "questoes",
+        alt: "Retângulo repartido em faixas, sem rótulos, mostrando a altura comum.",
+        desenho: () => retanguloFatores({
+          altura: "a",
+          partes: [{ largura: "b", area: "ab" }, { largura: "c", area: "ac" }],
+          pesos: [1.6, 1.2],
+          rotulo: "área do retângulo inteiro = a(b + c)",
+        }),
+      },
+
+      // --- lição 2: agrupamento ---
+      {
+        id: "ft-ideia-agrupamento", pasta: "licoes",
+        alt: "Tabela com os dois grupos de uma expressão de quatro parcelas e o fator comum de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["grupo", "fatorado"],
+          linhas: [["xy + 2x", "x(y + 2)"], ["3y + 6", "3(y + 2)"]],
+          rotulo: "os dois parênteses saíram iguais", larguraCol: 138,
+        }),
+      },
+      {
+        id: "ft-res-agrupamento", pasta: "licoes",
+        alt: "Tabela com os três passos do agrupamento, do grupo à fatoração final.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "expressão"],
+          linhas: [
+            ["1", "(xy + 2x) + (3y + 6)"],
+            ["2", "x(y + 2) + 3(y + 2)"],
+            ["3", "(y + 2)(x + 3)"],
+          ],
+          rotulo: "duas evidências encadeadas", larguraCol: 156,
+        }),
+      },
+      {
+        id: "ft-q-parenteses-iguais", pasta: "questoes",
+        alt: "Tabela com dois grupos e o fator comum de cada um, sem mostrar o parêntese resultante.",
+        desenho: () => tabela({
+          cabecalho: ["grupo", "fator comum dele"],
+          linhas: [["ax + ay", "a"], ["bx + by", "b"]],
+          rotulo: "o que sobra dentro de cada um?", larguraCol: 146,
+        }),
+      },
+      {
+        id: "ft-q-completar", pasta: "questoes",
+        alt: "Tabela explicando de onde sai cada parêntese da fatoração por agrupamento.",
+        desenho: () => tabela({
+          cabecalho: ["parêntese", "de onde sai"],
+          linhas: [
+            ["o primeiro", "o que se repete nos grupos"],
+            ["o segundo", "os fatores da frente"],
+          ],
+          rotulo: "fature os dois grupos e veja o que sobra", larguraCol: 158,
+        }),
+      },
+      {
+        id: "ft-q-quantas-parcelas", pasta: "questoes",
+        alt: "Tabela mostrando que o agrupamento forma dois grupos de duas parcelas.",
+        desenho: () => tabela({
+          cabecalho: ["o método", "quantidade"],
+          linhas: [["grupos formados", "2"], ["parcelas por grupo", "2"]],
+          rotulo: "quantas parcelas ao todo?", larguraCol: 152,
+        }),
+      },
+      {
+        id: "ft-q-sinal-certo", pasta: "questoes",
+        alt: "Tabela comparando um agrupamento que fecha com outro que não fecha.",
+        desenho: () => tabela({
+          cabecalho: ["depois de fatorar", "dá para seguir?"],
+          linhas: [["x(y+2) + 3(y+2)", "sim"], ["x(y+2) + 3(y+5)", "não"]],
+          rotulo: "o que muda de um para o outro?", larguraCol: 152,
+        }),
+      },
+
+      // --- lição 3: diferença de quadrados ---
+      {
+        id: "ft-ideia-dif-quadrados", pasta: "licoes",
+        alt: "Quadrado com um canto recortado, rearranjado num retângulo de lados a mais b e a menos b.",
+        desenho: () => diferencaQuadrados({ a: 5, b: 2, rotulo: "a² − b² é o mesmo que (a+b)(a−b)" }),
+      },
+      {
+        id: "ft-res-dif-quadrados", pasta: "licoes",
+        alt: "Tabela com as três condições da diferença de quadrados e a conferência de cada uma.",
+        desenho: () => tabela({
+          cabecalho: ["condição", "em x² − 25"],
+          linhas: [["dois termos", "sim"], ["ambos quadrados", "sim"], ["sinal de menos", "sim"]],
+          rotulo: "as três valem: o caso é este", larguraCol: 140,
+        }),
+      },
+      {
+        id: "ft-q-dif-49", pasta: "questoes",
+        alt: "Tabela com as raízes dos dois quadrados de uma diferença.",
+        desenho: () => tabela({
+          cabecalho: ["quadrado", "raiz"],
+          linhas: [["x²", "x"], ["49", "?"]],
+          rotulo: "os sinais dos parênteses são contrários", larguraCol: 124,
+        }),
+      },
+      {
+        id: "ft-q-coef-raiz", pasta: "questoes",
+        alt: "Tabela mostrando que o coeficiente entra na raiz junto com a letra.",
+        desenho: () => tabela({
+          cabecalho: ["quadrado", "raiz"],
+          linhas: [["9x²", "3x"], ["25x²", "5x"]],
+          rotulo: "o coeficiente também tem raiz", larguraCol: 124,
+        }),
+      },
+      {
+        id: "ft-q-nao-fatora", pasta: "questoes",
+        alt: "Tabela com as três condições da diferença de quadrados.",
+        desenho: () => tabela({
+          cabecalho: ["condição", "exigida"],
+          linhas: [["termos", "exatamente 2"], ["tipo", "ambos quadrados"], ["sinal", "menos"]],
+          rotulo: "confira as três em cada alternativa", larguraCol: 144,
+        }),
+      },
+      {
+        id: "ft-q-condicoes", pasta: "questoes",
+        alt: "Tabela com exemplos que falham em cada uma das condições.",
+        desenho: () => tabela({
+          cabecalho: ["expressão", "o que falha"],
+          linhas: [["x² + 16", "o sinal"], ["2x − 9", "o tipo dos termos"]],
+          rotulo: "cada uma tropeça numa exigência diferente", larguraCol: 152,
+        }),
+      },
+
+      // --- lição 4: trinômio quadrado perfeito ---
+      {
+        id: "ft-ideia-trinomio", pasta: "licoes",
+        alt: "Quadrado de lado x mais 3 dividido nas quatro regiões, com as áreas nomeadas.",
+        desenho: () => quadradoSoma({ a: 4, b: 1.6, nomes: ["x", "3"], rotulo: "os três termos vêm destes quatro pedaços" }),
+      },
+      {
+        id: "ft-res-trinomio", pasta: "licoes",
+        alt: "Tabela com o roteiro de três passos do trinômio quadrado perfeito.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "raízes das pontas"],
+            ["2", "dobro do produto"],
+            ["3", "comparar com o meio"],
+          ],
+          rotulo: "o passo 3 é o que não se pula", larguraCol: 146,
+        }),
+      },
+      {
+        id: "ft-q-trinomio-16", pasta: "questoes",
+        alt: "Tabela com quadrados perfeitos e suas raízes.",
+        desenho: () => tabela({
+          cabecalho: ["número", "raiz"],
+          linhas: [["9", "3"], ["16", "?"], ["25", "5"]],
+          rotulo: "e o dobro do produto tem de bater com o meio", larguraCol: 118,
+        }),
+      },
+      {
+        id: "ft-q-trinomio-sinal", pasta: "questoes",
+        alt: "Tabela ligando o sinal do termo do meio ao tipo de quadrado.",
+        desenho: () => tabela({
+          cabecalho: ["meio", "quadrado da"],
+          linhas: [["positivo", "soma"], ["negativo", "diferença"]],
+          rotulo: "o último termo é positivo nos dois", larguraCol: 130,
+        }),
+      },
+      {
+        id: "ft-q-nao-e-trinomio", pasta: "questoes",
+        alt: "Tabela com a conferência do termo do meio de um trinômio.",
+        desenho: () => tabela({
+          cabecalho: ["conferência", "valor"],
+          linhas: [["raízes das pontas", "x e 3"], ["dobro do produto", "?"]],
+          rotulo: "compare com o termo do meio da expressão", larguraCol: 148,
+        }),
+      },
+      {
+        id: "ft-q-ultimo-termo", pasta: "questoes",
+        alt: "Tabela com dois quadrados desenvolvidos, mostrando o sinal do último termo.",
+        desenho: () => tabela({
+          cabecalho: ["quadrado", "desenvolvido"],
+          linhas: [["(x + 5)²", "x² + 10x + 25"], ["(x − 5)²", "x² − 10x + 25"]],
+          rotulo: "compare o último termo dos dois", larguraCol: 152,
+        }),
+      },
+
+      // --- lição 5: escolher o caminho ---
+      {
+        id: "ft-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com o roteiro de decisão: fator comum primeiro, depois a contagem de termos.",
+        desenho: () => tabela({
+          cabecalho: ["termos", "candidato"],
+          linhas: [
+            ["2", "diferença de quadrados"],
+            ["3", "trinômio quadrado"],
+            ["4", "agrupamento"],
+          ],
+          rotulo: "mas o fator comum vem antes de tudo", larguraCol: 156,
+        }),
+      },
+      {
+        id: "ft-res-roteiro", pasta: "licoes",
+        alt: "Tabela com os dois passos da fatoração completa de uma expressão com fator comum.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "expressão"],
+          linhas: [
+            ["fator comum", "2(x² − 25)"],
+            ["dentro do parêntese", "(x + 5)(x − 5)"],
+          ],
+          rotulo: "sem tirar o 2, o caso não apareceria", larguraCol: 152,
+        }),
+      },
+      {
+        id: "ft-q-primeira-pergunta", pasta: "questoes",
+        alt: "Tabela mostrando uma expressão antes e depois de tirar o fator comum.",
+        desenho: () => tabela({
+          cabecalho: ["expressão", "as pontas são quadrados?"],
+          linhas: [["2x² − 50", "não"], ["depois de fatorar", "sim"]],
+          rotulo: "uma verificação muda a outra", larguraCol: 150,
+        }),
+      },
+      {
+        id: "ft-q-tres-termos", pasta: "questoes",
+        alt: "Tabela ligando cada quantidade de termos ao caso candidato.",
+        desenho: () => tabela({
+          cabecalho: ["termos", "quantos o caso pede"],
+          linhas: [
+            ["diferença de quadrados", "2"],
+            ["agrupamento", "4"],
+          ],
+          rotulo: "e com três termos, qual sobra?", larguraCol: 158,
+        }),
+      },
+      {
+        id: "ft-q-quantos-fatores", pasta: "questoes",
+        alt: "Tabela com o critério para saber quando a fatoração terminou.",
+        desenho: () => tabela({
+          cabecalho: ["o parêntese", "então"],
+          linhas: [
+            ["ainda abre", "continue"],
+            ["não abre mais", "terminou"],
+          ],
+          rotulo: "fatorar por completo é ir até nenhum abrir", larguraCol: 138,
+        }),
+      },
+      {
+        id: "ft-q-so-candidato", pasta: "questoes",
+        alt: "Tabela com duas expressões que têm a contagem certa de termos e não fatoram.",
+        desenho: () => tabela({
+          cabecalho: ["expressão", "termos"],
+          linhas: [["x² + 25", "2"], ["x² + 7x + 9", "3"]],
+          rotulo: "as duas têm a contagem certa — e nenhuma fatora", larguraCol: 140,
+        }),
+      },
+
+      // --- lição 6: para que serve ---
+      {
+        id: "ft-ideia-simplificar", pasta: "licoes",
+        alt: "Tabela comparando o que se pode cancelar numa soma e num produto.",
+        desenho: () => tabela({
+          cabecalho: ["forma", "dá para cancelar?"],
+          linhas: [["soma de parcelas", "não"], ["produto de fatores", "sim"]],
+          rotulo: "fatorar transforma uma na outra", larguraCol: 152,
+        }),
+      },
+      {
+        id: "ft-res-simplificar", pasta: "licoes",
+        alt: "Tabela com a fração antes e depois de fatorar o numerador.",
+        desenho: () => tabela({
+          cabecalho: ["forma", "numerador"],
+          linhas: [["como veio", "x² − 9"], ["fatorada", "(x+3)(x−3)"]],
+          rotulo: "só a segunda permite cortar o (x+3)", larguraCol: 146,
+        }),
+      },
+      {
+        id: "ft-q-simplificar-16", pasta: "questoes",
+        alt: "Tabela lembrando a regra do cancelamento em frações.",
+        desenho: () => tabela({
+          cabecalho: ["o que se corta", "o que não"],
+          linhas: [["fator da fração inteira", "parcela de uma soma"]],
+          rotulo: "fatore o numerador antes de cortar", larguraCol: 158,
+        }),
+      },
+      {
+        id: "ft-q-nao-corta", pasta: "questoes",
+        alt: "Tabela mostrando uma fração cujo numerador é soma, sem fator comum ao denominador.",
+        desenho: () => tabela({
+          cabecalho: ["numerador", "é produto?"],
+          linhas: [["x + 3", "não, é soma"]],
+          rotulo: "substitua x = 3 e faça a conta como está", larguraCol: 142,
+        }),
+      },
+      {
+        id: "ft-q-simplificar-comum", pasta: "questoes",
+        alt: "Retângulo repartido em faixas de áreas 6x e 9, com a altura em aberto.",
+        desenho: () => retanguloFatores({
+          altura: "?",
+          partes: [{ largura: "2x", area: "6x" }, { largura: "3", area: "9" }],
+          pesos: [2, 1.5], revelar: "areas",
+          rotulo: "fatore o numerador antes de dividir",
+        }),
+      },
+      {
+        id: "ft-q-por-que-serve", pasta: "questoes",
+        alt: "Tabela com uma fração fatorada que simplifica e outra que não.",
+        desenho: () => tabela({
+          cabecalho: ["fração fatorada", "simplifica?"],
+          linhas: [["(x+3)(x−3) / (x+3)", "sim"], ["(x+2)(x−1) / (x+3)", "não"]],
+          rotulo: "fatorar permite o corte, mas não o garante", larguraCol: 160,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Frações algébricas (8º ano) ----------
+  //
+  // O `fracaoAlgebrica` desenha a fração com a barra de verdade e RISCA os
+  // fatores cancelados. Ele só risca o que foi passado como fator, então ele
+  // não consegue ilustrar um corte proibido — que é exatamente o erro que a
+  // matéria combate.
+  ...(() => {
+    return [
+      // --- lição 1: fração com letra ---
+      {
+        id: "fa-ideia-com-letra", pasta: "licoes",
+        alt: "Tabela distinguindo fração comum de fração algébrica pelo denominador.",
+        desenho: () => tabela({
+          cabecalho: ["fração", "tem letra embaixo?"],
+          linhas: [["x/3", "não"], ["3/x", "sim"], ["(x+1)/(x−2)", "sim"]],
+          rotulo: "só o denominador decide", larguraCol: 146,
+        }),
+      },
+      {
+        id: "fa-res-proibido", pasta: "licoes",
+        alt: "A fração x mais um sobre x menos dois, com o denominador destacado.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["x + 1"], baixo: ["x − 2"],
+          rotulo: "que valor de x zera o de baixo?",
+        }),
+      },
+      {
+        id: "fa-q-proibido-5x", pasta: "questoes",
+        alt: "A fração cinco sobre x.",
+        desenho: () => fracaoAlgebrica({ cima: ["5"], baixo: ["x"], rotulo: "olhe só para o denominador" }),
+      },
+      {
+        id: "fa-q-proibido-x3", pasta: "questoes",
+        alt: "A fração x sobre x mais três.",
+        desenho: () => fracaoAlgebrica({ cima: ["x"], baixo: ["x + 3"], rotulo: "iguale o denominador a zero" }),
+      },
+      {
+        id: "fa-q-qual-nao-e", pasta: "questoes",
+        alt: "Tabela com a definição de fração algébrica.",
+        desenho: () => tabela({
+          cabecalho: ["para ser algébrica", "exige"],
+          linhas: [["o denominador", "ter letra"], ["o numerador", "não importa"]],
+          rotulo: "olhe embaixo de cada alternativa", larguraCol: 148,
+        }),
+      },
+      {
+        id: "fa-q-numerador-zero", pasta: "questoes",
+        alt: "A fração x menos dois sobre x mais cinco.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["x − 2"], baixo: ["x + 5"],
+          rotulo: "substitua x = 2 nos dois lados",
+        }),
+      },
+
+      // --- lição 2: simplificar ---
+      {
+        id: "fa-ideia-corta-nao-corta", pasta: "licoes",
+        alt: "Duas frações lado a lado, uma com fator que corta e outra com parcela que não corta.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["3", "(2x + 3)"], baixo: ["3"], cortar: ["3"], resultado: "2x + 3",
+          rotulo: "aqui o 3 multiplica tudo — por isso ele sai",
+        }),
+      },
+      {
+        id: "fa-res-simplificar", pasta: "licoes",
+        alt: "A fração x² menos nove sobre x mais três, fatorada e com o fator comum riscado.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["(x + 3)", "(x − 3)"], baixo: ["(x + 3)"], cortar: ["(x + 3)"], resultado: "x − 3",
+          rotulo: "depois de fatorar, o corte é legítimo",
+        }),
+      },
+      {
+        id: "fa-q-simplifica-2", pasta: "questoes",
+        alt: "A fração dois x mais quatro sobre x mais dois, sem fatorar.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["2x + 4"], baixo: ["x + 2"],
+          rotulo: "fatore o numerador antes de cortar",
+        }),
+      },
+      {
+        id: "fa-q-trinomio-corta", pasta: "questoes",
+        alt: "A fração x² mais seis x mais nove sobre x mais três, sem fatorar.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["x² + 6x + 9"], baixo: ["x + 3"],
+          rotulo: "o numerador tem três termos — que caso é esse?",
+        }),
+      },
+      {
+        id: "fa-q-corte-errado", pasta: "questoes",
+        alt: "A fração x mais três sobre três, com o numerador em forma de soma.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["x + 3"], baixo: ["3"],
+          rotulo: "o 3 de cima é parcela, e não fator",
+        }),
+      },
+      {
+        id: "fa-q-por-que-fatorar", pasta: "questoes",
+        alt: "Tabela comparando o que se pode cortar numa soma e num produto.",
+        desenho: () => tabela({
+          cabecalho: ["numerador é", "dá para cortar?"],
+          linhas: [["soma de parcelas", "não"], ["produto de fatores", "sim"]],
+          rotulo: "o que transforma um no outro?", larguraCol: 152,
+        }),
+      },
+
+      // --- lição 3: multiplicar e dividir ---
+      {
+        id: "fa-ideia-multiplicar", pasta: "licoes",
+        alt: "Tabela com a regra da multiplicação e da divisão de frações.",
+        desenho: () => tabela({
+          cabecalho: ["operação", "o que fazer"],
+          linhas: [
+            ["multiplicar", "cima com cima, baixo com baixo"],
+            ["dividir", "inverter a segunda"],
+          ],
+          rotulo: "nenhuma das duas pede denominador comum", larguraCol: 168,
+        }),
+      },
+      {
+        id: "fa-res-multiplicar", pasta: "licoes",
+        alt: "A multiplicação de x sobre dois por quatro sobre x, com o x riscado.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["x", "4"], baixo: ["2", "x"], cortar: ["x"], resultado: "2",
+          rotulo: "o corte cruza a barra das duas frações",
+        }),
+      },
+      {
+        id: "fa-q-dividir", pasta: "questoes",
+        alt: "Tabela com a regra da divisão de frações.",
+        desenho: () => tabela({
+          cabecalho: ["dividir por", "vira"],
+          linhas: [["a/b", "multiplicar por b/a"]],
+          rotulo: "conserva a primeira, inverte a segunda", larguraCol: 148,
+        }),
+      },
+      {
+        id: "fa-q-corta-cruzado", pasta: "questoes",
+        alt: "A multiplicação de duas frações reunida numa fração só.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["a", "c"], baixo: ["b", "d"],
+          rotulo: "multiplicar reúne tudo numa fração só",
+        }),
+      },
+      {
+        id: "fa-q-multiplicar-corta", pasta: "questoes",
+        alt: "A multiplicação de dois sobre x por x sobre oito, sem cortes marcados.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["2", "x"], baixo: ["x", "8"],
+          rotulo: "o que aparece em cima e embaixo?",
+        }),
+      },
+      {
+        id: "fa-q-restricao-divisao", pasta: "questoes",
+        alt: "Tabela mostrando onde o x vai parar depois da inversão.",
+        desenho: () => tabela({
+          cabecalho: ["antes", "depois de inverter"],
+          linhas: [["x/6", "6/x"]],
+          rotulo: "onde o x foi parar?", larguraCol: 148,
+        }),
+      },
+
+      // --- lição 4: somar com denominadores iguais ---
+      {
+        id: "fa-ideia-somar-iguais", pasta: "licoes",
+        alt: "Tabela mostrando o que cada parte da fração informa.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "o que ela diz"],
+          linhas: [
+            ["numerador", "quantas partes"],
+            ["denominador", "o tamanho de cada uma"],
+          ],
+          rotulo: "somar junta partes, e não muda o tamanho", larguraCol: 156,
+        }),
+      },
+      {
+        id: "fa-res-somar-iguais", pasta: "licoes",
+        alt: "A soma de x mais um sobre quatro com x menos um sobre quatro.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["(x + 1) + (x − 1)"], baixo: ["4"], resultado: "2x/4",
+          rotulo: "cada numerador entra inteiro, entre parênteses",
+        }),
+      },
+      {
+        id: "fa-q-somar-x5", pasta: "questoes",
+        alt: "A soma de x sobre cinco com dois x sobre cinco, sem o resultado.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["x + 2x"], baixo: ["5"],
+          rotulo: "os dois já têm o mesmo denominador",
+        }),
+      },
+      {
+        id: "fa-q-subtrair-parenteses", pasta: "questoes",
+        alt: "A subtração com o numerador da segunda fração entre parênteses.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["3x − (x − 2)"], baixo: ["5"],
+          rotulo: "o menos atinge o parêntese inteiro",
+        }),
+      },
+      {
+        id: "fa-q-simplificar-depois", pasta: "questoes",
+        alt: "A soma de três x sobre oito com x sobre oito, sem o resultado.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["3x + x"], baixo: ["8"],
+          rotulo: "some primeiro; depois veja se ainda reduz",
+        }),
+      },
+      {
+        id: "fa-q-por-que-nao-soma", pasta: "questoes",
+        alt: "Roda dividida em quintos com três partes pintadas.",
+        desenho: () => roda({ partes: 5, pintadas: 3, rotulo: "as fatias mudaram de tamanho?" }),
+      },
+
+      // --- lição 5: somar com denominadores diferentes ---
+      {
+        id: "fa-ideia-mmc", pasta: "licoes",
+        alt: "Tabela mostrando as duas frações reescritas com o denominador comum.",
+        desenho: () => tabela({
+          cabecalho: ["fração", "com denominador 6"],
+          linhas: [["x/2", "3x/6"], ["x/3", "2x/6"]],
+          rotulo: "multiplicar em cima e embaixo não muda o valor", larguraCol: 152,
+        }),
+      },
+      {
+        id: "fa-res-mmc", pasta: "licoes",
+        alt: "A soma das duas frações já com o denominador comum.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["3x + 2x"], baixo: ["6"], resultado: "5x/6",
+          rotulo: "com as partes do mesmo tamanho, a soma é direta",
+        }),
+      },
+      {
+        id: "fa-q-mmc-4-6", pasta: "questoes",
+        alt: "Listas dos múltiplos de 4 e de 6.",
+        desenho: () => listasComuns({
+          colunas: [
+            { titulo: "múltiplos de 4", itens: ["4", "8", "16", "20"] },
+            { titulo: "múltiplos de 6", itens: ["6", "18", "24", "30"] },
+          ],
+          largura: 380,
+          rotulo: "qual é o menor que caberia nas duas listas?",
+        }),
+      },
+      {
+        id: "fa-q-reescrever", pasta: "questoes",
+        alt: "Tabela mostrando por quanto o denominador foi multiplicado.",
+        desenho: () => tabela({
+          cabecalho: ["denominador", "multiplicado por"],
+          linhas: [["2 vira 6", "?"]],
+          rotulo: "o numerador acompanha o mesmo fator", larguraCol: 150,
+        }),
+      },
+      {
+        id: "fa-q-somar-letras", pasta: "questoes",
+        alt: "Tabela com as duas frações de numerador um reescritas com denominador xy.",
+        desenho: () => tabela({
+          cabecalho: ["fração", "com denominador xy"],
+          linhas: [["1/x", "y/xy"], ["1/y", "x/xy"]],
+          rotulo: "agora some os numeradores", larguraCol: 156,
+        }),
+      },
+      {
+        id: "fa-q-por-que-nao-muda", pasta: "questoes",
+        alt: "Duas rodas comparadas, uma em meios e outra em sextos, com a mesma parte pintada.",
+        desenho: () => rodasComparadas({
+          itens: [
+            { partes: 2, pintadas: 1, rotulo: "1/2" },
+            { partes: 6, pintadas: 3, rotulo: "3/6" },
+          ],
+          rotulo: "partes menores, e mais delas",
+        }),
+      },
+
+      // --- lição 6: juntar tudo ---
+      {
+        id: "fa-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela ligando cada operação ao que ela exige antes de ser feita.",
+        desenho: () => tabela({
+          cabecalho: ["operação", "precisa de denominador comum?"],
+          linhas: [
+            ["multiplicar", "não"],
+            ["dividir", "não"],
+            ["somar ou subtrair", "sim"],
+          ],
+          rotulo: "a operação decide o caminho", larguraCol: 166,
+        }),
+      },
+      {
+        id: "fa-res-juntar", pasta: "licoes",
+        alt: "A fração x² menos quatro sobre x mais dois, fatorada e com o corte marcado.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["(x + 2)", "(x − 2)"], baixo: ["(x + 2)"], cortar: ["(x + 2)"], resultado: "x − 2",
+          rotulo: "e a restrição da original continua valendo",
+        }),
+      },
+      {
+        id: "fa-q-precisa-mmc", pasta: "questoes",
+        alt: "Tabela lembrando para que serve o denominador comum.",
+        desenho: () => tabela({
+          cabecalho: ["denominador comum", "existe para"],
+          linhas: [["igualar o tamanho das partes", "poder somá-las"]],
+          rotulo: "qual operação junta partes?", larguraCol: 172,
+        }),
+      },
+      {
+        id: "fa-q-restricao-fica", pasta: "questoes",
+        alt: "A fração x² menos quatro sobre x mais dois, sem fatorar.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["x² − 4"], baixo: ["x + 2"],
+          rotulo: "a restrição sai do denominador ORIGINAL",
+        }),
+      },
+      {
+        id: "fa-q-dividir-final", pasta: "questoes",
+        alt: "A divisão de x sobre quatro por x sobre dois, antes de inverter.",
+        desenho: () => tabela({
+          cabecalho: ["conta", "primeiro passo"],
+          linhas: [["(x/4) ÷ (x/2)", "inverter a segunda"]],
+          rotulo: "depois corte o que se repete", larguraCol: 150,
+        }),
+      },
+      {
+        id: "fa-q-simplificar-antes", pasta: "questoes",
+        alt: "Tabela comparando as duas ordens possíveis numa multiplicação de frações.",
+        desenho: () => tabela({
+          cabecalho: ["ordem", "o que aparece no caminho"],
+          linhas: [
+            ["multiplicar antes", "4x/2x"],
+            ["cortar antes", "nada"],
+          ],
+          rotulo: "as duas chegam ao mesmo resultado", larguraCol: 162,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Sistemas de equações (8º ano) ----------
+  //
+  // O `planoCartesiano` ganhou `retas` para esta matéria: é a lição 5 que
+  // impede o assunto de virar receita, mostrando a solução como o PONTO onde
+  // as duas retas se cruzam. Nas questões que pedem esse ponto, ele vai sem
+  // o `pontos` — a marca no cruzamento seria a resposta desenhada.
+  ...(() => {
+    return [
+      // --- lição 1: duas incógnitas ---
+      {
+        id: "si-ideia-infinitas", pasta: "licoes",
+        alt: "Reta de x mais y igual a cinco no plano, com vários pares que a satisfazem.",
+        desenho: () => planoCartesiano({
+          ate: 6, retas: [{ a: 1, b: 1, c: 5, rotulo: "x+y=5" }],
+          pontos: [{ em: [1, 4], rotulo: "" }, { em: [2, 3], rotulo: "" }, { em: [4, 1], rotulo: "" }],
+          rotulo: "uma equação sozinha: infinitos pares servem",
+        }),
+      },
+      {
+        id: "si-res-conferir", pasta: "licoes",
+        alt: "Tabela conferindo um par nas duas equações do sistema.",
+        desenho: () => tabela({
+          cabecalho: ["equação", "com x=4 e y=6"],
+          linhas: [["x + y = 10", "10 ✓"], ["y − x = 2", "2 ✓"]],
+          rotulo: "as duas fecham: o par é solução", larguraCol: 146,
+        }),
+      },
+      {
+        id: "si-q-quantas-solucoes", pasta: "questoes",
+        alt: "Tabela com vários pares que satisfazem a mesma equação.",
+        desenho: () => tabela({
+          cabecalho: ["x", "y que fecha x+y=10"],
+          linhas: [["1", "9"], ["7", "3"], ["4,5", "5,5"]],
+          rotulo: "e sempre existe um y para cada x", larguraCol: 152,
+        }),
+      },
+      {
+        id: "si-q-serve-nas-duas", pasta: "questoes",
+        alt: "Tabela com o par testado na primeira equação, e a segunda em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["equação", "com x=6 e y=1"],
+          linhas: [["x + y = 7", "7 ✓"], ["x − y = 3", "?"]],
+          rotulo: "falta testar a segunda", larguraCol: 146,
+        }),
+      },
+      {
+        id: "si-q-quantas-equacoes", pasta: "questoes",
+        alt: "Tabela mostrando o que uma equação sozinha deixa em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["com uma equação só", "o que acontece"],
+          linhas: [["x + y = 10", "infinitos pares servem"]],
+          rotulo: "quantas condições faltam para sobrar um par?", larguraCol: 160,
+        }),
+      },
+      {
+        id: "si-q-completa-par", pasta: "questoes",
+        alt: "A equação x mais y igual a dez com o x já substituído.",
+        desenho: () => tokensAlgebricos({
+          linhas: [{ rotulo: "x = 7", tokens: ["7", "+", "y", "=", "10"] }],
+          rotulo: "sobrou uma equação de uma incógnita",
+        }),
+      },
+
+      // --- lição 2: substituição ---
+      {
+        id: "si-ideia-substituir", pasta: "licoes",
+        alt: "Tabela com os três passos do método da substituição.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "isolar uma letra"],
+            ["2", "trocar na outra equação"],
+            ["3", "resolver e voltar"],
+          ],
+          rotulo: "sobra uma equação de uma incógnita só", larguraCol: 152,
+        }),
+      },
+      {
+        id: "si-res-substituir", pasta: "licoes",
+        alt: "A equação depois da substituição, com uma incógnita só.",
+        desenho: () => tokensAlgebricos({
+          linhas: [{ rotulo: "depois de trocar", tokens: ["x", "+", "x", "+", "2", "=", "10"] }],
+          rotulo: "o y saiu, e o x ficou sozinho",
+        }),
+      },
+      {
+        id: "si-q-qual-equacao", pasta: "questoes",
+        alt: "Tabela mostrando o que a segunda equação diz sobre o y.",
+        desenho: () => tabela({
+          cabecalho: ["a equação diz", "então o y é"],
+          linhas: [["y = x + 2", "x + 2"]],
+          rotulo: "troque o y por isso na outra equação", larguraCol: 148,
+        }),
+      },
+      {
+        id: "si-q-valor-x", pasta: "questoes",
+        alt: "A equação com uma incógnita que sobra depois da substituição.",
+        desenho: () => tokensAlgebricos({
+          linhas: [{ rotulo: "sobrou", tokens: ["x", "+", "x", "+", "2", "=", "10"] }],
+          rotulo: "junte os termos semelhantes e resolva",
+        }),
+      },
+      {
+        id: "si-q-substituir-x", pasta: "questoes",
+        alt: "Tabela mostrando qual letra está isolada no sistema.",
+        desenho: () => tabela({
+          cabecalho: ["equação", "letra isolada"],
+          linhas: [["x + 2y = 8", "nenhuma"], ["x = 2y − 4", "o x"]],
+          rotulo: "substitua na que não tem letra isolada", larguraCol: 146,
+        }),
+      },
+      {
+        id: "si-q-quando-substituir", pasta: "questoes",
+        alt: "Tabela comparando quando cada método sai mais barato.",
+        desenho: () => tabela({
+          cabecalho: ["o sistema tem", "método mais curto"],
+          linhas: [["letra isolada", "?"], ["coeficientes opostos", "adição"]],
+          rotulo: "o primeiro passo de cada método decide", larguraCol: 158,
+        }),
+      },
+
+      // --- lição 3: adição ---
+      {
+        id: "si-ideia-somar", pasta: "licoes",
+        alt: "Tabela mostrando o cancelamento dos coeficientes opostos na soma.",
+        desenho: () => tabela({
+          cabecalho: ["coeficientes do y", "somados"],
+          linhas: [["+y e −y", "zero"], ["+2y e −2y", "zero"], ["+y e +y", "2y"]],
+          rotulo: "só os opostos se cancelam", larguraCol: 148,
+        }),
+      },
+      {
+        id: "si-res-somar", pasta: "licoes",
+        alt: "As duas equações somadas, com o y cancelado.",
+        desenho: () => contaArmada({
+          linhas: ["x + y = 7", "x − y = 3"], operador: "+", resultado: "2x    = 10",
+          nota: "o mais y com o menos y somam zero",
+        }),
+      },
+      {
+        id: "si-q-qual-soma", pasta: "questoes",
+        alt: "As duas equações do sistema, uma sobre a outra, sem o resultado da soma.",
+        desenho: () => contaArmada({
+          linhas: ["x + y = 7", "x − y = 3"], operador: "+",
+          nota: "some os dois lados, termo a termo",
+        }),
+      },
+      {
+        id: "si-q-adicao-y", pasta: "questoes",
+        alt: "Tabela com o valor de x já achado e a segunda incógnita em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["já sabemos", "falta"],
+          linhas: [["x = 5", "o y"]],
+          rotulo: "volte a uma das equações originais", larguraCol: 128,
+        }),
+      },
+      {
+        id: "si-q-preparar", pasta: "questoes",
+        alt: "Tabela com os coeficientes do y nas duas equações do sistema.",
+        desenho: () => tabela({
+          cabecalho: ["equação", "coeficiente do y"],
+          linhas: [["x + 2y = 8", "+2"], ["3x − y = 3", "−1"]],
+          rotulo: "para cancelar, eles precisam ficar opostos", larguraCol: 150,
+        }),
+      },
+      {
+        id: "si-q-por-que-multiplicar", pasta: "questoes",
+        alt: "Balança equilibrada com fichas nos dois pratos.",
+        desenho: () => balanca({
+          esquerda: { caixas: 1, fichas: 3 }, direita: { fichas: 5 },
+          rotulo: "e se os dois pratos forem dobrados?",
+        }),
+      },
+
+      // --- lição 4: escolher o método ---
+      {
+        id: "si-ideia-escolher", pasta: "licoes",
+        alt: "Tabela ligando a forma do sistema ao método mais curto.",
+        desenho: () => tabela({
+          cabecalho: ["o sistema tem", "método mais curto"],
+          linhas: [
+            ["letra isolada", "substituição"],
+            ["coeficientes opostos", "adição"],
+          ],
+          rotulo: "os dois chegam ao mesmo par", larguraCol: 158,
+        }),
+      },
+      {
+        id: "si-res-escolher", pasta: "licoes",
+        alt: "As duas equações somadas, com o y cancelado e o x isolado.",
+        desenho: () => contaArmada({
+          linhas: ["3x + 2y = 12", "5x − 2y = 4"], operador: "+", resultado: "8x     = 16",
+          nota: "os coeficientes do y já eram opostos",
+        }),
+      },
+      {
+        id: "si-q-mesma-resposta", pasta: "questoes",
+        alt: "Tabela mostrando que os dois métodos chegam ao mesmo par.",
+        desenho: () => tabela({
+          cabecalho: ["método", "o que ele faz"],
+          linhas: [
+            ["substituição", "elimina trocando"],
+            ["adição", "elimina somando"],
+          ],
+          rotulo: "os dois eliminam uma letra, por caminhos diferentes", larguraCol: 158,
+        }),
+      },
+      {
+        id: "si-q-qual-metodo", pasta: "questoes",
+        alt: "Tabela com os coeficientes das duas letras nas duas equações.",
+        desenho: () => tabela({
+          cabecalho: ["equação", "coeficiente do y"],
+          linhas: [["3x + 2y = 12", "+2"], ["5x − 2y = 4", "−2"]],
+          rotulo: "eles já são opostos?", larguraCol: 152,
+        }),
+      },
+      {
+        id: "si-q-resolver-adicao", pasta: "questoes",
+        alt: "As duas equações do sistema, uma sobre a outra, sem o resultado.",
+        desenho: () => contaArmada({
+          linhas: ["3x + 2y = 12", "5x − 2y = 4"], operador: "+",
+          nota: "some e veja o que sobra",
+        }),
+      },
+      {
+        id: "si-q-sinal-substituicao", pasta: "questoes",
+        alt: "Tabela com o primeiro passo de cada um dos dois métodos.",
+        desenho: () => tabela({
+          cabecalho: ["método", "primeiro passo"],
+          linhas: [
+            ["substituição", "isolar uma letra"],
+            ["adição", "olhar os coeficientes"],
+          ],
+          rotulo: "qual deles sai de graça em cada caso?", larguraCol: 152,
+        }),
+      },
+
+      // --- lição 5: no gráfico ---
+      {
+        id: "si-ideia-duas-retas", pasta: "licoes",
+        alt: "Duas retas no plano cartesiano se cruzando num ponto.",
+        desenho: () => planoCartesiano({
+          ate: 6,
+          retas: [{ a: 1, b: 1, c: 5, rotulo: "x+y=5" }, { a: 1, b: -1, c: 1, rotulo: "x−y=1" }],
+          pontos: [{ em: [3, 2], rotulo: "(3, 2)" }],
+          rotulo: "a solução é o ponto que está nas duas",
+        }),
+      },
+      {
+        id: "si-res-encontro", pasta: "licoes",
+        alt: "As duas retas do sistema com o ponto de cruzamento marcado.",
+        desenho: () => planoCartesiano({
+          ate: 6,
+          retas: [{ a: 1, b: 1, c: 5, rotulo: "x+y=5" }, { a: 1, b: -1, c: 1, rotulo: "x−y=1" }],
+          pontos: [{ em: [3, 2], rotulo: "(3, 2)" }],
+          rotulo: "o desenho e a álgebra concordam",
+        }),
+      },
+      {
+        id: "si-q-o-que-e-solucao", pasta: "questoes",
+        // sem o ponto marcado: ele seria a resposta desenhada
+        alt: "Duas retas no plano cartesiano, sem o ponto de cruzamento marcado.",
+        desenho: () => planoCartesiano({
+          ate: 6,
+          retas: [{ a: 1, b: 2, c: 8, rotulo: "" }, { a: 3, b: -1, c: 3, rotulo: "" }],
+          rotulo: "cada reta reúne as soluções de uma equação",
+        }),
+      },
+      {
+        id: "si-q-ler-encontro", pasta: "questoes",
+        alt: "As duas retas do sistema no plano, sem o cruzamento marcado.",
+        desenho: () => planoCartesiano({
+          ate: 6,
+          retas: [{ a: 1, b: 1, c: 5, rotulo: "x+y=5" }, { a: 1, b: -1, c: 1, rotulo: "x−y=1" }],
+          rotulo: "onde elas se cruzam?",
+        }),
+      },
+      {
+        id: "si-q-paralelas", pasta: "questoes",
+        alt: "Duas retas paralelas no plano cartesiano, que nunca se encontram.",
+        desenho: () => planoCartesiano({
+          ate: 6,
+          retas: [{ a: 1, b: 1, c: 3, rotulo: "" }, { a: 1, b: 1, c: 6, rotulo: "" }],
+          rotulo: "elas se cruzam em algum lugar?",
+        }),
+      },
+      {
+        id: "si-q-por-que-par", pasta: "questoes",
+        alt: "Plano cartesiano com um ponto marcado e as duas coordenadas dele.",
+        desenho: () => planoCartesiano({
+          ate: 6, pontos: [{ em: [4, 2], rotulo: "(4, 2)" }],
+          rotulo: "quantos números localizam um ponto?",
+        }),
+      },
+
+      // --- lição 6: do problema ao sistema ---
+      {
+        id: "si-ideia-traduzir", pasta: "licoes",
+        alt: "Tabela traduzindo cada frase do problema numa equação.",
+        desenho: () => tabela({
+          cabecalho: ["frase", "equação"],
+          linhas: [
+            ["2 refris e 3 salgados: 19", "2r + 3s = 19"],
+            ["1 de cada: 8", "r + s = 8"],
+          ],
+          rotulo: "uma frase, uma equação", larguraCol: 166,
+        }),
+      },
+      {
+        id: "si-res-lanchonete", pasta: "licoes",
+        alt: "Tabela com o roteiro de quatro passos para montar e resolver o sistema.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "nomear as letras"],
+            ["2", "traduzir cada frase"],
+            ["3", "resolver o sistema"],
+            ["4", "voltar à pergunta"],
+          ],
+          rotulo: "o passo 4 é o que a prova cobra", larguraCol: 150,
+        }),
+      },
+      {
+        id: "si-q-lanchonete-r", pasta: "questoes",
+        alt: "Tabela com as duas frases do problema, sem as equações montadas.",
+        desenho: () => tabela({
+          cabecalho: ["quantidade", "custo"],
+          linhas: [["2 refris + 3 salgados", "R$ 19,00"], ["1 refri + 1 salgado", "R$ 8,00"]],
+          rotulo: "cada linha vira uma equação", larguraCol: 168,
+        }),
+      },
+      {
+        id: "si-q-soma-diferenca", pasta: "questoes",
+        alt: "Tabela com as duas informações do problema, sem as equações montadas.",
+        desenho: () => tabela({
+          cabecalho: ["informação", "valor"],
+          linhas: [["a soma dos dois", "20"], ["a diferença", "4"]],
+          rotulo: "some as duas equações e veja o que some", larguraCol: 140,
+        }),
+      },
+      {
+        id: "si-q-primeiro-passo", pasta: "questoes",
+        alt: "Tabela com o roteiro de tradução de um problema em sistema.",
+        desenho: () => tabela({
+          cabecalho: ["etapa", "depende de"],
+          linhas: [
+            ["traduzir as frases", "saber o que cada letra é"],
+            ["escolher o método", "as equações já existirem"],
+          ],
+          rotulo: "o que precisa vir antes de tudo?", larguraCol: 164,
+        }),
+      },
+      {
+        id: "si-q-carros-motos", pasta: "questoes",
+        alt: "Tabela com a quantidade de rodas de cada tipo de veículo.",
+        desenho: () => tabela({
+          cabecalho: ["veículo", "rodas"],
+          linhas: [["carro", "4"], ["moto", "2"]],
+          rotulo: "10 veículos ao todo, e 32 rodas", larguraCol: 118,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Ângulos e polígonos (8º ano) ----------
+  //
+  // O `poligonoTriangulado` mostra de onde vem o "n − 2". O `numerar` só
+  // entra onde a contagem JÁ é conhecida: numa questão que pergunta quantos
+  // triângulos aparecem, os números seriam a resposta desenhada — e com
+  // `modo: "todas"` a mesma ressalva vale para a contagem das diagonais.
+  ...(() => {
+    return [
+      // --- lição 1: o que é um polígono ---
+      {
+        id: "pg-ideia-poligono", pasta: "licoes",
+        alt: "Tabela com as três exigências para uma figura ser polígono.",
+        desenho: () => tabela({
+          cabecalho: ["exige", "quer dizer"],
+          linhas: [
+            ["plana", "cabe no papel"],
+            ["fechada", "o contorno volta"],
+            ["por segmentos", "nada curvo"],
+          ],
+          rotulo: "as três juntas", larguraCol: 140,
+        }),
+      },
+      {
+        id: "pg-res-contagem", pasta: "licoes",
+        alt: "Heptágono regular com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 7, modo: "nenhuma",
+          rotulo: "lados, vértices e ângulos andam sempre juntos",
+        }),
+      },
+      {
+        id: "pg-q-vertices-9", pasta: "questoes",
+        alt: "Eneágono regular com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 9, modo: "nenhuma",
+          rotulo: "siga o contorno e conte os cantos",
+        }),
+      },
+      {
+        id: "pg-q-qual-poligono", pasta: "questoes",
+        alt: "Tabela com as três exigências de um polígono, para conferir em cada alternativa.",
+        desenho: () => tabela({
+          cabecalho: ["exigência", "quem falha nela"],
+          linhas: [
+            ["ser plana", "sólidos"],
+            ["ser fechada", "linhas abertas"],
+            ["só segmentos", "figuras curvas"],
+          ],
+          rotulo: "cada alternativa tropeça numa delas", larguraCol: 148,
+        }),
+      },
+      {
+        id: "pg-q-losango", pasta: "questoes",
+        alt: "Tabela com as duas condições para um polígono ser regular.",
+        desenho: () => tabela({
+          cabecalho: ["para ser regular", "precisa"],
+          linhas: [["os lados", "todos iguais"], ["os ângulos", "todos iguais"]],
+          rotulo: "uma só das duas não basta", larguraCol: 138,
+        }),
+      },
+      {
+        id: "pg-q-octogono", pasta: "questoes",
+        alt: "Tabela com os prefixos gregos que nomeiam os polígonos.",
+        desenho: () => tabela({
+          cabecalho: ["prefixo", "quantidade"],
+          linhas: [["penta", "5"], ["hexa", "6"], ["hepta", "7"]],
+          rotulo: "e o próximo da sequência?", larguraCol: 124,
+        }),
+      },
+
+      // --- lição 2: a soma dos ângulos internos ---
+      {
+        id: "pg-ideia-triangular", pasta: "licoes",
+        alt: "Pentágono com as diagonais de um vértice, partido em três triângulos numerados.",
+        desenho: () => poligonoTriangulado({
+          lados: 5, numerar: true,
+          rotulo: "5 lados, 3 triângulos: sempre dois a menos",
+        }),
+      },
+      {
+        id: "pg-res-hexagono", pasta: "licoes",
+        alt: "Hexágono com as diagonais de um vértice, partido em quatro triângulos numerados.",
+        desenho: () => poligonoTriangulado({
+          lados: 6, numerar: true,
+          rotulo: "4 triângulos × 180° = 720°",
+        }),
+      },
+      {
+        id: "pg-q-soma-pentagono", pasta: "questoes",
+        // sem numerar: a contagem dos triângulos é o caminho da resposta
+        alt: "Pentágono com as diagonais de um vértice traçadas, sem numeração.",
+        desenho: () => poligonoTriangulado({
+          lados: 5,
+          rotulo: "conte os triângulos e multiplique por 180°",
+        }),
+      },
+      {
+        id: "pg-q-triangulos-10", pasta: "questoes",
+        alt: "Tabela com o padrão entre lados e triângulos em dois polígonos menores.",
+        desenho: () => tabela({
+          cabecalho: ["lados", "triângulos"],
+          linhas: [["5", "3"], ["6", "4"], ["7", "5"]],
+          rotulo: "o padrão continua para qualquer número de lados", larguraCol: 126,
+        }),
+      },
+      {
+        id: "pg-q-soma-12", pasta: "questoes",
+        alt: "Tabela com a fórmula da soma dos ângulos internos em dois passos.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [["1", "contar os triângulos"], ["2", "multiplicar por 180"]],
+          rotulo: "os triângulos são dois a menos que os lados", larguraCol: 150,
+        }),
+      },
+      {
+        id: "pg-q-por-que-menos-dois", pasta: "questoes",
+        alt: "Hexágono com as diagonais de um vértice e o vértice de origem marcado.",
+        desenho: () => poligonoTriangulado({
+          lados: 6,
+          rotulo: "os dois lados vizinhos ao ponto marcado geram diagonal?",
+        }),
+      },
+
+      // --- lição 3: cada ângulo do regular ---
+      {
+        id: "pg-ideia-regular", pasta: "licoes",
+        alt: "Tabela com a medida de cada ângulo interno em quatro polígonos regulares.",
+        desenho: () => tabela({
+          cabecalho: ["regular de", "cada ângulo"],
+          linhas: [["3 lados", "60°"], ["4 lados", "90°"], ["6 lados", "120°"]],
+          rotulo: "ele cresce com os lados, e nunca chega a 180°", larguraCol: 132,
+        }),
+      },
+      {
+        id: "pg-res-hexagono-regular", pasta: "licoes",
+        alt: "Hexágono regular com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 6, modo: "nenhuma",
+          rotulo: "720° repartidos igualmente entre seis ângulos",
+        }),
+      },
+      {
+        id: "pg-q-pentagono-regular", pasta: "questoes",
+        alt: "Pentágono regular com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 5, modo: "nenhuma",
+          rotulo: "ache a soma e reparta entre os cinco",
+        }),
+      },
+      {
+        id: "pg-q-octogono-regular", pasta: "questoes",
+        alt: "Octógono regular com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 8, modo: "nenhuma",
+          rotulo: "oito lados, oito ângulos iguais",
+        }),
+      },
+      {
+        id: "pg-q-nao-regular", pasta: "questoes",
+        alt: "Tabela com duas repartições diferentes da mesma soma de 540 graus.",
+        desenho: () => tabela({
+          cabecalho: ["pentágono", "os cinco ângulos"],
+          linhas: [
+            ["regular", "108 + 108 + 108 + 108 + 108"],
+            ["outro", "90 + 100 + 110 + 120 + 120"],
+          ],
+          rotulo: "os dois somam 540°", larguraCol: 176,
+        }),
+      },
+      {
+        id: "pg-q-limite", pasta: "questoes",
+        alt: "Tabela mostrando o ângulo interno crescendo com o número de lados.",
+        desenho: () => tabela({
+          cabecalho: ["lados", "cada ângulo"],
+          linhas: [["3", "60°"], ["6", "120°"], ["12", "150°"], ["100", "176,4°"]],
+          rotulo: "para onde ele está indo?", larguraCol: 126,
+        }),
+      },
+
+      // --- lição 4: os ângulos externos ---
+      {
+        id: "pg-ideia-externos", pasta: "licoes",
+        alt: "Tabela ligando o ângulo interno ao externo do mesmo vértice.",
+        desenho: () => tabela({
+          cabecalho: ["no mesmo vértice", "vale"],
+          linhas: [["interno + externo", "180°"], ["soma dos externos", "360°"]],
+          rotulo: "a segunda não depende do número de lados", larguraCol: 154,
+        }),
+      },
+      {
+        id: "pg-res-externos", pasta: "licoes",
+        alt: "Decágono regular com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 10, modo: "nenhuma",
+          rotulo: "a volta de 360° repartida entre dez vértices",
+        }),
+      },
+      {
+        id: "pg-q-soma-externos", pasta: "questoes",
+        alt: "Tabela comparando a soma dos internos com a dos externos em três polígonos.",
+        desenho: () => tabela({
+          cabecalho: ["lados", "soma dos internos"],
+          linhas: [["5", "540°"], ["6", "720°"], ["8", "1 080°"]],
+          rotulo: "e a soma dos EXTERNOS, muda?", larguraCol: 146,
+        }),
+      },
+      {
+        id: "pg-q-suplemento", pasta: "questoes",
+        alt: "Dois ângulos formando um ângulo raso sobre uma reta.",
+        desenho: () => angulosNaReta({
+          graus: 140, rotuloDireita: "interno", rotuloEsquerda: "externo",
+          nota: "juntos eles formam um ângulo raso",
+        }),
+      },
+      {
+        id: "pg-q-externo-hexagono", pasta: "questoes",
+        alt: "Hexágono regular com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 6, modo: "nenhuma",
+          rotulo: "reparta a volta completa entre os vértices",
+        }),
+      },
+      {
+        id: "pg-q-por-que-360", pasta: "questoes",
+        alt: "Pentágono com o contorno desenhado, sugerindo o percurso ao redor dele.",
+        desenho: () => poligonoTriangulado({
+          lados: 5, modo: "nenhuma",
+          rotulo: "ande pelos lados: quanto você girou ao voltar?",
+        }),
+      },
+
+      // --- lição 5: contar as diagonais ---
+      {
+        id: "pg-ideia-diagonais", pasta: "licoes",
+        alt: "Hexágono com todas as nove diagonais traçadas.",
+        desenho: () => poligonoTriangulado({
+          lados: 6, modo: "todas",
+          rotulo: "cada diagonal liga dois vértices não vizinhos",
+        }),
+      },
+      {
+        id: "pg-res-diagonais", pasta: "licoes",
+        alt: "Hexágono com as três diagonais que saem de um único vértice.",
+        desenho: () => poligonoTriangulado({
+          lados: 6,
+          rotulo: "de cada vértice saem três; e são seis vértices",
+        }),
+      },
+      {
+        id: "pg-q-de-um-vertice", pasta: "questoes",
+        alt: "Tabela com quantas diagonais saem de um vértice em polígonos menores.",
+        desenho: () => tabela({
+          cabecalho: ["lados", "de um vértice saem"],
+          linhas: [["5", "2"], ["6", "3"], ["7", "4"]],
+          rotulo: "o próprio vértice e os dois vizinhos ficam de fora", larguraCol: 152,
+        }),
+      },
+      {
+        id: "pg-q-diagonais-10", pasta: "questoes",
+        alt: "Tabela com o roteiro da contagem de diagonais em dois passos.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "n − 3 por vértice, vezes n"],
+            ["2", "dividir por 2"],
+          ],
+          rotulo: "cada diagonal aparece duas vezes na contagem", larguraCol: 158,
+        }),
+      },
+      {
+        id: "pg-q-triangulo-diagonais", pasta: "questoes",
+        alt: "Triângulo equilátero com o contorno desenhado.",
+        desenho: () => poligonoTriangulado({
+          lados: 3, modo: "nenhuma",
+          rotulo: "algum vértice tem outro que não seja vizinho?",
+        }),
+      },
+      {
+        id: "pg-q-por-que-dividir", pasta: "questoes",
+        alt: "Pentágono com todas as cinco diagonais traçadas.",
+        desenho: () => poligonoTriangulado({
+          lados: 5, modo: "todas",
+          rotulo: "cada linha sai de um vértice — e chega em outro",
+        }),
+      },
+
+      // --- lição 6: descobrir o polígono ---
+      {
+        id: "pg-ideia-descobrir", pasta: "licoes",
+        alt: "Tabela com o caminho a seguir conforme o dado que o problema fornece.",
+        desenho: () => tabela({
+          cabecalho: ["o dado é", "caminho"],
+          linhas: [
+            ["a soma dos internos", "equação com (n−2)×180"],
+            ["o externo do regular", "360 ÷ externo"],
+            ["o interno do regular", "achar o externo antes"],
+          ],
+          rotulo: "o segundo é o mais curto dos três", larguraCol: 172,
+        }),
+      },
+      {
+        id: "pg-res-descobrir", pasta: "licoes",
+        alt: "Tabela com os passos para resolver a equação da soma dos ângulos internos.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "equação"],
+          linhas: [
+            ["como veio", "(n − 2) × 180 = 1 440"],
+            ["÷ 180", "n − 2 = 8"],
+          ],
+          rotulo: "e o n sai isolando, como no 7º ano", larguraCol: 164,
+        }),
+      },
+      {
+        id: "pg-q-quantos-lados", pasta: "questoes",
+        alt: "Tabela com a fórmula da soma dos internos preparada como equação.",
+        desenho: () => tabela({
+          cabecalho: ["conhecido", "a achar"],
+          linhas: [["a soma", "o número de lados"]],
+          rotulo: "monte (n − 2) × 180 = soma e resolva", larguraCol: 148,
+        }),
+      },
+      {
+        id: "pg-q-pelo-externo", pasta: "questoes",
+        alt: "Tabela lembrando que a soma dos ângulos externos é sempre 360 graus.",
+        desenho: () => tabela({
+          cabecalho: ["num regular", "vale"],
+          linhas: [["todos os externos somam", "360°"], ["e são todos", "iguais"]],
+          rotulo: "quantas vezes o externo cabe na volta?", larguraCol: 162,
+        }),
+      },
+      {
+        id: "pg-q-pelo-interno", pasta: "questoes",
+        alt: "Tabela com o caminho de duas etapas do interno até o número de lados.",
+        desenho: () => tabela({
+          cabecalho: ["etapa", "o que fazer"],
+          linhas: [
+            ["1", "180 − interno = externo"],
+            ["2", "360 ÷ externo = lados"],
+          ],
+          rotulo: "passar pelo externo evita a equação com fração", larguraCol: 162,
+        }),
+      },
+      {
+        id: "pg-q-resultado-quebrado", pasta: "questoes",
+        alt: "Tabela com as duas exigências para o número de lados de um polígono.",
+        desenho: () => tabela({
+          cabecalho: ["o número de lados", "precisa ser"],
+          linhas: [["inteiro", "sempre"], ["pelo menos", "3"]],
+          rotulo: "um resultado quebrado denuncia erro no caminho", larguraCol: 152,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ---------- Congruência de triângulos (8º ano) ----------
+  //
+  // A matéria depende de uma notação que o aluno nunca viu — os tiquinhos nos
+  // lados e os arcos nos ângulos —, e é o `parTriangulos` que a introduz. As
+  // marcas dizem o que se SABE: sem elas, "estes dois lados são congruentes"
+  // só existiria no texto, e a figura viraria enfeite.
+  ...(() => {
+    return [
+      // --- lição 1: o que é ser congruente ---
+      {
+        id: "cg-ideia-congruentes", pasta: "licoes",
+        alt: "Dois triângulos iguais lado a lado, com os três lados marcados como congruentes.",
+        desenho: () => parTriangulos({
+          angulos: [50, 60], marcasLados: [1, 2, 3],
+          rotulo: "mesma forma e mesmo tamanho",
+        }),
+      },
+      {
+        id: "cg-res-girado", pasta: "licoes",
+        alt: "Dois triângulos congruentes, um girado em relação ao outro.",
+        desenho: () => parTriangulos({
+          angulos: [50, 60], marcasLados: [1, 2, 3], giro: 145,
+          rotulo: "girar não muda lado nem ângulo",
+        }),
+      },
+      {
+        id: "cg-q-quantas-igualdades", pasta: "questoes",
+        alt: "Tabela com os elementos de um triângulo.",
+        desenho: () => tabela({
+          cabecalho: ["elemento", "quantos"],
+          linhas: [["lados", "3"], ["ângulos internos", "3"]],
+          rotulo: "cada um tem um correspondente no outro triângulo", larguraCol: 144,
+        }),
+      },
+      {
+        id: "cg-q-girado", pasta: "questoes",
+        alt: "Dois triângulos iguais, um deles girado, sem marcas de congruência.",
+        desenho: () => parTriangulos({
+          angulos: [45, 65], giro: 90,
+          rotulo: "girar mudou alguma medida?",
+        }),
+      },
+      {
+        id: "cg-q-semelhantes", pasta: "questoes",
+        alt: "Tabela com as duas exigências da congruência.",
+        desenho: () => tabela({
+          cabecalho: ["congruência exige", "semelhança exige"],
+          linhas: [["mesma forma", "mesma forma"], ["mesmo tamanho", "—"]],
+          rotulo: "a diferença está numa linha só", larguraCol: 152,
+        }),
+      },
+      {
+        id: "cg-q-terceiro-angulo", pasta: "questoes",
+        alt: "Triângulo com dois ângulos marcados e o terceiro em aberto.",
+        desenho: () => figuraPlana({
+          angulos: [50, 60], rotulosVertices: ["50°", "60°", "?"], arcosVertices: true,
+          rotulo: "os três somam 180°",
+        }),
+      },
+
+      // --- lição 2: o caso LLL ---
+      {
+        id: "cg-ideia-lll", pasta: "licoes",
+        alt: "Dois triângulos com os três lados marcados como iguais, e nenhum ângulo marcado.",
+        desenho: () => parTriangulos({
+          angulos: [50, 60], marcasLados: [1, 2, 3],
+          rotulo: "três lados iguais, e nenhum ângulo medido",
+        }),
+      },
+      {
+        id: "cg-res-lll", pasta: "licoes",
+        alt: "Dois triângulos com os três lados marcados, um deles girado.",
+        desenho: () => parTriangulos({
+          angulos: [44, 62], marcasLados: [1, 2, 3], giro: 30,
+          rotulo: "os ângulos vêm de brinde",
+        }),
+      },
+      {
+        id: "cg-q-quantos-lll", pasta: "questoes",
+        alt: "Tabela com o significado de cada letra dos nomes dos casos.",
+        desenho: () => tabela({
+          cabecalho: ["letra", "significa"],
+          linhas: [["L", "um lado conhecido"], ["A", "um ângulo conhecido"]],
+          rotulo: "leia o nome do caso", larguraCol: 148,
+        }),
+      },
+      {
+        id: "cg-q-rigidez", pasta: "questoes",
+        alt: "Tabela comparando o que acontece ao empurrar uma armação triangular e uma quadrada.",
+        desenho: () => tabela({
+          cabecalho: ["armação de varetas", "ao empurrar"],
+          linhas: [["três lados", "não se mexe"], ["quatro lados", "vira losango"]],
+          rotulo: "quantos lados determinam a figura?", larguraCol: 156,
+        }),
+      },
+      {
+        id: "cg-q-nao-fecha", pasta: "questoes",
+        alt: "Três varetas de comprimentos 2, 3 e 9 mostrando que as pontas não se encontram.",
+        desenho: () => varetas({
+          linhas: [
+            { pedacos: [2, 3], rotulo: "2 + 3" },
+            { pedacos: [9], rotulo: "o maior", vazio: true },
+          ],
+          rotulo: "as duas menores alcançam a ponta da maior?",
+        }),
+      },
+      {
+        id: "cg-q-precisa-angulo", pasta: "questoes",
+        alt: "Dois triângulos com os três lados marcados e nenhum ângulo marcado.",
+        desenho: () => parTriangulos({
+          angulos: [55, 55], marcasLados: [1, 2, 3],
+          rotulo: "só os lados foram declarados iguais",
+        }),
+      },
+
+      // --- lição 3: o caso LAL ---
+      {
+        id: "cg-ideia-lal", pasta: "licoes",
+        alt: "Dois triângulos com dois lados marcados e o ângulo entre eles marcado.",
+        desenho: () => parTriangulos({
+          angulos: [50, 60], marcasLados: [1, 0, 3], marcasAngulos: [0, 0, 1],
+          rotulo: "o arco está no vértice onde os dois lados se encontram",
+        }),
+      },
+      {
+        id: "cg-res-lal", pasta: "licoes",
+        alt: "Dois triângulos com dois lados e o ângulo entre eles marcados, um deles girado.",
+        desenho: () => parTriangulos({
+          angulos: [40, 70], marcasLados: [1, 0, 2], marcasAngulos: [0, 0, 1], giro: 25,
+          rotulo: "o terceiro lado não tem escolha",
+        }),
+      },
+      {
+        id: "cg-q-onde-angulo", pasta: "questoes",
+        alt: "Tabela com a ordem dos elementos em cada caso de congruência.",
+        desenho: () => tabela({
+          cabecalho: ["caso", "a ordem diz"],
+          linhas: [["L-A-L", "o A fica entre os dois L"], ["A-L-A", "o L fica entre os dois A"]],
+          rotulo: "a ordem do nome não é decoração", larguraCol: 158,
+        }),
+      },
+      {
+        id: "cg-q-abrir-angulo", pasta: "questoes",
+        alt: "Dois ângulos de aberturas diferentes, comparados lado a lado.",
+        desenho: () => angulosComparados({
+          itens: [{ graus: 35, rotulo: "fechado" }, { graus: 110, rotulo: "aberto" }],
+          rotulo: "as pontas ficam mais perto ou mais longe?",
+        }),
+      },
+      {
+        id: "cg-q-quantos-lal", pasta: "questoes",
+        alt: "Tabela com os três casos de congruência e a quantidade de letras de cada nome.",
+        desenho: () => tabela({
+          cabecalho: ["caso", "elementos"],
+          linhas: [["LLL", "L, L, L"], ["LAL", "L, A, L"], ["ALA", "A, L, A"]],
+          rotulo: "conte as letras de cada um", larguraCol: 128,
+        }),
+      },
+      {
+        id: "cg-q-fora-do-meio", pasta: "questoes",
+        alt: "Dois triângulos com dois lados marcados e o ângulo marcado num vértice fora do meio.",
+        desenho: () => parTriangulos({
+          angulos: [30, 80], marcasLados: [1, 2, 0], marcasAngulos: [0, 0, 1],
+          rotulo: "o arco está entre os dois lados marcados?",
+        }),
+      },
+
+      // --- lição 4: o caso ALA ---
+      {
+        id: "cg-ideia-ala", pasta: "licoes",
+        alt: "Dois triângulos com dois ângulos marcados e o lado entre eles marcado.",
+        desenho: () => parTriangulos({
+          angulos: [50, 60], marcasLados: [1, 0, 0], marcasAngulos: [1, 2, 0],
+          rotulo: "os arcos estão nas duas pontas do lado marcado",
+        }),
+      },
+      {
+        id: "cg-res-ala", pasta: "licoes",
+        alt: "Dois triângulos com dois ângulos e o lado entre eles marcados, um girado.",
+        desenho: () => parTriangulos({
+          angulos: [50, 60], marcasLados: [1, 0, 0], marcasAngulos: [1, 2, 0], giro: 160,
+          rotulo: "as duas retas se cruzam num ponto só",
+        }),
+      },
+      {
+        id: "cg-q-terceiro-ala", pasta: "questoes",
+        alt: "Triângulo com dois ângulos marcados e o terceiro em aberto.",
+        desenho: () => figuraPlana({
+          angulos: [40, 75], rotulosVertices: ["40°", "75°", "?"], arcosVertices: true,
+          rotulo: "quanto falta para 180°?",
+        }),
+      },
+      {
+        id: "cg-q-so-angulos", pasta: "questoes",
+        alt: "Dois triângulos de mesma forma e tamanhos diferentes, comparados.",
+        desenho: () => figurasComparadas({
+          itens: [
+            { tipo: "acutangulo", rotulo: "mesmos ângulos" },
+            { tipo: "acutangulo", rotulo: "mesmos ângulos" },
+          ],
+          escala: 58,
+          rotulo: "a forma é a mesma; e o tamanho?",
+        }),
+      },
+      {
+        id: "cg-q-laao", pasta: "questoes",
+        alt: "Tabela mostrando que o terceiro ângulo sai da soma dos dois conhecidos.",
+        desenho: () => tabela({
+          cabecalho: ["conhecidos", "o terceiro"],
+          linhas: [["dois ângulos", "sai de 180 − soma"]],
+          rotulo: "ele precisa ser medido?", larguraCol: 150,
+        }),
+      },
+      {
+        id: "cg-q-quantos-lados-ala", pasta: "questoes",
+        alt: "Tabela com o papel de cada tipo de elemento na congruência.",
+        desenho: () => tabela({
+          cabecalho: ["elemento", "o que ele fixa"],
+          linhas: [["ângulo", "a forma"], ["lado", "o tamanho"]],
+          rotulo: "no A-L-A, quantos de cada?", larguraCol: 144,
+        }),
+      },
+
+      // --- lição 5: os casos que enganam ---
+      {
+        id: "cg-ideia-nao-serve", pasta: "licoes",
+        alt: "Tabela com os dois trios que não garantem congruência e o defeito de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["trio", "o defeito"],
+          linhas: [["AAA", "não fixa o tamanho"], ["LLA", "descreve dois triângulos"]],
+          rotulo: "um falta informação; o outro tem informação ambígua", larguraCol: 166,
+        }),
+      },
+      {
+        id: "cg-res-aaa", pasta: "licoes",
+        alt: "Dois triângulos de mesma forma e tamanhos bem diferentes.",
+        desenho: () => figurasComparadas({
+          itens: [
+            { tipo: "acutangulo", rotulo: "mesmos ângulos" },
+            { tipo: "acutangulo", rotulo: "o dobro do tamanho" },
+          ],
+          escala: 56,
+          rotulo: "semelhantes, e não congruentes",
+        }),
+      },
+      {
+        id: "cg-q-o-que-aaa-garante", pasta: "questoes",
+        alt: "Tabela separando as duas exigências da congruência.",
+        desenho: () => tabela({
+          cabecalho: ["o que fixa", "o quê"],
+          linhas: [["os ângulos", "a forma"], ["um comprimento", "o tamanho"]],
+          rotulo: "o AAA traz qual dos dois?", larguraCol: 144,
+        }),
+      },
+      {
+        id: "cg-q-quantos-llla", pasta: "questoes",
+        alt: "Tabela descrevendo a construção ambígua do caso LLA.",
+        desenho: () => tabela({
+          cabecalho: ["na construção", "acontece"],
+          linhas: [
+            ["o lado de medida fixa", "alcança a reta duas vezes"],
+            ["cada ponto", "fecha um triângulo"],
+          ],
+          rotulo: "e por isso o caso se chama ambíguo", larguraCol: 150,
+        }),
+      },
+      {
+        id: "cg-q-o-que-falta-aaa", pasta: "questoes",
+        alt: "Tabela comparando os elementos do AAA com os do ALA.",
+        desenho: () => tabela({
+          cabecalho: ["caso", "elementos"],
+          linhas: [["AAA", "3 ângulos"], ["ALA", "2 ângulos + 1 lado"]],
+          rotulo: "o que um tem e o outro não?", larguraCol: 148,
+        }),
+      },
+      {
+        id: "cg-q-dois-defeitos", pasta: "questoes",
+        alt: "Tabela com a informação disponível em cada um dos dois casos que enganam.",
+        desenho: () => tabela({
+          cabecalho: ["trio", "medidas de comprimento"],
+          linhas: [["AAA", "nenhuma"], ["LLA", "duas"]],
+          rotulo: "os dois falham — mas não pelo mesmo motivo", larguraCol: 158,
+        }),
+      },
+
+      // --- lição 6: usar a congruência ---
+      {
+        id: "cg-ideia-usar", pasta: "licoes",
+        alt: "Tabela com o roteiro de três passos para usar a congruência num problema.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "listar o que se sabe"],
+            ["2", "encaixar num caso"],
+            ["3", "colher o correspondente"],
+          ],
+          rotulo: "a congruência é ferramenta, e não objetivo", larguraCol: 156,
+        }),
+      },
+      {
+        id: "cg-res-usar", pasta: "licoes",
+        alt: "Dois triângulos com os três lados marcados como iguais.",
+        desenho: () => parTriangulos({
+          angulos: [44, 58], marcasLados: [1, 2, 3],
+          rotulo: "provado o LLL, os ângulos vêm junto",
+        }),
+      },
+      {
+        id: "cg-q-lado-correspondente", pasta: "questoes",
+        alt: "Dois triângulos congruentes com um lado marcado em cada.",
+        desenho: () => parTriangulos({
+          angulos: [50, 55], marcasLados: [1, 0, 0], giro: 40,
+          rotulo: "o lado marcado de um corresponde ao do outro",
+        }),
+      },
+      {
+        id: "cg-q-lado-comum", pasta: "questoes",
+        alt: "Tabela sobre o lado partilhado por dois triângulos.",
+        desenho: () => tabela({
+          cabecalho: ["o lado partilhado", "vale"],
+          linhas: [["é o mesmo segmento", "nos dois triângulos"]],
+          rotulo: "ele precisa ser provado igual?", larguraCol: 156,
+        }),
+      },
+      {
+        id: "cg-q-qual-caso", pasta: "questoes",
+        alt: "Tabela com os elementos exigidos por cada caso de congruência.",
+        desenho: () => tabela({
+          cabecalho: ["caso", "precisa de"],
+          linhas: [
+            ["LLL", "3 lados"],
+            ["LAL", "2 lados + 1 ângulo"],
+            ["ALA", "1 lado + 2 ângulos"],
+          ],
+          rotulo: "conte o que o enunciado deu", larguraCol: 146,
+        }),
+      },
+      {
+        id: "cg-q-maior-angulo", pasta: "questoes",
+        alt: "Dois triângulos congruentes com os ângulos marcados.",
+        desenho: () => parTriangulos({
+          angulos: [40, 60], marcasAngulos: [1, 2, 3],
+          rotulo: "os ângulos correspondentes são iguais",
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════════ 8º ano · Áreas de figuras planas ═══════════════════
+  //
+  // A matéria é um argumento só, repetido três vezes: recortar a figura e
+  // remontá-la como uma figura que o aluno já sabe medir. Por isso quase
+  // toda figura daqui é `areaPorRecorte` com a etapa mudando — e a etapa
+  // não é decoração: "recortada" mostra a demonstração, e "original" mostra
+  // só as medidas, que é o que pode ir numa questão sem entregar o caminho.
+  ...(() => {
+    return [
+      // --- lição 1: área se soma aos pedaços ---
+      {
+        id: "ar8-ideia-somar", pasta: "licoes",
+        alt: "Figura em L partida por um corte horizontal em duas partes nomeadas A e B.",
+        desenho: () => figuraComposta({
+          movimentos: [[6, 0], [0, 3], [-2, 0], [0, 2], [-4, 0], [0, -5]],
+          cortes: [[[0, 3], [6, 3]]],
+          partes: [{ em: [3, 1.5], nome: "A" }, { em: [2, 4], nome: "B" }],
+          rotulo: "a área do L é a de A mais a de B",
+        }),
+      },
+      {
+        id: "ar8-res-dois-cortes", pasta: "licoes",
+        alt: "A mesma figura em L com o corte horizontal e as medidas dos lados marcadas.",
+        desenho: () => figuraComposta({
+          movimentos: [[6, 0], [0, 3], [-2, 0], [0, 2], [-4, 0], [0, -5]],
+          cortes: [[[0, 3], [6, 3]]],
+          rotulosLados: ["6 cm", "3 cm", "2 cm", "2 cm", "4 cm", "5 cm"],
+          rotulo: "o corte na altura de 3 cm",
+        }),
+      },
+      {
+        id: "ar8-q-area-l", pasta: "questoes",
+        alt: "Figura em L com os seis lados medidos e nenhum corte traçado.",
+        // Sem corte: decidir onde cortar é o trabalho da questão.
+        desenho: () => figuraComposta({
+          movimentos: [[6, 0], [0, 3], [-2, 0], [0, 2], [-4, 0], [0, -5]],
+          rotulosLados: ["6 cm", "3 cm", "2 cm", "2 cm", "4 cm", "5 cm"],
+          rotulo: "onde você cortaria?",
+        }),
+      },
+      {
+        id: "ar8-q-dois-cortes", pasta: "questoes",
+        alt: "Figura em L com um corte horizontal e um corte vertical traçados ao mesmo tempo.",
+        desenho: () => figuraComposta({
+          movimentos: [[6, 0], [0, 3], [-2, 0], [0, 2], [-4, 0], [0, -5]],
+          cortes: [[[0, 3], [6, 3]], [[4, 0], [4, 3]]],
+          rotulo: "dois cortes possíveis na mesma figura",
+        }),
+      },
+      {
+        id: "ar8-q-subtrair", pasta: "questoes",
+        alt: "Placa retangular de 8 por 5 com um quadrado de 3 recortado do canto de cima.",
+        desenho: () => figuraComposta({
+          movimentos: [[8, 0], [0, 5], [-5, 0], [0, -3], [-3, 0], [0, -2]],
+          rotulosLados: ["8 cm", "5 cm", "5 cm", "3 cm", "3 cm", "2 cm"],
+          rotulo: "o canto foi recortado",
+        }),
+      },
+      {
+        id: "ar8-q-perimetro-muda", pasta: "questoes",
+        alt: "Retângulo partido ao meio por um corte tracejado, com as duas metades nomeadas.",
+        desenho: () => figuraComposta({
+          movimentos: [[6, 0], [0, 4], [-6, 0], [0, -4]],
+          cortes: [[[3, 0], [3, 4]]],
+          partes: [{ em: [1.5, 2], nome: "A" }, { em: [4.5, 2], nome: "B" }],
+          rotulo: "o corte virou borda de A e de B",
+        }),
+      },
+
+      // --- lição 2: paralelogramo ---
+      {
+        id: "ar8-ideia-paralelogramo", pasta: "licoes",
+        alt: "Paralelogramo com o corte pela altura e a silhueta tracejada do retângulo que ele vira.",
+        desenho: () => areaPorRecorte({
+          figura: "paralelogramo", etapa: "recortada", base: 7, altura: 4,
+          rotulos: { base: "base", altura: "altura" },
+          rotulo: "o triângulo da ponta encaixa do outro lado",
+        }),
+      },
+      {
+        id: "ar8-res-paralelogramo", pasta: "licoes",
+        alt: "Paralelogramo de base 6 e altura 4, com o corte pela altura traçado.",
+        desenho: () => areaPorRecorte({
+          figura: "paralelogramo", etapa: "recortada", base: 6, altura: 4,
+          rotulo: "o recorte que vira retângulo",
+        }),
+      },
+      {
+        id: "ar8-q-para-simples", pasta: "questoes",
+        alt: "Paralelogramo com a base de 9 cm e a altura de 4 cm marcadas.",
+        desenho: () => areaPorRecorte({
+          figura: "paralelogramo", etapa: "original", base: 9, altura: 4,
+          rotulos: { base: "base 9", altura: "alt 4" },
+          rotulo: "as duas medidas dadas",
+        }),
+      },
+      {
+        id: "ar8-q-para-armadilha", pasta: "questoes",
+        alt: "Paralelogramo com três medidas marcadas: base, altura e lado inclinado.",
+        // A medida a mais é o assunto da questão: ela precisa estar à vista.
+        desenho: () => areaPorRecorte({
+          figura: "paralelogramo", etapa: "original", base: 8, altura: 5,
+          rotulos: { base: "base 8", altura: "alt 5", lado: "lado 6" },
+          rotulo: "três medidas, só duas entram",
+        }),
+      },
+      {
+        id: "ar8-q-por-que-igual", pasta: "questoes",
+        alt: "Paralelogramo e a silhueta tracejada de um retângulo de mesma base e mesma altura.",
+        desenho: () => areaPorRecorte({
+          figura: "paralelogramo", etapa: "recortada", base: 7, altura: 5,
+          medidas: false,
+          rotulo: "as duas figuras, uma sobre a outra",
+        }),
+      },
+      {
+        id: "ar8-q-para-inversa", pasta: "questoes",
+        alt: "Paralelogramo com a base de 9 cm marcada e a altura assinalada com uma interrogação.",
+        desenho: () => areaPorRecorte({
+          figura: "paralelogramo", etapa: "original", base: 9, altura: 5,
+          rotulos: { base: "base 9", altura: "alt ?" },
+          rotulo: "a altura é o que falta",
+        }),
+      },
+
+      // --- lição 3: trapézio ---
+      {
+        id: "ar8-ideia-trapezio", pasta: "licoes",
+        alt: "Trapézio com a silhueta tracejada da segunda cópia encaixada ao lado dele.",
+        desenho: () => areaPorRecorte({
+          figura: "trapezio", etapa: "recortada", base: 7, baseMenor: 3, altura: 4,
+          rotulos: { base: "B", baseMenor: "b", altura: "h" },
+          rotulo: "a cópia girada encaixa à direita",
+        }),
+      },
+      {
+        id: "ar8-res-trapezio", pasta: "licoes",
+        alt: "Trapézio de bases 6 e 3 e altura 4, com a segunda cópia tracejada ao lado.",
+        desenho: () => areaPorRecorte({
+          figura: "trapezio", etapa: "recortada", base: 6, baseMenor: 3, altura: 4,
+          rotulo: "duas cópias formam o paralelogramo",
+        }),
+      },
+      {
+        id: "ar8-q-trap-simples", pasta: "questoes",
+        alt: "Trapézio com as duas bases e a altura marcadas.",
+        desenho: () => areaPorRecorte({
+          figura: "trapezio", etapa: "original", base: 10, baseMenor: 6, altura: 5,
+          rotulo: "as três medidas do trapézio",
+        }),
+      },
+      {
+        id: "ar8-q-de-onde-metade", pasta: "questoes",
+        alt: "O paralelogramo montado com duas cópias do trapézio, sem medidas escritas.",
+        desenho: () => areaPorRecorte({
+          figura: "trapezio", etapa: "rearranjada", base: 6, baseMenor: 3, altura: 4,
+          rotulo: "quantas cópias montaram esta figura?",
+        }),
+      },
+      {
+        id: "ar8-q-trap-inversa", pasta: "questoes",
+        alt: "Trapézio com as bases de 12 e 8 marcadas e a altura assinalada com uma interrogação.",
+        desenho: () => areaPorRecorte({
+          figura: "trapezio", etapa: "original", base: 12, baseMenor: 8, altura: 6,
+          rotulos: { altura: "h ?" },
+          rotulo: "a altura é o que falta",
+        }),
+      },
+      {
+        id: "ar8-q-bases-iguais", pasta: "questoes",
+        alt: "Trapézio desenhado com as duas bases do mesmo tamanho.",
+        // Com B = b o gerador produz o paralelogramo, que é justamente o que
+        // a questão pergunta: a figura não afirma isso, ela mostra.
+        desenho: () => areaPorRecorte({
+          figura: "trapezio", etapa: "original", base: 6, baseMenor: 6, altura: 4,
+          rotulos: { base: "B", baseMenor: "b", altura: "h" },
+          rotulo: "e se B e b forem iguais?",
+        }),
+      },
+
+      // --- lição 4: losango ---
+      {
+        id: "ar8-ideia-losango", pasta: "licoes",
+        alt: "Losango com as duas diagonais traçadas e a silhueta tracejada do retângulo em volta.",
+        desenho: () => areaPorRecorte({
+          figura: "losango", etapa: "recortada", diagonalMaior: 8, diagonalMenor: 5,
+          rotulos: { diagonalMaior: "D", diagonalMenor: "d" },
+          rotulo: "o losango dentro do retângulo das diagonais",
+        }),
+      },
+      {
+        id: "ar8-res-losango", pasta: "licoes",
+        alt: "Losango de diagonais 8 e 5 dentro do retângulo tracejado de mesmos lados.",
+        desenho: () => areaPorRecorte({
+          figura: "losango", etapa: "recortada", diagonalMaior: 8, diagonalMenor: 5,
+          rotulo: "as diagonais partem o losango em quatro",
+        }),
+      },
+      {
+        id: "ar8-q-los-simples", pasta: "questoes",
+        alt: "Losango com as duas diagonais medindo 12 cm e 6 cm.",
+        desenho: () => areaPorRecorte({
+          figura: "losango", etapa: "original", diagonalMaior: 12, diagonalMenor: 6,
+          rotulo: "as duas diagonais",
+        }),
+      },
+      {
+        id: "ar8-q-por-que-retangulo", pasta: "questoes",
+        alt: "Losango inscrito num retângulo tracejado, com os quatro vértices tocando os lados.",
+        desenho: () => areaPorRecorte({
+          figura: "losango", etapa: "recortada", diagonalMaior: 9, diagonalMenor: 6,
+          medidas: false,
+          rotulo: "onde cada vértice do losango encosta",
+        }),
+      },
+      {
+        id: "ar8-q-los-inversa", pasta: "questoes",
+        alt: "Losango com a diagonal maior de 10 cm marcada e a menor assinalada com uma interrogação.",
+        desenho: () => areaPorRecorte({
+          figura: "losango", etapa: "original", diagonalMaior: 10, diagonalMenor: 6,
+          rotulos: { diagonalMaior: "D 10", diagonalMenor: "d ?" },
+          rotulo: "a diagonal menor é o que falta",
+        }),
+      },
+      {
+        id: "ar8-q-compara-los-ret", pasta: "questoes",
+        alt: "Losango de diagonais 10 e 4 dentro do retângulo tracejado de lados 10 e 4.",
+        desenho: () => areaPorRecorte({
+          figura: "losango", etapa: "recortada", diagonalMaior: 10, diagonalMenor: 4,
+          rotulos: { diagonalMaior: "10 cm", diagonalMenor: "4 cm" },
+          rotulo: "as mesmas duas medidas nas duas figuras",
+        }),
+      },
+
+      // --- lição 5: figuras compostas ---
+      {
+        id: "ar8-ideia-compostas", pasta: "licoes",
+        alt: "Figura em cruz partida por dois cortes tracejados em três retângulos nomeados.",
+        desenho: () => figuraComposta({
+          movimentos: [[2, 0], [0, 2], [2, 0], [0, 2], [-2, 0], [0, 2], [-2, 0], [0, -2], [-2, 0], [0, -2], [2, 0], [0, -2]],
+          cortes: [[[0, 2], [6, 2]], [[0, 4], [6, 4]]],
+          partes: [{ em: [3, 1], nome: "A" }, { em: [3, 3], nome: "B" }, { em: [3, 5], nome: "C" }],
+          escala: 26,
+          rotulo: "dois cortes, três retângulos",
+        }),
+      },
+      {
+        id: "ar8-res-degrau", pasta: "licoes",
+        alt: "Figura em degrau com o corte horizontal traçado e as medidas marcadas.",
+        desenho: () => figuraComposta({
+          movimentos: [[8, 0], [0, 3], [-5, 0], [0, 2], [-3, 0], [0, -5]],
+          cortes: [[[0, 3], [8, 3]]],
+          rotulosLados: ["8 cm", "3 cm", "5 cm", "2 cm", "3 cm", "5 cm"],
+          rotulo: "o corte na altura do degrau",
+        }),
+      },
+      {
+        id: "ar8-q-degrau", pasta: "questoes",
+        alt: "Figura em degrau com a base, a altura total e as medidas do degrau marcadas.",
+        desenho: () => figuraComposta({
+          movimentos: [[8, 0], [0, 3], [-5, 0], [0, 2], [-3, 0], [0, -5]],
+          rotulosLados: ["8 cm", "", "", "2 cm", "3 cm", "5 cm"],
+          rotulo: "a altura do pedaço de baixo não foi escrita",
+        }),
+      },
+      {
+        id: "ar8-q-quando-subtrair", pasta: "questoes",
+        alt: "Retângulo com um canto recortado, com a silhueta do retângulo inteiro tracejada.",
+        desenho: () => figuraComposta({
+          movimentos: [[7, 0], [0, 5], [-4, 0], [0, -2], [-3, 0], [0, -3]],
+          cortes: [[[3, 3], [7, 3]], [[3, 3], [3, 5]]],
+          rotulo: "o retângulo inteiro, menos o canto",
+        }),
+      },
+      {
+        id: "ar8-q-fachada", pasta: "questoes",
+        alt: "Fachada formada por um retângulo com um trapézio em cima, com as medidas marcadas.",
+        desenho: () => figuraComposta({
+          movimentos: [[6, 0], [0, 4], [-2, 3], [-2, 0], [-2, -3], [0, -4]],
+          cortes: [[[0, 4], [6, 4]]],
+          rotulosLados: ["6 m", "4 m", "", "2 m", "", "4 m"],
+          escala: 28,
+          rotulo: "um retângulo embaixo, um trapézio em cima",
+        }),
+      },
+      {
+        id: "ar8-q-parede", pasta: "questoes",
+        alt: "Parede retangular com dois vãos tracejados: uma janela quadrada e uma porta.",
+        desenho: () => figuraComposta({
+          movimentos: [[6, 0], [0, 3], [-6, 0], [0, -3]],
+          cortes: [
+            [[1, 1], [3, 1]], [[3, 1], [3, 3]], [[3, 3], [1, 3]], [[1, 3], [1, 1]],
+            [[4, 0], [4, 2]], [[4, 2], [5, 2]], [[5, 2], [5, 0]],
+          ],
+          partes: [{ em: [2, 2], nome: "janela" }, { em: [4.5, 1], nome: "porta" }],
+          escala: 44,
+          rotulo: "só a parte cheia recebe tinta",
+        }),
+      },
+
+      // --- lição 6: problemas de área ---
+      {
+        id: "ar8-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com o roteiro de três passos para resolver um problema de área.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "o que fazer"],
+          linhas: [
+            ["1", "identificar a figura"],
+            ["2", "separar as medidas"],
+            ["3", "calcular ou resolver"],
+          ],
+          rotulo: "o roteiro que organiza as cinco lições", larguraCol: 168,
+        }),
+      },
+      {
+        id: "ar8-res-roteiro", pasta: "licoes",
+        alt: "Retângulo com um lado de 12 cm e o outro assinalado com uma interrogação.",
+        desenho: () => retanguloMalha({
+          colunas: 12, linhas: 9, malha: false,
+          rotuloLargura: "12 cm", rotuloAltura: "?", cel: 24,
+          rotulo: "a área é 108 cm²",
+        }),
+      },
+      {
+        id: "ar8-q-obmep-clotilde", pasta: "questoes",
+        alt: "Retângulo com um lado medindo 12 cm e a área anotada como 108 centímetros quadrados.",
+        // O 12 e o 108 são o ENUNCIADO; o outro lado, que é o passo do meio,
+        // fica em aberto — escrevê-lo entregaria metade da questão.
+        desenho: () => retanguloMalha({
+          colunas: 12, linhas: 9, malha: false,
+          rotuloLargura: "12 cm", rotuloAltura: "?", cel: 24,
+          rotulo: "área 108 cm² · quanto mede a volta?",
+        }),
+      },
+      {
+        id: "ar8-q-terreno-preco", pasta: "questoes",
+        alt: "Terreno em forma de trapézio com bases de 20 m e 14 m e altura de 8 m.",
+        desenho: () => areaPorRecorte({
+          figura: "trapezio", etapa: "original", base: 20, baseMenor: 14, altura: 8,
+          rotulos: { base: "20 m", baseMenor: "14 m", altura: "8 m" },
+          rotulo: "o terreno, a R$ 50,00 o metro quadrado",
+        }),
+      },
+      {
+        id: "ar8-q-medida-sobrando", pasta: "questoes",
+        alt: "Paralelogramo com base, altura e lado inclinado todos medidos.",
+        desenho: () => areaPorRecorte({
+          figura: "paralelogramo", etapa: "original", base: 7, altura: 4,
+          rotulos: { base: "base", altura: "altura", lado: "lado" },
+          rotulo: "qual das três não entra na área?",
+        }),
+      },
+      {
+        id: "ar8-q-ladrilhos", pasta: "questoes",
+        alt: "Piso retangular coberto por uma malha de ladrilhos quadrados.",
+        desenho: () => retanguloMalha({
+          colunas: 20, linhas: 15, malha: true, pintadas: 0,
+          rotuloLargura: "4 m", rotuloAltura: "3 m", cel: 17,
+          rotulo: "ladrilhos de 20 cm de lado",
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════════════ 8º ano · Volume ═══════════════════════
+  //
+  // A matéria é uma generalização, e as figuras precisam mostrar isso: o
+  // MESMO sólido — cópias de uma base empilhadas — com bases de formatos
+  // diferentes. Por isso quase toda figura daqui é `prisma` com a base
+  // mudando, e as camadas tracejadas aparecem onde a fórmula está sendo
+  // explicada, e não onde ela está sendo aplicada.
+  //
+  // **As PROPORÇÕES do desenho têm de bater com as medidas do rótulo.**
+  // Um cilindro rotulado "raio 5 cm, altura 10 cm" precisa sair com o
+  // diâmetro igual à altura, e um bloco de 2 por 1,5 por 1 m precisa de
+  // 6 : 4,5 : 3 unidades. Seis figuras desta matéria foram publicadas
+  // desmentindo o próprio rótulo — o mesmo defeito que a revisão do 6º
+  // ano achou em geometria plana —, e um teste passa a medir isso.
+  // No prisma de base triangular, a `profundidade` é a ALTURA do
+  // triângulo da base, e não uma medida livre.
+  ...(() => {
+    return [
+      // --- lição 1: área da base vezes altura ---
+      {
+        id: "vl8-ideia-camadas", pasta: "licoes",
+        alt: "Prisma de base triangular com cópias da base desenhadas empilhadas ao longo da altura.",
+        desenho: () => prisma({
+          base: "triangulo", largura: 6, profundidade: 5, altura: 6, camadas: 5,
+          rotulo: "a base empilhada ao longo da altura",
+        }),
+      },
+      {
+        id: "vl8-res-prisma-tri", pasta: "licoes",
+        alt: "Prisma de base triangular com a altura do prisma marcada ao lado.",
+        desenho: () => prisma({
+          base: "triangulo", largura: 6, profundidade: 4, altura: 10,
+          medidas: { altura: "10 cm" },
+          rotulo: "a base é um triângulo de 6 por 4",
+        }),
+      },
+      {
+        id: "vl8-q-base-dada", pasta: "questoes",
+        alt: "Prisma de base hexagonal com a área da base e a altura anotadas.",
+        // A área da base vem escrita porque é o ENUNCIADO: a questão existe
+        // para dizer que, com ela na mão, o formato deixa de importar.
+        desenho: () => prisma({
+          base: "hexagono", largura: 6, altura: 8,
+          medidas: { base: "15 cm²", altura: "8 cm" },
+          rotulo: "o formato da base não foi informado",
+        }),
+      },
+      {
+        id: "vl8-q-caso-particular", pasta: "questoes",
+        alt: "Prisma de base retangular com a face do topo destacada como base.",
+        desenho: () => prisma({
+          base: "retangulo", largura: 6, profundidade: 4, altura: 5,
+          medidas: { base: "a base" },
+          rotulo: "onde estão o comprimento e a largura?",
+        }),
+      },
+      {
+        id: "vl8-q-altura-inversa", pasta: "questoes",
+        alt: "Prisma com a área da base anotada e a altura assinalada com uma interrogação.",
+        desenho: () => prisma({
+          base: "hexagono", largura: 6, altura: 7,
+          medidas: { base: "24 cm²", altura: "?" },
+          rotulo: "a altura é o que falta",
+        }),
+      },
+      {
+        id: "vl8-q-duas-alturas", pasta: "questoes",
+        alt: "Triângulo visto de frente com a altura dele marcada em tracejado.",
+        // Só a BASE, vista de frente: a questão pergunta o que esta altura
+        // faz na conta, e desenhá-la dentro do prisma sugeriria a resposta.
+        desenho: () => trianguloAltura({
+          base: 6, altura: 4, rotuloBase: "base", rotuloAltura: "altura",
+          rotulo: "esta é a altura do TRIÂNGULO da base",
+        }),
+      },
+
+      // --- lição 2: prismas de qualquer base ---
+      {
+        id: "vl8-ideia-tres-bases", pasta: "licoes",
+        alt: "Prisma de base trapezoidal com a face do topo destacada.",
+        desenho: () => prisma({
+          base: "trapezio", largura: 7, baseMenor: 3, profundidade: 5, altura: 5,
+          rotulo: "a base pode ser qualquer figura plana",
+        }),
+      },
+      {
+        id: "vl8-res-tri", pasta: "licoes",
+        alt: "Prisma de base triangular com a altura do prisma marcada.",
+        desenho: () => prisma({
+          base: "triangulo", largura: 8, profundidade: 5, altura: 9,
+          medidas: { altura: "9 cm" },
+          rotulo: "triângulo de 8 por 5 na base",
+        }),
+      },
+      {
+        id: "vl8-q-prisma-tri", pasta: "questoes",
+        alt: "Prisma de base triangular com as medidas do triângulo e a altura do prisma anotadas.",
+        desenho: () => prisma({
+          base: "triangulo", largura: 6, profundidade: 4, altura: 10,
+          medidas: { base: "6 por 4", altura: "10 cm" },
+          rotulo: "duas medidas para a base, uma para o prisma",
+        }),
+      },
+      {
+        id: "vl8-q-prisma-trap", pasta: "questoes",
+        alt: "Prisma de base trapezoidal com as medidas do trapézio e a altura do prisma anotadas.",
+        desenho: () => prisma({
+          base: "trapezio", largura: 8, baseMenor: 4, profundidade: 5, altura: 7,
+          medidas: { base: "8 · 4 · 5", altura: "7 cm" },
+          rotulo: "três medidas para a base, uma para o prisma",
+        }),
+      },
+      {
+        id: "vl8-q-o-que-muda", pasta: "questoes",
+        alt: "Prisma de base hexagonal, sem medidas anotadas.",
+        desenho: () => prisma({
+          base: "hexagono", largura: 6, altura: 5,
+          rotulo: "o que muda quando a base vira hexágono?",
+        }),
+      },
+      {
+        id: "vl8-q-hexagonal", pasta: "questoes",
+        alt: "Prisma hexagonal com a área da base e a altura anotadas.",
+        desenho: () => prisma({
+          base: "hexagono", largura: 6, altura: 10,
+          medidas: { base: "36 cm²", altura: "10 cm" },
+          rotulo: "a área da base já foi dada",
+        }),
+      },
+
+      // --- lição 3: o cilindro ---
+      {
+        id: "vl8-ideia-cilindro", pasta: "licoes",
+        alt: "Cilindro com cópias do círculo da base desenhadas empilhadas ao longo da altura.",
+        desenho: () => prisma({
+          base: "circulo", largura: 6, altura: 7, camadas: 5,
+          rotulo: "o círculo empilhado ao longo da altura",
+        }),
+      },
+      {
+        id: "vl8-res-cilindro", pasta: "licoes",
+        alt: "Cilindro com o raio da base e a altura anotados.",
+        desenho: () => prisma({
+          base: "circulo", largura: 10, altura: 10, escala: 22,
+          medidas: { base: "raio 5 cm", altura: "10 cm" },
+          rotulo: "a base é um círculo",
+        }),
+      },
+      {
+        id: "vl8-q-cil-raio", pasta: "questoes",
+        alt: "Cilindro com raio de 3 cm e altura de 10 cm anotados.",
+        desenho: () => prisma({
+          base: "circulo", largura: 6, altura: 10,
+          medidas: { base: "raio 3 cm", altura: "10 cm" },
+          rotulo: "as duas medidas dadas",
+        }),
+      },
+      {
+        id: "vl8-q-por-que-mesma", pasta: "questoes",
+        alt: "Cilindro com três cópias do círculo da base empilhadas, sem medidas.",
+        desenho: () => prisma({
+          base: "circulo", largura: 6, altura: 6, camadas: 3,
+          rotulo: "de que o cilindro é feito?",
+        }),
+      },
+      {
+        id: "vl8-q-lata", pasta: "questoes",
+        alt: "Lata cilíndrica com raio de 4 cm e altura de 5 cm anotados.",
+        desenho: () => prisma({
+          base: "circulo", largura: 8, altura: 5,
+          medidas: { base: "raio 4 cm", altura: "5 cm" },
+          rotulo: "a lata",
+        }),
+      },
+      {
+        id: "vl8-q-diametro", pasta: "questoes",
+        alt: "Cilindro com o diâmetro da base anotado como 10 cm e altura de 4 cm.",
+        // O DIÂMETRO escrito é o enunciado, e é ele que a questão testa: a
+        // fórmula pede o raio, e a metade tem de ser tirada antes.
+        desenho: () => prisma({
+          base: "circulo", largura: 10, altura: 4, escala: 24,
+          medidas: { base: "diâmetro 10 cm", altura: "4 cm" },
+          rotulo: "atenção à medida que foi dada",
+        }),
+      },
+
+      // --- lição 4: sólidos compostos ---
+      {
+        // A base em L vai com a parte FUNDA mais larga, e isso não é
+        // estética: a projeção oblíqua desloca o fundo para a direita, e
+        // com a parte estreita atrás ela invade o espaço da da frente —
+        // a peça deixa de ler como L e vira duas caixas soltas.
+        id: "vl8-ideia-composto", pasta: "licoes",
+        alt: "Prisma cuja base é uma figura em L, com a face do topo destacada.",
+        desenho: () => prisma({
+          base: "livre", movimentos: [[3, 0], [0, 3], [3, 0], [0, 2], [-6, 0], [0, -5]],
+          altura: 4,
+          rotulo: "a peça em L é um prisma de base composta",
+        }),
+      },
+      {
+        id: "vl8-res-degrau", pasta: "licoes",
+        alt: "Prisma de base em L com a espessura marcada ao lado.",
+        desenho: () => prisma({
+          base: "livre", movimentos: [[3, 0], [0, 3], [3, 0], [0, 2], [-6, 0], [0, -5]],
+          altura: 4, medidas: { altura: "4 cm" },
+          rotulo: "a espessura é uniforme",
+        }),
+      },
+      {
+        id: "vl8-q-degrau", pasta: "questoes",
+        alt: "Prisma de base em L com as medidas da base e a espessura anotadas.",
+        desenho: () => prisma({
+          base: "livre", movimentos: [[3, 0], [0, 3], [3, 0], [0, 2], [-6, 0], [0, -5]],
+          altura: 4, medidas: { altura: "4 cm", legenda: "base: 6 por 2 · 3 por 3" },
+          rotulo: "a peça em L",
+        }),
+      },
+      {
+        id: "vl8-q-sem-sobrepor", pasta: "questoes",
+        alt: "Figura em L partida por um corte tracejado em duas partes nomeadas A e B.",
+        desenho: () => figuraComposta({
+          movimentos: [[3, 0], [0, 3], [3, 0], [0, 2], [-6, 0], [0, -5]],
+          cortes: [[[0, 3], [6, 3]]],
+          partes: [{ em: [1.5, 1.5], nome: "A" }, { em: [3, 4], nome: "B" }],
+          rotulo: "os dois pedaços podem se sobrepor?",
+        }),
+      },
+      {
+        id: "vl8-q-furo", pasta: "questoes",
+        alt: "Bloco com um furo quadrado atravessando toda a espessura, com as paredes do furo tracejadas.",
+        desenho: () => prisma({
+          base: "retangulo", largura: 10, profundidade: 6, altura: 4, escala: 22,
+          furo: { x: 4, z: 2, movimentos: [[2, 0], [0, 2], [-2, 0], [0, -2]] },
+          medidas: { altura: "4 cm", legenda: "bloco 10 por 6 · furo 2 por 2" },
+          rotulo: "o furo atravessa a peça",
+        }),
+      },
+      {
+        id: "vl8-q-furo-cego", pasta: "questoes",
+        alt: "Bloco com um furo que desce só até metade da espessura.",
+        desenho: () => prisma({
+          base: "retangulo", largura: 10, profundidade: 6, altura: 4, escala: 22,
+          furo: { x: 4, z: 2, profundidade: 2, movimentos: [[2, 0], [0, 2], [-2, 0], [0, -2]] },
+          medidas: { altura: "4 cm" },
+          rotulo: "e se o furo não atravessar?",
+        }),
+      },
+
+      // --- lição 5: quando a medida dobra ---
+      {
+        id: "vl8-ideia-escala", pasta: "licoes",
+        alt: "Tabela relacionando o número de direções de cada medida com o expoente do fator.",
+        desenho: () => tabela({
+          cabecalho: ["medida", "direções", "fator"],
+          linhas: [
+            ["comprimento", "1", "2"],
+            ["área", "2", "4"],
+            ["volume", "3", "8"],
+          ],
+          rotulo: "dobrando todas as medidas", larguraCol: 116,
+        }),
+      },
+      {
+        id: "vl8-res-escala", pasta: "licoes",
+        alt: "Cubo de 4 unidades de aresta com os cubinhos unitários desenhados nas faces visíveis.",
+        desenho: () => bloco({
+          c: 4, l: 4, a: 4, cubinhos: true, escala: 26,
+          rotulo: "quantos cubos de aresta 2 cabem aqui?",
+        }),
+      },
+      {
+        id: "vl8-q-cubo-dobra", pasta: "questoes",
+        alt: "Cubo de 3 unidades de aresta com os cubinhos unitários desenhados.",
+        desenho: () => bloco({
+          c: 3, l: 3, a: 3, cubinhos: true, escala: 28,
+          rotulos: { comprimento: "3 cm" },
+          rotulo: "e se a aresta dobrar para 6 cm?",
+        }),
+      },
+      {
+        id: "vl8-q-por-que-oito", pasta: "questoes",
+        alt: "Bloco com as três direções nomeadas: comprimento, largura e altura.",
+        desenho: () => bloco({
+          c: 4, l: 3, a: 3, escala: 30,
+          rotulos: { comprimento: "comprimento", largura: "largura", altura: "altura" },
+          rotulo: "em quantas direções o sólido cresce?",
+        }),
+      },
+      {
+        id: "vl8-q-triplica", pasta: "questoes",
+        alt: "Tabela relacionando cada medida ao número de direções em que ela cresce.",
+        // As direções são o DADO; o fator, que é a resposta, fica de fora.
+        desenho: () => tabela({
+          cabecalho: ["medida", "direções"],
+          linhas: [["comprimento", "1"], ["área", "2"], ["volume", "3"]],
+          rotulo: "o fator entra uma vez por direção", larguraCol: 138,
+        }),
+      },
+      {
+        id: "vl8-q-tres-crescimentos", pasta: "questoes",
+        alt: "Tabela com a unidade de cada medida: centímetro, centímetro quadrado e centímetro cúbico.",
+        // O EXPOENTE da unidade já é o número de direções — a figura diz isso
+        // sem escrever nenhum dos três fatores, que são a resposta.
+        desenho: () => tabela({
+          cabecalho: ["medida", "unidade"],
+          linhas: [["comprimento", "cm"], ["área", "cm²"], ["volume", "cm³"]],
+          rotulo: "o expoente da unidade conta as direções", larguraCol: 138,
+        }),
+      },
+
+      // --- lição 6: volume e capacidade ---
+      {
+        id: "vl8-ideia-unidades", pasta: "licoes",
+        alt: "Tabela com as equivalências entre centímetro cúbico, mililitro, litro e metro cúbico.",
+        desenho: () => tabela({
+          cabecalho: ["volume", "capacidade"],
+          linhas: [
+            ["1 cm³", "1 mL"],
+            ["1 000 cm³", "1 L"],
+            ["1 m³", "1 000 L"],
+          ],
+          rotulo: "a ponte entre as duas linguagens", larguraCol: 142,
+        }),
+      },
+      {
+        id: "vl8-res-caixa-agua", pasta: "licoes",
+        alt: "Caixa d'água cilíndrica com raio de 1 m e altura de 2 m anotados.",
+        desenho: () => prisma({
+          base: "circulo", largura: 6, altura: 6,
+          medidas: { base: "raio 1 m", altura: "2 m" },
+          rotulo: "a caixa d'água",
+        }),
+      },
+      {
+        id: "vl8-q-obmep-agua", pasta: "questoes",
+        alt: "Tabela com os três apoios da caixa e a altura que a água atingiu em cada um.",
+        desenho: () => tabela({
+          cabecalho: ["apoio", "altura da água"],
+          linhas: [
+            ["1ª face", "2 cm"],
+            ["2ª face", "4 cm"],
+            ["3ª face", "5 cm"],
+          ],
+          rotulo: "sempre os mesmos 160 mL de água", larguraCol: 138,
+        }),
+      },
+      {
+        id: "vl8-q-reservatorio", pasta: "questoes",
+        alt: "Reservatório em forma de bloco com as três medidas anotadas em metros.",
+        desenho: () => bloco({
+          c: 6, l: 4.5, a: 3, escala: 28,
+          rotulos: { comprimento: "2 m", largura: "1,5 m", altura: "1 m" },
+          rotulo: "o reservatório",
+        }),
+      },
+      {
+        id: "vl8-q-por-que-mil", pasta: "questoes",
+        alt: "Cubo de 1 metro de aresta, com a aresta também anotada em centímetros.",
+        desenho: () => bloco({
+          c: 4, l: 4, a: 4, escala: 30,
+          rotulos: { comprimento: "1 m = 100 cm", altura: "1 m" },
+          rotulo: "o metro cúbico",
+        }),
+      },
+      {
+        id: "vl8-q-jarra", pasta: "questoes",
+        alt: "Jarra cilíndrica com raio de 10 cm e altura de 20 cm anotados.",
+        desenho: () => prisma({
+          base: "circulo", largura: 6, altura: 6,
+          medidas: { base: "raio 10 cm", altura: "20 cm" },
+          rotulo: "a jarra",
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════════ 8º ano · Probabilidade ═══════════════════
+  //
+  // A matéria é sobre eventos SUCESSIVOS, e a figura dela é a árvore. Ela
+  // aparece em quase toda lição porque é o que torna o princípio
+  // multiplicativo visível em vez de decorado — e porque é a única figura
+  // que mostra a diferença entre com e sem reposição: sem reposição, os
+  // ramos da segunda etapa mudam de galho para galho.
+  //
+  // O `ate` tem a ressalva de sempre: numa questão que pergunta QUANTOS
+  // resultados existem, a árvore inteira seria a resposta desenhada, e
+  // basta contar as folhas. Nessas, a árvore vai cortada no primeiro nível.
+  ...(() => {
+    const MOEDA = ["cara", "coroa"];
+    return [
+      // --- lição 1: contar sem listar ---
+      {
+        id: "pb8-ideia-multiplicativo", pasta: "licoes",
+        alt: "Árvore com três camisas, cada uma abrindo em duas calças.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "camisa", opcoes: ["branca", "azul", "verde"] },
+            { rotulo: "calça", opcoes: ["jeans", "preta"] },
+          ],
+          numerarFolhas: true,
+          rotulo: "cada camisa se abre em duas calças",
+        }),
+      },
+      {
+        id: "pb8-res-roupas", pasta: "licoes",
+        alt: "Tabela com as três camisas e as duas calças disponíveis.",
+        desenho: () => tabela({
+          cabecalho: ["camisas", "calças"],
+          linhas: [["branca", "jeans"], ["azul", "preta"], ["verde", "—"]],
+          rotulo: "as peças disponíveis", larguraCol: 132,
+        }),
+      },
+      {
+        id: "pb8-q-sorvete", pasta: "questoes",
+        alt: "Tabela com quatro sabores de sorvete e três tipos de cobertura.",
+        // Só as OPÇÕES, e não as combinações: a árvore inteira teria 12
+        // folhas, e contá-las seria a resposta.
+        desenho: () => tabela({
+          cabecalho: ["sabores", "coberturas"],
+          linhas: [
+            ["morango", "chocolate"],
+            ["chocolate", "caramelo"],
+            ["creme", "granulado"],
+            ["limão", "—"],
+          ],
+          rotulo: "escolha um sabor e uma cobertura", larguraCol: 132,
+        }),
+      },
+      {
+        id: "pb8-q-por-que-multiplica", pasta: "questoes",
+        alt: "Árvore com dois ramos na primeira etapa, cada um abrindo em dois na segunda.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª escolha", opcoes: ["A", "B"] },
+            { rotulo: "2ª escolha", opcoes: ["x", "y"] },
+          ],
+          rotulo: "o que acontece com cada ramo da 1ª etapa?",
+        }),
+      },
+      {
+        id: "pb8-q-menu", pasta: "questoes",
+        alt: "Tabela com as entradas, os pratos e as sobremesas do cardápio.",
+        desenho: () => tabela({
+          cabecalho: ["entrada", "prato", "sobremesa"],
+          linhas: [
+            ["sopa", "carne", "fruta"],
+            ["salada", "peixe", "bolo"],
+            ["—", "massa", "—"],
+          ],
+          rotulo: "monte um menu com uma de cada", larguraCol: 108,
+        }),
+      },
+      {
+        id: "pb8-q-podio", pasta: "questoes",
+        alt: "Árvore dos dois primeiros lugares com três corredores, mostrando que o campeão sai da lista.",
+        // Com três corredores em vez de cinco: a estrutura é a mesma e a
+        // contagem da figura (6) não é a resposta da questão (20).
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1º lugar", opcoes: ["Ana", "Beto", "Caio"] },
+            { rotulo: "2º lugar", opcoes: (c) => ["Ana", "Beto", "Caio"].filter((n) => n !== c[0]) },
+          ],
+          rotulo: "quem ganhou não pode ficar em 2º",
+        }),
+      },
+
+      // --- lição 2: a árvore de possibilidades ---
+      {
+        id: "pb8-ideia-arvore", pasta: "licoes",
+        alt: "Árvore de duas jogadas de moeda, com as quatro folhas numeradas.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª moeda", opcoes: MOEDA },
+            { rotulo: "2ª moeda", opcoes: MOEDA },
+          ],
+          numerarFolhas: true,
+          rotulo: "cada caminho é um resultado",
+        }),
+      },
+      {
+        id: "pb8-res-duas-moedas", pasta: "licoes",
+        alt: "Árvore de duas moedas com o caminho de duas caras destacado.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª moeda", opcoes: MOEDA },
+            { rotulo: "2ª moeda", opcoes: MOEDA },
+          ],
+          destacar: (c) => c.every((x) => x === "cara"),
+          rotulo: "o único caminho com duas caras",
+        }),
+      },
+      {
+        id: "pb8-q-quantas-folhas", pasta: "questoes",
+        alt: "Árvore de duas jogadas de moeda cortada depois da primeira jogada.",
+        // Cortada: contar as folhas da árvore inteira seria a resposta.
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª moeda", opcoes: MOEDA },
+            { rotulo: "2ª moeda", opcoes: MOEDA },
+          ],
+          ate: 1,
+          rotulo: "e de cada um destes, quantos saem?",
+        }),
+      },
+      {
+        id: "pb8-q-duas-caras", pasta: "questoes",
+        alt: "Árvore de duas jogadas de moeda, com as quatro folhas à mostra e nenhuma destacada.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª moeda", opcoes: MOEDA },
+            { rotulo: "2ª moeda", opcoes: MOEDA },
+          ],
+          rotulo: "quantos destes caminhos têm cara nas duas?",
+        }),
+      },
+      {
+        id: "pb8-q-o-que-e-folha", pasta: "questoes",
+        alt: "Árvore de duas etapas com um caminho completo destacado da raiz à folha.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª etapa", opcoes: ["A", "B"] },
+            { rotulo: "2ª etapa", opcoes: ["x", "y"] },
+          ],
+          destacar: (c) => c[0] === "A" && (c.length === 1 || c[1] === "y"),
+          rotulo: "o que o caminho destacado representa?",
+        }),
+      },
+      {
+        id: "pb8-q-moeda-dado", pasta: "questoes",
+        alt: "Árvore de uma moeda seguida de um dado, cortada depois da moeda.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "moeda", opcoes: MOEDA },
+            { rotulo: "dado", opcoes: ["1", "2", "3", "4", "5", "6"] },
+          ],
+          ate: 1,
+          rotulo: "de cada lado da moeda saem 6 ramos",
+        }),
+      },
+
+      // --- lição 3: multiplicar as chances ---
+      {
+        id: "pb8-ideia-multiplicar", pasta: "licoes",
+        alt: "Árvore de duas moedas com a chance de cada ramo anotada como um meio.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª moeda", opcoes: ["cara 1/2", "coroa 1/2"] },
+            { rotulo: "2ª moeda", opcoes: ["cara 1/2", "coroa 1/2"] },
+          ],
+          destacar: (c) => c.every((x) => x.startsWith("cara")),
+          rotulo: "a chance do caminho é o produto dos ramos",
+        }),
+      },
+      {
+        id: "pb8-res-moeda-par", pasta: "licoes",
+        alt: "Árvore de uma moeda seguida do dado, com os ramos de cara e de face par destacados.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "moeda", opcoes: MOEDA },
+            { rotulo: "dado", opcoes: ["par", "ímpar"] },
+          ],
+          destacar: (c) => c[0] === "cara" && (c.length === 1 || c[1] === "par"),
+          rotulo: "cara e par: 1/2 de 1/2",
+        }),
+      },
+      {
+        id: "pb8-q-tres-moedas", pasta: "questoes",
+        alt: "Árvore de três jogadas de moeda, cortada depois da segunda.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª", opcoes: MOEDA },
+            { rotulo: "2ª", opcoes: MOEDA },
+            { rotulo: "3ª", opcoes: MOEDA },
+          ],
+          ate: 2,
+          rotulo: "e ainda falta a terceira jogada",
+        }),
+      },
+      {
+        id: "pb8-q-sempre-menor", pasta: "questoes",
+        alt: "Tabela com duas chances e o produto delas, em três exemplos.",
+        desenho: () => tabela({
+          cabecalho: ["1ª chance", "2ª chance"],
+          linhas: [["1/2", "1/2"], ["1/3", "1/4"], ["9/10", "9/10"]],
+          rotulo: "o que acontece ao multiplicar?", larguraCol: 126,
+        }),
+      },
+      {
+        id: "pb8-q-urna-com-volta", pasta: "questoes",
+        alt: "Urna com três bolas azuis e duas vermelhas, e a nota de que a bola volta.",
+        desenho: () => colecao({
+          total: 5, destacados: 3,
+          rotulo: "3 azuis e 2 vermelhas · a bola VOLTA",
+        }),
+      },
+      {
+        id: "pb8-q-moeda-sem-memoria", pasta: "questoes",
+        alt: "Fileira com cinco resultados de cara já sorteados e a próxima jogada em aberto.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "já saiu", tokens: ["1", "1", "1", "1", "1"] },
+            { rotulo: "próxima", tokens: ["x"] },
+          ],
+          rotulo: "cinco caras seguidas · e agora?",
+        }),
+      },
+
+      // --- lição 4: quando o primeiro muda o segundo ---
+      {
+        id: "pb8-ideia-sem-reposicao", pasta: "licoes",
+        alt: "Árvore de dois sorteios sem reposição, em que os ramos da segunda etapa mudam conforme a primeira.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª bola", opcoes: ["A", "B", "C"] },
+            { rotulo: "2ª bola", opcoes: (c) => ["A", "B", "C"].filter((x) => x !== c[0]) },
+          ],
+          numerarFolhas: true,
+          rotulo: "a bola sorteada não volta",
+        }),
+      },
+      {
+        id: "pb8-res-sem-reposicao", pasta: "licoes",
+        alt: "Árvore de dois sorteios COM reposição, com as nove folhas numeradas.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª bola", opcoes: ["A", "B", "C"] },
+            { rotulo: "2ª bola", opcoes: ["A", "B", "C"] },
+          ],
+          numerarFolhas: true,
+          rotulo: "com reposição, a segunda etapa tem 3 ramos",
+        }),
+      },
+      {
+        id: "pb8-q-fichas", pasta: "questoes",
+        alt: "Caixa com cinco fichas numeradas, e a nota de que a sorteada não volta.",
+        desenho: () => colecao({
+          total: 5, destacados: 0,
+          rotulo: "5 fichas · a sorteada NÃO volta",
+        }),
+      },
+      {
+        id: "pb8-q-o-que-muda-arvore", pasta: "questoes",
+        alt: "Árvore de dois sorteios sem reposição, sem numerar as folhas.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª", opcoes: ["A", "B", "C"] },
+            { rotulo: "2ª", opcoes: (c) => ["A", "B", "C"].filter((x) => x !== c[0]) },
+          ],
+          rotulo: "compare os ramos de cada galho",
+        }),
+      },
+      {
+        id: "pb8-q-urna-sem-volta", pasta: "questoes",
+        alt: "Urna com quatro bolas azuis e duas vermelhas, e a nota de que a bola não volta.",
+        desenho: () => colecao({
+          total: 6, destacados: 4,
+          rotulo: "4 azuis e 2 vermelhas · a bola NÃO volta",
+        }),
+      },
+      {
+        id: "pb8-q-compara-reposicao", pasta: "questoes",
+        alt: "Tabela comparando o que acontece com a urna nos dois tipos de sorteio.",
+        desenho: () => tabela({
+          cabecalho: ["sorteio", "a urna depois"],
+          linhas: [["com reposição", "igual ao início"], ["sem reposição", "uma bola a menos"]],
+          rotulo: "onde repetir a cor é mais provável?", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 5: pelo menos um ---
+      {
+        id: "pb8-ideia-complementar", pasta: "licoes",
+        alt: "Árvore de três moedas cortada na segunda jogada, com o caminho de só coroas destacado.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª", opcoes: MOEDA },
+            { rotulo: "2ª", opcoes: MOEDA },
+            { rotulo: "3ª", opcoes: MOEDA },
+          ],
+          ate: 2,
+          destacar: (c) => c.every((x) => x === "coroa"),
+          rotulo: "o caminho sem nenhuma cara é um só",
+        }),
+      },
+      {
+        id: "pb8-res-pelo-menos", pasta: "licoes",
+        alt: "Árvore de duas moedas com o caminho de duas coroas destacado como complementar.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª moeda", opcoes: MOEDA },
+            { rotulo: "2ª moeda", opcoes: MOEDA },
+          ],
+          destacar: (c) => c.every((x) => x === "coroa"),
+          rotulo: "o complementar: nenhuma cara",
+        }),
+      },
+      {
+        id: "pb8-q-tres-pelo-menos", pasta: "questoes",
+        alt: "Árvore de três jogadas de moeda, cortada depois da primeira.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "1ª", opcoes: MOEDA },
+            { rotulo: "2ª", opcoes: MOEDA },
+            { rotulo: "3ª", opcoes: MOEDA },
+          ],
+          ate: 1,
+          rotulo: "três jogadas · quantas dão alguma cara?",
+        }),
+      },
+      {
+        id: "pb8-q-qual-complementar", pasta: "questoes",
+        alt: "Tabela com os dois testes que um par de eventos complementares precisa passar.",
+        desenho: () => tabela({
+          cabecalho: ["o complementar", "precisa"],
+          linhas: [["nunca acontecer junto", "com o evento"], ["cobrir", "todo o resto"]],
+          rotulo: "os dois testes do complementar", larguraCol: 150,
+        }),
+      },
+      {
+        id: "pb8-q-pelo-menos-seis", pasta: "questoes",
+        alt: "Grade dos 36 pares de dois dados, com os pares sem nenhum 6 destacados.",
+        // Destaca o COMPLEMENTAR (os 25 pares sem 6), que é o caminho que a
+        // lição ensina — e não os 11 que a questão pede.
+        desenho: () => gradeDados({
+          destacar: (a, b) => a !== 6 && b !== 6, mostrarSomas: false,
+          rotulo: "os pares em que nenhum dado deu 6",
+        }),
+      },
+      {
+        id: "pb8-q-por-que-complementar", pasta: "questoes",
+        alt: "Tabela comparando quantos casos cada caminho de cálculo exige.",
+        desenho: () => tabela({
+          cabecalho: ["caminho", "casos a tratar"],
+          linhas: [["direto", "vários"], ["pelo complementar", "um só"]],
+          rotulo: "qual dá menos trabalho?", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 6: problemas de contagem ---
+      {
+        id: "pb8-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com as três perguntas que decidem a conta de um problema de contagem.",
+        desenho: () => tabela({
+          cabecalho: ["pergunte", "e decida"],
+          linhas: [
+            ["há etapas?", "multiplicar"],
+            ["a ordem importa?", "contar ou dividir"],
+            ["o escolhido sai?", "reduzir as opções"],
+          ],
+          rotulo: "o roteiro de contagem", larguraCol: 154,
+        }),
+      },
+      {
+        id: "pb8-res-comissao", pasta: "licoes",
+        alt: "Árvore dos dois primeiros cargos com quatro candidatos, mostrando a redução de opções.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "porta-voz", opcoes: ["A", "B", "C", "D"] },
+            { rotulo: "diretor", opcoes: (c) => ["A", "B", "C", "D"].filter((x) => x !== c[0]) },
+          ],
+          ate: 1,
+          rotulo: "escolhido o 1º cargo, sobram 3 pessoas",
+        }),
+      },
+      {
+        id: "pb8-q-obmep-comissao", pasta: "questoes",
+        alt: "Tabela com os três cargos da comissão e quantos candidatos restam para cada um.",
+        // As opções por cargo são o RACIOCÍNIO pedido; o produto delas, que
+        // é a resposta, não aparece.
+        desenho: () => tabela({
+          cabecalho: ["cargo", "candidatos"],
+          linhas: [["porta-voz", "10"], ["diretor de artes", "?"], ["assessor técnico", "?"]],
+          rotulo: "ninguém pode acumular cargos", larguraCol: 150,
+        }),
+      },
+      {
+        id: "pb8-q-obmep-tres", pasta: "questoes",
+        alt: "Árvore dos cargos com três alunos fixos, cortada no primeiro cargo.",
+        desenho: () => arvorePossibilidades({
+          niveis: [
+            { rotulo: "porta-voz", opcoes: ["Leandro", "Renato", "Marcelo"] },
+            { rotulo: "diretor", opcoes: (c) => ["Leandro", "Renato", "Marcelo"].filter((x) => x !== c[0]) },
+          ],
+          ate: 1,
+          rotulo: "os três alunos, três cargos a distribuir",
+        }),
+      },
+      {
+        id: "pb8-q-senha", pasta: "questoes",
+        alt: "Duas posições de senha em aberto, com a nota de que os algarismos podem repetir.",
+        desenho: () => tokensAlgebricos({
+          linhas: [{ rotulo: "senha", tokens: ["?", "?"] }],
+          rotulo: "dois dígitos de 0 a 9 · pode repetir",
+        }),
+      },
+      {
+        id: "pb8-q-frase-avisa", pasta: "questoes",
+        alt: "Tabela com frases de enunciado e o que cada uma avisa sobre a contagem.",
+        desenho: () => tabela({
+          cabecalho: ["a frase diz", "e isso significa"],
+          linhas: [
+            ["\"uma de cada tipo\"", "há etapas"],
+            ["\"a ordem não importa\"", "dividir no fim"],
+          ],
+          rotulo: "qual frase avisa que o escolhido sai?", larguraCol: 156,
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════════ 8º ano · Estatística ═══════════════════
+  //
+  // A matéria fecha o 8º ano, e ela é sobre desconfiar com método. Por isso
+  // as figuras daqui têm uma responsabilidade a mais: a lição 5 PRECISA
+  // desenhar gráficos enganosos, e o `base` do gerador de gráficos existe
+  // exatamente para isso desde o 6º ano. Onde ele aparece, o `alt` diz que
+  // o eixo não começa no zero — o leitor de tela não pode ser enganado
+  // junto com quem enxerga.
+  //
+  // O `setores` estreia aqui. Ele calcula os ângulos a partir dos valores,
+  // e um teste lê os ângulos de volta do SVG: se uma fatia de 45% saísse
+  // com menos de 162°, a figura estaria mentindo sobre a própria pesquisa
+  // que ilustra — na matéria em que isso é o assunto.
+  ...(() => {
+    const TRANSPORTE = [
+      { nome: "ônibus", valor: 18 },
+      { nome: "a pé", valor: 10 },
+      { nome: "carro", valor: 8 },
+      { nome: "bicicleta", valor: 4 },
+    ];
+    return [
+      // --- lição 1: população e amostra ---
+      {
+        id: "et8-ideia-populacao", pasta: "licoes",
+        alt: "Coleção de quarenta marcas com algumas destacadas, representando a amostra dentro da população.",
+        desenho: () => colecao({
+          total: 40, destacados: 8, porLinha: 8,
+          rotulo: "a amostra é uma parte da população",
+        }),
+      },
+      {
+        id: "et8-res-estimativa", pasta: "licoes",
+        alt: "Tabela com o tamanho da população, o da amostra e quantos entrevistados vêm de ônibus.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "quanto"],
+          linhas: [["alunos da escola", "800"], ["entrevistados", "40"], ["de ônibus na amostra", "12"]],
+          rotulo: "os dados da pesquisa", larguraCol: 152,
+        }),
+      },
+      {
+        id: "et8-q-estimativa", pasta: "questoes",
+        alt: "Tabela com os dados da pesquisa: total de alunos, entrevistados e quantos vêm de ônibus.",
+        // Os três números são o ENUNCIADO; a estimativa, que é a resposta,
+        // não aparece.
+        desenho: () => tabela({
+          cabecalho: ["o que", "quanto"],
+          linhas: [["alunos da escola", "800"], ["entrevistados", "40"], ["de ônibus na amostra", "12"]],
+          rotulo: "quantos da escola inteira?", larguraCol: 152,
+        }),
+      },
+      {
+        id: "et8-q-lampadas", pasta: "questoes",
+        alt: "Coleção de lâmpadas com poucas destacadas para o teste.",
+        desenho: () => colecao({
+          total: 24, destacados: 3, porLinha: 8,
+          rotulo: "testar a lâmpada significa queimá-la",
+        }),
+      },
+      {
+        id: "et8-q-censo", pasta: "questoes",
+        alt: "Coleção de trinta marcas, todas destacadas, representando a turma inteira consultada.",
+        desenho: () => colecao({
+          total: 30, destacados: 30, porLinha: 8,
+          rotulo: "os 30 alunos da turma responderam",
+        }),
+      },
+      {
+        id: "et8-q-proporcao-amostra", pasta: "questoes",
+        alt: "Tabela com o tamanho da população da cidade e o número de entrevistados.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "quanto"],
+          linhas: [["habitantes", "50 000"], ["entrevistados", "500"]],
+          rotulo: "que fração da cidade foi ouvida?", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 2: uma amostra que serve ---
+      {
+        id: "et8-ideia-vies", pasta: "licoes",
+        alt: "Tabela comparando dois modos de escolher a amostra e quem cada um deixa de fora.",
+        desenho: () => tabela({
+          cabecalho: ["onde entrevistar", "quem fica de fora"],
+          linhas: [
+            ["na saída do treino", "quem não joga"],
+            ["sorteando da lista", "ninguém"],
+          ],
+          rotulo: "o modo de escolher decide tudo", larguraCol: 162,
+        }),
+      },
+      {
+        id: "et8-res-vies", pasta: "licoes",
+        alt: "Gráfico de setores da pesquisa feita na saída do treino, com o futebol ocupando a maior parte.",
+        desenho: () => setores({
+          itens: [
+            { nome: "futebol", valor: 40 },
+            { nome: "vôlei", valor: 5 },
+            { nome: "natação", valor: 3 },
+            { nome: "outros", valor: 2 },
+          ],
+          destacar: 0,
+          rotulo: "o resultado na saída do treino",
+        }),
+      },
+      {
+        id: "et8-q-aumentar-amostra", pasta: "questoes",
+        alt: "Duas coleções de marcas, uma pequena e uma grande, ambas tiradas do mesmo grupo.",
+        desenho: () => colecao({
+          total: 40, destacados: 40, porLinha: 8,
+          rotulo: "mais gente, tirada do mesmo lugar",
+        }),
+      },
+      {
+        id: "et8-q-como-sortear", pasta: "questoes",
+        alt: "Tabela com quatro modos de escolher a amostra, sem dizer qual deles serve.",
+        desenho: () => tabela({
+          cabecalho: ["modo de escolher", "alcança"],
+          linhas: [
+            ["os primeiros a chegar", "quem mora perto"],
+            ["uma turma inteira", "uma idade só"],
+            ["urna voluntária", "quem quis responder"],
+          ],
+          rotulo: "e o sorteio da lista, alcança quem?", larguraCol: 158,
+        }),
+      },
+      {
+        id: "et8-q-biblioteca", pasta: "questoes",
+        alt: "Coleção representando os frequentadores da biblioteca dentro da população da cidade.",
+        desenho: () => colecao({
+          total: 36, destacados: 6, porLinha: 9,
+          rotulo: "só quem está na porta da biblioteca",
+        }),
+      },
+      {
+        id: "et8-q-duas-condicoes", pasta: "questoes",
+        alt: "Tabela com dois defeitos possíveis de uma amostra e o que cada um provoca.",
+        desenho: () => tabela({
+          cabecalho: ["o defeito", "o que ele faz"],
+          linhas: [
+            ["escolha enviesada", "erra na mesma direção"],
+            ["amostra pequena", "o acaso decide"],
+          ],
+          rotulo: "os dois jeitos de estragar uma amostra", larguraCol: 162,
+        }),
+      },
+
+      // --- lição 3: frequência absoluta e relativa ---
+      {
+        id: "et8-ideia-frequencia", pasta: "licoes",
+        alt: "Tabela de frequências com a contagem e a porcentagem de cada meio de transporte.",
+        desenho: () => tabela({
+          cabecalho: ["transporte", "alunos", "%"],
+          linhas: [
+            ["ônibus", "18", "45%"],
+            ["a pé", "10", "25%"],
+            ["carro", "8", "20%"],
+            ["bicicleta", "4", "10%"],
+          ],
+          rotulo: "as absolutas somam 40 · as relativas, 100%", larguraCol: 104,
+        }),
+      },
+      {
+        id: "et8-res-tabela", pasta: "licoes",
+        alt: "Tabela de frequências absolutas dos quatro meios de transporte.",
+        desenho: () => tabela({
+          cabecalho: ["transporte", "alunos"],
+          linhas: [["ônibus", "18"], ["a pé", "10"], ["carro", "8"], ["bicicleta", "4"]],
+          rotulo: "turma de 40 alunos", larguraCol: 140,
+        }),
+      },
+      {
+        id: "et8-q-relativa", pasta: "questoes",
+        alt: "Tabela de frequências absolutas, sem as porcentagens.",
+        desenho: () => tabela({
+          cabecalho: ["transporte", "alunos"],
+          linhas: [["ônibus", "18"], ["a pé", "10"], ["carro", "8"], ["bicicleta", "4"]],
+          rotulo: "turma de 40 · qual a % de quem vem a pé?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "et8-q-soma-cem", pasta: "questoes",
+        alt: "Tabela de frequências relativas com a linha do total em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["resposta", "%"],
+          linhas: [["A", "45%"], ["B", "25%"], ["C", "20%"], ["D", "10%"], ["total", "?"]],
+          rotulo: "quanto dá a soma?", larguraCol: 128,
+        }),
+      },
+      {
+        id: "et8-q-compara-escolas", pasta: "questoes",
+        alt: "Tabela com o número de praticantes de natação e o total de alunos de duas escolas.",
+        desenho: () => tabela({
+          cabecalho: ["escola", "natação", "alunos"],
+          linhas: [["A", "30", "200"], ["B", "40", "500"]],
+          rotulo: "onde a natação é mais praticada?", larguraCol: 106,
+        }),
+      },
+      {
+        id: "et8-q-volta-absoluta", pasta: "questoes",
+        alt: "Tabela com o total de entrevistados e a porcentagem de aprovação.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "quanto"],
+          linhas: [["entrevistados", "200"], ["aprovaram", "45%"]],
+          rotulo: "quantas pessoas são 45%?", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 4: o gráfico de setores ---
+      {
+        id: "et8-ideia-setores", pasta: "licoes",
+        alt: "Gráfico de setores dos meios de transporte, com a porcentagem escrita em cada fatia.",
+        desenho: () => setores({
+          itens: TRANSPORTE,
+          rotulo: "o círculo inteiro são os 40 alunos",
+        }),
+      },
+      {
+        id: "et8-res-angulo", pasta: "licoes",
+        alt: "Gráfico de setores com a fatia do ônibus destacada.",
+        desenho: () => setores({
+          itens: TRANSPORTE, destacar: 0,
+          rotulo: "45% do círculo · quantos graus?",
+        }),
+      },
+      {
+        id: "et8-q-angulo-25", pasta: "questoes",
+        alt: "Gráfico de setores de quatro fatias iguais, sem números escritos.",
+        // Sem números: a fatia de 25% escrita já sugeriria a conta, e o
+        // ângulo dela é a resposta.
+        desenho: () => setores({
+          itens: [
+            { nome: "A", valor: 25 }, { nome: "B", valor: 25 },
+            { nome: "C", valor: 25 }, { nome: "D", valor: 25 },
+          ],
+          mostrar: "nada", destacar: 0,
+          rotulo: "a opção A ficou com 25% · e em graus?",
+        }),
+      },
+      {
+        id: "et8-q-mais-da-metade", pasta: "questoes",
+        alt: "Gráfico de setores em que uma fatia ocupa mais da metade do círculo, sem números.",
+        desenho: () => setores({
+          itens: [
+            { nome: "A", valor: 62 }, { nome: "B", valor: 20 },
+            { nome: "C", valor: 12 }, { nome: "D", valor: 6 },
+          ],
+          mostrar: "nada", destacar: 0,
+          rotulo: "o que dá para concluir só olhando?",
+        }),
+      },
+      {
+        id: "et8-q-nao-serve", pasta: "questoes",
+        alt: "Tabela de uma pesquisa de múltipla escolha cujas porcentagens somam 240%.",
+        desenho: () => tabela({
+          cabecalho: ["opção", "marcaram"],
+          linhas: [["A", "80%"], ["B", "70%"], ["C", "50%"], ["D", "40%"], ["total", "240%"]],
+          rotulo: "cada pessoa podia marcar várias", larguraCol: 134,
+        }),
+      },
+      {
+        id: "et8-q-volta-porcentagem", pasta: "questoes",
+        alt: "Gráfico de setores com cinco fatias iguais, uma delas destacada, sem números.",
+        desenho: () => setores({
+          itens: [
+            { nome: "A", valor: 20 }, { nome: "B", valor: 20 }, { nome: "C", valor: 20 },
+            { nome: "D", valor: 20 }, { nome: "E", valor: 20 },
+          ],
+          mostrar: "nada", destacar: 0,
+          rotulo: "a fatia destacada mede 72°",
+        }),
+      },
+
+      // --- lição 5: quando o gráfico mente sem mentir ---
+      {
+        id: "et8-ideia-quatro-truques", pasta: "licoes",
+        alt: "Tabela com os quatro truques de gráfico enganoso e o que cada um distorce.",
+        desenho: () => tabela({
+          cabecalho: ["o truque", "o que distorce"],
+          linhas: [
+            ["eixo cortado", "a proporção"],
+            ["escala desigual", "o tempo"],
+            ["recorte escolhido", "o que se vê"],
+            ["área em vez de altura", "a impressão"],
+          ],
+          rotulo: "nenhum deles usa número falso", larguraCol: 158,
+        }),
+      },
+      {
+        id: "et8-res-eixo-cortado", pasta: "licoes",
+        alt: "Gráfico de colunas de 42 e 45 com o eixo começando em 40, e NÃO no zero — as colunas parecem muito mais diferentes do que os valores são.",
+        desenho: () => grafico({
+          base: 40, passo: 1,
+          dados: [{ rotulo: "antes", valor: 42 }, { rotulo: "depois", valor: 45 }],
+          rotulo: "o eixo começa em 40",
+        }),
+      },
+      {
+        id: "et8-q-primeiro-olhar", pasta: "questoes",
+        alt: "Gráfico de colunas com o eixo começando acima do zero, e NÃO no zero.",
+        desenho: () => grafico({
+          base: 50, passo: 2,
+          dados: [{ rotulo: "A", valor: 54 }, { rotulo: "B", valor: 58 }, { rotulo: "C", valor: 56 }],
+          rotulo: "o que conferir antes de comparar?",
+        }),
+      },
+      {
+        id: "et8-q-area-dobrada", pasta: "questoes",
+        alt: "Dois quadrados, um com o dobro do lado do outro, mostrando a diferença de superfície.",
+        desenho: () => retanguloMalha({
+          colunas: 4, linhas: 4, malha: true, pintadas: 0, cel: 34,
+          rotuloLargura: "o dobro do lado", rotuloAltura: "o dobro",
+          rotulo: "quantos quadradinhos de lado 2 cabem?",
+        }),
+      },
+      {
+        id: "et8-q-recorte", pasta: "questoes",
+        alt: "Gráfico de colunas mostrando apenas os dois últimos anos de uma série de doze.",
+        desenho: () => grafico({
+          passo: 5,
+          dados: [{ rotulo: "ano 11", valor: 30 }, { rotulo: "ano 12", valor: 38 }],
+          rotulo: "e os dez anos anteriores?",
+        }),
+      },
+      {
+        id: "et8-q-o-que-tem-em-comum", pasta: "questoes",
+        alt: "Tabela com os quatro truques e a confirmação de que todos usam dados verdadeiros.",
+        desenho: () => tabela({
+          cabecalho: ["o truque", "os dados"],
+          linhas: [
+            ["eixo cortado", "verdadeiros"],
+            ["escala desigual", "verdadeiros"],
+            ["recorte escolhido", "verdadeiros"],
+            ["área em vez de altura", "verdadeiros"],
+          ],
+          rotulo: "o que os quatro têm em comum?", larguraCol: 158,
+        }),
+      },
+
+      // --- lição 6: uma pesquisa do começo ao fim ---
+      {
+        id: "et8-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com as cinco etapas de uma pesquisa e a armadilha de cada uma.",
+        desenho: () => tabela({
+          cabecalho: ["etapa", "a armadilha"],
+          linhas: [
+            ["definir a população", "pergunta vaga"],
+            ["escolher a amostra", "viés"],
+            ["coletar", "pergunta que induz"],
+            ["organizar", "soma que não fecha"],
+            ["apresentar", "gráfico enganoso"],
+          ],
+          rotulo: "as cinco etapas e o que dá errado", larguraCol: 160,
+        }),
+      },
+      {
+        id: "et8-res-manchete", pasta: "licoes",
+        alt: "Tabela com as quatro perguntas a fazer diante de uma manchete com porcentagem.",
+        desenho: () => tabela({
+          cabecalho: ["pergunte", "para saber"],
+          linhas: [
+            ["quantos foram ouvidos?", "o tamanho"],
+            ["como foram escolhidos?", "se há viés"],
+            ["quem encomendou?", "o interesse"],
+            ["qual foi a pergunta?", "se induziu"],
+          ],
+          rotulo: "antes de acreditar na manchete", larguraCol: 166,
+        }),
+      },
+      {
+        id: "et8-q-relativa-400", pasta: "questoes",
+        alt: "Tabela com o total de entrevistados e quantos escolheram a opção A.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "quanto"],
+          linhas: [["entrevistados", "400"], ["escolheram A", "120"]],
+          rotulo: "que porcentagem escolheu A?", larguraCol: 150,
+        }),
+      },
+      {
+        id: "et8-q-pergunta-induz", pasta: "questoes",
+        alt: "Tabela com dois formatos de pergunta de pesquisa e o que cada um deixa em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["formato", "deixa em aberto"],
+          linhas: [
+            ["pergunta aberta", "qualquer resposta"],
+            ["pergunta sobre um fato", "o número"],
+          ],
+          rotulo: "e a que já traz a conclusão?", larguraCol: 162,
+        }),
+      },
+      {
+        id: "et8-q-qual-populacao", pasta: "questoes",
+        alt: "Coleção representando os alunos da escola com uma parte destacada como amostra.",
+        desenho: () => colecao({
+          total: 45, destacados: 9, porLinha: 9,
+          rotulo: "os alunos da escola · e os entrevistados",
+        }),
+      },
+      {
+        id: "et8-q-quem-encomendou", pasta: "questoes",
+        alt: "Tabela com o que quem financia uma pesquisa consegue influenciar e o que não consegue.",
+        desenho: () => tabela({
+          cabecalho: ["quem paga pode", "não pode"],
+          linhas: [
+            ["escolher a pergunta", "mudar as respostas"],
+            ["escolher o recorte", "inventar entrevistados"],
+          ],
+          rotulo: "isso torna o resultado falso?", larguraCol: 166,
         }),
       },
     ];

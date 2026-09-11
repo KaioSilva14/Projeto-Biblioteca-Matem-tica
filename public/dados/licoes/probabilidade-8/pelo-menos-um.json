@@ -1,0 +1,195 @@
+{
+  "id": "pelo-menos-um",
+  "numero": 5,
+  "titulo": "Pelo menos um",
+  "pergunta": "Como calcular a chance de algo acontecer ao menos uma vez?",
+  "ideia": {
+    "paragrafos": [
+      "\"Pelo menos um\" é a pergunta mais comum da probabilidade e a mais trabalhosa de responder de frente. Jogando três moedas, sair pelo menos uma cara acontece em muitos caminhos: uma cara, duas caras ou três. Somar todos esses casos dá certo, mas dá trabalho — e com mais etapas fica impraticável.",
+      "O atalho é olhar pelo avesso. Se não sair NENHUMA cara, as três jogadas deram coroa — e esse é um caminho só. Todo o resto do espaço de possibilidades tem pelo menos uma cara. Então a chance que se procura é tudo menos esse caso único.",
+      "Isso funciona porque um evento e o oposto dele cobrem todas as possibilidades, sem sobrar nada e sem se sobrepor. Somados, eles dão 100%. O oposto de um evento se chama COMPLEMENTAR, e a regra é: probabilidade do evento = 100% menos a probabilidade do complementar.",
+      "Com três moedas: a chance de nenhuma cara é 1/2 × 1/2 × 1/2 = 1/8, ou 12,5%. Então pelo menos uma cara tem 100% − 12,5% = 87,5% de chance. Contar direto daria o mesmo, mas exigiria somar sete caminhos em vez de calcular um.",
+      "O passo que decide tudo é escrever o complementar CERTO. O oposto de \"pelo menos uma cara\" é \"nenhuma cara\", e não \"pelo menos uma coroa\" — este último pode acontecer junto com o primeiro, e dois eventos que podem acontecer juntos não são complementares. Um bom teste: pergunte se os dois cobrem todos os casos e nunca acontecem ao mesmo tempo.",
+      "Vale guardar os pares que mais aparecem: o oposto de \"pelo menos um\" é \"nenhum\"; o oposto de \"todos\" é \"pelo menos um que não\"; o oposto de \"ao menos dois\" é \"no máximo um\". Trocar um desses pelo par errado é o engano mais frequente da lição."
+    ],
+    "destaque": "A chance de \"pelo menos um\" é 100% menos a chance de \"nenhum\" — um caso só, em vez de vários.",
+    "imagem": "pb8-ideia-complementar"
+  },
+  "resolvido": {
+    "enunciado": "Uma moeda é jogada duas vezes. Qual é a probabilidade de sair pelo menos uma cara?",
+    "imagem": "pb8-res-pelo-menos",
+    "passos": [
+      {
+        "titulo": "Escreva o complementar",
+        "explicacao": "O oposto de sair pelo menos uma cara é não sair cara nenhuma.",
+        "conta": "nenhuma cara = as duas coroa"
+      },
+      {
+        "titulo": "Calcule a chance dele",
+        "explicacao": "Cada jogada dá coroa com chance 1/2, e as duas são independentes.",
+        "conta": "1/2 × 1/2 = 1/4 = 25%"
+      },
+      {
+        "titulo": "Tire de 100%",
+        "explicacao": "O evento e o complementar dele cobrem todas as possibilidades.",
+        "conta": "100% − 25% = 75%"
+      }
+    ],
+    "fecho": "Contando direto daria o mesmo: das quatro folhas, três têm alguma cara."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma moeda é jogada três vezes. Qual é a probabilidade de sair pelo menos uma cara, em porcentagem? Digite apenas o número.",
+      "imagem": "pb8-q-tres-pelo-menos",
+      "dica": "Calcule primeiro a chance de NÃO sair cara nenhuma — é um caminho só.",
+      "formato": "numero",
+      "resposta": 87.5,
+      "errosComuns": [
+        {
+          "resposta": "12.5",
+          "porque": "12,5% é a chance do COMPLEMENTAR: nenhuma cara, ou seja, três coroas. Ela é o passo do meio, e falta tirá-la de 100% para chegar à resposta."
+        },
+        {
+          "resposta": "50",
+          "porque": "50% é a chance de UMA jogada dar cara. Com três jogadas, as oportunidades se acumulam, e a chance de alguma delas dar cara é bem maior que a de uma só."
+        },
+        {
+          "resposta": "150",
+          "porque": "150% sai de somar os 50% das três jogadas. Probabilidade não passa de 100%, e chances de etapas não se somam — o caminho é pelo complementar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o complementar",
+          "explicacao": "Não sair cara nenhuma significa que as três jogadas deram coroa.",
+          "conta": "nenhuma cara = 3 coroas"
+        },
+        {
+          "titulo": "Calcule a chance dele",
+          "explicacao": "Cada jogada dá coroa com chance 1/2, e as três se multiplicam.",
+          "conta": "1/2 × 1/2 × 1/2 = 12,5%"
+        },
+        {
+          "titulo": "Tire de 100%",
+          "explicacao": "O que sobra é a chance de aparecer pelo menos uma cara.",
+          "conta": "100% − 12,5% = 87,5%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o complementar do evento \"sair pelo menos um 6 em dois lançamentos de dado\"?",
+      "imagem": "pb8-q-qual-complementar",
+      "dica": "O complementar precisa cobrir todos os outros casos, sem nunca acontecer junto com o evento.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não sair 6 em nenhum dos dois lançamentos" },
+        { "rotulo": "B", "texto": "Sair 6 nos dois lançamentos" },
+        { "rotulo": "C", "texto": "Sair pelo menos um número diferente de 6" },
+        { "rotulo": "D", "texto": "Sair exatamente um 6" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sair 6 nos dois lançamentos",
+          "porque": "Esse evento acontece JUNTO com o original — sair 6 nos dois é um caso de sair pelo menos um 6. Complementares nunca podem acontecer ao mesmo tempo."
+        },
+        {
+          "resposta": "Sair pelo menos um número diferente de 6",
+          "porque": "Também acontece junto: o par (6, 3) tem pelo menos um 6 e pelo menos um número diferente de 6. Os dois eventos se sobrepõem, então não são complementares."
+        },
+        {
+          "resposta": "Sair exatamente um 6",
+          "porque": "Esse é um PEDAÇO do evento original, e não o oposto dele. Sair exatamente um 6 é uma das maneiras de sair pelo menos um 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Negue o evento",
+          "explicacao": "O oposto de aparecer ao menos um 6 é não aparecer nenhum.",
+          "conta": "nenhum 6 nos dois"
+        },
+        {
+          "titulo": "Confira os dois testes",
+          "explicacao": "Eles nunca acontecem juntos e, somados, cobrem todos os casos.",
+          "conta": "complementar ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Dois dados são lançados. Em quantos dos 36 pares possíveis aparece pelo menos um 6? Digite apenas o número.",
+      "imagem": "pb8-q-pelo-menos-seis",
+      "dica": "Conte primeiro os pares em que NENHUM dado deu 6, e tire do total.",
+      "formato": "numero",
+      "resposta": 11,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 sai de somar os 6 pares com 6 no primeiro dado com os 6 do segundo. O par (6, 6) aparece nas duas listas e foi contado duas vezes — o total é 11."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é o número de pares em que NENHUM dado deu 6, ou seja, 5 × 5. Ele é o passo do meio: falta tirá-lo dos 36 pares possíveis."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 conta só os pares com 6 no primeiro dado. Os pares com 6 apenas no segundo dado também servem, e eles ainda não entraram na conta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os pares sem nenhum 6",
+          "explicacao": "Cada dado pode dar 1, 2, 3, 4 ou 5 — cinco opções para cada um.",
+          "conta": "5 × 5 = 25"
+        },
+        {
+          "titulo": "Tire do total",
+          "explicacao": "Os pares que sobram são exatamente os que têm algum 6.",
+          "conta": "36 − 25 = 11"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que costuma valer a pena calcular \"pelo menos um\" pelo complementar?",
+      "imagem": "pb8-q-por-que-complementar",
+      "dica": "Compare quantos casos precisam ser somados em cada caminho.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o complementar costuma ser um caso só, enquanto o evento tem vários" },
+        { "rotulo": "B", "texto": "Porque o complementar sempre tem probabilidade menor" },
+        { "rotulo": "C", "texto": "Porque o caminho direto dá um resultado diferente" },
+        { "rotulo": "D", "texto": "Porque só o complementar pode ser calculado multiplicando" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o complementar sempre tem probabilidade menor",
+          "porque": "Nem sempre tem: se o evento for raro, o complementar dele é que será provável. E mesmo quando é menor, isso não facilitaria nada — o que facilita é ele ser um caso só."
+        },
+        {
+          "resposta": "Porque o caminho direto dá um resultado diferente",
+          "porque": "Os dois caminhos dão exatamente o mesmo número, e é bom que deem: com três moedas, somar os sete casos favoráveis chega aos mesmos 87,5%. A diferença é só de trabalho."
+        },
+        {
+          "resposta": "Porque só o complementar pode ser calculado multiplicando",
+          "porque": "Qualquer caminho da árvore pode ser calculado multiplicando os ramos dele. O que o complementar tem de especial é ser UM caminho, em vez de muitos que precisariam ser somados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os casos do evento",
+          "explicacao": "Com três moedas, pelo menos uma cara acontece em sete caminhos.",
+          "conta": "7 casos a somar"
+        },
+        {
+          "titulo": "Conte os do complementar",
+          "explicacao": "Nenhuma cara acontece num caminho só: as três coroas.",
+          "conta": "1 caso a calcular"
+        }
+      ]
+    }
+  ]
+}

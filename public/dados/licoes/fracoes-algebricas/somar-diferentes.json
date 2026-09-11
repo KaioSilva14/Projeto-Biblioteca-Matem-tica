@@ -1,0 +1,200 @@
+{
+  "id": "somar-diferentes",
+  "numero": 5,
+  "titulo": "Somar com denominadores diferentes",
+  "pergunta": "Como somar x/2 com x/3?",
+  "ideia": {
+    "paragrafos": [
+      "Frações só se somam quando as partes têm o mesmo tamanho. Com denominadores diferentes, o primeiro trabalho é reescrever as duas com um denominador comum — e só depois somar os numeradores, como na lição passada.",
+      "O denominador comum mais econômico é o MMC dos denominadores, que veio da matéria de divisibilidade no 6º ano. Para 2 e 3, o MMC é 6. Então x/2 vira 3x/6, porque multiplicamos em cima e embaixo por 3; e x/3 vira 2x/6, multiplicando por 2. Agora as duas estão em sextos e podem ser somadas: 5x/6.",
+      "Multiplicar em cima e embaixo pelo mesmo número não muda o valor da fração — é a mesma propriedade que permite simplificar, usada no sentido contrário. Em vez de cortar um fator, estamos acrescentando um; a fração continua valendo o mesmo.",
+      "Com letras nos denominadores, o processo é idêntico. Para somar 1/x com 1/y, o denominador comum é xy: a primeira vira y/xy e a segunda vira x/xy, e a soma é (x + y)/xy. Repare que o numerador da resposta é uma soma que não simplifica — o x + y não tem fator comum com xy.",
+      "E a restrição continua acompanhando cada denominador que aparece. Em 1/x + 1/y, nem x nem y podem ser zero, e isso vale antes e depois da conta. A resposta (x + y)/xy carrega as duas restrições."
+    ],
+    "destaque": "Iguale os denominadores pelo MMC. Multiplicar em cima e embaixo não muda o valor.",
+    "imagem": "fa-ideia-mmc"
+  },
+  "resolvido": {
+    "enunciado": "Efetue x/2 + x/3.",
+    "imagem": "fa-res-mmc",
+    "passos": [
+      {
+        "titulo": "Ache o denominador comum",
+        "explicacao": "O menor número que 2 e 3 dividem é o MMC deles, como na matéria de divisibilidade.",
+        "conta": "MMC(2, 3) = 6"
+      },
+      {
+        "titulo": "Reescreva a primeira",
+        "explicacao": "Para o 2 virar 6, multiplicamos por 3 — e o numerador acompanha, senão o valor muda.",
+        "conta": "x/2 = 3x/6"
+      },
+      {
+        "titulo": "Reescreva a segunda",
+        "explicacao": "Para o 3 virar 6, multiplicamos por 2, em cima e embaixo.",
+        "conta": "x/3 = 2x/6"
+      },
+      {
+        "titulo": "Some os numeradores",
+        "explicacao": "Agora as partes têm o mesmo tamanho, e a soma é a da lição passada.",
+        "conta": "3x/6 + 2x/6 = 5x/6"
+      }
+    ],
+    "fecho": "Testando com x = 6: as parcelas dão 3 e 2, somando 5 — e 5×6/6 dá 5."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Para somar x/4 com x/6, qual é o menor denominador comum? Digite apenas o número.",
+      "imagem": "fa-q-mmc-4-6",
+      "dica": "Procure o menor número que tanto 4 quanto 6 dividem sem deixar resto.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é o produto de 4 por 6, e ele serve como denominador comum — mas não é o MENOR. O 12 já é dividido pelos dois, e usar ele deixa a conta mais simples."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 soma os denominadores, o que não produz um múltiplo comum: o 4 não divide o 10. É preciso um número que os DOIS dividam."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o máximo divisor comum, e não o mínimo múltiplo comum. O MDC divide os dois números; o denominador comum precisa ser dividido POR eles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os múltiplos",
+          "explicacao": "Procure o primeiro número que aparece nas duas listas.",
+          "conta": "4, 8, 12 · 6, 12"
+        },
+        {
+          "titulo": "Escolha o menor comum",
+          "explicacao": "Ele é o MMC, e usá-lo evita simplificar depois.",
+          "conta": "MMC(4, 6) = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Reescrevendo x/2 com denominador 6, qual é o novo numerador?",
+      "imagem": "fa-q-reescrever",
+      "dica": "Veja por quanto o denominador foi multiplicado, e faça o mesmo em cima.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3x" },
+        { "rotulo": "B", "texto": "x" },
+        { "rotulo": "C", "texto": "2x" },
+        { "rotulo": "D", "texto": "6x" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "x",
+          "porque": "Deixar o numerador parado MUDA o valor da fração: x/6 é menor que x/2. O que mantém o valor é multiplicar em cima e embaixo pelo mesmo número."
+        },
+        {
+          "resposta": "2x",
+          "porque": "2x multiplicaria o numerador pelo denominador antigo, e não pelo fator da conversão. O 2 virou 6 sendo multiplicado por 3, então o numerador também é multiplicado por 3."
+        },
+        {
+          "resposta": "6x",
+          "porque": "6x multiplica pelo denominador novo inteiro. O fator da conversão é quantas vezes o 2 cabe no 6, que é 3 — e não o próprio 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o fator da conversão",
+          "explicacao": "É por quanto o denominador antigo foi multiplicado para virar o novo.",
+          "conta": "2 × 3 = 6"
+        },
+        {
+          "titulo": "Aplique o mesmo em cima",
+          "explicacao": "Multiplicar os dois lados pelo mesmo número mantém o valor da fração.",
+          "conta": "x × 3 = 3x → 3x/6"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Efetuando 1/x + 1/y, qual é o numerador da resposta?",
+      "imagem": "fa-q-somar-letras",
+      "dica": "O denominador comum é xy. Reescreva as duas frações com ele e some.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "x + y" },
+        { "rotulo": "B", "texto": "2" },
+        { "rotulo": "C", "texto": "xy" },
+        { "rotulo": "D", "texto": "1" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 somaria os numeradores 1 e 1 sem antes igualar os denominadores. Com denominadores diferentes, cada numerador é multiplicado pelo fator da conversão: o 1/x vira y/xy, e o 1/y vira x/xy."
+        },
+        {
+          "resposta": "xy",
+          "porque": "xy é o DENOMINADOR da resposta, e não o numerador. Ele é o produto dos dois denominadores originais; o numerador é a soma x + y."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o numerador de cada parcela antes da conversão. Ao passar para o denominador comum, cada um é multiplicado pelo denominador da outra fração."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reescreva as duas com denominador xy",
+          "explicacao": "Cada fração é multiplicada em cima e embaixo pelo denominador da outra.",
+          "conta": "1/x = y/xy  ·  1/y = x/xy"
+        },
+        {
+          "titulo": "Some os numeradores",
+          "explicacao": "Agora os denominadores são iguais, e a soma é direta.",
+          "conta": "(y + x)/xy"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que multiplicar o numerador e o denominador pelo mesmo número não muda o valor da fração?",
+      "imagem": "fa-q-por-que-nao-muda",
+      "dica": "Pense no que essa multiplicação faz com o tamanho e com a quantidade das partes.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque as partes ficam menores e mais numerosas na mesma proporção" },
+        { "rotulo": "B", "texto": "Porque o numerador e o denominador se cancelam" },
+        { "rotulo": "C", "texto": "Porque toda fração pode ser escrita de um jeito só" },
+        { "rotulo": "D", "texto": "Porque multiplicar por um número não muda nada" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o numerador e o denominador se cancelam",
+          "porque": "Eles não se cancelam: em 3x/6 nem o 3 nem o 6 somem. O que acontece é que os dois crescem na mesma proporção, e a razão entre eles fica igual."
+        },
+        {
+          "resposta": "Porque toda fração pode ser escrita de um jeito só",
+          "porque": "É o contrário: toda fração pode ser escrita de infinitos jeitos — 1/2, 2/4, 3/6 e 50/100 são a mesma quantidade. É essa liberdade que a conversão usa."
+        },
+        {
+          "resposta": "Porque multiplicar por um número não muda nada",
+          "porque": "Multiplicar por um número MUDA, e muito: 2 vezes 3 não é 2. O que não muda o valor é multiplicar em cima e embaixo pelo MESMO número, porque as duas mudanças se compensam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que muda embaixo",
+          "explicacao": "Multiplicar o denominador por 3 corta cada parte em três pedaços menores.",
+          "conta": "de meios para sextos"
+        },
+        {
+          "titulo": "E o que muda em cima",
+          "explicacao": "O numerador multiplicado por 3 pega três vezes mais dessas partes menores.",
+          "conta": "x/2 = 3x/6, a mesma quantidade"
+        }
+      ]
+    }
+  ]
+}

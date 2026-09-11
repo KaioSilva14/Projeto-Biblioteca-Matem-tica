@@ -1,0 +1,41 @@
+{
+  "id": "volume-8",
+  "titulo": "Volume",
+  "ano": 8,
+  "descricao": "O 6º ano mediu o volume da caixa contando cubinhos e chegou em comprimento × largura × altura. Aqui essa fórmula é reconhecida como um caso particular de uma só ideia — área da base vezes altura —, e a partir dela o volume de qualquer prisma e do cilindro sai sem fórmula nova. A base pode ser triângulo, trapézio, hexágono ou círculo: o argumento não muda.",
+  "pergunta": "Por que a mesma fórmula serve para sólidos de formatos tão diferentes?",
+  "videos": [
+    {
+      "id": "RGlCdaZJrI4",
+      "titulo": "VOLUME DE SÓLIDOS GEOMÉTRICOS - Prisma, Paralelepípedo, Cubo, Pirâmide, Cilindro e Esfera",
+      "canal": "Gis com Giz",
+      "descricao": "Percorre os sólidos um a um numa aula só. Serve como panorama depois das lições 2 e 3."
+    },
+    {
+      "id": "ai6tReh_tEs",
+      "titulo": "VOLUME DO PRISMA - PRISMA",
+      "canal": "Gis com Giz",
+      "descricao": "Dedicado ao prisma, com bases de formatos diferentes. É exatamente o assunto da lição 2."
+    },
+    {
+      "id": "8vnJHOUYsFQ",
+      "titulo": "VOLUME DO CILINDRO 8° ANO 👩‍🏫 PROF GISELE RAMOS",
+      "canal": "Professora Gisele Ramos - Matemática",
+      "descricao": "Escrito para esta série e só sobre o cilindro. Vale se a área do círculo ainda não estiver na mão."
+    },
+    {
+      "id": "Gvcru8fqqcA",
+      "titulo": "PRISMA - ÁREA DA BASE, ÁREA LATERAL, ÁREA TOTAL E VOLUME DO PRISMA",
+      "canal": "Gis com Giz",
+      "descricao": "Vai além da matéria: mostra também a área da superfície do prisma. Para quem quiser ir adiante depois da lição 6."
+    }
+  ],
+  "licoes": [
+    { "id": "base-vezes-altura", "arquivo": "/dados/licoes/volume-8/base-vezes-altura.json" },
+    { "id": "prismas", "arquivo": "/dados/licoes/volume-8/prismas.json" },
+    { "id": "cilindro", "arquivo": "/dados/licoes/volume-8/cilindro.json" },
+    { "id": "compostos", "arquivo": "/dados/licoes/volume-8/compostos.json" },
+    { "id": "escala", "arquivo": "/dados/licoes/volume-8/escala.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/volume-8/problemas.json" }
+  ]
+}

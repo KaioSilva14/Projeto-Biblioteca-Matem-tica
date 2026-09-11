@@ -1,0 +1,194 @@
+{
+  "id": "soma-por-diferenca",
+  "numero": 4,
+  "titulo": "A soma pela diferença",
+  "pergunta": "Por que aqui o termo do meio desaparece?",
+  "ideia": {
+    "paragrafos": [
+      "O terceiro produto notável é (a + b)(a − b) — a mesma dupla de termos, uma vez somada e outra subtraída. E ele tem uma surpresa: o resultado só tem dois termos, e não três.",
+      "Fazendo os quatro produtos de sempre: a vezes a dá a²; a vezes (−b) dá −ab; b vezes a dá +ab; b vezes (−b) dá −b². Agora olhe os dois do meio: −ab e +ab. Eles são iguais em valor e opostos em sinal, então somados dão zero. Somem.",
+      "Sobra a² − b². É por isso que este produto se chama diferença de quadrados: o resultado é o quadrado do primeiro menos o quadrado do segundo, sem nada no meio. E o termo do meio não foi esquecido — ele existiu e se cancelou, o que é bem diferente.",
+      "A figura mostra isso por área, e é uma das mais bonitas da matemática elementar. Pegue um quadrado de lado a e recorte do canto um quadradinho de lado b: sobra um L, de área a² − b². Cortando esse L em duas peças e remontando, elas formam um retângulo perfeito de lados (a + b) e (a − b). A mesma área, em duas formas.",
+      "Este é o produto notável mais útil na prática, e a lição 6 vai usá-lo para contas de cabeça. 102 × 98 parece trabalhoso, mas é (100 + 2)(100 − 2), que dá 10 000 − 4 = 9 996 — sem armar conta nenhuma."
+    ],
+    "destaque": "O termo do meio não foi esquecido: ele existiu, e os dois cruzados se cancelaram.",
+    "imagem": "pn-ideia-soma-dif"
+  },
+  "resolvido": {
+    "enunciado": "Efetue (x + 5)(x − 5).",
+    "imagem": "pn-res-soma-dif",
+    "passos": [
+      {
+        "titulo": "Faça os quatro produtos",
+        "explicacao": "Cada parcela do primeiro parêntese encontra cada parcela do segundo, como sempre.",
+        "conta": "x² · −5x · +5x · −25"
+      },
+      {
+        "titulo": "Olhe os dois do meio",
+        "explicacao": "Eles têm o mesmo valor e sinais contrários — um veio do menos, o outro do mais.",
+        "conta": "−5x + 5x = 0"
+      },
+      {
+        "titulo": "Escreva o que sobrou",
+        "explicacao": "Ficaram só o quadrado do primeiro e o quadrado do segundo, este com sinal de menos.",
+        "conta": "x² − 25"
+      },
+      {
+        "titulo": "Confira com um número",
+        "explicacao": "Substituir um valor testa a fórmula inteira de uma vez.",
+        "conta": "x = 7: (12)(2) = 24 · 49 − 25 = 24 ✓"
+      }
+    ],
+    "fecho": "Dois termos, e não três — porque os do meio se anularam."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Ao efetuar (x + 8)(x − 8), qual é o termo sem x? Digite apenas o número (com o sinal, se for negativo).",
+      "imagem": "pn-q-soma-dif-8",
+      "dica": "É o quadrado do segundo termo, e o sinal dele vem do produto de +8 por −8.",
+      "formato": "numero",
+      "resposta": -64,
+      "errosComuns": [
+        {
+          "resposta": "64",
+          "porque": "64 acerta o valor e erra o sinal. Aqui o último termo vem de (+8) vezes (−8), que dá negativo — diferente do quadrado da diferença, onde os dois fatores eram negativos e o resultado ficava positivo."
+        },
+        {
+          "resposta": "-16",
+          "porque": "−16 é o dobro de 8 com sinal, ou seja, o que seria o termo do meio. Mas neste produto o termo do meio se cancela, e o que sobra é o quadrado do 8."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o que sobra do termo do MEIO, que realmente se anula. O termo sem x é outro: ele vem do produto dos dois últimos, que dá −64."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique os dois últimos",
+          "explicacao": "Um deles é +8 e o outro é −8, então o produto sai negativo.",
+          "conta": "(+8) × (−8) = −64"
+        },
+        {
+          "titulo": "Escreva o resultado",
+          "explicacao": "O termo do meio se cancelou, então sobram dois termos.",
+          "conta": "(x+8)(x−8) = x² − 64"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale 102 × 98, usando a soma pela diferença? Digite apenas o número.",
+      "imagem": "pn-q-102-98",
+      "dica": "Escreva os dois números como 100 mais alguma coisa e 100 menos a mesma coisa.",
+      "formato": "numero",
+      "resposta": 9996,
+      "errosComuns": [
+        {
+          "resposta": "10000",
+          "porque": "10 000 é 100², esquecendo de subtrair o quadrado do segundo termo. A fórmula é a² − b², e o b vale 2, então falta tirar 4."
+        },
+        {
+          "resposta": "9998",
+          "porque": "9 998 subtrai 2 em vez de 4. O que se subtrai é o QUADRADO do segundo termo, e o quadrado de 2 é 4."
+        },
+        {
+          "resposta": "9604",
+          "porque": "9 604 é 98², como se os dois fatores fossem iguais. Eles não são: um está dois acima de 100 e o outro dois abaixo, e é isso que faz a conta virar 100² − 2²."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva na forma da fórmula",
+          "explicacao": "Os dois números estão à mesma distância de 100, um para cada lado.",
+          "conta": "102 × 98 = (100 + 2)(100 − 2)"
+        },
+        {
+          "titulo": "Aplique a diferença de quadrados",
+          "explicacao": "É o quadrado do primeiro menos o quadrado do segundo.",
+          "conta": "100² − 2² = 10 000 − 4 = 9 996"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual expressão dá exatamente x² − 49?",
+      "imagem": "pn-q-qual-da",
+      "dica": "Procure a que tem os dois termos do meio se cancelando. Qual é a raiz de 49?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(x + 7)(x − 7)" },
+        { "rotulo": "B", "texto": "(x − 7)²" },
+        { "rotulo": "C", "texto": "(x + 7)²" },
+        { "rotulo": "D", "texto": "(x + 49)(x − 49)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(x − 7)²",
+          "porque": "Esta dá x² − 14x + 49: três termos, com o do meio presente e o último positivo. Para o termo do meio sumir, os dois parênteses precisam ter sinais CONTRÁRIOS."
+        },
+        {
+          "resposta": "(x + 7)²",
+          "porque": "Esta dá x² + 14x + 49, também com três termos. Elevar ao quadrado repete o mesmo parêntese, e aí os dois cruzados se somam em vez de se cancelarem."
+        },
+        {
+          "resposta": "(x + 49)(x − 49)",
+          "porque": "Esta dá x² − 2401, porque o que se subtrai é o QUADRADO do segundo termo. Para chegar a 49 no fim, o segundo termo precisa ser 7, já que 7² = 49."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o segundo termo",
+          "explicacao": "O que aparece no fim é o quadrado dele, então basta tirar a raiz.",
+          "conta": "√49 = 7"
+        },
+        {
+          "titulo": "Monte com sinais contrários",
+          "explicacao": "É a troca de sinais que faz os dois termos do meio se cancelarem.",
+          "conta": "(x + 7)(x − 7) = x² − 49"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que o termo do meio desaparece em (a + b)(a − b), mas não em (a + b)²?",
+      "imagem": "pn-q-por-que-some",
+      "dica": "Compare os sinais dos dois produtos cruzados em cada caso.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque os cruzados ficam com sinais contrários e se cancelam" },
+        { "rotulo": "B", "texto": "Porque na soma pela diferença só existem dois produtos" },
+        { "rotulo": "C", "texto": "Porque o a e o b são diferentes num caso e iguais no outro" },
+        { "rotulo": "D", "texto": "Porque o quadrado sempre gera três termos, e o produto sempre gera dois" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque na soma pela diferença só existem dois produtos",
+          "porque": "Existem quatro produtos nos dois casos, sempre — cada parcela encontra cada parcela. A diferença é que dois deles se anulam quando os sinais são contrários."
+        },
+        {
+          "resposta": "Porque o a e o b são diferentes num caso e iguais no outro",
+          "porque": "Os termos a e b são os mesmos nas duas expressões; o que muda é o SINAL entre eles no segundo parêntese. É o sinal que decide se os cruzados se somam ou se cancelam."
+        },
+        {
+          "resposta": "Porque o quadrado sempre gera três termos, e o produto sempre gera dois",
+          "porque": "Isso descreve o que acontece, mas não explica por quê — e não é sempre: (x+2)(x+3) é um produto e dá três termos. O que decide é o sinal dos cruzados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os cruzados no quadrado",
+          "explicacao": "Com os dois parênteses iguais, os dois cruzados têm o mesmo sinal e se somam.",
+          "conta": "+ab e +ab → 2ab"
+        },
+        {
+          "titulo": "Compare na soma pela diferença",
+          "explicacao": "Com sinais contrários, um cruzado é o oposto do outro.",
+          "conta": "+ab e −ab → 0"
+        }
+      ]
+    }
+  ]
+}

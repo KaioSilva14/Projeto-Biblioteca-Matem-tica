@@ -1,0 +1,194 @@
+{
+  "id": "geratriz",
+  "numero": 3,
+  "titulo": "Da dízima de volta para a fração",
+  "pergunta": "Se toda fração vira dízima, como voltar da dízima para a fração?",
+  "ideia": {
+    "paragrafos": [
+      "As duas lições anteriores foram num sentido só: da fração para o decimal. O caminho de volta existe, e a fração que produz uma dízima tem nome — é a FRAÇÃO GERATRIZ dela. Achá-la parece impossível: como somar infinitos algarismos? Mas há um truque, e ele é curto.",
+      "A ideia é usar a repetição contra ela mesma. Chame a dízima de x e multiplique por uma potência de 10 escolhida para que a parte decimal fique IDÊNTICA à original. Se x = 0,333..., então 10x = 3,333... — e as casas depois da vírgula são exatamente as mesmas nos dois.",
+      "Agora subtraia um do outro. As partes decimais infinitas se cancelam, porque são iguais, e sobra um número inteiro: 10x menos x dá 3,333... menos 0,333..., que é 3. Do outro lado, 10x menos x é 9x. Então 9x = 3, e daí x = 3/9, que simplifica para 1/3.",
+      "O infinito sumiu na subtração, e é isso que faz o truque funcionar. Não somamos infinitos algarismos: apenas cancelamos duas caudas idênticas, o que é uma conta finita.",
+      "A potência de 10 a usar sai do PERÍODO. Período de um algarismo pede multiplicar por 10; de dois, por 100; de três, por 1000 — sempre o suficiente para deslocar um ciclo inteiro. E quando a dízima é composta, como 0,1666..., é preciso um passo a mais: primeiro tirar o anteperíodo do caminho, multiplicando por 10, e só depois deslocar o período."
+    ],
+    "destaque": "Multiplique até as caudas ficarem iguais. Subtraia, e o infinito se cancela.",
+    "imagem": "re-ideia-geratriz"
+  },
+  "resolvido": {
+    "enunciado": "Escreva 0,333... como uma fração.",
+    "imagem": "re-res-geratriz",
+    "passos": [
+      {
+        "titulo": "Dê um nome à dízima",
+        "explicacao": "Chamar de x permite tratá-la como um número comum, mesmo sem saber quanto vale.",
+        "conta": "x = 0,333…"
+      },
+      {
+        "titulo": "Multiplique para alinhar as caudas",
+        "explicacao": "O período tem um algarismo, então multiplicar por 10 desloca um ciclo inteiro e deixa a parte decimal idêntica.",
+        "conta": "10x = 3,333…"
+      },
+      {
+        "titulo": "Subtraia",
+        "explicacao": "As duas caudas infinitas são iguais e se cancelam, sobrando um inteiro dos dois lados.",
+        "conta": "10x − x = 3,333… − 0,333… → 9x = 3"
+      },
+      {
+        "titulo": "Isole e simplifique",
+        "explicacao": "Agora é uma equação do 1º grau comum, como as do 7º ano.",
+        "conta": "x = 3/9 = 1/3"
+      }
+    ],
+    "fecho": "Confira dividindo: 1 ÷ 3 devolve 0,333..., que é onde a lição 1 começou."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a fração geratriz de 0,777...?",
+      "imagem": "re-q-geratriz-7",
+      "dica": "O período tem um algarismo. Multiplique por 10, subtraia e resolva a equação.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "7/9" },
+        { "rotulo": "B", "texto": "7/10" },
+        { "rotulo": "C", "texto": "77/100" },
+        { "rotulo": "D", "texto": "7/11" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "7/10",
+          "porque": "7/10 é 0,7 exato, e a dízima é maior que isso: ela continua com setes para sempre. O denominador da subtração é 9, e não 10 — sai de 10x menos x."
+        },
+        {
+          "resposta": "77/100",
+          "porque": "77/100 é 0,77 exato, que também para. Escrever mais algarismos aproxima, mas nunca alcança: só a geratriz dá o valor exato da dízima infinita."
+        },
+        {
+          "resposta": "7/11",
+          "porque": "7/11 dá 0,6363..., que é outra dízima. O denominador 11 apareceria se o período tivesse dois algarismos e a fração simplificasse; aqui o período tem um só, e o denominador é 9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a subtração",
+          "explicacao": "Com x = 0,777..., multiplicar por 10 deixa a mesma cauda decimal.",
+          "conta": "10x = 7,777… · 10x − x = 7"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Sobrou uma equação simples, e a fração já está na forma mais simples.",
+          "conta": "9x = 7 → x = 7/9"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Chamando x = 0,555..., quanto vale 9x? Digite apenas o número.",
+      "imagem": "re-q-nove-x",
+      "dica": "9x é o que sobra de 10x menos x. Faça essa subtração e veja o que resta.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "5.5",
+          "porque": "5,5 não vem da subtração: 10x é 5,555... e x é 0,555..., e as caudas se cancelam por serem iguais. O que sobra é o inteiro 5, sem casas decimais."
+        },
+        {
+          "resposta": "0.555",
+          "porque": "0,555... é o próprio x, e não 9x. Multiplicar por nove aumenta o valor, e o resultado dessa multiplicação é justamente um número inteiro — é isso que torna o truque útil."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 seria 9 vezes 5, tratando x como se valesse 5. O x vale pouco mais que meio, então 9x fica perto de 5 — e é exatamente 5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva 10x",
+          "explicacao": "Multiplicar por 10 desloca um período inteiro e mantém a cauda idêntica.",
+          "conta": "10x = 5,555…"
+        },
+        {
+          "titulo": "Subtraia x",
+          "explicacao": "As caudas infinitas são iguais e se cancelam, deixando um inteiro.",
+          "conta": "5,555… − 0,555… = 5 → 9x = 5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a fração geratriz de 0,454545..., já simplificada?",
+      "imagem": "re-q-geratriz-45",
+      "dica": "O período tem dois algarismos, então a potência de 10 precisa deslocar duas casas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5/11" },
+        { "rotulo": "B", "texto": "45/100" },
+        { "rotulo": "C", "texto": "45/90" },
+        { "rotulo": "D", "texto": "4/9" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "45/100",
+          "porque": "45/100 é 0,45 exato, que para depois de duas casas. O denominador 100 apareceria numa multiplicação sozinha; na subtração 100x menos x o denominador é 99."
+        },
+        {
+          "resposta": "45/90",
+          "porque": "O denominador 90 é o das dízimas COMPOSTAS, onde existe um anteperíodo a tirar do caminho. Esta é simples: a repetição começa colada na vírgula, e o denominador é 99."
+        },
+        {
+          "resposta": "4/9",
+          "porque": "4/9 dá 0,444..., e não 0,4545... Isso trataria o período como se fosse um algarismo só; ele tem dois, e é preciso multiplicar por 100 para deslocá-lo inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique por 100",
+          "explicacao": "O período tem dois algarismos, então são duas casas para alinhar as caudas.",
+          "conta": "100x = 45,4545… · 100x − x = 45"
+        },
+        {
+          "titulo": "Resolva e simplifique",
+          "explicacao": "O 99 e o 45 têm o fator 9 em comum.",
+          "conta": "99x = 45 → x = 45/99 = 5/11"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Aplicando o mesmo método a 0,999..., qual número se obtém? Digite apenas o número.",
+      "imagem": "re-q-noventa-nove",
+      "dica": "Não tente adivinhar pelo aspecto da dízima: faça a conta do truque até o fim e aceite o que ela der.",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "0.999",
+          "porque": "0,999 com três casas é um número diferente: ele PARA, e a dízima não para. Fazendo a conta, 9x = 9 e x = 1 — os dois são o mesmo número, escrito de dois jeitos."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o valor de 9x, e não de x. Falta o último passo: dividir os dois lados por 9, o que dá x = 1."
+        },
+        {
+          "resposta": "0.9",
+          "porque": "0,9 é a dízima truncada na primeira casa, e truncar sempre deixa um número menor. O truque não aproxima: ele dá o valor exato, que aqui é 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a subtração",
+          "explicacao": "O período tem um algarismo, então basta multiplicar por 10.",
+          "conta": "x = 0,999… · 10x = 9,999…"
+        },
+        {
+          "titulo": "Subtraia e isole",
+          "explicacao": "As caudas se cancelam, e o resultado é surpreendente mas correto: os dois são o mesmo número.",
+          "conta": "9x = 9 → x = 1"
+        }
+      ]
+    }
+  ]
+}

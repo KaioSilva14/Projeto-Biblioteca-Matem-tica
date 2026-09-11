@@ -1,0 +1,59 @@
+{
+  "id": "area-8",
+  "titulo": "Áreas de figuras planas",
+  "ano": 8,
+  "descricao": "Três fórmulas novas — paralelogramo, trapézio e losango — e um argumento só por trás das três: recortar a figura e remontá-la como uma figura que você já sabe medir. A lição 5 é onde isso vira ferramenta: qualquer figura poligonal, por mais esquisita, se parte em retângulos e triângulos.",
+  "pergunta": "Como medir a área de uma figura que não é retângulo nem triângulo?",
+  "videos": [
+    {
+      "id": "chhhYlk9520",
+      "titulo": "ÁREAS DAS FIGURAS PLANAS | Quadrado, retângulo, trapézio, losango, paralelogramo e círculo.",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Passa por todas as fórmulas da matéria numa aula só. Serve como revisão depois das lições 2, 3 e 4."
+    },
+    {
+      "id": "zDRdTOw-38k",
+      "titulo": "CÁLCULO DE AREA POR COMPOSIÇÃO OU DECOMPOSIÇÃO DE FIGURAS PLANAS 👩‍🏫 PROF GISELE RAMOS",
+      "canal": "Professora Gisele Ramos - Matemática",
+      "descricao": "É exatamente o assunto da lição 5, com vários cortes diferentes na mesma figura. Vale se o corte não estiver saindo naturalmente."
+    },
+    {
+      "id": "k4rVBoRj1-Q",
+      "titulo": "Aprenda calcular a área de figuras planas [DECOMPOSIÇÃO]",
+      "canal": "Professor Cláudio",
+      "descricao": "Mais exemplos de decomposição, resolvidos passo a passo. Para treinar depois da lição 5."
+    },
+    {
+      "id": "o77A9id7EzE",
+      "titulo": "8º ANO  - Correção de exercícios sobre área de figuras planas.",
+      "canal": "PROFESSOR MORAES",
+      "descricao": "Só correção de exercícios, na série certa. Para depois da lição 6, quando as fórmulas já estiverem na mão."
+    }
+  ],
+  "licoes": [
+    {
+      "id": "somar-pedacos",
+      "arquivo": "/dados/licoes/area-8/somar-pedacos.json"
+    },
+    {
+      "id": "paralelogramo",
+      "arquivo": "/dados/licoes/area-8/paralelogramo.json"
+    },
+    {
+      "id": "trapezio",
+      "arquivo": "/dados/licoes/area-8/trapezio.json"
+    },
+    {
+      "id": "losango",
+      "arquivo": "/dados/licoes/area-8/losango.json"
+    },
+    {
+      "id": "compostas",
+      "arquivo": "/dados/licoes/area-8/compostas.json"
+    },
+    {
+      "id": "problemas",
+      "arquivo": "/dados/licoes/area-8/problemas.json"
+    }
+  ]
+}

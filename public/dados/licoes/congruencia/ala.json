@@ -1,0 +1,194 @@
+{
+  "id": "ala",
+  "numero": 4,
+  "titulo": "O caso ALA",
+  "pergunta": "E se o que se conhece for dois ângulos e um lado?",
+  "ideia": {
+    "paragrafos": [
+      "O terceiro caso inverte a proporção: dois ÂNGULOS e o LADO entre eles. Se esses três elementos coincidem em dois triângulos, eles são congruentes. O nome ALA guarda a ordem, como o LAL — o lado fica no meio.",
+      "A construção mostra por quê. Desenhe o lado conhecido e, em cada ponta dele, trace uma reta com a inclinação do ângulo daquele canto. As duas retas se cruzam num ponto só — e esse ponto é o terceiro vértice. Não há escolha nem folga.",
+      "Aqui o lado é quem controla o tamanho. Os dois ângulos sozinhos decidem a FORMA do triângulo, mas não o tamanho: com os mesmos dois ângulos e um lado maior, sai um triângulo maior de forma idêntica. É por isso que um lado precisa entrar na lista.",
+      "E existe uma folga útil neste caso, que os outros não têm. Conhecendo dois ângulos, o terceiro sai de graça pela soma 180° — então saber dois ângulos e um lado QUALQUER também basta, mesmo que o lado não esteja entre eles. Esse caso tem nome próprio nos livros, LAAo, e é uma consequência do ALA, e não um caso novo.",
+      "Na figura, os dois ângulos marcados aparecem com arcos, e o lado entre eles com tiquinhos. Vale conferir que os arcos estão nas duas pontas do lado marcado — se um deles estiver no vértice de cima, o caso é o LAAo, e não o ALA."
+    ],
+    "destaque": "Os dois ângulos decidem a forma; o lado decide o tamanho. Por isso os três juntos bastam.",
+    "imagem": "cg-ideia-ala"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos têm ângulos de 50° e 60° nas pontas de um lado de 7 cm. Eles são congruentes?",
+    "imagem": "cg-res-ala",
+    "passos": [
+      {
+        "titulo": "Identifique os elementos",
+        "explicacao": "São dois ângulos e um lado, e o lado está entre os dois ângulos.",
+        "conta": "50° · 7 cm · 60°"
+      },
+      {
+        "titulo": "Construa mentalmente",
+        "explicacao": "Desenhado o lado, as duas retas saindo das pontas com essas inclinações se cruzam num ponto só.",
+        "conta": "um cruzamento apenas"
+      },
+      {
+        "titulo": "Aplique o caso",
+        "explicacao": "Dois ângulos e o lado entre eles determinam o triângulo inteiro.",
+        "conta": "ALA ✓"
+      },
+      {
+        "titulo": "Colha o terceiro ângulo",
+        "explicacao": "Ele sai da soma dos ângulos internos, sem precisar de medição.",
+        "conta": "180 − 50 − 60 = 70°"
+      }
+    ],
+    "fecho": "Com dois ângulos conhecidos, o terceiro nunca é novidade — ele é sempre o que falta para 180°."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo com ângulos de 40° e 75°, quanto mede o terceiro ângulo, em graus? Digite apenas o número.",
+      "imagem": "cg-q-terceiro-ala",
+      "dica": "A soma dos três ângulos internos é sempre a mesma.",
+      "formato": "numero",
+      "resposta": 65,
+      "errosComuns": [
+        {
+          "resposta": "115",
+          "porque": "115 é a soma de 40 com 75, e não o que falta para completar. O terceiro ângulo é 180 menos essa soma."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é a diferença entre 75 e 40. O terceiro ângulo não sai de comparar os dois conhecidos, e sim de descontá-los do total de 180."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é a soma dos TRÊS ângulos juntos. Tirando os dois que o enunciado deu, sobra a medida do terceiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os dois conhecidos",
+          "explicacao": "É o quanto já está ocupado dos 180 graus do triângulo.",
+          "conta": "40 + 75 = 115"
+        },
+        {
+          "titulo": "Tire de 180",
+          "explicacao": "O que sobra é a medida do ângulo que falta.",
+          "conta": "180 − 115 = 65°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que dois ângulos sozinhos NÃO bastam para garantir congruência?",
+      "imagem": "cg-q-so-angulos",
+      "dica": "Pense no que os ângulos determinam e no que eles deixam livre.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque eles decidem a forma, mas não o tamanho" },
+        { "rotulo": "B", "texto": "Porque falta saber o terceiro ângulo" },
+        { "rotulo": "C", "texto": "Porque ângulos não podem ser medidos com precisão" },
+        { "rotulo": "D", "texto": "Porque dois ângulos nunca determinam nada" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque falta saber o terceiro ângulo",
+          "porque": "O terceiro sai de graça pela soma 180°, então ele não é informação nova. O que falta é uma medida de TAMANHO — e é isso que o lado traz."
+        },
+        {
+          "resposta": "Porque ângulos não podem ser medidos com precisão",
+          "porque": "A precisão da medição não entra na questão: mesmo com ângulos exatos, dois triângulos de tamanhos diferentes podem ter os mesmos ângulos. Eles seriam semelhantes, e não congruentes."
+        },
+        {
+          "resposta": "Porque dois ângulos nunca determinam nada",
+          "porque": "Eles determinam bastante: a forma inteira do triângulo, e ainda o terceiro ângulo pela soma. Só não determinam o tamanho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que os ângulos fixam",
+          "explicacao": "Eles decidem a forma, e com os mesmos ângulos qualquer ampliação continua servindo.",
+          "conta": "forma sim, tamanho não"
+        },
+        {
+          "titulo": "Veja o que o lado acrescenta",
+          "explicacao": "Uma medida de comprimento fixa a escala e fecha o triângulo.",
+          "conta": "ALA: forma + tamanho"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Conhecendo dois ângulos e um lado que NÃO está entre eles, dá para garantir a congruência?",
+      "imagem": "cg-q-laao",
+      "dica": "Sabendo dois ângulos, o terceiro é novidade?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque o terceiro ângulo sai da soma e o caso vira ALA" },
+        { "rotulo": "B", "texto": "Não, porque o lado precisa estar entre os ângulos" },
+        { "rotulo": "C", "texto": "Não, porque faltaria uma medida" },
+        { "rotulo": "D", "texto": "Só se o triângulo for retângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque o lado precisa estar entre os ângulos",
+          "porque": "Precisa no enunciado do ALA, mas aqui há uma folga que os outros casos não têm: sabendo dois ângulos, o terceiro sai pela soma 180° — e aí o lado passa a estar entre dois ângulos conhecidos."
+        },
+        {
+          "resposta": "Não, porque faltaria uma medida",
+          "porque": "Não falta: o terceiro ângulo é calculável a partir dos dois dados, sem medição nenhuma. Com os três ângulos e um lado, a congruência fica garantida."
+        },
+        {
+          "resposta": "Só se o triângulo for retângulo",
+          "porque": "Vale para qualquer triângulo. O ângulo reto facilita algumas contas, mas a soma 180° — que é o que resolve o caso — não depende do tipo do triângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule o terceiro ângulo",
+          "explicacao": "Ele é o que falta para 180, e não precisa ser medido.",
+          "conta": "180 − dois conhecidos"
+        },
+        {
+          "titulo": "Reorganize o caso",
+          "explicacao": "Com os três ângulos conhecidos, o lado dado está entre dois deles.",
+          "conta": "vira ALA"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "No caso ALA, quantos LADOS precisam ser conhecidos? Digite apenas o número.",
+      "imagem": "cg-q-quantos-lados-ala",
+      "dica": "Conte quantas letras L aparecem no nome do caso.",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é a quantidade de ÂNGULOS conhecidos, que são as duas letras A do nome. Lado, no ALA, há um só — e é ele que fixa o tamanho."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 lados é o caso LLL, que não usa ângulo nenhum. No ALA a maior parte da informação vem dos ângulos, e basta um lado."
+        },
+        {
+          "resposta": "0",
+          "porque": "Sem lado nenhum, só os ângulos seriam conhecidos — e eles decidem a forma, mas não o tamanho. Os triângulos seriam semelhantes, e não necessariamente congruentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as letras L",
+          "explicacao": "No nome A-L-A há uma letra L, no meio.",
+          "conta": "1 lado"
+        },
+        {
+          "titulo": "Veja o papel dele",
+          "explicacao": "Os dois ângulos dão a forma, e o único lado fixa o tamanho.",
+          "conta": "1 lado + 2 ângulos"
+        }
+      ]
+    }
+  ]
+}

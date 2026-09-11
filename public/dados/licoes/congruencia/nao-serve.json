@@ -1,0 +1,200 @@
+{
+  "id": "nao-serve",
+  "numero": 5,
+  "titulo": "Os casos que enganam",
+  "pergunta": "Por que nem todo trio de medidas iguais garante congruência?",
+  "ideia": {
+    "paragrafos": [
+      "Três casos funcionam — LLL, LAL e ALA. Mas há dois trios que parecem funcionar e não funcionam, e é entendendo por que eles falham que os outros três deixam de ser lista para decorar.",
+      "O primeiro é o AAA: três ângulos iguais. Ele garante que os triângulos têm a mesma FORMA, e isso é bastante — mas não diz nada sobre o tamanho. Um triângulo de ângulos 50°, 60° e 70° pode ter 3 cm de base ou 30 cm; os dois têm os mesmos três ângulos e não são congruentes. Eles são SEMELHANTES, que é o assunto do 9º ano.",
+      "Repare que o AAA falha por falta de informação de tamanho, e é exatamente por isso que o ALA funciona: ele acrescenta um lado, que fixa a escala. A diferença entre um caso que serve e outro que não serve pode ser uma única medida.",
+      "O segundo trio enganoso é o LLA — dois lados e um ângulo que NÃO está entre eles. Aqui o problema é outro: em vez de faltar informação, ela é AMBÍGUA. Com dois lados e um ângulo mal posicionado, existem situações em que dois triângulos diferentes cumprem as três medidas.",
+      "Dá para ver o motivo. Fixe o ângulo e o lado que sai dele; o outro lado conhecido, com comprimento fixo, precisa alcançar a reta do outro lado do ângulo — e dependendo das medidas ele alcança essa reta em DOIS pontos diferentes, um antes e um depois do pé da perpendicular. Dois pontos, dois triângulos. Por isso o LLA é chamado de caso ambíguo, e por isso o LAL exige o ângulo no meio."
+    ],
+    "destaque": "AAA falta tamanho; LLA sobra ambiguidade. Um caso serve quando fecha o triângulo de um jeito só.",
+    "imagem": "cg-ideia-nao-serve"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos têm ângulos de 50°, 60° e 70°, mas um tem o dobro do tamanho do outro. Eles são congruentes?",
+    "imagem": "cg-res-aaa",
+    "passos": [
+      {
+        "titulo": "Confira a forma",
+        "explicacao": "Os três ângulos coincidem, então a forma dos dois é a mesma.",
+        "conta": "50° · 60° · 70° nos dois"
+      },
+      {
+        "titulo": "Confira o tamanho",
+        "explicacao": "Congruência exige as duas coisas, e o enunciado diz que um é o dobro do outro.",
+        "conta": "lados diferentes ✗"
+      },
+      {
+        "titulo": "Classifique",
+        "explicacao": "Mesma forma e tamanhos diferentes tem nome próprio, e não é congruência.",
+        "conta": "semelhantes"
+      },
+      {
+        "titulo": "Guarde o motivo",
+        "explicacao": "O AAA não traz nenhuma medida de comprimento, então a escala fica livre.",
+        "conta": "AAA não garante congruência"
+      }
+    ],
+    "fecho": "Basta acrescentar um lado ao AAA para ele virar um caso que funciona: é o ALA."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O que o caso AAA garante sobre dois triângulos?",
+      "imagem": "cg-q-o-que-aaa-garante",
+      "dica": "Separe as duas exigências da congruência e veja qual delas os ângulos cobrem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A mesma forma, mas não o mesmo tamanho" },
+        { "rotulo": "B", "texto": "A congruência completa" },
+        { "rotulo": "C", "texto": "O mesmo tamanho, mas não a mesma forma" },
+        { "rotulo": "D", "texto": "Nada: três ângulos iguais não dizem nada" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A congruência completa",
+          "porque": "Falta a metade do tamanho: com os mesmos três ângulos, um triângulo pode ter 3 cm de base e o outro 30 cm. Eles seriam semelhantes, e não congruentes."
+        },
+        {
+          "resposta": "O mesmo tamanho, mas não a mesma forma",
+          "porque": "É exatamente o contrário. Ângulos determinam a FORMA; para fixar o tamanho é preciso conhecer pelo menos um comprimento."
+        },
+        {
+          "resposta": "Nada: três ângulos iguais não dizem nada",
+          "porque": "Eles dizem bastante — garantem que um triângulo é uma ampliação ou redução exata do outro. Só não garantem que a escala seja 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a forma",
+          "explicacao": "Com os três ângulos iguais, os dois triângulos têm o mesmo formato.",
+          "conta": "forma ✓"
+        },
+        {
+          "titulo": "Confira o tamanho",
+          "explicacao": "Nenhum comprimento foi dado, então a escala fica livre.",
+          "conta": "tamanho ✗ → semelhantes"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos triângulos diferentes podem cumprir as três medidas de um caso LLA ambíguo? Digite apenas o número.",
+      "imagem": "cg-q-quantos-llla",
+      "dica": "Pense em quantos pontos da reta o lado de comprimento fixo consegue alcançar.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "Se fosse um só, o LLA seria um caso válido — e ele não é. O lado de comprimento fixo alcança a reta em dois pontos diferentes, formando dois triângulos distintos."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 não corresponde a nenhuma construção: a partir de um ponto fixo, um segmento de comprimento dado cruza uma reta em no máximo dois pontos."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 diria que nenhum triângulo cumpre as medidas, e não é o caso: existem dois. O problema do LLA não é falta de solução, é excesso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fixe o ângulo e um lado",
+          "explicacao": "Eles definem um vértice e uma das direções que saem dele.",
+          "conta": "ângulo + lado que sai dele"
+        },
+        {
+          "titulo": "Veja onde o outro lado alcança",
+          "explicacao": "Com comprimento fixo, ele toca a outra reta em dois pontos — um antes e um depois do pé da perpendicular.",
+          "conta": "2 pontos → 2 triângulos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que falta ao caso AAA para ele virar um caso que funciona?",
+      "imagem": "cg-q-o-que-falta-aaa",
+      "dica": "Compare o AAA com o ALA: qual é a diferença entre os dois?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Conhecer um lado, que fixa o tamanho" },
+        { "rotulo": "B", "texto": "Conhecer o quarto ângulo" },
+        { "rotulo": "C", "texto": "Que os ângulos sejam agudos" },
+        { "rotulo": "D", "texto": "Nada: o AAA já funciona" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Conhecer o quarto ângulo",
+          "porque": "Triângulo não tem quarto ângulo: são três, e eles somam 180°. O que falta não é mais ângulo — é uma medida de comprimento."
+        },
+        {
+          "resposta": "Que os ângulos sejam agudos",
+          "porque": "O tipo dos ângulos não muda nada: com três ângulos agudos iguais, dois triângulos de tamanhos diferentes continuam existindo. Falta informação de tamanho."
+        },
+        {
+          "resposta": "Nada: o AAA já funciona",
+          "porque": "Ele não funciona para congruência. Dois triângulos de ângulos 50°, 60° e 70° podem ter tamanhos completamente diferentes — eles são semelhantes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o AAA cobre",
+          "explicacao": "Ele fixa a forma, e deixa a escala livre.",
+          "conta": "forma ✓ tamanho ✗"
+        },
+        {
+          "titulo": "Acrescente o que falta",
+          "explicacao": "Um lado conhecido fixa a escala, e o caso vira ALA.",
+          "conta": "AAA + um lado = ALA"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a diferença entre o defeito do AAA e o do LLA?",
+      "imagem": "cg-q-dois-defeitos",
+      "dica": "Um deles não tem informação suficiente; o outro tem informação que aponta para mais de uma resposta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "No AAA falta a medida de tamanho; no LLA a informação é ambígua" },
+        { "rotulo": "B", "texto": "Nenhuma: os dois falham pelo mesmo motivo" },
+        { "rotulo": "C", "texto": "No AAA sobra informação; no LLA falta" },
+        { "rotulo": "D", "texto": "O LLA funciona e o AAA não" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Nenhuma: os dois falham pelo mesmo motivo",
+          "porque": "Os motivos são diferentes, e distinguir isso ajuda a lembrar: o AAA não traz comprimento nenhum, e o LLA traz dois — mas com o ângulo mal posicionado, elas descrevem dois triângulos."
+        },
+        {
+          "resposta": "No AAA sobra informação; no LLA falta",
+          "porque": "É o inverso. O AAA é que fica sem a informação de tamanho, e o LLA tem as três medidas — só que elas não decidem qual dos dois triângulos possíveis é o certo."
+        },
+        {
+          "resposta": "O LLA funciona e o AAA não",
+          "porque": "Nenhum dos dois garante congruência. O LLA falha por ambiguidade, e é justamente por isso que o LAL exige o ângulo ENTRE os dois lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o AAA",
+          "explicacao": "Ele não dá nenhum comprimento, então a escala fica livre.",
+          "conta": "informação insuficiente"
+        },
+        {
+          "titulo": "Olhe o LLA",
+          "explicacao": "Ele dá três medidas, mas elas cabem em dois triângulos diferentes.",
+          "conta": "informação ambígua"
+        }
+      ]
+    }
+  ]
+}

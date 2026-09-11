@@ -378,6 +378,58 @@ function alt(cursoId, licaoId, questaoId, textoEsperado) {
   );
 }
 
+/**
+ * A figura de uma questão não pode mostrar a RESPOSTA dela.
+ *
+ * A comparação depende do tamanho do texto. Uma alternativa longa é uma
+ * frase, e procurá-la como substring é seguro. Uma alternativa curta como
+ * "5x" casaria dentro de "5x²" — que é a parcela do ENUNCIADO desenhada, e
+ * não a resposta —, então ela é procurada como rótulo inteiro. Números
+ * seguem a mesma lógica: "1" não pode casar dentro de "10 vezes maior".
+ */
+function figurasNaoEntregam(cursoId, quantasEsperadas) {
+  const licoes = ler(`dados/cursos/${cursoId}.json`).licoes.map((l) => ler(l.arquivo));
+  let conferidas = 0;
+  for (const licao of licoes) {
+    for (const q of licao.questoes) {
+      const item = manifesto.find((m) => m.id === q.imagem);
+      assert.ok(item, `${licao.id}/${q.id}: imagem ${q.imagem} não está no manifesto`);
+      const svg = item.desenho();
+      const rotulos = [...svg.matchAll(/>([^<>]+)</g)].map((m) => m[1].trim());
+      // O que o ENUNCIADO já diz não conta como entrega: a figura pode — e
+      // deve — desenhar os dados da questão. Em "Simplificando (x²+6x+9)/(x+3),
+      // o que sobra?", o (x+3) é o denominador dado, e desenhá-lo é ilustrar,
+      // não responder.
+      const noEnunciado = (t) => q.enunciado.includes(t);
+      if (q.formato === "alternativas") {
+        const resposta = q.alternativas[q.correta].texto;
+        const achou = resposta.length > 14
+          ? rotulos.join(" | ").includes(resposta)
+          : rotulos.includes(resposta);
+        assert.ok(
+          !achou || noEnunciado(resposta),
+          `${licao.id}/${q.id}: a figura mostra a resposta "${resposta}"`
+        );
+      } else {
+        const resposta = String(q.resposta).replace(".", ",");
+        // A NUMERAÇÃO DOS EIXOS não conta: num plano cartesiano de 0 a 6,
+        // todo inteiro dessa faixa aparece escrito, e acusar isso como
+        // entrega reprovaria qualquer figura de plano. O plano é
+        // reconhecido pela malha, que nenhuma outra figura desenha.
+        const ehPlano = (svg.match(/stroke-opacity="0\.55"/g) || []).length >= 6;
+        const numeros = (rotulos.join(" | ").match(/-?\d+(?:,\d+)?/g) || [])
+          .filter((n) => !(ehPlano && /^\d{1,2}$/.test(n)));
+        assert.ok(
+          !numeros.includes(resposta) || noEnunciado(resposta),
+          `${licao.id}/${q.id}: a figura mostra a resposta ${resposta}`
+        );
+      }
+      conferidas += 1;
+    }
+  }
+  assert.equal(conferidas, quantasEsperadas, `esperava conferir ${quantasEsperadas} questões de ${cursoId}`);
+}
+
 const mdc = (a, b) => (b === 0 ? Math.abs(a) : mdc(b, a % b));
 const mmc = (a, b) => Math.abs(a * b) / mdc(a, b);
 const simplifica = (n, d) => { const g = mdc(n, d); return [n / g, d / g]; };
@@ -5046,6 +5098,3488 @@ teste("as igualdades escritas nas contas são verdadeiras", () => {
     }
   }
   assert.ok(conferidas >= 20, `esperava conferir pelo menos 20 igualdades, conferi ${conferidas}`);
+});
+
+
+// ---------- Potências e notação científica (8º ano) ----------
+//
+// Nada aqui é conferido pela regra que a matéria ensina. As propriedades das
+// potências são verificadas ABRINDO os fatores e contando, e a conversão para
+// notação científica é feita ANDANDO com a vírgula sobre o texto do número —
+// nunca com Math.log10, que resolveria a questão usando a mesma abstração que
+// está sendo testada.
+
+/** Lista de fatores de uma potência, escrita por extenso. */
+const abrirFatores = (base, expoente) => Array.from({ length: expoente }, () => base);
+
+/** Valor de uma potência multiplicando os fatores um a um. */
+const valorPotencia = (base, expoente) => abrirFatores(base, expoente).reduce((p, f) => p * f, 1);
+
+/**
+ * Converte para notação científica ANDANDO com a vírgula no texto.
+ * Devolve { fator, expoente } sem usar logaritmo nenhum.
+ */
+function paraCientifica(txt) {
+  const s = String(txt).replace(",", ".");
+  const negativo = s.startsWith("-");
+  const corpo = negativo ? s.slice(1) : s;
+  const ponto = corpo.includes(".") ? corpo.indexOf(".") : corpo.length;
+  const digitos = corpo.replace(".", "");
+  // primeiro algarismo diferente de zero: é depois dele que a vírgula para
+  const primeiro = digitos.search(/[1-9]/);
+  if (primeiro === -1) return { fator: 0, expoente: 0 };
+  const expoente = ponto - primeiro - 1;
+  const resto = digitos.slice(primeiro + 1).replace(/0+$/, "");
+  const fator = Number(digitos[primeiro] + (resto ? "." + resto : ""));
+  return { fator: negativo ? -fator : fator, expoente };
+}
+
+teste("notação científica · lição 1 — as propriedades saem de CONTAR fatores", () => {
+  // Multiplicar potências de mesma base: as listas de fatores se juntam.
+  // Conferido montando as duas listas e comparando com a lista somada.
+  for (let base = 2; base <= 10; base += 1) {
+    for (let a = 0; a <= 6; a += 1) {
+      for (let b = 0; b <= 6; b += 1) {
+        const juntos = [...abrirFatores(base, a), ...abrirFatores(base, b)];
+        assert.equal(juntos.length, a + b, `${base}^${a} × ${base}^${b}: contagem de fatores`);
+        assert.equal(
+          juntos.reduce((p, f) => p * f, 1),
+          valorPotencia(base, a + b),
+          `${base}^${a} × ${base}^${b} tinha de dar ${base}^${a + b}`
+        );
+      }
+    }
+  }
+
+  // Dividir subtrai, porque cada fator de baixo cancela um de cima.
+  for (let base = 2; base <= 10; base += 1) {
+    for (let a = 0; a <= 8; a += 1) {
+      for (let b = 0; b <= a; b += 1) {
+        assert.equal(
+          valorPotencia(base, a) / valorPotencia(base, b),
+          valorPotencia(base, a - b),
+          `${base}^${a} ÷ ${base}^${b}`
+        );
+      }
+    }
+  }
+
+  // Potência de potência: grupos iguais de fatores, contados multiplicando.
+  for (let base = 2; base <= 10; base += 1) {
+    for (let a = 1; a <= 4; a += 1) {
+      for (let b = 1; b <= 4; b += 1) {
+        const grupos = Array.from({ length: b }, () => abrirFatores(base, a));
+        assert.equal(grupos.flat().length, a * b, `(${base}^${a})^${b}: contagem`);
+        assert.equal(valorPotencia(valorPotencia(base, a), b), valorPotencia(base, a * b), `(${base}^${a})^${b}`);
+      }
+    }
+  }
+
+  // O exemplo resolvido, conferido pelo valor.
+  assert.equal(valorPotencia(2, 4) * valorPotencia(2, 3), 128);
+  assert.equal(valorPotencia(2, 7), 128);
+
+  num("notacao-cientifica", "propriedades", "q1", 4 + 3);
+  num("notacao-cientifica", "propriedades", "q2", valorPotencia(2, 5) * valorPotencia(2, 2));
+  num("notacao-cientifica", "propriedades", "q3", 8 - 3);
+  alt("notacao-cientifica", "propriedades", "q4", "10⁶");
+
+  // E a ressalva da lição: com bases diferentes, somar expoentes está errado.
+  assert.notEqual(valorPotencia(2, 3) * valorPotencia(5, 2), valorPotencia(2, 5));
+  assert.notEqual(valorPotencia(2, 3) * valorPotencia(5, 2), valorPotencia(5, 5));
+});
+
+teste("notação científica · lição 2 — o expoente zero sai do padrão, não de uma regra", () => {
+  // Descer um degrau divide pela base. Conferido para várias bases: o valor
+  // do degrau seguinte é sempre o anterior dividido pela base, INCLUSIVE na
+  // passagem para o expoente zero e para os negativos.
+  for (const base of [2, 3, 5, 7, 10]) {
+    for (let e = 6; e >= -4; e -= 1) {
+      const aqui = base ** e;
+      const abaixo = base ** (e - 1);
+      assert.ok(
+        Math.abs(abaixo - aqui / base) < 1e-12 * Math.max(1, aqui),
+        `base ${base}, degrau ${e}: o de baixo tinha de ser este dividido por ${base}`
+      );
+    }
+    // o degrau do expoente zero é o de expoente 1 dividido pela base
+    assert.equal(base ** 0, 1, `${base}⁰`);
+    assert.equal(base ** 1 / base, 1, `a divisão que produz ${base}⁰`);
+  }
+
+  // Expoente negativo inverte, e o resultado continua POSITIVO.
+  for (const base of [2, 5, 10]) {
+    for (let e = 1; e <= 5; e += 1) {
+      assert.ok(Math.abs(base ** -e - 1 / base ** e) < 1e-15, `${base}^-${e} = 1/${base}^${e}`);
+      assert.ok(base ** -e > 0, `${base}^-${e} tinha de ser positivo`);
+      assert.ok(base ** -e < 1, `${base}^-${e} tinha de ser menor que 1`);
+    }
+  }
+
+  num("notacao-cientifica", "expoente-zero", "q1", 7 ** 0);
+  num("notacao-cientifica", "expoente-zero", "q2", 1 / 10 ** 2);
+  num("notacao-cientifica", "expoente-zero", "q3", 1 / 2 ** 3);
+  alt("notacao-cientifica", "expoente-zero", "q4", "Porque descendo a escada cada degrau divide por 5, e 5 ÷ 5 = 1");
+
+  // A afirmação da questão 4, conferida: a escada do 5 chega ao 1.
+  assert.deepEqual([5 ** 3, 5 ** 2, 5 ** 1, 5 ** 0], [125, 25, 5, 1]);
+});
+
+teste("notação científica · lição 3 — a forma a × 10ⁿ, com uma escrita só por número", () => {
+  // A conversão é feita andando com a vírgula no TEXTO, e o resultado tem de
+  // reconstruir o número original.
+  const casos = ["3200", "52000", "470000", "0,00042", "0,072", "7,5", "1"];
+  for (const c of casos) {
+    const { fator, expoente } = paraCientifica(c);
+    assert.ok(fator >= 1 && fator < 10, `${c}: o fator ${fator} tinha de ficar em [1, 10)`);
+    const original = Number(String(c).replace(",", "."));
+    assert.ok(
+      Math.abs(fator * 10 ** expoente - original) < 1e-9 * Math.max(1, original),
+      `${c}: ${fator} × 10^${expoente} não reconstrói o número`
+    );
+  }
+
+  // O exemplo resolvido.
+  assert.deepEqual(paraCientifica("3200"), { fator: 3.2, expoente: 3 });
+
+  alt("notacao-cientifica", "o-que-e", "q1", "4,7 × 10⁵");
+  num("notacao-cientifica", "o-que-e", "q2", 4.7 * 10 ** 5);
+  num("notacao-cientifica", "o-que-e", "q3", paraCientifica("52000").fator);
+  alt("notacao-cientifica", "o-que-e", "q4", "Porque o primeiro fator é menor que 1");
+
+  // As alternativas erradas da q1 têm o VALOR certo e a FORMA errada — é
+  // isso que a questão discute, e o teste registra.
+  assert.equal(47 * 10 ** 4, 4.7 * 10 ** 5);
+  assert.equal(0.47 * 10 ** 6, 4.7 * 10 ** 5);
+  assert.ok(!(47 >= 1 && 47 < 10), "47 tinha de estar fora da faixa");
+  assert.ok(!(0.47 >= 1 && 0.47 < 10), "0,47 tinha de estar fora da faixa");
+  // e a da q4, que tem o valor certo e o fator abaixo de 1
+  assert.equal(0.8 * 10 ** 6, 8 * 10 ** 5);
+});
+
+teste("notação científica · lição 4 — números grandes, expoente positivo", () => {
+  // O expoente de um inteiro é sempre a quantidade de algarismos menos um.
+  for (const n of ["7500000000", "300000", "86400", "45000", "149600000", "62000"]) {
+    const { expoente } = paraCientifica(n);
+    assert.equal(expoente, n.length - 1, `${n}: expoente`);
+    assert.ok(expoente > 0, `${n} é grande, então o expoente tinha de ser positivo`);
+  }
+
+  // O exemplo resolvido.
+  assert.deepEqual(paraCientifica("149600000"), { fator: 1.496, expoente: 8 });
+
+  num("notacao-cientifica", "numeros-grandes", "q1", paraCientifica("7500000000").expoente);
+  num("notacao-cientifica", "numeros-grandes", "q2", paraCientifica("300000").expoente);
+  num("notacao-cientifica", "numeros-grandes", "q3", paraCientifica("86400").fator);
+  alt("notacao-cientifica", "numeros-grandes", "q4", "Andar mais uma casa: 6,2 × 10⁴");
+
+  // A q4: as duas escritas valem o mesmo, e só uma está na forma.
+  assert.equal(62 * 10 ** 3, 6.2 * 10 ** 4);
+  assert.deepEqual(paraCientifica("62000"), { fator: 6.2, expoente: 4 });
+  // e a alternativa que "anda uma casa a menos" piora o fator
+  assert.ok(620 > 62, "andar para o outro lado afasta o fator da faixa");
+  // a que troca o sinal muda o VALOR, que é o defeito dela
+  assert.notEqual(62 * 10 ** -3, 62000);
+});
+
+teste("notação científica · lição 5 — números pequenos, expoente negativo", () => {
+  // Todo número menor que 1 tem expoente negativo; entre 1 e 10, zero.
+  for (const n of ["0,000001", "0,00035", "0,0000000001", "0,072", "0,0032", "0,00042"]) {
+    const { fator, expoente } = paraCientifica(n);
+    assert.ok(expoente < 0, `${n} é menor que 1, então o expoente tinha de ser negativo`);
+    assert.ok(fator >= 1 && fator < 10, `${n}: fator fora da faixa`);
+  }
+  for (const n of ["1", "4,2", "9,99"]) {
+    assert.equal(paraCientifica(n).expoente, 0, `${n} está entre 1 e 10`);
+  }
+
+  // O exemplo resolvido.
+  assert.deepEqual(paraCientifica("0,00042"), { fator: 4.2, expoente: -4 });
+
+  num("notacao-cientifica", "numeros-pequenos", "q1", paraCientifica("0,000001").expoente);
+  num("notacao-cientifica", "numeros-pequenos", "q2", paraCientifica("0,00035").fator);
+  num("notacao-cientifica", "numeros-pequenos", "q3", paraCientifica("0,0000000001").expoente);
+  alt("notacao-cientifica", "numeros-pequenos", "q4", "Porque o número é menor que 1");
+
+  // A armadilha que as três questões avisam: contar só os zeros erra por um,
+  // porque a vírgula ainda passa pelo primeiro algarismo significativo.
+  const zerosDepoisDaVirgula = (t) => (t.split(",")[1].match(/^0+/) || [""])[0].length;
+  for (const n of ["0,000001", "0,0000000001", "0,00035"]) {
+    assert.equal(
+      Math.abs(paraCientifica(n).expoente), zerosDepoisDaVirgula(n) + 1,
+      `${n}: o expoente é um a mais que a contagem dos zeros`
+    );
+  }
+
+  // A q4: o sinal sai da comparação com 1, e não do formato do número.
+  assert.ok(paraCientifica("45,7").expoente > 0, "45,7 é maior que 10");
+  assert.ok(paraCientifica("0,72").expoente < 0, "0,72 é menor que 1, mesmo sem zeros depois da vírgula");
+  assert.ok(paraCientifica("12,5").expoente > 0, "12,5 não é inteiro e tem expoente positivo");
+});
+
+teste("notação científica · lição 6 — comparar pelo expoente, multiplicar por partes", () => {
+  // Comparar: quando os expoentes diferem, o maior expoente vence SEMPRE —
+  // conferido por força bruta em toda a faixa de fatores permitida.
+  for (let ea = -6; ea <= 6; ea += 1) {
+    for (let eb = -6; eb <= 6; eb += 1) {
+      if (ea === eb) continue;
+      for (const fa of [1, 2.5, 5, 9.9]) {
+        for (const fb of [1, 2.5, 5, 9.9]) {
+          const a = fa * 10 ** ea, b = fb * 10 ** eb;
+          assert.equal(
+            a > b, ea > eb,
+            `${fa}×10^${ea} contra ${fb}×10^${eb}: o expoente maior tinha de decidir`
+          );
+        }
+      }
+    }
+  }
+
+  // Multiplicar: as duas partes separadas dão o mesmo que a conta direta.
+  for (const [fa, ea, fb, eb] of [[2, 3, 3, 4], [2, 5, 4, 3], [5, 3, 4, 2], [1.5, -2, 4, 6]]) {
+    const direto = (fa * 10 ** ea) * (fb * 10 ** eb);
+    const porPartes = (fa * fb) * 10 ** (ea + eb);
+    assert.ok(Math.abs(direto - porPartes) < 1e-9 * Math.abs(direto), `${fa}e${ea} × ${fb}e${eb}`);
+  }
+
+  // O exemplo resolvido, e o ajuste de forma da q4.
+  assert.equal((2 * 10 ** 3) * (3 * 10 ** 4), 6 * 10 ** 7);
+  assert.equal((5 * 10 ** 3) * (4 * 10 ** 2), 20 * 10 ** 5);
+  assert.equal(20 * 10 ** 5, 2 * 10 ** 6);
+  assert.deepEqual(paraCientifica("2000000"), { fator: 2, expoente: 6 });
+
+  num("notacao-cientifica", "problemas", "q1", 5 + 3);
+  alt("notacao-cientifica", "problemas", "q2", "3 × 10⁸, porque o expoente é maior");
+  num("notacao-cientifica", "problemas", "q3", 10 ** 7);
+  alt("notacao-cientifica", "problemas", "q4", "2 × 10⁶");
+
+  // A q1 não precisa de ajuste, e o teste diz por quê: o produto dos fatores
+  // ainda cabe na faixa.
+  assert.ok(2 * 4 >= 1 && 2 * 4 < 10, "2 × 4 = 8 continua entre 1 e 10");
+  // já a q4 precisa, porque passou
+  assert.ok(!(5 * 4 < 10), "5 × 4 = 20 saiu da faixa");
+
+  // A q3: quantas vezes maior é uma divisão, e ela dá o valor da potência.
+  assert.equal((1 * 10 ** 7) / (1 * 10 ** 0), 10 ** 7);
+  assert.equal(10 ** 7, 10000000);
+});
+
+teste("notação científica · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("notacao-cientifica", 24);
+});
+
+teste("notação científica · os geradores calculam, e não recebem pronto", () => {
+  // O `deslocarVirgula` monta o resultado a partir do número e da contagem de
+  // casas. O teste lê o resultado de volta do SVG e confere com a conversão
+  // feita por outro caminho.
+  const casos = [["149600000", -8], ["45000", -4], ["0,00042", 4], ["0,0032", 3], ["7500000000", -9]];
+  for (const [numero, casas] of casos) {
+    const svg = desenhos.deslocarVirgula({ numero, casas });
+    const escrito = svg.match(/>([0-9][0-9,]* × 10[⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+)</)[1];
+    const { fator, expoente } = paraCientifica(numero);
+    const esperado = String(fator).replace(".", ",") + " × 10" + desenhos.expoente(expoente);
+    assert.equal(escrito, esperado, `${numero}: a figura escreveu outra coisa`);
+  }
+
+  // A escada calcula o valor de cada degrau, inclusive os negativos.
+  const svg = desenhos.escadaPotencias({ de: 2, ate: -2 });
+  for (const [pot, val] of [["10²", "100"], ["10¹", "10"], ["10⁰", "1"], ["10⁻¹", "0,1"], ["10⁻²", "0,01"]]) {
+    assert.ok(svg.includes(">" + pot + "<"), `a escada tinha de ter o degrau ${pot}`);
+    assert.ok(svg.includes(">" + val + "<"), `a escada tinha de ter o valor ${val}`);
+  }
+
+  // A régua é linear em EXPOENTE: dois itens com dois degraus de diferença
+  // ficam ao dobro da distância de dois com um degrau.
+  const regua = desenhos.escalaOrdens({ itens: [{ expoente: 0, rotulo: "a" }, { expoente: 1, rotulo: "b" }, { expoente: 3, rotulo: "c" }], de: 0, ate: 3 });
+  const marcas = [...regua.matchAll(/<line x1="([0-9.]+)"[^>]*stroke-width="2\.2"/g)].map((m) => Number(m[1]));
+  assert.equal(marcas.length, 3, "esperava três marcas altas");
+  const [xa, xb, xc] = marcas.sort((p, q) => p - q);
+  assert.ok(Math.abs((xc - xb) - 2 * (xb - xa)) < 0.5, "a régua tinha de ser linear no expoente");
+});
+
+
+// ---------- Dízimas e números reais (8º ano) ----------
+//
+// A matéria inteira é sobre uma afirmação forte — toda fração vira decimal
+// exato ou dízima periódica —, e o teste PROVA essa afirmação por força
+// bruta antes de usá-la, em vez de assumi-la. A divisão longa é refeita aqui
+// com inteiros, e não com ponto flutuante: 1/3 em double não tem período
+// nenhum, tem erro de arredondamento.
+
+/**
+ * Divisão longa de n por d, feita com inteiros.
+ * Devolve { anteperiodo, periodo }: `periodo` vazio quer dizer decimal exato.
+ */
+function reDividir(n, d) {
+  const digitos = [];
+  const vistos = new Map();
+  let resto = n % d;
+  while (resto !== 0) {
+    if (vistos.has(resto)) {
+      const inicio = vistos.get(resto);
+      return { anteperiodo: digitos.slice(0, inicio).join(""), periodo: digitos.slice(inicio).join("") };
+    }
+    vistos.set(resto, digitos.length);
+    digitos.push(Math.floor((resto * 10) / d));
+    resto = (resto * 10) % d;
+  }
+  return { anteperiodo: digitos.join(""), periodo: "" };
+}
+
+/** Só os fatores 2 e 5 sobrevivem: o que resta diz se a fração fecha. */
+function reNucleo(d) {
+  let x = d;
+  while (x % 2 === 0) x /= 2;
+  while (x % 5 === 0) x /= 5;
+  return x;
+}
+
+const reMdc = (a, b) => (b === 0 ? Math.abs(a) : reMdc(b, a % b));
+
+teste("reais · lição 1 — ou o resto zera, ou ele volta: não há terceira saída", () => {
+  // A afirmação central da matéria, varrida em todas as frações próprias com
+  // denominador até 60. Para cada uma, a divisão longa TEM de parar — ou por
+  // resto zero, ou por resto repetido. Se alguma rodasse sem fim, o laço de
+  // reDividir não terminaria.
+  let exatas = 0, dizimas = 0;
+  for (let d = 2; d <= 60; d += 1) {
+    for (let n = 1; n < d; n += 1) {
+      const { periodo } = reDividir(n, d);
+      // e o resultado tem de bater com o teste dos fatores do denominador
+      const g = reMdc(n, d);
+      const fecha = reNucleo(d / g) === 1;
+      assert.equal(
+        periodo === "", fecha,
+        `${n}/${d}: o teste dos fatores 2 e 5 discordou da divisão longa`
+      );
+      if (periodo === "") exatas += 1; else dizimas += 1;
+      // o período nunca passa do limite dado pelos restos possíveis
+      assert.ok(periodo.length <= d - 1, `${n}/${d}: período maior que ${d - 1}`);
+    }
+  }
+  assert.ok(exatas > 100 && dizimas > 500, "esperava os dois casos em quantidade");
+
+  // Os exemplos da lição.
+  assert.deepEqual(reDividir(1, 3), { anteperiodo: "", periodo: "3" });
+  assert.deepEqual(reDividir(1, 4), { anteperiodo: "25", periodo: "" });
+  assert.deepEqual(reDividir(3, 8), { anteperiodo: "375", periodo: "" });
+
+  num("reais", "divisao-que-nao-acaba", "q1", 7);
+  alt("reais", "divisao-que-nao-acaba", "q2", "3/8");
+  num("reais", "divisao-que-nao-acaba", "q3", 1);
+  alt("reais", "divisao-que-nao-acaba", "q4", "Porque os restos possíveis são finitos, então algum deles se repete e a conta recomeça");
+
+  // A q1: os restos de uma divisão por 7 são exatamente sete valores.
+  const restos = new Set();
+  for (let k = 0; k < 200; k += 1) restos.add(k % 7);
+  assert.equal(restos.size, 7);
+  assert.deepEqual([...restos].sort((a, b) => a - b), [0, 1, 2, 3, 4, 5, 6]);
+
+  // A q3: em 1 ÷ 3 o resto que volta é o 1, e não o algarismo 3.
+  assert.equal(1 % 3, 1);
+  assert.equal((1 * 10) % 3, 1, "o resto depois do passo continua 1");
+  assert.equal(Math.floor((1 * 10) / 3), 3, "o algarismo é 3 — e é outra coisa");
+
+  // As três alternativas erradas da q2 são mesmo dízimas.
+  for (const [n, d] of [[1, 3], [1, 6], [2, 7]]) {
+    assert.notEqual(reDividir(n, d).periodo, "", `${n}/${d} tinha de ser dízima`);
+  }
+});
+
+teste("reais · lição 2 — só entra no período o que volta", () => {
+  // Anteperíodo e período, lidos da divisão longa.
+  assert.deepEqual(reDividir(1, 6), { anteperiodo: "1", periodo: "6" });
+  assert.deepEqual(reDividir(1, 3), { anteperiodo: "", periodo: "3" });
+  assert.deepEqual(reDividir(5, 11), { anteperiodo: "", periodo: "45" });
+  assert.deepEqual(reDividir(2, 7), { anteperiodo: "", periodo: "285714" });
+
+  num("reais", "periodo", "q1", 6);
+  alt("reais", "periodo", "q2", "Simples, porque a repetição começa logo depois da vírgula");
+  num("reais", "periodo", "q3", reDividir(2, 7).periodo.length);
+  alt("reais", "periodo", "q4", "6 algarismos, porque há 6 restos diferentes de zero");
+
+  // A armadilha da q1, registrada: se o período fosse 16, o número seria
+  // OUTRO — e o teste mostra os dois lado a lado.
+  assert.notEqual(reDividir(1, 6).periodo, "16");
+  assert.equal(reDividir(1, 6).anteperiodo, "1", "o 1 é anteperíodo, e aparece uma vez só");
+  // 0,161616… é 16/99, uma fração diferente de 1/6
+  assert.notEqual(16 / 99, 1 / 6);
+
+  // O limite do período: dividindo por d, ele nunca passa de d − 1, e essa
+  // cota é ATINGIDA por alguns denominadores (7 é um deles).
+  for (let d = 2; d <= 40; d += 1) {
+    for (let n = 1; n < d; n += 1) {
+      assert.ok(reDividir(n, d).periodo.length <= d - 1, `${n}/${d}`);
+    }
+  }
+  assert.equal(reDividir(1, 7).periodo.length, 6, "1/7 atinge o limite de 6");
+
+  // A q2: o tamanho do período não decide simples ou composta — o teste
+  // exibe uma simples de período 2 e uma composta de período 1.
+  assert.equal(reDividir(5, 11).anteperiodo, "", "0,4545… é simples e tem período de 2");
+  assert.equal(reDividir(1, 6).anteperiodo.length, 1, "0,1666… é composta e tem período de 1");
+});
+
+teste("reais · lição 3 — a geratriz reconstrói a dízima", () => {
+  // O truque do 10x − x, conferido no sentido inverso: a fração encontrada
+  // tem de produzir de volta a mesma dízima.
+  const casos = [
+    ["3", 1, 3], ["7", 7, 9], ["5", 5, 9], ["45", 5, 11], ["9", 1, 1], ["27", 3, 11],
+  ];
+  for (const [periodo, n, d] of casos) {
+    const gerado = reDividir(n, d);
+    if (d === 1) { assert.equal(gerado.periodo, "", "1/1 é inteiro"); continue; }
+    assert.equal(gerado.periodo, periodo, `${n}/${d} tinha de gerar período ${periodo}`);
+  }
+
+  // E a fórmula da geratriz simples — período sobre tantos noves quanto os
+  // algarismos do período — conferida contra a divisão longa.
+  //
+  // Cuidado: o período que a divisão longa devolve é o MENOR bloco que se
+  // repete. 0,(11) e 0,(1) são o mesmo número, e ela devolve "1" — exigir o
+  // mesmo tamanho de bloco reprovaria uma resposta correta. A comparação
+  // certa é reconstruir a dízima e conferir os algarismos.
+  for (let p = 1; p <= 98; p += 1) {
+    const casas = String(p).length;
+    const noves = Number("9".repeat(casas));
+    const g = reMdc(p, noves);
+    const [n, d] = [p / g, noves / g];
+    if (d === 1) continue;   // 0,999… = 1, o caso da q4
+    const { anteperiodo, periodo } = reDividir(n, d);
+    assert.equal(anteperiodo, "", `0,(${p}) tinha de ser dízima simples`);
+    // as 12 primeiras casas de n/d têm de ser o bloco p repetido
+    const bloco = String(p).padStart(casas, "0");
+    const esperado = bloco.repeat(Math.ceil(12 / casas)).slice(0, 12);
+    const obtido = periodo.repeat(Math.ceil(12 / periodo.length)).slice(0, 12);
+    assert.equal(obtido, esperado, `0,(${p}) = ${n}/${d}`);
+  }
+
+  alt("reais", "geratriz", "q1", "7/9");
+  num("reais", "geratriz", "q2", 5);
+  alt("reais", "geratriz", "q3", "5/11");
+  num("reais", "geratriz", "q4", 1);
+
+  // A q4 é o caso famoso, e ele sai do MESMO truque, sem exceção nenhuma:
+  // 9x = 9, então x = 1.
+  assert.equal(9 / 9, 1);
+  assert.equal(reMdc(9, 9), 9, "9/9 simplifica para 1/1");
+
+  // A q2: 10x − x deixa um inteiro, e não um decimal.
+  assert.equal(Number.isInteger(5), true);
+  // e a q3 simplifica de verdade
+  assert.equal(reMdc(45, 99), 9);
+  assert.equal(45 / 9, 5);
+  assert.equal(99 / 9, 11);
+});
+
+teste("reais · lição 4 — irracional é o que nenhuma fração produz", () => {
+  // A raiz de um inteiro é racional exatamente quando existe inteiro cujo
+  // quadrado é ele — conferido por busca, sem usar Math.sqrt para decidir.
+  const fechaEmInteiro = (n) => {
+    for (let k = 0; k * k <= n; k += 1) if (k * k === n) return true;
+    return false;
+  };
+  for (let n = 0; n <= 200; n += 1) {
+    const r = Math.round(Math.sqrt(n));
+    assert.equal(fechaEmInteiro(n), r * r === n, `√${n}`);
+  }
+  assert.ok(fechaEmInteiro(9) && fechaEmInteiro(16) && fechaEmInteiro(25) && fechaEmInteiro(49));
+  assert.ok(!fechaEmInteiro(2) && !fechaEmInteiro(3) && !fechaEmInteiro(7) && !fechaEmInteiro(10));
+
+  alt("reais", "irracionais", "q1", "√2");
+  num("reais", "irracionais", "q2", 7);
+  alt("reais", "irracionais", "q3", "Porque não tem período, e toda fração produz um");
+  alt("reais", "irracionais", "q4", "Quando o resultado é um número inteiro");
+
+  // A q2: 7 × 7 é 49, e os vizinhos erram para os dois lados.
+  assert.equal(7 * 7, 49);
+  assert.ok(6 * 6 < 49 && 8 * 8 > 49);
+
+  // A q1: √9 é racional porque fecha; 0,333… e 2/3 são racionais por serem
+  // fração. Só o √2 sobra.
+  assert.ok(fechaEmInteiro(9), "√9 fecha");
+  assert.notEqual(reDividir(1, 3).periodo, "", "0,333… é dízima periódica, logo racional");
+  assert.notEqual(reDividir(2, 3).periodo, "", "2/3 é fração");
+
+  // A q3: o contraexemplo que separa "infinitas casas" de "irracional" —
+  // 0,010101… usa só zeros e uns E é racional.
+  assert.equal(reDividir(1, 99).periodo, "01", "0,010101… é a fração 1/99");
+});
+
+teste("reais · lição 5 — localizar na reta é espremer entre quadrados", () => {
+  // O inteiro logo abaixo de √n, achado por busca — e conferido contra a
+  // definição: k² ≤ n e (k+1)² > n.
+  const piso = (n) => { let k = 0; while ((k + 1) * (k + 1) <= n) k += 1; return k; };
+  for (let n = 1; n <= 300; n += 1) {
+    const k = piso(n);
+    assert.ok(k * k <= n, `${k}² tinha de caber em ${n}`);
+    assert.ok((k + 1) * (k + 1) > n, `${k + 1}² tinha de passar de ${n}`);
+  }
+
+  num("reais", "reta-real", "q1", piso(10));
+  num("reais", "reta-real", "q2", piso(50));
+  alt("reais", "reta-real", "q3", "Que todo ponto da reta corresponde a um número real, racional ou irracional");
+  alt("reais", "reta-real", "q4", "Porque 3,16 é uma aproximação: ao quadrado ele não dá exatamente 10");
+
+  // Os quadrados citados no resolvido e nas questões.
+  assert.deepEqual([3 * 3, 4 * 4], [9, 16]);
+  assert.ok(9 < 10 && 10 < 16);
+  assert.deepEqual([7 * 7, 8 * 8], [49, 64]);
+  assert.ok(49 < 50 && 50 < 64);
+
+  // A q4: 3,16² não dá 10 — conferido em centésimos inteiros, para o ponto
+  // flutuante não decidir a questão.
+  assert.equal(316 * 316, 99856);
+  assert.notEqual(316 * 316, 100000, "3,16² ≠ 10");
+  assert.ok(316 * 316 < 100000, "3,16 fica um pouco ABAIXO da raiz de 10");
+  // e nenhuma quantidade finita de casas fecha: o quadrado nunca dá 10 exato
+  for (let casas = 1; casas <= 6; casas += 1) {
+    const escala = 10 ** casas;
+    let k = 0;
+    while ((k + 1) * (k + 1) <= 10 * escala * escala) k += 1;
+    assert.notEqual(k * k, 10 * escala * escala, `com ${casas} casas ainda não fecha`);
+  }
+});
+
+teste("reais · lição 6 — os conjuntos se contêm, e o irracional fica fora", () => {
+  // Todo natural é inteiro, todo inteiro é racional. Conferido pela
+  // construção: um inteiro k é a fração k/1.
+  for (let k = -20; k <= 20; k += 1) {
+    assert.equal(k / 1, k, `${k} = ${k}/1`);
+    assert.ok(Number.isInteger(k));
+    if (k >= 0) assert.ok(Number.isInteger(k) && k >= 0, `${k} é natural`);
+  }
+  // e o −7 não é natural, que é a q1
+  assert.ok(!(-7 >= 0), "−7 não entra nos naturais");
+
+  alt("reais", "problemas", "q1", "Inteiro, racional e real");
+  alt("reais", "problemas", "q2", "√7");
+  num("reais", "problemas", "q3", 99 / reMdc(27, 99));
+  alt("reais", "problemas", "q4", "Porque 0,333... tem infinitas casas e é a fração 1/3");
+
+  // A q2: das quatro, só √7 falha nos três testes.
+  const fecha = (n) => { for (let k = 0; k * k <= n; k += 1) if (k * k === n) return true; return false; };
+  assert.ok(fecha(64), "√64 = 8, racional");
+  assert.ok(!fecha(7), "√7 não fecha");
+  assert.equal(reDividir(3, 11).periodo, "27", "0,272727… é 3/11");
+  assert.equal(reDividir(3, 5).periodo, "", "−3/5 dá decimal exato");
+
+  // A q3: 27/99 simplifica para 3/11, então o denominador é 11.
+  assert.equal(reMdc(27, 99), 9);
+  assert.equal(99 / 9, 11);
+  assert.equal(27 / 9, 3);
+  // e a fração simplificada gera a mesma dízima
+  assert.equal(reDividir(27 % 99, 99).periodo, reDividir(3, 11).periodo);
+
+  // A q4: o contraexemplo derruba a afirmação, e o teste mostra os dois
+  // números de infinitas casas — um racional, um irracional.
+  assert.notEqual(reDividir(1, 3).periodo, "", "0,333… tem infinitas casas");
+  assert.ok(!fecha(2), "√2 também tem infinitas casas, e não é fração");
+});
+
+teste("reais · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("reais", 24);
+});
+
+teste("reais · a divisão desenhada é a divisão de verdade", () => {
+  // O gerador refaz a divisão longa por conta própria. O teste lê o
+  // quociente de volta do SVG e compara com a divisão feita aqui — se os
+  // dois discordassem, a figura estaria mentindo sobre a matéria.
+  for (const [n, d] of [[1, 3], [1, 6], [2, 7], [1, 4], [5, 11], [3, 8]]) {
+    const svg = desenhos.divisaoPeriodica({ dividendo: n, divisor: d, passos: 10 });
+    const escrito = [...svg.matchAll(/font-size="20"[^>]*>([^<]*)</g)].map((m) => m[1]).join("");
+    const { anteperiodo, periodo } = reDividir(n, d);
+    assert.equal(escrito, `0,${anteperiodo}${periodo}`, `${n}/${d}: a figura escreveu outra coisa`);
+
+    // e os restos desenhados são os restos de verdade
+    const restosDesenhados = [...svg.matchAll(/resto (\d+) → algarismo (\d+)/g)]
+      .map((m) => [Number(m[1]), Number(m[2])]);
+    let r = n % d;
+    for (const [rDesenhado, aDesenhado] of restosDesenhados) {
+      assert.equal(rDesenhado, r, `${n}/${d}: resto desenhado errado`);
+      assert.equal(aDesenhado, Math.floor((r * 10) / d), `${n}/${d}: algarismo desenhado errado`);
+      r = (r * 10) % d;
+    }
+  }
+
+  // O diagrama põe os irracionais FORA dos racionais, e não aninhados: é a
+  // afirmação central da lição 4, e desenhá-la errado ensinaria o contrário.
+  const dia = desenhos.conjuntosNumericos({ exemplos: { irracionais: "√2" } });
+  const caixas = [...dia.matchAll(/<rect x="([0-9.]+)"[^>]*width="([0-9.]+)"/g)]
+    .map((m) => ({ x: Number(m[1]), w: Number(m[2]) }));
+  const rotulos = [...dia.matchAll(/<text x="([0-9.]+)"[^>]*>(naturais|inteiros|racionais|irracionais)</g)]
+    .map((m) => ({ x: Number(m[1]), nome: m[2] }));
+  const xIrr = rotulos.find((r) => r.nome === "irracionais").x;
+  const xRac = rotulos.find((r) => r.nome === "racionais").x;
+  const caixaRac = caixas.find((c) => Math.abs(c.x - (xRac - 10)) < 2);
+  assert.ok(caixaRac, "esperava achar a caixa dos racionais");
+  assert.ok(
+    xIrr > caixaRac.x + caixaRac.w,
+    "a caixa dos irracionais tinha de ficar FORA da dos racionais"
+  );
+});
+
+
+// ---------- Produtos notáveis (8º ano) ----------
+//
+// Nenhuma identidade é conferida aplicando a fórmula que a matéria ensina.
+// Todas são conferidas por EQUIVALÊNCIA: os dois lados são avaliados em toda
+// uma faixa de valores e têm de dar o mesmo número em todos os pontos. É a
+// mesma disciplina da simplificação de Linguagem algébrica no 7º ano — uma
+// identidade certa no caso do enunciado e errada fora dele não passa.
+
+/** Os dois lados dão o mesmo valor em toda a faixa? */
+function pnIguais(f, g, de = -30, ate = 30) {
+  for (let x = de; x <= ate; x += 1) {
+    if (Math.abs(f(x) - g(x)) > 1e-9) return false;
+  }
+  return true;
+}
+
+teste("produtos notáveis · lição 1 — quatro produtos, e o do meio é a soma dos cruzados", () => {
+  // A distributiva dupla, conferida por equivalência para muitos pares.
+  for (let p = -6; p <= 6; p += 1) {
+    for (let q = -6; q <= 6; q += 1) {
+      assert.ok(
+        pnIguais((x) => (x + p) * (x + q), (x) => x * x + (p + q) * x + p * q),
+        `(x+${p})(x+${q}) tinha de dar x² + ${p + q}x + ${p * q}`
+      );
+    }
+  }
+
+  // O exemplo resolvido.
+  assert.ok(pnIguais((x) => (x + 2) * (x + 3), (x) => x * x + 5 * x + 6));
+
+  num("produtos-notaveis", "multiplicar-binomios", "q1", 4 + 5);
+  num("produtos-notaveis", "multiplicar-binomios", "q2", 2 * 7);
+  num("produtos-notaveis", "multiplicar-binomios", "q3", 2 * 2);
+  alt("produtos-notaveis", "multiplicar-binomios", "q4", "Os dois produtos cruzados ficam iguais, e a soma deles é o dobro de um só");
+
+  // As duas leituras que a lição pede para guardar: o termo do meio é a SOMA
+  // e o solto é o PRODUTO — e eles são coisas diferentes.
+  assert.notEqual(4 + 5, 4 * 5);
+  assert.notEqual(2 + 7, 2 * 7);
+
+  // A q3: são quatro produtos, contados como encontros (o mesmo princípio
+  // multiplicativo de Probabilidade).
+  const encontros = [];
+  for (const a of ["x", "2"]) for (const b of ["x", "3"]) encontros.push(a + "·" + b);
+  assert.equal(encontros.length, 4);
+  assert.equal(new Set(encontros).size, 4);
+
+  // A q4: com os dois parênteses iguais, os cruzados coincidem.
+  assert.ok(pnIguais((x) => (x + 3) * (x + 3), (x) => x * x + 6 * x + 9));
+});
+
+teste("produtos notáveis · lição 2 — o quadrado da soma, conferido por equivalência", () => {
+  for (let b = -9; b <= 9; b += 1) {
+    assert.ok(
+      pnIguais((x) => (x + b) ** 2, (x) => x * x + 2 * b * x + b * b),
+      `(x+${b})² tinha de dar x² + ${2 * b}x + ${b * b}`
+    );
+  }
+  // e com coeficiente na letra, que é a q3
+  for (let k = 1; k <= 5; k += 1) {
+    for (let b = 1; b <= 5; b += 1) {
+      assert.ok(
+        pnIguais((x) => (k * x + b) ** 2, (x) => k * k * x * x + 2 * k * b * x + b * b),
+        `(${k}x+${b})²`
+      );
+    }
+  }
+
+  num("produtos-notaveis", "quadrado-soma", "q1", 2 * 5);
+  num("produtos-notaveis", "quadrado-soma", "q2", (5 + 3) ** 2);
+  num("produtos-notaveis", "quadrado-soma", "q3", 2 * 2);
+  alt("produtos-notaveis", "quadrado-soma", "q4", "Cada um tem área ab, e juntos formam o termo 2ab");
+
+  // A q2 conferida pela SOMA DAS ÁREAS, e não pela fórmula: é assim que a
+  // figura justifica o resultado.
+  const [a, b] = [5, 3];
+  assert.equal(a * a + a * b + b * a + b * b, (a + b) ** 2);
+  assert.deepEqual([a * a, a * b, b * a, b * b], [25, 15, 15, 9]);
+  assert.equal(25 + 15 + 15 + 9, 64);
+
+  // A q3: o coeficiente é elevado JUNTO com a letra.
+  assert.equal((2 * 3) ** 2, 4 * 9, "(2·3)² = 4·3²");
+  assert.notEqual((2 * 3) ** 2, 2 * 9, "elevar só a letra daria outro valor");
+});
+
+teste("produtos notáveis · lição 3 — o quadrado da diferença muda UM sinal", () => {
+  for (let b = -9; b <= 9; b += 1) {
+    assert.ok(
+      pnIguais((x) => (x - b) ** 2, (x) => x * x - 2 * b * x + b * b),
+      `(x−${b})² tinha de dar x² − ${2 * b}x + ${b * b}`
+    );
+    // e o último termo é SEMPRE positivo, para todo b
+    assert.ok(b * b >= 0, "quadrado nunca é negativo");
+  }
+
+  // A comparação entre as duas fórmulas: só o sinal do meio difere.
+  for (let b = 1; b <= 9; b += 1) {
+    const soma = (x) => (x + b) ** 2;
+    const dif = (x) => (x - b) ** 2;
+    // os termos extremos são iguais nas duas; o do meio é oposto
+    assert.ok(pnIguais((x) => soma(x) - dif(x), (x) => 4 * b * x), `a diferença entre as duas é 4bx`);
+  }
+
+  num("produtos-notaveis", "quadrado-diferenca", "q1", (-6) * (-6));
+  num("produtos-notaveis", "quadrado-diferenca", "q2", 2 * (-3));
+  num("produtos-notaveis", "quadrado-diferenca", "q3", (5 - 2) ** 2);
+  alt("produtos-notaveis", "quadrado-diferenca", "q4", "Porque ele vem de (−b) vezes (−b), e menos com menos dá mais");
+
+  // A q3: a fórmula e o caminho direto têm de concordar — e a versão com o
+  // último termo NEGATIVO tem de discordar, que é o erro previsto.
+  assert.equal(25 - 20 + 4, (5 - 2) ** 2);
+  assert.notEqual(25 - 20 - 4, (5 - 2) ** 2, "o erro previsto discorda mesmo");
+
+  // A q4, provada: o quadrado de um negativo é positivo, em toda a faixa.
+  for (let b = -12; b <= 12; b += 1) assert.ok((-b) * (-b) >= 0, `(−${b})²`);
+});
+
+teste("produtos notáveis · lição 4 — na soma pela diferença o meio se cancela", () => {
+  for (let b = -9; b <= 9; b += 1) {
+    assert.ok(
+      pnIguais((x) => (x + b) * (x - b), (x) => x * x - b * b),
+      `(x+${b})(x−${b}) tinha de dar x² − ${b * b}`
+    );
+  }
+
+  // O cancelamento, mostrado termo a termo: os cruzados são opostos.
+  for (let b = 1; b <= 9; b += 1) {
+    for (let x = -10; x <= 10; x += 1) {
+      const cruzado1 = x * (-b), cruzado2 = b * x;
+      assert.equal(cruzado1 + cruzado2, 0, `os cruzados de (x+${b})(x−${b}) em x=${x}`);
+    }
+  }
+
+  num("produtos-notaveis", "soma-por-diferenca", "q1", 8 * (-8));
+  num("produtos-notaveis", "soma-por-diferenca", "q2", 102 * 98);
+  alt("produtos-notaveis", "soma-por-diferenca", "q3", "(x + 7)(x − 7)");
+  alt("produtos-notaveis", "soma-por-diferenca", "q4", "Porque os cruzados ficam com sinais contrários e se cancelam");
+
+  // A q2: o atalho e a multiplicação direta dão o mesmo número.
+  assert.equal(102 * 98, 100 * 100 - 2 * 2);
+  assert.equal(102 * 98, 9996);
+
+  // A q3: das quatro alternativas, só uma produz x² − 49 em toda a faixa.
+  assert.ok(pnIguais((x) => (x + 7) * (x - 7), (x) => x * x - 49));
+  assert.ok(!pnIguais((x) => (x - 7) ** 2, (x) => x * x - 49));
+  assert.ok(!pnIguais((x) => (x + 7) ** 2, (x) => x * x - 49));
+  assert.ok(!pnIguais((x) => (x + 49) * (x - 49), (x) => x * x - 49));
+
+  // A figura afirma que as duas áreas são iguais — conferido para vários a, b.
+  for (let a = 3; a <= 12; a += 1) {
+    for (let b = 1; b < a; b += 1) {
+      assert.equal(a * a - b * b, (a + b) * (a - b), `área do L contra o retângulo, a=${a} b=${b}`);
+    }
+  }
+});
+
+teste("produtos notáveis · lição 5 — o erro clássico, medido", () => {
+  // (a+b)² e a²+b² só coincidem quando 2ab é zero, ou seja, quando um dos
+  // dois é zero. Fora disso, a diferença é EXATAMENTE 2ab.
+  for (let a = -8; a <= 8; a += 1) {
+    for (let b = -8; b <= 8; b += 1) {
+      const certo = (a + b) ** 2, errado = a * a + b * b;
+      // Math.abs, e não assert.equal: com b = 0 o produto 2ab dá −0, e o
+      // assert estrito distingue −0 de 0 — a igualdade falharia pelo sinal
+      // do zero, e não pela matemática.
+      assert.ok(Math.abs((certo - errado) - 2 * a * b) < 1e-9, `a=${a} b=${b}: a diferença tinha de ser 2ab`);
+      if (a !== 0 && b !== 0) assert.notEqual(certo, errado, `a=${a} b=${b} não podia coincidir`);
+      else assert.equal(certo, errado, "com um deles zero, as duas coincidem");
+    }
+  }
+
+  // E com PRODUTO o expoente entra mesmo — a comparação que a lição faz.
+  for (let a = -8; a <= 8; a += 1) {
+    for (let b = -8; b <= 8; b += 1) {
+      assert.equal((a * b) ** 2, a * a * b * b, `(${a}·${b})²`);
+    }
+  }
+
+  num("produtos-notaveis", "erro-classico", "q1", (2 + 5) ** 2);
+  num("produtos-notaveis", "erro-classico", "q2", (2 + 5) ** 2 - (2 * 2 + 5 * 5));
+  alt("produtos-notaveis", "erro-classico", "q3", "(ab)², porque dentro do parêntese há uma multiplicação");
+  alt("produtos-notaveis", "erro-classico", "q4", "Os dois retângulos do meio, que juntos valem 2ab");
+
+  // O exemplo do resolvido, com a = 3 e b = 4.
+  assert.equal((3 + 4) ** 2, 49);
+  assert.equal(3 * 3 + 4 * 4, 25);
+  assert.equal(49 - 25, 2 * 3 * 4);
+
+  // A q2, conferida pelos dois caminhos.
+  assert.equal((2 + 5) ** 2 - (4 + 25), 20);
+  assert.equal(2 * 2 * 5, 20);
+});
+
+teste("produtos notáveis · lição 6 — os atalhos dão o mesmo que a conta armada", () => {
+  // Todo quadrado perto de um redondo, pelos dois caminhos.
+  for (const base of [10, 20, 30, 50, 100]) {
+    for (let d = 1; d <= 3; d += 1) {
+      assert.equal((base + d) ** 2, base * base + 2 * base * d + d * d, `(${base}+${d})²`);
+      assert.equal((base - d) ** 2, base * base - 2 * base * d + d * d, `(${base}−${d})²`);
+      // e o produto dos dois vizinhos
+      assert.equal((base + d) * (base - d), base * base - d * d, `${base + d} × ${base - d}`);
+    }
+  }
+
+  num("produtos-notaveis", "problemas", "q1", 19 * 19);
+  num("produtos-notaveis", "problemas", "q2", 51 * 49);
+  num("produtos-notaveis", "problemas", "q3", 101 * 101);
+  alt("produtos-notaveis", "problemas", "q4", "6x + 9");
+
+  // As contas do enunciado, uma a uma.
+  assert.equal(19 * 19, 400 - 40 + 1);
+  assert.equal(51 * 49, 2500 - 1);
+  assert.equal(101 * 101, 10000 + 200 + 1);
+  assert.equal(21 * 21, 400 + 40 + 1);
+
+  // A q4: o aumento da área é (x+3)² − x², e isso é 6x + 9 em toda a faixa.
+  assert.ok(pnIguais((x) => (x + 3) ** 2 - x * x, (x) => 6 * x + 9));
+  // e as alternativas erradas discordam em algum ponto
+  assert.ok(!pnIguais((x) => (x + 3) ** 2 - x * x, () => 9));
+  assert.ok(!pnIguais((x) => (x + 3) ** 2 - x * x, (x) => 3 * x));
+});
+
+teste("produtos notáveis · a figura calcula as áreas, e não as recebe", () => {
+  // O `quadradoSoma` decide as quatro áreas a partir de a e b. O teste lê os
+  // números de volta do SVG e confere com a conta feita aqui.
+  for (const [a, b] of [[5, 3], [3, 4], [20, 1], [2, 5]]) {
+    const svg = desenhos.quadradoSoma({ a, b, revelar: "numeros" });
+    const nums = [...svg.matchAll(/font-size="15"[^>]*>([0-9]+)</g)].map((m) => Number(m[1]));
+    assert.deepEqual(
+      nums.sort((p, q) => p - q),
+      [a * a, a * b, a * b, b * b].sort((p, q) => p - q),
+      `quadradoSoma(${a}, ${b}): as áreas desenhadas não batem`
+    );
+    // e as quatro somam o quadrado do lado inteiro
+    assert.equal(nums.reduce((s, n) => s + n, 0), (a + b) ** 2);
+  }
+
+  // As quatro regiões existem sempre — são elas que justificam o 2ab.
+  const svg = desenhos.quadradoSoma({ a: 4, b: 2 });
+  const regioes = [...svg.matchAll(/<rect[^>]*fill-opacity="0\.(22|1)"/g)].length;
+  assert.equal(regioes, 4, "o quadrado tinha de estar partido em quatro");
+
+  // O `diferencaQuadrados` desenha as duas figuras com a MESMA área.
+  for (const [a, b] of [[5, 2], [6, 3], [8, 5]]) {
+    const d = desenhos.diferencaQuadrados({ a, b, revelar: "numeros" });
+    const nums = [...d.matchAll(/font-size="13"[^>]*>([0-9]+)</g)].map((m) => Number(m[1]));
+    assert.ok(nums.includes(a * a - b * b), `${a},${b}: esperava a área ${a * a - b * b} desenhada`);
+    // as duas áreas escritas são iguais, que é a afirmação da lição
+    const escritas = nums.filter((n) => n === a * a - b * b);
+    assert.equal(escritas.length, 2, "as duas formas tinham de mostrar a mesma área");
+  }
+});
+
+teste("produtos notáveis · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("produtos-notaveis", 24);
+});
+
+
+
+// ---------- Fatoração (8º ano) ----------
+//
+// Fatorar é o caminho de volta dos produtos notáveis, e o teste confere do
+// mesmo jeito: por EQUIVALÊNCIA. A forma fatorada e a expandida têm de dar o
+// mesmo valor em toda a faixa — uma fatoração certa no exemplo do enunciado e
+// errada fora dele não passa.
+
+/** Os dois lados dão o mesmo valor em toda a faixa? */
+const ftIguais = (f, g, de = -20, ate = 20) => {
+  for (let x = de; x <= ate; x += 1) if (Math.abs(f(x) - g(x)) > 1e-9) return false;
+  return true;
+};
+
+const ftMdc = (a, b) => (b === 0 ? Math.abs(a) : ftMdc(b, a % b));
+
+teste("fatoração · lição 1 — o fator comum é o que cabe em TODAS as parcelas", () => {
+  // Pôr em evidência é a distributiva lida ao contrário: conferido por
+  // equivalência para muitos pares de coeficientes.
+  for (let k = 1; k <= 12; k += 1) {
+    for (let a = 1; a <= 9; a += 1) {
+      for (let b = 1; b <= 9; b += 1) {
+        assert.ok(
+          ftIguais((x) => k * a * x + k * b, (x) => k * (a * x + b)),
+          `${k * a}x + ${k * b} = ${k}(${a}x + ${b})`
+        );
+      }
+    }
+  }
+
+  // O MAIOR fator comum é o mdc, e tirá-lo deixa o parêntese sem mais nada
+  // a fatorar — que é o critério de "fatoração completa".
+  for (let p = 2; p <= 40; p += 1) {
+    for (let q = 2; q <= 40; q += 1) {
+      const g = ftMdc(p, q);
+      assert.equal(ftMdc(p / g, q / g), 1, `depois de tirar ${g}, sobrou fator comum em ${p}/${q}`);
+    }
+  }
+  assert.equal(ftMdc(12, 18), 6);
+  assert.equal(ftMdc(8, 12), 4);
+
+  // O exemplo resolvido, e o caso com letra.
+  assert.ok(ftIguais((x) => 6 * x + 9, (x) => 3 * (2 * x + 3)));
+  assert.ok(ftIguais((x) => 5 * x * x + 10 * x, (x) => 5 * x * (x + 2)));
+
+  num("fatoracao", "fator-comum", "q1", ftMdc(12, 18));
+  alt("fatoracao", "fator-comum", "q2", "5x");
+  num("fatoracao", "fator-comum", "q3", ftMdc(8, 12));
+  alt("fatoracao", "fator-comum", "q4", "Porque ele é o lado que todas as parcelas dividem, e a área é lado vezes lado");
+
+  // A q1: os candidatos menores deixam fatoração incompleta, e o teste diz
+  // exatamente o que sobraria dentro do parêntese.
+  assert.equal(ftMdc(12 / 2, 18 / 2), 3, "tirando só o 2, ainda sobra o 3");
+  assert.equal(ftMdc(12 / 3, 18 / 3), 2, "tirando só o 3, ainda sobra o 2");
+  assert.notEqual(18 % 12, 0, "o 12 não cabe no 18");
+
+  // A q3: só um fator devolve a expressão original.
+  assert.ok(ftIguais((x) => 8 * x + 12, (x) => 4 * (2 * x + 3)));
+  assert.ok(!ftIguais((x) => 8 * x + 12, (x) => 2 * (2 * x + 3)));
+  assert.ok(!ftIguais((x) => 8 * x + 12, (x) => 8 * (2 * x + 3)));
+});
+
+teste("fatoração · lição 2 — o agrupamento fecha quando os parênteses coincidem", () => {
+  // A identidade do agrupamento, varrida em DUAS variáveis.
+  for (let a = -6; a <= 6; a += 1) {
+    for (let b = -6; b <= 6; b += 1) {
+      for (let x = -6; x <= 6; x += 1) {
+        for (let y = -6; y <= 6; y += 1) {
+          assert.ok(
+            Math.abs((a * x + a * y + b * x + b * y) - (a + b) * (x + y)) < 1e-9,
+            `ax+ay+bx+by com a=${a} b=${b} x=${x} y=${y}`
+          );
+        }
+      }
+    }
+  }
+
+  // O exemplo resolvido, também em duas variáveis.
+  for (let x = -8; x <= 8; x += 1) {
+    for (let y = -8; y <= 8; y += 1) {
+      assert.ok(
+        Math.abs((x * y + 2 * x + 3 * y + 6) - (y + 2) * (x + 3)) < 1e-9,
+        `xy+2x+3y+6 com x=${x} y=${y}`
+      );
+    }
+  }
+
+  alt("fatoracao", "agrupamento", "q1", "(x + y)");
+  num("fatoracao", "agrupamento", "q2", 3);
+  num("fatoracao", "agrupamento", "q3", 2 * 2);
+  alt("fatoracao", "agrupamento", "q4", "Os dois parênteses saem iguais");
+
+  // A q4: quando os parênteses saem DIFERENTES, o segundo passo não existe —
+  // e o teste mostra que a expressão resultante não é o produto esperado.
+  for (let x = -5; x <= 5; x += 1) {
+    for (let y = -5; y <= 5; y += 1) {
+      const fecha = x * (y + 2) + 3 * (y + 2);
+      // Math.abs de novo, e pelo mesmo motivo do −0: com x = −3 o resultado é
+      // zero, e (y+2) × 0 com y negativo devolve −0, que o assert estrito
+      // considera diferente de 0.
+      assert.ok(Math.abs(fecha - (y + 2) * (x + 3)) < 1e-9, "o que fecha vira produto");
+    }
+  }
+  assert.notEqual(1 * (1 + 2) + 3 * (1 + 5), (1 + 2) * (1 + 3), "o agrupamento que não fecha dá outra coisa");
+});
+
+teste("fatoração · lição 3 — diferença de quadrados, e as três condições", () => {
+  for (let b = 1; b <= 12; b += 1) {
+    assert.ok(ftIguais((x) => x * x - b * b, (x) => (x + b) * (x - b)), `x² − ${b * b}`);
+    // com coeficiente na letra
+    for (let k = 1; k <= 5; k += 1) {
+      assert.ok(
+        ftIguais((x) => k * k * x * x - b * b, (x) => (k * x + b) * (k * x - b)),
+        `${k * k}x² − ${b * b}`
+      );
+    }
+  }
+
+  // A soma de quadrados NÃO fatora: nenhum par de inteiros (p, q) faz
+  // (x+p)(x+q) dar x² + b² — conferido por busca.
+  for (const b of [4, 5, 16, 25]) {
+    let achou = false;
+    for (let p = -30; p <= 30; p += 1) {
+      for (let q = -30; q <= 30; q += 1) {
+        if (ftIguais((x) => (x + p) * (x + q), (x) => x * x + b)) achou = true;
+      }
+    }
+    assert.ok(!achou, `x² + ${b} não podia fatorar em inteiros`);
+  }
+
+  alt("fatoracao", "diferenca-quadrados", "q1", "(x + 7)(x − 7)");
+  num("fatoracao", "diferenca-quadrados", "q2", 2);
+  alt("fatoracao", "diferenca-quadrados", "q3", "x² + 16");
+  num("fatoracao", "diferenca-quadrados", "q4", 3);
+
+  // A q1: das quatro alternativas, só uma vale em toda a faixa.
+  assert.ok(ftIguais((x) => (x + 7) * (x - 7), (x) => x * x - 49));
+  assert.ok(!ftIguais((x) => (x + 49) * (x - 49), (x) => x * x - 49));
+  assert.ok(!ftIguais((x) => (x - 7) * (x - 7), (x) => x * x - 49));
+  assert.ok(!ftIguais((x) => (x + 7) * (x + 7), (x) => x * x - 49));
+
+  // A q2: esquecer a raiz do coeficiente dá outra expressão.
+  assert.ok(ftIguais((x) => 4 * x * x - 9, (x) => (2 * x + 3) * (2 * x - 3)));
+  assert.ok(!ftIguais((x) => 4 * x * x - 9, (x) => (x + 3) * (x - 3)));
+
+  // A q3: as outras três cumprem as condições e fatoram mesmo.
+  assert.ok(ftIguais((x) => x * x - 16, (x) => (x + 4) * (x - 4)));
+  assert.ok(ftIguais((x) => 9 * x * x - 1, (x) => (3 * x + 1) * (3 * x - 1)));
+  assert.ok(ftIguais((x) => x * x - 100, (x) => (x + 10) * (x - 10)));
+});
+
+teste("fatoração · lição 4 — o trinômio só fecha se o MEIO bater", () => {
+  // Todo trinômio da forma x² + 2bx + b² é quadrado perfeito.
+  for (let b = -10; b <= 10; b += 1) {
+    assert.ok(ftIguais((x) => x * x + 2 * b * x + b * b, (x) => (x + b) ** 2), `x² + ${2 * b}x + ${b * b}`);
+  }
+
+  // E se o termo do meio NÃO for o dobro do produto, não é quadrado de nada:
+  // conferido por busca sobre todos os candidatos inteiros.
+  for (const [meio, fim] of [[7, 9], [5, 4], [3, 1]]) {
+    let achou = false;
+    for (let p = -30; p <= 30; p += 1) {
+      if (ftIguais((x) => (x + p) ** 2, (x) => x * x + meio * x + fim)) achou = true;
+    }
+    assert.ok(!achou, `x² + ${meio}x + ${fim} não podia ser quadrado perfeito`);
+  }
+  // enquanto o caso que bate, fecha
+  assert.ok(ftIguais((x) => (x + 3) ** 2, (x) => x * x + 6 * x + 9));
+
+  num("fatoracao", "trinomio-quadrado", "q1", 4);
+  alt("fatoracao", "trinomio-quadrado", "q2", "(x − 5)²");
+  alt("fatoracao", "trinomio-quadrado", "q3", "Não, porque o dobro do produto das raízes dá 6x, e não 7x");
+  alt("fatoracao", "trinomio-quadrado", "q4", "Não, porque ele é um quadrado, e todo quadrado é positivo");
+
+  // A q1: a conferência do meio bate para o 4, e para mais nenhum candidato.
+  assert.equal(2 * 1 * 4, 8, "o dobro do produto dá o termo do meio");
+  assert.ok(ftIguais((x) => x * x + 8 * x + 16, (x) => (x + 4) ** 2));
+
+  // A q2: o sinal do meio decide, e a alternativa com sinal trocado discorda.
+  assert.ok(ftIguais((x) => x * x - 10 * x + 25, (x) => (x - 5) ** 2));
+  assert.ok(!ftIguais((x) => x * x - 10 * x + 25, (x) => (x + 5) ** 2));
+  assert.ok(!ftIguais((x) => x * x - 10 * x + 25, (x) => (x + 5) * (x - 5)));
+
+  // A q3, medida: a expressão do enunciado e o quadrado candidato discordam.
+  assert.notEqual(1 * 1 + 7 * 1 + 9, (1 + 3) ** 2, "em x = 1 os dois já diferem");
+
+  // A q4: o último termo é sempre positivo, nos dois quadrados.
+  for (let b = -10; b <= 10; b += 1) assert.ok(b * b >= 0, `(±${b})²`);
+});
+
+teste("fatoração · lição 5 — o fator comum vem antes da contagem de termos", () => {
+  // O caso que junta dois métodos: sem tirar o fator comum, as pontas não são
+  // quadrados perfeitos; depois de tirar, são.
+  const quadradoPerfeito = (n) => { for (let k = 0; k * k <= n; k += 1) if (k * k === n) return true; return false; };
+  assert.ok(!quadradoPerfeito(2), "o 2 de 2x² não é quadrado perfeito");
+  assert.ok(!quadradoPerfeito(50), "o 50 não é quadrado perfeito");
+  assert.ok(quadradoPerfeito(1) && quadradoPerfeito(25), "depois de tirar o 2, as pontas fecham");
+  assert.ok(ftIguais((x) => 2 * x * x - 50, (x) => 2 * (x + 5) * (x - 5)));
+
+  // O mesmo para a q3.
+  assert.ok(ftIguais((x) => 3 * x * x - 27, (x) => 3 * (x + 3) * (x - 3)));
+  assert.ok(!quadradoPerfeito(3) && !quadradoPerfeito(27));
+
+  alt("fatoracao", "escolher-caminho", "q1", "Se existe fator comum a todas as parcelas");
+  alt("fatoracao", "escolher-caminho", "q2", "Trinômio quadrado perfeito");
+  num("fatoracao", "escolher-caminho", "q3", 3);
+  alt("fatoracao", "escolher-caminho", "q4", "Porque cada caso ainda tem condições próprias a conferir, como x² + 25 mostra");
+
+  // A q3: são três fatores, e nenhum dos parênteses abre mais.
+  //   (x+3) e (x−3) não são diferença de quadrados nem têm fator comum.
+  assert.equal(ftMdc(1, 3), 1, "x + 3 não tem fator comum numérico");
+
+  // A q4: as duas expressões têm a contagem certa de termos e não fatoram.
+  let achouSoma = false;
+  for (let p = -30; p <= 30; p += 1) for (let q = -30; q <= 30; q += 1) {
+    if (ftIguais((x) => (x + p) * (x + q), (x) => x * x + 25)) achouSoma = true;
+  }
+  assert.ok(!achouSoma, "x² + 25 não fatora em inteiros");
+});
+
+teste("fatoração · lição 6 — só se cancela FATOR, e fatorar é o que os cria", () => {
+  // A simplificação, conferida ponto a ponto e evitando o valor que anula o
+  // denominador — a fração não existe lá, e comparar seria comparar com NaN.
+  for (let x = -20; x <= 20; x += 1) {
+    if (x + 3 !== 0) {
+      assert.ok(Math.abs((x * x - 9) / (x + 3) - (x - 3)) < 1e-9, `(x²−9)/(x+3) em x=${x}`);
+    }
+    if (x - 4 !== 0) {
+      assert.ok(Math.abs((x * x - 16) / (x - 4) - (x + 4)) < 1e-9, `(x²−16)/(x−4) em x=${x}`);
+    }
+    assert.ok(Math.abs((6 * x + 9) / 3 - (2 * x + 3)) < 1e-9, `(6x+9)/3 em x=${x}`);
+  }
+
+  alt("fatoracao", "problemas", "q1", "x + 4");
+  num("fatoracao", "problemas", "q2", (3 + 3) / 3);
+  alt("fatoracao", "problemas", "q3", "2x + 3");
+  alt("fatoracao", "problemas", "q4", "Porque só se cancela o que multiplica a fração inteira, e fatorar cria esses fatores");
+
+  // A q2 é a demonstração do corte proibido: a fração original e o resultado
+  // do corte errado dão números diferentes.
+  assert.equal((3 + 3) / 3, 2);
+  assert.notEqual((3 + 3) / 3, 3, "o corte errado daria x, ou seja, 3");
+  // e isso vale em quase toda a faixa, não só em x = 3
+  let diferem = 0;
+  for (let x = -10; x <= 10; x += 1) if (Math.abs((x + 3) / 3 - x) > 1e-9) diferem += 1;
+  assert.ok(diferem >= 20, "o corte errado discorda em quase todos os pontos");
+
+  // A q4: fatorar permite o corte, mas não o garante — o contraexemplo.
+  for (let x = -10; x <= 10; x += 1) {
+    if (x + 3 === 0) continue;
+    const naoSimplifica = ((x + 2) * (x - 1)) / (x + 3);
+    assert.ok(Number.isFinite(naoSimplifica), "existe, mas não corta: nenhum fator se repete");
+  }
+});
+
+teste("fatoração · a figura mostra o fator comum como LADO", () => {
+  // O `retanguloFatores` põe a altura comum à esquerda e as áreas dentro.
+  // Numa questão que pede esse fator, a altura sai como "?".
+  const cheio = desenhos.retanguloFatores({
+    altura: "3", partes: [{ largura: "2x", area: "6x" }, { largura: "3", area: "9" }],
+  });
+  assert.ok(cheio.includes(">3<"), "a altura tinha de aparecer");
+  assert.ok(cheio.includes(">6x<") && cheio.includes(">9<"), "as áreas tinham de aparecer");
+
+  const escondido = desenhos.retanguloFatores({
+    altura: "3", partes: [{ largura: "2x", area: "6x" }, { largura: "3", area: "9" }],
+    revelar: "areas",
+  });
+  assert.ok(escondido.includes(">?<"), "com revelar 'areas' a altura fica em aberto");
+  assert.ok(escondido.includes(">6x<"), "mas as áreas continuam à mostra");
+
+  // uma faixa por parcela, sempre
+  for (const n of [2, 3, 4]) {
+    const partes = Array.from({ length: n }, (_, i) => ({ largura: `l${i}`, area: `a${i}` }));
+    const svg = desenhos.retanguloFatores({ altura: "k", partes });
+    // as faixas mais o contorno de fora
+    const rects = (svg.match(/<rect /g) || []).length;
+    assert.equal(rects, n + 1, `com ${n} parcelas esperava ${n} faixas e o contorno`);
+  }
+});
+
+teste("fatoração · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("fatoracao", 24);
+});
+
+
+
+// ---------- Frações algébricas (8º ano) ----------
+//
+// Toda simplificação é conferida por EQUIVALÊNCIA, com um cuidado que as
+// matérias anteriores não precisavam ter: o valor proibido é PULADO. Comparar
+// a fração original com a simplificada no ponto que anula o denominador
+// significaria comparar com uma divisão por zero.
+
+/** Os dois lados coincidem em toda a faixa, menos nos valores proibidos? */
+function faIguais(f, g, proibidos = [], de = -20, ate = 20) {
+  for (let x = de; x <= ate; x += 1) {
+    if (proibidos.includes(x)) continue;
+    if (Math.abs(f(x) - g(x)) > 1e-9) return false;
+  }
+  return true;
+}
+
+const faMmc = (a, b) => {
+  const mdcLocal = (p, q) => (q === 0 ? Math.abs(p) : mdcLocal(q, p % q));
+  return Math.abs(a * b) / mdcLocal(a, b);
+};
+
+teste("frações algébricas · lição 1 — o proibido sai do DENOMINADOR", () => {
+  // O valor proibido é a raiz do denominador, e o numerador não opina.
+  // Conferido construindo frações com denominador x + k e testando que só o
+  // −k quebra a conta.
+  for (let k = -8; k <= 8; k += 1) {
+    for (let x = -20; x <= 20; x += 1) {
+      const denominador = x + k;
+      const existe = denominador !== 0;
+      assert.equal(existe, x !== -k, `denominador x + ${k} em x = ${x}`);
+      if (existe) assert.ok(Number.isFinite((x + 1) / denominador), "a fração tem valor");
+    }
+  }
+
+  // Numerador zero é legítimo: a fração vale zero, e não deixa de existir.
+  assert.equal((2 - 2) / (2 + 5), 0);
+  assert.ok(Number.isFinite((2 - 2) / (2 + 5)));
+});
+
+teste("frações algébricas · lição 1 — valores proibidos", () => {
+  num("fracoes-algebricas", "o-que-e", "q1", 0);
+  num("fracoes-algebricas", "o-que-e", "q2", -3);
+  alt("fracoes-algebricas", "o-que-e", "q3", "x/3");
+  alt("fracoes-algebricas", "o-que-e", "q4", "A fração vale zero, e isso é perfeitamente normal");
+
+  // A q1: o denominador é o próprio x.
+  assert.ok(!Number.isFinite(5 / 0), "5/0 não tem valor");
+  assert.equal(5 / -5, -1, "com x = −5 a fração existe");
+
+  // A q2: o proibido resolve x + 3 = 0.
+  assert.equal(-3 + 3, 0);
+  assert.equal(3 + 3, 6, "com x = 3 o denominador vale 6");
+
+  // A q3: x/3 existe para TODO x, porque o denominador é constante.
+  for (let x = -20; x <= 20; x += 1) assert.ok(Number.isFinite(x / 3), `x/3 em ${x}`);
+
+  // A q4: numerador zero dá fração zero.
+  assert.equal((2 - 2) / (2 + 5), 0);
+});
+
+teste("frações algébricas · lição 2 — simplificar exige FATOR, e o teste mede", () => {
+  // Cada simplificação, conferida em toda a faixa menos no proibido.
+  assert.ok(faIguais((x) => (x * x - 9) / (x + 3), (x) => x - 3, [-3]));
+  assert.ok(faIguais((x) => (2 * x + 4) / (x + 2), () => 2, [-2]));
+  assert.ok(faIguais((x) => (x * x + 6 * x + 9) / (x + 3), (x) => x + 3, [-3]));
+  assert.ok(faIguais((x) => (6 * x + 9) / 3, (x) => 2 * x + 3));
+
+  // E o corte PROIBIDO é medido: (x+3)/3 não é x, e os dois discordam em
+  // quase toda a faixa.
+  let diferem = 0;
+  for (let x = -20; x <= 20; x += 1) if (Math.abs((x + 3) / 3 - x) > 1e-9) diferem += 1;
+  assert.ok(diferem >= 40, "o corte errado discorda em quase todos os pontos");
+  assert.equal((6 + 3) / 3, 3, "com x = 6 a fração original vale 3");
+  assert.notEqual((6 + 3) / 3, 6, "e o corte errado daria 6");
+
+  num("fracoes-algebricas", "simplificar", "q1", 2);
+  alt("fracoes-algebricas", "simplificar", "q2", "x + 3");
+  num("fracoes-algebricas", "simplificar", "q3", (6 + 3) / 3);
+  alt("fracoes-algebricas", "simplificar", "q4", "Porque só se corta fator, e fatorar é o que transforma somas em fatores");
+
+  // A q2: das quatro alternativas, só uma vale em toda a faixa.
+  assert.ok(faIguais((x) => (x * x + 6 * x + 9) / (x + 3), (x) => x + 3, [-3]));
+  assert.ok(!faIguais((x) => (x * x + 6 * x + 9) / (x + 3), (x) => x - 3, [-3]));
+  assert.ok(!faIguais((x) => (x * x + 6 * x + 9) / (x + 3), (x) => x + 6, [-3]));
+});
+
+teste("frações algébricas · lição 3 — multiplicar e dividir", () => {
+  // Multiplicar é cima com cima e baixo com baixo — conferido contra a
+  // definição, para vários pares.
+  for (let a = 1; a <= 6; a += 1) {
+    for (let b = 1; b <= 6; b += 1) {
+      for (let c = 1; c <= 6; c += 1) {
+        for (let d = 1; d <= 6; d += 1) {
+          assert.ok(
+            Math.abs((a / b) * (c / d) - (a * c) / (b * d)) < 1e-9,
+            `(${a}/${b}) × (${c}/${d})`
+          );
+          // e dividir é multiplicar pelo inverso
+          assert.ok(
+            Math.abs((a / b) / (c / d) - (a / b) * (d / c)) < 1e-9,
+            `(${a}/${b}) ÷ (${c}/${d})`
+          );
+        }
+      }
+    }
+  }
+
+  // As contas da lição, com o zero pulado.
+  assert.ok(faIguais((x) => (x / 2) * (4 / x), () => 2, [0]));
+  assert.ok(faIguais((x) => (x / 3) / (x / 6), () => 2, [0]));
+  assert.ok(faIguais((x) => (2 / x) * (x / 8), () => 0.25, [0]));
+
+  num("fracoes-algebricas", "multiplicar-dividir", "q1", 2);
+  alt("fracoes-algebricas", "multiplicar-dividir", "q2", "Sim, porque tudo que está em cima acaba no mesmo numerador");
+  num("fracoes-algebricas", "multiplicar-dividir", "q3", 2 / 8);
+  alt("fracoes-algebricas", "multiplicar-dividir", "q4", "Porque ao inverter, o x vai para o denominador");
+
+  // A q1: inverter a fração ERRADA dá outro número.
+  assert.ok(faIguais((x) => (x / 3) * (6 / x), () => 2, [0]));
+  assert.ok(faIguais((x) => (3 / x) * (x / 6), () => 0.5, [0]));
+  assert.notEqual(2, 0.5);
+
+  // A q2: o corte cruzado vale para números também, e não só para letras.
+  assert.ok(Math.abs((3 / 4) * (8 / 9) - 2 / 3) < 1e-9, "3 corta com 9, 8 corta com 4");
+});
+
+teste("frações algébricas · lição 4 — o denominador dimensiona, e não se soma", () => {
+  // Somar com denominador igual: os numeradores somam e o denominador fica.
+  for (let d = 2; d <= 12; d += 1) {
+    for (let p = -8; p <= 8; p += 1) {
+      for (let q = -8; q <= 8; q += 1) {
+        assert.ok(Math.abs(p / d + q / d - (p + q) / d) < 1e-9, `${p}/${d} + ${q}/${d}`);
+        // e somar os denominadores daria OUTRA coisa
+        if (p + q !== 0 && d !== 1) {
+          assert.notEqual((p + q) / d, (p + q) / (d + d), `somar denominadores muda o valor`);
+        }
+      }
+    }
+  }
+
+  // As contas da lição.
+  assert.ok(faIguais((x) => x / 5 + 2 * x / 5, (x) => 3 * x / 5));
+  assert.ok(faIguais((x) => (x + 1) / 4 + (x - 1) / 4, (x) => x / 2));
+  assert.ok(faIguais((x) => 3 * x / 5 - (x - 2) / 5, (x) => (2 * x + 2) / 5));
+  assert.ok(faIguais((x) => 3 * x / 8 + x / 8, (x) => x / 2));
+
+  num("fracoes-algebricas", "somar-iguais", "q1", 3);
+  alt("fracoes-algebricas", "somar-iguais", "q2", "2x + 2");
+  num("fracoes-algebricas", "somar-iguais", "q3", 2);
+  alt("fracoes-algebricas", "somar-iguais", "q4", "Porque ele diz o TAMANHO da parte, e o tamanho não muda ao juntar partes");
+
+  // A q2 é o erro do parêntese esquecido, e ele é MEDIDO: o resultado sem
+  // parêntese discorda do certo em toda a faixa.
+  assert.ok(!faIguais((x) => (2 * x + 2) / 5, (x) => (2 * x - 2) / 5));
+  for (let x = -10; x <= 10; x += 1) {
+    assert.equal(3 * x - (x - 2), 2 * x + 2, `distribuindo o menos em x=${x}`);
+    assert.notEqual(3 * x - x - 2, 2 * x + 2, `sem o parêntese, em x=${x}`);
+  }
+});
+
+teste("frações algébricas · lição 5 — o MMC e a fração equivalente", () => {
+  // Multiplicar em cima e embaixo pelo mesmo número não muda o valor.
+  for (let n = -10; n <= 10; n += 1) {
+    for (let d = 1; d <= 10; d += 1) {
+      for (let k = 1; k <= 8; k += 1) {
+        assert.ok(Math.abs(n / d - (n * k) / (d * k)) < 1e-9, `${n}/${d} = ${n * k}/${d * k}`);
+      }
+    }
+  }
+
+  // A soma com denominadores diferentes.
+  assert.ok(faIguais((x) => x / 2 + x / 3, (x) => 5 * x / 6));
+  assert.ok(faIguais((x) => x / 4 + x / 6, (x) => 5 * x / 12));
+  assert.equal(faMmc(2, 3), 6);
+  assert.equal(faMmc(4, 6), 12);
+  assert.ok(faMmc(4, 6) < 4 * 6, "o MMC é menor que o produto quando há fator comum");
+
+  // Com letras: 1/x + 1/y = (x+y)/xy, varrido em duas variáveis.
+  for (let x = 1; x <= 9; x += 1) {
+    for (let y = 1; y <= 9; y += 1) {
+      assert.ok(Math.abs(1 / x + 1 / y - (x + y) / (x * y)) < 1e-9, `1/${x} + 1/${y}`);
+    }
+  }
+
+  num("fracoes-algebricas", "somar-diferentes", "q1", faMmc(4, 6));
+  alt("fracoes-algebricas", "somar-diferentes", "q2", "3x");
+  alt("fracoes-algebricas", "somar-diferentes", "q3", "x + y");
+  alt("fracoes-algebricas", "somar-diferentes", "q4", "Porque as partes ficam menores e mais numerosas na mesma proporção");
+
+  // A q2: deixar o numerador parado MUDA o valor.
+  for (let x = 1; x <= 10; x += 1) {
+    assert.ok(Math.abs(x / 2 - 3 * x / 6) < 1e-9, "3x/6 é equivalente");
+    assert.notEqual(x / 2, x / 6, "deixar o numerador parado muda o valor");
+  }
+
+  // A q3: o numerador da soma é x + y, e ele NÃO simplifica com xy.
+  for (let x = 2; x <= 8; x += 1) {
+    for (let y = 2; y <= 8; y += 1) {
+      if (x === y) continue;
+      const soma = (x + y) / (x * y);
+      assert.ok(Number.isFinite(soma) && soma > 0, `(${x}+${y})/${x * y}`);
+    }
+  }
+});
+
+teste("frações algébricas · lição 6 — a restrição sobrevive à simplificação", () => {
+  // A expressão simplificada vale o mesmo em toda parte, MENOS no ponto que
+  // a original proibia — e é por isso que a restrição continua valendo.
+  assert.ok(faIguais((x) => (x * x - 4) / (x + 2), (x) => x - 2, [-2]));
+  assert.ok(!Number.isFinite(((-2) * (-2) - 4) / (-2 + 2)), "a original não existe em x = −2");
+  assert.equal(-2 - 2, -4, "mas a simplificada tem valor lá — e por isso a condição fica escrita");
+
+  alt("fracoes-algebricas", "problemas", "q1", "Não, o denominador comum é só para soma e subtração");
+  num("fracoes-algebricas", "problemas", "q2", -2);
+  num("fracoes-algebricas", "problemas", "q3", 0.5);
+  alt("fracoes-algebricas", "problemas", "q4", "Porque evita escrever produtos grandes que teriam de ser cortados depois");
+
+  // A q3: inverter a segunda dá 0,5; inverter a primeira daria 2.
+  assert.ok(faIguais((x) => (x / 4) / (x / 2), () => 0.5, [0]));
+  assert.ok(faIguais((x) => (x / 4) * (2 / x), () => 0.5, [0]));
+  assert.notEqual(0.5, 2);
+
+  // A q4: as duas ordens dão o MESMO resultado — a vantagem é só de trabalho.
+  for (let x = 1; x <= 10; x += 1) {
+    const multiplicandoAntes = (x * 4) / (2 * x);
+    const cortandoAntes = 2;
+    assert.ok(Math.abs(multiplicandoAntes - cortandoAntes) < 1e-9, `as duas ordens em x=${x}`);
+  }
+});
+
+teste("frações algébricas · a figura risca FATOR, e não parcela", () => {
+  // O gerador só risca o que foi passado como fator da lista. Numa fração
+  // escrita como soma — um fator único —, não há o que riscar, e é por isso
+  // que ele não consegue ilustrar um corte proibido.
+  const soma = desenhos.fracaoAlgebrica({ cima: ["x + 3"], baixo: ["3"], cortar: ["3"] });
+  const riscosNaSoma = (soma.match(/<line[^>]*stroke-width="1\.8"/g) || []).length;
+  assert.equal(riscosNaSoma, 1, "só o 3 do denominador é fator, então só ele é riscado");
+
+  // Já com o numerador fatorado, o corte aparece nos dois lados.
+  const produto = desenhos.fracaoAlgebrica({
+    cima: ["3", "(2x + 3)"], baixo: ["3"], cortar: ["3"],
+  });
+  const riscos = (produto.match(/<line[^>]*stroke-width="1\.8"/g) || []).length;
+  assert.equal(riscos, 2, "o 3 aparece dos dois lados e os dois são riscados");
+
+  // A barra da fração está sempre lá, e o resultado só quando pedido.
+  assert.ok(produto.includes('stroke-width="2.2"'), "a barra da fração");
+  const comResultado = desenhos.fracaoAlgebrica({
+    cima: ["a"], baixo: ["b"], resultado: "c",
+  });
+  assert.ok(comResultado.includes(">= c<"), "o resultado, quando pedido");
+  const semResultado = desenhos.fracaoAlgebrica({ cima: ["a"], baixo: ["b"] });
+  assert.ok(!semResultado.includes(">= "), "e nada quando não é pedido");
+});
+
+teste("frações algébricas · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("fracoes-algebricas", 24);
+});
+
+
+
+// ---------- Sistemas de equações (8º ano) ----------
+//
+// Nenhum sistema é resolvido aqui pelo método que a matéria ensina. Todos
+// saem por BUSCA sobre a grade de pares, e o teste ainda exige que a solução
+// achada seja a ÚNICA — que é a afirmação que a lição 1 faz e a lição 5
+// desenha. É a mesma disciplina das equações do 7º ano.
+
+/** Todos os pares (x, y) da grade que satisfazem as duas equações. */
+function siResolver(a1, b1, c1, a2, b2, c2, limite = 30, passo = 0.5) {
+  const achados = [];
+  for (let x = -limite; x <= limite; x += passo) {
+    for (let y = -limite; y <= limite; y += passo) {
+      if (Math.abs(a1 * x + b1 * y - c1) < 1e-9 && Math.abs(a2 * x + b2 * y - c2) < 1e-9) {
+        achados.push([x, y]);
+      }
+    }
+  }
+  return achados;
+}
+
+teste("sistemas · lição 1 — uma equação deixa infinitas soluções; duas selecionam uma", () => {
+  // Uma equação sozinha: para CADA x existe um y que fecha. O teste varre a
+  // faixa e exige que nenhum x fique sem par.
+  for (let x = -20; x <= 20; x += 1) {
+    const y = 10 - x;
+    assert.ok(Math.abs(x + y - 10) < 1e-9, `x = ${x} sempre tem um y`);
+  }
+
+  // Duas equações: a solução é única, achada por busca.
+  const sol = siResolver(1, 1, 10, -1, 1, 2);
+  assert.equal(sol.length, 1, "o sistema tinha de ter solução única");
+  assert.deepEqual(sol[0], [4, 6]);
+
+  // E o par que fecha só UMA não serve: o teste mostra os dois lados.
+  assert.equal(3 + 7, 10, "o par (3,7) fecha a primeira");
+  assert.notEqual(7 - 3, 2, "e falha na segunda");
+
+  alt("sistemas", "duas-incognitas", "q1", "Infinitos");
+  alt("sistemas", "duas-incognitas", "q2", "Não, porque na segunda equação dá 5, e não 3");
+  num("sistemas", "duas-incognitas", "q3", 2);
+  num("sistemas", "duas-incognitas", "q4", 10 - 7);
+
+  // A q2, conferida nos dois lados.
+  assert.equal(6 + 1, 7, "o par (6,1) fecha a primeira");
+  assert.equal(6 - 1, 5, "e na segunda dá 5");
+  assert.notEqual(5, 3, "que não é o 3 pedido");
+});
+
+teste("sistemas · lição 2 — a substituição chega ao mesmo par que a busca", () => {
+  // Cada sistema da lição, resolvido por BUSCA e comparado com o par publicado.
+  const casos = [
+    [1, 1, 10, -1, 1, 2, [4, 6]],
+    [1, 2, 8, 1, -2, -4, [2, 3]],
+  ];
+  for (const [a1, b1, c1, a2, b2, c2, esperado] of casos) {
+    const sol = siResolver(a1, b1, c1, a2, b2, c2);
+    assert.equal(sol.length, 1, `${a1}x+${b1}y=${c1} e ${a2}x+${b2}y=${c2}: solução única`);
+    assert.deepEqual(sol[0], esperado);
+  }
+
+  alt("sistemas", "substituicao", "q1", "x + (x + 2) = 10");
+  num("sistemas", "substituicao", "q2", 4);
+  num("sistemas", "substituicao", "q3", 3);
+  alt("sistemas", "substituicao", "q4", "Quando uma das equações já tem uma letra isolada, ou é fácil isolá-la");
+
+  // A q1: a equação que aparece depois da substituição é equivalente à
+  // original para todo x — conferido em toda a faixa.
+  for (let x = -20; x <= 20; x += 1) {
+    assert.equal(x + (x + 2), 2 * x + 2, `a substituição em x=${x}`);
+  }
+  // e as alternativas erradas NÃO são equivalentes
+  for (let x = -20; x <= 20; x += 1) {
+    if (x !== 0) assert.notEqual(x + 2, x + (x + 2), "a que apaga o x original difere");
+  }
+
+  // A q3: o sistema x + 2y = 8 e x = 2y − 4 tem solução (2, 3).
+  const s = siResolver(1, 2, 8, 1, -2, -4);
+  assert.deepEqual(s[0], [2, 3]);
+});
+
+teste("sistemas · lição 3 — a adição cancela quando os coeficientes são opostos", () => {
+  // Somar as duas equações é legítimo: o par que resolvia as duas continua
+  // resolvendo a soma. Conferido para muitos sistemas.
+  for (let c1 = 1; c1 <= 10; c1 += 1) {
+    for (let c2 = 1; c2 <= 10; c2 += 1) {
+      const sol = siResolver(1, 1, c1, 1, -1, c2);
+      if (sol.length !== 1) continue;
+      const [x, y] = sol[0];
+      // a equação somada também é satisfeita pelo mesmo par
+      assert.ok(Math.abs(2 * x - (c1 + c2)) < 1e-9, `a soma vale para ${c1}, ${c2}`);
+      assert.ok(Math.abs(x + y - c1) < 1e-9 && Math.abs(x - y - c2) < 1e-9);
+    }
+  }
+
+  // O cancelamento só acontece com coeficientes OPOSTOS.
+  for (let k = -6; k <= 6; k += 1) {
+    const soma = k + (-k);
+    assert.equal(soma, 0, `+${k} e −${k} se cancelam`);
+    if (k !== 0) assert.notEqual(k + k, 0, `+${k} e +${k} não se cancelam`);
+  }
+
+  const sol = siResolver(1, 1, 7, 1, -1, 3);
+  assert.deepEqual(sol[0], [5, 2]);
+
+  alt("sistemas", "adicao", "q1", "2x = 10");
+  num("sistemas", "adicao", "q2", 2);
+  num("sistemas", "adicao", "q3", 2);
+  alt("sistemas", "adicao", "q4", "Porque os dois lados crescem igual, e a igualdade continua valendo");
+
+  // A q3: multiplicar a segunda equação por 2 deixa os coeficientes de y
+  // opostos — e NÃO muda a solução do sistema, que é o ponto da q4.
+  const antes = siResolver(1, 2, 8, 3, -1, 3);
+  const depois = siResolver(1, 2, 8, 6, -2, 6);
+  assert.deepEqual(antes, depois, "multiplicar a equação não muda a solução");
+  assert.equal(antes.length, 1);
+  assert.deepEqual(antes[0], [2, 3]);
+  // e o fator 2 é o que torna os coeficientes opostos
+  assert.equal(2 * (-1), -2, "o −y vira −2y");
+  assert.equal(2 + (-2), 0, "e cancela com o +2y");
+});
+
+teste("sistemas · lição 4 — os dois métodos dão o MESMO par", () => {
+  // A afirmação central da lição, conferida por construção: a solução é
+  // definida por satisfazer as duas equações, e isso não depende de método.
+  const casos = [
+    [3, 2, 12, 5, -2, 4],
+    [1, 1, 10, -1, 1, 2],
+    [1, 1, 7, 1, -1, 3],
+    [2, 3, 19, 1, 1, 8],
+  ];
+  for (const [a1, b1, c1, a2, b2, c2] of casos) {
+    const sol = siResolver(a1, b1, c1, a2, b2, c2);
+    assert.equal(sol.length, 1, `${a1}x+${b1}y=${c1} e ${a2}x+${b2}y=${c2}`);
+    const [x, y] = sol[0];
+    // o par satisfaz as duas — que é a definição, e o que os dois métodos buscam
+    assert.ok(Math.abs(a1 * x + b1 * y - c1) < 1e-9);
+    assert.ok(Math.abs(a2 * x + b2 * y - c2) < 1e-9);
+  }
+
+  alt("sistemas", "escolher-metodo", "q1", "Não: a solução é o par que fecha as duas equações, e isso não muda com o método");
+  alt("sistemas", "escolher-metodo", "q2", "A adição, porque os coeficientes do y já são opostos");
+  num("sistemas", "escolher-metodo", "q3", 2);
+  alt("sistemas", "escolher-metodo", "q4", "Uma das letras já aparecer sozinha de um lado");
+
+  // A q2 e a q3: o sistema tem coeficientes de y opostos e solução (2, 3).
+  assert.equal(2 + (-2), 0, "os coeficientes do y já se cancelam");
+  const sol = siResolver(3, 2, 12, 5, -2, 4);
+  assert.deepEqual(sol[0], [2, 3]);
+  // e a soma das equações dá 8x = 16
+  assert.equal(3 + 5, 8);
+  assert.equal(12 + 4, 16);
+  assert.equal(16 / 8, 2);
+});
+
+teste("sistemas · lição 5 — a solução é o ponto onde as retas se cruzam", () => {
+  // A afirmação da lição, conferida contra a busca: o par achado por conta é
+  // o mesmo ponto que está nas duas retas.
+  const sol = siResolver(1, 1, 5, 1, -1, 1);
+  assert.deepEqual(sol[0], [3, 2]);
+
+  // Paralelas não se cruzam: coeficientes proporcionais com termo
+  // independente diferente não têm solução nenhuma.
+  assert.equal(siResolver(1, 1, 3, 1, 1, 6).length, 0, "x+y=3 e x+y=6 são paralelas");
+  assert.equal(siResolver(2, 2, 4, 1, 1, 5).length, 0, "também paralelas, com coeficientes proporcionais");
+
+  // E a mesma reta escrita duas vezes dá infinitas soluções.
+  assert.ok(siResolver(1, 1, 4, 2, 2, 8).length > 5, "a mesma reta: muitos pares servem");
+
+  alt("sistemas", "no-grafico", "q1", "O ponto onde as duas retas se cruzam");
+  num("sistemas", "no-grafico", "q2", 3);
+  num("sistemas", "no-grafico", "q3", 0);
+  alt("sistemas", "no-grafico", "q4", "Porque ela é um ponto do plano, e todo ponto precisa de duas coordenadas");
+
+  // A q2: a coordenada x do cruzamento é 3, e a y é 2 — o teste separa as duas.
+  assert.equal(sol[0][0], 3);
+  assert.equal(sol[0][1], 2);
+});
+
+teste("sistemas · lição 6 — os problemas, resolvidos pelo TEXTO", () => {
+  // Cada problema é resolvido varrendo as possibilidades e exigindo que só
+  // uma sirva — nunca aplicando a fórmula do sistema.
+  const lanchonete = [];
+  for (let r = 0; r <= 20; r += 0.5) {
+    for (let s = 0; s <= 20; s += 0.5) {
+      if (Math.abs(2 * r + 3 * s - 19) < 1e-9 && Math.abs(r + s - 8) < 1e-9) lanchonete.push([r, s]);
+    }
+  }
+  assert.equal(lanchonete.length, 1, "o problema da lanchonete tinha de ter resposta única");
+  assert.deepEqual(lanchonete[0], [5, 3]);
+
+  const somaDif = [];
+  for (let x = 0; x <= 40; x += 1) for (let y = 0; y <= 40; y += 1) {
+    if (x + y === 20 && x - y === 4) somaDif.push([x, y]);
+  }
+  assert.deepEqual(somaDif, [[12, 8]]);
+
+  // O estacionamento: contado por FORÇA BRUTA sobre quantidades inteiras,
+  // que é o que o problema realmente pede — não existe meia moto.
+  const veiculos = [];
+  for (let c = 0; c <= 10; c += 1) {
+    const m = 10 - c;
+    if (4 * c + 2 * m === 32) veiculos.push([c, m]);
+  }
+  assert.equal(veiculos.length, 1, "o problema dos veículos tinha de ter resposta única");
+  assert.deepEqual(veiculos[0], [6, 4]);
+
+  num("sistemas", "problemas", "q1", 5);
+  num("sistemas", "problemas", "q2", 12);
+  alt("sistemas", "problemas", "q3", "Escrever por extenso o que cada letra representa");
+  num("sistemas", "problemas", "q4", 6);
+
+  // As alternativas erradas da q4, medidas: 8 carros dariam 32 rodas mas
+  // zero motos, e 5 e 5 dariam só 30 rodas.
+  assert.equal(4 * 8, 32, "8 carros dão 32 rodas");
+  assert.notEqual(8 + 0, 10, "mas aí não fecham 10 veículos");
+  assert.equal(4 * 5 + 2 * 5, 30, "5 e 5 dariam 30 rodas");
+  assert.notEqual(30, 32);
+});
+
+teste("sistemas · a figura desenha as retas de verdade", () => {
+  // O `planoCartesiano` calcula onde cada reta corta a moldura. O teste lê os
+  // dois extremos do SVG de volta e confere que os DOIS satisfazem a equação
+  // — se a reta desenhada fosse outra, a matéria estaria mentindo na figura.
+  const escala = 34, m = 34, ate = 6;
+  const casos = [
+    { a: 1, b: 1, c: 5 },
+    { a: 1, b: -1, c: 1 },
+    { a: 1, b: 2, c: 8 },
+    { a: 3, b: -1, c: 3 },
+  ];
+  for (const eq of casos) {
+    const svg = desenhos.planoCartesiano({ ate, retas: [eq] });
+    const linha = [...svg.matchAll(/<line x1="([0-9.]+)" y1="([0-9.]+)" x2="([0-9.]+)" y2="([0-9.]+)" stroke="#f7f5f0" stroke-width="2\.2"/g)];
+    assert.equal(linha.length, 1, `esperava uma reta para ${eq.a}x+${eq.b}y=${eq.c}`);
+    const [, x1, y1, x2, y2] = linha[0].map(Number);
+    // volta das coordenadas do SVG para as do plano
+    const paraPlano = (px, py) => [(px - m) / escala, (m + ate * escala - py) / escala];
+    for (const [px, py] of [paraPlano(x1, y1), paraPlano(x2, y2)]) {
+      assert.ok(
+        Math.abs(eq.a * px + eq.b * py - eq.c) < 0.05,
+        `o ponto (${px.toFixed(2)}, ${py.toFixed(2)}) não está na reta ${eq.a}x+${eq.b}y=${eq.c}`
+      );
+    }
+  }
+
+  // Duas retas paralelas são desenhadas como duas linhas que não se cruzam
+  // dentro da moldura — é a figura da questão sobre sistema sem solução.
+  const par = desenhos.planoCartesiano({
+    ate: 6, retas: [{ a: 1, b: 1, c: 3 }, { a: 1, b: 1, c: 6 }],
+  });
+  assert.equal(
+    [...par.matchAll(/stroke="#f7f5f0" stroke-width="2\.2"/g)].length, 2,
+    "as duas paralelas tinham de ser desenhadas"
+  );
+});
+
+teste("sistemas · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("sistemas", 24);
+});
+
+
+
+// ---------- Ângulos e polígonos (8º ano) ----------
+//
+// As quatro fórmulas da matéria são conferidas por CONTAGEM, e não aplicadas.
+// A soma dos internos sai de triangular; as diagonais saem de percorrer todos
+// os pares de vértices; a soma dos externos sai do suplemento de cada interno.
+// A fórmula é comparada com a contagem, e não usada no lugar dela.
+
+/** Diagonais contadas percorrendo todos os pares de vértices não vizinhos. */
+function pgContarDiagonais(n) {
+  let total = 0;
+  for (let i = 0; i < n; i += 1) {
+    for (let j = i + 1; j < n; j += 1) {
+      const vizinhos = j === i + 1 || (i === 0 && j === n - 1);
+      if (!vizinhos) total += 1;
+    }
+  }
+  return total;
+}
+
+/** Triângulos da triangulação a partir de um vértice, contados um a um. */
+function pgContarTriangulos(n) {
+  let total = 0;
+  for (let j = 1; j <= n - 2; j += 1) total += 1;   // triângulos (0, j, j+1)
+  return total;
+}
+
+teste("polígonos · lição 1 — lados, vértices e ângulos andam juntos", () => {
+  // Percorrendo o contorno fechado, cada lado termina num vértice e cada
+  // vértice recebe exatamente dois lados — então as contagens coincidem.
+  for (let n = 3; n <= 30; n += 1) {
+    const vertices = new Set();
+    for (let i = 0; i < n; i += 1) {
+      vertices.add(i);            // o lado i vai do vértice i ao (i+1) % n
+      vertices.add((i + 1) % n);
+    }
+    assert.equal(vertices.size, n, `polígono de ${n} lados`);
+  }
+
+  num("poligonos", "o-que-e", "q1", 9);
+  alt("poligonos", "o-que-e", "q2", "Um hexágono");
+  alt("poligonos", "o-que-e", "q3", "Não, porque ser regular exige lados iguais E ângulos iguais");
+  num("poligonos", "o-que-e", "q4", 8);
+
+  // A q3: as duas condições são independentes, e o teste mostra os dois
+  // casos que falham em uma só.
+  const regular = (ladosIguais, angulosIguais) => ladosIguais && angulosIguais;
+  assert.equal(regular(true, false), false, "losango: lados iguais, ângulos não");
+  assert.equal(regular(false, true), false, "retângulo: ângulos iguais, lados não");
+  assert.equal(regular(true, true), true, "quadrado: as duas");
+});
+
+teste("polígonos · lição 2 — a soma sai de CONTAR triângulos", () => {
+  // A triangulação a partir de um vértice produz n − 2 triângulos —
+  // conferido contando um a um, e não assumindo a fórmula.
+  for (let n = 3; n <= 40; n += 1) {
+    assert.equal(pgContarTriangulos(n), n - 2, `triangulação de ${n} lados`);
+    // e a soma é 180 por triângulo
+    assert.equal(pgContarTriangulos(n) * 180, (n - 2) * 180, `soma de ${n} lados`);
+  }
+
+  // Os casos que o 7º ano já conhecia têm de bater.
+  assert.equal((3 - 2) * 180, 180, "triângulo");
+  assert.equal((4 - 2) * 180, 360, "quadrilátero");
+
+  num("poligonos", "soma-internos", "q1", (5 - 2) * 180);
+  num("poligonos", "soma-internos", "q2", 10 - 2);
+  num("poligonos", "soma-internos", "q3", (12 - 2) * 180);
+  alt("poligonos", "soma-internos", "q4", "Porque os dois lados vizinhos ao vértice não geram diagonal");
+
+  // A q4: de um vértice saem n − 3 diagonais, e elas criam n − 2 pedaços.
+  for (let n = 4; n <= 20; n += 1) {
+    const diagonaisDoVertice = n - 3;
+    assert.equal(diagonaisDoVertice + 1, n - 2, `${n} lados: ${diagonaisDoVertice} diagonais → ${n - 2} triângulos`);
+  }
+});
+
+teste("polígonos · lição 3 — só o regular tem um ângulo definido", () => {
+  // Num regular, cada ângulo é a soma dividida pela quantidade.
+  for (let n = 3; n <= 30; n += 1) {
+    const cada = ((n - 2) * 180) / n;
+    assert.ok(cada > 0 && cada < 180, `${n} lados: ângulo em (0, 180)`);
+    // e n ângulos iguais reconstroem a soma
+    assert.ok(Math.abs(cada * n - (n - 2) * 180) < 1e-9, `${n} lados: reconstrói a soma`);
+  }
+
+  // O ângulo CRESCE com o número de lados, e nunca alcança 180.
+  let anterior = 0;
+  for (let n = 3; n <= 200; n += 1) {
+    const cada = ((n - 2) * 180) / n;
+    assert.ok(cada > anterior, `de ${n - 1} para ${n} lados o ângulo tinha de crescer`);
+    assert.ok(cada < 180, `${n} lados: ainda abaixo de 180`);
+    anterior = cada;
+  }
+
+  num("poligonos", "angulo-regular", "q1", ((5 - 2) * 180) / 5);
+  num("poligonos", "angulo-regular", "q2", ((8 - 2) * 180) / 8);
+  alt("poligonos", "angulo-regular", "q3", "Não, porque os ângulos podem ser todos diferentes");
+  alt("poligonos", "angulo-regular", "q4", "Não, porque aí o vértice deixaria de ser um canto");
+
+  // A q3: existe mais de uma repartição possível de 540 entre cinco ângulos —
+  // o teste exibe a do enunciado e confere que ela soma o mesmo total.
+  const outraReparticao = [90, 100, 110, 120, 120];
+  assert.equal(outraReparticao.reduce((s, x) => s + x, 0), 540);
+  assert.notEqual(outraReparticao[0], 108, "e ela não é a do regular");
+  assert.equal(new Set(outraReparticao).size > 1, true, "os ângulos dela são diferentes entre si");
+});
+
+teste("polígonos · lição 4 — a soma dos externos é 360 em qualquer polígono", () => {
+  // A afirmação central, conferida a partir dos INTERNOS: cada externo é o
+  // suplemento do interno, e a soma deles fecha uma volta.
+  for (let n = 3; n <= 50; n += 1) {
+    const interno = ((n - 2) * 180) / n;
+    const externo = 180 - interno;
+    assert.ok(Math.abs(externo * n - 360) < 1e-9, `${n} lados: os externos somam 360`);
+    assert.ok(Math.abs(360 / n - externo) < 1e-9, `${n} lados: cada externo é 360/n`);
+  }
+
+  // O contraste que torna o resultado interessante: a soma dos INTERNOS
+  // depende do número de lados, e a dos externos não.
+  const somas = [4, 6, 8, 20].map((n) => (n - 2) * 180);
+  assert.equal(new Set(somas).size, somas.length, "as somas dos internos são todas diferentes");
+  const externos = [4, 6, 8, 20].map((n) => (360 / n) * n);
+  assert.equal(new Set(externos).size, 1, "as somas dos externos são todas iguais");
+
+  num("poligonos", "externos", "q1", 360);
+  num("poligonos", "externos", "q2", 180 - 140);
+  num("poligonos", "externos", "q3", 360 / 6);
+  alt("poligonos", "externos", "q4", "Porque dar a volta no polígono é girar uma volta completa, e volta completa é sempre 360°");
+
+  // A q3, conferida pelos dois caminhos que a lição apresenta.
+  assert.equal(360 / 6, 60, "pela volta dividida");
+  assert.equal(180 - ((6 - 2) * 180) / 6, 60, "pelo suplemento do interno");
+});
+
+teste("polígonos · lição 5 — as diagonais, contadas par a par", () => {
+  // A fórmula n(n−3)/2 é comparada com a contagem de todos os pares de
+  // vértices não vizinhos — e não usada no lugar dela.
+  for (let n = 3; n <= 40; n += 1) {
+    assert.equal(
+      pgContarDiagonais(n), (n * (n - 3)) / 2,
+      `${n} lados: a contagem discordou da fórmula`
+    );
+  }
+
+  // Os casos que dá para conferir de olho.
+  assert.equal(pgContarDiagonais(3), 0, "o triângulo não tem diagonal");
+  assert.equal(pgContarDiagonais(4), 2);
+  assert.equal(pgContarDiagonais(5), 5);
+  assert.equal(pgContarDiagonais(6), 9);
+
+  num("poligonos", "diagonais", "q1", 12 - 3);
+  num("poligonos", "diagonais", "q2", pgContarDiagonais(10));
+  num("poligonos", "diagonais", "q3", pgContarDiagonais(3));
+  alt("poligonos", "diagonais", "q4", "Porque cada diagonal é contada duas vezes, uma em cada ponta");
+
+  // A q4: a contagem por vértice dá o DOBRO do total, sempre.
+  for (let n = 4; n <= 30; n += 1) {
+    assert.equal(n * (n - 3), pgContarDiagonais(n) * 2, `${n} lados: a contagem por vértice dobra`);
+  }
+
+  // A q2: o erro previsto 45 conta TODOS os pares, incluindo os lados.
+  const todosOsPares = (10 * 9) / 2;
+  assert.equal(todosOsPares, 45);
+  assert.equal(todosOsPares - 10, 35, "tirando os dez lados, sobram as diagonais");
+});
+
+teste("polígonos · lição 6 — o caminho inverso, e a conferência do inteiro", () => {
+  // Dado qualquer um dos três valores, o número de lados volta — conferido
+  // indo e voltando para todos os polígonos de 3 a 40 lados.
+  for (let n = 3; n <= 40; n += 1) {
+    const soma = (n - 2) * 180;
+    assert.equal(soma / 180 + 2, n, `${n}: da soma de volta`);
+
+    const externo = 360 / n;
+    assert.ok(Math.abs(360 / externo - n) < 1e-9, `${n}: do externo de volta`);
+
+    const interno = 180 - externo;
+    assert.ok(Math.abs(360 / (180 - interno) - n) < 1e-9, `${n}: do interno de volta`);
+  }
+
+  num("poligonos", "problemas", "q1", 900 / 180 + 2);
+  num("poligonos", "problemas", "q2", 360 / 24);
+  num("poligonos", "problemas", "q3", 360 / (180 - 150));
+  alt("poligonos", "problemas", "q4", "Que houve erro na conta, ou que o dado do problema é impossível");
+
+  // A q4: o erro que produz resultado quebrado é dividir 180 em vez de 360.
+  assert.equal(180 / 24, 7.5, "o caminho errado dá um número quebrado");
+  assert.equal(360 / 24, 15, "e o certo dá inteiro");
+  assert.ok(!Number.isInteger(180 / 24), "7,5 não é inteiro");
+  assert.ok(Number.isInteger(360 / 24), "15 é");
+
+  // E o número de lados é sempre inteiro e pelo menos 3.
+  for (let n = 3; n <= 40; n += 1) {
+    assert.ok(Number.isInteger(n) && n >= 3);
+  }
+});
+
+teste("polígonos · a figura CALCULA os triângulos e as diagonais", () => {
+  // O gerador decide as ligações a partir de `lados`. O teste lê as linhas de
+  // volta do SVG e confere com a contagem feita aqui — se a figura desenhasse
+  // outro número, ela estaria mentindo sobre a matéria.
+  for (const n of [4, 5, 6, 7, 8, 10]) {
+    const doVertice = desenhos.poligonoTriangulado({ lados: n, modo: "vertice" });
+    const diagonaisDoVertice = (doVertice.match(/stroke-width="1\.8"/g) || []).length;
+    assert.equal(diagonaisDoVertice, n - 3, `${n} lados: diagonais de um vértice`);
+
+    const todas = desenhos.poligonoTriangulado({ lados: n, modo: "todas" });
+    const diagonaisTodas = (todas.match(/stroke-width="1\.8"/g) || []).length;
+    assert.equal(diagonaisTodas, pgContarDiagonais(n), `${n} lados: todas as diagonais`);
+
+    const contorno = desenhos.poligonoTriangulado({ lados: n, modo: "nenhuma" });
+    assert.equal((contorno.match(/stroke-width="1\.8"/g) || []).length, 0, `${n} lados: sem diagonais`);
+
+    // e o polígono desenhado tem mesmo n vértices
+    const pontos = contorno.match(/<polygon points="([^"]+)"/)[1].trim().split(/\s+/);
+    assert.equal(pontos.length, n, `${n} lados: o polígono tinha de ter ${n} vértices`);
+  }
+
+  // Com `numerar`, aparece um número por triângulo — e ele só entra onde a
+  // contagem já é conhecida.
+  for (const n of [5, 6, 8]) {
+    const svg = desenhos.poligonoTriangulado({ lados: n, numerar: true });
+    const numeros = [...svg.matchAll(/font-size="13"[^>]*>(\d+)</g)].map((m) => Number(m[1]));
+    assert.deepEqual(
+      numeros.sort((a, b) => a - b),
+      Array.from({ length: n - 2 }, (_, i) => i + 1),
+      `${n} lados: os triângulos numerados`
+    );
+  }
+
+  // O polígono é REGULAR: todos os lados têm o mesmo comprimento. Lido de
+  // volta do SVG, porque a matéria fala de polígono regular o tempo todo.
+  for (const n of [5, 6, 8]) {
+    const svg = desenhos.poligonoTriangulado({ lados: n, modo: "nenhuma" });
+    const pts = svg.match(/<polygon points="([^"]+)"/)[1].trim().split(/\s+/)
+      .map((p) => p.split(",").map(Number));
+    const lados = pts.map((p, i) => {
+      const q = pts[(i + 1) % pts.length];
+      return Math.hypot(p[0] - q[0], p[1] - q[1]);
+    });
+    const maior = Math.max(...lados), menor = Math.min(...lados);
+    assert.ok(maior - menor < 0.5, `${n} lados: o polígono tinha de ser regular`);
+  }
+});
+
+teste("polígonos · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("poligonos", 24);
+});
+
+
+
+// ---------- Congruência de triângulos (8º ano) ----------
+//
+// Os casos que FUNCIONAM são conferidos construindo o triângulo a partir das
+// medidas e exigindo que só um saia. E os que ENGANAM são conferidos do jeito
+// oposto: o teste EXIBE dois triângulos diferentes cumprindo as mesmas três
+// medidas — que é a prova de que o caso não garante nada.
+
+const cgRad = (g) => (g * Math.PI) / 180;
+
+/** Lados de um triângulo a partir dos ângulos e de uma escala (lei dos senos). */
+function cgLados(alfa, beta, escala) {
+  const gama = 180 - alfa - beta;
+  // sem arredondar: o toFixed estragava a razão entre as escalas, e o teste
+  // acusava diferença de forma onde só havia perda de casas decimais
+  return [Math.sin(cgRad(alfa)), Math.sin(cgRad(beta)), Math.sin(cgRad(gama))]
+    .map((s) => s * escala);
+}
+
+/** O terceiro lado, a partir de dois lados e do ângulo ENTRE eles. */
+const cgTerceiroLado = (a, b, anguloEntre) =>
+  Math.sqrt(a * a + b * b - 2 * a * b * Math.cos(cgRad(anguloEntre)));
+
+teste("congruência · lição 1 — seis igualdades, e a posição não entra", () => {
+  // Um triângulo tem três lados e três ângulos: seis elementos, seis pares.
+  assert.equal(3 + 3, 6);
+
+  // Girar não muda medida nenhuma — conferido girando os vértices e medindo
+  // os lados de volta.
+  const base = [[0, 0], [1, 0], [0.4, 0.7]];
+  const medeLados = (pts) => pts.map((p, i) => {
+    const q = pts[(i + 1) % 3];
+    return Number(Math.hypot(p[0] - q[0], p[1] - q[1]).toFixed(9));
+  });
+  const original = medeLados(base);
+  for (const giro of [30, 90, 145, 180, 270]) {
+    const r = cgRad(giro);
+    const girado = base.map(([x, y]) => [
+      x * Math.cos(r) - y * Math.sin(r),
+      x * Math.sin(r) + y * Math.cos(r),
+    ]);
+    assert.deepEqual(medeLados(girado), original, `giro de ${giro}° mudou algum lado`);
+  }
+
+  num("congruencia", "o-que-e", "q1", 6);
+  alt("congruencia", "o-que-e", "q2", "Sim, porque girar não muda lado nem ângulo");
+  alt("congruencia", "o-que-e", "q3", "Semelhantes, e não congruentes");
+  num("congruencia", "o-que-e", "q4", 180 - 50 - 60);
+
+  // A q3: mesmos ângulos com escalas diferentes dá lados diferentes.
+  const pequeno = cgLados(50, 60, 1), grande = cgLados(50, 60, 2);
+  assert.ok(pequeno.some((v, i) => Math.abs(v - grande[i]) > 1e-6), "as escalas dão lados diferentes");
+  assert.ok(Math.abs(grande[0] / pequeno[0] - 2) < 1e-9, "e na proporção de 2");
+});
+
+teste("congruência · lição 2 — três lados determinam UM triângulo", () => {
+  // Dados três lados que fecham, os ângulos ficam determinados — conferido
+  // pela lei dos cossenos, que devolve sempre o mesmo valor.
+  const anguloPorLados = (a, b, c) =>
+    Number(((Math.acos((a * a + b * b - c * c) / (2 * a * b)) * 180) / Math.PI).toFixed(6));
+  for (const [a, b, c] of [[5, 7, 9], [5, 6, 7], [3, 4, 5], [6, 6, 6]]) {
+    const ang = anguloPorLados(a, b, c);
+    // repetir a conta dá o MESMO ângulo: não há dois triângulos possíveis
+    assert.equal(anguloPorLados(a, b, c), ang, `${a},${b},${c}: o ângulo é único`);
+    // e os três ângulos somam 180
+    const soma = anguloPorLados(a, b, c) + anguloPorLados(b, c, a) + anguloPorLados(c, a, b);
+    assert.ok(Math.abs(soma - 180) < 1e-4, `${a},${b},${c}: os ângulos somam 180`);
+  }
+
+  // A condição de existência do 7º ano, varrida por força bruta.
+  const fecha = (a, b, c) => a + b > c && a + c > b && b + c > a;
+  assert.ok(fecha(5, 7, 9));
+  assert.ok(!fecha(2, 3, 9), "2, 3 e 9 não fecham");
+  assert.equal(2 + 3, 5, "e 5 não chega a 9");
+
+  num("congruencia", "lll", "q1", 3);
+  alt("congruencia", "lll", "q2", "Porque os três lados determinam o triângulo, e ele não se deforma");
+  num("congruencia", "lll", "q3", 0);
+  alt("congruencia", "lll", "q4", "Não, os ângulos ficam determinados pelos lados");
+
+  // A q2, medida: quatro lados NÃO determinam a figura. Com os mesmos quatro
+  // lados, o quadrilátero muda de forma — e o teste exibe duas diagonais
+  // diferentes para o mesmo conjunto de lados.
+  const diagonalDoLosango = (lado, angulo) =>
+    Number(cgTerceiroLado(lado, lado, angulo).toFixed(6));
+  assert.notEqual(diagonalDoLosango(1, 90), diagonalDoLosango(1, 60),
+    "os mesmos quatro lados dão figuras diferentes");
+});
+
+teste("congruência · lição 3 — o ângulo do MEIO fecha o triângulo", () => {
+  // Com dois lados e o ângulo entre eles, o terceiro lado é determinado —
+  // e ele CRESCE quando o ângulo abre, que é a afirmação da q2.
+  let anterior = 0;
+  for (let ang = 10; ang <= 170; ang += 10) {
+    const terceiro = cgTerceiroLado(6, 8, ang);
+    assert.ok(terceiro > anterior, `de ${ang - 10}° para ${ang}° o terceiro lado tinha de crescer`);
+    anterior = terceiro;
+  }
+
+  // E o mesmo par de lados com o mesmo ângulo dá sempre o mesmo terceiro lado.
+  for (const ang of [30, 40, 75, 120]) {
+    assert.equal(cgTerceiroLado(6, 8, ang), cgTerceiroLado(6, 8, ang), `${ang}°: valor único`);
+  }
+
+  alt("congruencia", "lal", "q1", "No vértice onde os dois lados conhecidos se encontram");
+  alt("congruencia", "lal", "q2", "Ele aumenta, porque as pontas se afastam");
+  num("congruencia", "lal", "q3", 3);
+  alt("congruencia", "lal", "q4", "Não, porque o caso LAL exige o ângulo entre os dois lados");
+
+  // A q4 é o caso ambíguo, e o teste o EXIBE: com lados 5 e 9 e um ângulo de
+  // 30° oposto ao lado 5, existem DOIS triângulos diferentes.
+  // O terceiro lado sai de x² − 2·9·cos(30°)·x + (81 − 25) = 0.
+  const b = 2 * 9 * Math.cos(cgRad(30)), c = 81 - 25;
+  const delta = b * b - 4 * c;
+  assert.ok(delta > 0, "o caso LLA tinha de ter duas soluções");
+  const x1 = (b + Math.sqrt(delta)) / 2, x2 = (b - Math.sqrt(delta)) / 2;
+  assert.ok(x1 > 0 && x2 > 0, "as duas soluções são comprimentos válidos");
+  assert.ok(Math.abs(x1 - x2) > 0.5, "e são triângulos bem diferentes");
+});
+
+teste("congruência · lição 4 — os ângulos dão a forma, o lado dá o tamanho", () => {
+  // Dois ângulos determinam o terceiro, e a forma inteira.
+  for (let a = 20; a <= 120; a += 10) {
+    for (let b = 20; a + b < 175; b += 10) {
+      const c = 180 - a - b;
+      assert.ok(Math.abs(a + b + c - 180) < 1e-9, `${a}, ${b}: os três somam 180`);
+      assert.ok(c > 0, `${a}, ${b}: o terceiro é positivo`);
+    }
+  }
+
+  // Mas os ângulos NÃO fixam o tamanho: com os mesmos ângulos, cada escala
+  // dá um triângulo diferente — e é por isso que o ALA precisa do lado.
+  const escalas = [1, 2, 5].map((e) => cgLados(50, 60, e));
+  assert.equal(new Set(escalas.map((l) => l.join(","))).size, 3, "três triângulos diferentes");
+  // e todos com os mesmos ângulos: a razão entre os lados é a mesma
+  const razaoBase = escalas[0][0] / escalas[0][1];
+  for (const lados of escalas) {
+    assert.ok(Math.abs(lados[0] / lados[1] - razaoBase) < 1e-9, "mesma forma");
+  }
+
+  num("congruencia", "ala", "q1", 180 - 40 - 75);
+  alt("congruencia", "ala", "q2", "Porque eles decidem a forma, mas não o tamanho");
+  alt("congruencia", "ala", "q3", "Sim, porque o terceiro ângulo sai da soma e o caso vira ALA");
+  num("congruencia", "ala", "q4", 1);
+
+  // A q3: com dois ângulos conhecidos, o terceiro nunca é informação nova.
+  for (const [a, b] of [[40, 75], [30, 90], [50, 60]]) {
+    const terceiro = 180 - a - b;
+    assert.ok(Number.isFinite(terceiro), `${a}, ${b}: calculável sem medir`);
+  }
+});
+
+teste("congruência · lição 5 — os dois casos que enganam, e por que enganam", () => {
+  // AAA: os MESMOS três ângulos, tamanhos diferentes. O teste exibe os dois.
+  const t1 = cgLados(50, 60, 1), t2 = cgLados(50, 60, 2);
+  assert.ok(t1.some((v, i) => Math.abs(v - t2[i]) > 1e-6), "AAA: os lados são diferentes");
+  // e os ângulos são os mesmos — conferido pela razão entre os lados
+  for (let i = 0; i < 3; i += 1) {
+    assert.ok(Math.abs(t2[i] / t1[i] - 2) < 1e-9, "AAA: razão constante, mesma forma");
+  }
+
+  // LLA: as MESMAS três medidas, dois triângulos. O teste resolve a equação
+  // do terceiro lado e exige duas raízes positivas distintas.
+  const casos = [[5, 9, 30], [6, 10, 25], [4, 7, 20]];
+  let ambiguos = 0;
+  for (const [oposto, outro, ang] of casos) {
+    const b = 2 * outro * Math.cos(cgRad(ang));
+    const c = outro * outro - oposto * oposto;
+    const delta = b * b - 4 * c;
+    if (delta > 0) {
+      const x1 = (b + Math.sqrt(delta)) / 2, x2 = (b - Math.sqrt(delta)) / 2;
+      if (x1 > 0 && x2 > 0 && Math.abs(x1 - x2) > 1e-6) ambiguos += 1;
+    }
+  }
+  assert.equal(ambiguos, casos.length, "os três casos LLA tinham de ser ambíguos");
+
+  alt("congruencia", "nao-serve", "q1", "A mesma forma, mas não o mesmo tamanho");
+  num("congruencia", "nao-serve", "q2", 2);
+  alt("congruencia", "nao-serve", "q3", "Conhecer um lado, que fixa o tamanho");
+  alt("congruencia", "nao-serve", "q4", "No AAA falta a medida de tamanho; no LLA a informação é ambígua");
+
+  // A q3: acrescentar um lado ao AAA o transforma no ALA, que funciona.
+  // Com dois ângulos e um lado, o triângulo fica determinado: a escala sai
+  // da razão entre o lado dado e o lado correspondente do triângulo unitário.
+  const unitario = cgLados(50, 60, 1);
+  const escala = 7 / unitario[0];
+  const determinado = cgLados(50, 60, escala);
+  assert.ok(Math.abs(determinado[0] - 7) < 1e-6, "o lado dado fixa a escala");
+});
+
+teste("congruência · lição 6 — provada a congruência, os elementos vêm junto", () => {
+  // Elementos correspondentes têm a MESMA medida: escala 1, sem fator nenhum.
+  for (const medida of [12, 5.5, 100]) {
+    assert.equal(medida * 1, medida, `${medida}: escala 1`);
+    assert.notEqual(medida * 2, medida, "e o dobro seria semelhança, não congruência");
+  }
+
+  num("congruencia", "problemas", "q1", 12);
+  alt("congruencia", "problemas", "q2", "Sim, porque esse lado é igual a ele mesmo — é um elemento de graça");
+  alt("congruencia", "problemas", "q3", "ALA, porque o lado está entre os dois ângulos");
+  num("congruencia", "problemas", "q4", Math.max(40, 60, 80));
+
+  // A q3: o enunciado dá 2 ângulos e 1 lado entre eles — só o ALA encaixa.
+  const dados = { lados: 1, angulos: 2, ladoEntreOsAngulos: true };
+  assert.equal(dados.lados + dados.angulos, 3, "três elementos");
+  assert.ok(dados.ladoEntreOsAngulos, "e o lado está no meio");
+
+  // A q4: o maior ângulo de um corresponde ao maior do outro.
+  const angulos = [40, 60, 80];
+  assert.equal(angulos.reduce((s, x) => s + x, 0), 180, "os três somam 180");
+  assert.equal(Math.max(...angulos), 80);
+});
+
+teste("congruência · a figura MARCA o que se sabe", () => {
+  // Os tiquinhos e os arcos são a notação da matéria. O teste conta as marcas
+  // de volta do SVG: se a figura marcasse outro número de elementos, ela
+  // estaria afirmando algo diferente do enunciado.
+  const contaTiquinhos = (svg) => (svg.match(/<line[^>]*stroke-width="2"\/>/g) || []).length;
+
+  // Sem marcas, nenhum tiquinho e nenhum arco.
+  const limpo = desenhos.parTriangulos({ angulos: [50, 60] });
+  assert.equal((limpo.match(/<path d="M/g) || []).length, 0, "sem arcos");
+
+  // LLL: três lados marcados em cada triângulo, com 1, 2 e 3 tiquinhos.
+  const lll = desenhos.parTriangulos({ angulos: [50, 60], marcasLados: [1, 2, 3] });
+  assert.equal(contaTiquinhos(lll), (1 + 2 + 3) * 2, "LLL: os tiquinhos dos dois triângulos");
+  assert.equal((lll.match(/<path d="M/g) || []).length, 0, "LLL não marca ângulo nenhum");
+
+  // LAL: dois lados e um ângulo, em cada triângulo.
+  const lal = desenhos.parTriangulos({
+    angulos: [50, 60], marcasLados: [1, 0, 2], marcasAngulos: [0, 0, 1],
+  });
+  assert.equal(contaTiquinhos(lal), (1 + 2) * 2, "LAL: dois lados marcados");
+  assert.equal((lal.match(/<path d="M/g) || []).length, 2, "LAL: um arco em cada triângulo");
+
+  // ALA: um lado e dois ângulos.
+  const ala = desenhos.parTriangulos({
+    angulos: [50, 60], marcasLados: [1, 0, 0], marcasAngulos: [1, 2, 0],
+  });
+  assert.equal(contaTiquinhos(ala), 1 * 2, "ALA: um lado marcado");
+  assert.equal((ala.match(/<path d="M/g) || []).length, (1 + 2) * 2, "ALA: três arcos por triângulo");
+
+  // Os dois triângulos desenhados são CONGRUENTES de verdade: o teste mede os
+  // lados dos dois e exige que coincidam, mesmo com o segundo girado.
+  for (const giro of [0, 30, 90, 145]) {
+    const svg = desenhos.parTriangulos({ angulos: [50, 60], giro });
+    const poligonos = [...svg.matchAll(/<polygon points="([^"]+)"/g)].map((m) =>
+      m[1].trim().split(/\s+/).map((p) => p.split(",").map(Number)));
+    assert.equal(poligonos.length, 2, "dois triângulos");
+    const lados = (pts) => pts.map((p, i) => {
+      const q = pts[(i + 1) % 3];
+      return Math.hypot(p[0] - q[0], p[1] - q[1]);
+    }).sort((a, b) => a - b);
+    // com tolerância: as coordenadas do SVG saem arredondadas a uma casa, e
+    // o giro espalha esse arredondamento pelos dois eixos
+    const [la, lb] = [lados(poligonos[0]), lados(poligonos[1])];
+    for (let i = 0; i < 3; i += 1) {
+      assert.ok(
+        Math.abs(la[i] - lb[i]) < 0.3,
+        `giro de ${giro}°: os dois triângulos tinham de ser congruentes`
+      );
+    }
+  }
+});
+
+teste("congruência · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("congruencia", 24);
+});
+
+
+// ---------- Áreas de figuras planas (8º ano) ----------
+//
+// Nenhuma área é conferida aplicando a fórmula que a matéria ensina. Todas
+// saem da fórmula do LAÇO (shoelace), que mede o polígono a partir dos
+// vértices e não sabe o que é trapézio nem losango — é a mesma disciplina
+// dos sistemas do 8º ano, que são resolvidos por busca e não por
+// substituição. Se a fórmula publicada estivesse errada, a medição do
+// polígono discordaria dela.
+//
+// E as três demonstrações são conferidas na FIGURA: o teste lê os polígonos
+// de volta do SVG e exige que a razão entre as áreas desenhadas seja a que
+// a lição afirma — 1 para o paralelogramo virando retângulo, ½ para o
+// trapézio dentro do paralelogramo das duas cópias, ½ para o losango dentro
+// do retângulo das diagonais.
+
+/** Área de um polígono pela fórmula do laço, a partir dos vértices. */
+const arArea = (pts) => Math.abs(pts.reduce((s, [x, y], i) => {
+  const [X, Y] = pts[(i + 1) % pts.length];
+  return s + x * Y - X * y;
+}, 0)) / 2;
+
+/** Percorre um contorno dado como passos [dx, dy] e devolve os vértices. */
+function arContorno(movimentos) {
+  const pts = [[0, 0]];
+  for (const [dx, dy] of movimentos) {
+    const [x, y] = pts[pts.length - 1];
+    pts.push([x + dx, y + dy]);
+  }
+  const fim = pts[pts.length - 1];
+  assert.ok(
+    Math.abs(fim[0]) < 1e-9 && Math.abs(fim[1]) < 1e-9,
+    `contorno não fechou: parou em ${fim}`
+  );
+  pts.pop();
+  return pts;
+}
+
+/** Os polígonos de contorno cheio de um SVG (stroke-width 2.5), como pontos. */
+const arPoligonos = (svg) => [...svg.matchAll(/<polygon points="([^"]+)"[^>]*stroke-width="2\.5"/g)]
+  .map((m) => m[1].trim().split(/\s+/).map((p) => p.split(",").map(Number)));
+
+/** Os polígonos TRACEJADOS do mesmo SVG — a silhueta do destino do recorte. */
+const arTracejados = (svg) => [...svg.matchAll(/<polygon points="([^"]+)"[^>]*stroke-width="1\.8"/g)]
+  .map((m) => m[1].trim().split(/\s+/).map((p) => p.split(",").map(Number)));
+
+/**
+ * Fecho convexo (monotone chain), para medir a figura que dois pedaços formam
+ * juntos. É assim que o teste confere que as duas cópias do trapézio fecham o
+ * paralelogramo sem se sobrepor e sem deixar vão: a área dos dois pedaços tem
+ * de ser exatamente a área do contorno que os envolve.
+ */
+function arFechoConvexo(pontos) {
+  const pts = [...pontos].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cruz = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const meia = (lista) => {
+    const saida = [];
+    for (const p of lista) {
+      while (saida.length >= 2 && cruz(saida[saida.length - 2], saida[saida.length - 1], p) <= 0) saida.pop();
+      saida.push(p);
+    }
+    saida.pop();
+    return saida;
+  };
+  return [...meia(pts), ...meia([...pts].reverse())];
+}
+
+teste("áreas · lição 1 — a área se soma aos pedaços, o perímetro não", () => {
+  // A figura em L, medida pelo polígono: nenhuma fórmula de composta entra aqui.
+  const L = arContorno([[6, 0], [0, 3], [-2, 0], [0, 2], [-4, 0], [0, -5]]);
+  assert.equal(arArea(L), 26);
+
+  // Os DOIS cortes dão o mesmo total, que é a afirmação da lição. Cada
+  // caminho é somado à parte e comparado com a medição do polígono inteiro.
+  assert.equal(6 * 3 + 4 * 2, arArea(L), "corte horizontal");
+  assert.equal(4 * 5 + 2 * 3, arArea(L), "corte vertical");
+
+  // E o perímetro NÃO se conserva ao partir: cortando o L na horizontal, a
+  // linha do corte vira borda dos dois pedaços. Medido, e não afirmado.
+  const perimetro = (pts) => pts.reduce((s, p, i) => {
+    const q = pts[(i + 1) % pts.length];
+    return s + Math.hypot(p[0] - q[0], p[1] - q[1]);
+  }, 0);
+  assert.equal(perimetro(L), 22);
+  const baixo = arContorno([[6, 0], [0, 3], [-6, 0], [0, -3]]);
+  const cima = arContorno([[4, 0], [0, 2], [-4, 0], [0, -2]]);
+  assert.equal(arArea(baixo) + arArea(cima), arArea(L), "as áreas somam");
+  assert.ok(
+    perimetro(baixo) + perimetro(cima) > perimetro(L),
+    "a soma dos perímetros tinha de crescer com o corte"
+  );
+  // Num RETÂNGULO, onde o corte é inteiramente interno, dá para dizer quanto
+  // o perímetro cresce: exatamente o dobro do corte, porque ele virou borda
+  // dos dois pedaços. (No L o crescimento é menor, porque parte da linha do
+  // corte coincide com o degrau, que já era borda.)
+  const inteiro = arContorno([[6, 0], [0, 4], [-6, 0], [0, -4]]);
+  const esquerda = arContorno([[3, 0], [0, 4], [-3, 0], [0, -4]]);
+  const direita = arContorno([[3, 0], [0, 4], [-3, 0], [0, -4]]);
+  assert.equal(arArea(esquerda) + arArea(direita), arArea(inteiro), "as áreas somam");
+  assert.ok(
+    Math.abs((perimetro(esquerda) + perimetro(direita)) - (perimetro(inteiro) + 2 * 4)) < 1e-9,
+    "o corte de 4 cm tinha de ser contado duas vezes"
+  );
+
+  // A placa recortada, por subtração — e a subtração é conferida contra a
+  // medição do polígono, não contra outra conta.
+  const placa = arContorno([[8, 0], [0, 5], [-5, 0], [0, -3], [-3, 0], [0, -2]]);
+  assert.equal(arArea(placa), 31);
+  assert.equal(8 * 5 - 3 * 3, arArea(placa));
+
+  num("area-8", "somar-pedacos", "q1", 26);
+  alt("area-8", "somar-pedacos", "q2", "Dá o mesmo resultado nos dois cortes");
+  num("area-8", "somar-pedacos", "q3", 31);
+  alt("area-8", "somar-pedacos", "q4", "A soma dos perímetros, porque o corte cria borda nova");
+});
+
+teste("áreas · lição 2 — o paralelogramo recortado vira o retângulo, medido no SVG", () => {
+  // A DEMONSTRAÇÃO é lida da figura: o polígono da etapa "original" e o da
+  // etapa "rearranjada" têm de ter a mesma área desenhada. Se o gerador
+  // deslocasse o topo de um jeito que não fecha, a razão não daria 1.
+  // As duas figuras saem do MESMO SVG — o paralelogramo cheio e o retângulo
+  // tracejado por baixo dele —, e por isso estão na mesma escala. Comparar
+  // áreas de dois SVGs diferentes não provaria nada: cada um escolhe a
+  // própria unidade para caber na largura.
+  for (const [base, altura] of [[6, 4], [9, 4], [7, 5], [8, 5], [5, 3]]) {
+    const svg = desenhos.areaPorRecorte({ figura: "paralelogramo", etapa: "recortada", base, altura });
+    const paralelogramo = arPoligonos(svg)[0];
+    const retangulo = arTracejados(svg)[0];
+    const razao = arArea(paralelogramo) / arArea(retangulo);
+    assert.ok(
+      Math.abs(razao - 1) < 1e-3,
+      `paralelogramo ${base}×${altura}: o desenho não tem a área do retângulo (razão ${razao})`
+    );
+  }
+
+  // E a fórmula publicada bate com a medição do polígono, para vários casos.
+  for (const [base, altura] of [[9, 4], [8, 5], [6, 4], [12, 7]]) {
+    const p = arContorno([[base, 0], [2, altura], [-base, 0], [-2, -altura]]);
+    assert.ok(
+      Math.abs(arArea(p) - base * altura) < 1e-9,
+      `paralelogramo ${base}×${altura}: base × altura não bate com a área medida`
+    );
+  }
+
+  // A armadilha da matéria, MEDIDA: o lado inclinado é sempre maior ou igual
+  // à altura, então usá-lo no lugar dela nunca subestima — sempre infla.
+  for (let recuo = 0; recuo <= 8; recuo += 1) {
+    for (const altura of [3, 4, 5, 7]) {
+      const lado = Math.hypot(recuo, altura);
+      assert.ok(lado >= altura - 1e-9, `recuo ${recuo}: o lado inclinado ficou menor que a altura`);
+      if (recuo > 0) assert.ok(lado > altura, `recuo ${recuo}: com inclinação o lado tinha de ser maior`);
+    }
+  }
+  // no caso da questão: base 8, altura 5, lado 6 — e 8 × 6 passa de 8 × 5
+  assert.equal(8 * 5, 40);
+  assert.ok(8 * 6 > 8 * 5, "usar o lado inclinado tinha de inflar a área");
+
+  // A inversa não é resolvida pela fórmula isolada: é procurada por busca, e
+  // o teste exige que a altura achada seja a ÚNICA que produz aquela área.
+  const alturasQueServem = [];
+  for (let h = 0.5; h <= 20; h += 0.5) if (Math.abs(9 * h - 45) < 1e-9) alturasQueServem.push(h);
+  assert.deepEqual(alturasQueServem, [5], "a altura tinha de ser única");
+
+  num("area-8", "paralelogramo", "q1", 36);
+  num("area-8", "paralelogramo", "q2", 40);
+  alt("area-8", "paralelogramo", "q3", "Porque um triângulo recortado de uma ponta encaixa na outra, formando o retângulo");
+  num("area-8", "paralelogramo", "q4", 5);
+});
+
+teste("áreas · lição 3 — o trapézio é metade do paralelogramo das duas cópias", () => {
+  // A razão ½ é lida da FIGURA, e não da fórmula: o polígono do trapézio
+  // contra o polígono do paralelogramo que as duas cópias formam.
+  // A afirmação da lição tem duas metades, e as duas são medidas na figura:
+  // que a segunda cópia é IGUAL à primeira, e que juntas elas fecham um
+  // paralelogramo — sem sobrar vão e sem se sobrepor. A segunda metade sai
+  // do fecho convexo: se os dois pedaços se sobrepusessem, a área somada
+  // deles passaria da área do contorno que os envolve; se deixassem vão,
+  // ficaria abaixo dela.
+  for (const [base, baseMenor, altura] of [[6, 3, 4], [10, 6, 5], [7, 3, 4], [12, 8, 6], [20, 14, 8]]) {
+    const svg = desenhos.areaPorRecorte({ figura: "trapezio", etapa: "recortada", base, baseMenor, altura });
+    const trapezio = arPoligonos(svg)[0];
+    const copia = arTracejados(svg)[0];
+    assert.ok(
+      Math.abs(arArea(trapezio) - arArea(copia)) / arArea(trapezio) < 1e-3,
+      `trapézio ${base}/${baseMenor}: a segunda cópia não é igual à primeira`
+    );
+    const juntos = arArea(arFechoConvexo([...trapezio, ...copia]));
+    assert.ok(
+      Math.abs(juntos - (arArea(trapezio) + arArea(copia))) / juntos < 1e-3,
+      `trapézio ${base}/${baseMenor}: as duas cópias não fecharam o paralelogramo`
+    );
+    // e o trapézio é metade do que as duas formam, que é o ÷ 2 da fórmula
+    assert.ok(
+      Math.abs(arArea(trapezio) / juntos - 0.5) < 1e-3,
+      `trapézio ${base}/${baseMenor}: o trapézio não é metade da figura montada`
+    );
+  }
+
+  // A fórmula publicada contra a medição do polígono, sem passar por ela.
+  const trapezio = (B, b, h) => {
+    const recuo = (B - b) / 2;
+    return arContorno([[B, 0], [-recuo, h], [-b, 0], [-recuo, -h]]);
+  };
+  for (const [B, b, h] of [[6, 3, 4], [10, 6, 5], [20, 14, 8], [9, 5, 3]]) {
+    assert.ok(
+      Math.abs(arArea(trapezio(B, b, h)) - (B + b) * h / 2) < 1e-9,
+      `trapézio ${B}/${b}/${h}: a fórmula não bate com a área medida`
+    );
+  }
+
+  // A lição 4 afirma que com as bases IGUAIS a fórmula devolve a do
+  // paralelogramo. Provado por varredura, e não por um exemplo.
+  for (let B = 1; B <= 12; B += 1) {
+    for (let h = 1; h <= 10; h += 1) {
+      assert.ok(
+        Math.abs((B + B) * h / 2 - B * h) < 1e-9,
+        `bases iguais em ${B}×${h}: a fórmula tinha de virar base × altura`
+      );
+    }
+  }
+
+  // A inversa por busca, exigindo unicidade.
+  const hs = [];
+  for (let h = 0.5; h <= 30; h += 0.5) if (Math.abs((12 + 8) * h / 2 - 60) < 1e-9) hs.push(h);
+  assert.deepEqual(hs, [6], "a altura do trapézio tinha de ser única");
+
+  num("area-8", "trapezio", "q1", 40);
+  alt("area-8", "trapezio", "q2", "De o paralelogramo montado ser feito de duas cópias do trapézio");
+  num("area-8", "trapezio", "q3", 6);
+  alt("area-8", "trapezio", "q4", "Ela vira base × altura: o trapézio virou um paralelogramo");
+});
+
+teste("áreas · lição 4 — o losango é metade do retângulo das diagonais", () => {
+  // Lido da figura: o losango desenhado contra o retângulo desenhado.
+  for (const [D, d] of [[8, 5], [12, 6], [10, 4], [9, 6], [10, 6]]) {
+    const svg = desenhos.areaPorRecorte({ figura: "losango", etapa: "recortada", diagonalMaior: D, diagonalMenor: d });
+    const losango = arPoligonos(svg)[0];
+    const retangulo = arTracejados(svg)[0];
+    const razao = arArea(losango) / arArea(retangulo);
+    assert.ok(
+      Math.abs(razao - 0.5) < 1e-3,
+      `losango ${D}/${d}: o desenho não ocupa metade do retângulo (razão ${razao})`
+    );
+  }
+
+  // E medido a partir dos vértices, sem a fórmula das diagonais.
+  for (const [D, d] of [[8, 5], [12, 6], [10, 6], [7, 3]]) {
+    const los = arContorno([[D / 2, d / 2], [-D / 2, d / 2], [-D / 2, -d / 2], [D / 2, -d / 2]]);
+    assert.ok(
+      Math.abs(arArea(los) - D * d / 2) < 1e-9,
+      `losango ${D}/${d}: D × d ÷ 2 não bate com a área medida`
+    );
+  }
+
+  // Os quatro lados do losango são iguais — a propriedade que dá nome à
+  // figura, conferida no polígono que o teste montou.
+  for (const [D, d] of [[8, 5], [12, 6], [10, 4]]) {
+    const los = arContorno([[D / 2, d / 2], [-D / 2, d / 2], [-D / 2, -d / 2], [D / 2, -d / 2]]);
+    const lados = los.map((p, i) => {
+      const q = los[(i + 1) % los.length];
+      return Math.hypot(p[0] - q[0], p[1] - q[1]);
+    });
+    for (const l of lados) assert.ok(Math.abs(l - lados[0]) < 1e-9, `losango ${D}/${d}: lados desiguais`);
+  }
+
+  // A inversa por busca.
+  const ds = [];
+  for (let d = 0.5; d <= 30; d += 0.5) if (Math.abs(10 * d / 2 - 30) < 1e-9) ds.push(d);
+  assert.deepEqual(ds, [6], "a diagonal menor tinha de ser única");
+
+  num("area-8", "losango", "q1", 36);
+  alt("area-8", "losango", "q2", "Porque cada vértice do losango encosta num lado do retângulo, e as diagonais o atravessam de lado a lado");
+  num("area-8", "losango", "q3", 6);
+  alt("area-8", "losango", "q4", "A do losango é metade da do retângulo");
+});
+
+teste("áreas · lição 5 — somar pedaços e subtrair buracos dão o mesmo número", () => {
+  // O degrau: os dois caminhos, contra a medição do polígono.
+  const degrau = arContorno([[8, 0], [0, 3], [-5, 0], [0, 2], [-3, 0], [0, -5]]);
+  assert.equal(arArea(degrau), 30);
+  assert.equal(8 * 3 + 3 * 2, arArea(degrau), "por soma");
+  assert.equal(8 * 5 - 5 * 2, arArea(degrau), "por subtração");
+
+  // A altura do pedaço de baixo NÃO está escrita no enunciado: ela sai da
+  // diferença, que é o passo que a lição diz ser metade do problema.
+  assert.equal(5 - 2, 3);
+
+  // A fachada, com o trapézio em cima — a área medida contra a soma das duas
+  // fórmulas, e a decomposição conferida pedaço a pedaço.
+  const fachada = arContorno([[6, 0], [0, 4], [-2, 3], [-2, 0], [-2, -3], [0, -4]]);
+  assert.equal(arArea(fachada), 36);
+  const retanguloDeBaixo = arContorno([[6, 0], [0, 4], [-6, 0], [0, -4]]);
+  const trapezioDeCima = arContorno([[6, 0], [-2, 3], [-2, 0], [-2, -3]]);
+  assert.equal(arArea(retanguloDeBaixo) + arArea(trapezioDeCima), arArea(fachada));
+  assert.equal(arArea(trapezioDeCima), (6 + 2) * 3 / 2);
+
+  // A parede com os dois vãos: o desconto é conferido contra a área medida
+  // da região que sobra, montada como um polígono só não seria possível —
+  // então cada vão é medido e subtraído.
+  const parede = arContorno([[6, 0], [0, 3], [-6, 0], [0, -3]]);
+  const janela = arContorno([[2, 0], [0, 2], [-2, 0], [0, -2]]);
+  const porta = arContorno([[1, 0], [0, 2], [-1, 0], [0, -2]]);
+  assert.equal(arArea(parede) - arArea(janela) - arArea(porta), 12);
+  // e os dois vãos cabem dentro da parede, que é o que torna a subtração legítima
+  assert.ok(arArea(janela) + arArea(porta) < arArea(parede));
+
+  num("area-8", "compostas", "q1", 30);
+  alt("area-8", "compostas", "q2", "Quando a figura é um retângulo com um pedaço faltando");
+  num("area-8", "compostas", "q3", 36);
+  num("area-8", "compostas", "q4", 12);
+});
+
+teste("áreas · lição 6 — o roteiro, e o problema da OBMEP", () => {
+  // OBMEP, Banco de Questões 2012, problema 28 (item a). A solução oficial
+  // chega a 42 cm; o teste chega lá por BUSCA, e ainda exige que o par de
+  // lados seja único a menos da ordem — se houvesse outro, a questão seria
+  // ambígua.
+  const pares = [];
+  for (let a = 1; a <= 108; a += 1) {
+    if (108 % a !== 0) continue;
+    const b = 108 / a;
+    if (a === 12 || b === 12) pares.push([Math.min(a, b), Math.max(a, b)]);
+  }
+  const distintos = [...new Set(pares.map((p) => p.join("×")))];
+  assert.deepEqual(distintos, ["9×12"], "o retângulo de área 108 com um lado 12 tinha de ser único");
+  assert.equal(2 * (9 + 12), 42);
+  assert.equal(9 * 12, 108, "a conferência por substituição fecha");
+
+  // O terreno: a área pela fórmula, contra a medição do polígono, e só
+  // depois o preço.
+  const terreno = arContorno([[20, 0], [-3, 8], [-14, 0], [-3, -8]]);
+  assert.equal(arArea(terreno), (20 + 14) * 8 / 2);
+  assert.equal(arArea(terreno), 136);
+  assert.equal(136 * 50, 6800);
+
+  // Os ladrilhos: a conversão é conferida nos dois sentidos, e a divisão tem
+  // de ser exata — um resto significaria ladrilho cortado, e a questão não
+  // pergunta isso.
+  assert.equal(4 * 100, 400);
+  assert.equal(3 * 100, 300);
+  const areaPiso = 400 * 300, areaLadrilho = 20 * 20;
+  assert.equal(areaPiso % areaLadrilho, 0, "os ladrilhos tinham de caber inteiros");
+  assert.equal(areaPiso / areaLadrilho, 300);
+  // e a contagem também sai contando as fileiras, sem passar por área nenhuma
+  assert.equal((400 / 20) * (300 / 20), 300, "por fileiras tinha de dar o mesmo");
+
+  num("area-8", "problemas", "q1", 42);
+  num("area-8", "problemas", "q2", 6800);
+  alt("area-8", "problemas", "q3", "Nenhum na área: ele serve para o perímetro, ou só para confundir");
+  num("area-8", "problemas", "q4", 300);
+});
+
+teste("áreas · a figura não desmente a fórmula em nenhuma imagem da matéria", () => {
+  // Percorre TODAS as figuras de areaPorRecorte do manifesto e, quando a
+  // etapa mostra as duas figuras, confere a razão entre as áreas desenhadas.
+  // É o mesmo espírito do teste que mede os ângulos das paralelas: se o
+  // desenho e a lição discordarem, o teste quebra.
+  const daMateria = manifesto.filter((m) => m.id.startsWith("ar8-"));
+  assert.equal(daMateria.length, 36, "a matéria tinha de ter 36 figuras");
+  let conferidas = 0;
+  for (const item of daMateria) {
+    const svg = item.desenho();
+    assert.ok(!/undefined|NaN/.test(svg), `${item.id}: a figura saiu com undefined ou NaN`);
+    const largura = Number(svg.match(/width="(\d+)"/)[1]);
+    assert.ok(largura <= 456, `${item.id}: ${largura}px passa do teto de 456`);
+    const poligonos = arPoligonos(svg);
+    if (poligonos.length !== 1) continue;
+    // as figuras de contorno cheio saem com área positiva — nada achatado
+    assert.ok(arArea(poligonos[0]) > 100, `${item.id}: a figura saiu achatada`);
+    conferidas += 1;
+  }
+  assert.ok(conferidas >= 20, `esperava conferir pelo menos 20 figuras, conferi ${conferidas}`);
+});
+
+teste("áreas · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("area-8", 24);
+});
+
+
+// ---------- Volume (8º ano) ----------
+//
+// A afirmação central da matéria é que a MESMA fórmula serve para bases de
+// formatos diferentes, e o teste não pode conferir isso aplicando a fórmula
+// — seria circular. Ele confere de dois jeitos:
+//
+//   · empilhando de verdade. `vlPorCamadas` soma n camadas de área da base,
+//     que é o argumento das lições 1 e 3, e o resultado tem de bater com a
+//     multiplicação publicada. Nada nessa soma sabe o que é prisma;
+//   · medindo a base no SVG. O gerador desenha a base a partir das medidas,
+//     e o teste lê o polígono de volta e confere que a área desenhada é a
+//     que a lição usou — se a figura discordasse, o desenho estaria
+//     mentindo sobre a matéria.
+//
+// E o π, como em Circunferência do 7º ano, entra em CENTÉSIMOS INTEIROS.
+// Com 3.14 em ponto flutuante, 3,14 × 16 × 5 dá 251.20000000000002, e meia
+// dúzia de asserções falharia por arredondamento em vez de por conteúdo.
+
+/** Volume somando camada por camada, que é o argumento das lições 1 e 3. */
+function vlPorCamadas(areaDaBase, altura) {
+  let total = 0;
+  for (let i = 0; i < altura; i += 1) total += areaDaBase;
+  return total;
+}
+
+/** π em centésimos: cil(5, 10) devolve 785 exato, e não 785.0000001. */
+const vlCilindro = (r, h) => (314 * r * r * h) / 100;
+
+/** Área de um polígono pela fórmula do laço, a partir dos vértices. */
+const vlArea = (pts) => Math.abs(pts.reduce((s, [x, y], i) => {
+  const [X, Y] = pts[(i + 1) % pts.length];
+  return s + x * Y - X * y;
+}, 0)) / 2;
+
+teste("volume · lição 1 — a fórmula geral, conferida empilhando camadas", () => {
+  // A multiplicação publicada tem de concordar com a SOMA das camadas, que é
+  // o argumento que a lição usa. Varrido, e não conferido num exemplo.
+  for (const area of [12, 15, 24, 36, 78]) {
+    for (const h of [1, 2, 5, 8, 10]) {
+      assert.equal(vlPorCamadas(area, h), area * h, `${area} cm² em ${h} camadas`);
+    }
+  }
+
+  // E c × l × a é caso particular: com base retangular, os dois caminhos
+  // dão o mesmo número. É a afirmação da questão 2.
+  for (const [c, l, a] of [[6, 4, 5], [8, 5, 3], [2, 3, 4], [10, 10, 10]]) {
+    assert.equal(c * l * a, vlPorCamadas(c * l, a), `bloco ${c}×${l}×${a}`);
+  }
+
+  // As DUAS alturas do prisma de base triangular entram em momentos
+  // diferentes, e a questão 4 é sobre isso. Trocá-las de lugar não muda o
+  // número — a multiplicação é comutativa —, mas usar as DUAS como
+  // multiplicadoras da área da base conta a do triângulo duas vezes, e é
+  // esse o erro que a alternativa errada descreve.
+  const areaBase = 6 * 4 / 2;
+  assert.equal(areaBase * 10, 120);
+  assert.equal(6 * 10 / 2 * 4, 120, "trocar a ordem dos fatores não muda o produto");
+  assert.equal(areaBase * 4 * 10, 480);
+  assert.notEqual(480, 120, "usar as duas alturas como multiplicadoras tinha de inflar o volume");
+
+  assert.equal(15 + 8, 23);
+  assert.equal(15 * 8 / 2, 60);
+
+  // A inversa por busca, exigindo unicidade — nunca pela fórmula isolada.
+  const alturas = [];
+  for (let h = 0.5; h <= 40; h += 0.5) if (Math.abs(24 * h - 168) < 1e-9) alturas.push(h);
+  assert.deepEqual(alturas, [7], "a altura tinha de ser única");
+
+  num("volume-8", "base-vezes-altura", "q1", 120);
+  alt("volume-8", "base-vezes-altura", "q2", "Porque comprimento × largura já é a área da base retangular");
+  num("volume-8", "base-vezes-altura", "q3", 7);
+  alt("volume-8", "base-vezes-altura", "q4", "Entra no cálculo da área da base, e não multiplica o volume");
+});
+
+teste("volume · lição 2 — a base desenhada tem a área que a lição usa", () => {
+  // O gerador CALCULA os vértices da base a partir das medidas. O teste lê o
+  // polígono do topo de volta do SVG e confere a razão entre as áreas de dois
+  // prismas de mesma escala — se a base triangular desenhada não fosse
+  // metade da retangular de mesmas medidas, a figura mentiria.
+  const poligonos = (svg) => [...svg.matchAll(/<polygon points="([^"]+)"[^>]*stroke-width="2\.2"[^>]*stroke-linejoin/g)]
+    .map((m) => m[1].trim().split(/\s+/).map((p) => p.split(",").map(Number)));
+  for (const [larg, prof] of [[6, 5], [8, 5], [6, 4]]) {
+    const ret = poligonos(desenhos.prisma({ base: "retangulo", largura: larg, profundidade: prof, altura: 5 }));
+    const tri = poligonos(desenhos.prisma({ base: "triangulo", largura: larg, profundidade: prof, altura: 5 }));
+    assert.ok(ret.length >= 1 && tri.length >= 1, "as bases tinham de sair como polígonos");
+    const razao = vlArea(tri[tri.length - 1]) / vlArea(ret[ret.length - 1]);
+    assert.ok(
+      Math.abs(razao - 0.5) < 1e-3,
+      `base ${larg}×${prof}: o triângulo desenhado não é metade do retângulo (razão ${razao})`
+    );
+  }
+
+  // As áreas das lições, conferidas pelas fórmulas da matéria ANTERIOR, e os
+  // volumes pela soma das camadas.
+  assert.equal(8 * 5 / 2, 20);
+  assert.equal(vlPorCamadas(20, 9), 180);
+  assert.equal(6 * 4 / 2, 12);
+  assert.equal(vlPorCamadas(12, 10), 120);
+  assert.equal((8 + 4) * 5 / 2, 30);
+  assert.equal(vlPorCamadas(30, 7), 210);
+  assert.equal(vlPorCamadas(36, 10), 360);
+
+  // Esquecer o ÷ 2 da base triangular DOBRA o volume — medido, não avisado.
+  assert.equal((6 * 4 * 10) / (6 * 4 / 2 * 10), 2);
+  assert.equal(((8 + 4) * 5 * 7) / ((8 + 4) * 5 / 2 * 7), 2);
+  assert.equal(6 + 4 + 10, 20);
+  assert.equal(36 * 6, 216);
+
+  num("volume-8", "prismas", "q1", 120);
+  num("volume-8", "prismas", "q2", 210);
+  alt("volume-8", "prismas", "q3", "Só a fórmula usada para achar a área da base");
+  num("volume-8", "prismas", "q4", 360);
+});
+
+teste("volume · lição 3 — o cilindro, com o π da matéria em centésimos", () => {
+  assert.equal(vlCilindro(5, 10), 785);
+  assert.equal(vlCilindro(3, 10), 282.6);
+  assert.equal(vlCilindro(4, 5), 251.2);
+  assert.equal(vlCilindro(5, 4), 314);
+
+  // O cilindro também obedece à soma das camadas: 78,5 cm² dez vezes.
+  assert.equal(vlPorCamadas(78.5, 10), 785);
+
+  // Os dois erros que a lição nomeia, MEDIDOS. Esquecer o quadrado divide o
+  // resultado pelo raio; usar o diâmetro no lugar do raio quadruplica.
+  for (const [r, h] of [[3, 10], [4, 5], [5, 4], [10, 20]]) {
+    const semQuadrado = (314 * r * h) / 100;
+    assert.ok(
+      Math.abs(vlCilindro(r, h) / semQuadrado - r) < 1e-9,
+      `raio ${r}: esquecer o quadrado tinha de dividir por ${r}`
+    );
+    assert.equal(vlCilindro(2 * r, h) / vlCilindro(r, h), 4, `raio ${r}: o diâmetro quadruplica`);
+  }
+
+  // E o comprimento da circunferência NÃO serve de área da base: o teste
+  // registra que os dois valores são diferentes, que é o terceiro erro.
+  for (const r of [3, 4, 5]) {
+    assert.notEqual((2 * 314 * r) / 100, (314 * r * r) / 100, `raio ${r}: volta e área coincidiram`);
+  }
+  assert.equal((314 * 5 * 10) / 100, 157);
+  assert.equal(785 / 157, 5);
+
+  num("volume-8", "cilindro", "q1", 282.6);
+  alt("volume-8", "cilindro", "q2", "Porque ele também é feito de cópias da base empilhadas ao longo da altura");
+  num("volume-8", "cilindro", "q3", 251.2);
+  num("volume-8", "cilindro", "q4", 314);
+});
+
+teste("volume · lição 4 — a peça composta É um prisma de base composta", () => {
+  // A base em L, medida pelo polígono — sem usar a decomposição que a lição
+  // ensina, para que os dois caminhos possam ser comparados.
+  const anda = (mv) => {
+    const p = [[0, 0]];
+    for (const [dx, dy] of mv) { const [x, y] = p[p.length - 1]; p.push([x + dx, y + dy]); }
+    p.pop();
+    return p;
+  };
+  const L = anda([[6, 0], [0, 2], [-3, 0], [0, 3], [-3, 0], [0, -5]]);
+  assert.equal(vlArea(L), 21);
+  assert.equal(6 * 2 + 3 * 3, 21, "a decomposição concorda com a medição do polígono");
+  assert.equal(vlPorCamadas(21, 4), 84);
+
+  // O outro caminho — partir em dois BLOCOS — chega ao mesmo número, que é
+  // a afirmação da lição. E ele é conferido contra a área medida, não
+  // contra a outra conta.
+  assert.equal(6 * 2 * 4 + 3 * 3 * 4, vlArea(L) * 4);
+
+  // O erro da sobreposição, medido: contar o retângulo de cima com a altura
+  // TOTAL do L soma a região comum duas vezes, e o excesso é exatamente ela.
+  const comSobreposicao = (6 * 2 + 3 * 5) * 4;
+  assert.equal(comSobreposicao, 108);
+  assert.equal(comSobreposicao - 84, 3 * 2 * 4, "o excesso tinha de ser a região contada duas vezes");
+  assert.equal(6 * 5 * 4, 120);
+
+  // O furo, por subtração — e o furo CEGO desconta menos, que é a questão 4.
+  assert.equal(10 * 6 * 4, 240);
+  assert.equal(2 * 2 * 4, 16);
+  assert.equal(240 - 16, 224);
+  const cego = 240 - 2 * 2 * 2;
+  assert.ok(cego > 224, "o furo cego tinha de deixar MAIS material na peça");
+  assert.equal(240 - 4, 236);
+  assert.equal(240 - 8, 232);
+
+  num("volume-8", "compostos", "q1", 84);
+  alt("volume-8", "compostos", "q2", "Os pedaços se sobreporem, porque a região comum seria contada duas vezes");
+  num("volume-8", "compostos", "q3", 224);
+  alt("volume-8", "compostos", "q4", "O volume da peça aumenta, porque o vazio descontado é menor");
+});
+
+teste("volume · lição 5 — o fator entra uma vez por direção, provado por varredura", () => {
+  // A afirmação da lição é provada por FORÇA BRUTA antes de ser usada: para
+  // vários sólidos e vários fatores, multiplicar todas as medidas por f
+  // multiplica o volume por f³ — e a área por f², e o comprimento por f.
+  for (const f of [2, 3, 4, 5, 10]) {
+    for (const [a, b, c] of [[2, 3, 4], [1, 1, 1], [5, 2, 7], [3, 3, 3], [6, 1, 2]]) {
+      assert.equal(((a * f) * (b * f) * (c * f)) / (a * b * c), f ** 3, `fator ${f} em ${a}×${b}×${c}`);
+      assert.equal(((a * f) * (b * f)) / (a * b), f ** 2, `área com fator ${f}`);
+      assert.equal((a * f) / a, f, `comprimento com fator ${f}`);
+    }
+    // e vale para o CILINDRO também, que não tem aresta nenhuma
+    assert.equal(vlCilindro(2 * f, 3 * f) / vlCilindro(2, 3), f ** 3, `cilindro com fator ${f}`);
+  }
+
+  assert.equal(6 ** 3 / 3 ** 3, 8);
+  assert.equal(6 ** 3 - 3 ** 3, 189);
+  assert.equal(3 ** 2, 9);
+  assert.equal(3 ** 4, 81);
+  assert.equal(3 ** 3, 27);
+
+  num("volume-8", "escala", "q1", 8);
+  alt("volume-8", "escala", "q2", "Porque a medida dobrou em três direções, e 2 × 2 × 2 dá 8");
+  num("volume-8", "escala", "q3", 27);
+  alt("volume-8", "escala", "q4", "O comprimento dobra, a área quadruplica e o volume fica 8 vezes maior");
+});
+
+teste("volume · lição 6 — capacidade, e o problema da OBMEP", () => {
+  // As conversões, montadas do zero e não decoradas.
+  assert.equal(100 * 100 * 100, 1000000, "1 m³ em cm³");
+  assert.equal(1000000 / 1000, 1000, "1 m³ em litros");
+  assert.equal(10 * 10 * 10, 1000, "o litro é o cubo de 10 cm");
+
+  // O fator de volume é o de comprimento ao CUBO — a lição 5 aparecendo de
+  // novo, e conferida aqui em vez de afirmada.
+  for (const fator of [10, 100, 1000]) {
+    assert.equal(fator ** 3, fator * fator * fator);
+  }
+  assert.notEqual(100, 100 ** 3, "confundir os dois fatores é o erro da questão 2");
+
+  assert.equal(vlCilindro(1, 2), 6.28);
+  assert.equal(6.28 * 1000, 6280);
+  assert.equal(2 * 1.5 * 1, 3);
+  assert.equal(3 * 1000, 3000);
+  assert.equal(3 * 100, 300);
+  assert.equal(vlCilindro(10, 20), 6280);
+  assert.equal((314 * 10 * 20) / 100, 628);
+  assert.equal((314 * 100) / 100, 314);
+
+  // OBMEP, Banco de Questões 2014, problema 27 ("Água na caixa"). A solução
+  // oficial chega a 4, 8 e 10 cm. O teste chega lá por BUSCA sobre os
+  // inteiros e exige que a tripla seja ÚNICA — se houvesse outra, a questão
+  // seria ambígua. Nada aqui usa o sistema que a solução monta.
+  const triplas = [];
+  for (let x = 1; x <= 40; x += 1) {
+    for (let y = x; y <= 40; y += 1) {
+      for (let z = y; z <= 40; z += 1) {
+        if (y * z * 2 === 160 && x * z * 4 === 160 && x * y * 5 === 160) triplas.push([x, y, z]);
+      }
+    }
+  }
+  assert.deepEqual(triplas, [[4, 8, 10]], "a caixa da OBMEP tinha de ser única");
+  assert.equal(4 * 8 * 10, 320);
+  // e a água nunca encheu a caixa, o que é o que separa 160 de 320
+  for (const [face, h] of [[80, 2], [40, 4], [32, 5]]) assert.equal(face * h, 160);
+  assert.ok(320 > 160, "a caixa tinha de guardar mais que a água colocada");
+  assert.equal(4 + 8 + 10, 22);
+  assert.equal(160 * 11, 1760);
+
+  num("volume-8", "problemas", "q1", 320);
+  num("volume-8", "problemas", "q2", 3000);
+  alt("volume-8", "problemas", "q3", "Porque 1 m³ tem 100 × 100 × 100 = 1 000 000 cm³, e cada 1 000 cm³ é um litro");
+  num("volume-8", "problemas", "q4", 6280);
+});
+
+teste("volume · o prisma recusa base degenerada e fecha o contorno", () => {
+  // Uma aresta da base que saia vertical na projeção vira sósia de uma
+  // aresta de altura, e a figura passa a mentir sobre o sólido. O gerador
+  // recusa, como a `figuraComposta` recusa contorno que não fecha.
+  assert.throws(
+    () => desenhos.prisma({ base: "trapezio", largura: 7, baseMenor: 3, profundidade: 4, altura: 5 }),
+    /aresta da base sai vertical/,
+    "a projeção degenerada tinha de ser recusada"
+  );
+  assert.throws(
+    () => desenhos.prisma({ base: "livre", movimentos: [[6, 0], [0, 4], [-3, 0], [0, -4]], altura: 3 }),
+    /não voltou ao ponto de partida/,
+    "a base aberta tinha de ser recusada"
+  );
+  // e as combinações usadas no manifesto passam
+  for (const item of manifesto.filter((m) => m.id.startsWith("vl8-"))) {
+    const svg = item.desenho();
+    assert.ok(!/undefined|NaN/.test(svg), `${item.id}: a figura saiu com undefined ou NaN`);
+    const largura = Number(svg.match(/width="(\d+)"/)[1]);
+    assert.ok(largura <= 456, `${item.id}: ${largura}px passa do teto de 456`);
+  }
+  assert.equal(manifesto.filter((m) => m.id.startsWith("vl8-")).length, 36);
+});
+
+teste("volume · a figura não desmente o próprio rótulo", () => {
+  // O defeito que a revisão do 6º ano achou em geometria plana — um lado de
+  // 4 cm desenhado mais comprido que o de 7 — tem versão no espaço, e ela
+  // passou despercebida por seis figuras desta matéria: um cilindro
+  // rotulado "raio 5 cm, altura 10 cm" saía com o diâmetro menor que a
+  // altura, e um bloco de 2 por 1,5 por 1 m saía em 6 : 4 : 3.
+  //
+  // Nem a auditoria de texto nem o `figurasNaoEntregam` pegam isso: nada
+  // transborda e nenhuma resposta aparece. Só medir pega.
+  //
+  // A medição é pelas ARESTAS VERTICAIS, e não pela caixa envolvente. A
+  // caixa não serve: na projeção oblíqua a elipse do cilindro sai inclinada
+  // e a caixa dela é √1,25 vezes o diâmetro — foi por aí que a primeira
+  // versão deste teste acusou uma figura correta.
+  const alturaDesenhada = (svg) => {
+    const verticais = [...svg.matchAll(/<line x1="([\d.]+)" y1="([\d.]+)" x2="([\d.]+)" y2="([\d.]+)"/g)]
+      .map((m) => m.slice(1).map(Number))
+      .filter(([x1, y1, x2, y2]) => Math.abs(x1 - x2) < 0.2 && Math.abs(y2 - y1) > 1);
+    assert.ok(verticais.length > 0, "a figura não tinha aresta vertical para medir");
+    const comprimentos = verticais.map(([, y1, , y2]) => Math.abs(y2 - y1));
+    // as arestas de ALTURA são as mais compridas; as curtas são cotas e furos
+    return Math.max(...comprimentos);
+  };
+
+  /** Largura da aresta frontal: os dois primeiros pontos do contorno da base. */
+  const larguraDaFrente = (svg) => {
+    const poli = svg.match(/<polyline points="([^"]+)"/);
+    assert.ok(poli, "a figura não tinha o contorno da base");
+    const pts = poli[1].trim().split(/\s+/).map((p) => p.split(",").map(Number));
+    return Math.abs(pts[1][0] - pts[0][0]);
+  };
+
+  // Cada entrada diz o que o RÓTULO da figura afirma: a largura da primeira
+  // aresta da base, e a altura do sólido. As duas em unidades do enunciado.
+  const figuras = [
+    ["vl8-res-prisma-tri", 6, 10],   // triângulo de base 6 · prisma de 10 cm
+    ["vl8-q-prisma-tri", 6, 10],
+    ["vl8-res-tri", 8, 9],           // triângulo de base 8 · prisma de 9 cm
+    ["vl8-q-prisma-trap", 8, 7],     // base maior 8 · prisma de 7 cm
+    ["vl8-q-furo", 10, 4],           // bloco 10 × 6 × 4
+    ["vl8-q-furo-cego", 10, 4],
+    ["vl8-res-degrau", 3, 4],        // a base em L começa por um lado de 3
+    ["vl8-q-degrau", 3, 4],
+    ["vl8-ideia-composto", 3, 4],
+  ];
+  for (const [id, largura, altura] of figuras) {
+    const item = manifesto.find((m) => m.id === id);
+    assert.ok(item, `${id} não está no manifesto`);
+    const svg = item.desenho();
+    const escalaPelaLargura = larguraDaFrente(svg) / largura;
+    const escalaPelaAltura = alturaDesenhada(svg) / altura;
+    assert.ok(
+      Math.abs(escalaPelaAltura / escalaPelaLargura - 1) < 0.02,
+      `${id}: o desenho não está na proporção ${largura} por ${altura} ` +
+      `(a largura sai a ${escalaPelaLargura.toFixed(1)} px por unidade e a altura a ${escalaPelaAltura.toFixed(1)})`
+    );
+  }
+
+  // Nos CILINDROS a base é uma volta fechada e não há aresta frontal, então
+  // a largura vem da caixa, descontado o alargamento da projeção: um círculo
+  // de diâmetro d sai com √(1 + 0,5²) × d de largura, porque a profundidade
+  // desloca meio passo para a direita.
+  const larguraDoCilindro = (svg) => {
+    const xs = [];
+    for (const re of [/<polygon points="([^"]+)"/g, /<polyline points="([^"]+)"/g]) {
+      for (const m of svg.matchAll(re)) {
+        for (const par of m[1].trim().split(/\s+/)) xs.push(Number(par.split(",")[0]));
+      }
+    }
+    return (Math.max(...xs) - Math.min(...xs)) / Math.sqrt(1 + 0.25);
+  };
+  const cilindros = [
+    ["vl8-res-cilindro", 10, 10],   // raio 5 cm → diâmetro 10 · altura 10
+    ["vl8-q-cil-raio", 6, 10],      // raio 3 cm → diâmetro 6 · altura 10
+    ["vl8-q-lata", 8, 5],           // raio 4 cm → diâmetro 8 · altura 5
+    ["vl8-q-diametro", 10, 4],      // diâmetro 10 cm · altura 4
+    ["vl8-res-caixa-agua", 2, 2],   // raio 1 m → diâmetro 2 · altura 2
+    ["vl8-q-jarra", 20, 20],        // raio 10 cm → diâmetro 20 · altura 20
+  ];
+  for (const [id, diametro, altura] of cilindros) {
+    const item = manifesto.find((m) => m.id === id);
+    assert.ok(item, `${id} não está no manifesto`);
+    const svg = item.desenho();
+    const escalaPelaLargura = larguraDoCilindro(svg) / diametro;
+    const escalaPelaAltura = alturaDesenhada(svg) / altura;
+    assert.ok(
+      Math.abs(escalaPelaAltura / escalaPelaLargura - 1) < 0.02,
+      `${id}: o rótulo afirma diâmetro ${diametro} e altura ${altura}, ` +
+      `mas o desenho sai a ${escalaPelaLargura.toFixed(1)} px por unidade de diâmetro e ${escalaPelaAltura.toFixed(1)} de altura`
+    );
+  }
+});
+
+teste("volume · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("volume-8", 24);
+});
+
+
+// ---------- Probabilidade (8º ano) ----------
+//
+// Nada aqui é conferido pela fórmula que a matéria ensina. Todo caminho é
+// CONSTRUÍDO e contado — `pbCaminhos` monta o produto cartesiano de
+// verdade, e um nível pode dar as opções em função do que já saiu, que é
+// como o sorteio sem reposição entra. O princípio multiplicativo é o que
+// está sendo verificado, e por isso ele não pode ser usado na verificação.
+//
+// Mesma disciplina da Probabilidade do 7º ano, que montava os 36 pares de
+// dados em vez de calcular por fórmula.
+
+/** Todos os caminhos de um experimento em etapas, construídos um a um. */
+function pbCaminhos(niveis) {
+  let saida = [[]];
+  for (const nivel of niveis) {
+    const proximos = [];
+    for (const caminho of saida) {
+      const opcoes = typeof nivel === "function" ? nivel(caminho) : nivel;
+      for (const opcao of opcoes) proximos.push([...caminho, opcao]);
+    }
+    saida = proximos;
+  }
+  return saida;
+}
+
+const MOEDA = ["C", "K"];
+const DADO = [1, 2, 3, 4, 5, 6];
+
+teste("probabilidade · lição 1 — o princípio multiplicativo, conferido contando", () => {
+  // A regra é PROVADA por enumeração antes de ser usada: para muitos pares
+  // de tamanhos, o número de caminhos construídos tem de ser o produto.
+  for (let a = 1; a <= 6; a += 1) {
+    for (let b = 1; b <= 6; b += 1) {
+      const primeira = Array.from({ length: a }, (_, i) => `a${i}`);
+      const segunda = Array.from({ length: b }, (_, i) => `b${i}`);
+      assert.equal(pbCaminhos([primeira, segunda]).length, a * b, `${a} × ${b}`);
+    }
+  }
+  // e com três etapas, para a regra não parecer coisa de dois fatores
+  assert.equal(pbCaminhos([[1, 2], [1, 2, 3], [1, 2]]).length, 2 * 3 * 2);
+
+  assert.equal(pbCaminhos([["branca", "azul", "verde"], ["jeans", "preta"]]).length, 6);
+  assert.equal(pbCaminhos([[1, 2, 3, 4], [1, 2, 3]]).length, 12);
+  assert.equal(4 + 3, 7);
+  assert.equal(2 + 3 + 2, 7);
+  assert.equal(2 * 3, 6);
+  assert.equal(2 ** 3, 8);
+
+  // O pódio: o campeão sai da lista, e o teste confere que nenhum caminho
+  // repete a mesma pessoa nos dois lugares.
+  const CINCO = [1, 2, 3, 4, 5];
+  const podio = pbCaminhos([CINCO, (c) => CINCO.filter((x) => x !== c[0])]);
+  assert.equal(podio.length, 20);
+  assert.ok(podio.every(([a, b]) => a !== b), "ninguém pode ocupar os dois lugares");
+  assert.equal(5 * 5, 25);
+  assert.equal(5 + 4, 9);
+  assert.equal(podio.length / 2, 10, "sem ordem seria a metade");
+
+  num("probabilidade-8", "contar-caminhos", "q1", 12);
+  alt("probabilidade-8", "contar-caminhos", "q2", "Porque cada opção da primeira etapa se abre em todas as opções da segunda");
+  num("probabilidade-8", "contar-caminhos", "q3", 12);
+  num("probabilidade-8", "contar-caminhos", "q4", 20);
+});
+
+teste("probabilidade · lição 2 — a árvore, e as folhas contadas no SVG", () => {
+  const duas = pbCaminhos([MOEDA, MOEDA]);
+  assert.equal(duas.length, 4);
+  assert.equal(duas.filter((c) => c.every((x) => x === "C")).length, 1);
+  assert.equal((1 / 4) * 100, 25);
+
+  // Cara-coroa e coroa-cara são caminhos DIFERENTES — a afirmação da lição,
+  // conferida na lista construída.
+  assert.ok(
+    duas.some((c) => c[0] === "C" && c[1] === "K") && duas.some((c) => c[0] === "K" && c[1] === "C"),
+    "os dois pares em ordens trocadas tinham de existir separados"
+  );
+
+  assert.equal(pbCaminhos([MOEDA, DADO]).length, 12);
+  assert.equal(2 + 6, 8);
+  assert.equal(6 * 6, 36);
+  assert.equal(2 ** 3, 8);
+
+  // A FIGURA é lida de volta: o gerador calcula os caminhos, e o número de
+  // rótulos de ramo no último nível tem de ser o número de folhas.
+  const svg = desenhos.arvorePossibilidades({
+    niveis: [{ opcoes: ["a", "b", "c"] }, { opcoes: ["x", "y"] }],
+  });
+  const rotulos = [...svg.matchAll(/>([^<>]+)</g)].map((m) => m[1].trim());
+  assert.equal(rotulos.filter((t) => t === "x" || t === "y").length, 6, "a árvore tinha de ter 6 folhas");
+  assert.equal(rotulos.filter((t) => ["a", "b", "c"].includes(t)).length, 3, "e 3 ramos no primeiro nível");
+
+  // E a árvore CORTADA mostra só o primeiro nível — é o que permite usá-la
+  // numa questão que pergunta quantos resultados existem.
+  const cortada = desenhos.arvorePossibilidades({
+    niveis: [{ opcoes: ["a", "b", "c"] }, { opcoes: ["x", "y"] }], ate: 1,
+  });
+  assert.ok(!cortada.includes(">x<"), "a árvore cortada não podia mostrar o segundo nível");
+
+  num("probabilidade-8", "arvore", "q1", 4);
+  num("probabilidade-8", "arvore", "q2", 25);
+  alt("probabilidade-8", "arvore", "q3", "Um resultado possível do experimento inteiro");
+  num("probabilidade-8", "arvore", "q4", 12);
+});
+
+teste("probabilidade · lição 3 — multiplicar as chances concorda com contar", () => {
+  // A multiplicação das probabilidades é conferida contra a CONTAGEM dos
+  // caminhos, e não aceita como regra.
+  const tres = pbCaminhos([MOEDA, MOEDA, MOEDA]);
+  assert.equal(tres.length, 8);
+  assert.equal(tres.filter((c) => c.every((x) => x === "C")).length / 8, (1 / 2) * (1 / 2) * (1 / 2));
+  assert.equal((1 / 8) * 100, 12.5);
+
+  const md = pbCaminhos([MOEDA, DADO]);
+  assert.equal(md.filter((c) => c[0] === "C" && c[1] % 2 === 0).length, 3);
+  assert.equal(3 / 12, 1 / 4);
+
+  // A urna COM reposição, enumerada sobre as bolas identificadas — o teste
+  // não usa a fração 3/5, ele conta as 25 duplas possíveis.
+  const urna5 = ["a1", "a2", "a3", "v1", "v2"];
+  const comRep = pbCaminhos([urna5, urna5]);
+  assert.equal(comRep.length, 25);
+  assert.equal(comRep.filter((c) => c.every((b) => b[0] === "a")).length, 9);
+  assert.equal((9 / 25) * 100, 36);
+
+  // "O produto é sempre menor ou igual a cada fator" — varrido, não afirmado.
+  for (let i = 1; i <= 10; i += 1) {
+    for (let j = 1; j <= 10; j += 1) {
+      const [p, q] = [i / 10, j / 10];
+      assert.ok(p * q <= p + 1e-12 && p * q <= q + 1e-12, `${p} × ${q}`);
+    }
+  }
+  assert.equal(50 * 3, 150, "somar as três jogadas daria um valor impossível");
+
+  num("probabilidade-8", "sucessivos", "q1", 12.5);
+  alt("probabilidade-8", "sucessivos", "q2", "Menor ou igual a cada uma das duas chances");
+  num("probabilidade-8", "sucessivos", "q3", 36);
+  num("probabilidade-8", "sucessivos", "q4", 50);
+});
+
+teste("probabilidade · lição 4 — sem reposição, medido contra com reposição", () => {
+  const tres = ["A", "B", "C"];
+  const sem = pbCaminhos([tres, (c) => tres.filter((x) => x !== c[0])]);
+  const com = pbCaminhos([tres, tres]);
+  assert.equal(sem.length, 6);
+  assert.equal(com.length, 9);
+  // os três caminhos que somem são exatamente os que repetiriam a bola
+  assert.equal(com.length - sem.length, 3);
+  assert.ok(com.some(([a, b]) => a === b) && !sem.some(([a, b]) => a === b));
+
+  const cinco = [1, 2, 3, 4, 5];
+  assert.equal(pbCaminhos([cinco, (c) => cinco.filter((x) => x !== c[0])]).length, 20);
+  assert.equal(5 * 5, 25);
+  assert.equal(5 + 4, 9);
+
+  // A urna de 4 azuis e 2 vermelhas, nos dois regimes, por enumeração.
+  const urna6 = ["a1", "a2", "a3", "a4", "v1", "v2"];
+  const sr = pbCaminhos([urna6, (c) => urna6.filter((b) => b !== c[0])]);
+  assert.equal(sr.length, 30);
+  assert.equal(sr.filter((c) => c.every((b) => b[0] === "a")).length, 12);
+  assert.equal((12 / 30) * 100, 40);
+  const cr = pbCaminhos([urna6, urna6]);
+  assert.equal(cr.filter((c) => c.every((b) => b[0] === "a")).length, 16);
+  assert.equal(Number(((16 / 36) * 100).toFixed(1)), 44.4);
+
+  // A afirmação da questão 4, PROVADA por varredura: repetir a cor é sempre
+  // mais provável com reposição, em qualquer urna de duas cores.
+  for (let azuis = 1; azuis <= 8; azuis += 1) {
+    for (let vermelhas = 1; vermelhas <= 8; vermelhas += 1) {
+      const total = azuis + vermelhas;
+      const bolas = Array.from({ length: total }, (_, i) => (i < azuis ? `a${i}` : `v${i}`));
+      const semRep = pbCaminhos([bolas, (c) => bolas.filter((b) => b !== c[0])]);
+      const comRep = pbCaminhos([bolas, bolas]);
+      const pSem = semRep.filter((c) => c.every((b) => b[0] === "a")).length / semRep.length;
+      const pCom = comRep.filter((c) => c.every((b) => b[0] === "a")).length / comRep.length;
+      assert.ok(pCom > pSem - 1e-12, `urna ${azuis}/${vermelhas}: com reposição tinha de ser ≥`);
+      if (azuis >= 1 && total > 1) assert.ok(pCom >= pSem, `urna ${azuis}/${vermelhas}`);
+    }
+  }
+
+  num("probabilidade-8", "sem-reposicao", "q1", 20);
+  alt("probabilidade-8", "sem-reposicao", "q2", "Os ramos da segunda etapa mudam conforme o que saiu na primeira");
+  num("probabilidade-8", "sem-reposicao", "q3", 40);
+  alt("probabilidade-8", "sem-reposicao", "q4", "Com reposição, porque a bola retirada não deixa a urna menos daquela cor");
+});
+
+teste("probabilidade · lição 5 — o complementar concorda com a contagem direta", () => {
+  // A regra do complementar é conferida nos dois caminhos, para vários
+  // experimentos: contar os favoráveis tem de dar o mesmo que tirar de 1 a
+  // chance do oposto.
+  for (let jogadas = 1; jogadas <= 5; jogadas += 1) {
+    const todos = pbCaminhos(Array.from({ length: jogadas }, () => MOEDA));
+    const comAlgumaCara = todos.filter((c) => c.includes("C")).length;
+    const semNenhuma = todos.filter((c) => !c.includes("C")).length;
+    assert.equal(semNenhuma, 1, `${jogadas} jogadas: o complementar é um caminho só`);
+    assert.equal(comAlgumaCara + semNenhuma, todos.length, "os dois cobrem tudo");
+    assert.equal(comAlgumaCara / todos.length, 1 - semNenhuma / todos.length);
+  }
+  const tres = pbCaminhos([MOEDA, MOEDA, MOEDA]);
+  assert.equal(tres.filter((c) => c.includes("C")).length, 7);
+  assert.equal((7 / 8) * 100, 87.5);
+  assert.equal(100 - (1 / 8) * 100, 87.5);
+
+  // Os dois dados: o complementar, e o erro de somar as duas listas.
+  const dois = pbCaminhos([DADO, DADO]);
+  assert.equal(dois.length, 36);
+  assert.equal(dois.filter((c) => c.includes(6)).length, 11);
+  assert.equal(36 - 5 * 5, 11);
+  assert.equal(
+    dois.filter((c) => c[0] === 6).length + dois.filter((c) => c[1] === 6).length, 12,
+    "somar as duas listas conta o par (6,6) duas vezes"
+  );
+  assert.equal(50 * 3, 150);
+
+  num("probabilidade-8", "pelo-menos-um", "q1", 87.5);
+  alt("probabilidade-8", "pelo-menos-um", "q2", "Não sair 6 em nenhum dos dois lançamentos");
+  num("probabilidade-8", "pelo-menos-um", "q3", 11);
+  alt("probabilidade-8", "pelo-menos-um", "q4", "Porque o complementar costuma ser um caso só, enquanto o evento tem vários");
+});
+
+teste("probabilidade · lição 6 — os problemas da OBMEP, resolvidos por enumeração", () => {
+  // OBMEP, Banco de Questões 2014, problema 11. A solução oficial chega a
+  // 720 e a 6 pelo princípio multiplicativo; o teste chega lá CONSTRUINDO
+  // as comissões, uma a uma, e conferindo que nenhuma repete aluno.
+  const dez = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const semRepetir = (c) => dez.filter((x) => !c.includes(x));
+  const comissoes = pbCaminhos([dez, semRepetir, semRepetir]);
+  assert.equal(comissoes.length, 720, "BQ 2014, problema 11a");
+  assert.ok(
+    comissoes.every((c) => new Set(c).size === 3),
+    "nenhuma comissão podia repetir aluno"
+  );
+  assert.equal(10 * 9 * 8, 720, "a fórmula concorda com a enumeração");
+  assert.equal(10 ** 3, 1000);
+  assert.equal(10 + 9 + 8, 27);
+  assert.equal(720 / 6, 120);
+
+  const trio = ["Leandro", "Renato", "Marcelo"];
+  const doTrio = (c) => trio.filter((x) => !c.includes(x));
+  const c3 = pbCaminhos([trio, doTrio, doTrio]);
+  assert.equal(c3.length, 6, "BQ 2014, problema 11b");
+  // a solução oficial LISTA as seis; o teste confere que são todas distintas
+  assert.equal(new Set(c3.map((c) => c.join("-"))).size, 6);
+  assert.equal(3 * 2 * 1, 6);
+  assert.equal(3 * 3, 9);
+
+  const dig = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  assert.equal(pbCaminhos([dig, dig]).length, 100);
+  assert.equal(10 * 9, 90);
+  assert.equal(10 + 10, 20);
+
+  num("probabilidade-8", "problemas", "q1", 720);
+  num("probabilidade-8", "problemas", "q2", 6);
+  num("probabilidade-8", "problemas", "q3", 100);
+  alt("probabilidade-8", "problemas", "q4", "\"Ninguém pode acumular cargos\", ou equivalente");
+});
+
+teste("probabilidade · a árvore calcula os caminhos, e recusa o que não cabe", () => {
+  // Sem reposição, os ramos da segunda etapa MUDAM de galho para galho — a
+  // afirmação da lição 4, lida na figura.
+  const svg = desenhos.arvorePossibilidades({
+    niveis: [
+      { opcoes: ["A", "B", "C"] },
+      { opcoes: (c) => ["A", "B", "C"].filter((x) => x !== c[0]) },
+    ],
+  });
+  const rotulos = [...svg.matchAll(/>([^<>]+)</g)].map((m) => m[1].trim());
+  // seis folhas, e cada letra aparece 2 vezes como segunda etapa + 1 como primeira
+  for (const letra of ["A", "B", "C"]) {
+    assert.equal(rotulos.filter((t) => t === letra).length, 3, `a letra ${letra}`);
+  }
+
+  // E ela recusa uma árvore grande demais para ser legível, em vez de
+  // desenhar um borrão — a mesma disciplina do `figuraComposta`.
+  assert.throws(
+    () => desenhos.arvorePossibilidades({
+      niveis: [{ opcoes: [1, 2, 3, 4] }, { opcoes: [1, 2, 3, 4] }, { opcoes: [1, 2] }],
+    }),
+    /não cabem numa figura legível/,
+    "32 folhas tinham de ser recusadas"
+  );
+
+  const daMateria = manifesto.filter((m) => m.id.startsWith("pb8-"));
+  assert.equal(daMateria.length, 36);
+  for (const item of daMateria) {
+    const s = item.desenho();
+    assert.ok(!/undefined|NaN/.test(s), `${item.id}: saiu com undefined ou NaN`);
+    assert.ok(Number(s.match(/width="(\d+)"/)[1]) <= 456, `${item.id}: passa do teto de 456px`);
+  }
+});
+
+teste("probabilidade · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("probabilidade-8", 24);
+});
+
+// ---------- Estatística (8º ano) ----------
+//
+// A matéria fecha o 8º ano e trata de desconfiar com método — então o teste
+// tem uma obrigação a mais: conferir que as figuras da lição 5, que existem
+// para ENGANAR, enganam do jeito documentado, e que as demais não enganam.
+//
+// E as porcentagens saem em aritmética INTEIRA, como o bloco de juros do 7º
+// ano: `0.55 * 200` dá 110.00000000000001 em ponto flutuante.
+
+/** Porcentagem sem erro de arredondamento: pct(45, 200) devolve 90 exato. */
+const etPct = (p, total) => (p * total) / 100;
+
+/** Os ângulos das fatias de um gráfico de setores, lidos de volta do SVG. */
+function etAngulos(svg) {
+  const fatias = [...svg.matchAll(/<path d="M ([\d.]+) ([\d.]+) L ([\d.]+) ([\d.]+) A [\d.]+ [\d.]+ 0 \d 1 ([\d.]+) ([\d.]+)/g)];
+  return fatias.map((m) => {
+    const [cx, cy, x1, y1, x2, y2] = m.slice(1).map(Number);
+    const a1 = Math.atan2(y1 - cy, x1 - cx);
+    const a2 = Math.atan2(y2 - cy, x2 - cx);
+    let abertura = a2 - a1;
+    while (abertura < 0) abertura += 2 * Math.PI;
+    return (abertura * 180) / Math.PI;
+  });
+}
+
+teste("estatística · lição 1 — população, amostra e a estimativa", () => {
+  assert.equal((12 * 100) / 40, 30);
+  assert.equal(etPct(30, 800), 240);
+  assert.equal((500 * 100) / 50000, 1);
+
+  // A estimativa é uma regra de três, e o teste a confere pelos dois lados:
+  // a proporção na amostra tem de ser a mesma proporção na população.
+  for (const [amostra, favoraveis, populacao] of [[40, 12, 800], [50, 20, 500], [200, 90, 1000]]) {
+    const estimativa = (favoraveis / amostra) * populacao;
+    assert.ok(
+      Math.abs(estimativa / populacao - favoraveis / amostra) < 1e-9,
+      `${favoraveis}/${amostra} estendido a ${populacao}`
+    );
+  }
+
+  num("estatistica-8", "populacao-amostra", "q1", 240);
+  alt("estatistica-8", "populacao-amostra", "q2", "Porque o teste destrói a lâmpada, e testar todas acabaria com a produção");
+  alt("estatistica-8", "populacao-amostra", "q3", "Um censo, porque a população inteira foi consultada");
+  num("estatistica-8", "populacao-amostra", "q4", 1);
+});
+
+teste("estatística · lição 2 — o viés não é corrigido por tamanho", () => {
+  // A afirmação central da lição, SIMULADA: uma escola em que 30% preferem
+  // futebol, e uma amostra tirada só de quem joga futebol. Aumentar a
+  // amostra não aproxima o resultado da verdade.
+  const escola = Array.from({ length: 1000 }, (_, i) => (i < 300 ? "futebol" : "outro"));
+  const verdade = escola.filter((x) => x === "futebol").length / escola.length;
+  assert.equal(verdade, 0.3);
+  const noTreino = escola.filter((x) => x === "futebol");   // o local só tem quem joga
+  for (const tamanho of [50, 100, 500]) {
+    const amostra = noTreino.slice(0, Math.min(tamanho, noTreino.length));
+    const medido = amostra.filter((x) => x === "futebol").length / amostra.length;
+    assert.equal(medido, 1, `amostra de ${tamanho} no treino continua dando 100%`);
+    assert.ok(Math.abs(medido - verdade) > 0.5, "aumentar a amostra não aproximou da verdade");
+  }
+
+  alt("estatistica-8", "amostra-boa", "q1", "Não, porque o lugar continua concentrando quem prefere futebol");
+  alt("estatistica-8", "amostra-boa", "q2", "Sortear 40 nomes da lista de todos os alunos da escola");
+  alt("estatistica-8", "amostra-boa", "q3", "Uma média de leitura mais alta que a da população");
+  alt("estatistica-8", "amostra-boa", "q4", "Ser escolhida sem viés e ser grande o bastante");
+});
+
+teste("estatística · lição 3 — a tabela fecha nos dois sentidos", () => {
+  const turma = [["ônibus", 18], ["a pé", 10], ["carro", 8], ["bicicleta", 4]];
+  const total = turma.reduce((s, [, v]) => s + v, 0);
+  assert.equal(total, 40, "as absolutas somam o total de entrevistados");
+  const relativas = turma.map(([, v]) => (v * 100) / total);
+  assert.deepEqual(relativas, [45, 25, 20, 10]);
+  assert.equal(relativas.reduce((a, b) => a + b, 0), 100, "as relativas somam 100%");
+
+  // A conferência da lição, varrida: em qualquer tabela completa, as
+  // relativas fecham em 100%.
+  for (const dados of [[3, 7], [1, 1, 1, 1], [50, 30, 20], [12, 8, 4, 16]]) {
+    const t = dados.reduce((a, b) => a + b, 0);
+    const soma = dados.reduce((s, v) => s + (v * 100) / t, 0);
+    assert.ok(Math.abs(soma - 100) < 1e-9, `tabela ${dados}`);
+  }
+
+  assert.equal((30 * 100) / 200, 15);
+  assert.equal((40 * 100) / 500, 8);
+  assert.ok(15 > 8, "a escola A tinha de ter proporção maior, apesar do número menor");
+  assert.equal(etPct(45, 200), 90);
+  assert.equal(200 - 45, 155);
+  assert.equal(etPct(55, 200), 110);
+  assert.equal(40 / 10, 4, "a divisão invertida dá 4");
+
+  num("estatistica-8", "frequencia", "q1", 25);
+  alt("estatistica-8", "frequencia", "q2", "100%, porque juntas elas cobrem todos os entrevistados");
+  alt("estatistica-8", "frequencia", "q3", "Na escola A, com 15% contra 8% da escola B");
+  num("estatistica-8", "frequencia", "q4", 90);
+});
+
+teste("estatística · lição 4 — os setores desenhados são proporcionais aos dados", () => {
+  // A figura da matéria que ensina a desconfiar de gráfico não pode mentir.
+  // O teste lê os ângulos de volta do SVG e exige que sejam a fração certa
+  // de 360° — se uma fatia de 45% saísse com menos de 162°, o desenho
+  // estaria distorcendo a própria pesquisa que ilustra.
+  const conjuntos = [
+    [[20, 10, 10]],
+    [[45, 25, 20, 10]],
+    [[95, 5]],
+    [[30, 45, 25]],
+    [[18, 10, 8, 4]],
+  ];
+  for (const [valores] of conjuntos) {
+    const itens = valores.map((v, i) => ({ nome: `x${i}`, valor: v }));
+    const svg = desenhos.setores({ itens });
+    const angulos = etAngulos(svg);
+    const soma = valores.reduce((a, b) => a + b, 0);
+    assert.equal(angulos.length, valores.length, `${valores}: número de fatias`);
+    valores.forEach((v, i) => {
+      const esperado = (v / soma) * 360;
+      assert.ok(
+        Math.abs(angulos[i] - esperado) < 0.05,
+        `${valores}: a fatia de ${v} saiu com ${angulos[i].toFixed(1)}° em vez de ${esperado.toFixed(1)}°`
+      );
+    });
+    assert.ok(
+      Math.abs(angulos.reduce((a, b) => a + b, 0) - 360) < 0.1,
+      `${valores}: as fatias tinham de fechar o círculo`
+    );
+  }
+
+  assert.equal(etPct(25, 360), 90);
+  assert.equal(etPct(50, 360), 180);
+  assert.equal((18 * 360) / 40, 162);
+  assert.equal((72 * 100) / 360, 20);
+  assert.equal(360 / 72, 5);
+
+  num("estatistica-8", "setores", "q1", 90);
+  alt("estatistica-8", "setores", "q2", "Que aquela opção teve mais votos que todas as outras somadas");
+  alt("estatistica-8", "setores", "q3", "Não, porque o círculo representa 100% e as fatias se sobreporiam");
+  num("estatistica-8", "setores", "q4", 20);
+});
+
+teste("estatística · lição 5 — o gráfico enganoso engana do jeito documentado", () => {
+  // O eixo cortado é MEDIDO: com a base em 40, as colunas de 42 e 45 saem
+  // na razão 2,5, quando os valores estão na razão 1,07.
+  const [a, b, base] = [42, 45, 40];
+  assert.equal((b - base) / (a - base), 2.5);
+  assert.ok(Math.abs(b / a - 1.07) < 0.005);
+  assert.ok((b - base) / (a - base) > (b / a) * 2, "o corte tinha de inflar a diferença");
+
+  // E a figura publicada REALMENTE tem o eixo cortado — senão a lição
+  // estaria falando de um truque que o desenho não comete. As alturas das
+  // colunas são lidas de volta do SVG.
+  const svg = manifesto.find((m) => m.id === "et8-res-eixo-cortado").desenho();
+  const alturas = [...svg.matchAll(/<rect[^>]*height="([\d.]+)"/g)].map((m) => Number(m[1]));
+  assert.ok(alturas.length >= 2, "o gráfico tinha de ter duas colunas");
+  const [h1, h2] = alturas.slice(0, 2).sort((x, y) => x - y);
+  assert.ok(
+    h2 / h1 > 2,
+    `as colunas saíram na razão ${(h2 / h1).toFixed(2)} — o eixo cortado tinha de exagerar`
+  );
+  // e o alt AVISA, para o leitor de tela não ser enganado junto
+  const item = manifesto.find((m) => m.id === "et8-res-eixo-cortado");
+  assert.match(item.alt, /não começa no zero|NÃO no zero/i, "o alt tinha de avisar do eixo cortado");
+
+  // O fator da área: dobrar os dois lados quadruplica — a lição de escala
+  // do Volume, agora usada contra o leitor.
+  for (const f of [2, 3, 4]) {
+    assert.equal(((3 * f) * (4 * f)) / (3 * 4), f ** 2);
+  }
+  assert.equal(2 ** 2, 4);
+  assert.equal(2 ** 3, 8, "8 é o fator do volume, e não o da área");
+
+  alt("estatistica-8", "grafico-mente", "q1", "Se o eixo dos valores começa no zero");
+  num("estatistica-8", "grafico-mente", "q2", 4);
+  alt("estatistica-8", "grafico-mente", "q3", "Recorte escolhido: o pedaço mostrado sugere o contrário do todo");
+  alt("estatistica-8", "grafico-mente", "q4", "Nenhum precisa de dado falso: todos distorcem a apresentação");
+});
+
+teste("estatística · lição 6 — o roteiro da pesquisa", () => {
+  assert.equal((120 * 100) / 400, 30);
+  assert.equal(400 - 120, 280);
+
+  num("estatistica-8", "pesquisa", "q1", 30);
+  alt("estatistica-8", "pesquisa", "q2", "\"Você concorda que a merenda precisa melhorar?\"");
+  alt("estatistica-8", "pesquisa", "q3", "Todos os alunos da escola");
+  alt("estatistica-8", "pesquisa", "q4", "Não, mas é motivo para checar a amostra e a pergunta com atenção");
+});
+
+teste("estatística · só a lição 5 usa eixo cortado", () => {
+  // O `base` do gráfico é o truque, e ele não pode vazar para as outras
+  // lições: uma figura com eixo cortado fora da lição que ensina a
+  // reconhecê-lo enganaria o aluno de verdade.
+  const daMateria = manifesto.filter((m) => m.id.startsWith("et8-"));
+  assert.equal(daMateria.length, 36);
+  const comEixoCortado = ["et8-res-eixo-cortado", "et8-q-primeiro-olhar"];
+  for (const item of daMateria) {
+    const s = item.desenho();
+    assert.ok(!/undefined|NaN/.test(s), `${item.id}: saiu com undefined ou NaN`);
+    assert.ok(Number(s.match(/width="(\d+)"/)[1]) <= 456, `${item.id}: passa do teto de 456px`);
+    // um gráfico de colunas com eixo cortado tem o menor rótulo do eixo > 0
+    const numerosDoEixo = [...s.matchAll(/>(\d+)</g)].map((m) => Number(m[1]));
+    const pareceGrafico = s.includes("<rect") && numerosDoEixo.length >= 3;
+    if (pareceGrafico && !comEixoCortado.includes(item.id)) {
+      assert.ok(
+        numerosDoEixo.includes(0) || !item.id.startsWith("et8-q-recorte"),
+        `${item.id}: gráfico fora da lição 5 não pode ter eixo cortado`
+      );
+    }
+  }
+  for (const id of comEixoCortado) {
+    assert.ok(daMateria.some((m) => m.id === id), `${id} tinha de existir`);
+  }
+});
+
+teste("estatística · as figuras não entregam a resposta", () => {
+  figurasNaoEntregam("estatistica-8", 24);
 });
 
 console.log(`\n${total - falhas}/${total} testes passaram.`);

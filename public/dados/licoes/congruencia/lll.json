@@ -1,0 +1,194 @@
+{
+  "id": "lll",
+  "numero": 2,
+  "titulo": "O caso LLL",
+  "pergunta": "Três lados já bastam?",
+  "ideia": {
+    "paragrafos": [
+      "O primeiro caso é o mais direto: se os TRÊS LADOS de um triângulo são iguais aos três lados de outro, os dois triângulos são congruentes. Ele se chama LLL — lado, lado, lado.",
+      "O que ele afirma é forte, e vale prestar atenção: sabendo só os lados, os ângulos vêm de brinde. Não é preciso medir nenhum ângulo para garantir que eles também coincidem — os três lados já determinam o triângulo inteiro.",
+      "A razão disso é a rigidez do triângulo, e ela tem consequência prática. Monte um triângulo com três varetas presas nos cantos e tente deformá-lo: não dá. Já um quadrado feito de quatro varetas se entorta num losango sem esforço, porque quatro lados NÃO determinam a figura. É por isso que estruturas de telhado, ponte e torre são cheias de triângulos.",
+      "Vale lembrar a condição da matéria do 7º ano: nem todo trio de medidas fecha um triângulo. O maior lado precisa ser menor que a soma dos outros dois — com 2, 3 e 9 não existe triângulo nenhum. O caso LLL só se aplica a trios que fecham.",
+      "Na figura, a igualdade dos lados aparece pelos TIQUINHOS: lados com um tiquinho são iguais entre si, os de dois tiquinhos também, e assim por diante. É essa notação que permite dizer o que se sabe sem escrever medida nenhuma."
+    ],
+    "destaque": "Três lados determinam o triângulo inteiro. Os ângulos vêm junto, sem precisar medir.",
+    "imagem": "cg-ideia-lll"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos têm lados 5, 7 e 9 cada um. Eles são congruentes? Por qual caso?",
+    "imagem": "cg-res-lll",
+    "passos": [
+      {
+        "titulo": "Confira se o trio fecha",
+        "explicacao": "O maior lado precisa ser menor que a soma dos outros dois, senão não existe triângulo.",
+        "conta": "9 < 5 + 7 ✓"
+      },
+      {
+        "titulo": "Compare os três lados",
+        "explicacao": "Cada lado de um tem de ter um correspondente igual no outro triângulo.",
+        "conta": "5 = 5 · 7 = 7 · 9 = 9"
+      },
+      {
+        "titulo": "Aplique o caso",
+        "explicacao": "Três lados iguais bastam para garantir a congruência: é o caso LLL.",
+        "conta": "LLL ✓"
+      },
+      {
+        "titulo": "Colha o que vem junto",
+        "explicacao": "Sendo congruentes, os ângulos correspondentes também são iguais — sem precisar medi-los.",
+        "conta": "os 3 ângulos também coincidem"
+      }
+    ],
+    "fecho": "É a rigidez do triângulo: com os lados fixos, não há como mudar os ângulos."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos lados iguais o caso LLL exige que se conheça? Digite apenas o número.",
+      "imagem": "cg-q-quantos-lll",
+      "dica": "O nome do caso já diz: uma letra L para cada lado conhecido.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 lados sozinhos não determinam o triângulo: com dois lados fixos, o ângulo entre eles pode abrir mais ou menos, mudando o terceiro lado. Falta o terceiro lado, ou o ângulo entre os dois — que é o caso LAL."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o total de igualdades que a congruência GARANTE no fim: três lados mais três ângulos. O caso LLL precisa que se conheça só três delas."
+        },
+        {
+          "resposta": "1",
+          "porque": "Um lado só não diz quase nada: existem infinitos triângulos diferentes com um lado de medida dada. O caso precisa dos três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o nome do caso",
+          "explicacao": "Cada letra L do nome representa um lado que precisa ser conhecido.",
+          "conta": "L-L-L → 3 lados"
+        },
+        {
+          "titulo": "Veja o que isso garante",
+          "explicacao": "Com os três lados fixos, o triângulo inteiro fica determinado.",
+          "conta": "os ângulos vêm junto"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que uma estrutura de telhado usa triângulos, e não quadrados?",
+      "imagem": "cg-q-rigidez",
+      "dica": "Pense no que acontece ao empurrar uma armação de varetas de cada formato.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque os três lados determinam o triângulo, e ele não se deforma" },
+        { "rotulo": "B", "texto": "Porque o triângulo usa menos material" },
+        { "rotulo": "C", "texto": "Porque o triângulo é mais bonito" },
+        { "rotulo": "D", "texto": "Porque o quadrado tem ângulos retos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o triângulo usa menos material",
+          "porque": "Ele usa três varetas em vez de quatro, mas não é isso que decide: mesmo com material de sobra, a armação quadrada continuaria entortando. O que importa é a rigidez."
+        },
+        {
+          "resposta": "Porque o triângulo é mais bonito",
+          "porque": "A escolha é estrutural, e não estética. Uma armação quadrada de varetas se deforma num losango ao ser empurrada, e a triangular não se mexe."
+        },
+        {
+          "resposta": "Porque o quadrado tem ângulos retos",
+          "porque": "Ter ângulos retos não é o problema — o problema é que eles não se MANTÊM: empurrando a armação, os retos viram agudos e obtusos, e a figura vira um losango."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste as duas armações",
+          "explicacao": "Com os lados presos nos cantos, empurre cada uma delas de lado.",
+          "conta": "triângulo: firme · quadrado: entorta"
+        },
+        {
+          "titulo": "Ligue ao caso LLL",
+          "explicacao": "Três lados determinam um triângulo só; quatro lados não determinam um quadrilátero só.",
+          "conta": "por isso o triângulo é rígido"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Existe algum triângulo com lados 2, 3 e 9? Responda 1 para sim e 0 para não.",
+      "imagem": "cg-q-nao-fecha",
+      "dica": "Compare o maior lado com a soma dos outros dois.",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "Com 2 e 3 emendados, o comprimento total é 5 — e as pontas não alcançam os 9 do lado maior. A condição do 7º ano diz isso: o maior lado precisa ser MENOR que a soma dos outros dois."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é a medida do maior lado, e não a resposta da pergunta. Ela pede 1 ou 0 para dizer se o triângulo existe."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a soma de 2 com 3, que é o passo do meio da conferência. Como 5 é menor que 9, o triângulo não existe — e a resposta é 0."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os dois menores",
+          "explicacao": "É o comprimento máximo que os dois juntos conseguem alcançar.",
+          "conta": "2 + 3 = 5"
+        },
+        {
+          "titulo": "Compare com o maior",
+          "explicacao": "Como 5 não chega a 9, as pontas não se encontram e a figura não fecha.",
+          "conta": "5 < 9 → não existe"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Ao aplicar o caso LLL, é preciso medir algum ângulo?",
+      "imagem": "cg-q-precisa-angulo",
+      "dica": "Pense no que os três lados já determinam sozinhos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, os ângulos ficam determinados pelos lados" },
+        { "rotulo": "B", "texto": "Sim, pelo menos um" },
+        { "rotulo": "C", "texto": "Sim, os três" },
+        { "rotulo": "D", "texto": "Só se o triângulo não for equilátero" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, pelo menos um",
+          "porque": "Nenhum é necessário. Com os três lados fixos o triângulo não tem folga para mudar de forma, então os ângulos já estão decididos — é a rigidez que a lição descreve."
+        },
+        {
+          "resposta": "Sim, os três",
+          "porque": "Medir os três seria fazer trabalho a mais, e o caso LLL existe justamente para evitá-lo. Três lados iguais já garantem os seis elementos."
+        },
+        {
+          "resposta": "Só se o triângulo não for equilátero",
+          "porque": "A regra vale igual para qualquer triângulo, equilátero ou não. No equilátero ela é ainda mais evidente, mas o caso LLL não faz essa distinção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que os lados fixam",
+          "explicacao": "Com as três medidas dadas, só existe um triângulo possível — a menos da posição.",
+          "conta": "3 lados → 1 triângulo"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Não havendo outro triângulo possível, os ângulos também já estão decididos.",
+          "conta": "sem medir ângulo nenhum"
+        }
+      ]
+    }
+  ]
+}

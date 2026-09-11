@@ -1,0 +1,41 @@
+{
+  "id": "congruencia",
+  "titulo": "Congruência de triângulos",
+  "ano": 8,
+  "descricao": "Quando dois triângulos são o mesmo triângulo — e como PROVAR isso sem medir tudo. A lição 5 é a que dá sentido à matéria: ela mostra os dois casos que parecem funcionar e não funcionam, e é aí que os outros três deixam de ser lista para decorar.",
+  "pergunta": "Quantas medidas bastam para garantir que dois triângulos são iguais?",
+  "videos": [
+    {
+      "id": "C0BAP_2eeaA",
+      "titulo": "CASOS DE CONGRUÊNCIA DE TRIÂNGULOS",
+      "canal": "Gis com Giz",
+      "descricao": "Percorre os casos um a um, com a notação das marcas desenhada na tela. Serve para as lições 2, 3 e 4."
+    },
+    {
+      "id": "FK5j5Qu2FIg",
+      "titulo": "CONGRUÊNCIA ENTRE TRIÂNGULO | LAL | ALA | LLL | LAAo - (8º ANO)",
+      "canal": "Marcelo Martins",
+      "descricao": "Aula escrita para esta série, incluindo o caso LAAo que a matéria só menciona. Boa para quem vai encontrar esse nome no livro."
+    },
+    {
+      "id": "97K49y9_cN4",
+      "titulo": "Congruência de Triângulos :: 8º Ano",
+      "canal": "Professor João Antonio",
+      "descricao": "Explica a ideia antes dos casos, que é a ordem da lição 1. Vale se a diferença entre congruente e parecido ainda estiver confusa."
+    },
+    {
+      "id": "mfE8Wgd7xs4",
+      "titulo": "Exercícios sobre congruência de triângulos | Resolvidos - 8º ano",
+      "canal": "Professor Cícero Santos",
+      "descricao": "Só exercícios resolvidos. Para treinar depois de entender por que cada caso funciona."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/congruencia/o-que-e.json" },
+    { "id": "lll", "arquivo": "/dados/licoes/congruencia/lll.json" },
+    { "id": "lal", "arquivo": "/dados/licoes/congruencia/lal.json" },
+    { "id": "ala", "arquivo": "/dados/licoes/congruencia/ala.json" },
+    { "id": "nao-serve", "arquivo": "/dados/licoes/congruencia/nao-serve.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/congruencia/problemas.json" }
+  ]
+}

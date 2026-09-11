@@ -1,0 +1,188 @@
+{
+  "id": "numeros-grandes",
+  "numero": 4,
+  "titulo": "Escrever números grandes",
+  "pergunta": "Quantas casas a vírgula anda, e por que o expoente sai positivo?",
+  "ideia": {
+    "paragrafos": [
+      "Todo número inteiro tem uma vírgula, mesmo quando ela não é escrita: ela está logo depois do último algarismo. Em 45 000, a vírgula está no fim, e é de lá que ela parte.",
+      "Para escrever um número grande em notação científica, a vírgula anda para a ESQUERDA até sobrar um só algarismo antes dela. Em 45 000 ela anda quatro casas e para entre o 4 e o 5, formando o 4,5. Contar essas casas é toda a mecânica da conversão.",
+      "O expoente é exatamente essa contagem: quatro casas, expoente 4. E ele sai POSITIVO por um motivo que vale entender, porque é onde quase todo mundo erra o sinal. Andar com a vírgula para a esquerda ENCOLHEU o número — de 45 000 para 4,5 —, então a potência de 10 precisa devolver o tamanho perdido, multiplicando. Multiplicar pede expoente positivo.",
+      "Vale sempre conferir desfazendo. Se 45 000 virou 4,5 × 10⁴, então 4,5 multiplicado por 10 000 tem de dar 45 000 de volta. Essa conferência leva cinco segundos e pega o erro mais comum da matéria, que é errar o expoente por um.",
+      "Os zeros do fim não somem: eles viram expoente. É por isso que 45 000 e 4,5 × 10⁴ são o mesmo número escrito de dois jeitos — um guarda o tamanho em zeros, o outro guarda o tamanho num expoente."
+    ],
+    "destaque": "A vírgula anda para a esquerda e encolhe o número; o expoente positivo devolve o tamanho.",
+    "imagem": "nc-ideia-grande"
+  },
+  "resolvido": {
+    "enunciado": "A distância média da Terra ao Sol é de cerca de 149 600 000 km. Escreva esse número em notação científica.",
+    "imagem": "nc-res-grande",
+    "passos": [
+      {
+        "titulo": "Ache a vírgula escondida",
+        "explicacao": "Todo inteiro tem uma vírgula depois do último algarismo, mesmo que ela não seja escrita.",
+        "conta": "149 600 000 →  149600000,"
+      },
+      {
+        "titulo": "Ande até sobrar um algarismo",
+        "explicacao": "A vírgula caminha para a esquerda até ficar logo depois do primeiro algarismo, que aqui é o 1.",
+        "conta": "1,496 00000 → 8 casas"
+      },
+      {
+        "titulo": "Escreva a potência",
+        "explicacao": "A contagem das casas é o expoente, e ele é positivo porque a vírgula andando para a esquerda encolheu o número.",
+        "conta": "1,496 × 10⁸"
+      },
+      {
+        "titulo": "Confira desfazendo",
+        "explicacao": "Multiplicando de volta, a vírgula anda oito casas para a direita e o número original tem de reaparecer.",
+        "conta": "1,496 × 100 000 000 = 149 600 000 ✓"
+      }
+    ],
+    "fecho": "Os zeros não desapareceram: eles estão guardados no expoente 8."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A população da Terra passou de 7 500 000 000 de pessoas. Escrevendo esse número em notação científica, qual é o expoente do 10? Digite apenas o número.",
+      "imagem": "nc-q-populacao",
+      "dica": "Conte quantas casas a vírgula precisa andar para sobrar só o 7 antes dela.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 conta os ALGARISMOS do número, que são mesmo dez. O expoente conta as CASAS que a vírgula anda, e ela para depois do primeiro algarismo — são sempre os algarismos menos um."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 conta uma casa a menos, o que deixaria o primeiro fator em 75 — acima de 10, fora da faixa permitida. A vírgula precisa andar até sobrar um único algarismo antes dela."
+        },
+        {
+          "resposta": "-9",
+          "porque": "−9 troca o sinal do expoente. O menos aparece nos números PEQUENOS, quando a vírgula anda para a direita; aqui ela andou para a esquerda e encolheu o número, então a potência devolve o tamanho multiplicando."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ande com a vírgula",
+          "explicacao": "Ela parte do fim do número e caminha até sobrar só o 7 antes dela.",
+          "conta": "7500000000, → 7,5"
+        },
+        {
+          "titulo": "Conte as casas",
+          "explicacao": "A contagem é o expoente, positivo porque a vírgula andou para a esquerda.",
+          "conta": "9 casas → 7,5 × 10⁹"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A luz percorre cerca de 300 000 km por segundo. Escrevendo esse número em notação científica, qual é o expoente do 10? Digite apenas o número.",
+      "imagem": "nc-q-luz",
+      "dica": "Os zeros do fim contam como casas percorridas pela vírgula.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 conta os algarismos do número em vez das casas percorridas. São seis algarismos, mas a vírgula para DEPOIS do primeiro: ela anda cinco casas."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 parece contar apenas os zeros de um dos grupos, ou o próprio algarismo 3. O expoente conta todas as casas entre a posição final da vírgula e o fim do número, que aqui são cinco."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 acerta a contagem mas erra o sinal. Trezentos mil é um número grande, e número grande tem expoente positivo — o negativo deixaria o resultado menor que 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ande com a vírgula",
+          "explicacao": "Ela sai do fim e para logo depois do 3, deixando um só algarismo antes dela.",
+          "conta": "300000, → 3"
+        },
+        {
+          "titulo": "Conte as casas",
+          "explicacao": "Cinco casas percorridas, e o expoente é positivo porque o número é grande.",
+          "conta": "5 casas → 3 × 10⁵"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Escrevendo 86 400 em notação científica, qual é o primeiro fator? Digite apenas o número.",
+      "imagem": "nc-q-segundos-dia",
+      "dica": "A vírgula para logo depois do primeiro algarismo, e os zeros do fim não entram nessa parte.",
+      "formato": "numero",
+      "resposta": 8.64,
+      "errosComuns": [
+        {
+          "resposta": "86.4",
+          "porque": "86,4 deixa dois algarismos antes da vírgula, e a faixa permite só um. Ela precisa andar mais uma casa para a esquerda, parando logo depois do 8."
+        },
+        {
+          "resposta": "8.6",
+          "porque": "8,6 descarta o algarismo 4, que faz parte do número. Só os ZEROS do fim viram expoente; os algarismos significativos ficam todos no primeiro fator."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o expoente da potência de 10, e não o primeiro fator. São as duas metades da escrita: o fator traz os algarismos, a potência traz o tamanho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ponha a vírgula depois do primeiro algarismo",
+          "explicacao": "Assim o fator fica entre 1 e 10, como a forma exige.",
+          "conta": "86 400 → 8,64"
+        },
+        {
+          "titulo": "Confira desfazendo",
+          "explicacao": "Multiplicando pela potência de quatro casas, o número original volta.",
+          "conta": "8,64 × 10 000 = 86 400 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um aluno escreveu 62 000 como 62 × 10³. O valor está certo, mas o que falta para a escrita ficar em notação científica?",
+      "imagem": "nc-q-ajustar",
+      "dica": "Compare o primeiro fator com a faixa exigida e veja para que lado a vírgula precisa andar.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Andar mais uma casa: 6,2 × 10⁴" },
+        { "rotulo": "B", "texto": "Andar uma casa a menos: 620 × 10²" },
+        { "rotulo": "C", "texto": "Trocar o sinal do expoente: 62 × 10⁻³" },
+        { "rotulo": "D", "texto": "Nada: já está em notação científica" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Andar uma casa a menos: 620 × 10²",
+          "porque": "Isso piora: o primeiro fator vai de 62 para 620, mais longe ainda da faixa. Para o fator DIMINUIR, a vírgula precisa andar para a esquerda, e o expoente sobe para compensar."
+        },
+        {
+          "resposta": "Trocar o sinal do expoente: 62 × 10⁻³",
+          "porque": "Isso muda o valor: 62 × 10⁻³ vale 0,062, e não 62 000. Além disso, o primeiro fator continua sendo 62, que segue fora da faixa de 1 a 10."
+        },
+        {
+          "resposta": "Nada: já está em notação científica",
+          "porque": "O valor está certo, mas a escrita não: o primeiro fator precisa ficar entre 1 e 10, e 62 passa disso. É essa exigência que dá a cada número uma única forma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que está fora",
+          "explicacao": "O primeiro fator precisa ficar abaixo de 10, e 62 não fica.",
+          "conta": "62 > 10 ✗"
+        },
+        {
+          "titulo": "Ande uma casa e compense",
+          "explicacao": "A vírgula anda para a esquerda, o fator encolhe dez vezes e o expoente sobe um para o valor não mudar.",
+          "conta": "62 × 10³ = 6,2 × 10⁴"
+        }
+      ]
+    }
+  ]
+}

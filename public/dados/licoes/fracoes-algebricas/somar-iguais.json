@@ -1,0 +1,194 @@
+{
+  "id": "somar-iguais",
+  "numero": 4,
+  "titulo": "Somar com o mesmo denominador",
+  "pergunta": "Por que o denominador não se soma?",
+  "ideia": {
+    "paragrafos": [
+      "Com denominadores iguais, somar frações é a operação mais simples de todas: somam-se os numeradores e o denominador fica como está. x/5 mais 2x/5 dá 3x/5, e o 5 não vira 10.",
+      "O motivo é o mesmo do 6º ano, e vale relembrar porque com letras a tentação de somar tudo aumenta. O denominador não é uma quantidade que se acumula: ele diz em quantas partes o inteiro foi dividido. Somar dois quintos com um quinto dá três quintos, e não três décimos — o tamanho da parte não mudou, só a quantidade delas.",
+      "Com numeradores mais compridos, o cuidado é com o parêntese. Em (x + 1)/4 mais (x − 1)/4, o numerador da soma é (x + 1) + (x − 1) inteiro, e não x + 1 + x − 1 solto: os dois numeradores entram completos. Somando, dá 2x, e a fração fica 2x/4, que simplifica para x/2.",
+      "Na SUBTRAÇÃO esse parêntese deixa de ser zelo e vira necessidade. Em (3x)/5 menos (x − 2)/5, o sinal de menos atinge o numerador inteiro da segunda fração: fica 3x − (x − 2), que é 3x − x + 2, ou seja, 2x + 2. Quem esquece o parêntese escreve 3x − x − 2 e erra o sinal do 2.",
+      "E vale sempre simplificar no fim. A soma pode produzir uma fração que ainda se reduz — como o 2x/4 do exemplo, que vira x/2 —, e deixar assim é resposta pela metade."
+    ],
+    "destaque": "Somam-se os numeradores; o denominador diz o tamanho da parte e fica como está.",
+    "imagem": "fa-ideia-somar-iguais"
+  },
+  "resolvido": {
+    "enunciado": "Efetue (x + 1)/4 + (x − 1)/4.",
+    "imagem": "fa-res-somar-iguais",
+    "passos": [
+      {
+        "titulo": "Some os numeradores",
+        "explicacao": "Cada numerador entra inteiro, entre parênteses, para nenhum sinal se perder.",
+        "conta": "(x + 1) + (x − 1)"
+      },
+      {
+        "titulo": "Abra e junte os semelhantes",
+        "explicacao": "O x com o x, e o mais um com o menos um, que se cancelam.",
+        "conta": "x + 1 + x − 1 = 2x"
+      },
+      {
+        "titulo": "Escreva a fração",
+        "explicacao": "O denominador não muda: ele continua dizendo que o inteiro está em quartos.",
+        "conta": "2x/4"
+      },
+      {
+        "titulo": "Simplifique",
+        "explicacao": "O 2 é fator comum ao numerador e ao denominador, então corta.",
+        "conta": "2x/4 = x/2"
+      }
+    ],
+    "fecho": "Testando com x = 3: as duas frações dão 1 e 0,5, somando 1,5 — e x/2 dá 1,5."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Efetuando x/5 + 2x/5, qual é o numerador da resposta, escrito como número que multiplica o x? Digite apenas o número.",
+      "imagem": "fa-q-somar-x5",
+      "dica": "Some só os numeradores. O denominador não participa da soma.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é o coeficiente da segunda parcela sozinha. A soma junta os dois numeradores: um x mais dois x dão três x."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 soma os denominadores, que é o que não se faz. O denominador diz o tamanho da parte, e somar quintos com quintos continua dando quintos."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 parece multiplicar em vez de somar, ou somar os denominadores junto. Os numeradores 1x e 2x se somam, dando 3x — o denominador 5 fica intacto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os numeradores",
+          "explicacao": "Eles são termos semelhantes, com a mesma letra no mesmo grau.",
+          "conta": "x + 2x = 3x"
+        },
+        {
+          "titulo": "Mantenha o denominador",
+          "explicacao": "O tamanho da parte não mudou, só a quantidade de partes.",
+          "conta": "3x/5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Efetuando 3x/5 − (x − 2)/5, qual é o numerador da resposta?",
+      "imagem": "fa-q-subtrair-parenteses",
+      "dica": "O sinal de menos atinge o numerador INTEIRO da segunda fração. Use parênteses.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2x + 2" },
+        { "rotulo": "B", "texto": "2x − 2" },
+        { "rotulo": "C", "texto": "4x − 2" },
+        { "rotulo": "D", "texto": "3x − 2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2x − 2",
+          "porque": "Este é o erro clássico da subtração: o menos foi aplicado só ao x e não ao −2. Distribuindo direito, 3x − (x − 2) dá 3x − x + 2, porque menos com menos dá mais."
+        },
+        {
+          "resposta": "4x − 2",
+          "porque": "4x soma os dois x em vez de subtrair. A operação é de subtração, então o x da segunda fração é tirado do 3x, deixando 2x."
+        },
+        {
+          "resposta": "3x − 2",
+          "porque": "Isso subtrai só o número e esquece de subtrair o x. O numerador inteiro da segunda fração é tirado: tanto o x quanto o −2 são atingidos pelo sinal."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva com parênteses",
+          "explicacao": "O sinal de menos atinge o numerador inteiro, e não só a primeira parcela dele.",
+          "conta": "3x − (x − 2)"
+        },
+        {
+          "titulo": "Distribua o sinal",
+          "explicacao": "Menos vezes menos dá mais, então o −2 vira +2.",
+          "conta": "3x − x + 2 = 2x + 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Efetuando 3x/8 + x/8 e simplificando o resultado, qual é o denominador da resposta? Digite apenas o número.",
+      "imagem": "fa-q-simplificar-depois",
+      "dica": "Some primeiro, e depois veja se a fração resultante ainda se reduz.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é o denominador ANTES de simplificar. A soma dá 4x/8, e o 4 é fator comum ao numerador e ao denominador: cortando, sobra x/2."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 soma os denominadores, o que não se faz numa soma de frações. Eles são iguais e permanecem 8 — e só depois a fração é simplificada."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o coeficiente do numerador depois da soma, e não o denominador simplificado. Dividindo os dois por 4, o numerador vira x e o denominador vira 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os numeradores",
+          "explicacao": "Três x mais um x dão quatro x, e o denominador fica.",
+          "conta": "3x + x = 4x → 4x/8"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "O 4 divide o numerador e o denominador.",
+          "conta": "4x/8 = x/2"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que o denominador NÃO se soma ao somar duas frações de mesmo denominador?",
+      "imagem": "fa-q-por-que-nao-soma",
+      "dica": "Pense no que o denominador informa: quantidade de partes ou tamanho delas?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ele diz o TAMANHO da parte, e o tamanho não muda ao juntar partes" },
+        { "rotulo": "B", "texto": "Porque somar denominadores dá um número grande demais" },
+        { "rotulo": "C", "texto": "Porque o denominador é sempre o mesmo em toda conta" },
+        { "rotulo": "D", "texto": "Porque é uma convenção sem motivo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque somar denominadores dá um número grande demais",
+          "porque": "O tamanho do número não decide nada. O problema é de significado: somar os denominadores mudaria o tamanho da fatia, e juntar dois quintos com um quinto não corta as fatias."
+        },
+        {
+          "resposta": "Porque o denominador é sempre o mesmo em toda conta",
+          "porque": "Ele muda em várias situações: na multiplicação os denominadores se multiplicam, e na soma com denominadores diferentes é preciso trocá-los pelo MMC. Aqui ele fica porque as partes já têm o mesmo tamanho."
+        },
+        {
+          "resposta": "Porque é uma convenção sem motivo",
+          "porque": "Há motivo, e ele se enxerga com uma pizza: duas fatias de um quinto mais uma fatia de um quinto dão três fatias de um quinto. As fatias não encolheram para um décimo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que cada parte da fração diz",
+          "explicacao": "O de cima conta as partes; o de baixo diz em quantas o inteiro foi cortado.",
+          "conta": "numerador conta · denominador dimensiona"
+        },
+        {
+          "titulo": "Veja o que a soma faz",
+          "explicacao": "Juntar partes aumenta a quantidade, mas não muda o tamanho de cada uma.",
+          "conta": "2/5 + 1/5 = 3/5"
+        }
+      ]
+    }
+  ]
+}

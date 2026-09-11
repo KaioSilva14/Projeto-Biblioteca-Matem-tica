@@ -1,0 +1,41 @@
+{
+  "id": "notacao-cientifica",
+  "titulo": "Potências e notação científica",
+  "ano": 8,
+  "descricao": "A matéria que abre o 8º ano. Seis lições que começam onde o 6º parou — a potência como contagem de fatores — e chegam ao jeito que cientista, jornal e calculadora escrevem números que não cabem na folha. A lição 2 é a que muda a cabeça: o expoente zero e o negativo não são regras decoradas, são a continuação de um padrão que já estava lá.",
+  "pergunta": "Como escrever a distância até o Sol e o tamanho de um vírus na mesma linha?",
+  "videos": [
+    {
+      "id": "cWtkI8cm0rY",
+      "titulo": "PROPRIEDADES DA POTENCIAÇÃO | RÁPIDO E FÁCIL",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Passa por todas as propriedades de uma vez, com exemplos rápidos. Serve para revisar a lição 1 antes de uma prova, quando o que falta é treino e não entendimento."
+    },
+    {
+      "id": "ols5_MRupOA",
+      "titulo": "POTÊNCIA COM EXPOENTE NEGATIVO. POR QUE INVERTE A BASE? \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Este responde ao PORQUÊ, e não só ao como — é o mesmo espírito da lição 2. Vale se a regra de inverter a base ainda parecer arbitrária."
+    },
+    {
+      "id": "tMOqp1Rqr0E",
+      "titulo": "NOTAÇÃO CIENTÍFICA",
+      "canal": "Gis com Giz",
+      "descricao": "Aula completa de notação científica, do conceito aos exercícios. Boa para acompanhar as lições 3, 4 e 5 com outra voz explicando."
+    },
+    {
+      "id": "0a3mjvx2IJk",
+      "titulo": "NOTAÇÃO CIENTÍFICA - Exercícios e Exemplos - 8º ano ‐ AULA 9",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Só exercícios resolvidos, escritos para esta série. Serve como fechamento, depois de percorrer as seis lições."
+    }
+  ],
+  "licoes": [
+    { "id": "propriedades", "arquivo": "/dados/licoes/notacao-cientifica/propriedades.json" },
+    { "id": "expoente-zero", "arquivo": "/dados/licoes/notacao-cientifica/expoente-zero.json" },
+    { "id": "o-que-e", "arquivo": "/dados/licoes/notacao-cientifica/o-que-e.json" },
+    { "id": "numeros-grandes", "arquivo": "/dados/licoes/notacao-cientifica/numeros-grandes.json" },
+    { "id": "numeros-pequenos", "arquivo": "/dados/licoes/notacao-cientifica/numeros-pequenos.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/notacao-cientifica/problemas.json" }
+  ]
+}

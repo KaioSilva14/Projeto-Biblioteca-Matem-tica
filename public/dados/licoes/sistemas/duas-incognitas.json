@@ -1,0 +1,194 @@
+{
+  "id": "duas-incognitas",
+  "numero": 1,
+  "titulo": "Duas incógnitas",
+  "pergunta": "Por que uma equação sozinha não basta para achar duas letras?",
+  "ideia": {
+    "paragrafos": [
+      "No 7º ano, cada equação tinha uma incógnita e uma resposta. Agora aparecem problemas com duas coisas desconhecidas ao mesmo tempo — o preço do refrigerante E o do salgado, a idade do pai E a do filho —, e uma equação só não dá conta.",
+      "Veja por quê. A equação x + y = 10 tem infinitas soluções: 1 e 9 servem, 2 e 8 servem, 4,5 e 5,5 servem. Escolhendo qualquer valor para x, sempre existe um y que fecha a conta. Uma equação com duas incógnitas não seleciona um par: ela seleciona uma família inteira de pares.",
+      "Para achar UM par, é preciso uma segunda informação sobre as mesmas duas letras. Se além de x + y = 10 soubermos que y é 2 unidades maior que x, os pares candidatos caem para um só: 4 e 6. Duas equações juntas, tratando das mesmas incógnitas, formam um SISTEMA.",
+      "Resolver um sistema é achar o par que serve nas DUAS equações ao mesmo tempo. Não basta o par funcionar numa e falhar na outra: a solução é o encontro das duas exigências. Por isso a resposta se escreve como um par ordenado, como (4, 6).",
+      "E conferir é sempre possível, o que torna esta matéria mais segura que as anteriores. Basta substituir o par nas duas equações originais e ver se as duas fecham. Se uma falhar, a solução está errada — sem discussão."
+    ],
+    "destaque": "Uma equação com duas incógnitas tem infinitas soluções. Duas equações juntas selecionam uma.",
+    "imagem": "si-ideia-infinitas"
+  },
+  "resolvido": {
+    "enunciado": "Verifique se o par x = 4 e y = 6 é solução do sistema x + y = 10 e y − x = 2.",
+    "imagem": "si-res-conferir",
+    "passos": [
+      {
+        "titulo": "Substitua na primeira equação",
+        "explicacao": "Troque as letras pelos valores do par e veja se a igualdade fecha.",
+        "conta": "4 + 6 = 10 ✓"
+      },
+      {
+        "titulo": "Substitua na segunda",
+        "explicacao": "O mesmo par tem de servir aqui também — é isso que faz dele solução do sistema.",
+        "conta": "6 − 4 = 2 ✓"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "As duas fecharam, então o par resolve o sistema inteiro.",
+        "conta": "(4, 6) é solução"
+      },
+      {
+        "titulo": "Teste um par que falha",
+        "explicacao": "O par 3 e 7 fecha a primeira, mas não a segunda — e por isso não serve.",
+        "conta": "3 + 7 = 10 ✓ · 7 − 3 = 4 ✗"
+      }
+    ],
+    "fecho": "Servir numa equação não basta. A solução é o par que serve nas duas."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos pares de números diferentes satisfazem, sozinha, a equação x + y = 10?",
+      "imagem": "si-q-quantas-solucoes",
+      "dica": "Escolha um valor qualquer para x e veja se sempre existe um y que fecha a conta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Infinitos" },
+        { "rotulo": "B", "texto": "Apenas um" },
+        { "rotulo": "C", "texto": "Dez" },
+        { "rotulo": "D", "texto": "Nenhum" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Apenas um",
+          "porque": "Um par só apareceria com DUAS equações. Sozinha, x + y = 10 aceita 1 e 9, 2 e 8, 3 e 7 — e também 4,5 e 5,5, porque os valores não precisam ser inteiros."
+        },
+        {
+          "resposta": "Dez",
+          "porque": "Dez seria a contagem se só valessem inteiros de 0 a 10. Mas x pode ser 4,5, ou −3, ou qualquer número — e sempre existe um y que completa até 10."
+        },
+        {
+          "resposta": "Nenhum",
+          "porque": "Há soluções de sobra: 4 e 6 é uma delas. A dificuldade não é a falta de soluções, e sim o excesso — é justamente por isso que uma segunda equação é necessária."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha um x qualquer",
+          "explicacao": "Para cada valor de x, o y fica determinado pela própria equação.",
+          "conta": "x = 1 → y = 9  ·  x = 7 → y = 3"
+        },
+        {
+          "titulo": "Repare que nunca falta",
+          "explicacao": "Qualquer número serve como x, então a lista de pares não acaba.",
+          "conta": "infinitas soluções"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "No sistema x + y = 7 e x − y = 3, o par x = 6 e y = 1 fecha a primeira equação. Ele é solução do sistema?",
+      "imagem": "si-q-serve-nas-duas",
+      "dica": "Teste o par também na segunda equação. As duas precisam fechar.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque na segunda equação dá 5, e não 3" },
+        { "rotulo": "B", "texto": "Sim, porque fecha a primeira equação" },
+        { "rotulo": "C", "texto": "Sim, porque os dois números são positivos" },
+        { "rotulo": "D", "texto": "Não dá para saber sem resolver o sistema" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque fecha a primeira equação",
+          "porque": "Fechar uma equação não basta: a solução de um sistema precisa servir nas DUAS. Testando na segunda, 6 − 1 dá 5, e a equação pedia 3 — então o par não serve."
+        },
+        {
+          "resposta": "Sim, porque os dois números são positivos",
+          "porque": "O sinal dos números não decide nada: existem sistemas cuja solução tem números negativos. O que decide é o par fechar as duas igualdades."
+        },
+        {
+          "resposta": "Não dá para saber sem resolver o sistema",
+          "porque": "Dá, e é justamente a vantagem desta matéria: para CONFERIR um par não é preciso resolver nada, basta substituir nas duas equações e olhar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste na segunda equação",
+          "explicacao": "O mesmo par tem de fechar aqui também.",
+          "conta": "6 − 1 = 5"
+        },
+        {
+          "titulo": "Compare com o que ela pede",
+          "explicacao": "A equação exigia 3, e o par deu 5 — então ele falha nesta.",
+          "conta": "5 ≠ 3 → não é solução"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantas equações são necessárias, no mínimo, para determinar duas incógnitas? Digite apenas o número.",
+      "imagem": "si-q-quantas-equacoes",
+      "dica": "Pense em quantas soluções sobram com uma equação só, e o que a segunda faz com essa lista.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "Uma equação com duas incógnitas deixa infinitos pares possíveis: x + y = 10 aceita 1 e 9, 2 e 8, e muitos outros. É preciso uma segunda condição para escolher um."
+        },
+        {
+          "resposta": "3",
+          "porque": "Três equações costumam ser demais, e podem até não ter solução comum. A regra prática é uma equação para cada incógnita, então duas bastam."
+        },
+        {
+          "resposta": "4",
+          "porque": "Quatro seria o dobro do necessário. A conta é simples: uma equação por incógnita, e aqui as incógnitas são duas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que uma equação faz",
+          "explicacao": "Ela liga as duas letras, mas deixa infinitos pares possíveis.",
+          "conta": "1 equação → infinitas soluções"
+        },
+        {
+          "titulo": "Acrescente a segunda",
+          "explicacao": "A segunda condição corta a lista até sobrar um par, no caso comum.",
+          "conta": "2 equações → 1 solução"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na equação x + y = 10, se x vale 7, quanto vale y? Digite apenas o número.",
+      "imagem": "si-q-completa-par",
+      "dica": "Substitua o valor de x e resolva a equação do 1º grau que sobra.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "17",
+          "porque": "17 soma o 7 com o 10, mas o 10 é o RESULTADO da soma, e não uma parcela. Substituindo, fica 7 + y = 10, e o y é o que falta para chegar a 10."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o valor de x, que o enunciado já deu. A pergunta é sobre o y — o que falta para a soma chegar a 10."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o total da equação, e não uma das parcelas. Se y valesse 10, a soma daria 17."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua o x",
+          "explicacao": "Com um valor no lugar da primeira letra, sobra uma equação de uma incógnita só.",
+          "conta": "7 + y = 10"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "É a equação do 1º grau do 7º ano: passe o 7 para o outro lado.",
+          "conta": "y = 10 − 7 = 3"
+        }
+      ]
+    }
+  ]
+}

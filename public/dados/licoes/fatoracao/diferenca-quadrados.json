@@ -1,0 +1,194 @@
+{
+  "id": "diferenca-quadrados",
+  "numero": 3,
+  "titulo": "A diferença de quadrados",
+  "pergunta": "Como reconhecer que x² − 25 é um produto disfarçado?",
+  "ideia": {
+    "paragrafos": [
+      "A matéria passada mostrou que (a + b)(a − b) dá a² − b². Fatorar é ler essa igualdade da direita para a esquerda: sempre que aparecer um quadrado menos outro quadrado, ele é o produto de uma soma por uma diferença.",
+      "Em x² − 25, o primeiro quadrado é x² e o segundo é 25, que é 5². Então a = x e b = 5, e a fatoração é (x + 5)(x − 5). Não há conta a fazer — só reconhecer os dois quadrados e tirar a raiz de cada um.",
+      "Três condições precisam valer ao mesmo tempo, e conferir as três evita quase todo erro. São só DOIS termos; os dois são quadrados perfeitos; e entre eles há um sinal de MENOS. Falhando qualquer uma, este não é o caso.",
+      "O sinal é o detalhe que mais derruba gente. x² − 25 fatora, mas x² + 25 não fatora por este caminho — uma soma de quadrados não é produto de nada com coeficientes inteiros. Vale gravar: só a diferença fatora.",
+      "E o coeficiente entra na raiz junto com a letra. Em 4x² − 9, o primeiro quadrado é 4x², cuja raiz é 2x, e o segundo é 9, de raiz 3. A fatoração é (2x + 3)(2x − 3) — quem esquece de tirar a raiz do 4 escreve (x + 3)(x − 3), que dá outra coisa."
+    ],
+    "destaque": "Dois termos, os dois quadrados, com sinal de menos entre eles. As três condições juntas.",
+    "imagem": "ft-ideia-dif-quadrados"
+  },
+  "resolvido": {
+    "enunciado": "Fatore x² − 25.",
+    "imagem": "ft-res-dif-quadrados",
+    "passos": [
+      {
+        "titulo": "Confira as três condições",
+        "explicacao": "São dois termos, os dois são quadrados perfeitos, e o sinal entre eles é de menos.",
+        "conta": "2 termos ✓ quadrados ✓ menos ✓"
+      },
+      {
+        "titulo": "Tire a raiz de cada quadrado",
+        "explicacao": "A raiz do primeiro é o a da fórmula, e a do segundo é o b.",
+        "conta": "√(x²) = x  ·  √25 = 5"
+      },
+      {
+        "titulo": "Monte a soma pela diferença",
+        "explicacao": "Os dois parênteses têm os mesmos termos, um somando e outro subtraindo.",
+        "conta": "(x + 5)(x − 5)"
+      },
+      {
+        "titulo": "Confira multiplicando de volta",
+        "explicacao": "Os termos do meio se cancelam, como a matéria passada mostrou.",
+        "conta": "x² − 5x + 5x − 25 = x² − 25 ✓"
+      }
+    ],
+    "fecho": "Fatorar aqui é só reconhecer e tirar duas raízes. A conta já foi feita na matéria passada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Fatorando x² − 49, quais são os dois parênteses?",
+      "imagem": "ft-q-dif-49",
+      "dica": "Tire a raiz de cada quadrado e monte uma soma e uma diferença com eles.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(x + 7)(x − 7)" },
+        { "rotulo": "B", "texto": "(x + 49)(x − 49)" },
+        { "rotulo": "C", "texto": "(x − 7)(x − 7)" },
+        { "rotulo": "D", "texto": "(x + 7)(x + 7)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(x + 49)(x − 49)",
+          "porque": "Isso usa o 49 sem tirar a raiz. O que aparece na expressão é o QUADRADO do segundo termo, então é preciso tirar a raiz: √49 = 7. Conferindo, (x+49)(x−49) daria x² − 2401."
+        },
+        {
+          "resposta": "(x − 7)(x − 7)",
+          "porque": "Com os dois sinais iguais, os termos do meio se SOMAM em vez de se cancelarem: isso daria x² − 14x + 49, com três termos. Para o meio sumir, os sinais têm de ser contrários."
+        },
+        {
+          "resposta": "(x + 7)(x + 7)",
+          "porque": "Também tem sinais iguais, e daria x² + 14x + 49. Além disso o último termo sairia positivo, e a expressão pedia menos 49."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire as duas raízes",
+          "explicacao": "Uma para cada quadrado da expressão.",
+          "conta": "√(x²) = x  ·  √49 = 7"
+        },
+        {
+          "titulo": "Monte com sinais contrários",
+          "explicacao": "É a troca de sinais que faz o termo do meio desaparecer.",
+          "conta": "(x + 7)(x − 7)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Fatorando 4x² − 9, qual é o coeficiente do x dentro de cada parêntese? Digite apenas o número.",
+      "imagem": "ft-q-coef-raiz",
+      "dica": "A raiz de 4x² não é x: o coeficiente também entra na raiz.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "1 tira a raiz só da letra e esquece o 4. A raiz de 4x² é 2x, porque 2x vezes 2x dá 4x² — deixando o coeficiente 1, a fatoração daria x² − 9, que é outra expressão."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é o coeficiente ANTES de tirar a raiz. Como ele aparece elevado ao quadrado na expressão, o que entra no parêntese é a raiz dele, que é 2."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a raiz do 9, ou seja, o segundo termo — o que aparece sozinho dentro do parêntese, sem letra. A pergunta é sobre o coeficiente que acompanha o x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire a raiz do primeiro quadrado",
+          "explicacao": "O coeficiente entra na raiz junto com a letra.",
+          "conta": "√(4x²) = 2x"
+        },
+        {
+          "titulo": "Monte a fatoração",
+          "explicacao": "A raiz do segundo quadrado é 3, e os sinais são contrários.",
+          "conta": "(2x + 3)(2x − 3)"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual destas expressões NÃO se fatora como diferença de quadrados?",
+      "imagem": "ft-q-nao-fatora",
+      "dica": "Confira as três condições em cada uma: dois termos, os dois quadrados, e sinal de menos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "x² + 16" },
+        { "rotulo": "B", "texto": "x² − 16" },
+        { "rotulo": "C", "texto": "9x² − 1" },
+        { "rotulo": "D", "texto": "x² − 100" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "x² − 16",
+          "porque": "Esta cumpre as três condições: dois termos, os dois quadrados, e sinal de menos. Ela fatora em (x + 4)(x − 4)."
+        },
+        {
+          "resposta": "9x² − 1",
+          "porque": "Esta também cumpre as três: 9x² é o quadrado de 3x e 1 é o quadrado de 1. Ela fatora em (3x + 1)(3x − 1) — o coeficiente entra na raiz, mas isso não impede a fatoração."
+        },
+        {
+          "resposta": "x² − 100",
+          "porque": "Esta cumpre as três condições e fatora em (x + 10)(x − 10). O 100 é quadrado perfeito, porque 10 × 10 = 100."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira o sinal",
+          "explicacao": "A regra exige sinal de MENOS entre os dois quadrados.",
+          "conta": "x² + 16 → sinal de mais ✗"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Soma de quadrados não é produto de nada com coeficientes inteiros.",
+          "conta": "não fatora"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantas condições precisam valer ao mesmo tempo para uma expressão ser diferença de quadrados? Digite apenas o número.",
+      "imagem": "ft-q-condicoes",
+      "dica": "Conte: quantos termos, que tipo de termos, e qual sinal entre eles.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "Uma só não basta: x² + 16 tem dois termos e os dois são quadrados, mas o sinal errado já derruba o caso. As três precisam valer juntas."
+        },
+        {
+          "resposta": "2",
+          "porque": "Duas ainda deixam passar erro: 2x − 9 tem dois termos e sinal de menos, mas o 2x não é quadrado perfeito. Falta conferir também o tipo dos termos."
+        },
+        {
+          "resposta": "4",
+          "porque": "São três, e não quatro: dois termos, os dois quadrados perfeitos, e sinal de menos entre eles. Não há uma quarta exigência."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste as condições",
+          "explicacao": "Cada uma exclui um tipo de expressão que não fatora por este caminho.",
+          "conta": "2 termos · ambos quadrados · sinal de menos"
+        },
+        {
+          "titulo": "Conte",
+          "explicacao": "As três precisam valer juntas: falhando uma, o caso é outro.",
+          "conta": "3 condições"
+        }
+      ]
+    }
+  ]
+}

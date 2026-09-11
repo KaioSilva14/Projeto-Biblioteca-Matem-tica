@@ -1,0 +1,194 @@
+{
+  "id": "erro-classico",
+  "numero": 5,
+  "titulo": "O erro que todo mundo comete",
+  "pergunta": "Por que (a + b)² não é a² + b²?",
+  "ideia": {
+    "paragrafos": [
+      "Esta lição existe por causa de um erro só, e ele é tão comum que merece uma lição inteira: escrever (a + b)² = a² + b². A tentação é clara — o expoente parece que \"entra\" em cada parcela, do mesmo jeito que entra num produto.",
+      "E a comparação não é boba, porque com PRODUTO isso funciona mesmo: (ab)² é a²b², e aí o expoente entra em cada fator. O que não funciona é com SOMA. A diferença entre os dois casos é o que esta lição precisa deixar claro.",
+      "O jeito mais rápido de se convencer é testar com números. Tome a = 3 e b = 4. De um lado, (3 + 4)² é 7², que dá 49. Do outro, 3² + 4² é 9 + 16, que dá 25. Não são iguais, e a diferença é 24 — que é exatamente 2ab, ou seja, 2 × 3 × 4.",
+      "A figura mostra o que está faltando. No quadrado de lado a + b, o a² é um pedaço e o b² é outro; entre eles ficam os dois retângulos ab. Escrever a² + b² é entregar só dois dos quatro pedaços e dizer que é o quadrado inteiro — sobram dois buracos.",
+      "Fica a regra prática, que vale para o resto da matemática: quadrado de soma NÃO se distribui parcela por parcela. Sempre que a dúvida bater, teste com dois números pequenos — leva dez segundos e resolve."
+    ],
+    "destaque": "Com produto o expoente entra em cada fator. Com soma, não. Teste com números.",
+    "imagem": "pn-ideia-erro"
+  },
+  "resolvido": {
+    "enunciado": "Mostre, com a = 3 e b = 4, que (a + b)² é diferente de a² + b². E diga quanto vale a diferença.",
+    "imagem": "pn-res-erro",
+    "passos": [
+      {
+        "titulo": "Calcule o lado certo",
+        "explicacao": "Some primeiro, dentro do parêntese, e só depois eleve ao quadrado.",
+        "conta": "(3 + 4)² = 7² = 49"
+      },
+      {
+        "titulo": "Calcule o que o erro produz",
+        "explicacao": "Eleve cada parcela ao quadrado separadamente e some, que é o que o erro faz.",
+        "conta": "3² + 4² = 9 + 16 = 25"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Os dois resultados são diferentes, então as expressões não são iguais.",
+        "conta": "49 ≠ 25 · diferença 24"
+      },
+      {
+        "titulo": "Veja de onde vem a diferença",
+        "explicacao": "Ela é exatamente o termo do meio, que o erro deixou de fora.",
+        "conta": "2ab = 2 × 3 × 4 = 24 ✓"
+      }
+    ],
+    "fecho": "A diferença nunca é aleatória: ela é sempre 2ab, o par de retângulos que ficou de fora."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale (2 + 5)²? Digite apenas o número.",
+      "imagem": "pn-q-testar-25",
+      "dica": "Some dentro do parêntese primeiro, e só depois eleve ao quadrado.",
+      "formato": "numero",
+      "resposta": 49,
+      "errosComuns": [
+        {
+          "resposta": "29",
+          "porque": "29 é 4 + 25, ou seja, cada parcela elevada ao quadrado separadamente. Esse é o erro desta lição: falta o termo do meio, que vale 2 × 2 × 5 = 20 — e 29 + 20 dá 49."
+        },
+        {
+          "resposta": "14",
+          "porque": "14 é 2 × 7, como se o expoente 2 mandasse multiplicar por dois. Elevar ao quadrado é multiplicar o número por ELE MESMO: 7 × 7 = 49."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 2 × 2 × 5, que é justamente o termo do meio — a parte que o erro clássico esquece. Ele é um pedaço da resposta, e não a resposta inteira."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Resolva o parêntese",
+          "explicacao": "A soma vem primeiro, porque está dentro do parêntese.",
+          "conta": "2 + 5 = 7"
+        },
+        {
+          "titulo": "Eleve ao quadrado",
+          "explicacao": "Multiplicar o resultado por ele mesmo.",
+          "conta": "7 × 7 = 49"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Com a = 2 e b = 5, qual é a diferença entre (a + b)² e a² + b²? Digite apenas o número.",
+      "imagem": "pn-q-diferenca-vale",
+      "dica": "Calcule os dois e subtraia. Depois confira se o resultado bate com 2ab.",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é o produto ab sozinho, sem o dobro. O que falta em a² + b² são DOIS retângulos ab, um em cima e outro do lado — por isso a diferença é 2ab."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 é o valor de (2+5)², e não a diferença entre os dois. A diferença é o que sobra ao subtrair 29 de 49."
+        },
+        {
+          "resposta": "29",
+          "porque": "29 é o valor de a² + b², ou seja, o resultado errado. A pergunta é sobre a distância entre os dois valores: 49 menos 29."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule os dois lados",
+          "explicacao": "Um deles é a conta certa, o outro é o que o erro produz.",
+          "conta": "(2+5)² = 49 · 2² + 5² = 29"
+        },
+        {
+          "titulo": "Subtraia e confira",
+          "explicacao": "A diferença tem de bater com o termo do meio esquecido.",
+          "conta": "49 − 29 = 20 · 2ab = 2 × 2 × 5 = 20 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Em qual destes casos o expoente PODE entrar em cada parcela separadamente?",
+      "imagem": "pn-q-quando-pode",
+      "dica": "Compare o que está dentro do parêntese: uma soma ou uma multiplicação?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "(ab)², porque dentro do parêntese há uma multiplicação" },
+        { "rotulo": "B", "texto": "(a + b)², porque o expoente vale para tudo que está dentro" },
+        { "rotulo": "C", "texto": "Nos dois casos, sempre" },
+        { "rotulo": "D", "texto": "Em nenhum dos dois" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "(a + b)², porque o expoente vale para tudo que está dentro",
+          "porque": "O expoente vale para tudo que está dentro, mas isso não quer dizer que ele se distribua parcela por parcela: (3+4)² dá 49 e 3² + 4² dá 25. Com soma, os dois retângulos ab entram na conta."
+        },
+        {
+          "resposta": "Nos dois casos, sempre",
+          "porque": "Só no produto. Testando a soma com a = 3 e b = 4, os dois lados dão 49 e 25 — bem diferentes. Já (3 × 4)² dá 144, e 3² × 4² também dá 144."
+        },
+        {
+          "resposta": "Em nenhum dos dois",
+          "porque": "No produto funciona: (ab)² é ab vezes ab, que reorganizado dá a² vezes b². A multiplicação pode ser reordenada livremente, o que a soma dentro de um quadrado não permite."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste o produto",
+          "explicacao": "Com a = 3 e b = 4, os dois caminhos dão o mesmo valor.",
+          "conta": "(3×4)² = 144 · 3²×4² = 9 × 16 = 144 ✓"
+        },
+        {
+          "titulo": "Teste a soma",
+          "explicacao": "Com os mesmos números, os dois caminhos discordam.",
+          "conta": "(3+4)² = 49 · 3²+4² = 25 ✗"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na figura do quadrado de lado a + b, o que a expressão errada a² + b² deixa de fora?",
+      "imagem": "pn-q-o-que-falta",
+      "dica": "Conte os pedaços do quadrado e veja quais deles a expressão errada inclui.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os dois retângulos do meio, que juntos valem 2ab" },
+        { "rotulo": "B", "texto": "Nada: os dois quadrados já preenchem a figura" },
+        { "rotulo": "C", "texto": "O quadrado menor, de área b²" },
+        { "rotulo": "D", "texto": "Uma faixa fina na borda do quadrado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Nada: os dois quadrados já preenchem a figura",
+          "porque": "Eles não preenchem: entre o quadrado a² e o quadrado b² sobram dois retângulos, um em cima e outro do lado. É exatamente essa área que falta na expressão errada."
+        },
+        {
+          "resposta": "O quadrado menor, de área b²",
+          "porque": "O b² está incluído na expressão a² + b² — é o segundo termo dela. O que falta são os dois retângulos ab, que não aparecem em lugar nenhum ali."
+        },
+        {
+          "resposta": "Uma faixa fina na borda do quadrado",
+          "porque": "O que falta não é uma borda: são duas regiões grandes, cada uma com lados a e b. Com a = 3 e b = 4, elas somam 24, quase metade dos 49 do quadrado inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os pedaços",
+          "explicacao": "O quadrado se divide em quatro regiões, e a expressão errada nomeia só duas.",
+          "conta": "a² · ab · ab · b²"
+        },
+        {
+          "titulo": "Veja o que sobrou de fora",
+          "explicacao": "As duas regiões não citadas são os retângulos, e juntos eles valem o dobro de ab.",
+          "conta": "ab + ab = 2ab"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "id": "setores",
+  "numero": 4,
+  "titulo": "O gráfico de setores",
+  "pergunta": "Quando a pizza é o gráfico certo — e quando não é?",
+  "ideia": {
+    "paragrafos": [
+      "O 6º ano deu colunas e barras, que servem para comparar quantidades. O gráfico de SETORES — a pizza — serve para outra coisa: mostrar como um todo se reparte. Ele é a figura natural da frequência relativa, porque o círculo inteiro representa os 100%.",
+      "Cada fatia ocupa uma parte do círculo proporcional à frequência daquela resposta. E como a volta inteira tem 360°, o ângulo de cada fatia sai de uma regra de três: a fatia de 45% mede 45% de 360°, ou seja, 162°. Metade do círculo são 180°, um quarto são 90° — vale memorizar esses dois, porque eles permitem conferir qualquer pizza de olho.",
+      "Daí vem a maior vantagem dele: dá para ler sem números. Uma fatia que passa da metade do círculo é maioria absoluta, e isso se vê antes de qualquer conta. Num gráfico de colunas a mesma informação exigiria somar todas as outras colunas e comparar.",
+      "E daí vem também a limitação. O gráfico de setores só funciona quando as categorias são partes de um mesmo todo e não se sobrepõem — cada entrevistado tem de estar em exatamente uma fatia. Numa pergunta em que se pode marcar mais de uma resposta, as porcentagens passam de 100% e a pizza deixa de fazer sentido.",
+      "Ele também não serve para acompanhar mudança ao longo do tempo, que é trabalho de gráfico de linha, nem para comparar valores próximos: fatias de 24% e 26% são praticamente indistinguíveis a olho nu, enquanto duas colunas dessas alturas se distinguem sem esforço.",
+      "Um último cuidado, que aparece muito: fatias pequenas demais não cabem com rótulo dentro. Espremer o texto ou ligá-lo por uma linha fina costuma sair ilegível — quando há muitas categorias miúdas, a tabela comunica melhor que a pizza."
+    ],
+    "destaque": "O círculo inteiro é 100%, e 360° é a volta. Metade é 180°, um quarto é 90° — e com isso qualquer pizza se confere de olho.",
+    "imagem": "et8-ideia-setores"
+  },
+  "resolvido": {
+    "enunciado": "Numa turma de 40 alunos, 18 vêm de ônibus. Qual é o ângulo da fatia correspondente no gráfico de setores?",
+    "imagem": "et8-res-angulo",
+    "passos": [
+      {
+        "titulo": "Ache a frequência relativa",
+        "explicacao": "São 18 alunos de ônibus entre os 40 da turma.",
+        "conta": "18 ÷ 40 = 0,45 = 45%"
+      },
+      {
+        "titulo": "Lembre o tamanho da volta",
+        "explicacao": "O círculo inteiro representa os 100% dos entrevistados.",
+        "conta": "100% = 360°"
+      },
+      {
+        "titulo": "Aplique a proporção",
+        "explicacao": "A fatia ocupa do círculo a mesma fração que o grupo ocupa da turma.",
+        "conta": "0,45 × 360 = 162"
+      }
+    ],
+    "fecho": "162° passa de 90° e não chega a 180°: a fatia é maior que um quarto e menor que a metade, como 45% tem de ser."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa pesquisa, 25% dos entrevistados escolheram a opção A. Qual é o ângulo da fatia dessa opção no gráfico de setores, em graus? Digite apenas o número.",
+      "imagem": "et8-q-angulo-25",
+      "dica": "O círculo inteiro vale 360°. Que parte dele corresponde a um quarto?",
+      "formato": "numero",
+      "resposta": 90,
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 é a porcentagem, e não o ângulo. Para virar ângulo ela precisa incidir sobre os 360° da volta: 25% de 360 são 90°."
+        },
+        {
+          "resposta": "180",
+          "porque": "180° é a fatia de 50%, ou seja, metade do círculo. Um quarto é a metade disso — a fatia de 25% mede 90°."
+        },
+        {
+          "resposta": "360",
+          "porque": "360° é a volta inteira, que corresponde a 100% dos entrevistados. A opção A ficou com um quarto disso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a porcentagem como fração",
+          "explicacao": "Vinte e cinco por cento são um quarto do total.",
+          "conta": "25% = 0,25"
+        },
+        {
+          "titulo": "Aplique à volta inteira",
+          "explicacao": "A fatia ocupa do círculo a mesma fração que o grupo ocupa do total.",
+          "conta": "0,25 × 360 = 90"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num gráfico de setores, uma fatia ocupa mais da metade do círculo. O que dá para concluir sem fazer conta nenhuma?",
+      "imagem": "et8-q-mais-da-metade",
+      "dica": "O círculo inteiro representa todos os entrevistados. O que significa ocupar mais da metade dele?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que aquela opção teve mais votos que todas as outras somadas" },
+        { "rotulo": "B", "texto": "Que aquela opção teve mais votos que qualquer outra, individualmente" },
+        { "rotulo": "C", "texto": "Que ela teve exatamente 50% dos votos" },
+        { "rotulo": "D", "texto": "Que o gráfico está errado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que aquela opção teve mais votos que qualquer outra, individualmente",
+          "porque": "Isso é verdade, mas fica muito aquém do que a figura mostra. Passar da metade é mais forte: ela venceu todas as outras JUNTAS, e não só cada uma separadamente."
+        },
+        {
+          "resposta": "Que ela teve exatamente 50% dos votos",
+          "porque": "50% seria exatamente metade do círculo. A fatia passa da metade, então a porcentagem dela é maior que 50 — quanto maior, a figura não diz sem medir."
+        },
+        {
+          "resposta": "Que o gráfico está errado",
+          "porque": "Não há erro nenhum: uma fatia pode perfeitamente passar de 180°, e isso acontece sempre que uma opção tem maioria absoluta. O erro seria a soma das fatias passar do círculo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o círculo representa",
+          "explicacao": "A volta inteira é o total de entrevistados, e metade dela é metade deles.",
+          "conta": "círculo = 100%"
+        },
+        {
+          "titulo": "Compare a fatia com o resto",
+          "explicacao": "Se ela passa da metade, o que sobra para todas as outras é menos que isso.",
+          "conta": "maioria absoluta"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa pesquisa, cada pessoa podia marcar QUANTAS opções quisesse, e as porcentagens somaram 240%. O gráfico de setores serve para mostrar esses dados?",
+      "imagem": "et8-q-nao-serve",
+      "dica": "O círculo inteiro representa 100%. O que aconteceria ao tentar encaixar 240% nele?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque o círculo representa 100% e as fatias se sobreporiam" },
+        { "rotulo": "B", "texto": "Sim, bastando desenhar um círculo maior" },
+        { "rotulo": "C", "texto": "Sim, dividindo todas as porcentagens por 240" },
+        { "rotulo": "D", "texto": "Não, porque gráfico de setores só aceita até três categorias" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, bastando desenhar um círculo maior",
+          "porque": "O tamanho do círculo não muda nada: ele representa o todo, seja grande ou pequeno, e a volta continua sendo 100%. O problema é que os dados somam mais que um todo."
+        },
+        {
+          "resposta": "Sim, dividindo todas as porcentagens por 240",
+          "porque": "Isso faria as fatias fecharem o círculo, mas mudaria o significado delas: deixariam de ser \"porcentagem de pessoas que marcaram a opção\" e virariam outra coisa, mais difícil de interpretar do que uma tabela simples."
+        },
+        {
+          "resposta": "Não, porque gráfico de setores só aceita até três categorias",
+          "porque": "Não há limite de categorias — gráficos de setores com cinco ou seis fatias são comuns. O que impede aqui é que cada pessoa aparece em várias fatias ao mesmo tempo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o círculo exige",
+          "explicacao": "Cada entrevistado precisa estar em exatamente uma fatia.",
+          "conta": "fatias sem sobreposição"
+        },
+        {
+          "titulo": "Confira os dados",
+          "explicacao": "Quem marcou três opções aparece em três fatias diferentes.",
+          "conta": "240% não cabe em 360°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma fatia de gráfico de setores mede 72°. Que porcentagem do total ela representa? Digite apenas o número.",
+      "imagem": "et8-q-volta-porcentagem",
+      "dica": "Agora o caminho é o inverso: do ângulo de volta para a porcentagem.",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "72",
+          "porque": "72 é a medida do ângulo em graus, e não a porcentagem. Para converter é preciso dividir pelos 360° da volta inteira: 72 ÷ 360 = 0,2."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é 360 ÷ 72, com a divisão invertida. Ela diz quantas fatias dessas cabem no círculo — e é justamente por caberem cinco que cada uma vale um quinto, ou 20%."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 sai de dividir 72 por 2, ou de confundir a volta com 200°. A referência é sempre 360°, que é o círculo inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida pela volta inteira",
+          "explicacao": "A fatia ocupa essa fração dos 360° do círculo.",
+          "conta": "72 ÷ 360 = 0,2"
+        },
+        {
+          "titulo": "Passe para porcentagem",
+          "explicacao": "Um quinto escrito em centésimos.",
+          "conta": "0,2 = 20%"
+        }
+      ]
+    }
+  ]
+}

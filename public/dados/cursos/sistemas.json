@@ -1,0 +1,41 @@
+{
+  "id": "sistemas",
+  "titulo": "Sistemas de equações",
+  "ano": 8,
+  "descricao": "Duas incógnitas, duas equações, um encontro. A lição 5 é a que faz a matéria não virar receita: ela mostra a solução como o PONTO onde duas retas se cruzam — e aí fica claro por que uma equação sozinha não basta, e por que a resposta é um par, e não um número.",
+  "pergunta": "Por que duas incógnitas exigem duas equações?",
+  "videos": [
+    {
+      "id": "HYlxqWfOEEY",
+      "titulo": "SISTEMA DE EQUAÇÕES do 1º grau | MÉTODO DA SUBSTITUIÇÃO - Exercícios e Exemplos - 8º ano - AULA 34",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Aula escrita para esta série, só sobre a substituição. Serve para a lição 2, com exercícios resolvidos devagar."
+    },
+    {
+      "id": "Wk2ofyakSTs",
+      "titulo": "SISTEMA DE EQUAÇÕES do 1º grau Método da ADIÇÃO | Matemática Básica \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só sobre o método da adição, que é o assunto da lição 3. Bom para ver por que somar as duas equações elimina uma incógnita."
+    },
+    {
+      "id": "d7BsMvTDDdw",
+      "titulo": "Método da adição e da substituição - Matemática – 8º ano – Ensino Fundamental",
+      "canal": "Canal Futura",
+      "descricao": "Os dois métodos lado a lado, o que ajuda a decidir qual usar em cada caso. Vale para a lição 4."
+    },
+    {
+      "id": "cs0BdQyP7ZY",
+      "titulo": "SISTEMA DE EQUAÇÕES DO PRIMEIRO 1º GRAU - RESUMÃO -",
+      "canal": "Gis com Giz",
+      "descricao": "Revisão de tudo num vídeo só. Para assistir depois das seis lições, e não antes."
+    }
+  ],
+  "licoes": [
+    { "id": "duas-incognitas", "arquivo": "/dados/licoes/sistemas/duas-incognitas.json" },
+    { "id": "substituicao", "arquivo": "/dados/licoes/sistemas/substituicao.json" },
+    { "id": "adicao", "arquivo": "/dados/licoes/sistemas/adicao.json" },
+    { "id": "escolher-metodo", "arquivo": "/dados/licoes/sistemas/escolher-metodo.json" },
+    { "id": "no-grafico", "arquivo": "/dados/licoes/sistemas/no-grafico.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/sistemas/problemas.json" }
+  ]
+}

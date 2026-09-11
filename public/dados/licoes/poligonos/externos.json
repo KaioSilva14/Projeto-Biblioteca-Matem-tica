@@ -1,0 +1,188 @@
+{
+  "id": "externos",
+  "numero": 4,
+  "titulo": "Os ângulos externos",
+  "pergunta": "Por que a soma dos externos é sempre 360°, em qualquer polígono?",
+  "ideia": {
+    "paragrafos": [
+      "O ângulo externo de um vértice é o que sobra ao prolongar um dos lados: ele fica entre esse prolongamento e o lado vizinho. Interno e externo do mesmo vértice são SUPLEMENTARES — juntos formam um ângulo raso, então somam 180°.",
+      "Isso já dá um atalho útil. Num hexágono regular, cada interno mede 120°, então cada externo mede 180 − 120 = 60°. E vale nos dois sentidos: sabendo o externo, o interno é o que falta para 180.",
+      "Agora o fato surpreendente da lição: a soma de TODOS os ângulos externos é 360°, em qualquer polígono. Triângulo, quadrilátero, decágono, polígono de cem lados — sempre 360. Ao contrário da soma dos internos, essa não depende do número de lados.",
+      "Há um jeito de enxergar isso sem conta nenhuma. Imagine caminhar ao redor do polígono, seguindo os lados. Em cada vértice você gira um pouco para continuar — e o quanto você gira é exatamente o ângulo externo daquele vértice. Ao completar a volta e voltar ao ponto de partida olhando para a mesma direção do começo, você girou uma volta inteira. Uma volta é 360°.",
+      "Num polígono regular isso dá cada externo de graça: 360 dividido pela quantidade de lados. No hexágono regular, 360 ÷ 6 = 60°, que bate com a conta do suplemento. Duas rotas diferentes chegando ao mesmo número é um bom sinal de que as duas estão certas."
+    ],
+    "destaque": "Dar a volta no polígono é girar 360°, e cada giro é um ângulo externo. Por isso a soma não depende dos lados.",
+    "imagem": "pg-ideia-externos"
+  },
+  "resolvido": {
+    "enunciado": "Quanto mede cada ângulo externo de um decágono regular?",
+    "imagem": "pg-res-externos",
+    "passos": [
+      {
+        "titulo": "Lembre a soma dos externos",
+        "explicacao": "Ela é 360° em qualquer polígono, porque dar a volta é girar uma volta inteira.",
+        "conta": "soma dos externos = 360°"
+      },
+      {
+        "titulo": "Confira que ele é regular",
+        "explicacao": "Só assim os dez ângulos externos são iguais e a divisão vale.",
+        "conta": "regular → externos iguais"
+      },
+      {
+        "titulo": "Divida pela quantidade",
+        "explicacao": "São dez vértices, e em cada um o giro é o mesmo.",
+        "conta": "360 ÷ 10 = 36°"
+      },
+      {
+        "titulo": "Confira pelo interno",
+        "explicacao": "O interno do decágono regular mede 144°, e os dois têm de somar 180.",
+        "conta": "144 + 36 = 180 ✓"
+      }
+    ],
+    "fecho": "Os dois caminhos concordam, e o segundo é sempre uma boa conferência do primeiro."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a soma dos ângulos externos de um polígono de 20 lados, em graus? Digite apenas o número.",
+      "imagem": "pg-q-soma-externos",
+      "dica": "Esta soma não depende do número de lados. Pense na volta completa.",
+      "formato": "numero",
+      "resposta": 360,
+      "errosComuns": [
+        {
+          "resposta": "3240",
+          "porque": "3 240 é a soma dos ângulos INTERNOS de um polígono de 20 lados, que é (20 − 2) × 180. A soma dos externos é outra coisa, e ela não depende do número de lados."
+        },
+        {
+          "resposta": "7200",
+          "porque": "7 200 é 20 × 360, como se cada vértice contribuísse com uma volta inteira. Cada vértice contribui com um PEDAÇO da volta, e juntos eles completam uma só."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é a medida de CADA ângulo externo, se o polígono for regular: 360 ÷ 20. A pergunta é sobre a soma de todos eles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Imagine dar a volta",
+          "explicacao": "Andando pelos lados, em cada vértice você gira o ângulo externo daquele canto.",
+          "conta": "os giros somam uma volta"
+        },
+        {
+          "titulo": "Conte a volta",
+          "explicacao": "Voltar ao ponto de partida olhando para a mesma direção é girar uma volta completa.",
+          "conta": "360°, independente dos lados"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num polígono regular, cada ângulo interno mede 140°. Quanto mede cada ângulo externo, em graus? Digite apenas o número.",
+      "imagem": "pg-q-suplemento",
+      "dica": "Interno e externo do mesmo vértice formam um ângulo raso.",
+      "formato": "numero",
+      "resposta": 40,
+      "errosComuns": [
+        {
+          "resposta": "220",
+          "porque": "220 soma 140 com 80, ou passa de 180. O externo é o que FALTA para 180, então ele é 180 − 140, e nunca pode passar de 180."
+        },
+        {
+          "resposta": "360",
+          "porque": "360 é a soma de TODOS os ângulos externos do polígono. A pergunta é sobre um deles, e ele é o suplemento do interno dado."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 parece dividir 40 pela metade ou subtrair de 160. A conta é 180 − 140, que dá exatamente 40."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use a relação do vértice",
+          "explicacao": "Interno e externo formam juntos um ângulo raso.",
+          "conta": "interno + externo = 180°"
+        },
+        {
+          "titulo": "Isole o externo",
+          "explicacao": "Basta tirar o interno de 180, porque os dois completam o ângulo raso.",
+          "conta": "180 − 140 = 40°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto mede cada ângulo externo de um hexágono regular, em graus? Digite apenas o número.",
+      "imagem": "pg-q-externo-hexagono",
+      "dica": "Divida a volta completa pela quantidade de vértices.",
+      "formato": "numero",
+      "resposta": 60,
+      "errosComuns": [
+        {
+          "resposta": "120",
+          "porque": "120 é o ângulo INTERNO do hexágono regular. O externo é o suplemento dele: 180 − 120 = 60."
+        },
+        {
+          "resposta": "720",
+          "porque": "720 é a soma dos ângulos INTERNOS do hexágono. A soma dos externos é sempre 360, e cada um é essa soma dividida por 6."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 seria 360 ÷ 10, ou seja, a conta de um decágono. O hexágono tem seis vértices, então a divisão é por 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida a volta",
+          "explicacao": "A soma dos externos é 360, e num polígono regular os seis são iguais.",
+          "conta": "360 ÷ 6 = 60°"
+        },
+        {
+          "titulo": "Confira pelo interno",
+          "explicacao": "O interno do hexágono regular mede 120, e os dois têm de fechar 180.",
+          "conta": "120 + 60 = 180 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que a soma dos ângulos externos NÃO depende do número de lados?",
+      "imagem": "pg-q-por-que-360",
+      "dica": "Pense em caminhar ao redor do polígono, girando em cada vértice.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque dar a volta no polígono é girar uma volta completa, e volta completa é sempre 360°" },
+        { "rotulo": "B", "texto": "Porque os ângulos externos são sempre pequenos" },
+        { "rotulo": "C", "texto": "Porque cada externo vale 360 dividido pelos lados" },
+        { "rotulo": "D", "texto": "Porque a soma dos internos também não depende" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os ângulos externos são sempre pequenos",
+          "porque": "Nem sempre são: num triângulo equilátero cada externo mede 120°, o que não é pequeno. O tamanho de cada um varia — o que não varia é a SOMA deles."
+        },
+        {
+          "resposta": "Porque cada externo vale 360 dividido pelos lados",
+          "porque": "Isso é uma CONSEQUÊNCIA de a soma ser 360, e só vale no polígono regular. A pergunta é justamente por que a soma é 360 antes de qualquer divisão."
+        },
+        {
+          "resposta": "Porque a soma dos internos também não depende",
+          "porque": "A soma dos internos DEPENDE, e muito: ela é (n − 2) × 180, então cresce a cada lado a mais. É esse contraste que torna a soma dos externos surpreendente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Caminhe ao redor da figura",
+          "explicacao": "Seguindo os lados, em cada vértice você gira exatamente o ângulo externo daquele canto.",
+          "conta": "um giro por vértice"
+        },
+        {
+          "titulo": "Conte a volta inteira",
+          "explicacao": "Ao voltar ao ponto de partida olhando para a mesma direção, os giros somaram uma volta — e volta é 360°, com quantos vértices for.",
+          "conta": "sempre 360°"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "diagonais",
+  "numero": 5,
+  "titulo": "Contar as diagonais",
+  "pergunta": "Quantas diagonais tem um polígono de muitos lados?",
+  "ideia": {
+    "paragrafos": [
+      "Diagonal é o segmento que liga dois vértices NÃO vizinhos. Ligar dois vizinhos não vale: isso já é um lado do polígono, e não uma diagonal. Num quadrilátero há duas — as que cruzam o meio da figura.",
+      "Contar de olho funciona até o pentágono, que tem cinco. No hexágono já são nove e as linhas começam a se cruzar; num decágono são trinta e cinco, e contar olhando vira exercício de paciência. É por isso que vale ter uma conta.",
+      "O raciocínio é o mesmo da matéria de probabilidade. De cada vértice saem diagonais para todos os outros, MENOS para ele mesmo e para os dois vizinhos — ou seja, n − 3 diagonais por vértice. Como são n vértices, isso dá n × (n − 3) ligações.",
+      "Mas esse número está dobrado, e entender por quê é o pulo da lição. A diagonal que liga A a C é a MESMA que liga C a A, e a contagem acima passou por ela duas vezes: uma ao contar as diagonais de A, outra ao contar as de C. Dividindo por dois, a fórmula fica n × (n − 3) ÷ 2.",
+      "Testando no que dá para conferir de olho: no quadrilátero, 4 × 1 ÷ 2 = 2 ✓. No pentágono, 5 × 2 ÷ 2 = 5 ✓. No hexágono, 6 × 3 ÷ 2 = 9 ✓. E no triângulo, 3 × 0 ÷ 2 = 0 — o triângulo não tem diagonal nenhuma, porque todos os vértices dele são vizinhos entre si."
+    ],
+    "destaque": "Cada diagonal é contada duas vezes, uma por cada ponta. Por isso a divisão por dois.",
+    "imagem": "pg-ideia-diagonais"
+  },
+  "resolvido": {
+    "enunciado": "Quantas diagonais tem um hexágono?",
+    "imagem": "pg-res-diagonais",
+    "passos": [
+      {
+        "titulo": "Conte as que saem de um vértice",
+        "explicacao": "Ele se liga a todos os outros, menos a si mesmo e aos dois vizinhos.",
+        "conta": "6 − 3 = 3 diagonais"
+      },
+      {
+        "titulo": "Repita para todos os vértices",
+        "explicacao": "São seis vértices, e de cada um saem três.",
+        "conta": "6 × 3 = 18 ligações"
+      },
+      {
+        "titulo": "Perceba a repetição",
+        "explicacao": "Cada diagonal foi contada nas duas pontas, então esse número está dobrado.",
+        "conta": "cada uma contada 2 vezes"
+      },
+      {
+        "titulo": "Divida por dois",
+        "explicacao": "Assim cada diagonal passa a ser contada uma única vez.",
+        "conta": "18 ÷ 2 = 9 diagonais"
+      }
+    ],
+    "fecho": "Dá para conferir contando na figura: são nove mesmo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantas diagonais saem de UM vértice de um polígono de 12 lados? Digite apenas o número.",
+      "imagem": "pg-q-de-um-vertice",
+      "dica": "Ele não se liga a si mesmo nem aos dois vizinhos.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 conta as ligações com todos os outros vértices, mas duas delas são LADOS do polígono — as que vão para os vizinhos. Diagonal liga vértices não vizinhos."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 conta até a ligação do vértice com ele mesmo, que não existe. Descontando ele e os dois vizinhos, sobram nove."
+        },
+        {
+          "resposta": "54",
+          "porque": "54 é o total de diagonais do polígono de 12 lados, que é 12 × 9 ÷ 2. A pergunta é sobre as que saem de UM vértice."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Descarte quem não vale",
+          "explicacao": "O próprio vértice e os dois vizinhos ficam de fora da conta.",
+          "conta": "1 + 2 = 3 descartados"
+        },
+        {
+          "titulo": "Conte o que sobra",
+          "explicacao": "Todos os outros vértices recebem uma diagonal.",
+          "conta": "12 − 3 = 9"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantas diagonais tem um decágono, ou seja, um polígono de 10 lados? Digite apenas o número.",
+      "imagem": "pg-q-diagonais-10",
+      "dica": "Conte as que saem de cada vértice, multiplique, e lembre que cada diagonal foi contada duas vezes.",
+      "formato": "numero",
+      "resposta": 35,
+      "errosComuns": [
+        {
+          "resposta": "70",
+          "porque": "70 é 10 × 7, ou seja, a contagem ANTES de dividir por dois. Cada diagonal foi contada nas duas pontas, então o número real é a metade disso."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é quantas diagonais saem de UM vértice. Para o total, esse número é multiplicado pelos dez vértices e depois dividido por dois."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 conta TODAS as ligações entre pares de vértices, incluindo os dez lados do polígono. Tirando os lados, sobram 35 diagonais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte por vértice e multiplique",
+          "explicacao": "De cada um saem n − 3, e são n vértices.",
+          "conta": "10 × 7 = 70"
+        },
+        {
+          "titulo": "Divida por dois",
+          "explicacao": "Cada diagonal apareceu duas vezes, uma por ponta.",
+          "conta": "70 ÷ 2 = 35"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantas diagonais tem um triângulo? Digite apenas o número.",
+      "imagem": "pg-q-triangulo-diagonais",
+      "dica": "Veja se algum vértice do triângulo tem outro que não seja vizinho dele.",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 conta os LADOS do triângulo. Lado liga vértices vizinhos; diagonal liga não vizinhos — e num triângulo todos os vértices são vizinhos entre si."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 pareceria a menor quantidade possível, mas zero é uma resposta legítima. Pela fórmula: 3 × (3 − 3) ÷ 2, e o fator zero zera tudo."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é a quantidade de diagonais de um QUADRILÁTERO, o polígono seguinte. O triângulo não tem nenhuma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Procure vértices não vizinhos",
+          "explicacao": "Num triângulo, cada vértice encosta nos outros dois pelos lados.",
+          "conta": "todos são vizinhos"
+        },
+        {
+          "titulo": "Confirme pela fórmula",
+          "explicacao": "Com n = 3, o fator n − 3 dá zero e zera o produto.",
+          "conta": "3 × 0 ÷ 2 = 0"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que a fórmula das diagonais divide por dois?",
+      "imagem": "pg-q-por-que-dividir",
+      "dica": "Pense na diagonal que liga A a C: ela aparece na contagem de quantos vértices?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque cada diagonal é contada duas vezes, uma em cada ponta" },
+        { "rotulo": "B", "texto": "Porque metade das diagonais fica fora da figura" },
+        { "rotulo": "C", "texto": "Porque cada diagonal tem dois pedaços" },
+        { "rotulo": "D", "texto": "Porque os vértices são sempre em número par" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque metade das diagonais fica fora da figura",
+          "porque": "Num polígono convexo, todas as diagonais ficam dentro. E mesmo nos que têm uma reentrância, alguma diagonal sair não teria relação com a contagem — o motivo da divisão é a repetição."
+        },
+        {
+          "resposta": "Porque cada diagonal tem dois pedaços",
+          "porque": "A diagonal é um segmento inteiro, de um vértice ao outro, sem partes. O que se repete não é o desenho dela, e sim a CONTAGEM: ela é contada a partir das duas pontas."
+        },
+        {
+          "resposta": "Porque os vértices são sempre em número par",
+          "porque": "Não são: o pentágono tem cinco e a fórmula funciona igual — 5 × 2 ÷ 2 dá 5, um número inteiro. A divisão por dois não tem relação com a paridade dos vértices."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Siga uma diagonal específica",
+          "explicacao": "A que liga A a C aparece quando se contam as de A e outra vez quando se contam as de C.",
+          "conta": "contada em A e em C"
+        },
+        {
+          "titulo": "Corrija a contagem",
+          "explicacao": "Como isso vale para todas, o total ficou exatamente dobrado.",
+          "conta": "n × (n − 3) ÷ 2"
+        }
+      ]
+    }
+  ]
+}

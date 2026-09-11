@@ -1,0 +1,188 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Contas de cabeça",
+  "pergunta": "Para que servem esses padrões fora da prova?",
+  "ideia": {
+    "paragrafos": [
+      "Os três produtos notáveis têm um uso imediato e satisfatório: eles transformam multiplicações difíceis em contas de cabeça. O truque é sempre o mesmo — escrever os números como uma soma ou uma diferença em torno de um valor redondo.",
+      "Comece por 21². Ninguém precisa armar essa conta: 21 é 20 + 1, então 21² é (20 + 1)², que dá 400 + 40 + 1 = 441. Os três termos são fáceis, e o do meio é só o dobro de 20.",
+      "O mesmo vale para baixo. 19² é (20 − 1)², que dá 400 − 40 + 1 = 361. Repare que o termo do meio agora subtrai, e o último continua somando — exatamente o que a lição 3 pediu para não esquecer.",
+      "A soma pela diferença é a mais poderosa das três para cálculo mental, porque o resultado tem só dois termos. 51 × 49 é (50 + 1)(50 − 1), que dá 2500 − 1 = 2499. E 102 × 98 é 10 000 − 4 = 9 996. Duas contas que pareciam pedir papel saem em segundos.",
+      "O padrão para reconhecer é simples: sempre que dois números estiverem à mesma distância de um valor redondo, um acima e outro abaixo, o produto deles é o quadrado do redondo menos o quadrado da distância. Vale a pena treinar o olho para isso."
+    ],
+    "destaque": "Dois números à mesma distância de um redondo: multiplique pelo quadrado do redondo, menos o quadrado da distância.",
+    "imagem": "pn-ideia-mental"
+  },
+  "resolvido": {
+    "enunciado": "Calcule 21² de cabeça, sem armar a conta.",
+    "imagem": "pn-res-mental",
+    "passos": [
+      {
+        "titulo": "Escreva perto de um número redondo",
+        "explicacao": "O 21 está a uma unidade do 20, que é fácil de elevar ao quadrado.",
+        "conta": "21 = 20 + 1"
+      },
+      {
+        "titulo": "Aplique o quadrado da soma",
+        "explicacao": "São os três termos de sempre: o quadrado do primeiro, o dobro do produto, e o quadrado do segundo.",
+        "conta": "(20 + 1)² = 20² + 2 × 20 × 1 + 1²"
+      },
+      {
+        "titulo": "Calcule cada um",
+        "explicacao": "Todos os três são contas simples, ao contrário de 21 vezes 21 armado.",
+        "conta": "400 + 40 + 1"
+      },
+      {
+        "titulo": "Some as três parcelas",
+        "explicacao": "A soma final também é fácil, porque as parcelas têm ordens de grandeza diferentes.",
+        "conta": "= 441"
+      }
+    ],
+    "fecho": "O mesmo caminho serve para 31², 41², 101² — qualquer número perto de um redondo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale 19², calculado como (20 − 1)²? Digite apenas o número.",
+      "imagem": "pn-q-19",
+      "dica": "Use o quadrado da diferença: o termo do meio subtrai, e o último soma.",
+      "formato": "numero",
+      "resposta": 361,
+      "errosComuns": [
+        {
+          "resposta": "399",
+          "porque": "399 é 400 − 1, esquecendo o termo do meio. Ele vale 2 × 20 × 1 = 40, e é ele que faz a maior parte da diferença entre 400 e 361."
+        },
+        {
+          "resposta": "359",
+          "porque": "359 é 400 − 40 − 1, com o último termo negativo. Ele é positivo, porque vem de (−1) vezes (−1): a conta certa é 400 − 40 + 1."
+        },
+        {
+          "resposta": "441",
+          "porque": "441 é 21², ou seja, o termo do meio somando em vez de subtrair. Com 20 − 1, o dobro do produto entra com sinal de menos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a fórmula",
+          "explicacao": "Quadrado do primeiro, menos o dobro do produto, mais o quadrado do segundo.",
+          "conta": "20² − 2 × 20 × 1 + 1²"
+        },
+        {
+          "titulo": "Efetue",
+          "explicacao": "As três parcelas são fáceis de calcular de cabeça.",
+          "conta": "400 − 40 + 1 = 361"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale 51 × 49? Digite apenas o número.",
+      "imagem": "pn-q-51-49",
+      "dica": "Os dois números estão à mesma distância de 50. Use a soma pela diferença.",
+      "formato": "numero",
+      "resposta": 2499,
+      "errosComuns": [
+        {
+          "resposta": "2500",
+          "porque": "2 500 é 50², esquecendo de subtrair o quadrado da distância. Ela vale 1, e 1² é 1 — então o resultado é 2 500 − 1."
+        },
+        {
+          "resposta": "2501",
+          "porque": "2 501 SOMA o quadrado da distância em vez de subtrair. Na soma pela diferença o resultado é sempre a² − b²: o segundo quadrado é tirado."
+        },
+        {
+          "resposta": "2450",
+          "porque": "2 450 parece subtrair 50 em vez de 1. O que se subtrai é o quadrado da DISTÂNCIA até o número redondo, e essa distância é 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva em torno do 50",
+          "explicacao": "Um número está uma unidade acima e o outro uma abaixo.",
+          "conta": "51 × 49 = (50 + 1)(50 − 1)"
+        },
+        {
+          "titulo": "Aplique a diferença de quadrados",
+          "explicacao": "O termo do meio se cancela, e sobram dois termos.",
+          "conta": "50² − 1² = 2500 − 1 = 2499"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto vale 101², calculado como (100 + 1)²? Digite apenas o número.",
+      "imagem": "pn-q-101",
+      "dica": "Os três termos são o quadrado de 100, o dobro de 100, e 1.",
+      "formato": "numero",
+      "resposta": 10201,
+      "errosComuns": [
+        {
+          "resposta": "10001",
+          "porque": "10 001 é 10 000 + 1, esquecendo o termo do meio. Ele vale 2 × 100 × 1 = 200, e sem ele faltam duzentas unidades."
+        },
+        {
+          "resposta": "10101",
+          "porque": "10 101 conta o termo do meio como 100, e não como o DOBRO de 100. São dois retângulos iguais, então o meio vale 200."
+        },
+        {
+          "resposta": "10200",
+          "porque": "10 200 acerta os dois primeiros termos e esquece o último. O quadrado do segundo termo é 1² = 1, pequeno mas presente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte os três termos",
+          "explicacao": "Quadrado do primeiro, dobro do produto, quadrado do segundo.",
+          "conta": "100² + 2 × 100 × 1 + 1²"
+        },
+        {
+          "titulo": "Some tudo",
+          "explicacao": "As três parcelas caem em ordens de grandeza diferentes, o que facilita a soma.",
+          "conta": "10 000 + 200 + 1 = 10 201"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um quadrado tem lado x. Se o lado aumentar 3 unidades, quanto a ÁREA aumenta?",
+      "imagem": "pn-q-aumentar-lado",
+      "dica": "Escreva a área nova, a área velha, e subtraia uma da outra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "6x + 9" },
+        { "rotulo": "B", "texto": "9" },
+        { "rotulo": "C", "texto": "3x" },
+        { "rotulo": "D", "texto": "x² + 9" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é só o quadradinho do canto, de lado 3. Além dele entram os dois retângulos de lados x e 3, que somam 6x — e num quadrado grande eles são a maior parte do aumento."
+        },
+        {
+          "resposta": "3x",
+          "porque": "3x conta apenas UM dos retângulos novos. Ao aumentar o lado, aparecem dois: um em cima e outro do lado, mais o quadradinho do canto."
+        },
+        {
+          "resposta": "x² + 9",
+          "porque": "x² + 9 é quase a área NOVA, e não o aumento. A área nova é x² + 6x + 9; para achar o aumento é preciso descontar a área velha, que é x²."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva as duas áreas",
+          "explicacao": "A nova é o quadrado do lado aumentado, desenvolvido pelo produto notável.",
+          "conta": "velha: x² · nova: (x+3)² = x² + 6x + 9"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O aumento é a diferença entre elas, e o x² se cancela.",
+          "conta": "(x² + 6x + 9) − x² = 6x + 9"
+        }
+      ]
+    }
+  ]
+}

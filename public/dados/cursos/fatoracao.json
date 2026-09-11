@@ -1,0 +1,41 @@
+{
+  "id": "fatoracao",
+  "titulo": "Fatoração",
+  "ano": 8,
+  "descricao": "O caminho de volta dos produtos notáveis: transformar soma em multiplicação. São quatro casos, e o risco é decorar quatro receitas e trocá-las na prova — por isso a lição 5 não ensina caso novo nenhum: ela ensina a ESCOLHER, que é o que a prova cobra de verdade.",
+  "pergunta": "Como transformar uma soma em multiplicação?",
+  "videos": [
+    {
+      "id": "QKseo59yLFA",
+      "titulo": "FATORAÇÃO DE POLINÔMIOS - FATOR COMUM ∣ AGRUPAMENTO ∣ TRINÔMIO QUADRADO PERFEITO - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Percorre os casos um a um, com bastante exemplo de cada. Serve para acompanhar as lições 1 a 4 na ordem em que elas aparecem aqui."
+    },
+    {
+      "id": "yJdW3vmUeUY",
+      "titulo": "FATORAÇÃO  | TRINÔMIO QUADRADO PERFEITO| Aula 3 \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só sobre o trinômio quadrado perfeito, que é o caso mais difícil de reconhecer. Vale para a lição 4, se a conferência do termo do meio ainda escapar."
+    },
+    {
+      "id": "CBV6LLzI6fY",
+      "titulo": "FATORAÇÃO - Trinômio Quadrado Perfeito - 8º ANO ‐ AULA 24",
+      "canal": "Matematicamente Falando MATEMÁTICA",
+      "descricao": "Aula escrita para esta série, com exercícios resolvidos passo a passo. Bom para treinar depois de entender o porquê."
+    },
+    {
+      "id": "hgr3iNJdLzE",
+      "titulo": "FATORAÇÃO RESUMÃO | FATOR COMUM , AGRUPAMENTO, TRINÔMIO QUADRADO E DIFERENÇA ENTRE DOIS QUADRADOS",
+      "canal": "Gis com Giz",
+      "descricao": "Os quatro casos num vídeo só, em ritmo de revisão. Para assistir DEPOIS das seis lições, e não antes — ele resume o que já se entendeu."
+    }
+  ],
+  "licoes": [
+    { "id": "fator-comum", "arquivo": "/dados/licoes/fatoracao/fator-comum.json" },
+    { "id": "agrupamento", "arquivo": "/dados/licoes/fatoracao/agrupamento.json" },
+    { "id": "diferenca-quadrados", "arquivo": "/dados/licoes/fatoracao/diferenca-quadrados.json" },
+    { "id": "trinomio-quadrado", "arquivo": "/dados/licoes/fatoracao/trinomio-quadrado.json" },
+    { "id": "escolher-caminho", "arquivo": "/dados/licoes/fatoracao/escolher-caminho.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/fatoracao/problemas.json" }
+  ]
+}

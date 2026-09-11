@@ -1,0 +1,188 @@
+{
+  "id": "paralelogramo",
+  "numero": 2,
+  "titulo": "Paralelogramo: um retângulo torto",
+  "pergunta": "Por que a área do paralelogramo é base vezes altura, igual à do retângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Um paralelogramo parece um retângulo que foi empurrado de lado. E é exatamente isso que a fórmula dele registra: recorte o triângulo de uma das pontas, deslize esse triângulo até a outra ponta, e o que sobra é um retângulo perfeito.",
+      "Faça o corte pela ALTURA — a linha que desce do canto de cima até a base, formando ângulo reto com ela. O triângulo que fica à esquerda dessa linha encaixa exatamente do lado direito, porque os dois lados inclinados do paralelogramo são iguais e paralelos. Nada sobra e nada falta.",
+      "Depois do rearranjo, o retângulo formado tem a MESMA base do paralelogramo e a MESMA altura. Como a área se conserva no recorte — foi o que a lição 1 estabeleceu —, a área do paralelogramo é base × altura. A fórmula não é nova: é a do retângulo, chegando por outro caminho.",
+      "Daí sai o cuidado mais importante da matéria. A altura é a distância PERPENDICULAR entre as duas bases paralelas, e quase nunca é o lado inclinado. Num paralelogramo de base 6 cm, lado inclinado 5 cm e altura 4 cm, a área é 6 × 4 = 24 cm², e não 6 × 5 = 30. O lado inclinado é sempre maior ou igual à altura, então usá-lo por engano aumenta a área.",
+      "Repare que o enunciado costuma dar as três medidas de propósito, para ver se você escolhe a certa. Antes de multiplicar, pergunte: essa medida forma ângulo reto com a base? Se não formar, ela não é a altura."
+    ],
+    "destaque": "A altura é a distância perpendicular entre as bases. O lado inclinado é outra coisa, e usá-lo infla a área.",
+    "imagem": "ar8-ideia-paralelogramo"
+  },
+  "resolvido": {
+    "enunciado": "Um paralelogramo tem base de 6 cm e altura de 4 cm. Qual é a área dele?",
+    "imagem": "ar8-res-paralelogramo",
+    "passos": [
+      {
+        "titulo": "Corte pela altura",
+        "explicacao": "A linha perpendicular à base separa um triângulo numa das pontas.",
+        "conta": "corte perpendicular à base"
+      },
+      {
+        "titulo": "Deslize o triângulo",
+        "explicacao": "Ele encaixa exatamente na outra ponta, e o que sobra é um retângulo.",
+        "conta": "paralelogramo → retângulo"
+      },
+      {
+        "titulo": "Confira as medidas do retângulo",
+        "explicacao": "O rearranjo não mexeu na base nem na altura, então o retângulo tem 6 por 4.",
+        "conta": "base 6 · altura 4"
+      },
+      {
+        "titulo": "Meça o retângulo",
+        "explicacao": "Área de retângulo é base vezes altura, e a área se conservou no recorte.",
+        "conta": "6 × 4 = 24"
+      }
+    ],
+    "fecho": "Se o enunciado também desse o lado inclinado, ele não entraria na conta: quem multiplica pela base é a altura."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um paralelogramo tem base de 9 cm e altura de 4 cm. Qual é a área dele, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-para-simples",
+      "dica": "A área do paralelogramo é a mesma do retângulo que ele vira depois do recorte.",
+      "formato": "numero",
+      "resposta": 36,
+      "errosComuns": [
+        {
+          "resposta": "26",
+          "porque": "26 é 2 × (9 + 4), a conta do PERÍMETRO de um retângulo de 9 por 4. Perímetro mede a volta da figura; área mede a superfície, e sai da multiplicação da base pela altura."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 9 × 4 ÷ 2 — a divisão por 2 é da fórmula do TRIÂNGULO. O paralelogramo vira um retângulo inteiro depois do recorte, então nada é dividido pela metade."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é 9 + 4, a soma da base com a altura. Somar mede a volta da figura; para medir a superfície é preciso multiplicar as duas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a fórmula",
+          "explicacao": "Depois do recorte o paralelogramo é um retângulo de mesma base e mesma altura.",
+          "conta": "área = base × altura"
+        },
+        {
+          "titulo": "Substitua as medidas",
+          "explicacao": "A base vale 9 cm e a altura vale 4 cm.",
+          "conta": "9 × 4 = 36"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um paralelogramo tem base de 8 cm, lado inclinado de 6 cm e altura de 5 cm. Qual é a área dele, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-para-armadilha",
+      "dica": "Três medidas foram dadas e só duas entram na conta. Descubra qual delas forma ângulo reto com a base.",
+      "formato": "numero",
+      "resposta": 40,
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 é 8 × 6, usando o LADO INCLINADO no lugar da altura. O lado inclinado não é perpendicular à base, e por ser mais comprido que a altura ele infla a área. Quem multiplica pela base é a altura, 5 cm."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é 6 × 5, multiplicando o lado inclinado pela altura. A base é o lado que a altura encontra em ângulo reto, e aqui ela mede 8 cm."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 8 × 5 ÷ 2. Essa divisão por 2 pertence ao triângulo; o paralelogramo se transforma num retângulo inteiro, sem metade nenhuma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe as medidas",
+          "explicacao": "Das três medidas dadas, a altura é a única perpendicular à base.",
+          "conta": "base 8 · altura 5 · lado 6 (sobra)"
+        },
+        {
+          "titulo": "Multiplique as duas que entram",
+          "explicacao": "O lado inclinado não participa da fórmula da área.",
+          "conta": "8 × 5 = 40"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a área do paralelogramo é igual à de um retângulo de mesma base e mesma altura?",
+      "imagem": "ar8-q-por-que-igual",
+      "dica": "Pense no recorte que transforma um no outro e no que a lição 1 disse sobre repartir figuras.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque um triângulo recortado de uma ponta encaixa na outra, formando o retângulo" },
+        { "rotulo": "B", "texto": "Porque os dois têm o mesmo perímetro" },
+        { "rotulo": "C", "texto": "Porque todo paralelogramo é um retângulo" },
+        { "rotulo": "D", "texto": "Porque os ângulos somam 360° nos dois" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os dois têm o mesmo perímetro",
+          "porque": "Eles não têm: o lado inclinado do paralelogramo é mais comprido que a altura do retângulo, então o perímetro dele é maior. E mesmo que fossem iguais, perímetro igual não garante área igual."
+        },
+        {
+          "resposta": "Porque todo paralelogramo é um retângulo",
+          "porque": "Só é retângulo o paralelogramo cujos ângulos são todos retos. Um paralelogramo inclinado não é retângulo — ele apenas VIRA um, depois do recorte."
+        },
+        {
+          "resposta": "Porque os ângulos somam 360° nos dois",
+          "porque": "A soma dos ângulos internos é 360° em qualquer quadrilátero, inclusive em trapézios de áreas completamente diferentes. Essa soma não diz nada sobre área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Faça o recorte",
+          "explicacao": "Cortando pela altura, sai um triângulo de uma das pontas.",
+          "conta": "corte pela altura"
+        },
+        {
+          "titulo": "Use a conservação da área",
+          "explicacao": "O triângulo encaixa na outra ponta, e repartir não muda a área total.",
+          "conta": "mesma área, base e altura iguais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um paralelogramo tem área de 45 cm² e base de 9 cm. Quanto mede a altura dele, em centímetros? Digite apenas o número.",
+      "imagem": "ar8-q-para-inversa",
+      "dica": "A área saiu de uma multiplicação. Para voltar de um dos fatores, desfaça a multiplicação.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é 45 − 9, subtraindo a base da área. Elas não podem ser subtraídas uma da outra: a área veio de uma multiplicação, então quem a desfaz é a divisão."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 sai de dividir 45 por 9 e dobrar o resultado, ou de aplicar a divisão por 2 do triângulo ao contrário. No paralelogramo não há divisão por 2 nenhuma."
+        },
+        {
+          "resposta": "405",
+          "porque": "405 é 45 × 9, multiplicando quando era preciso dividir. Se a altura fosse 405 cm, a área daria 3 645 cm², muito longe dos 45 informados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o que se sabe",
+          "explicacao": "A área é o produto da base pela altura, e a área e a base foram dadas.",
+          "conta": "9 × altura = 45"
+        },
+        {
+          "titulo": "Desfaça a multiplicação",
+          "explicacao": "Dividindo a área pela base sobra exatamente a altura.",
+          "conta": "45 ÷ 9 = 5"
+        }
+      ]
+    }
+  ]
+}

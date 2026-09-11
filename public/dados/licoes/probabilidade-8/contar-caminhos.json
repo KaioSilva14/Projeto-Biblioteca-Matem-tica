@@ -1,0 +1,189 @@
+{
+  "id": "contar-caminhos",
+  "numero": 1,
+  "titulo": "Contar sem listar",
+  "pergunta": "Como saber quantos resultados existem sem escrever todos?",
+  "ideia": {
+    "paragrafos": [
+      "A lição 2 da Probabilidade do 7º ano já avisava que a parte difícil não é dividir: é contar os casos possíveis. Enquanto os casos cabem numa lista, dá para escrever todos. Quando as escolhas se acumulam, a lista fica longa demais — e é aí que entra a conta desta lição.",
+      "Comece pelo caso pequeno, onde ainda dá para conferir. Com 3 camisas e 2 calças, as combinações são: branca com jeans, branca com preta, azul com jeans, azul com preta, verde com jeans, verde com preta. São 6 — e repare de onde o 6 vem: CADA uma das 3 camisas se abriu em 2 possibilidades de calça, então 3 × 2.",
+      "Esse é o PRINCÍPIO MULTIPLICATIVO, e ele vale sempre que as escolhas são feitas em etapas: se a primeira etapa tem a possibilidades e a segunda tem b, o total é a × b. Com mais etapas, multiplique todas: a × b × c, e assim por diante.",
+      "O erro mais comum aqui é somar em vez de multiplicar. Some e dá 3 + 2 = 5, que não corresponde a nada — não existem 5 combinações. A soma contaria as peças de roupa; a multiplicação conta os conjuntos formados com elas. São perguntas diferentes, e vale parar um segundo para decidir qual delas o enunciado faz.",
+      "Um jeito de nunca errar: pergunte-se se as opções são ALTERNATIVAS ou ETAPAS. Se o enunciado diz \"ou\" — escolher uma camisa OU uma calça —, soma. Se diz \"e\" — uma camisa E uma calça —, multiplica. É a diferença entre escolher uma peça e montar uma roupa.",
+      "Vale reparar que esta lição ainda não calcula probabilidade nenhuma. Ela está resolvendo o denominador: o total de casos possíveis, que é o número que vai embaixo da fração quando a probabilidade aparecer, nas próximas lições."
+    ],
+    "destaque": "Escolhas em etapas se MULTIPLICAM. A soma conta as opções; a multiplicação conta os conjuntos formados com elas.",
+    "imagem": "pb8-ideia-multiplicativo"
+  },
+  "resolvido": {
+    "enunciado": "Uma pessoa tem 3 camisas (branca, azul e verde) e 2 calças (jeans e preta). Quantas combinações diferentes de camisa e calça ela pode montar?",
+    "imagem": "pb8-res-roupas",
+    "passos": [
+      {
+        "titulo": "Separe as etapas",
+        "explicacao": "Montar a roupa exige duas escolhas, feitas uma depois da outra.",
+        "conta": "escolher a camisa · escolher a calça"
+      },
+      {
+        "titulo": "Conte as opções de cada etapa",
+        "explicacao": "São 3 camisas possíveis e, para qualquer uma delas, 2 calças.",
+        "conta": "3 camisas · 2 calças"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Cada uma das 3 camisas se abre em 2 combinações diferentes.",
+        "conta": "3 × 2 = 6"
+      }
+    ],
+    "fecho": "A lista das 6 combinações confirma a conta — e é justamente por não caber sempre que a conta existe."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma sorveteria tem 4 sabores de sorvete e 3 tipos de cobertura. Escolhendo um sabor e uma cobertura, quantas combinações diferentes existem? Digite apenas o número.",
+      "imagem": "pb8-q-sorvete",
+      "dica": "São duas etapas de escolha. Conte as opções de cada uma antes de decidir a operação.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é 4 + 3, somando os sabores com as coberturas. A soma responderia a outra pergunta: quantos itens diferentes existem na sorveteria. Aqui cada sabor se abre em 3 combinações, então os totais se multiplicam."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é só o número de sabores. Cada um deles ainda pode receber 3 coberturas diferentes, e cada par sabor-cobertura é uma combinação distinta."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é só o número de coberturas. Cada uma pode ir sobre 4 sabores diferentes, e a pergunta é sobre os pares formados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as opções de cada etapa",
+          "explicacao": "São 4 sabores e, para qualquer um deles, 3 coberturas possíveis.",
+          "conta": "4 sabores · 3 coberturas"
+        },
+        {
+          "titulo": "Multiplique as etapas",
+          "explicacao": "Cada sabor se abre em 3 combinações diferentes de cobertura.",
+          "conta": "4 × 3 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que o número de combinações é o produto das opções de cada etapa, e não a soma?",
+      "imagem": "pb8-q-por-que-multiplica",
+      "dica": "Pense no que acontece com cada opção da primeira etapa quando a segunda entra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque cada opção da primeira etapa se abre em todas as opções da segunda" },
+        { "rotulo": "B", "texto": "Porque multiplicar sempre dá um número maior" },
+        { "rotulo": "C", "texto": "Porque as etapas têm quantidades diferentes de opções" },
+        { "rotulo": "D", "texto": "Porque a soma só vale para três ou mais etapas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque multiplicar sempre dá um número maior",
+          "porque": "Nem sempre dá — se uma das etapas tiver uma opção só, o produto é igual ao da outra. E mesmo quando dá, isso não explicaria nada: a conta certa não é a que produz o maior número, é a que conta os casos corretamente."
+        },
+        {
+          "resposta": "Porque as etapas têm quantidades diferentes de opções",
+          "porque": "A regra vale igual quando as quantidades são iguais: com 3 camisas e 3 calças saem 9 combinações, e não 6. O que decide a multiplicação é a estrutura em etapas, e não os números envolvidos."
+        },
+        {
+          "resposta": "Porque a soma só vale para três ou mais etapas",
+          "porque": "A soma não vale para nenhum número de etapas quando a pergunta é sobre combinações. Ela responde a outra pergunta: quantas opções existem no total, contando todas as etapas juntas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fixe uma opção da primeira etapa",
+          "explicacao": "Escolhida a camisa branca, ainda restam todas as calças para escolher.",
+          "conta": "1 camisa → 2 combinações"
+        },
+        {
+          "titulo": "Repita para as outras",
+          "explicacao": "Cada uma das camisas se abre no mesmo número de combinações.",
+          "conta": "3 × 2 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um restaurante oferece 2 entradas, 3 pratos principais e 2 sobremesas. Quantos menus completos diferentes é possível montar? Digite apenas o número.",
+      "imagem": "pb8-q-menu",
+      "dica": "Agora são três etapas. O princípio vale igual: multiplique todas.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é 2 + 3 + 2, somando as opções das três etapas. A soma conta os pratos do cardápio; a pergunta é sobre os menus montados com eles, e aí as etapas se multiplicam."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é 2 × 3, parando na segunda etapa. A sobremesa também é uma escolha, e cada um dos 6 começos de menu ainda se abre em 2 sobremesas."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é 2 × 2 × 2, usando 2 opções nas três etapas. O prato principal tem 3 opções, e não 2 — cada etapa entra com o número dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste as etapas",
+          "explicacao": "Montar o menu exige três escolhas, uma de cada categoria.",
+          "conta": "entrada · prato · sobremesa"
+        },
+        {
+          "titulo": "Multiplique as três",
+          "explicacao": "Cada combinação de entrada e prato ainda se abre em 2 sobremesas.",
+          "conta": "2 × 3 × 2 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa corrida com 5 participantes, de quantas maneiras diferentes podem ser ocupados o 1º e o 2º lugares? Digite apenas o número.",
+      "imagem": "pb8-q-podio",
+      "dica": "Quem ganhou o 1º lugar não pode ficar também com o 2º. Isso muda o número de opções da segunda etapa.",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 é 5 × 5, como se a segunda etapa também tivesse 5 opções. Mas quem ficou em 1º não pode ficar em 2º também: escolhido o primeiro, restam 4 pessoas para o segundo lugar."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é metade de 20, o que sairia se a ORDEM não importasse. Aqui ela importa: primeiro lugar para Ana e segundo para Beto é um resultado diferente do contrário."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 5 + 4, somando as opções das duas etapas. As etapas se multiplicam: cada um dos 5 possíveis campeões deixa 4 possíveis vice-campeões."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as opções do 1º lugar",
+          "explicacao": "Qualquer um dos cinco participantes pode ganhar.",
+          "conta": "5 opções"
+        },
+        {
+          "titulo": "Conte as do 2º lugar",
+          "explicacao": "O campeão já está definido, então sobram quatro pessoas.",
+          "conta": "4 opções"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cada campeão possível se abre em 4 vice-campeões possíveis.",
+          "conta": "5 × 4 = 20"
+        }
+      ]
+    }
+  ]
+}

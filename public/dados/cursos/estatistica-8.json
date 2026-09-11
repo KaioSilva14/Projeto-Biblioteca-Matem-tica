@@ -1,0 +1,41 @@
+{
+  "id": "estatistica-8",
+  "titulo": "Estatística",
+  "ano": 8,
+  "descricao": "O 6º ano leu gráficos e o 7º resumiu dados em média, moda e mediana. Aqui vem a pergunta que está antes das duas: de onde os dados vieram. Amostra, população e o que separa uma pesquisa confiável de uma enganosa — e a lição 5, que é a razão de a matéria existir, mostra quatro maneiras de um gráfico dizer a verdade e mentir ao mesmo tempo.",
+  "pergunta": "Como saber se um número que você leu merece confiança?",
+  "videos": [
+    {
+      "id": "5ctWgFOizkQ",
+      "titulo": "CONCEITOS BÁSICOS DE ESTATÍSTICA: POPULAÇÃO,  AMOSTRA, AMOSTRAGEM, VARIÁVEIS E ORGANIZAÇÃO DE DADOS",
+      "canal": "Professora Gisele Ramos - Matemática",
+      "descricao": "Cobre os nomes todos de uma vez, que é o assunto das lições 1 e 2. Bom para fixar o vocabulário."
+    },
+    {
+      "id": "FQx3XyflFP4",
+      "titulo": "POPULAÇÃO, AMOSTRA E AMOSTRAGEM | Introdução à Estatística",
+      "canal": "Professora Noemi Matemática",
+      "descricao": "Vai mais devagar na diferença entre censo e amostragem. Vale se a escolha da amostra ainda parecer arbitrária."
+    },
+    {
+      "id": "-gPUxaCCbDw",
+      "titulo": "Estatística - População x Amostra",
+      "canal": "Professor Julio Cesar | Bizutemática",
+      "descricao": "Curto e direto, com exemplos do dia a dia. Serve como revisão rápida da lição 1."
+    },
+    {
+      "id": "XnZ-6CyqeLE",
+      "titulo": "Exercícios com População e amostra - Aula 112",
+      "canal": "Eu vou aprender Matemática",
+      "descricao": "Só exercícios resolvidos de população e amostra, um a um. Serve para quem entendeu a ideia das lições 1 e 2 e quer treinar antes da prova."
+    }
+  ],
+  "licoes": [
+    { "id": "populacao-amostra", "arquivo": "/dados/licoes/estatistica-8/populacao-amostra.json" },
+    { "id": "amostra-boa", "arquivo": "/dados/licoes/estatistica-8/amostra-boa.json" },
+    { "id": "frequencia", "arquivo": "/dados/licoes/estatistica-8/frequencia.json" },
+    { "id": "setores", "arquivo": "/dados/licoes/estatistica-8/setores.json" },
+    { "id": "grafico-mente", "arquivo": "/dados/licoes/estatistica-8/grafico-mente.json" },
+    { "id": "pesquisa", "arquivo": "/dados/licoes/estatistica-8/pesquisa.json" }
+  ]
+}

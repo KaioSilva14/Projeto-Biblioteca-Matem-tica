@@ -1,0 +1,195 @@
+{
+  "id": "populacao-amostra",
+  "numero": 1,
+  "titulo": "População e amostra",
+  "pergunta": "Por que perguntar a poucos para saber de muitos?",
+  "ideia": {
+    "paragrafos": [
+      "Toda pesquisa começa decidindo sobre QUEM ela fala. Esse grupo inteiro chama-se POPULAÇÃO — e ela nem sempre é gente: pode ser todos os alunos de uma escola, todas as lâmpadas de um lote, todos os dias do ano passado. A população é definida pela pergunta, e não pelo tamanho.",
+      "Perguntar a todo mundo tem nome: CENSO. Ele dá a resposta exata, e às vezes é a escolha certa — uma professora que quer saber o que a turma dela achou da prova pode perguntar aos 30 alunos. Mas o censo custa caro, demora, e em alguns casos é simplesmente impossível.",
+      "Impossível é mais comum do que parece. Para saber quanto tempo uma lâmpada dura, é preciso deixá-la queimar até o fim — testar o lote inteiro destruiria o lote inteiro. Nesses casos não há escolha: o jeito é examinar uma parte.",
+      "Essa parte examinada é a AMOSTRA. A partir dela se estima o que vale para a população toda: se 30% dos 40 alunos entrevistados vão de ônibus, é razoável estimar que cerca de 30% dos 800 da escola também vão — o que daria 240 alunos.",
+      "Repare na palavra ESTIMAR. O resultado de uma amostra não é a verdade sobre a população: é um palpite informado sobre ela. Pesquisas sérias dizem isso em voz alta, com uma margem de erro — e desconfiar de quem apresenta resultado de amostra como se fosse censo é um bom hábito.",
+      "Duas perguntas valem a pena diante de qualquer número: qual é a população de que ele fala, e ele veio de um censo ou de uma amostra? Quem não sabe responder às duas não sabe o que o número significa — e é isso que as próximas lições vão destrinchar."
+    ],
+    "destaque": "População é o grupo todo; amostra é a parte examinada. O resultado da amostra ESTIMA o da população.",
+    "imagem": "et8-ideia-populacao"
+  },
+  "resolvido": {
+    "enunciado": "Numa escola de 800 alunos, 40 foram entrevistados e 12 deles disseram vir de ônibus. Quantos alunos da escola devem vir de ônibus?",
+    "imagem": "et8-res-estimativa",
+    "passos": [
+      {
+        "titulo": "Separe população e amostra",
+        "explicacao": "A escola inteira é a população; os entrevistados são a amostra.",
+        "conta": "população 800 · amostra 40"
+      },
+      {
+        "titulo": "Calcule a proporção na amostra",
+        "explicacao": "Dos 40 entrevistados, 12 vêm de ônibus.",
+        "conta": "12 ÷ 40 = 0,3 = 30%"
+      },
+      {
+        "titulo": "Aplique à população",
+        "explicacao": "Se a amostra representa bem a escola, a mesma proporção vale para os 800.",
+        "conta": "30% de 800 = 240"
+      },
+      {
+        "titulo": "Diga o que isso é",
+        "explicacao": "O número não foi contado: foi estimado a partir de uma parte.",
+        "conta": "cerca de 240 alunos"
+      }
+    ],
+    "fecho": "Contar os 800 daria o número exato — a estimativa vale por evitar 760 entrevistas."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa escola de 800 alunos, 40 foram entrevistados e 12 disseram vir de ônibus. Pela amostra, quantos alunos da escola devem vir de ônibus? Digite apenas o número.",
+      "imagem": "et8-q-estimativa",
+      "dica": "Ache a proporção na amostra e aplique-a ao total de alunos da escola.",
+      "formato": "numero",
+      "resposta": 240,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é o número de entrevistados que vêm de ônibus, e não a estimativa para a escola. Esses 12 são 30% da amostra, e é essa proporção que se aplica aos 800 alunos."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é a PORCENTAGEM de entrevistados que vêm de ônibus, e não uma quantidade de alunos. Falta aplicar esses 30% ao total da escola."
+        },
+        {
+          "resposta": "800",
+          "porque": "800 é a população inteira, ou seja, todos os alunos da escola. A pergunta é sobre quantos deles vêm de ônibus, e a amostra indica cerca de 30%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a proporção na amostra",
+          "explicacao": "Foram 12 respostas de ônibus entre os 40 entrevistados.",
+          "conta": "12 ÷ 40 = 30%"
+        },
+        {
+          "titulo": "Aplique ao total",
+          "explicacao": "A proporção da amostra é estendida aos 800 alunos da escola.",
+          "conta": "30% de 800 = 240"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma fábrica quer saber quanto tempo suas lâmpadas duram. Por que ela não pode fazer um censo?",
+      "imagem": "et8-q-lampadas",
+      "dica": "Pense no que é preciso fazer com uma lâmpada para descobrir quanto ela dura.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o teste destrói a lâmpada, e testar todas acabaria com a produção" },
+        { "rotulo": "B", "texto": "Porque censo só pode ser feito com pessoas" },
+        { "rotulo": "C", "texto": "Porque amostra dá resultado mais exato que censo" },
+        { "rotulo": "D", "texto": "Porque a população é pequena demais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque censo só pode ser feito com pessoas",
+          "porque": "População em estatística é qualquer conjunto que a pesquisa examina — lâmpadas, dias, parafusos. O problema aqui não é o que está sendo medido, e sim que a medição destrói o item."
+        },
+        {
+          "resposta": "Porque amostra dá resultado mais exato que censo",
+          "porque": "É o contrário: o censo dá o valor exato, e a amostra dá uma estimativa. A amostra é escolhida por ser viável ou barata, e nunca por ser mais precisa."
+        },
+        {
+          "resposta": "Porque a população é pequena demais",
+          "porque": "Uma fábrica produz lâmpadas às centenas de milhares — a população é enorme. E população pequena seria um argumento a FAVOR do censo, e não contra ele."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o teste exige",
+          "explicacao": "Descobrir quanto uma lâmpada dura significa deixá-la acesa até queimar.",
+          "conta": "o teste destrói a lâmpada"
+        },
+        {
+          "titulo": "Aplique isso ao censo",
+          "explicacao": "Testar todas acabaria com todas, e não sobraria nada para vender.",
+          "conta": "só a amostra é possível"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma professora quer saber a opinião dos 30 alunos da turma dela sobre a última prova, e pergunta a todos. Isso é:",
+      "imagem": "et8-q-censo",
+      "dica": "Compare quantos foram consultados com o tamanho do grupo sobre o qual ela quer saber.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Um censo, porque a população inteira foi consultada" },
+        { "rotulo": "B", "texto": "Uma amostra, porque 30 é pouca gente" },
+        { "rotulo": "C", "texto": "Uma amostra, porque ela não perguntou à escola toda" },
+        { "rotulo": "D", "texto": "Nenhum dos dois, porque opinião não é dado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Uma amostra, porque 30 é pouca gente",
+          "porque": "O que define censo não é o tamanho, e sim a cobertura: foram consultados TODOS os integrantes da população. Trinta de trinta é cobertura completa."
+        },
+        {
+          "resposta": "Uma amostra, porque ela não perguntou à escola toda",
+          "porque": "A escola não é a população desta pesquisa. A professora quer saber sobre a turma dela, e é a turma que define o grupo — perguntar à escola responderia outra pergunta."
+        },
+        {
+          "resposta": "Nenhum dos dois, porque opinião não é dado",
+          "porque": "Opinião é um dado como qualquer outro, e pesquisas de opinião são das mais comuns que existem. O que muda é o tipo de informação coletada, não a classificação da pesquisa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique a população",
+          "explicacao": "A pergunta é sobre a turma dela, então a população são os 30 alunos.",
+          "conta": "população = 30 alunos"
+        },
+        {
+          "titulo": "Veja quem foi consultado",
+          "explicacao": "Todos os 30 responderam, sem sobrar ninguém.",
+          "conta": "30 de 30 → censo"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa cidade de 50 000 habitantes, 500 pessoas foram entrevistadas. Qual porcentagem da população foi consultada? Digite apenas o número.",
+      "imagem": "et8-q-proporcao-amostra",
+      "dica": "Divida o tamanho da amostra pelo da população e escreva o resultado em porcentagem.",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "500",
+          "porque": "500 é o tamanho da amostra em pessoas, e não a porcentagem que ela representa. Para chegar à porcentagem é preciso dividir pela população e multiplicar por 100."
+        },
+        {
+          "resposta": "10",
+          "porque": "10% de 50 000 seriam 5 000 pessoas, dez vezes mais do que foi entrevistado. A conta certa é 500 ÷ 50 000, que dá 0,01 — ou seja, 1%."
+        },
+        {
+          "resposta": "100",
+          "porque": "100% significaria que a cidade inteira foi entrevistada, o que seria um censo. Foram 500 pessoas de 50 000, uma fração bem pequena do total."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida amostra por população",
+          "explicacao": "São 500 entrevistados entre os 50 000 habitantes.",
+          "conta": "500 ÷ 50000 = 0,01"
+        },
+        {
+          "titulo": "Escreva em porcentagem",
+          "explicacao": "Um centésimo escrito como porcentagem.",
+          "conta": "0,01 = 1%"
+        }
+      ]
+    }
+  ]
+}

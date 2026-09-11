@@ -1,0 +1,204 @@
+{
+  "id": "somar-pedacos",
+  "numero": 1,
+  "titulo": "Área se soma aos pedaços",
+  "pergunta": "O que acontece com a área quando a figura é partida em pedaços?",
+  "ideia": {
+    "paragrafos": [
+      "Área é quantidade de superfície: o tanto de chão que a figura ocupa. Do 6º ano você já traz duas fórmulas — retângulo é base × altura, e triângulo é base × altura ÷ 2. Esta matéria não vai substituir nenhuma das duas. Ela vai mostrar que quase toda figura pode ser reduzida a elas.",
+      "O que torna isso possível é uma propriedade simples da área: ela SE SOMA. Se você parte uma figura em pedaços que não se sobrepõem, a área da figura inteira é a soma das áreas dos pedaços. Nada se cria e nada se perde no corte — o chão continua o mesmo, só passou a ser contado em partes.",
+      "Repare que isso não vale para tudo. O perímetro NÃO se soma assim: ao partir a figura você cria uma borda nova, que conta no perímetro de cada pedaço e não contava no da figura original. Área e perímetro se comportam de maneiras diferentes, e confundir os dois é o erro mais antigo desta parte da Matemática.",
+      "A consequência prática é que o corte pode ser escolhido. Uma figura em L pode ser partida em dois retângulos com um corte horizontal ou com um corte vertical, e os dois caminhos dão o mesmo número — porque os dois estão medindo o mesmo chão. Quando um problema parece difícil, quase sempre existe um corte que o torna fácil.",
+      "Há ainda um segundo caminho, que é o mesmo argumento de trás para frente: em vez de somar pedaços, dá para SUBTRAIR. Uma placa retangular com um pedaço recortado tem área igual à do retângulo inteiro menos a área do recorte. Somar ou subtrair é escolha de conveniência; os dois medem a mesma superfície."
+    ],
+    "destaque": "Partir a figura não muda a área. Só muda a conta que você vai fazer para chegar nela.",
+    "imagem": "ar8-ideia-somar"
+  },
+  "resolvido": {
+    "enunciado": "Uma figura em L tem 6 cm na base, sobe 3 cm, anda 2 cm para a esquerda, sobe mais 2 cm, anda 4 cm para a esquerda e desce 5 cm. Qual é a área dela?",
+    "imagem": "ar8-res-dois-cortes",
+    "passos": [
+      {
+        "titulo": "Escolha um corte",
+        "explicacao": "Um corte horizontal na altura de 3 cm parte a figura em dois retângulos.",
+        "conta": "um corte horizontal · dois retângulos"
+      },
+      {
+        "titulo": "Meça o retângulo de baixo",
+        "explicacao": "Ele tem a base inteira da figura e vai até a altura do corte.",
+        "conta": "6 × 3 = 18"
+      },
+      {
+        "titulo": "Meça o retângulo de cima",
+        "explicacao": "Acima do corte a figura estreita: sobram 4 cm de largura e 2 cm de altura.",
+        "conta": "4 × 2 = 8"
+      },
+      {
+        "titulo": "Some os pedaços",
+        "explicacao": "A área da figura inteira é a soma das áreas das duas partes.",
+        "conta": "18 + 8 = 26"
+      }
+    ],
+    "fecho": "Um corte vertical daria 4 × 5 = 20 e 2 × 3 = 6, que somam os mesmos 26 cm²."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A figura em L tem 6 cm na base e 5 cm de altura total; a parte de cima tem 4 cm de largura e 2 cm de altura. Qual é a área da figura, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-area-l",
+      "dica": "Corte na horizontal e meça os dois retângulos separadamente antes de somar.",
+      "formato": "numero",
+      "resposta": 26,
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é 6 × 5, a área do retângulo inteiro de 6 por 5 — como se o pedaço que falta no canto não tivesse sido recortado. A figura em L é menor que esse retângulo, e o que falta são 2 × 2 = 4 cm²."
+        },
+        {
+          "resposta": "38",
+          "porque": "38 sai de 6 × 3 mais 4 × 5: o retângulo de cima foi medido com a altura TOTAL da figura, e não com a altura dele. Acima do corte sobram só 2 cm de altura."
+        },
+        {
+          "resposta": "22",
+          "porque": "22 é o perímetro da figura — a volta inteira, somando os seis lados. A pergunta é sobre a área, que é a superfície ocupada, e não sobre o contorno."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Corte na altura de 3 cm",
+          "explicacao": "Abaixo do corte fica um retângulo com a base inteira da figura.",
+          "conta": "6 × 3 = 18"
+        },
+        {
+          "titulo": "Meça o pedaço de cima",
+          "explicacao": "Ele tem 4 cm de largura e apenas 2 cm de altura.",
+          "conta": "4 × 2 = 8"
+        },
+        {
+          "titulo": "Some as duas partes",
+          "explicacao": "A área da figura é a soma das áreas dos dois retângulos.",
+          "conta": "18 + 8 = 26"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma figura foi partida em dois retângulos com um corte horizontal, e depois a mesma figura foi partida com um corte vertical. O que acontece com a soma das áreas?",
+      "imagem": "ar8-q-dois-cortes",
+      "dica": "Pense no que o corte muda de verdade: a superfície ocupada ou só a conta que você faz.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Dá o mesmo resultado nos dois cortes" },
+        { "rotulo": "B", "texto": "O corte horizontal sempre dá menos" },
+        { "rotulo": "C", "texto": "Depende do tamanho da figura" },
+        { "rotulo": "D", "texto": "O corte vertical sempre dá mais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O corte horizontal sempre dá menos",
+          "porque": "Nenhum corte tira superfície da figura. Os dois pedaços juntos continuam sendo exatamente o mesmo chão de antes, então a soma não pode diminuir por causa da direção do corte."
+        },
+        {
+          "resposta": "Depende do tamanho da figura",
+          "porque": "Não depende de nada: vale para qualquer figura e qualquer corte que não sobreponha os pedaços. É essa garantia que permite escolher o corte mais confortável em cada problema."
+        },
+        {
+          "resposta": "O corte vertical sempre dá mais",
+          "porque": "O corte só reparte a superfície, não acrescenta nenhuma. Somando os pedaços de qualquer repartição você volta sempre ao mesmo total."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o corte faz",
+          "explicacao": "Ele reparte a superfície da figura, sem tirar nem acrescentar chão.",
+          "conta": "mesma superfície repartida"
+        },
+        {
+          "titulo": "Some os pedaços de novo",
+          "explicacao": "Juntando as partes de qualquer repartição você recupera a figura inteira.",
+          "conta": "soma igual nos dois cortes"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "De uma placa retangular de 8 cm por 5 cm foi recortado um quadrado de 3 cm de lado num dos cantos. Qual é a área da placa que sobrou, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-subtrair",
+      "dica": "Meça a placa inteira primeiro e desconte só o que foi retirado dela.",
+      "formato": "numero",
+      "resposta": 31,
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é a área da placa inteira, 8 × 5, antes do recorte. O quadrado retirado precisa ser descontado: ele vale 3 × 3 = 9 cm² de superfície."
+        },
+        {
+          "resposta": "37",
+          "porque": "37 desconta 3 em vez de 9: foi subtraído o LADO do quadrado, e não a área dele. Um quadrado de 3 cm de lado ocupa 3 × 3 = 9 cm²."
+        },
+        {
+          "resposta": "34",
+          "porque": "34 sai de 40 − 6, que seria descontar os dois lados do recorte somados. O que sai da placa é a área do quadrado, e área de quadrado é lado × lado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça a placa inteira",
+          "explicacao": "Antes do recorte ela é um retângulo comum de 8 por 5.",
+          "conta": "8 × 5 = 40"
+        },
+        {
+          "titulo": "Meça o recorte",
+          "explicacao": "O pedaço retirado é um quadrado de 3 cm de lado.",
+          "conta": "3 × 3 = 9"
+        },
+        {
+          "titulo": "Subtraia um do outro",
+          "explicacao": "O que sobrou é a placa inteira menos o pedaço que saiu.",
+          "conta": "40 − 9 = 31"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Ao partir uma figura em dois pedaços, o que NÃO se conserva?",
+      "imagem": "ar8-q-perimetro-muda",
+      "dica": "O corte cria uma borda nova. Pense em qual das duas medidas conta as bordas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A soma dos perímetros, porque o corte cria borda nova" },
+        { "rotulo": "B", "texto": "A soma das áreas, porque o corte tira superfície" },
+        { "rotulo": "C", "texto": "Nada muda: área e perímetro se somam igual" },
+        { "rotulo": "D", "texto": "O número de lados, e mais nada" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A soma das áreas, porque o corte tira superfície",
+          "porque": "O corte é uma linha, e linha não ocupa superfície: nada de área se perde nele. A área é justamente a medida que se conserva quando a figura é repartida."
+        },
+        {
+          "resposta": "Nada muda: área e perímetro se somam igual",
+          "porque": "As duas medidas se comportam de maneiras diferentes. A área se conserva, mas a linha do corte passa a ser borda dos DOIS pedaços — contada duas vezes na soma dos perímetros, e nenhuma vez antes do corte."
+        },
+        {
+          "resposta": "O número de lados, e mais nada",
+          "porque": "O número de lados realmente muda, mas essa não é a medida em jogo aqui. O que a pergunta compara é área e perímetro: a área se conserva e a soma dos perímetros não."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe primeiro a área",
+          "explicacao": "Os dois pedaços juntos ocupam a mesma superfície de antes.",
+          "conta": "área conservada"
+        },
+        {
+          "titulo": "Olhe agora o perímetro",
+          "explicacao": "A linha do corte vira borda dos dois pedaços, e antes não era borda de ninguém.",
+          "conta": "o corte é contado duas vezes"
+        }
+      ]
+    }
+  ]
+}

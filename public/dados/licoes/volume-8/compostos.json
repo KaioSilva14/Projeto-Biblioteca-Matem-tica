@@ -1,0 +1,205 @@
+{
+  "id": "compostos",
+  "numero": 4,
+  "titulo": "Sólidos compostos",
+  "pergunta": "Como medir o volume de um sólido que não é um prisma só?",
+  "ideia": {
+    "paragrafos": [
+      "Peças de máquina, degraus, móveis e prédios raramente são um prisma de base simples. E o caminho aqui é o mesmo que a matéria de áreas usou no plano: partir em pedaços que se sabe medir, calcular cada um e somar. Volume, como área, se soma aos pedaços.",
+      "Muitas dessas peças, porém, nem precisam ser partidas em sólidos: elas JÁ são prismas, só que de base composta. Uma peça em L com espessura uniforme é um prisma cuja base é a figura em L — e aí o roteiro da lição 1 serve inteiro. Calcule a área da base partindo a figura plana em retângulos, como na matéria anterior, e multiplique pela espessura.",
+      "Esse reconhecimento economiza trabalho e explica por que as duas matérias são vizinhas: a decomposição difícil acontece no PLANO, onde é mais fácil de enxergar, e o passo do espaço continua sendo uma multiplicação só.",
+      "Também aqui vale o caminho da SUBTRAÇÃO, e ele costuma ser mais curto quando o sólido é um bloco com um furo. Uma peça de 10 × 6 × 4 cm com um furo quadrado de 2 × 2 cm atravessando a espessura de 4 cm tem volume 240 − 16 = 224 cm³. Medir a peça inteira e descontar o furo é mais rápido do que partir o que sobrou em quatro pedaços.",
+      "Repare que o furo, para ser descontado assim, precisa ATRAVESSAR a peça — se ele fosse cego, com metade da profundidade, o desconto seria menor. É a mesma atenção que a área pedia com o pedaço recortado: o que se desconta é o volume do vazio, e não uma medida dele.",
+      "Um cuidado que vale nos dois caminhos: os pedaços não podem se sobrepor. Na peça em L, cada retângulo vai até onde o outro começa — se um deles fosse medido com a medida TOTAL do L, a região comum seria contada duas vezes. É o mesmo engano da lição de figuras compostas, agora custando volume em vez de área."
+    ],
+    "destaque": "Volume se soma aos pedaços, como a área. Escolha o corte, meça cada parte e some — ou meça o todo e desconte o vazio.",
+    "imagem": "vl8-ideia-composto"
+  },
+  "resolvido": {
+    "enunciado": "Uma peça tem 4 cm de espessura e a base em forma de L, formada por um retângulo de 6 cm por 2 cm e um retângulo de 3 cm por 3 cm encostados. Qual é o volume da peça?",
+    "imagem": "vl8-res-degrau",
+    "passos": [
+      {
+        "titulo": "Reconheça o sólido",
+        "explicacao": "A espessura é uniforme, então a peça é um prisma de base em L.",
+        "conta": "prisma de base composta"
+      },
+      {
+        "titulo": "Parta a base em dois retângulos",
+        "explicacao": "A decomposição acontece no plano, que é onde ela é fácil de enxergar.",
+        "conta": "6 × 2 = 12 · 3 × 3 = 9"
+      },
+      {
+        "titulo": "Some para achar a área da base",
+        "explicacao": "A área da figura em L é a soma das áreas dos dois retângulos.",
+        "conta": "12 + 9 = 21"
+      },
+      {
+        "titulo": "Multiplique pela espessura",
+        "explicacao": "São 4 camadas com a área da base cada uma.",
+        "conta": "21 × 4 = 84"
+      }
+    ],
+    "fecho": "Partir a peça em dois blocos daria o mesmo: 6 × 2 × 4 = 48 mais 3 × 3 × 4 = 36."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma peça tem 4 cm de espessura e a base em forma de L, formada por um retângulo de 6 cm por 2 cm e um retângulo de 3 cm por 3 cm encostados. Qual é o volume da peça, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "vl8-q-degrau",
+      "dica": "Ache a área da figura em L primeiro; a espessura entra só no último passo.",
+      "formato": "numero",
+      "resposta": 84,
+      "errosComuns": [
+        {
+          "resposta": "108",
+          "porque": "108 usa 3 × 5 no retângulo menor, medindo-o com a medida TOTAL do L. Ele tem só 3 cm desse lado: os outros 2 cm já foram contados no retângulo de 6 por 2, e entrariam duas vezes."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é 6 × 5 × 4, tratando a base como o retângulo inteiro de 6 por 5 em que o L caberia. Falta descontar o canto que o L não ocupa, e ele vale 3 × 3 × 4 = 36 cm³."
+        },
+        {
+          "resposta": "21",
+          "porque": "21 é a ÁREA da base em L, em centímetros quadrados — o passo do meio, feito corretamente. Falta multiplicar pelos 4 cm de espessura para chegar ao volume."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Parta a base em dois",
+          "explicacao": "A figura em L é um retângulo de 6 por 2 encostado em outro de 3 por 3.",
+          "conta": "6 × 2 = 12 · 3 × 3 = 9"
+        },
+        {
+          "titulo": "Some as áreas",
+          "explicacao": "A área da base é a soma das áreas dos dois retângulos.",
+          "conta": "12 + 9 = 21"
+        },
+        {
+          "titulo": "Multiplique pela espessura",
+          "explicacao": "São 4 camadas com a área da base cada uma.",
+          "conta": "21 × 4 = 84"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ao partir um sólido em dois pedaços para medir o volume, o que não pode acontecer?",
+      "imagem": "vl8-q-sem-sobrepor",
+      "dica": "Pense no que aconteceria com uma região que pertencesse aos dois pedaços ao mesmo tempo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os pedaços se sobreporem, porque a região comum seria contada duas vezes" },
+        { "rotulo": "B", "texto": "Os pedaços terem tamanhos diferentes" },
+        { "rotulo": "C", "texto": "O corte ser horizontal" },
+        { "rotulo": "D", "texto": "Os pedaços terem formatos diferentes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Os pedaços terem tamanhos diferentes",
+          "porque": "Eles quase sempre têm tamanhos diferentes, e isso não atrapalha nada. O que a soma exige é que juntos cubram o sólido inteiro sem se sobrepor."
+        },
+        {
+          "resposta": "O corte ser horizontal",
+          "porque": "O corte pode ter qualquer direção — horizontal, vertical ou outra —, e todos dão o mesmo total. A direção é escolha de conveniência, como no plano."
+        },
+        {
+          "resposta": "Os pedaços terem formatos diferentes",
+          "porque": "Um sólido pode perfeitamente ser partido num bloco e num prisma triangular. Cada pedaço é medido com a fórmula que serve para ele, e as duas medidas se somam sem problema."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Imagine a sobreposição",
+          "explicacao": "Uma região que pertencesse aos dois pedaços entraria nas duas contas.",
+          "conta": "região comum contada duas vezes"
+        },
+        {
+          "titulo": "Veja o efeito na soma",
+          "explicacao": "A soma passaria do volume verdadeiro, exatamente pelo volume repetido.",
+          "conta": "soma maior que o sólido"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma peça é um bloco de 10 cm por 6 cm por 4 cm com um furo quadrado de 2 cm por 2 cm que atravessa toda a espessura de 4 cm. Qual é o volume da peça, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "vl8-q-furo",
+      "dica": "Meça o bloco inteiro e desconte o volume do vazio que o furo deixou.",
+      "formato": "numero",
+      "resposta": 224,
+      "errosComuns": [
+        {
+          "resposta": "240",
+          "porque": "240 é o bloco inteiro, 10 × 6 × 4, antes do furo. O vazio precisa ser descontado: ele vale 2 × 2 × 4 = 16 cm³."
+        },
+        {
+          "resposta": "236",
+          "porque": "236 desconta 4 em vez de 16 — foi tirada a área da boca do furo, 2 × 2, e não o volume dele. O furo atravessa os 4 cm de espessura, então o vazio é 2 × 2 × 4."
+        },
+        {
+          "resposta": "232",
+          "porque": "232 desconta 8, que seria o furo com metade da espessura. O enunciado diz que ele ATRAVESSA a peça, então o vazio ocupa os 4 cm inteiros."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça o bloco inteiro",
+          "explicacao": "Antes do furo ele é um bloco comum.",
+          "conta": "10 × 6 × 4 = 240"
+        },
+        {
+          "titulo": "Meça o vazio",
+          "explicacao": "O furo é um bloco de 2 por 2 que atravessa os 4 cm de espessura.",
+          "conta": "2 × 2 × 4 = 16"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "A peça é o bloco menos o vazio que o furo deixou.",
+          "conta": "240 − 16 = 224"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa peça com furo, o que acontece com o volume se o furo deixar de atravessar a peça e passar a ter metade da profundidade?",
+      "imagem": "vl8-q-furo-cego",
+      "dica": "Compare o tamanho do vazio nos dois casos antes de comparar as peças.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O volume da peça aumenta, porque o vazio descontado é menor" },
+        { "rotulo": "B", "texto": "O volume da peça diminui" },
+        { "rotulo": "C", "texto": "O volume não muda, porque a boca do furo é a mesma" },
+        { "rotulo": "D", "texto": "O volume cai pela metade" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O volume da peça diminui",
+          "porque": "É o contrário: com o furo mais raso, sobra MAIS material na peça. Menos vazio significa mais volume, porque o desconto fica menor."
+        },
+        {
+          "resposta": "O volume não muda, porque a boca do furo é a mesma",
+          "porque": "A boca é a mesma, mas o que se desconta é o VOLUME do vazio, e ele depende também da profundidade. Um furo raso retira menos material que um furo passante de mesma boca."
+        },
+        {
+          "resposta": "O volume cai pela metade",
+          "porque": "Quem cai pela metade é o volume do FURO, e não o da peça. A peça ganha de volta metade do que o furo tirava — um acréscimo, e bem menor que a metade dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os vazios",
+          "explicacao": "Com metade da profundidade, o furo retira metade do volume que retirava antes.",
+          "conta": "vazio pela metade"
+        },
+        {
+          "titulo": "Veja o efeito na peça",
+          "explicacao": "Descontando menos do mesmo bloco, sobra mais material.",
+          "conta": "peça com mais volume"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "reais",
+  "titulo": "Dízimas e números reais",
+  "ano": 8,
+  "descricao": "Seis lições sobre o que acontece quando a divisão não acaba. A primeira responde a uma pergunta que quase nunca é feita — POR QUE ela não acaba —, e a resposta é bonita: os restos possíveis são poucos, então algum tem de se repetir. Depois disso, os irracionais entram como o que sobra: números que existem na reta e não são fração nenhuma.",
+  "pergunta": "Por que 1 dividido por 3 nunca termina, e 1 dividido por 4 termina?",
+  "videos": [
+    {
+      "id": "CPOfFghUEaw",
+      "titulo": "DÍZIMA PERIÓDICA SIMPLES E COMPOSTA | FRAÇÃO GERATRIZ",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Cobre a distinção entre dízima simples e composta e o cálculo da geratriz nas duas. Serve para as lições 2 e 3 juntas, se a diferença entre elas ainda embaralhar."
+    },
+    {
+      "id": "fwDUlo0d-hw",
+      "titulo": "Fração geratriz de uma dízima periódica | Rioeduca na TV – Matemática - 8º Ano",
+      "canal": "MultiRio",
+      "descricao": "Aula de TV escrita para esta série, com o passo a passo da geratriz sem pressa. Vale quando o truque do 10x − x parece mágica."
+    },
+    {
+      "id": "ktS_gTsiGsM",
+      "titulo": "RACIONAL OU IRRACIONAL? COMO VERIFICAR SE UMA RAIZ É EXATA",
+      "canal": "Matflix Matemática",
+      "descricao": "Responde à pergunta prática da lição 4: dada uma raiz, como saber se ela é racional. Bom para treinar antes da prova."
+    },
+    {
+      "id": "odbHITCz2Mo",
+      "titulo": "Os números irracionais na reta numérica",
+      "canal": "Khan Academy Brasil",
+      "descricao": "Só sobre localizar irracionais na reta, que é o assunto da lição 5. Curto e com a estimativa feita na tela."
+    }
+  ],
+  "licoes": [
+    { "id": "divisao-que-nao-acaba", "arquivo": "/dados/licoes/reais/divisao-que-nao-acaba.json" },
+    { "id": "periodo", "arquivo": "/dados/licoes/reais/periodo.json" },
+    { "id": "geratriz", "arquivo": "/dados/licoes/reais/geratriz.json" },
+    { "id": "irracionais", "arquivo": "/dados/licoes/reais/irracionais.json" },
+    { "id": "reta-real", "arquivo": "/dados/licoes/reais/reta-real.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/reais/problemas.json" }
+  ]
+}

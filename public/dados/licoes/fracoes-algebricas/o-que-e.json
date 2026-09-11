@@ -1,0 +1,194 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "Fração com letra",
+  "pergunta": "O que muda quando aparece uma letra no denominador?",
+  "ideia": {
+    "paragrafos": [
+      "Uma fração algébrica é uma fração cujo denominador tem letra. Coisas como 5/x, (x + 1)/(x − 2) e (x² − 9)/(x + 3) são frações algébricas; já x/3 não é, porque o denominador é um número comum.",
+      "Todas as regras do 6º ano continuam valendo. Multiplicar é multiplicar em cima e embaixo; dividir é inverter a segunda; somar exige denominador comum; e simplificar é cortar o que multiplica os dois lados. Nada disso muda por causa da letra.",
+      "Mas surge uma exigência que não existia antes: o denominador não pode ser zero. Dividir por zero não é uma conta difícil, é uma conta sem resposta — e por isso todo valor da letra que zera o denominador fica PROIBIDO.",
+      "Achar esse valor é fácil e vale fazer sempre. Em (x + 1)/(x − 2), o denominador zera quando x − 2 = 0, ou seja, quando x = 2. Então a fração existe para qualquer x, menos para o 2. Em 5/x, o proibido é o zero; em x/(x + 3), é o −3.",
+      "Repare que o valor proibido sai do DENOMINADOR, e o numerador não opina. Em (x − 2)/(x + 5), o numerador zera em x = 2 — e isso não é problema nenhum: a fração simplesmente vale zero ali. O que não pode é o de baixo zerar."
+    ],
+    "destaque": "Denominador zero é conta sem resposta. Todo valor que zera o de baixo fica proibido.",
+    "imagem": "fa-ideia-com-letra"
+  },
+  "resolvido": {
+    "enunciado": "Para quais valores de x a fração (x + 1)/(x − 2) NÃO existe?",
+    "imagem": "fa-res-proibido",
+    "passos": [
+      {
+        "titulo": "Olhe só para o denominador",
+        "explicacao": "É ele que decide onde a fração existe; o numerador não entra nessa conta.",
+        "conta": "denominador: x − 2"
+      },
+      {
+        "titulo": "Iguale a zero",
+        "explicacao": "O valor proibido é justamente aquele que anula o denominador.",
+        "conta": "x − 2 = 0"
+      },
+      {
+        "titulo": "Resolva a equação",
+        "explicacao": "É uma equação do 1º grau, como as do 7º ano.",
+        "conta": "x = 2"
+      },
+      {
+        "titulo": "Escreva a condição",
+        "explicacao": "A fração existe para todos os outros valores, sem exceção.",
+        "conta": "existe para x ≠ 2"
+      }
+    ],
+    "fecho": "Substituindo x = 2, o denominador vira zero — e a fração deixa de ter valor."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Para qual valor de x a fração 5/x não existe? Digite apenas o número.",
+      "imagem": "fa-q-proibido-5x",
+      "dica": "Procure o valor que faz o denominador virar zero.",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é o NUMERADOR, e ele não decide onde a fração existe. Quem manda é o denominador: aqui ele é o próprio x, e zera quando x vale zero."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 não zera o denominador: com x = −5 a fração vale 5 ÷ (−5), que dá −1, um número perfeitamente normal. O proibido é o valor que anula o de baixo."
+        },
+        {
+          "resposta": "1",
+          "porque": "Com x = 1 a fração vale 5, sem problema nenhum. O único valor proibido é o que faz o denominador virar zero, e aqui o denominador é o próprio x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o denominador",
+          "explicacao": "Aqui ele é a própria letra, sem nada somado nem multiplicado.",
+          "conta": "denominador: x"
+        },
+        {
+          "titulo": "Iguale a zero",
+          "explicacao": "O valor que anula o denominador é o valor proibido.",
+          "conta": "x = 0 → a fração não existe"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Para qual valor de x a fração x/(x + 3) não existe? Digite apenas o número (com o sinal, se for negativo).",
+      "imagem": "fa-q-proibido-x3",
+      "dica": "Iguale o denominador a zero e resolva a equação.",
+      "formato": "numero",
+      "resposta": -3,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "Com x = 3 o denominador vale 6, e a fração existe normalmente. O valor proibido resolve x + 3 = 0, o que dá x = −3: é preciso passar o 3 para o outro lado trocando o sinal."
+        },
+        {
+          "resposta": "0",
+          "porque": "Com x = 0 o denominador vale 3 e a fração vale zero — que é um valor legítimo. O zero no NUMERADOR não é problema; o proibido é o zero no denominador."
+        },
+        {
+          "resposta": "-1",
+          "porque": "Com x = −1 o denominador vale 2, e a fração existe. O valor procurado é o que anula x + 3, e −1 mais 3 dá 2, e não zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale o denominador a zero",
+          "explicacao": "É a equação que localiza o valor proibido.",
+          "conta": "x + 3 = 0"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Passando o 3 para o outro lado, ele troca de sinal.",
+          "conta": "x = −3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual destas NÃO é uma fração algébrica?",
+      "imagem": "fa-q-qual-nao-e",
+      "dica": "A definição olha para o denominador: ele precisa ter letra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "x/3" },
+        { "rotulo": "B", "texto": "3/x" },
+        { "rotulo": "C", "texto": "(x + 1)/(x − 2)" },
+        { "rotulo": "D", "texto": "5/(2x)" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3/x",
+          "porque": "Esta é fração algébrica: o denominador é o próprio x, uma letra. Ela tem valor proibido — o zero —, que é a marca registrada das frações algébricas."
+        },
+        {
+          "resposta": "(x + 1)/(x − 2)",
+          "porque": "Esta também é: o denominador x − 2 tem letra, e ela deixa de existir quando x vale 2. Ter letra no numerador não muda nada; quem decide é o de baixo."
+        },
+        {
+          "resposta": "5/(2x)",
+          "porque": "Esta é algébrica: o denominador 2x tem letra, e a fração não existe para x = 0. O coeficiente 2 não afeta essa classificação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o denominador de cada uma",
+          "explicacao": "A definição pede letra embaixo, e não em cima.",
+          "conta": "x/3 → denominador 3, sem letra"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Sem letra embaixo, nenhum valor de x zera o denominador: a fração existe sempre.",
+          "conta": "x/3 não é algébrica"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na fração (x − 2)/(x + 5), o que acontece quando x vale 2?",
+      "imagem": "fa-q-numerador-zero",
+      "dica": "Substitua o 2 na fração e faça as duas contas: a de cima e a de baixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A fração vale zero, e isso é perfeitamente normal" },
+        { "rotulo": "B", "texto": "A fração deixa de existir" },
+        { "rotulo": "C", "texto": "A fração vale 1" },
+        { "rotulo": "D", "texto": "A fração fica negativa" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A fração deixa de existir",
+          "porque": "Ela deixaria de existir se o DENOMINADOR zerasse, e aqui quem zera é o numerador. Com x = 2, o de baixo vale 7, e 0 dividido por 7 dá zero — um resultado legítimo."
+        },
+        {
+          "resposta": "A fração vale 1",
+          "porque": "Substituindo, o numerador dá 0 e o denominador dá 7, então a fração vale 0. Ela valeria 1 se os dois fossem iguais, o que não acontece aqui."
+        },
+        {
+          "resposta": "A fração fica negativa",
+          "porque": "Com x = 2 os dois lados dão 0 e 7, ambos não negativos, e o resultado é zero — que não é negativo. O sinal só mudaria se um dos lados fosse negativo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua nos dois lados",
+          "explicacao": "Faça a conta de cima e a de baixo separadamente.",
+          "conta": "numerador: 2 − 2 = 0  ·  denominador: 2 + 5 = 7"
+        },
+        {
+          "titulo": "Efetue a divisão",
+          "explicacao": "Zero dividido por qualquer número diferente de zero dá zero.",
+          "conta": "0 ÷ 7 = 0"
+        }
+      ]
+    }
+  ]
+}

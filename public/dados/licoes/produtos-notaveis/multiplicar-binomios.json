@@ -1,0 +1,188 @@
+{
+  "id": "multiplicar-binomios",
+  "numero": 1,
+  "titulo": "Multiplicar duas somas",
+  "pergunta": "Como se multiplica (x + 2) por (x + 3)?",
+  "ideia": {
+    "paragrafos": [
+      "Antes dos três padrões famosos, vale entender a conta que está por trás de todos eles. Multiplicar (x + 2) por (x + 3) não é multiplicar x por x e 2 por 3: cada parcela do primeiro parêntese precisa encontrar CADA parcela do segundo.",
+      "É a mesma propriedade distributiva de sempre, aplicada duas vezes. O x multiplica o x e depois o 3; em seguida o 2 multiplica o x e depois o 3. São quatro produtos, e nenhum pode ser esquecido — esquecer um é o erro que produz quase todas as respostas erradas desta matéria.",
+      "Fazendo os quatro: x vezes x dá x²; x vezes 3 dá 3x; 2 vezes x dá 2x; 2 vezes 3 dá 6. Somando tudo, x² + 3x + 2x + 6, e os dois termos com x se juntam porque são semelhantes: x² + 5x + 6.",
+      "Repare de onde veio cada pedaço da resposta, porque essa leitura vai valer para os três produtos notáveis. O x² veio do produto dos primeiros; o 6 veio do produto dos últimos; e o 5x — o termo do MEIO — veio da soma dos dois produtos cruzados. É sempre assim.",
+      "Um jeito de nunca esquecer nenhum produto é pensar em área. Um retângulo de lados (x + 2) e (x + 3) se parte em quatro pedaços, e a área total é a soma das quatro áreas. Os dois pedaços do meio são justamente os produtos cruzados — eles estão lá, desenhados, e não têm como sumir."
+    ],
+    "destaque": "Cada parcela encontra cada parcela. São quatro produtos, e o do meio é a soma dos dois cruzados.",
+    "imagem": "pn-ideia-quatro"
+  },
+  "resolvido": {
+    "enunciado": "Efetue (x + 2)(x + 3).",
+    "imagem": "pn-res-quatro",
+    "passos": [
+      {
+        "titulo": "Distribua o primeiro termo",
+        "explicacao": "O x do primeiro parêntese multiplica as duas parcelas do segundo.",
+        "conta": "x × x = x² · x × 3 = 3x"
+      },
+      {
+        "titulo": "Distribua o segundo termo",
+        "explicacao": "Agora o 2 faz o mesmo percurso: ele multiplica as duas parcelas do segundo parêntese.",
+        "conta": "2 × x = 2x · 2 × 3 = 6"
+      },
+      {
+        "titulo": "Junte os quatro produtos",
+        "explicacao": "Nenhum pode ficar de fora — cada um é o pedaço de uma área.",
+        "conta": "x² + 3x + 2x + 6"
+      },
+      {
+        "titulo": "Some os termos semelhantes",
+        "explicacao": "3x e 2x têm a mesma letra no mesmo grau, então se somam como no 7º ano.",
+        "conta": "x² + 5x + 6"
+      }
+    ],
+    "fecho": "O 5 do meio é a SOMA de 2 e 3, e o 6 é o produto deles. Guarde isso: os três produtos notáveis são casos particulares disso."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Ao efetuar (x + 4)(x + 5), qual é o coeficiente do termo em x? Digite apenas o número.",
+      "imagem": "pn-q-coef-meio",
+      "dica": "O termo do meio vem da soma dos dois produtos cruzados. Some os dois números.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o produto de 4 por 5, que é o termo SEM x da resposta. O termo do meio vem da SOMA dos produtos cruzados, e não do produto dos últimos."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é a diferença entre 5 e 4. Os produtos cruzados se somam, e não se subtraem — subtrair só apareceria se um dos sinais fosse negativo."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 escreve os dois números lado a lado. Eles são coeficientes que se somam: 4x mais 5x dão 9x."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache os produtos cruzados",
+          "explicacao": "O x multiplica o 5, e o 4 multiplica o x.",
+          "conta": "x × 5 = 5x · 4 × x = 4x"
+        },
+        {
+          "titulo": "Some os dois",
+          "explicacao": "Eles são semelhantes, então se juntam num termo só.",
+          "conta": "5x + 4x = 9x"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ao efetuar (x + 2)(x + 7), qual é o termo sem x, ou seja, o número solto? Digite apenas o número.",
+      "imagem": "pn-q-termo-solto",
+      "dica": "Ele vem do produto das duas últimas parcelas — as que não têm letra.",
+      "formato": "numero",
+      "resposta": 14,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é a SOMA de 2 e 7, que dá o coeficiente do termo do meio. O número solto vem do produto dos dois, e não da soma."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a diferença entre 7 e 2. Como os dois sinais são de mais, nada se subtrai nesta conta: o número solto é o produto."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 põe os dois algarismos lado a lado. Eles se multiplicam para formar o termo sem letra: 2 × 7 = 14."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o produto dos últimos",
+          "explicacao": "É o único dos quatro produtos que não tem letra nenhuma.",
+          "conta": "2 × 7 = 14"
+        },
+        {
+          "titulo": "Confira o resultado inteiro",
+          "explicacao": "Os outros três produtos formam o x² e o termo do meio.",
+          "conta": "(x+2)(x+7) = x² + 9x + 14"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos produtos diferentes são feitos ao multiplicar dois parênteses de duas parcelas cada? Digite apenas o número.",
+      "imagem": "pn-q-quantos-produtos",
+      "dica": "Cada parcela do primeiro encontra cada parcela do segundo. Conte os encontros.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 conta apenas os produtos \"de frente\" — o primeiro com o primeiro e o segundo com o segundo. Faltam os dois cruzados, e é justamente esquecê-los que produz o erro clássico da matéria."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a quantidade de TERMOS que costuma sobrar na resposta, depois de os dois cruzados se somarem. Os produtos feitos são quatro; dois deles se juntam no fim."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é 2 × 2 × 2, um fator a mais. Com duas parcelas de cada lado, são 2 × 2 encontros — o mesmo princípio multiplicativo da matéria de probabilidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os encontros",
+          "explicacao": "Cada uma das duas parcelas do primeiro parêntese encontra as duas do segundo.",
+          "conta": "2 × 2 = 4"
+        },
+        {
+          "titulo": "Veja na figura",
+          "explicacao": "O retângulo se parte em quatro pedaços, um por produto.",
+          "conta": "4 áreas"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Ao efetuar (x + 3)(x + 3), o que acontece de diferente?",
+      "imagem": "pn-q-mesmo-parentese",
+      "dica": "Os dois parênteses são iguais. Veja o que isso faz com os dois produtos cruzados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os dois produtos cruzados ficam iguais, e a soma deles é o dobro de um só" },
+        { "rotulo": "B", "texto": "Os produtos cruzados desaparecem" },
+        { "rotulo": "C", "texto": "O resultado passa a ter só dois termos" },
+        { "rotulo": "D", "texto": "Nada muda: continua sendo x² + 9" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Os produtos cruzados desaparecem",
+          "porque": "Eles não desaparecem: os dois valem 3x, e somados dão 6x. Sumir é o que acontece na SOMA PELA DIFERENÇA, onde um deles fica negativo e cancela o outro — mas aqui os dois sinais são de mais."
+        },
+        {
+          "resposta": "O resultado passa a ter só dois termos",
+          "porque": "O resultado tem três: x², 6x e 9. Dois termos apareceriam se os cruzados se cancelassem, o que exige sinais contrários."
+        },
+        {
+          "resposta": "Nada muda: continua sendo x² + 9",
+          "porque": "Esse é o erro clássico da matéria, e a lição 5 é dedicada a ele. Os produtos cruzados existem e valem 6x no total — testando com x = 1, (1+3)² dá 16, e não 1 + 9 = 10."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Faça os quatro produtos",
+          "explicacao": "Com os dois parênteses iguais, os cruzados dão o mesmo valor.",
+          "conta": "x² · 3x · 3x · 9"
+        },
+        {
+          "titulo": "Some os iguais",
+          "explicacao": "Dois termos iguais somados dão o dobro de um deles.",
+          "conta": "3x + 3x = 6x → x² + 6x + 9"
+        }
+      ]
+    }
+  ]
+}

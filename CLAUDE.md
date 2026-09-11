@@ -382,9 +382,215 @@ nunca desenha figura em tempo de execução.
   como discordar do enunciado, e um teste conta as células marcadas de volta
   do SVG.
 
+- **Bloco de notação científica do 8º ano** (`escadaPotencias`, `escalaOrdens`,
+  `deslocarVirgula`), decidido antes do conteúdo pela mesma razão do bloco de
+  álgebra: a matéria inteira corre o risco de virar "conte as casas e mova a
+  vírgula", e cada um dos três existe contra isso.
+
+  - **`escadaPotencias` é o que tira o expoente zero da decoreba.** Ela desce
+    os degraus das potências de 10 com a seta "÷ 10" entre eles, e o 10⁰ = 1
+    aparece como o valor que SOBRA quando o padrão continua — não como uma
+    definição imposta. Vale para qualquer base, e a lição usa a do 5 e a do 2
+    justamente para o aluno ver que não é privilégio do 10.
+  - **`escalaOrdens` é a figura que justifica a matéria.** Numa régua linear
+    em EXPOENTE, o vírus e a Terra cabem lado a lado; escritos por extenso não
+    caberiam na folha. Ela não numera todas as marcas: com dezessete potências
+    em 456px, "10⁻⁸" ficava em cima de "10⁻⁷", então o passo de numeração é o
+    menor que cabe e as marcas COM OBJETO são numeradas sempre.
+  - **`deslocarVirgula` calcula o resultado**, como `fatoracao` e
+    `sequenciaFiguras`: ele recebe o número e a contagem de casas e MONTA a
+    mantissa, então a figura não tem como discordar do enunciado.
+
+    Ele tem `revelar`, pelo mesmo motivo que o `salto` da retaInteiros e o
+    `referencia` do gráfico têm ressalva. Com "tudo" ele mostra os arcos e o
+    resultado — só na ideia e no resolvido. Numa questão que pede o EXPOENTE
+    ele vai como "numero", porque a contagem dos arcos seria a resposta
+    desenhada; numa que pede o PRIMEIRO FATOR pode ir como "arcos", que não
+    entrega.
+
+- **`fatoresRepetidos` passou a medir a própria caixa.** Com 460px travados,
+  uma figura de duas potências curtas sobrava espaço dos dois lados e caía
+  para 0,63 num celular — encolhendo à toa uma linha que cabia em 380. Doze
+  figuras do 6º ano melhoraram junto.
+
+- **Bloco de dízimas e números reais do 8º ano** (`divisaoPeriodica`,
+  `conjuntosNumericos`). O primeiro é a matéria inteira: ele mostra a
+  SEQUÊNCIA DE RESTOS com o momento em que um deles volta marcado por uma
+  seta. É esse retorno que explica por que a dízima é periódica — os restos
+  possíveis são finitos, então algum tem de repetir, e quando repete a conta
+  recomeça igual. Sem a figura, a periodicidade vira um fato observado em vez
+  de uma consequência. Ele CALCULA a divisão longa, como `fatoracao`, e um
+  teste lê os restos de volta do SVG.
+
+  Ele tem `revelar` pela razão de sempre: o quociente sai com a barra sobre o
+  período, e essa barra É a resposta de qualquer questão que pergunte o
+  período. Com `revelar: "restos"` a conta aparece e a conclusão não.
+
+  **`conjuntosNumericos` põe os irracionais em caixa SEPARADA**, ao lado dos
+  racionais e dentro dos reais — e isso não é diagramação, é o conteúdo:
+  desenhá-los como mais uma caixa aninhada ensinaria o contrário do que a
+  lição 4 afirma. Um teste lê as coordenadas das caixas do SVG e exige que a
+  dos irracionais fique fora da dos racionais.
+
+  Duas correções que a primeira versão pediu, as duas achadas olhando: a
+  frase "o resto voltou" era o texto mais largo da figura e saía cortada nas
+  duas bordas, porque a caixa não a contava; e o nome de cada caixa aninhada
+  ficava centralizado na vertical, o que escrevia "naturais", "inteiros" e
+  "racionais" no mesmo ponto. O nome foi para a faixa de cima de cada caixa.
+
+- **Bloco de produtos notáveis e fatoração do 8º ano** (`quadradoSoma`,
+  `diferencaQuadrados`, `retanguloFatores`). As três matérias que mais viram
+  decoreba do Fundamental, e os três geradores dizem a mesma coisa por
+  caminhos diferentes: produto notável é ÁREA.
+
+  - **`quadradoSoma` parte um quadrado de lado a + b em quatro pedaços**, e
+    os dois retângulos `ab` são exatamente o que falta em "(a+b)² = a² + b²".
+    O erro mais comum da matéria fica VISÍVEL, em vez de ser corrigido com um
+    "não é assim". Ele tem `revelar`: com "vazio", as regiões ficam sem
+    rótulo, que é o que vai na questão perguntando o que elas são.
+  - **`diferencaQuadrados` recorta um b² do canto de um a²** e mostra o L que
+    sobra virando um retângulo de lados a + b e a − b. É a demonstração de
+    a² − b² = (a+b)(a−b) numa figura só, e um teste confere que as duas áreas
+    desenhadas são iguais para vários pares.
+  - **`retanguloFatores` mostra o fator comum como ALTURA**, o lado que todas
+    as faixas dividem. Pôr em evidência deixa de ser "passe o número para
+    fora" e passa a ser "meça o lado que todos os pedaços têm juntos".
+
+- **`fracaoAlgebrica`**, o gerador de Frações algébricas. Ele desenha a fração
+  com a barra de verdade e RISCA os fatores cancelados: o corte deixa de ser
+  uma operação abstrata e vira uma coisa que se vê acontecer. E ele recebe
+  `cima` e `baixo` como listas de FATORES — é essa estrutura que o impede de
+  ilustrar um corte proibido, porque uma soma escrita como fator único não
+  tem nada a riscar. Um teste confere isso nos dois sentidos.
+
+- **O `planoCartesiano` ganhou `retas`**, para Sistemas de equações. Cada
+  reta vem como `{ a, b, c }` na forma ax + by = c, e o gerador CALCULA onde
+  ela corta a moldura do plano em vez de receber os pontos prontos. É a
+  figura que impede a matéria de virar receita: sem as duas retas
+  desenhadas, "o par que serve nas duas equações" fica sendo uma frase.
+
+  Um teste lê os dois extremos de cada reta de volta do SVG, converte para
+  coordenadas do plano e exige que os dois satisfaçam a equação — se a reta
+  desenhada fosse outra, a figura estaria mentindo sobre a matéria.
+
+- **`poligonoTriangulado`**, o gerador de Ângulos e polígonos. A fórmula
+  (n − 2) × 180° é a coisa mais decorada do 8º ano, e o "n − 2" não diz nada
+  a quem só a memorizou: ele mostra de onde vem. Traçando as diagonais a
+  partir de UM vértice, o polígono se parte em triângulos — e sempre em dois
+  a menos que o número de lados, porque os dois lados vizinhos ao vértice
+  escolhido não geram diagonal nenhuma.
+
+  O mesmo gerador desenha TODAS as diagonais com `modo: "todas"`, que é a
+  figura da lição de contagem. Nos dois casos ele calcula os vértices e as
+  ligações a partir de `lados`, e um teste conta as diagonais de volta do
+  SVG, confere que os triângulos numerados são exatamente n − 2, e ainda
+  MEDE os lados do polígono para garantir que ele é regular — a matéria fala
+  de polígono regular o tempo todo.
+
+  O `numerar` tem a ressalva de sempre: ele só entra onde a contagem JÁ é
+  conhecida. Numa questão que pergunta quantos triângulos aparecem, os
+  números seriam a resposta desenhada.
+
+- **`parTriangulos`**, o gerador de Congruência de triângulos. A matéria
+  depende de uma notação que o aluno nunca viu — os TIQUINHOS nos lados e os
+  ARCOS nos ângulos, que dizem quais elementos se sabe serem iguais. Sem
+  eles, "estes dois lados são congruentes" só existiria no texto, e a figura
+  viraria enfeite: o aluno olharia dois triângulos parecidos e teria de
+  acreditar.
+
+  Ele constrói os dois triângulos A PARTIR DOS ÂNGULOS, como o `figuraPlana`,
+  e aceita GIRAR o segundo — porque congruência não exige mesma posição, e
+  essa é justamente a confusão que a lição 1 desfaz. Um teste conta as marcas
+  de volta do SVG (um caso LAL tem de ter dois lados e um ângulo marcados, e
+  não outra combinação) e mede os lados dos dois triângulos para garantir que
+  eles são mesmo congruentes, inclusive girados.
+
+- **`areaPorRecorte`**, o gerador de Áreas de figuras planas. As três
+  fórmulas novas da matéria — paralelogramo, trapézio e losango — são as mais
+  decoradas do 8º ano, e ele existe porque as três saem do MESMO argumento:
+  recortar a figura e remontá-la como uma que o aluno já sabe medir. O
+  paralelogramo vira retângulo cortando o triângulo de uma ponta; dois
+  trapézios iguais, um girado, fecham um paralelogramo de base B + b; o
+  losango ocupa metade do retângulo das diagonais.
+
+  Ele CALCULA os vértices a partir das medidas, e a `etapa` não é decoração:
+  "recortada" mostra a demonstração com a silhueta do destino tracejada por
+  baixo, e "original" mostra só as medidas — que é o que pode ir numa questão
+  sem entregar o caminho. O `rotulos` troca o texto de qualquer medida (é
+  assim que a questão inversa escreve "?" no lugar do valor procurado) ou a
+  apaga; a medida do LADO INCLINADO só aparece quando pedida, porque ela
+  existe para a questão da armadilha.
+
+  **A caixa considera o que a etapa EFETIVAMENTE desenha.** Reservar espaço
+  para uma figura que não aparece encolhe a que aparece: com a caixa fixa no
+  paralelogramo das duas cópias, um trapézio sozinho caía para 0,63 em 320px.
+  E o teto interno dele é 430px, e não os 456 do projeto — um trapézio de
+  base 20 encostava no teto e ficava abaixo do patamar do 7º ano.
+
+  **`figuraComposta` ganhou `cortes` e `partes`**, que é a matéria de Áreas
+  vista pelo outro lado: a figura difícil partida em figuras fáceis. Os
+  cortes vão tracejados e por dentro do contorno, para ficar claro que não
+  são lados — nenhum deles entra no perímetro.
+
+- **`prisma`**, o gerador de Volume. O bloco de sólidos do 6º ano só fazia
+  paralelepípedo, e a matéria do 8º é sobre a GENERALIZAÇÃO — volume é área
+  da base vezes altura, com a base que for. Sem um prisma de base
+  triangular, trapezoidal ou circular, a matéria repetiria o 6º ano com
+  outras palavras.
+
+  Ele aceita `base: "livre"` com movimentos, como a `figuraComposta`, e é
+  assim que a peça em L entra: ela NÃO é um sólido estranho, é um prisma de
+  base composta — enxergá-la assim é metade do que a lição 4 ensina. O
+  `camadas` desenha cópias da base empilhadas, e é a figura que EXPLICA a
+  fórmula em vez de ilustrá-la.
+
+  **Ele recusa base degenerada na projeção.** Com profundidade 4 e o recuo
+  de meio passo, o lado inclinado de um trapézio de bases 7 e 3 cai
+  exatamente na vertical e vira sósia de uma aresta de altura — o prisma lê
+  como paralelepípedo. O gerador lança erro em vez de deixar publicar.
+
+  E **a orientação da base livre importa**: a projeção oblíqua desloca o
+  fundo para a direita, então a parte funda precisa ser a mais larga. Com a
+  estreita atrás, ela invade o espaço da da frente e a peça em L lê como
+  duas caixas soltas.
+
+- **`arvorePossibilidades`**, o gerador de Probabilidade do 8º ano. A
+  `gradeDados` do 7º mostra dois eventos ao mesmo tempo; aqui os eventos são
+  SUCESSIVOS, e o que precisa ficar visível é a ordem. Cada nível é uma
+  etapa, cada ramo uma escolha, cada folha um resultado — e o princípio
+  multiplicativo fica evidente: com 2 caminhos e depois 3, saem 6 folhas
+  porque cada um dos 2 se abre em 3.
+
+  **Um nível pode dar as opções em FUNÇÃO do caminho até ali**, e é isso que
+  desenha o sorteio sem reposição: os ramos da segunda etapa mudam de galho
+  para galho, e a árvore fica desigual. Numa grade isso não apareceria.
+
+  Ela tem `ate`, pela ressalva de sempre: numa questão que pergunta quantos
+  resultados existem, a árvore inteira seria a resposta desenhada — basta
+  contar as folhas. E recusa mais de 12 folhas em vez de desenhar um borrão.
+
+  A largura de cada coluna conta o NOME DA ETAPA, e não só os rótulos dos
+  ramos: com ramos curtos, "1ª escolha" e "2ª escolha" se encavalavam por
+  4px. É o mesmo defeito que já apareceu em cinco geradores — a caixa
+  calculada a partir do desenho, sem contar o texto que fica fora dele.
+
+- **`setores`**, o gerador de Estatística. O `roda` do 6º ano reparte o
+  círculo em fatias IGUAIS para ilustrar fração; este calcula o ângulo de
+  cada fatia a partir dos VALORES. Um teste lê os ângulos de volta do SVG e
+  exige que sejam proporcionais aos dados — numa matéria que ensina a
+  desconfiar de gráfico, a figura não pode mentir sobre a pesquisa que
+  ilustra. Ele tem `mostrar: "nada"` para as questões que pedem a
+  porcentagem de uma fatia.
+
 - `ferramentas/manifesto-imagens.mjs` — a lista de todas as imagens.
 - `npm run imagens` rasteriza tudo com o Chrome headless em 2x, fundo
   transparente, e reescreve `public/dados/imagens.json`.
+
+  **Armadilha do `--so=<id>`:** ele gera só aquela imagem, mas reescreve o
+  ÍNDICE INTEIRO — e o índice fica com uma entrada só, derrubando as outras
+  1223 figuras do site. Ele serve para inspecionar um PNG rapidamente, nunca
+  para corrigir uma figura publicada. Depois de usá-lo, rodar o lote completo
+  para restaurar o índice.
 
 O conteúdo cita a imagem **pelo id**; o índice resolve caminho, alt e
 dimensões. Por isso o CSS de `.figura__img` **não pode** declarar
@@ -464,6 +670,13 @@ Duas regras de conteúdo para as figuras:
   `0.500` querendo dizer quinhentos: o grupo antes do ponto tem de começar por
   algarismo diferente de zero. Achado ao publicar Linguagem algébrica, e há
   teste nos dois sentidos.
+- **Na `conta` de um passo, o `·` SEPARA partes e o `×` multiplica.** Os dois
+  papéis não podem se misturar: o teste que confere as igualdades quebra a
+  conta pelos `·` e avalia cada pedaço, então "3 · 3 = 9" é lido como duas
+  partes — "3" e "3 = 9" — e reprovado com razão. Escrever "3 × 3 = 9"
+  resolve. Achado ao publicar Produtos notáveis, onde o `·` tinha sido usado
+  como sinal de multiplicação em vinte contas.
+
 - **O diagnóstico tem de ser ALCANÇÁVEL pelo motor.** Em questão numérica o
   motor casa por VALOR, não por texto: um erro previsto "8,0" numa questão de
   resposta 8 é aceito como CERTO e nunca aparece, e "6" e "6,0" são o mesmo
@@ -605,7 +818,7 @@ foi publicada com "depois, contando o que saiu" atravessando a borda da
 célula — o defeito que abriu esta revisão.
 
 `npm run figuras` (`ferramentas/auditar-figuras.mjs`) sobe o próprio Chrome,
-carrega as 1008 figuras, espera `document.fonts.ready` e mede cada `<text>`.
+carrega as 1440 figuras, espera `document.fonts.ready` e mede cada `<text>`.
 Ele sai com código 1 quando acha problema — então encadear com `;`, e não com
 `&&`, como já vale para `npm run videos`. Ela procura três coisas, e as três já pegaram defeito
 real:
@@ -712,8 +925,320 @@ simples~~, ~~Linguagem algébrica~~, ~~Equações do 1º grau~~, ~~Inequações~
 ~~Circunferência e círculo~~, ~~Média/moda/mediana~~ e ~~Probabilidade~~ —
 todas prontas.
 
-**O próximo passo é o 8º ano** — o catálogo tem os quatro anos, mas só os dois
-primeiros foram escritos.
+**O 8º ano está COMPLETO: 12 de 12 matérias** — 72 lições, 288 questões,
+863 diagnósticos, 432 imagens e 48 vídeos. **A revisão de fechamento está
+feita**: as 284 páginas do site inteiro foram rastreadas num viewport de
+320px com 0 achados, e as 12 matérias tiveram o percurso do aluno percorrido
+questão por questão, também com 0 achados em cada.
+
+**O certificado de ano do 8º foi conferido rodando**, e os do 6º e do 7º
+junto: os três emitem, somam os números certos dos certificados de matéria,
+registram-se sozinhos ao concluir e geram o PNG. A lista de 12 matérias cabe
+nas três colunas sem aperto — o 6º ano, com 14, é o caso mais apertado e
+continua passando.
+
+**O que Volume deixou registrado:**
+
+- **A matéria é uma generalização, e o teste confere isso empilhando.**
+  `vlPorCamadas` soma n camadas de área da base — o argumento das lições 1 e
+  3 — e o resultado tem de bater com a multiplicação publicada. Nada nessa
+  soma sabe o que é prisma.
+- **A figura não pode desmentir o próprio rótulo, e isso vale no espaço.**
+  Seis figuras saíram com as proporções erradas: um cilindro rotulado "raio
+  5 cm, altura 10 cm" com o diâmetro menor que a altura, e um bloco de
+  2 × 1,5 × 1 m desenhado em 6 : 4 : 3. Nem a auditoria de texto nem o
+  `figurasNaoEntregam` pegam isso — só medir pega, e agora há teste que mede.
+- **A medição tem de ser pelas ARESTAS VERTICAIS, e não pela caixa.** Na
+  projeção oblíqua a elipse do cilindro sai inclinada e a caixa dela é √1,25
+  vezes o diâmetro; a primeira versão do teste acusou uma figura correta por
+  causa disso.
+- **A lição 4 mudou de formulação por causa da figura, e melhorou.** Um
+  degrau seria um prisma de base em L no plano vertical, e o gerador desenha
+  a base na horizontal. Em vez de forçar, a peça passou a ser descrita como
+  prisma de base em L com espessura uniforme — o mesmo sólido, e uma
+  amarração melhor com a matéria de Áreas: a decomposição difícil acontece
+  no PLANO, e o passo do espaço é uma multiplicação só.
+- **A escala é provada por varredura**: para vários sólidos e fatores,
+  multiplicar todas as medidas por f multiplica o volume por f³, a área por
+  f² e o comprimento por f — inclusive no cilindro, que não tem aresta.
+- Da OBMEP veio o problema 27 do Banco de Questões 2014, "Água na caixa",
+  conferido contra a solução oficial (4, 8 e 10 cm). O teste não monta o
+  sistema que a solução usa: varre os inteiros e exige que a tripla seja
+  ÚNICA.
+
+**O que Probabilidade do 8º ano deixou registrado:**
+
+- **Nada é conferido pela fórmula que a matéria ensina.** Todo caminho é
+  CONSTRUÍDO e contado, inclusive as 720 comissões da OBMEP — enumeradas uma
+  a uma, com a asserção de que nenhuma repete aluno. O princípio
+  multiplicativo é o que está sendo verificado, então ele não pode ser usado
+  na verificação.
+- **A regra é provada antes de usada**: para todos os pares de tamanhos de 1
+  a 6, o número de caminhos construídos tem de ser o produto.
+- **A afirmação da lição 4 é provada por varredura**: em qualquer urna de
+  duas cores, repetir a cor é mais provável COM reposição. Varrido para
+  todas as urnas de 1 a 8 bolas de cada cor.
+- **A grade de dados escreve as SOMAS, e isso entregou uma resposta.** A
+  questão que pede quantos pares têm pelo menos um 6 (11) tinha a figura
+  mostrando o 11 como soma possível. `mostrarSomas: false` resolve — mais um
+  achado do `figurasNaoEntregam`.
+- Da OBMEP vieram os itens a e b do problema 11 do Banco de Questões 2014,
+  "Comissões", os dois textuais e os dois conferidos contra a solução
+  oficial.
+
+**O que Estatística deixou registrado:**
+
+- **O viés é SIMULADO, e não afirmado.** O teste monta uma escola em que 30%
+  preferem futebol e tira amostras só de quem joga: com 50, 100 ou 500
+  pessoas o resultado dá sempre 100%, e o teste exige que aumentar a amostra
+  NÃO aproxime da verdade. É a afirmação central da lição 2, medida.
+- **O eixo cortado é medido na figura publicada.** Não basta a lição
+  descrever o truque: o teste lê as alturas das colunas de volta do SVG e
+  exige que a razão desenhada passe do dobro da razão real. Se a figura
+  fosse honesta, a lição estaria falando de um truque que o desenho não
+  comete.
+- **E o `alt` daquelas figuras avisa do corte**, com teste — o leitor de
+  tela não pode ser enganado junto com quem enxerga.
+- **Há teste de que só a lição 5 usa eixo cortado.** O `base` do gráfico é o
+  truque, e vazá-lo para outra lição enganaria o aluno de verdade.
+- **Porcentagem em aritmética INTEIRA**, como o bloco de juros do 7º ano:
+  `0.55 * 200` dá 110.00000000000001 em ponto flutuante.
+- Nenhuma questão da OBMEP, pela razão já registrada três vezes: o Banco de
+  Questões não cobre estatística descritiva.
+
+**Uma armadilha nova da sonda de páginas, que custou duas passagens:**
+
+- **As figuras usam `loading="lazy"`, e uma sonda que mede sem rolar acha
+  que nenhuma carregou.** A primeira passagem acusou 279 imagens
+  "quebradas"; todas existiam. A sonda precisa rolar a página inteira antes
+  de medir.
+- **E não pode voltar ao topo depois de rolar**: o Chrome cancela o pedido
+  das imagens que saem de vista, e a sonda volta a acusar como não carregada
+  uma figura que ela mesma fez o navegador descartar. Restavam 84 falsos
+  positivos por causa disso.
+- **A miniatura de vídeo tem `alt=""` de propósito**, e isso não é defeito:
+  ela vive dentro de um `<button aria-label="Assistir: ...">`, e preencher o
+  alt faria o leitor de tela anunciar o título duas vezes.
+
+**O que Áreas de figuras planas deixou registrado:**
+
+- **Nenhuma área é conferida aplicando a fórmula que a matéria ensina.**
+  Todas saem da fórmula do LAÇO (shoelace), que mede o polígono a partir dos
+  vértices e não sabe o que é trapézio nem losango. Mesma disciplina dos
+  sistemas, que são resolvidos por busca: se a fórmula publicada estivesse
+  errada, a medição do polígono discordaria dela.
+- **As três demonstrações são medidas NA FIGURA**, e não afirmadas. O teste
+  lê os polígonos de volta do SVG e exige a razão que a lição diz — 1 para o
+  paralelogramo virando retângulo, ½ para o trapézio e ½ para o losango.
+  Confirmado por mutação: deslizando a cópia do trapézio uma unidade, o teste
+  reprova.
+- **Comparar áreas de dois SVGs diferentes não prova nada**, e esse foi um
+  erro meu que só apareceu quando a razão do trapézio deu 1,11 em vez de 0,5.
+  Cada SVG escolhe a própria unidade para caber na largura. A comparação
+  certa lê o contorno cheio e o TRACEJADO do mesmo desenho, que estão
+  forçosamente na mesma escala.
+- **Para o trapézio isso exigiu o fecho convexo das duas cópias.** Áreas
+  iguais só provam que a segunda cópia é congruente; que elas FECHAM o
+  paralelogramo sai de comparar a soma das duas com a área do contorno que as
+  envolve — se sobrepusessem, a soma passaria; se deixassem vão, ficaria
+  abaixo.
+- **O perímetro não cresce o dobro do corte numa figura em L.** Parte da
+  linha do corte coincide com o degrau, que já era borda. A afirmação só é
+  limpa num retângulo, onde o corte é inteiramente interno, e é lá que o
+  teste a mede. Foi uma asserção minha errada, e não o conteúdo.
+- **A margem do TOPO também precisa contar rótulo, e o `comRotulo` não cobre
+  isso.** O rótulo da base menor do trapézio é escrito acima da linha de cima
+  da figura, e com 26px de margem ele começava 1px fora da caixa — seis
+  figuras cortadas, achadas pela auditoria de texto e por nada mais. É o
+  mesmo defeito que já apareceu em quatro geradores na horizontal.
+- Da OBMEP veio o problema 28 (item a) do Banco de Questões 2012, "As figuras
+  da professora Clotilde", conferido contra a solução oficial. **É um dos
+  raros de área que não dependem da figura do PDF** — quase todos os outros
+  dependem, pela razão já registrada. O teste não aplica a fórmula: ele varre
+  os divisores de 108 e exige que o retângulo com um lado 12 seja ÚNICO,
+  senão a questão seria ambígua.
+
+**O que Congruência de triângulos deixou registrado:**
+
+- **Os casos que ENGANAM são conferidos de um jeito oposto aos que
+  funcionam.** Para LLL, LAL e ALA, o teste constrói o triângulo e exige que
+  só um saia. Para AAA e LLA, ele EXIBE dois triângulos diferentes cumprindo
+  as mesmas três medidas — no LLA, resolvendo a equação do terceiro lado e
+  exigindo duas raízes positivas distintas. Mostrar o contraexemplo é o que
+  prova que o caso não garante nada.
+- **A lição 5 é a que dá sentido à matéria.** Os dois trios enganosos falham
+  por motivos DIFERENTES, e distinguir isso é o que impede a lista de virar
+  decoreba: no AAA falta informação de tamanho, e no LLA a informação é
+  ambígua. É por isso que o LAL exige o ângulo entre os dois lados.
+- **Cuidado com `toFixed` ao comparar figuras semelhantes.** Arredondar os
+  lados a seis casas quebrava a razão entre as escalas, e o teste acusava
+  diferença de forma onde só havia perda de casas decimais. Três asserções
+  falharam por isso, nenhuma por erro de matemática.
+- **Ao contar marcas no SVG, distinguir `<line>` de `<path>`.** Os tiquinhos
+  e os arcos usam a mesma espessura de traço, e um contador por
+  `stroke-width` sozinho misturava os dois.
+
+**O que Ângulos e polígonos deixou registrado:**
+
+- **As quatro fórmulas da matéria são conferidas por CONTAGEM, e não
+  aplicadas.** A soma dos internos sai de triangular e contar os pedaços; as
+  diagonais saem de percorrer todos os pares de vértices e descartar os
+  vizinhos; a soma dos externos sai do suplemento de cada interno. A fórmula
+  é comparada com a contagem, nunca usada no lugar dela.
+- **A lição 4 tem a única demonstração da matéria que dispensa conta:**
+  caminhar ao redor do polígono girando em cada vértice é dar uma volta, e
+  volta é 360° com quantos vértices for. É o que explica por que essa soma
+  não depende do número de lados, ao contrário da dos internos.
+- **A lição 3 registra uma distinção que a prova cobra:** só o polígono
+  REGULAR tem um ângulo interno definido. Num pentágono qualquer os cinco
+  ângulos somam 540, mas podem ser 90, 100, 110, 120 e 120 — e o teste exibe
+  essa repartição alternativa junto da do regular.
+- **Mais uma coincidência numérica pega pelo `figurasNaoEntregam`:** a tabela
+  da questão sobre a soma dos externos abria com o quadrilátero, cuja soma
+  dos INTERNOS é 360 — o mesmo número da resposta. O aluno acertaria pelo
+  motivo errado. A linha do quadrilátero virou a do pentágono.
+
+**O que Sistemas de equações deixou registrado:**
+
+- **Nenhum sistema é resolvido no teste pelo método que a matéria ensina.**
+  Todos saem por BUSCA sobre a grade de pares, e o teste ainda exige que a
+  solução achada seja a ÚNICA — que é a afirmação da lição 1 e o que a lição
+  5 desenha. Mesma disciplina das equações do 7º ano.
+- **A lição 5 é a razão de a matéria não virar receita.** Ela mostra que cada
+  equação é uma reta e que a solução é o cruzamento — e daí saem de graça os
+  dois casos estranhos: retas paralelas dão sistema sem solução, e a mesma
+  reta escrita duas vezes dá infinitas. O teste confere os três casos.
+- **A escolha do método é conforto, e o teste diz isso.** Substituição e
+  adição chegam ao mesmo par, conferido para vários sistemas — e multiplicar
+  uma equação inteira por um número não muda a solução, o que é verificado
+  comparando o conjunto-solução antes e depois.
+- **Mais um ruído do `figurasNaoEntregam`: a numeração dos EIXOS.** Num plano
+  de 0 a 6, todo inteiro dessa faixa aparece escrito, e o teste acusava a
+  resposta "3" numa figura que só tinha a régua do eixo. O helper agora
+  reconhece o plano pela malha e ignora inteiros de um ou dois algarismos ali.
+- **Barra invertida em título de vídeo precisa de escape duplo no JSON.** O
+  título "\Prof. Gis/" quebrou o parse do curso, e o erro só aparece ao
+  carregar o arquivo — não ao escrevê-lo.
+
+**O que Frações algébricas deixou registrado:**
+
+- **A matéria só é possível porque a fatoração veio antes.** Sem ela, quase
+  nenhuma fração algébrica simplifica — e é por isso que as duas matérias são
+  vizinhas no catálogo.
+- **Ao conferir simplificação, o valor PROIBIDO tem de ser pulado.** Comparar
+  a fração original com a simplificada no ponto que anula o denominador seria
+  comparar com uma divisão por zero. O helper do teste recebe a lista de
+  proibidos e os salta.
+- **A restrição sobrevive à simplificação, e há questão sobre isso.** Em
+  (x²−4)/(x+2) a resposta é x − 2, mas o x = −2 continua proibido: a condição
+  é da expressão ORIGINAL, e não da forma final.
+- **O erro do parêntese esquecido é medido, e não avisado.** Em 3x − (x − 2),
+  o teste confere em toda a faixa que o resultado é 2x + 2 e que a versão sem
+  parêntese, 3x − x − 2, discorda em todos os pontos.
+
+**Um limite conhecido do `figurasNaoEntregam`:** ele ignora o que o ENUNCIADO
+já diz, porque a figura pode e deve desenhar os dados da questão — em
+"Simplificando (x²+6x+9)/(x+3), o que sobra?", o (x+3) desenhado é o
+denominador dado, e não a resposta. A ressalva é necessária, mas custa
+alcance: uma figura que ARRANJA os dados do enunciado de um jeito que sugere
+a resposta passa por ele. Foi o caso da régua que pendurava "3 × 10⁸ mora
+aqui" — o número estava no enunciado, e quem denunciou a entrega foi o olho,
+não o teste.
+
+**O que Produtos notáveis e Fatoração deixaram registrado:**
+
+- **Nenhuma identidade é conferida aplicando a fórmula que a matéria ensina.**
+  Todas saem por EQUIVALÊNCIA: os dois lados são avaliados em toda uma faixa
+  e têm de dar o mesmo número em todos os pontos. É a mesma disciplina da
+  simplificação de Linguagem algébrica — uma identidade certa no caso do
+  enunciado e errada fora dele não passa.
+- **Que uma expressão NÃO fatora também é provado, e não afirmado.** Para
+  x² + 25 e para x² + 7x + 9, o teste varre todos os pares de inteiros de
+  −30 a 30 procurando uma fatoração, e exige que nenhum sirva.
+- **A lição 5 de Produtos notáveis é dedicada a um erro só**, e ele é medido:
+  a diferença entre (a+b)² e a² + b² é EXATAMENTE 2ab, conferido para todos
+  os a e b de −8 a 8. As duas expressões só coincidem quando um deles é zero.
+- **A lição 5 de Fatoração não ensina caso novo: ensina a ESCOLHER.** É onde
+  a matéria costuma desandar, porque a prova nunca diz qual dos quatro casos
+  usar. E o roteiro tem uma ordem que se paga: fator comum primeiro, sempre —
+  em 2x² − 50 as pontas não são quadrados perfeitos, mas depois de tirar o 2
+  elas passam a ser.
+- **Cuidado com `assert.equal` e o zero negativo.** Duas asserções falharam
+  por isso, e nenhuma das duas era erro de matemática: `2 × a × 0` dá −0, e
+  `(y+2) × 0` com y negativo também. O assert estrito distingue −0 de 0.
+  Comparar com `Math.abs(diferença) < 1e-9` resolve.
+- **O teste de revelação virou um helper só, `figurasNaoEntregam`**, e a
+  comparação dele depende do tamanho do texto: alternativa longa é frase e
+  pode ser procurada como substring; alternativa CURTA precisa ser procurada
+  como rótulo inteiro, porque "5x" casa dentro de "5x²" — que é a parcela do
+  ENUNCIADO desenhada, e não a resposta. Ele pegou nove figuras minhas
+  entregando resposta nas quatro matérias do 8º ano.
+
+**O que Dízimas e números reais deixou registrado:**
+
+- **A lição 1 responde a uma pergunta que quase nunca é feita**: por que a
+  divisão não acaba. A resposta é o argumento inteiro da matéria — os restos
+  possíveis são finitos, então ou um deles zera, ou algum se repete, e não há
+  terceira saída. O teste PROVA isso por força bruta antes de usar, varrendo
+  todas as frações próprias de denominador até 60 e exigindo que a divisão
+  longa concorde com o teste dos fatores 2 e 5 do denominador.
+- **A divisão longa do teste é feita com INTEIROS**, e não com ponto
+  flutuante. Em `double`, 1/3 não tem período nenhum: tem erro de
+  arredondamento. A mesma disciplina do bloco de racionais do 7º ano.
+- **Cuidado com o período canônico ao testar a geratriz.** A divisão longa
+  devolve o MENOR bloco que se repete: 0,(11) e 0,(1) são o mesmo número, e
+  ela devolve "1". Um teste que exigisse o mesmo tamanho de bloco reprovaria
+  uma resposta correta — a comparação certa é reconstruir a dízima.
+- **O 0,999... entra como questão, e sai do mesmo truque, sem exceção.** Não
+  há nota de rodapé nem ressalva: 9x = 9, logo x = 1. É o caso que mostra que
+  o método vale sempre, e não só quando o resultado agrada.
+- **O teste "as figuras não entregam a resposta" pegou CINCO figuras minhas
+  nas duas primeiras matérias do 8º ano.** Uma régua com "3 × 10⁸ mora
+  aqui", uma tabela com a linha "7 | ?", duas listas de quadrados que
+  continham o inteiro procurado, e uma lista de divisores que continha o
+  denominador da resposta. Vale escrever esse teste junto com toda matéria
+  nova: ele lê a resposta de cada questão e exige que ela não apareça no
+  texto do SVG.
+
+  **Ele não foi estendido às matérias antigas, e por um motivo:** aplicado
+  aos 27 cursos já publicados, ele acusa 86 suspeitas e quase todas são
+  ruído — números de eixo do plano cartesiano, valores que o próprio
+  enunciado dá, e alternativas curtas como "8" casando dentro de "81". Quatro
+  foram examinadas uma a uma e as quatro eram legítimas. Triar as 86 é
+  trabalho próprio, e não dívida da construção do 8º ano.
+- Nenhuma questão da OBMEP, pela razão já registrada: o Banco de Questões não
+  cobre dízimas nem classificação de conjuntos numéricos.
+
+**O que Potências e notação científica deixou registrado:**
+
+- **A lição 2 é a razão de a matéria começar por potências, e não pela
+  notação.** O expoente zero e o negativo não entram por definição: entram
+  descendo a escada, onde cada degrau divide pela base. O teste confere isso
+  para as bases 2, 3, 5, 7 e 10, e do expoente 6 até o −4 — exigindo que cada
+  degrau seja o anterior dividido pela base, INCLUSIVE na passagem pelo zero.
+- **Nenhuma propriedade é conferida pela regra que a matéria ensina.** O teste
+  abre as potências em listas de fatores e CONTA: multiplicar junta as listas,
+  dividir cancela, elevar forma grupos iguais. São 9 bases × 7 × 7 expoentes
+  varridos, e a regra sai da contagem em vez de ser assumida.
+- **A conversão também não usa logaritmo.** `paraCientifica` anda com a
+  vírgula sobre o TEXTO do número e devolve fator e expoente — se o teste
+  usasse `Math.log10`, estaria conferindo a matéria com a própria abstração
+  que ela ensina. Toda conversão é conferida reconstruindo o número original.
+- **A comparação pelo expoente é provada por força bruta**, e não afirmada: o
+  teste varre expoentes de −6 a 6 com fatores de 1 a 9,9 e exige que o maior
+  expoente vença SEMPRE quando eles diferem. É o que justifica dizer ao aluno
+  que ele pode decidir sem escrever os números por extenso.
+- **Uma figura entregava a resposta, e o teste da matéria pegou.** A régua da
+  questão de comparação pendurava "3 × 10⁸ mora aqui", e quem está mais à
+  direita É a resposta. O teste não procura mais um padrão genérico: ele lê a
+  resposta de CADA uma das 24 questões e exige que ela não apareça no texto do
+  SVG — mostrar "62 × 10³" numa questão que pede a forma corrigida é legítimo,
+  porque aquilo é o enunciado.
+- Nenhuma questão da OBMEP aqui: o Banco de Questões é de aritmética,
+  geometria, combinatória e teoria dos números, e notação científica não é
+  tema dele — a mesma razão já registrada para estatística.
+
+O catálogo tem os quatro anos, mas só os dois primeiros estão fechados.
 
 O que a revisão de fechamento do 7º deixou medido, e vale como linha de base
 para a próxima:

@@ -1,0 +1,41 @@
+{
+  "id": "probabilidade-8",
+  "titulo": "Probabilidade",
+  "ano": 8,
+  "descricao": "O 7º ano mediu a chance de UM sorteio. Aqui os eventos acontecem em sequência — duas moedas, duas bolas, três escolhas —, e a pergunta muda: quantos resultados existem, e qual é a chance de um caminho específico. Toda a matéria se apoia numa figura só, a árvore de possibilidades, e numa distinção que muda tudo: se o primeiro sorteio devolve o que tirou ou não.",
+  "pergunta": "Como calcular a chance quando uma coisa acontece depois da outra?",
+  "videos": [
+    {
+      "id": "3qrupf2496g",
+      "titulo": "PRINCÍPIO FUNDAMENTAL DA CONTAGEM/PRINCÍPIO MULTIPLICATIVO 8° ANO 👩‍🏫 PROF GISELE RAMOS",
+      "canal": "Professora Gisele Ramos - Matemática",
+      "descricao": "Escrito para esta série, e cobre exatamente a lição 1. Vale se a multiplicação das etapas ainda parecer arbitrária."
+    },
+    {
+      "id": "XdpT06X8ncs",
+      "titulo": "Diagrama de Árvore ou Árvore de Probabilidades - Professora Angela",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Só sobre a árvore, que é a figura da matéria inteira. Bom para depois da lição 2."
+    },
+    {
+      "id": "-XKhIJvamws",
+      "titulo": "Princípio multiplicativo (probabilidade)",
+      "canal": "Khan Academy Brasil",
+      "descricao": "Curto e direto, ligando a árvore ao cálculo da probabilidade. Serve como revisão das lições 2 e 3."
+    },
+    {
+      "id": "6_1n8qzBgtk",
+      "titulo": "Probabilidade - Princípio Multiplicativo - Aula 60",
+      "canal": "Eu vou aprender Matemática",
+      "descricao": "Aula mais longa, com vários exercícios resolvidos. Para treinar depois da lição 6."
+    }
+  ],
+  "licoes": [
+    { "id": "contar-caminhos", "arquivo": "/dados/licoes/probabilidade-8/contar-caminhos.json" },
+    { "id": "arvore", "arquivo": "/dados/licoes/probabilidade-8/arvore.json" },
+    { "id": "sucessivos", "arquivo": "/dados/licoes/probabilidade-8/sucessivos.json" },
+    { "id": "sem-reposicao", "arquivo": "/dados/licoes/probabilidade-8/sem-reposicao.json" },
+    { "id": "pelo-menos-um", "arquivo": "/dados/licoes/probabilidade-8/pelo-menos-um.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/probabilidade-8/problemas.json" }
+  ]
+}

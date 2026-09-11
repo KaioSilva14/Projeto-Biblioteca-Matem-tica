@@ -1,0 +1,41 @@
+{
+  "id": "fracoes-algebricas",
+  "titulo": "Frações algébricas",
+  "ano": 8,
+  "descricao": "As mesmas regras das frações do 6º ano, agora com letras — e uma novidade que não existia lá: o denominador pode zerar, e aí a fração deixa de existir. A matéria só é possível porque a fatoração veio antes: sem ela, quase nenhuma fração algébrica simplifica.",
+  "pergunta": "Por que 3 pode cortar com 3 numa fração, mas não em (x + 3)?",
+  "videos": [
+    {
+      "id": "iO3kfnNu59o",
+      "titulo": "Frações algébricas e suas propriedades - Matemática - 8º ano - Ensino Fundamental",
+      "canal": "Canal Futura",
+      "descricao": "Apresenta o que é uma fração algébrica e as propriedades dela. Serve para a lição 1, se a ideia de \"fração com letra\" ainda parecer estranha."
+    },
+    {
+      "id": "yI0PyjXhDkA",
+      "titulo": "Simplificação de frações algébricas - Matemática - 8º ano - Ensino Fundamental",
+      "canal": "Canal Futura",
+      "descricao": "Só sobre simplificação, que é o assunto da lição 2 e o motivo de a matéria existir. Curto e direto ao ponto."
+    },
+    {
+      "id": "nItw5lN0I8U",
+      "titulo": "💥 8 ANO | Divisão de Frações Algébricas: Passo a Passo",
+      "canal": "Matematica Passo a Passo!",
+      "descricao": "Multiplicação e divisão resolvidas devagar, com vários exemplos. Bom para a lição 3, principalmente para a regra de inverter a segunda fração."
+    },
+    {
+      "id": "Sj0iR1lh1NQ",
+      "titulo": "💥 8 ANO | Operações Básicas com Frações Algébricas: Adição e Subtração",
+      "canal": "Matematica Passo a Passo!",
+      "descricao": "Cobre a soma com denominadores diferentes, que é a parte mais trabalhosa. Vale para as lições 4 e 5."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/fracoes-algebricas/o-que-e.json" },
+    { "id": "simplificar", "arquivo": "/dados/licoes/fracoes-algebricas/simplificar.json" },
+    { "id": "multiplicar-dividir", "arquivo": "/dados/licoes/fracoes-algebricas/multiplicar-dividir.json" },
+    { "id": "somar-iguais", "arquivo": "/dados/licoes/fracoes-algebricas/somar-iguais.json" },
+    { "id": "somar-diferentes", "arquivo": "/dados/licoes/fracoes-algebricas/somar-diferentes.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/fracoes-algebricas/problemas.json" }
+  ]
+}

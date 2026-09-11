@@ -1,0 +1,199 @@
+{
+  "id": "sucessivos",
+  "numero": 3,
+  "titulo": "Multiplicar as chances",
+  "pergunta": "Dá para calcular a chance sem desenhar a árvore inteira?",
+  "ideia": {
+    "paragrafos": [
+      "A árvore resolve, mas não escala: com quatro ou cinco etapas ela não cabe na folha. Felizmente existe um atalho, e ele sai da própria árvore — a probabilidade de um caminho é o produto das probabilidades de cada ramo dele.",
+      "Volte às duas moedas. A chance de a primeira dar cara é 1/2. Dentre os casos em que ela deu cara, a chance de a segunda também dar é 1/2. Multiplicando, 1/2 × 1/2 = 1/4 — exatamente os 25% que a contagem das folhas tinha dado. O atalho concorda com a árvore porque ele é a árvore, escrita como conta.",
+      "Com três moedas, a conta continua: 1/2 × 1/2 × 1/2 = 1/8, ou 12,5%. Desenhar as 8 folhas ainda seria possível; com dez moedas, não — e a multiplicação continua valendo igual.",
+      "Esta lição trata do caso mais simples, o dos eventos INDEPENDENTES: aqueles em que o resultado de um não muda a chance do outro. Moeda e dado são independentes — a moeda não tem memória e não sabe o que o dado vai fazer. O caso em que um evento MUDA o outro é o assunto da próxima lição, e lá a conta muda um pouco.",
+      "Um detalhe que costuma passar batido: multiplicar probabilidades sempre DIMINUI o resultado, porque cada uma delas é um número entre 0 e 1. Exigir duas coisas ao mesmo tempo é mais difícil que exigir uma — e é bom que a conta reflita isso. Se a sua resposta deu maior que qualquer uma das chances isoladas, alguma coisa saiu errada.",
+      "Vale também reparar que a matéria não abandonou a regra do 7º ano: probabilidade continua sendo casos favoráveis sobre casos possíveis. A multiplicação é um jeito mais rápido de chegar lá quando os eventos vêm em sequência."
+    ],
+    "destaque": "A chance de um caminho é o produto das chances dos ramos. E o produto é sempre menor que cada fator.",
+    "imagem": "pb8-ideia-multiplicar"
+  },
+  "resolvido": {
+    "enunciado": "Uma moeda é jogada e um dado é lançado. Qual é a probabilidade de sair cara na moeda E um número par no dado?",
+    "imagem": "pb8-res-moeda-par",
+    "passos": [
+      {
+        "titulo": "Calcule a chance de cada etapa",
+        "explicacao": "A moeda tem 1 lado favorável em 2, e o dado tem 3 faces pares em 6.",
+        "conta": "1/2 · 3/6 = 1/2"
+      },
+      {
+        "titulo": "Confira se um afeta o outro",
+        "explicacao": "O resultado da moeda não muda nada no dado, então eles são independentes.",
+        "conta": "eventos independentes"
+      },
+      {
+        "titulo": "Multiplique as duas chances",
+        "explicacao": "A chance do caminho é o produto das chances dos ramos.",
+        "conta": "1/2 × 1/2 = 1/4"
+      },
+      {
+        "titulo": "Escreva em porcentagem",
+        "explicacao": "Um quarto é a mesma chance escrita de outro jeito.",
+        "conta": "1/4 = 0,25 = 25%"
+      }
+    ],
+    "fecho": "Conferindo pela árvore: dos 12 resultados possíveis, 3 têm cara com par — e 3 em 12 é um quarto."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma moeda é jogada três vezes. Qual é a probabilidade de sair cara nas três, em porcentagem? Digite apenas o número.",
+      "imagem": "pb8-q-tres-moedas",
+      "dica": "Multiplique a chance de cada jogada. Todas valem o mesmo.",
+      "formato": "numero",
+      "resposta": 12.5,
+      "errosComuns": [
+        {
+          "resposta": "50",
+          "porque": "50% é a chance de UMA jogada dar cara. Exigir cara nas três é bem mais difícil, e cada jogada a mais divide a chance pela metade de novo."
+        },
+        {
+          "resposta": "25",
+          "porque": "25% é a chance de sair cara em DUAS jogadas, 1/2 × 1/2. Falta multiplicar pela terceira jogada, que traz mais um fator 1/2."
+        },
+        {
+          "resposta": "150",
+          "porque": "150% sai de somar os 50% das três jogadas. Probabilidade nunca passa de 100%, e isso já denuncia o erro: chances de etapas se multiplicam, não se somam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a chance de cada jogada",
+          "explicacao": "Uma moeda tem dois lados, então cada jogada dá cara com chance 1/2.",
+          "conta": "1/2 · 1/2 · 1/2"
+        },
+        {
+          "titulo": "Multiplique as três",
+          "explicacao": "As jogadas são independentes: uma não muda a chance da outra.",
+          "conta": "1/2 × 1/2 × 1/2 = 1/8"
+        },
+        {
+          "titulo": "Passe para porcentagem",
+          "explicacao": "Um oitavo escrito em centésimos.",
+          "conta": "1/8 = 0,125 = 12,5%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ao multiplicar as probabilidades de duas etapas, o resultado é sempre:",
+      "imagem": "pb8-q-sempre-menor",
+      "dica": "Cada probabilidade é um número entre 0 e 1. O que acontece ao multiplicar dois números assim?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Menor ou igual a cada uma das duas chances" },
+        { "rotulo": "B", "texto": "Maior que as duas chances" },
+        { "rotulo": "C", "texto": "Igual à soma das duas" },
+        { "rotulo": "D", "texto": "Sempre exatamente a metade da primeira" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Maior que as duas chances",
+          "porque": "É o contrário: exigir que DUAS coisas aconteçam é mais difícil que exigir uma só. Como cada probabilidade é no máximo 1, multiplicar nunca aumenta o resultado."
+        },
+        {
+          "resposta": "Igual à soma das duas",
+          "porque": "A soma daria resultados impossíveis: duas chances de 60% somariam 120%, e probabilidade não passa de 100%. As chances de etapas sucessivas se multiplicam."
+        },
+        {
+          "resposta": "Sempre exatamente a metade da primeira",
+          "porque": "Isso só aconteceria se a segunda chance fosse exatamente 1/2. Com uma segunda etapa de chance 1/3, por exemplo, o resultado é um terço da primeira."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o tamanho dos fatores",
+          "explicacao": "Toda probabilidade fica entre 0 e 1, porque é uma parte do total.",
+          "conta": "0 ≤ p ≤ 1"
+        },
+        {
+          "titulo": "Multiplique por um número assim",
+          "explicacao": "Multiplicar por um número menor que 1 encolhe o resultado.",
+          "conta": "produto ≤ cada fator"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma urna tem 3 bolas azuis e 2 vermelhas. Uma bola é sorteada, a cor é anotada e ela VOLTA para a urna; depois outra é sorteada. Qual é a probabilidade de as duas serem azuis, em porcentagem? Digite apenas o número.",
+      "imagem": "pb8-q-urna-com-volta",
+      "dica": "A bola volta para a urna, então o segundo sorteio é feito nas mesmas condições do primeiro.",
+      "formato": "numero",
+      "resposta": 36,
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60% é a chance de UM sorteio dar azul, 3 em 5. A pergunta exige que os dois sorteios deem azul, e aí as duas chances se multiplicam."
+        },
+        {
+          "resposta": "30",
+          "porque": "30% sai de dividir os 60% por 2, ou de somar e dividir. As chances de etapas sucessivas não se dividem nem se somam: elas se multiplicam."
+        },
+        {
+          "resposta": "120",
+          "porque": "120% é a soma de 60% com 60%, e nenhuma probabilidade passa de 100%. Isso já denuncia o erro: o que se faz com as chances de duas etapas é multiplicar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Chance do primeiro sorteio",
+          "explicacao": "São 3 bolas azuis entre as 5 da urna.",
+          "conta": "3/5 = 0,6"
+        },
+        {
+          "titulo": "Chance do segundo",
+          "explicacao": "Como a bola voltou, a urna está igual e a chance é a mesma.",
+          "conta": "3/5 = 0,6"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Os dois sorteios são independentes, porque a devolução restaura a urna.",
+          "conta": "0,6 × 0,6 = 0,36 = 36%"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma moeda deu cara cinco vezes seguidas. Qual é a probabilidade de a próxima jogada dar cara, em porcentagem? Digite apenas o número.",
+      "imagem": "pb8-q-moeda-sem-memoria",
+      "dica": "A moeda guarda alguma lembrança das jogadas anteriores?",
+      "formato": "numero",
+      "resposta": 50,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "Cerca de 3% é a chance de sair cara nas SEIS jogadas, calculada antes de qualquer uma acontecer. Mas cinco já aconteceram: o que resta é uma jogada só, e ela vale 50%."
+        },
+        {
+          "resposta": "10",
+          "porque": "10% viria da ideia de que a coroa está \"atrasada\" e ficou mais provável. A moeda não tem memória: ela não sabe o que saiu antes, e cada jogada continua valendo 50%."
+        },
+        {
+          "resposta": "100",
+          "porque": "100% viria da ideia oposta — de que a moeda está \"viciada em cara\" e vai continuar. Cinco caras seguidas são raras, mas não mudam nada na física da próxima jogada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe o que já aconteceu",
+          "explicacao": "As cinco jogadas anteriores já têm resultado, e nada as altera.",
+          "conta": "restou 1 jogada"
+        },
+        {
+          "titulo": "Olhe só a próxima",
+          "explicacao": "Ela é uma jogada comum de moeda, com dois lados igualmente prováveis.",
+          "conta": "1/2 = 50%"
+        }
+      ]
+    }
+  ]
+}

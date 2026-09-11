@@ -1,0 +1,204 @@
+{
+  "id": "cilindro",
+  "numero": 3,
+  "titulo": "O cilindro",
+  "pergunta": "Por que o cilindro usa a mesma fórmula dos prismas, se ele não tem lados?",
+  "ideia": {
+    "paragrafos": [
+      "Um cilindro é o que se obtém empilhando cópias de um CÍRCULO. Ele não tem arestas nem faces planas laterais, e por isso não é chamado de prisma — mas o argumento que dá o volume dele é exatamente o mesmo: uma camada de espessura 1 vale a área da base, e a altura diz quantas camadas foram empilhadas.",
+      "Então o volume do cilindro é área da base vezes altura, como sempre. A única novidade é que a base é um círculo, e a área do círculo veio do 7º ano: π × raio². Juntando, o volume do cilindro é π × raio² × altura.",
+      "Um cilindro de 5 cm de raio e 10 cm de altura tem área da base 3,14 × 5² = 3,14 × 25 = 78,5 cm². Multiplicando pela altura, o volume é 785 cm³. Nesta matéria, como em Circunferência e círculo, o π é usado como 3,14 — o valor exato tem infinitas casas, e 3,14 é aproximação suficiente para as respostas pedidas aqui.",
+      "Dois erros aparecem quase sempre, e vale nomeá-los. O primeiro é esquecer o QUADRADO do raio: usar π × raio × altura em vez de π × raio² × altura. O raio está ao quadrado porque ele aparece duas vezes na área do círculo, e não uma — foi o que a lição 5 de Circunferência mostrou ao explicar por que dobrar o raio quadruplica a área.",
+      "O segundo é usar o DIÂMETRO no lugar do raio. Muitos enunciados dão o diâmetro, porque é o que se mede com uma régua atravessando a tampa. O raio é a metade dele, e como ele entra ao quadrado, trocar um pelo outro quadruplica o volume — o erro não é pequeno.",
+      "Uma boa conferência: antes de elevar ao quadrado, pergunte-se se a medida que você tem vai do centro à borda ou de borda a borda. A primeira é o raio; a segunda é o diâmetro, e precisa ser dividida por 2 antes."
+    ],
+    "destaque": "O cilindro é o prisma de base redonda. Área da base × altura, com a área do círculo no lugar da área do polígono.",
+    "imagem": "vl8-ideia-cilindro"
+  },
+  "resolvido": {
+    "enunciado": "Um cilindro tem 5 cm de raio e 10 cm de altura. Qual é o volume dele? Use π = 3,14.",
+    "imagem": "vl8-res-cilindro",
+    "passos": [
+      {
+        "titulo": "Reconheça a base",
+        "explicacao": "A base é um círculo, e a área do círculo é π vezes o raio ao quadrado.",
+        "conta": "área = π × raio²"
+      },
+      {
+        "titulo": "Eleve o raio ao quadrado",
+        "explicacao": "O raio aparece duas vezes na área, e é esse passo que costuma ser pulado.",
+        "conta": "5² = 25"
+      },
+      {
+        "titulo": "Calcule a área da base",
+        "explicacao": "Multiplicando pelo π adotado na matéria.",
+        "conta": "3,14 × 25 = 78,5"
+      },
+      {
+        "titulo": "Empilhe as camadas",
+        "explicacao": "São 10 camadas de 78,5 cm³ cada uma.",
+        "conta": "78,5 × 10 = 785"
+      }
+    ],
+    "fecho": "Se o quadrado tivesse sido esquecido, sairiam 157 cm³ — um quinto do valor certo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um cilindro tem 3 cm de raio e 10 cm de altura. Qual é o volume dele, em centímetros cúbicos? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl8-q-cil-raio",
+      "dica": "Eleve o raio ao quadrado antes de multiplicar por π, e só depois use a altura.",
+      "formato": "numero",
+      "resposta": 282.6,
+      "errosComuns": [
+        {
+          "resposta": "94,2",
+          "porque": "94,2 é 3,14 × 3 × 10, sem elevar o raio ao quadrado. Na área do círculo o raio aparece duas vezes — é isso que o expoente 2 registra."
+        },
+        {
+          "resposta": "28,26",
+          "porque": "28,26 é 3,14 × 3², a área da base — o primeiro passo, feito corretamente. Falta multiplicar pela altura de 10 cm para chegar ao volume."
+        },
+        {
+          "resposta": "188,4",
+          "porque": "188,4 usa 2 × π × raio, que é o COMPRIMENTO da circunferência, no lugar da área do círculo. Comprimento é uma medida da volta; a base do cilindro precisa da área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve o raio ao quadrado",
+          "explicacao": "É o passo que a fórmula da área do círculo pede primeiro.",
+          "conta": "3² = 9"
+        },
+        {
+          "titulo": "Calcule a área da base",
+          "explicacao": "Multiplicando o quadrado do raio pelo π adotado na matéria.",
+          "conta": "3,14 × 9 = 28,26"
+        },
+        {
+          "titulo": "Multiplique pela altura",
+          "explicacao": "São 10 camadas com a área da base cada uma.",
+          "conta": "28,26 × 10 = 282,6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que o volume do cilindro usa a mesma ideia dos prismas, se ele não tem faces laterais planas?",
+      "imagem": "vl8-q-por-que-mesma",
+      "dica": "Pense no que o argumento das camadas empilhadas exige da base — e no que ele não exige.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ele também é feito de cópias da base empilhadas ao longo da altura" },
+        { "rotulo": "B", "texto": "Porque todo cilindro é um prisma" },
+        { "rotulo": "C", "texto": "Porque o círculo é um polígono de infinitos lados" },
+        { "rotulo": "D", "texto": "Porque a fórmula do prisma vale para qualquer sólido" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque todo cilindro é um prisma",
+          "porque": "Cilindro não é prisma: prisma tem faces laterais planas e arestas, e o cilindro não tem nenhuma das duas coisas. O que os dois compartilham é o modo de serem formados, e não a classificação."
+        },
+        {
+          "resposta": "Porque o círculo é um polígono de infinitos lados",
+          "porque": "O círculo não é polígono — polígono é figura fechada por segmentos de reta, e o círculo não tem nenhum. Essa imagem ajuda a aproximar a área dele, mas não é o que justifica a fórmula do volume."
+        },
+        {
+          "resposta": "Porque a fórmula do prisma vale para qualquer sólido",
+          "porque": "Ela não vale para qualquer sólido: a pirâmide e o cone, por exemplo, valem um terço disso, porque não são cópias empilhadas de uma base — eles afinam até a ponta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o argumento exige",
+          "explicacao": "Só que o sólido seja formado por cópias iguais de uma figura, empilhadas.",
+          "conta": "camadas iguais empilhadas"
+        },
+        {
+          "titulo": "Confira no cilindro",
+          "explicacao": "Ele é feito exatamente assim, com o círculo no lugar do polígono.",
+          "conta": "volume = área da base × altura"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma lata cilíndrica tem 4 cm de raio e 5 cm de altura. Qual é o volume dela, em centímetros cúbicos? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl8-q-lata",
+      "dica": "O raio ao quadrado vem primeiro; a altura entra só no último passo.",
+      "formato": "numero",
+      "resposta": 251.2,
+      "errosComuns": [
+        {
+          "resposta": "62,8",
+          "porque": "62,8 é 3,14 × 4 × 5, sem elevar o raio ao quadrado. Com 4 cm de raio, o quadrado vale 16 — e é 16 que multiplica o π."
+        },
+        {
+          "resposta": "50,24",
+          "porque": "50,24 é 3,14 × 4², a área da base da lata. Ela está certa como primeiro passo, mas ainda precisa ser multiplicada pelos 5 cm de altura."
+        },
+        {
+          "resposta": "125,6",
+          "porque": "125,6 usa 2 × π × raio no lugar da área do círculo — isso é o comprimento da circunferência, a medida da volta da tampa. O volume precisa da área da tampa, e não do contorno dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve o raio ao quadrado",
+          "explicacao": "O raio da lata é 4 cm, e ele entra ao quadrado na área do círculo.",
+          "conta": "4² = 16"
+        },
+        {
+          "titulo": "Calcule a área da base",
+          "explicacao": "Multiplicando pelo π adotado na matéria.",
+          "conta": "3,14 × 16 = 50,24"
+        },
+        {
+          "titulo": "Multiplique pela altura",
+          "explicacao": "São 5 camadas com a área da base cada uma.",
+          "conta": "50,24 × 5 = 251,2"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um cilindro tem 10 cm de DIÂMETRO e 4 cm de altura. Qual é o volume dele, em centímetros cúbicos? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl8-q-diametro",
+      "dica": "A fórmula pede o raio. Confira se a medida dada vai do centro à borda ou de borda a borda.",
+      "formato": "numero",
+      "resposta": 314,
+      "errosComuns": [
+        {
+          "resposta": "1256",
+          "porque": "1 256 usa os 10 cm como se fossem o raio. Eles são o DIÂMETRO, e o raio é a metade: 5 cm. Como o raio entra ao quadrado, trocar um pelo outro multiplica o resultado por 4."
+        },
+        {
+          "resposta": "62,8",
+          "porque": "62,8 é 3,14 × 5 × 4: o diâmetro foi corretamente dividido por 2, mas o raio não foi elevado ao quadrado. Faltou o passo do expoente."
+        },
+        {
+          "resposta": "78,5",
+          "porque": "78,5 é 3,14 × 5², a área da base do cilindro. Ela é o primeiro passo, e ainda precisa ser multiplicada pelos 4 cm de altura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o raio",
+          "explicacao": "O diâmetro atravessa o círculo inteiro, e o raio é a metade dele.",
+          "conta": "10 ÷ 2 = 5"
+        },
+        {
+          "titulo": "Calcule a área da base",
+          "explicacao": "Elevando o raio ao quadrado e multiplicando pelo π.",
+          "conta": "3,14 × 25 = 78,5"
+        },
+        {
+          "titulo": "Multiplique pela altura",
+          "explicacao": "São 4 camadas com a área da base cada uma.",
+          "conta": "78,5 × 4 = 314"
+        }
+      ]
+    }
+  ]
+}

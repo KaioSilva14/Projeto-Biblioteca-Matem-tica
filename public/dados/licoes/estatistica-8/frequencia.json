@@ -1,0 +1,195 @@
+{
+  "id": "frequencia",
+  "numero": 3,
+  "titulo": "Frequência absoluta e relativa",
+  "pergunta": "Quando o número bruto engana e a porcentagem ajuda?",
+  "ideia": {
+    "paragrafos": [
+      "Coletados os dados, o primeiro passo é organizá-los numa tabela de frequências: cada resposta possível numa linha, e quantas vezes ela apareceu ao lado. Esse \"quantas vezes\" chama-se FREQUÊNCIA ABSOLUTA, e é simplesmente a contagem.",
+      "A frequência absoluta é exata, mas sozinha ela não permite comparar. Dezoito alunos vindo de ônibus é muito ou pouco? Depende de quantos alunos foram entrevistados — 18 em 40 é quase metade, 18 em 400 é uma minoria pequena. O número bruto não responde à pergunta que importa.",
+      "Por isso existe a FREQUÊNCIA RELATIVA: a frequência absoluta dividida pelo total, quase sempre escrita em porcentagem. Dos 40 entrevistados, 18 de ônibus dão 18 ÷ 40 = 0,45, ou 45%. Agora dá para comparar com qualquer outra pesquisa, de qualquer tamanho.",
+      "Há uma conferência que pega quase todo erro de conta, e vale fazer sempre: as frequências absolutas têm de somar o total de entrevistados, e as relativas têm de somar 100%. Se não somam, alguma resposta foi esquecida ou contada duas vezes.",
+      "Quando usar cada uma? A absoluta importa quando a quantidade em si é o assunto — uma escola que precisa comprar merenda quer saber o número de alunos, e não a porcentagem. A relativa importa quando se quer comparar grupos de tamanhos diferentes, que é o caso mais comum em pesquisa.",
+      "E vale desconfiar de quem escolhe uma das duas sem dizer qual. \"O número de casos dobrou\" impressiona; \"passou de 2 para 4 em um milhão\" impressiona muito menos, e é a mesma informação. Apresentar só a forma que serve ao argumento é a maneira mais educada de enganar — e é o assunto da lição 5."
+    ],
+    "destaque": "A absoluta conta; a relativa compara. E as relativas sempre somam 100% — se não somarem, falta alguém.",
+    "imagem": "et8-ideia-frequencia"
+  },
+  "resolvido": {
+    "enunciado": "Numa turma de 40 alunos, 18 vêm de ônibus, 10 a pé, 8 de carro e 4 de bicicleta. Qual é a frequência relativa de quem vem de ônibus?",
+    "imagem": "et8-res-tabela",
+    "passos": [
+      {
+        "titulo": "Confira o total",
+        "explicacao": "As frequências absolutas têm de somar o número de entrevistados.",
+        "conta": "18 + 10 + 8 + 4 = 40"
+      },
+      {
+        "titulo": "Divida pelo total",
+        "explicacao": "A frequência relativa é a parte dividida pelo todo.",
+        "conta": "18 ÷ 40 = 0,45"
+      },
+      {
+        "titulo": "Escreva em porcentagem",
+        "explicacao": "Multiplicando por 100 o resultado vira porcentagem.",
+        "conta": "0,45 = 45%"
+      }
+    ],
+    "fecho": "As quatro relativas são 45%, 25%, 20% e 10% — e somam 100%, como tinham de somar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa turma de 40 alunos, 10 vêm a pé. Qual é a frequência relativa desse grupo, em porcentagem? Digite apenas o número.",
+      "imagem": "et8-q-relativa",
+      "dica": "Divida a quantidade pelo total de entrevistados e passe para porcentagem.",
+      "formato": "numero",
+      "resposta": 25,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é a frequência ABSOLUTA — a contagem de alunos que vêm a pé. A relativa é essa contagem dividida pelo total de 40, o que dá 25%."
+        },
+        {
+          "resposta": "40",
+          "porque": "40 é o total de alunos da turma, e não a porcentagem do grupo. Ele é o denominador da conta: 10 ÷ 40."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é 40 ÷ 10, com a divisão invertida. A frequência relativa é a PARTE dividida pelo TODO, e não o contrário — o resultado precisa ficar entre 0 e 100%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida a parte pelo todo",
+          "explicacao": "São 10 alunos a pé entre os 40 da turma.",
+          "conta": "10 ÷ 40 = 0,25"
+        },
+        {
+          "titulo": "Passe para porcentagem",
+          "explicacao": "Um quarto escrito em centésimos.",
+          "conta": "0,25 = 25%"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Numa tabela de frequências com todas as respostas possíveis, quanto deve dar a soma das frequências relativas?",
+      "imagem": "et8-q-soma-cem",
+      "dica": "Cada entrevistado deu exatamente uma resposta. Que fração do total todos eles formam juntos?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "100%, porque juntas elas cobrem todos os entrevistados" },
+        { "rotulo": "B", "texto": "O número de entrevistados" },
+        { "rotulo": "C", "texto": "Depende de quantas respostas possíveis existem" },
+        { "rotulo": "D", "texto": "50%, porque relativa é metade da absoluta" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O número de entrevistados",
+          "porque": "Quem soma o número de entrevistados são as frequências ABSOLUTAS. As relativas são frações do total, e frações que cobrem tudo somam o inteiro — 100%."
+        },
+        {
+          "resposta": "Depende de quantas respostas possíveis existem",
+          "porque": "Não depende: com 3 ou com 30 respostas possíveis, todo entrevistado está em exatamente uma delas. O total sempre fecha em 100%, só repartido em mais ou menos pedaços."
+        },
+        {
+          "resposta": "50%, porque relativa é metade da absoluta",
+          "porque": "A relativa não é metade de nada: ela é a absoluta dividida pelo TOTAL de entrevistados, que quase nunca é 2. Numa turma de 40, dividir por 40 é o que produz a relativa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que cada relativa é",
+          "explicacao": "Ela é a fatia que aquela resposta ocupa do total de entrevistados.",
+          "conta": "parte ÷ todo"
+        },
+        {
+          "titulo": "Junte todas",
+          "explicacao": "Todas as fatias juntas formam o grupo inteiro, sem sobrar ninguém.",
+          "conta": "soma = 100%"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na escola A, 30 alunos de 200 praticam natação. Na escola B, 40 de 500 praticam. Em qual escola a natação é proporcionalmente mais praticada?",
+      "imagem": "et8-q-compara-escolas",
+      "dica": "O número bruto não compara escolas de tamanhos diferentes. Calcule a frequência relativa de cada uma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Na escola A, com 15% contra 8% da escola B" },
+        { "rotulo": "B", "texto": "Na escola B, porque 40 é maior que 30" },
+        { "rotulo": "C", "texto": "Nas duas igualmente" },
+        { "rotulo": "D", "texto": "Não dá para comparar escolas de tamanhos diferentes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Na escola B, porque 40 é maior que 30",
+          "porque": "40 é mesmo maior que 30, mas eles vêm de escolas de tamanhos diferentes. Proporcionalmente, 40 em 500 é 8% e 30 em 200 é 15% — quase o dobro."
+        },
+        {
+          "resposta": "Nas duas igualmente",
+          "porque": "As proporções são bem diferentes: 15% na escola A contra 8% na B. Elas só seriam iguais se as frações 30/200 e 40/500 dessem o mesmo número."
+        },
+        {
+          "resposta": "Não dá para comparar escolas de tamanhos diferentes",
+          "porque": "Dá, e é exatamente para isso que a frequência relativa existe: ela transforma contagens de totais diferentes em porcentagens comparáveis entre si."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a relativa da escola A",
+          "explicacao": "São 30 praticantes entre os 200 alunos.",
+          "conta": "30 ÷ 200 = 15%"
+        },
+        {
+          "titulo": "Calcule a da escola B",
+          "explicacao": "São 40 praticantes entre os 500 alunos.",
+          "conta": "40 ÷ 500 = 8%"
+        },
+        {
+          "titulo": "Compare as duas",
+          "explicacao": "Agora os números estão na mesma escala e podem ser comparados.",
+          "conta": "15% > 8%"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa pesquisa com 200 pessoas, 45% aprovaram uma proposta. Quantas pessoas aprovaram? Digite apenas o número.",
+      "imagem": "et8-q-volta-absoluta",
+      "dica": "Agora o caminho é o inverso: da frequência relativa de volta para a absoluta.",
+      "formato": "numero",
+      "resposta": 90,
+      "errosComuns": [
+        {
+          "resposta": "45",
+          "porque": "45 é a PORCENTAGEM que aprovou, e não o número de pessoas. Ela só seria também a quantidade se a pesquisa tivesse ouvido exatamente 100 pessoas."
+        },
+        {
+          "resposta": "155",
+          "porque": "155 é 200 − 45, misturando pessoas com porcentagem. Para achar a quantidade é preciso calcular 45% de 200, e não subtrair um do outro."
+        },
+        {
+          "resposta": "110",
+          "porque": "110 é o número dos que NÃO aprovaram, ou seja, 55% de 200. A pergunta é sobre quem aprovou, que são os 45%."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a porcentagem como fração",
+          "explicacao": "Quarenta e cinco por cento são 45 partes de cada 100.",
+          "conta": "45% = 0,45"
+        },
+        {
+          "titulo": "Aplique ao total",
+          "explicacao": "A porcentagem incide sobre as 200 pessoas entrevistadas.",
+          "conta": "0,45 × 200 = 90"
+        }
+      ]
+    }
+  ]
+}

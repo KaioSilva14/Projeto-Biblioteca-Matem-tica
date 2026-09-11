@@ -1,0 +1,194 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Comparar e operar",
+  "pergunta": "Para que serve escrever assim, na prática?",
+  "ideia": {
+    "paragrafos": [
+      "A notação científica não existe só para economizar zeros: ela deixa duas contas muito mais fáceis. Comparar dois números vira olhar o expoente, e multiplicar dois números vira duas contas pequenas em vez de uma grande.",
+      "Para COMPARAR, olhe primeiro o expoente. Entre 3 × 10⁸ e 9 × 10⁷, o primeiro é maior — e nem foi preciso escrever os dois por extenso. O expoente diz em que ordem de grandeza o número mora, e uma ordem inteira de diferença não se recupera com o primeiro fator, que nunca chega a 10. Só quando os expoentes EMPATAM é que se compara o primeiro fator.",
+      "Para MULTIPLICAR, separe as duas partes. Em (2 × 10³) × (3 × 10⁴), multiplique os primeiros fatores entre si e as potências entre si: 2 × 3 dá 6, e 10³ × 10⁴ dá 10⁷ pela regra da lição 1. O resultado é 6 × 10⁷, e não foi preciso escrever nenhum número grande no caminho.",
+      "Há um detalhe que aparece de vez em quando: o produto dos primeiros fatores pode passar de 10. Em (5 × 10³) × (4 × 10²), a conta dá 20 × 10⁵, que está certo em valor mas não está na forma exigida. Aí o ajuste da lição 3 entra: 20 × 10⁵ vira 2 × 10⁶.",
+      "E dividir uma ordem de grandeza pela outra responde a pergunta mais útil de todas — quantas vezes um é maior que o outro. Se a Terra tem 10⁷ m de diâmetro e uma pessoa tem 10⁰, a razão é 10⁷: a Terra é dez milhões de vezes mais larga que você."
+    ],
+    "destaque": "Compare pelo expoente. Multiplique as partes separadas. Depois ajuste a forma.",
+    "imagem": "nc-ideia-comparar"
+  },
+  "resolvido": {
+    "enunciado": "Quanto é (2 × 10³) × (3 × 10⁴)? Deixe a resposta em notação científica.",
+    "imagem": "nc-res-multiplicar",
+    "passos": [
+      {
+        "titulo": "Separe as duas partes",
+        "explicacao": "A multiplicação pode ser reorganizada: primeiros fatores de um lado, potências do outro.",
+        "conta": "(2 × 3) × (10³ × 10⁴)"
+      },
+      {
+        "titulo": "Multiplique os primeiros fatores",
+        "explicacao": "É uma conta pequena, com números entre 1 e 10.",
+        "conta": "2 × 3 = 6"
+      },
+      {
+        "titulo": "Some os expoentes",
+        "explicacao": "Potências de mesma base multiplicadas somam expoentes, como na lição 1.",
+        "conta": "3 + 4 = 7 → 10⁷"
+      },
+      {
+        "titulo": "Confira a forma",
+        "explicacao": "O primeiro fator precisa ter ficado entre 1 e 10; se tivesse passado, faltaria um ajuste.",
+        "conta": "6 × 10⁷ · 1 ≤ 6 < 10 ✓"
+      }
+    ],
+    "fecho": "Sessenta milhões, achado sem escrever um único zero no caminho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto é (2 × 10⁵) × (4 × 10³)? Escrevendo a resposta em notação científica, qual é o expoente do 10? Digite apenas o número.",
+      "imagem": "nc-q-multiplicar",
+      "dica": "Multiplique os primeiros fatores e some os expoentes — e confira se o produto dos fatores ainda cabe na faixa.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 multiplica os expoentes em vez de somá-los. Como as duas potências de 10 estão sendo MULTIPLICADAS entre si, as listas de fatores se juntam e as quantidades se somam: 5 mais 3."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 subtrai os expoentes, que é o que se faz na divisão. Aqui as potências estão sendo multiplicadas, então nada cancela: os fatores se acumulam."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 soma um expoente a mais, provavelmente ajustando a forma sem precisar. O produto dos primeiros fatores é 2 × 4 = 8, que já está entre 1 e 10 — não há ajuste a fazer."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe as partes",
+          "explicacao": "Os primeiros fatores de um lado, as potências do outro.",
+          "conta": "(2 × 4) × (10⁵ × 10³)"
+        },
+        {
+          "titulo": "Efetue as duas",
+          "explicacao": "O produto dos fatores já cai na faixa de 1 a 10, então não há ajuste.",
+          "conta": "8 × 10⁸ · 5 + 3 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destes dois números é maior: 3 × 10⁸ ou 9 × 10⁷?",
+      "imagem": "nc-q-comparar",
+      "dica": "Olhe primeiro o expoente de cada um. Só se eles empatarem é que o primeiro fator decide.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3 × 10⁸, porque o expoente é maior" },
+        { "rotulo": "B", "texto": "9 × 10⁷, porque o primeiro fator é maior" },
+        { "rotulo": "C", "texto": "São iguais" },
+        { "rotulo": "D", "texto": "Não dá para saber sem escrever os dois por extenso" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "9 × 10⁷, porque o primeiro fator é maior",
+          "porque": "O primeiro fator só decide quando os expoentes EMPATAM. Uma ordem de grandeza inteira de diferença nunca é recuperada pelo primeiro fator, porque ele nunca chega a 10: por extenso, são 300 milhões contra 90 milhões."
+        },
+        {
+          "resposta": "São iguais",
+          "porque": "Não são: 3 × 10⁸ vale 300 000 000 e 9 × 10⁷ vale 90 000 000. A troca de um expoente por um fator três vezes maior não compensa, porque cada expoente vale dez vezes."
+        },
+        {
+          "resposta": "Não dá para saber sem escrever os dois por extenso",
+          "porque": "Dá, e é justamente essa a vantagem da notação científica: o expoente já diz em que ordem de grandeza o número mora. Escrever por extenso confirma, mas não é necessário."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os expoentes",
+          "explicacao": "Cada unidade de expoente vale dez vezes, então quem tem o maior já sai na frente.",
+          "conta": "8 > 7"
+        },
+        {
+          "titulo": "Confirme por extenso",
+          "explicacao": "A diferença de uma ordem é grande demais para o primeiro fator alcançar.",
+          "conta": "300 000 000 > 90 000 000"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O diâmetro da Terra é cerca de 1 × 10⁷ m e a altura de uma pessoa é cerca de 1 × 10⁰ m. Quantas vezes o diâmetro da Terra é maior? Digite apenas o número.",
+      "imagem": "nc-q-quantas-vezes",
+      "dica": "Quantas vezes maior é uma divisão — e dividir potências de mesma base subtrai expoentes.",
+      "formato": "numero",
+      "resposta": 10000000,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é o EXPOENTE do resultado, e não o resultado. A divisão dá 10⁷, que é o número dez milhões — a pergunta pede quantas vezes, ou seja, o valor da potência."
+        },
+        {
+          "resposta": "1000000",
+          "porque": "Um milhão é 10⁶, ou seja, um expoente a menos. A subtração é 7 − 0, e não 7 − 1: o expoente do segundo número é zero, porque 10⁰ vale 1."
+        },
+        {
+          "resposta": "100000000",
+          "porque": "Cem milhões é 10⁸, um expoente a mais do que a subtração dá. Vale conferir a conta dos expoentes: 7 menos 0 é 7, e 10⁷ é dez milhões."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a divisão",
+          "explicacao": "\"Quantas vezes maior\" é o número grande dividido pelo pequeno.",
+          "conta": "(1 × 10⁷) ÷ (1 × 10⁰)"
+        },
+        {
+          "titulo": "Subtraia os expoentes",
+          "explicacao": "Dividir potências de mesma base subtrai expoentes, e depois basta escrever o valor.",
+          "conta": "7 − 0 = 7 → 10⁷ = 10 000 000"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A conta (5 × 10³) × (4 × 10²) dá 20 × 10⁵. Como fica esse resultado escrito corretamente em notação científica?",
+      "imagem": "nc-q-ajuste-final",
+      "dica": "O valor está certo, mas o primeiro fator saiu da faixa. Ande com a vírgula e compense no expoente.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2 × 10⁶" },
+        { "rotulo": "B", "texto": "2 × 10⁴" },
+        { "rotulo": "C", "texto": "20 × 10⁵" },
+        { "rotulo": "D", "texto": "2 × 10⁵" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2 × 10⁴",
+          "porque": "Isso muda o valor: o primeiro fator foi dividido por dez, então o expoente tem de SUBIR um para compensar, e não descer. Com 10⁴ o resultado seria dez vezes menor que o certo."
+        },
+        {
+          "resposta": "20 × 10⁵",
+          "porque": "O valor está certo, mas a escrita não: o primeiro fator precisa ficar entre 1 e 10, e 20 passa disso. É exatamente esse ajuste que a questão pede."
+        },
+        {
+          "resposta": "2 × 10⁵",
+          "porque": "Aqui o primeiro fator encolheu dez vezes e o expoente ficou parado, o que divide o resultado por dez. Toda vez que a vírgula anda, o expoente precisa andar junto no sentido contrário."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ajuste o primeiro fator",
+          "explicacao": "A vírgula anda uma casa para a esquerda, para o fator cair na faixa de 1 a 10.",
+          "conta": "20 → 2"
+        },
+        {
+          "titulo": "Compense no expoente",
+          "explicacao": "O fator ficou dez vezes menor, então a potência precisa ficar dez vezes maior.",
+          "conta": "10⁵ → 10⁶ · 2 × 10⁶ = 2 000 000 ✓"
+        }
+      ]
+    }
+  ]
+}

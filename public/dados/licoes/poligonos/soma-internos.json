@@ -1,0 +1,188 @@
+{
+  "id": "soma-internos",
+  "numero": 2,
+  "titulo": "A soma dos ângulos internos",
+  "pergunta": "De onde vem o \"menos dois\" da fórmula?",
+  "ideia": {
+    "paragrafos": [
+      "O 7º ano provou que os três ângulos de um triângulo somam 180°, traçando uma paralela pelo vértice. Esta lição usa esse resultado como ferramenta: qualquer polígono pode ser cortado em triângulos, e a soma dos ângulos dele é a soma dos ângulos desses triângulos.",
+      "O corte é simples. Escolha um vértice e trace as diagonais dele para todos os vértices NÃO vizinhos. Num pentágono saem duas diagonais, e elas cortam a figura em três triângulos. Num hexágono saem três diagonais, e aparecem quatro triângulos.",
+      "Agora repare no padrão, que é onde o \"menos dois\" nasce. O pentágono tem 5 lados e dá 3 triângulos; o hexágono tem 6 e dá 4. Sempre dois a menos — e o motivo é claro: os dois lados VIZINHOS ao vértice escolhido não geram diagonal nenhuma, porque ligar a um vizinho seria repetir um lado que já existe.",
+      "Como cada triângulo contribui com 180°, a soma dos ângulos internos do polígono é (n − 2) × 180°. No pentágono, 3 × 180 = 540°; no hexágono, 4 × 180 = 720°; no quadrilátero, 2 × 180 = 360°, que é o resultado que o 7º ano já tinha achado partindo o quadrilátero em dois triângulos.",
+      "E vale conferir que nenhum ângulo se perde nesse corte. Os ângulos dos triângulos, somados, reconstroem exatamente os ângulos do polígono: no vértice escolhido eles se juntam para formar o ângulo de lá, e nos outros vértices cada ângulo do polígono é inteiro ou dividido entre dois triângulos vizinhos. Nada sobra e nada falta."
+    ],
+    "destaque": "As diagonais de um vértice cortam o polígono em n − 2 triângulos. Cada um traz 180°.",
+    "imagem": "pg-ideia-triangular"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a soma dos ângulos internos de um hexágono?",
+    "imagem": "pg-res-hexagono",
+    "passos": [
+      {
+        "titulo": "Escolha um vértice e trace as diagonais",
+        "explicacao": "Ligue-o a todos os vértices que não são vizinhos dele.",
+        "conta": "6 lados → 3 diagonais"
+      },
+      {
+        "titulo": "Conte os triângulos formados",
+        "explicacao": "As diagonais cortam a figura, e o número de pedaços é dois a menos que o de lados.",
+        "conta": "6 − 2 = 4 triângulos"
+      },
+      {
+        "titulo": "Some os ângulos de cada um",
+        "explicacao": "Cada triângulo soma 180°, e todos os ângulos deles reconstroem os do hexágono.",
+        "conta": "4 × 180°"
+      },
+      {
+        "titulo": "Efetue",
+        "explicacao": "É a fórmula (n − 2) × 180° aplicada, com o n valendo 6.",
+        "conta": "= 720°"
+      }
+    ],
+    "fecho": "Num hexágono REGULAR, esses 720° se repartem igualmente entre os seis ângulos — mas isso é a próxima lição."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a soma dos ângulos internos de um pentágono, em graus? Digite apenas o número.",
+      "imagem": "pg-q-soma-pentagono",
+      "dica": "Conte em quantos triângulos as diagonais de um vértice cortam o pentágono.",
+      "formato": "numero",
+      "resposta": 540,
+      "errosComuns": [
+        {
+          "resposta": "900",
+          "porque": "900 é 5 × 180, contando um triângulo por lado. As diagonais de um vértice formam DOIS a menos: no pentágono são três triângulos, e não cinco."
+        },
+        {
+          "resposta": "360",
+          "porque": "360 é a soma dos ângulos internos de um QUADRILÁTERO, que tem um lado a menos. E também é a soma dos ângulos EXTERNOS de qualquer polígono, que é a lição 4."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é a soma dos ângulos de UM triângulo. O pentágono se parte em três triângulos, então a soma dele é o triplo disso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os triângulos",
+          "explicacao": "As diagonais de um vértice cortam o polígono em dois pedaços a menos que o número de lados.",
+          "conta": "5 − 2 = 3 triângulos"
+        },
+        {
+          "titulo": "Multiplique por 180",
+          "explicacao": "Cada triângulo contribui com 180 graus para a soma.",
+          "conta": "3 × 180 = 540°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Em quantos triângulos as diagonais de um vértice cortam um polígono de 10 lados? Digite apenas o número.",
+      "imagem": "pg-q-triangulos-10",
+      "dica": "Os dois lados vizinhos ao vértice escolhido não geram diagonal nenhuma.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 conta um triângulo por lado, mas os dois lados vizinhos ao vértice escolhido não geram diagonal. Por isso os triângulos são sempre dois a menos que os lados."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o número de DIAGONAIS que saem do vértice, que é n − 3. Cada diagonal acrescenta um triângulo à conta, então os triângulos são um a mais: 8."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 tira só um dos lados vizinhos da conta. São dois que não geram diagonal — o de cada lado do vértice escolhido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique o padrão",
+          "explicacao": "As diagonais de um vértice cortam o polígono em n menos dois pedaços.",
+          "conta": "10 − 2"
+        },
+        {
+          "titulo": "Confira pelas diagonais",
+          "explicacao": "Saem n − 3 diagonais, e cada uma cria um triângulo a mais que o primeiro.",
+          "conta": "7 diagonais → 8 triângulos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a soma dos ângulos internos de um polígono de 12 lados, em graus? Digite apenas o número.",
+      "imagem": "pg-q-soma-12",
+      "dica": "Aplique a fórmula: conte os triângulos e multiplique por 180.",
+      "formato": "numero",
+      "resposta": 1800,
+      "errosComuns": [
+        {
+          "resposta": "2160",
+          "porque": "2 160 é 12 × 180, contando um triângulo por lado. Os triângulos são dois a menos: 10, e 10 × 180 dá 1 800."
+        },
+        {
+          "resposta": "1620",
+          "porque": "1 620 é 9 × 180, ou seja, um triângulo a menos que o certo. A conta é 12 − 2 = 10, e não 12 − 3."
+        },
+        {
+          "resposta": "150",
+          "porque": "150 é o valor de CADA ângulo interno de um dodecágono regular, que é a próxima lição. A soma de todos eles é doze vezes maior."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os triângulos",
+          "explicacao": "São sempre dois a menos que o número de lados.",
+          "conta": "12 − 2 = 10"
+        },
+        {
+          "titulo": "Multiplique por 180",
+          "explicacao": "Cada triângulo contribui com 180 graus.",
+          "conta": "10 × 180 = 1 800°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que as diagonais de um vértice formam n − 2 triângulos, e não n?",
+      "imagem": "pg-q-por-que-menos-dois",
+      "dica": "Pense nos dois lados que encostam no vértice escolhido: eles geram diagonal?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque os dois lados vizinhos ao vértice não geram diagonal" },
+        { "rotulo": "B", "texto": "Porque dois triângulos ficam sobrepostos" },
+        { "rotulo": "C", "texto": "Porque o vértice escolhido não conta como vértice" },
+        { "rotulo": "D", "texto": "Porque dois lados do polígono são sempre iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque dois triângulos ficam sobrepostos",
+          "porque": "Nenhum triângulo se sobrepõe: as diagonais partem a figura em pedaços que não se cruzam, como fatias. Se houvesse sobreposição, a soma dos ângulos contaria alguma região duas vezes."
+        },
+        {
+          "resposta": "Porque o vértice escolhido não conta como vértice",
+          "porque": "Ele conta, e é justamente dele que todas as diagonais saem. O ângulo dele também entra na soma — ele fica repartido entre os triângulos formados."
+        },
+        {
+          "resposta": "Porque dois lados do polígono são sempre iguais",
+          "porque": "Nem sempre são: num polígono qualquer os lados podem ter medidas todas diferentes, e a fórmula continua valendo. O que importa não é o tamanho dos lados, e sim quais deles não geram diagonal."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe os vizinhos do vértice",
+          "explicacao": "Ligar o vértice a um vizinho seria traçar um lado que já existe, e não uma diagonal.",
+          "conta": "2 vizinhos → 0 diagonais"
+        },
+        {
+          "titulo": "Conte o que sobra",
+          "explicacao": "Sobram n − 3 vértices para ligar, e essas diagonais criam n − 2 pedaços.",
+          "conta": "n − 3 diagonais → n − 2 triângulos"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "divisao-que-nao-acaba",
+  "numero": 1,
+  "titulo": "A divisão que não acaba",
+  "pergunta": "Por que 1 ÷ 3 nunca termina, e 1 ÷ 4 termina?",
+  "ideia": {
+    "paragrafos": [
+      "Divida 1 por 4 e a conta acaba: dá 0,25 e o resto chega a zero. Divida 1 por 3 e a conta não acaba nunca: 0,333... e o resto é sempre 1. A diferença não é sorte, e dá para prever qual das duas coisas vai acontecer.",
+      "Olhe o resto a cada passo. Em 1 ÷ 3, o resto é 1, vira 10, dá algarismo 3 e sobra 1 de novo — o mesmo resto de antes. E aí a conta está condenada a se repetir: mesmo resto, mesmo algarismo, mesmo resto outra vez, para sempre.",
+      "Esse é o argumento inteiro, e ele vale para QUALQUER divisão. Ao dividir por 7, o resto só pode ser 0, 1, 2, 3, 4, 5 ou 6 — sete valores, e nada mais. Fazendo passo após passo, ou o resto chega a zero e a conta acaba, ou ele repete um valor já visto. Não há terceira saída, porque os restos possíveis acabam.",
+      "É por isso que toda fração vira ou um decimal exato, ou uma dízima PERIÓDICA. Ela nunca produz um decimal infinito e desorganizado: o retorno do resto obriga o bloco de algarismos a recomeçar igual.",
+      "E dá para saber de antemão qual dos dois casos vai acontecer. Simplifique a fração e olhe o denominador: se ele tiver só fatores 2 e 5, o decimal é exato — porque 2 e 5 são os fatores do 10, e o sistema decimal fecha com eles. Qualquer outro fator, como o 3 do 1/3 ou o 7 do 1/7, e a divisão vira dízima."
+    ],
+    "destaque": "Os restos possíveis são poucos. Ou um deles é zero, ou algum se repete — não há terceira saída.",
+    "imagem": "re-ideia-resto-volta"
+  },
+  "resolvido": {
+    "enunciado": "Efetue 1 ÷ 3 acompanhando os restos, e diga por que a conta não termina.",
+    "imagem": "re-res-um-terco",
+    "passos": [
+      {
+        "titulo": "Comece a divisão",
+        "explicacao": "O 1 não cabe no 3, então a parte inteira é zero e a conta segue nas casas decimais.",
+        "conta": "1 ÷ 3 → 0, e resto 1"
+      },
+      {
+        "titulo": "Baixe um zero e divida",
+        "explicacao": "O resto 1 vira 10, que cabe três vezes no 3 e deixa resto 1 outra vez.",
+        "conta": "10 ÷ 3 = 3, resto 1"
+      },
+      {
+        "titulo": "Repare no resto",
+        "explicacao": "O resto voltou a ser 1, exatamente o que já era. A partir daqui a conta não tem como fazer nada diferente.",
+        "conta": "resto 1 → já apareceu"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "Mesmo resto produz mesmo algarismo, que produz o mesmo resto. O 3 se repete para sempre.",
+        "conta": "1 ÷ 3 = 0,333… "
+      }
+    ],
+    "fecho": "A conta não termina porque o resto não consegue chegar a zero — ele fica preso no 1."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Ao dividir um número por 7, quantos valores diferentes o resto pode ter, contando o zero? Digite apenas o número.",
+      "imagem": "re-q-restos-7",
+      "dica": "O resto de uma divisão é sempre menor que o divisor, e nunca é negativo.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é a quantidade de restos diferentes de zero. A pergunta manda contar o zero também, e ele é um resto possível — é justamente o que acontece quando a divisão é exata."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 incluiria o próprio 7 como resto, e isso não acontece: um resto igual ao divisor significaria que ainda cabe mais uma vez. O resto vai de 0 até 6."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 conta os algarismos de 0 a 9, mas o resto não pode ser qualquer algarismo: ele é limitado pelo DIVISOR. Dividindo por 7, nenhum resto chega a 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o limite do resto",
+          "explicacao": "Ele é sempre menor que o divisor: se fosse igual ou maior, ainda caberia mais uma vez.",
+          "conta": "resto < 7"
+        },
+        {
+          "titulo": "Conte os valores",
+          "explicacao": "São todos os inteiros de zero até seis, incluindo os dois extremos.",
+          "conta": "0, 1, 2, 3, 4, 5, 6 → 7 valores"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas frações dá um decimal EXATO, ou seja, uma divisão que termina?",
+      "imagem": "re-q-qual-exata",
+      "dica": "Simplifique cada uma e olhe os fatores do denominador. Só 2 e 5 fecham com o sistema decimal.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3/8" },
+        { "rotulo": "B", "texto": "1/3" },
+        { "rotulo": "C", "texto": "1/6" },
+        { "rotulo": "D", "texto": "2/7" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1/3",
+          "porque": "O denominador 3 não é fator do 10, então a divisão nunca fecha: dá a dízima 0,333... O teste é olhar os fatores do denominador, e o 3 reprova."
+        },
+        {
+          "resposta": "1/6",
+          "porque": "O 6 é 2 × 3, e o fator 3 estraga: basta um fator diferente de 2 e 5 para a divisão virar dízima. Dá 0,1666..., que não termina."
+        },
+        {
+          "resposta": "2/7",
+          "porque": "O 7 não é fator do 10, então esta é dízima — e das compridas, com período de seis algarismos. Só denominadores feitos de 2 e 5 dão decimal exato."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fatore o denominador",
+          "explicacao": "O 8 é feito só de fatores 2, que é um dos fatores do dez.",
+          "conta": "8 = 2 × 2 × 2"
+        },
+        {
+          "titulo": "Confira efetuando",
+          "explicacao": "A divisão fecha em três casas, com resto zero.",
+          "conta": "3 ÷ 8 = 0,375"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na divisão de 1 por 3, qual é o resto que se repete a cada passo? Digite apenas o número.",
+      "imagem": "re-q-resto-repete",
+      "dica": "Acompanhe a conta: o resto vira dez, você divide, e sobra o quê?",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o ALGARISMO que aparece no quociente, e não o resto. Os dois se repetem juntos, mas são coisas diferentes: o algarismo vai para a resposta, o resto continua a conta."
+        },
+        {
+          "resposta": "0",
+          "porque": "Se o resto chegasse a zero, a conta terminaria — e é exatamente isso que não acontece aqui. O resto fica preso num valor que não é zero, e por isso a divisão nunca fecha."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o resto DEPOIS de baixar o zero, que é um passo intermediário. O resto da divisão é o que sobra depois de dividir esse 10 por 3, que é 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Faça um passo",
+          "explicacao": "O resto 1 recebe um zero e vira 10, que dividido por 3 dá 3 e sobra 1.",
+          "conta": "10 ÷ 3 = 3, resto 1"
+        },
+        {
+          "titulo": "Compare com o resto anterior",
+          "explicacao": "O resto que sobrou é igual ao que entrou, e é isso que trava a conta num ciclo.",
+          "conta": "entrou 1, saiu 1"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que uma fração nunca produz um decimal infinito SEM repetição, tipo 0,1010010001...?",
+      "imagem": "re-q-por-que-periodica",
+      "dica": "Pense em quantos restos diferentes a divisão consegue produzir antes de precisar repetir algum.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque os restos possíveis são finitos, então algum deles se repete e a conta recomeça" },
+        { "rotulo": "B", "texto": "Porque toda divisão termina em algum momento" },
+        { "rotulo": "C", "texto": "Porque os algarismos do quociente são sempre pequenos" },
+        { "rotulo": "D", "texto": "Porque a calculadora não mostra tantas casas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque toda divisão termina em algum momento",
+          "porque": "Nem toda termina: 1 ÷ 3 não termina nunca. O que a lição garante não é o fim da conta, e sim que ela vira periódica — ou acaba, ou se repete."
+        },
+        {
+          "resposta": "Porque os algarismos do quociente são sempre pequenos",
+          "porque": "O tamanho dos algarismos não decide nada: em 0,1010010001... todos os algarismos são 0 e 1, bem pequenos, e mesmo assim não há período. Quem decide é o retorno do resto."
+        },
+        {
+          "resposta": "Porque a calculadora não mostra tantas casas",
+          "porque": "A limitação da calculadora é da tela, e não do número. A periodicidade é uma propriedade da divisão em si, e valeria mesmo se a conta fosse feita à mão para sempre."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os restos possíveis",
+          "explicacao": "Dividindo por um número d, o resto só pode ir de 0 até d menos 1.",
+          "conta": "d valores possíveis"
+        },
+        {
+          "titulo": "Veja o que sobra",
+          "explicacao": "Fazendo mais de d passos, ou um resto foi zero e a conta acabou, ou algum repetiu — e repetir o resto repete tudo daí em diante.",
+          "conta": "acaba, ou vira periódica"
+        }
+      ]
+    }
+  ]
+}

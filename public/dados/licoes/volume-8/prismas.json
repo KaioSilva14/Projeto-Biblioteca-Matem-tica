@@ -1,0 +1,184 @@
+{
+  "id": "prismas",
+  "numero": 2,
+  "titulo": "Prismas de qualquer base",
+  "pergunta": "Como calcular o volume quando a base não é retângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Com a fórmula geral na mão, um prisma de base triangular deixa de ser um sólido novo: ele é a mesma conta com uma área diferente no começo. E como a matéria anterior deu as fórmulas de área do triângulo, do trapézio e do losango, o volume desses prismas sai sem nada de novo.",
+      "O roteiro tem dois passos, sempre. Primeiro, calcule a ÁREA DA BASE usando a fórmula da figura que ela é. Segundo, multiplique pela altura do prisma. Toda a dificuldade está em fazer o primeiro passo com a fórmula certa — o segundo é uma multiplicação só.",
+      "Um prisma de base triangular com triângulo de 8 cm de base e 5 cm de altura tem área da base 8 × 5 ÷ 2 = 20 cm². Se o prisma tem 9 cm de altura, o volume é 20 × 9 = 180 cm³. Repare que o ÷ 2 aparece uma vez só, no cálculo da área — quem esquece dele quase dobra o resultado.",
+      "Com base trapezoidal muda só a fórmula do primeiro passo. Bases de 8 cm e 4 cm com 5 cm de altura dão (8 + 4) × 5 ÷ 2 = 30 cm² de área; com o prisma medindo 7 cm, o volume é 210 cm³. Nada além disso precisa ser lembrado.",
+      "Os prismas recebem nome pela base: prisma triangular, quadrangular, pentagonal, hexagonal. O nome é conveniência de linguagem e não muda conta nenhuma — vale a pena reconhecê-lo porque os enunciados o usam, e não porque cada nome traga uma fórmula própria.",
+      "Se a base for uma figura sem fórmula direta, o caminho é o da lição 5 da matéria passada: parta a base em figuras conhecidas, some as áreas e siga. O volume continua sendo essa área vezes a altura."
+    ],
+    "destaque": "Prisma novo não traz fórmula nova. Traz uma área de base diferente, e o resto da conta é igual.",
+    "imagem": "vl8-ideia-tres-bases"
+  },
+  "resolvido": {
+    "enunciado": "Um prisma de base triangular tem triângulo de 8 cm de base e 5 cm de altura. O prisma mede 9 cm de altura. Qual é o volume?",
+    "imagem": "vl8-res-tri",
+    "passos": [
+      {
+        "titulo": "Reconheça a base",
+        "explicacao": "A base é um triângulo, então vale a fórmula do triângulo.",
+        "conta": "base × altura ÷ 2"
+      },
+      {
+        "titulo": "Calcule a área da base",
+        "explicacao": "Com 8 cm de base e 5 cm de altura, sem esquecer a divisão por 2.",
+        "conta": "8 × 5 ÷ 2 = 20"
+      },
+      {
+        "titulo": "Multiplique pela altura do prisma",
+        "explicacao": "São 9 camadas empilhadas, cada uma com os 20 cm³ da base.",
+        "conta": "20 × 9 = 180"
+      }
+    ],
+    "fecho": "Se o ÷ 2 tivesse sido esquecido, o volume sairia 360 cm³ — o dobro do verdadeiro."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um prisma de base triangular tem triângulo de 6 cm de base e 4 cm de altura. O prisma mede 10 cm de altura. Qual é o volume dele, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "vl8-q-prisma-tri",
+      "dica": "Calcule primeiro a área do triângulo e só depois multiplique pela altura do prisma.",
+      "formato": "numero",
+      "resposta": 120,
+      "errosComuns": [
+        {
+          "resposta": "240",
+          "porque": "240 é 6 × 4 × 10, sem a divisão por 2. Essa conta trata a base como se fosse um retângulo de 6 por 4 — mas ela é um triângulo, e ocupa metade desse retângulo."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 6 × 4, a área que a base teria se fosse retângulo — e nem chegou a ser multiplicada pela altura do prisma. Faltam a divisão por 2 e o segundo passo."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 6 + 4 + 10, somando as três medidas. Volume não sai de soma: a área da base vem de uma multiplicação, e ela é multiplicada de novo pela altura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área do triângulo da base",
+          "explicacao": "Base vezes altura dividido por 2, como na matéria anterior.",
+          "conta": "6 × 4 ÷ 2 = 12"
+        },
+        {
+          "titulo": "Multiplique pela altura do prisma",
+          "explicacao": "São 10 camadas empilhadas, cada uma com os 12 cm³ da base.",
+          "conta": "12 × 10 = 120"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um prisma tem base em forma de trapézio, com bases de 8 cm e 4 cm e altura de 5 cm. O prisma mede 7 cm de altura. Qual é o volume dele, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "vl8-q-prisma-trap",
+      "dica": "São três medidas para a área da base e uma quarta para o prisma. Separe-as antes de começar.",
+      "formato": "numero",
+      "resposta": 210,
+      "errosComuns": [
+        {
+          "resposta": "420",
+          "porque": "420 é (8 + 4) × 5 × 7, sem a divisão por 2 da fórmula do trapézio. Essa conta usa a área do paralelogramo das duas cópias, e não a do trapézio."
+        },
+        {
+          "resposta": "280",
+          "porque": "280 é 8 × 5 × 7, usando só a base maior do trapézio. As duas bases entram somadas no cálculo da área, e o resultado ainda é dividido por 2."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é a área da base, (8 + 4) × 5 ÷ 2 — o primeiro passo, feito corretamente. Falta multiplicar pela altura do prisma, que são 7 cm."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área do trapézio da base",
+          "explicacao": "Some as bases, multiplique pela altura do trapézio e divida por 2.",
+          "conta": "(8 + 4) × 5 ÷ 2 = 30"
+        },
+        {
+          "titulo": "Multiplique pela altura do prisma",
+          "explicacao": "São 7 camadas empilhadas, cada uma com os 30 cm³ da base.",
+          "conta": "30 × 7 = 210"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que muda no cálculo do volume quando a base do prisma deixa de ser retângulo e passa a ser hexágono?",
+      "imagem": "vl8-q-o-que-muda",
+      "dica": "Escreva os dois passos do roteiro e veja qual deles depende do formato da base.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Só a fórmula usada para achar a área da base" },
+        { "rotulo": "B", "texto": "A fórmula do volume inteira" },
+        { "rotulo": "C", "texto": "A altura precisa ser medida de outro jeito" },
+        { "rotulo": "D", "texto": "Nada muda, nem a área da base" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A fórmula do volume inteira",
+          "porque": "A fórmula do volume continua sendo área da base × altura, e é isso que dá unidade à matéria. O que muda é o cálculo que produz o número da área da base."
+        },
+        {
+          "resposta": "A altura precisa ser medida de outro jeito",
+          "porque": "A altura do prisma é sempre a distância entre as duas bases, independentemente do formato delas. Nada na medição dela depende de a base ser hexágono ou retângulo."
+        },
+        {
+          "resposta": "Nada muda, nem a área da base",
+          "porque": "A área da base muda, sim: um hexágono e um retângulo de mesma largura têm áreas diferentes. O que não muda é o segundo passo, a multiplicação pela altura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o primeiro passo",
+          "explicacao": "A área da base depende do formato, então a fórmula usada aqui muda.",
+          "conta": "área da base: fórmula do hexágono"
+        },
+        {
+          "titulo": "Olhe o segundo passo",
+          "explicacao": "A multiplicação pela altura é a mesma para qualquer prisma.",
+          "conta": "volume = área da base × altura"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um prisma hexagonal tem área da base igual a 36 cm² e altura de 10 cm. Qual é o volume dele, em centímetros cúbicos? Digite apenas o número.",
+      "imagem": "vl8-q-hexagonal",
+      "dica": "A área da base já foi dada, então o formato hexagonal não muda mais nada na conta.",
+      "formato": "numero",
+      "resposta": 360,
+      "errosComuns": [
+        {
+          "resposta": "216",
+          "porque": "216 é 36 × 6, multiplicando pelo número de lados do hexágono em vez de pela altura. O número de lados não entra na fórmula do volume — ele já foi levado em conta ao calcular a área da base."
+        },
+        {
+          "resposta": "46",
+          "porque": "46 é 36 + 10, somando a área da base com a altura. Somar uma área a um comprimento não produz volume: as duas medidas se multiplicam."
+        },
+        {
+          "resposta": "180",
+          "porque": "180 é 36 × 10 ÷ 2. Essa divisão por 2 pertence ao triângulo e ao trapézio, e mesmo neles ela entra no cálculo da ÁREA — nunca no volume. Aqui a área já veio pronta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que foi dado",
+          "explicacao": "A área da base veio pronta, então o hexágono não pede mais nenhuma conta.",
+          "conta": "base 36 cm² · altura 10 cm"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "São 10 camadas de 36 cm³ cada uma.",
+          "conta": "36 × 10 = 360"
+        }
+      ]
+    }
+  ]
+}

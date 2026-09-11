@@ -1,0 +1,188 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Descobrir o polígono",
+  "pergunta": "E quando a pergunta é ao contrário — dado o ângulo, qual é o polígono?",
+  "ideia": {
+    "paragrafos": [
+      "As lições anteriores foram todas no mesmo sentido: dado o número de lados, achar a soma, o ângulo ou as diagonais. A prova costuma pedir o contrário — dá uma dessas medidas e pergunta quantos lados o polígono tem.",
+      "O caminho é montar a equação e resolvê-la, o que a matéria de equações do 7º ano já ensinou. Se a soma dos internos é 1440°, então (n − 2) × 180 = 1440. Dividindo os dois lados por 180, fica n − 2 = 8, e daí n = 10. É um decágono.",
+      "Quando o dado é o ângulo EXTERNO de um regular, o caminho é ainda mais curto, e é o atalho mais útil desta matéria. Como os externos somam sempre 360, basta dividir: se cada externo mede 24°, então n = 360 ÷ 24 = 15 lados.",
+      "E quando o dado é o ângulo INTERNO de um regular, a jogada é passar pelo externo primeiro. Um interno de 156° dá externo de 180 − 156 = 24°, e daí 360 ÷ 24 = 15 lados. Isso evita a equação com fração que sairia de (n − 2) × 180 ÷ n = 156.",
+      "Fica uma conferência que pega quase todo erro: o número de lados tem de ser um INTEIRO maior ou igual a 3. Se a conta der 7,5 lados, ou 2, alguma coisa saiu errada no caminho — ou o dado do problema é impossível, o que também acontece em questão de pegadinha."
+    ],
+    "destaque": "Dado o externo de um regular, o número de lados sai de uma divisão só: 360 ÷ externo.",
+    "imagem": "pg-ideia-descobrir"
+  },
+  "resolvido": {
+    "enunciado": "A soma dos ângulos internos de um polígono é 1440°. Quantos lados ele tem?",
+    "imagem": "pg-res-descobrir",
+    "passos": [
+      {
+        "titulo": "Escreva a equação",
+        "explicacao": "A fórmula da lição 2 liga o número de lados à soma, e agora a incógnita é o n.",
+        "conta": "(n − 2) × 180 = 1 440"
+      },
+      {
+        "titulo": "Divida os dois lados por 180",
+        "explicacao": "É a equação do 1º grau do 7º ano: desfazer a multiplicação.",
+        "conta": "n − 2 = 8"
+      },
+      {
+        "titulo": "Isole o n",
+        "explicacao": "Passando o 2 para o outro lado, ele troca de sinal.",
+        "conta": "n = 10"
+      },
+      {
+        "titulo": "Confira o resultado",
+        "explicacao": "O número de lados precisa ser inteiro e pelo menos 3 — e este é.",
+        "conta": "10 lados: decágono ✓"
+      }
+    ],
+    "fecho": "Conferindo de volta: (10 − 2) × 180 dá 1 440. Fecha."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A soma dos ângulos internos de um polígono é 900°. Quantos lados ele tem? Digite apenas o número.",
+      "imagem": "pg-q-quantos-lados",
+      "dica": "Monte a equação com a fórmula da soma e resolva para o número de lados.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é o resultado de 900 ÷ 180, que dá o número de TRIÂNGULOS da triangulação. Os lados são dois a mais: 5 + 2 = 7."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 soma 2 em vez de subtrair em algum passo. A equação é (n − 2) × 180 = 900, o que dá n − 2 = 5 e n = 7."
+        },
+        {
+          "resposta": "900",
+          "porque": "900 é a própria soma dada no enunciado, e não o número de lados. É preciso resolver a equação para achar o n."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte e divida",
+          "explicacao": "A fórmula da soma vira uma equação com o n como incógnita.",
+          "conta": "(n − 2) × 180 = 900 → n − 2 = 5"
+        },
+        {
+          "titulo": "Isole o n",
+          "explicacao": "Passando o 2 para o outro lado, com o sinal trocado.",
+          "conta": "n = 7"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Cada ângulo externo de um polígono regular mede 24°. Quantos lados ele tem? Digite apenas o número.",
+      "imagem": "pg-q-pelo-externo",
+      "dica": "Os externos somam sempre 360°, e num regular são todos iguais.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "156",
+          "porque": "156 é o ângulo INTERNO desse polígono, que é o suplemento de 24. A pergunta é sobre o número de lados, que sai de dividir 360 pelo externo."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é a medida do ângulo externo, dada no enunciado. O número de lados é quantas vezes esse ângulo cabe na volta completa."
+        },
+        {
+          "resposta": "7.5",
+          "porque": "7,5 divide 180 por 24 em vez de 360. Quem soma 180 é o par interno e externo de UM vértice; a soma de todos os externos é 360."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use a soma dos externos",
+          "explicacao": "Ela é 360° em qualquer polígono, e num regular todos os externos são iguais.",
+          "conta": "360 ÷ 24"
+        },
+        {
+          "titulo": "Efetue e confira",
+          "explicacao": "O resultado precisa ser inteiro e pelo menos 3.",
+          "conta": "= 15 lados ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Cada ângulo interno de um polígono regular mede 150°. Quantos lados ele tem? Digite apenas o número.",
+      "imagem": "pg-q-pelo-interno",
+      "dica": "Passe primeiro pelo ângulo externo: ele é o que falta para 180.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é o ângulo EXTERNO desse polígono, que é 180 − 150. Ele é um passo do caminho: os lados saem de 360 ÷ 30."
+        },
+        {
+          "resposta": "150",
+          "porque": "150 é o ângulo interno dado no enunciado, e não a quantidade de lados. É preciso passar pelo externo e dividir a volta por ele."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 seria o polígono de interno 120°, o hexágono. Com interno de 150 o externo é 30, e 360 ÷ 30 dá 12 lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o externo",
+          "explicacao": "Interno e externo do mesmo vértice somam 180.",
+          "conta": "180 − 150 = 30°"
+        },
+        {
+          "titulo": "Divida a volta",
+          "explicacao": "A soma dos externos é 360, e num regular todos são iguais.",
+          "conta": "360 ÷ 30 = 12 lados"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um aluno calculou o número de lados de um polígono e achou 7,5. O que isso indica?",
+      "imagem": "pg-q-resultado-quebrado",
+      "dica": "Pense se existe polígono com meio lado.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que houve erro na conta, ou que o dado do problema é impossível" },
+        { "rotulo": "B", "texto": "Que o polígono tem 7 lados, arredondando para baixo" },
+        { "rotulo": "C", "texto": "Que o polígono tem 8 lados, arredondando para cima" },
+        { "rotulo": "D", "texto": "Que o polígono não é regular" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que o polígono tem 7 lados, arredondando para baixo",
+          "porque": "Arredondar esconderia o problema em vez de resolvê-lo. Um polígono tem um número inteiro de lados por definição, então um resultado quebrado denuncia que alguma coisa saiu errada antes."
+        },
+        {
+          "resposta": "Que o polígono tem 8 lados, arredondando para cima",
+          "porque": "Arredondar para qualquer lado é inventar um dado. Vale refazer a conta: um resultado não inteiro costuma vir de dividir por 180 onde a divisão era por 360, ou o contrário."
+        },
+        {
+          "resposta": "Que o polígono não é regular",
+          "porque": "Ser regular ou não muda o que dá para calcular, mas não permite lado quebrado: qualquer polígono, regular ou não, tem um número inteiro de lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que o n significa",
+          "explicacao": "Ele conta lados, e contagem é sempre um número inteiro.",
+          "conta": "n inteiro, e n ≥ 3"
+        },
+        {
+          "titulo": "Refaça o caminho",
+          "explicacao": "Um resultado quebrado costuma vir de trocar 360 por 180 na divisão dos externos.",
+          "conta": "180 ÷ 24 = 7,5 · 360 ÷ 24 = 15"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas de área",
+  "pergunta": "Como escolher o caminho quando o problema não diz qual fórmula usar?",
+  "ideia": {
+    "paragrafos": [
+      "Numa prova, ninguém escreve embaixo da figura qual é a fórmula. O problema dá algumas medidas, pede outra, e o trabalho é decidir o caminho. Esta lição não traz fórmula nova: traz o roteiro que organiza as cinco anteriores.",
+      "O primeiro passo é identificar a figura. Quatro lados com dois pares paralelos é paralelogramo; só um par de lados paralelos é trapézio; quatro lados iguais é losango. Se não for nenhuma delas, é figura composta, e o passo seguinte é decidir os cortes.",
+      "O segundo passo é separar as medidas que entram das que não entram. Problema de área quase sempre dá uma medida a mais — o lado inclinado do paralelogramo é a armadilha clássica. Antes de multiplicar, confira se a medida escolhida como altura forma mesmo ângulo reto com a base.",
+      "O terceiro passo aparece quando o problema anda de trás para frente: a área é dada e falta um comprimento. Aí não se calcula, resolve-se. Escreva a fórmula com a letra no lugar da medida que falta e desfaça as operações uma a uma — é a equação do 1º grau do 7º ano, agora com geometria por dentro.",
+      "Vale um cuidado com as unidades, que derruba muita resposta certa. Comprimento vem em cm, m ou km; área vem em cm², m² ou km². Se as medidas do problema estiverem em unidades diferentes, converta ANTES de multiplicar — e nunca some uma área a um comprimento, porque são grandezas de tipos diferentes.",
+      "Por último, confira o resultado substituindo. Achou a altura? Recalcule a área com ela e veja se bate com o valor dado. É o hábito mais barato de conferência que existe, e pega quase todo engano de conta."
+    ],
+    "destaque": "Identifique a figura, separe as medidas que entram, e se a área for o dado, resolva a equação em vez de calcular.",
+    "imagem": "ar8-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Um retângulo tem área de 108 cm² e um dos lados mede 12 cm. Qual é o perímetro desse retângulo?",
+    "imagem": "ar8-res-roteiro",
+    "passos": [
+      {
+        "titulo": "Veja o que foi pedido",
+        "explicacao": "O problema dá a área e pede o perímetro, que são medidas diferentes.",
+        "conta": "tem a área · quer o perímetro"
+      },
+      {
+        "titulo": "Ache o lado que falta",
+        "explicacao": "A área do retângulo é o produto dos dois lados, e um deles é conhecido.",
+        "conta": "108 ÷ 12 = 9"
+      },
+      {
+        "titulo": "Junte os quatro lados",
+        "explicacao": "O retângulo tem dois lados de 12 cm e dois de 9 cm.",
+        "conta": "12 + 12 + 9 + 9 = 42"
+      },
+      {
+        "titulo": "Confira",
+        "explicacao": "Substituindo os dois lados na fórmula da área, o valor dado tem de voltar.",
+        "conta": "12 × 9 = 108 ✓"
+      }
+    ],
+    "fecho": "O caminho passou pela área para chegar ao perímetro: a área foi o dado, e não o alvo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um retângulo tem área de 108 cm² e um dos lados mede 12 cm. Qual é o perímetro desse retângulo, em centímetros? Digite apenas o número.",
+      "imagem": "ar8-q-obmep-clotilde",
+      "dica": "Descubra o outro lado usando a área e só depois some os quatro lados.",
+      "formato": "numero",
+      "resposta": 42,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2012,
+        "referencia": "Problema 28 (item a) — As figuras da professora Clotilde"
+      },
+      "errosComuns": [
+        {
+          "resposta": "21",
+          "porque": "21 é 12 + 9, a soma de apenas dois lados. O retângulo tem quatro lados: os dois comprimentos e as duas larguras entram todos no perímetro."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o outro lado do retângulo, achado corretamente por 108 ÷ 12. Ele é o passo do meio, e falta somar os quatro lados para chegar ao perímetro."
+        },
+        {
+          "resposta": "48",
+          "porque": "48 é 4 × 12, o perímetro de um QUADRADO de lado 12. Este retângulo não é quadrado: se fosse, a área seria 144 cm², e não 108."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o outro lado",
+          "explicacao": "A área é o produto dos dois lados, e um deles vale 12 cm.",
+          "conta": "108 ÷ 12 = 9"
+        },
+        {
+          "titulo": "Some os quatro lados",
+          "explicacao": "São dois lados de 12 cm e dois de 9 cm.",
+          "conta": "12 + 12 + 9 + 9 = 42"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um terreno em forma de trapézio tem bases de 20 m e 14 m e altura de 8 m. Ele será vendido a R$ 50,00 o metro quadrado. Quanto vale o terreno, em reais? Digite apenas o número.",
+      "imagem": "ar8-q-terreno-preco",
+      "dica": "Calcule primeiro a área em metros quadrados e só depois multiplique pelo preço.",
+      "formato": "numero",
+      "resposta": 6800,
+      "errosComuns": [
+        {
+          "resposta": "136",
+          "porque": "136 é a área do terreno em metros quadrados, e não o valor dele. Falta o último passo: multiplicar cada metro quadrado pelos R$ 50,00 combinados."
+        },
+        {
+          "resposta": "13600",
+          "porque": "13 600 usa (20 + 14) × 8 sem a divisão por 2 — a área do paralelogramo das duas cópias, e não a do trapézio. Com o ÷ 2 a área é 136 m²."
+        },
+        {
+          "resposta": "8000",
+          "porque": "8 000 sai de usar só a base maior: 20 × 8 = 160, vezes 50. As duas bases entram somadas na fórmula do trapézio, e o resultado ainda é dividido por 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as bases",
+          "explicacao": "As duas bases juntas multiplicam a altura na fórmula do trapézio.",
+          "conta": "20 + 14 = 34"
+        },
+        {
+          "titulo": "Calcule a área",
+          "explicacao": "Multiplicando pela altura e dividindo por 2 sai a área do terreno.",
+          "conta": "34 × 8 ÷ 2 = 136"
+        },
+        {
+          "titulo": "Multiplique pelo preço",
+          "explicacao": "Cada metro quadrado do terreno vale R$ 50,00.",
+          "conta": "136 × 50 = 6800"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num problema de área, o enunciado dá a base, a altura E o lado inclinado de um paralelogramo. Qual é o papel do lado inclinado?",
+      "imagem": "ar8-q-medida-sobrando",
+      "dica": "Pergunte-se qual das medidas dadas forma ângulo reto com a base.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Nenhum na área: ele serve para o perímetro, ou só para confundir" },
+        { "rotulo": "B", "texto": "Ele substitui a altura quando a altura é menor" },
+        { "rotulo": "C", "texto": "Ele deve ser multiplicado pela base junto com a altura" },
+        { "rotulo": "D", "texto": "Ele é a média entre a base e a altura" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Ele substitui a altura quando a altura é menor",
+          "porque": "A altura é SEMPRE menor ou igual ao lado inclinado, então essa regra mandaria trocar as duas em todo paralelogramo inclinado — e a área daria sempre maior que a verdadeira. Quem multiplica a base é a altura, em qualquer caso."
+        },
+        {
+          "resposta": "Ele deve ser multiplicado pela base junto com a altura",
+          "porque": "Multiplicar três comprimentos dá volume, e não área. A área do paralelogramo é o produto de exatamente duas medidas: a base e a altura."
+        },
+        {
+          "resposta": "Ele é a média entre a base e a altura",
+          "porque": "Não há relação nenhuma desse tipo: um paralelogramo pode ter base 10, altura 1 e lado inclinado 2, e a média entre 10 e 1 seria 5,5. O lado inclinado depende da inclinação, e não das outras duas medidas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte à fórmula",
+          "explicacao": "A área do paralelogramo usa a base e a altura, e mais nada.",
+          "conta": "área = base × altura"
+        },
+        {
+          "titulo": "Veja o que sobra",
+          "explicacao": "O lado inclinado é medida do contorno, então serve ao perímetro.",
+          "conta": "fora da conta da área"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um piso retangular de 4 m por 3 m será coberto com ladrilhos quadrados de 20 cm de lado. Quantos ladrilhos são necessários? Digite apenas o número.",
+      "imagem": "ar8-q-ladrilhos",
+      "dica": "As medidas estão em unidades diferentes. Converta tudo antes de calcular qualquer área.",
+      "formato": "numero",
+      "resposta": 300,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é a área do piso em metros quadrados, 4 × 3 — o número de ladrilhos ainda não foi calculado. Cada ladrilho cobre bem menos que um metro quadrado."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 divide a área do piso em cm² pelo LADO do ladrilho, e não pela área dele. Um ladrilho de 20 cm de lado cobre 20 × 20 = 400 cm²."
+        },
+        {
+          "resposta": "30000",
+          "porque": "30 000 sai de tratar 20 cm como 0,02 m: o ladrilho ficaria com 0,0004 m² e caberiam 12 ÷ 0,0004 = 30 000 deles. Vinte centímetros são 0,2 m, porque um metro tem 100 cm — e não 1 000."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Deixe tudo na mesma unidade",
+          "explicacao": "O piso está em metros e o ladrilho em centímetros; 4 m são 400 cm e 3 m são 300 cm.",
+          "conta": "400 cm × 300 cm"
+        },
+        {
+          "titulo": "Calcule as duas áreas",
+          "explicacao": "A do piso e a de um ladrilho, agora nas mesmas unidades.",
+          "conta": "120000 cm² · 400 cm²"
+        },
+        {
+          "titulo": "Veja quantos cabem",
+          "explicacao": "Dividindo a área do piso pela área de um ladrilho sai a quantidade.",
+          "conta": "120000 ÷ 400 = 300"
+        }
+      ]
+    }
+  ]
+}

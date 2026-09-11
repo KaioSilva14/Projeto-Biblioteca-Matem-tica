@@ -1,0 +1,201 @@
+{
+  "id": "grafico-mente",
+  "numero": 5,
+  "titulo": "Quando o gráfico mente sem mentir",
+  "pergunta": "Como um gráfico com dados corretos pode enganar?",
+  "ideia": {
+    "paragrafos": [
+      "O 6º ano já mostrou um truque: cortar o eixo vertical. Com o eixo começando em 40, as colunas de 42 e 45 aparecem uma com o dobro da outra, quando a diferença real é de 7%. Nenhum número foi inventado — e mesmo assim a figura mente. Esta lição reúne as quatro maneiras mais comuns de fazer isso.",
+      "A primeira é o EIXO CORTADO, que você já conhece. A defesa é simples: antes de olhar a altura das colunas, olhe onde o eixo começa. Se não começa no zero, as proporções entre as colunas não valem nada.",
+      "A segunda é a ESCALA DESIGUAL. Se o eixo horizontal marca 2010, 2015, 2020 e 2021 com o mesmo espaçamento, um crescimento de um ano parece ter a mesma importância de um de cinco. O tempo foi distorcido, e a inclinação da linha passa a não significar nada.",
+      "A terceira é o RECORTE ESCOLHIDO. Um valor que caiu durante dez anos e subiu nos últimos dois pode ser apresentado com o gráfico começando há dois anos — e aí só aparece a subida. Os dados são verdadeiros; o que foi escolhido a dedo é o pedaço que se mostra. Diante de qualquer gráfico de série temporal, pergunte por que ele começa exatamente ali.",
+      "A quarta usa ÁREA no lugar de comprimento. Para representar o dobro de alguma coisa, um desenho às vezes dobra a altura E a largura da figura — mas isso quadruplica a área, e é a área que o olho lê. A quantidade dobrou e a impressão visual foi de quatro vezes. É a lição de escala do Volume aparecendo de novo, agora usada contra o leitor.",
+      "Nenhum desses truques exige dado falso, e é isso que os torna eficazes: um gráfico enganoso costuma ser tecnicamente correto. Por isso a defesa não é desconfiar dos números — é olhar sempre para o eixo, para a escala e para o recorte antes de olhar para o desenho."
+    ],
+    "destaque": "Gráfico enganoso raramente usa número falso. Ele distorce o eixo, a escala, o recorte ou a área.",
+    "imagem": "et8-ideia-quatro-truques"
+  },
+  "resolvido": {
+    "enunciado": "Um gráfico mostra duas colunas, de 42 e 45, com o eixo começando em 40. Por que a impressão visual é enganosa?",
+    "imagem": "et8-res-eixo-cortado",
+    "passos": [
+      {
+        "titulo": "Veja onde o eixo começa",
+        "explicacao": "Ele não começa no zero, e sim em 40 — o que já é o aviso.",
+        "conta": "eixo de 40 para cima"
+      },
+      {
+        "titulo": "Meça o que aparece desenhado",
+        "explicacao": "Acima da base, sobram 2 unidades numa coluna e 5 na outra.",
+        "conta": "2 e 5 → uma parece 2,5 vezes a outra"
+      },
+      {
+        "titulo": "Compare com os valores reais",
+        "explicacao": "Os valores são 42 e 45, e a diferença entre eles é pequena.",
+        "conta": "45 ÷ 42 ≈ 1,07"
+      },
+      {
+        "titulo": "Nomeie a distorção",
+        "explicacao": "Uma diferença de 7% foi desenhada como se fosse de 150%.",
+        "conta": "o corte do eixo inflou a diferença"
+      }
+    ],
+    "fecho": "Nenhum número foi inventado — o engano está inteiro na escolha de onde o eixo começa."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num gráfico de colunas, qual é a primeira coisa a conferir antes de comparar as alturas?",
+      "imagem": "et8-q-primeiro-olhar",
+      "dica": "Pense no truque mais comum de todos, e no que ele altera na figura.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Se o eixo dos valores começa no zero" },
+        { "rotulo": "B", "texto": "Se as colunas têm a mesma largura" },
+        { "rotulo": "C", "texto": "Quantas colunas existem" },
+        { "rotulo": "D", "texto": "Se o gráfico tem título" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Se as colunas têm a mesma largura",
+          "porque": "Largura desigual é defeito, mas raro e fácil de notar. O que engana de verdade e passa despercebido é o eixo cortado, porque ele altera a PROPORÇÃO entre as alturas."
+        },
+        {
+          "resposta": "Quantas colunas existem",
+          "porque": "O número de colunas não distorce comparação nenhuma — um gráfico honesto pode ter duas ou vinte. O que muda a leitura das alturas é onde o eixo começa."
+        },
+        {
+          "resposta": "Se o gráfico tem título",
+          "porque": "Título ajuda a entender o assunto, mas não protege contra distorção: um gráfico com título perfeito e eixo cortado engana exatamente igual."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que o eixo faz",
+          "explicacao": "É ele que traduz altura desenhada em valor real.",
+          "conta": "altura → valor"
+        },
+        {
+          "titulo": "Veja o efeito de cortá-lo",
+          "explicacao": "Começando acima do zero, uma diferença pequena vira uma coluna bem mais alta.",
+          "conta": "confira o começo do eixo"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma figura representa o dobro de uma quantidade dobrando a altura E a largura do desenho. Quantas vezes maior fica a ÁREA da figura? Digite apenas o número.",
+      "imagem": "et8-q-area-dobrada",
+      "dica": "A lição de escala do Volume respondeu isso: o que acontece com a área quando as duas medidas dobram?",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é quantas vezes cada MEDIDA cresceu, e é o que o desenho queria representar. Mas a área cresce nas duas direções ao mesmo tempo, então ela fica 2 × 2 vezes maior — e é a área que o olho lê."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o fator do VOLUME, que cresce em três direções. Uma figura no papel tem duas dimensões, então o fator dela é 2², e não 2³."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 diria que a área não mudou, e ela mudou bastante: dobrar os dois lados de um quadrado de 1 cm dá um de 2 cm, que tem quatro vezes a superfície."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as direções",
+          "explicacao": "A figura é plana, então ela cresceu em duas direções.",
+          "conta": "altura e largura"
+        },
+        {
+          "titulo": "Multiplique os fatores",
+          "explicacao": "Cada direção dobrada multiplica a área por 2.",
+          "conta": "2 × 2 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um valor caiu durante dez anos e subiu nos últimos dois. Um gráfico mostra apenas esses dois últimos anos. Como esse truque se chama?",
+      "imagem": "et8-q-recorte",
+      "dica": "Os dados mostrados são verdadeiros. O que foi escolhido a dedo é outra coisa.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Recorte escolhido: o pedaço mostrado sugere o contrário do todo" },
+        { "rotulo": "B", "texto": "Eixo cortado, porque falta o começo da série" },
+        { "rotulo": "C", "texto": "Escala desigual entre os anos" },
+        { "rotulo": "D", "texto": "Nenhum truque: os dados são verdadeiros" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Eixo cortado, porque falta o começo da série",
+          "porque": "Eixo cortado é outra coisa: é o eixo dos VALORES não começar no zero. Aqui o problema está no eixo do tempo, e não numa distorção de altura — os dois anos mostrados estão desenhados corretamente."
+        },
+        {
+          "resposta": "Escala desigual entre os anos",
+          "porque": "Escala desigual seria espaçar os anos de forma irregular no eixo. Aqui os dois anos mostrados podem estar perfeitamente espaçados: o problema é que os outros dez não aparecem."
+        },
+        {
+          "resposta": "Nenhum truque: os dados são verdadeiros",
+          "porque": "Os dados são verdadeiros, e é justamente por isso que o truque funciona. Mostrar só o trecho que sobe, de uma série que passou dez anos caindo, leva o leitor a uma conclusão oposta à realidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare o que se mostra com o que existe",
+          "explicacao": "São doze anos de dados, e só dois foram desenhados.",
+          "conta": "2 de 12 anos"
+        },
+        {
+          "titulo": "Veja a conclusão que isso sugere",
+          "explicacao": "O leitor enxerga crescimento onde a série inteira mostra queda.",
+          "conta": "recorte escolhido"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O que os quatro truques desta lição têm em comum?",
+      "imagem": "et8-q-o-que-tem-em-comum",
+      "dica": "Pense se algum deles precisa inventar um número falso para funcionar.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Nenhum precisa de dado falso: todos distorcem a apresentação" },
+        { "rotulo": "B", "texto": "Todos inventam números" },
+        { "rotulo": "C", "texto": "Todos só funcionam em gráfico de colunas" },
+        { "rotulo": "D", "texto": "Todos são fáceis de perceber à primeira vista" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Todos inventam números",
+          "porque": "Nenhum deles inventa. Eixo cortado, escala desigual, recorte e área usam dados verdadeiros — e é exatamente isso que os torna difíceis de acusar e eficazes."
+        },
+        {
+          "resposta": "Todos só funcionam em gráfico de colunas",
+          "porque": "O recorte escolhido é típico de gráfico de linha, e a distorção por área aparece em infográficos com desenhos. O eixo cortado é o único mais ligado às colunas."
+        },
+        {
+          "resposta": "Todos são fáceis de perceber à primeira vista",
+          "porque": "É o contrário: os quatro passam despercebidos justamente porque a figura parece correta. Perceber exige olhar de propósito para o eixo, a escala e o recorte antes do desenho."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira os dados de cada truque",
+          "explicacao": "Em todos eles os números apresentados são verdadeiros.",
+          "conta": "dados corretos"
+        },
+        {
+          "titulo": "Veja onde está o engano",
+          "explicacao": "A distorção está em como os dados foram desenhados ou recortados.",
+          "conta": "a apresentação é que mente"
+        }
+      ]
+    }
+  ]
+}

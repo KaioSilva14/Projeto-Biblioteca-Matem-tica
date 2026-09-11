@@ -1,0 +1,188 @@
+{
+  "id": "numeros-pequenos",
+  "numero": 5,
+  "titulo": "Escrever números pequenos",
+  "pergunta": "E quando o número é pequeno demais para caber na leitura?",
+  "ideia": {
+    "paragrafos": [
+      "Números pequenos dão o mesmo trabalho dos grandes, e pela mesma razão: 0,00042 obriga a contar zeros depois da vírgula, e errar um zero muda o número por dez vezes. A saída é a mesma escrita, com uma diferença de sentido.",
+      "Agora a vírgula anda para a DIREITA, até ficar logo depois do primeiro algarismo diferente de zero. Em 0,00042 ela anda quatro casas e para entre o 4 e o 2, formando o 4,2. Os zeros da frente não são algarismos do número: eles só marcam a posição, e é justamente essa posição que a potência vai guardar.",
+      "O expoente é a contagem das casas, e sai NEGATIVO. O motivo é o espelho do que acontece nos números grandes: andar para a direita AUMENTOU o número, de 0,00042 para 4,2, então a potência de 10 precisa desfazer esse aumento dividindo. Dividir pede expoente negativo.",
+      "Vale gravar o teste que dispensa decorar o sinal: se o número original é menor que 1, o expoente é negativo; se é maior que 10, positivo. E se ele já está entre 1 e 10, o expoente é zero — 4,2 escrito em notação científica é 4,2 × 10⁰, porque a vírgula não precisou andar.",
+      "A conferência continua sendo a mesma, e continua valendo a pena. 4,2 × 10⁻⁴ significa 4,2 dividido por 10 000, e essa divisão tem de devolver 0,00042. Quem confere não erra o expoente por um."
+    ],
+    "destaque": "Menor que 1, expoente negativo. Maior que 10, positivo. Entre os dois, zero.",
+    "imagem": "nc-ideia-pequeno"
+  },
+  "resolvido": {
+    "enunciado": "A espessura de um fio de cabelo é de cerca de 0,00042 m. Escreva esse número em notação científica.",
+    "imagem": "nc-res-pequeno",
+    "passos": [
+      {
+        "titulo": "Ache o primeiro algarismo que não é zero",
+        "explicacao": "Os zeros da frente marcam posição, mas não são algarismos do número. O primeiro que conta é o 4.",
+        "conta": "0,00042 → o 4"
+      },
+      {
+        "titulo": "Ande com a vírgula até depois dele",
+        "explicacao": "Ela caminha para a direita, casa por casa, até ficar logo depois desse primeiro algarismo.",
+        "conta": "0,00042 → 4,2 · 4 casas"
+      },
+      {
+        "titulo": "Escreva a potência com o sinal certo",
+        "explicacao": "Andar para a direita aumentou o número, então a potência precisa desfazer isso dividindo — e dividir pede expoente negativo.",
+        "conta": "4,2 × 10⁻⁴"
+      },
+      {
+        "titulo": "Confira desfazendo",
+        "explicacao": "Dividir o primeiro fator pela potência tem de devolver o número original.",
+        "conta": "4,2 ÷ 10 000 = 0,00042 ✓"
+      }
+    ],
+    "fecho": "O número é menor que 1, e o expoente saiu negativo. Os dois sinais sempre contam a mesma história."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Escrevendo 0,000001 em notação científica, qual é o expoente do 10? Digite apenas o número.",
+      "imagem": "nc-q-um-milionesimo",
+      "dica": "Conte as casas que a vírgula anda para chegar logo depois do 1, e lembre do sinal.",
+      "formato": "numero",
+      "resposta": -6,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 acerta a contagem das casas mas erra o sinal. O número é menor que 1, e um expoente positivo daria um milhão — o expoente precisa ser negativo para o resultado ficar pequeno."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 conta apenas os zeros que vêm depois da vírgula, e são cinco. Mas a vírgula ainda precisa passar por cima do próprio 1 para ficar depois dele: são seis casas ao todo."
+        },
+        {
+          "resposta": "-7",
+          "porque": "−7 anda uma casa a mais do que o necessário, o que deixaria o primeiro fator em 10 — fora da faixa, que vai até 10 sem incluí-lo. A vírgula para assim que passa o primeiro algarismo diferente de zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ande até depois do 1",
+          "explicacao": "A vírgula caminha para a direita, passando pelos cinco zeros e pelo próprio 1.",
+          "conta": "0,000001 → 1 · 6 casas"
+        },
+        {
+          "titulo": "Ponha o sinal",
+          "explicacao": "O número é menor que 1, então o expoente é negativo.",
+          "conta": "1 × 10⁻⁶"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Escrevendo 0,00035 em notação científica, qual é o primeiro fator? Digite apenas o número.",
+      "imagem": "nc-q-mantissa-pequena",
+      "dica": "Os zeros da frente não fazem parte do primeiro fator: ele começa no primeiro algarismo que não é zero.",
+      "formato": "numero",
+      "resposta": 3.5,
+      "errosComuns": [
+        {
+          "resposta": "0.35",
+          "porque": "0,35 fica abaixo de 1, e a faixa começa no 1. A vírgula parou uma casa antes: ela precisa passar do 3 para o fator virar 3,5."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 passa de 10, e a faixa termina antes disso. A vírgula andou uma casa demais — ela para logo DEPOIS do primeiro algarismo diferente de zero, e não depois do segundo."
+        },
+        {
+          "resposta": "-4",
+          "porque": "−4 é o expoente da potência de 10, e não o primeiro fator. A pergunta é sobre a parte que carrega os algarismos do número; o expoente é a outra metade da escrita."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o primeiro algarismo que conta",
+          "explicacao": "Os zeros da frente marcam posição, então o primeiro algarismo do número é o 3.",
+          "conta": "0,00035 → o 3"
+        },
+        {
+          "titulo": "Ponha a vírgula depois dele",
+          "explicacao": "Assim o fator cai na faixa exigida, e o 5 continua fazendo parte do número.",
+          "conta": "3,5 · 1 ≤ 3,5 < 10 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um átomo tem cerca de 0,0000000001 m de diâmetro. Escrevendo esse número em notação científica, qual é o expoente do 10? Digite apenas o número.",
+      "imagem": "nc-q-atomo",
+      "dica": "Conte com cuidado: são muitos zeros, e a vírgula ainda passa pelo algarismo 1.",
+      "formato": "numero",
+      "resposta": -10,
+      "errosComuns": [
+        {
+          "resposta": "-9",
+          "porque": "−9 conta os zeros depois da vírgula, que são nove, mas esquece que ela ainda precisa passar por cima do 1 para ficar depois dele. São dez casas ao todo."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 acerta a contagem e erra o sinal. Um átomo é pequeno, e expoente positivo daria dez bilhões de metros — o número é menor que 1, então o expoente é negativo."
+        },
+        {
+          "resposta": "-11",
+          "porque": "−11 anda uma casa a mais do que o necessário. A vírgula para assim que passa o primeiro algarismo diferente de zero, e ir além deixaria o fator abaixo de 1 outra vez."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as casas",
+          "explicacao": "A vírgula anda para a direita pelos nove zeros e depois pelo 1.",
+          "conta": "9 zeros + 1 algarismo = 10 casas"
+        },
+        {
+          "titulo": "Ponha o sinal",
+          "explicacao": "O número é bem menor que 1, então o expoente é negativo.",
+          "conta": "1 × 10⁻¹⁰"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sem fazer a conversão inteira, como dá para saber que o expoente de 0,072 em notação científica será negativo?",
+      "imagem": "nc-q-sinal-rapido",
+      "dica": "Compare o número com 1 antes de mexer na vírgula.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o número é menor que 1" },
+        { "rotulo": "B", "texto": "Porque o número tem vírgula" },
+        { "rotulo": "C", "texto": "Porque o número tem um zero depois da vírgula" },
+        { "rotulo": "D", "texto": "Porque o número não é inteiro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o número tem vírgula",
+          "porque": "Ter vírgula não decide nada: 45,7 também tem vírgula e é maior que 1, então o expoente dele é positivo. O que decide é a comparação com o 1."
+        },
+        {
+          "resposta": "Porque o número tem um zero depois da vírgula",
+          "porque": "O zero ajuda a contar as casas, mas não é ele que dá o sinal: 0,72 não tem zero nenhum depois da vírgula e mesmo assim tem expoente negativo, porque também é menor que 1."
+        },
+        {
+          "resposta": "Porque o número não é inteiro",
+          "porque": "Não ser inteiro não decide: 12,5 não é inteiro e tem expoente positivo, porque passa de 10. O critério é a posição em relação ao 1 e ao 10, e não o tipo do número."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare com o 1",
+          "explicacao": "Todo número menor que 1 precisa que a vírgula ande para a direita, o que o aumenta.",
+          "conta": "0,072 < 1"
+        },
+        {
+          "titulo": "Conclua o sinal",
+          "explicacao": "Como a vírgula aumentou o número, a potência tem de dividir para devolver o valor — e dividir pede expoente negativo.",
+          "conta": "0,072 = 7,2 × 10⁻²"
+        }
+      ]
+    }
+  ]
+}

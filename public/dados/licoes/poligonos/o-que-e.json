@@ -1,0 +1,194 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O que é um polígono",
+  "pergunta": "O que faz de uma figura um polígono, e o que a torna regular?",
+  "ideia": {
+    "paragrafos": [
+      "Polígono é uma figura plana fechada por segmentos de reta. Três palavras decidem tudo: PLANA, porque ele não sai do papel; FECHADA, porque o contorno volta ao ponto de partida; e por SEGMENTOS, porque nenhum pedaço do contorno pode ser curvo.",
+      "É por isso que o círculo não é polígono — o contorno dele não tem segmento nenhum. E uma linha em zigue-zague que não fecha também não é: ela cumpre a exigência dos segmentos, mas deixa o contorno aberto.",
+      "O nome vem da quantidade de lados, e o 6º ano já apresentou os primeiros: três lados é triângulo, quatro é quadrilátero, cinco é pentágono, seis é hexágono. Depois vêm heptágono, octógono, eneágono e decágono. Passando disso, costuma-se dizer só \"polígono de 15 lados\".",
+      "Num polígono, a quantidade de lados, de vértices e de ângulos internos é sempre a MESMA. Um pentágono tem cinco lados, cinco vértices e cinco ângulos — e isso não é coincidência: cada lado termina num vértice, e cada vértice abriga um ângulo.",
+      "Falta a palavra que mais importa nesta matéria: REGULAR. Um polígono é regular quando tem todos os lados iguais E todos os ângulos iguais. As duas condições juntas — o losango tem lados iguais e ângulos diferentes, e o retângulo tem ângulos iguais e lados diferentes; nenhum dos dois é regular. O quadrado cumpre as duas."
+    ],
+    "destaque": "Regular exige as DUAS coisas: lados iguais e ângulos iguais. Uma só não basta.",
+    "imagem": "pg-ideia-poligono"
+  },
+  "resolvido": {
+    "enunciado": "Um polígono tem 7 lados. Quantos vértices e quantos ângulos internos ele tem?",
+    "imagem": "pg-res-contagem",
+    "passos": [
+      {
+        "titulo": "Percorra o contorno",
+        "explicacao": "Cada lado começa num vértice e termina no seguinte, e o último volta ao primeiro.",
+        "conta": "7 lados, um encostado no outro"
+      },
+      {
+        "titulo": "Conte os encontros",
+        "explicacao": "Cada encontro de dois lados é um vértice, e o contorno fechado tem tantos encontros quantos lados.",
+        "conta": "7 vértices"
+      },
+      {
+        "titulo": "Conte os ângulos",
+        "explicacao": "Em cada vértice se formam dois lados encontrando-se, e a abertura entre eles é um ângulo interno.",
+        "conta": "7 ângulos internos"
+      },
+      {
+        "titulo": "Guarde a regra",
+        "explicacao": "Os três números andam sempre juntos, em qualquer polígono.",
+        "conta": "lados = vértices = ângulos"
+      }
+    ],
+    "fecho": "Um polígono de 7 lados chama-se heptágono."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantos vértices tem um polígono de 9 lados? Digite apenas o número.",
+      "imagem": "pg-q-vertices-9",
+      "dica": "Cada lado termina num vértice, e o contorno é fechado.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 conta duas pontas por lado, mas cada vértice é COMPARTILHADO por dois lados vizinhos. Contando assim, cada vértice apareceria duas vezes."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 seria a contagem numa linha aberta, onde o último ponto não se liga ao primeiro. Num polígono o contorno fecha, e por isso a quantidade de vértices bate com a de lados."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 acrescenta um vértice a mais, como se o contorno não fechasse e precisasse de um ponto final separado. Fechando, o último lado volta ao primeiro vértice."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Siga o contorno",
+          "explicacao": "Cada lado liga um vértice ao seguinte, e o último volta ao ponto de partida.",
+          "conta": "9 lados fechando o contorno"
+        },
+        {
+          "titulo": "Conte os pontos de encontro",
+          "explicacao": "Como o contorno fecha, sobra um vértice para cada lado.",
+          "conta": "9 vértices"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual destas figuras é um polígono?",
+      "imagem": "pg-q-qual-poligono",
+      "dica": "Confira as três exigências: plana, fechada, e feita só de segmentos de reta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Um hexágono" },
+        { "rotulo": "B", "texto": "Um círculo" },
+        { "rotulo": "C", "texto": "Uma linha em zigue-zague que não fecha" },
+        { "rotulo": "D", "texto": "Um cubo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Um círculo",
+          "porque": "O contorno do círculo é curvo do começo ao fim, e polígono exige segmentos de RETA. Ele é fechado e plano, mas falha na terceira exigência."
+        },
+        {
+          "resposta": "Uma linha em zigue-zague que não fecha",
+          "porque": "Ela é feita de segmentos de reta e é plana, mas o contorno não FECHA — as duas pontas ficam soltas. Polígono precisa voltar ao ponto de partida."
+        },
+        {
+          "resposta": "Um cubo",
+          "porque": "O cubo é um sólido: ele ocupa espaço e não cabe num plano. As FACES dele são polígonos — quadrados —, mas o cubo inteiro não é."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira as três exigências",
+          "explicacao": "Plana, fechada, e com o contorno feito só de segmentos de reta.",
+          "conta": "hexágono: plana ✓ fechada ✓ segmentos ✓"
+        },
+        {
+          "titulo": "Veja onde as outras falham",
+          "explicacao": "Cada uma tropeça numa exigência diferente.",
+          "conta": "círculo: curva · zigue-zague: aberto · cubo: não é plano"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um losango tem os quatro lados iguais, mas os ângulos são diferentes entre si. Ele é um polígono regular?",
+      "imagem": "pg-q-losango",
+      "dica": "Lembre das DUAS condições que a definição de regular exige.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque ser regular exige lados iguais E ângulos iguais" },
+        { "rotulo": "B", "texto": "Sim, porque os lados são todos iguais" },
+        { "rotulo": "C", "texto": "Sim, porque ele tem quatro lados" },
+        { "rotulo": "D", "texto": "Não, porque ele não é um polígono" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque os lados são todos iguais",
+          "porque": "Lados iguais é METADE da definição. A outra metade é os ângulos serem iguais também, e no losango eles não são — dois são agudos e dois são obtusos."
+        },
+        {
+          "resposta": "Sim, porque ele tem quatro lados",
+          "porque": "A quantidade de lados não decide nada: existem quadriláteros regulares (o quadrado) e não regulares (o losango, o retângulo). O que decide são as duas condições."
+        },
+        {
+          "resposta": "Não, porque ele não é um polígono",
+          "porque": "O losango É um polígono: é plano, fechado e feito de quatro segmentos de reta. Ele só não é REGULAR, que é outra coisa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a primeira condição",
+          "explicacao": "Todos os lados precisam ter a mesma medida.",
+          "conta": "lados iguais ✓"
+        },
+        {
+          "titulo": "Confira a segunda",
+          "explicacao": "Todos os ângulos internos também precisam ser iguais — e o enunciado diz que não são.",
+          "conta": "ângulos iguais ✗ → não é regular"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quantos lados tem um octógono? Digite apenas o número.",
+      "imagem": "pg-q-octogono",
+      "dica": "O prefixo do nome conta os lados: penta é cinco, hexa é seis, hepta é sete.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o hexágono. O prefixo \"octo\" vale oito — é o mesmo do polvo, que tem oito braços."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o heptágono, que vem logo antes na sequência. O octógono é o seguinte, com oito lados."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o decágono. A sequência é penta (5), hexa (6), hepta (7), octo (8), enea (9) e deca (10)."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o prefixo",
+          "explicacao": "O nome dos polígonos vem do grego, e o prefixo diz a quantidade de lados.",
+          "conta": "octo = oito"
+        },
+        {
+          "titulo": "Confirme na sequência",
+          "explicacao": "Ele vem depois do heptágono e antes do eneágono.",
+          "conta": "7, 8, 9 → hepta, octo, enea"
+        }
+      ]
+    }
+  ]
+}

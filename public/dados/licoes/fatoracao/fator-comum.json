@@ -1,0 +1,194 @@
+{
+  "id": "fator-comum",
+  "numero": 1,
+  "titulo": "O fator comum",
+  "pergunta": "O que quer dizer colocar um número em evidência?",
+  "ideia": {
+    "paragrafos": [
+      "Fatorar é o caminho contrário do que a matéria passada fez. Lá, um produto virava soma; aqui, uma soma vira produto. E o motivo de fazer isso aparece na lição 6: expressão em forma de produto simplifica, e em forma de soma não.",
+      "O primeiro caso é o mais direto. Em 6x + 9, as duas parcelas têm um fator em comum: 6x é 3 vezes 2x, e 9 é 3 vezes 3. Como o 3 aparece nas duas, ele pode sair na frente: 6x + 9 = 3(2x + 3).",
+      "A figura explica por que isso funciona, e vale mais que a regra. Desenhe a soma como a ÁREA de um retângulo repartido em duas faixas: uma de área 6x e outra de área 9. Se as duas faixas têm a mesma ALTURA 3, então o retângulo inteiro tem altura 3 e largura 2x + 3. A área dele é altura vezes largura — e é exatamente isso que a fatoração escreve.",
+      "O fator comum é o lado que todas as faixas dividem. É por isso que ele sai na frente do parêntese: ele não pertence a uma parcela, pertence a todas. E o que fica dentro do parêntese é o que sobra de cada uma depois de tirar esse lado.",
+      "Duas regras práticas. Primeira: tire sempre o MAIOR fator comum possível — em 12x + 18 dá para tirar 2, mas o certo é tirar 6, senão a fatoração fica pela metade. Segunda: o fator comum pode ter letra. Em 5x² + 10x, as duas parcelas têm 5 e têm x, então sai 5x: fica 5x(x + 2)."
+    ],
+    "destaque": "O fator comum é o lado que todas as parcelas dividem. Por isso ele sai na frente.",
+    "imagem": "ft-ideia-fator-comum"
+  },
+  "resolvido": {
+    "enunciado": "Fatore 6x + 9.",
+    "imagem": "ft-res-fator-comum",
+    "passos": [
+      {
+        "titulo": "Escreva cada parcela em fatores",
+        "explicacao": "Abrir as duas revela o que elas têm em comum, em vez de exigir que se enxergue de cara.",
+        "conta": "6x = 3 × 2x  ·  9 = 3 × 3"
+      },
+      {
+        "titulo": "Ache o fator repetido",
+        "explicacao": "O 3 aparece nas duas parcelas, e é o maior número que faz isso.",
+        "conta": "comum: 3"
+      },
+      {
+        "titulo": "Ponha em evidência",
+        "explicacao": "O fator comum sai na frente, e dentro do parêntese fica o que sobrou de cada parcela.",
+        "conta": "3(2x + 3)"
+      },
+      {
+        "titulo": "Confira desfazendo",
+        "explicacao": "Distribuir de volta tem de devolver a expressão original — é a conferência mais rápida.",
+        "conta": "3 × 2x + 3 × 3 = 6x + 9 ✓"
+      }
+    ],
+    "fecho": "A conferência é sempre a mesma: distribua de volta e veja se a soma original reaparece."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o maior fator comum de 12x e 18? Digite apenas o número.",
+      "imagem": "ft-q-comum-12-18",
+      "dica": "Liste os divisores dos dois números e procure o maior que aparece nas duas listas.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 divide os dois, mas não é o MAIOR que faz isso. Tirando só o 2 sobraria 2(6x + 9), e o que ficou dentro ainda tem fator comum 3 — a fatoração ficaria pela metade."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 também divide os dois, mas ainda não é o maior. Tirando 3 sobraria 3(4x + 6), e dentro do parêntese ainda dá para tirar 2."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 divide o 12x, mas não divide o 18: 18 dividido por 12 não dá inteiro. O fator comum precisa caber nas DUAS parcelas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os divisores comuns",
+          "explicacao": "Só valem os números que dividem as duas parcelas sem deixar resto.",
+          "conta": "1, 2, 3, 6"
+        },
+        {
+          "titulo": "Escolha o maior",
+          "explicacao": "Tirar o maior deixa o parêntese sem nada mais para fatorar.",
+          "conta": "6 → 12x + 18 = 6(2x + 3)"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Fatorando 5x² + 10x, o que sai na frente do parêntese?",
+      "imagem": "ft-q-com-letra",
+      "dica": "Procure o que as duas parcelas têm em comum — inclusive letra, e não só número.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5x" },
+        { "rotulo": "B", "texto": "5" },
+        { "rotulo": "C", "texto": "x" },
+        { "rotulo": "D", "texto": "5x²" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "O 5 é comum, mas não é tudo: as duas parcelas também têm x. Tirando só o 5 fica 5(x² + 2x), e dentro do parêntese ainda dá para tirar o x."
+        },
+        {
+          "resposta": "x",
+          "porque": "O x é comum, mas o 5 também. O fator comum é o maior possível, e aqui ele junta as duas coisas: 5x."
+        },
+        {
+          "resposta": "5x²",
+          "porque": "5x² é a primeira parcela inteira, mas ela não cabe na segunda: 10x dividido por 5x² não dá uma expressão inteira. O comum é 5x, que cabe nas duas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Abra as duas parcelas",
+          "explicacao": "Escrever os fatores revela o que se repete nas duas.",
+          "conta": "5x² = 5 × x × x  ·  10x = 5 × 2 × x"
+        },
+        {
+          "titulo": "Junte o que se repete",
+          "explicacao": "Aparecem em ambas um 5 e um x, então os dois saem juntos.",
+          "conta": "5x(x + 2)"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Fatorando 8x + 12, o parêntese fica (2x + 3). Qual é o fator que saiu na frente? Digite apenas o número.",
+      "imagem": "ft-q-qual-saiu",
+      "dica": "Multiplique o parêntese pelo fator e veja qual valor devolve a expressão original.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "Com 2 na frente, 2(2x + 3) daria 4x + 6, e não 8x + 12. Os dois valores estão pela metade: o fator certo é o dobro disso."
+        },
+        {
+          "resposta": "8",
+          "porque": "Com 8 na frente, 8(2x + 3) daria 16x + 24, o dobro do que se queria. Conferir distribuindo pega esse erro na hora."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 não divide o 8: 8x dividido por 6 não dá uma expressão de coeficiente inteiro. O fator comum precisa caber nas duas parcelas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Distribua com o candidato",
+          "explicacao": "O fator certo é o que devolve exatamente a expressão original.",
+          "conta": "4 × 2x = 8x  ·  4 × 3 = 12"
+        },
+        {
+          "titulo": "Confira",
+          "explicacao": "As duas parcelas bateram, então o fator está certo.",
+          "conta": "8x + 12 = 4(2x + 3) ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que o fator comum pode sair na frente do parêntese?",
+      "imagem": "ft-q-por-que-sai",
+      "dica": "Pense na figura: o que o fator comum é, no retângulo repartido?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ele é o lado que todas as parcelas dividem, e a área é lado vezes lado" },
+        { "rotulo": "B", "texto": "Porque ele é o maior número da expressão" },
+        { "rotulo": "C", "texto": "Porque números sempre podem sair de dentro de parênteses" },
+        { "rotulo": "D", "texto": "Porque é uma regra que não tem explicação" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque ele é o maior número da expressão",
+          "porque": "Ele nem sempre é o maior: em 6x + 9 o fator comum é 3, menor que o 6 e que o 9. O que importa não é o tamanho, e sim caber em TODAS as parcelas."
+        },
+        {
+          "resposta": "Porque números sempre podem sair de dentro de parênteses",
+          "porque": "Não podem: em 6x + 5 nada sai, porque o 6 não divide o 5. Só sai o que é comum a todas as parcelas."
+        },
+        {
+          "resposta": "Porque é uma regra que não tem explicação",
+          "porque": "Tem explicação, e ela é a distributiva lida ao contrário: se 3(2x+3) dá 6x+9 por distribuição, então 6x+9 volta a ser 3(2x+3). A figura mostra isso como área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a soma como área",
+          "explicacao": "Cada parcela é uma faixa do retângulo, e todas têm a mesma altura.",
+          "conta": "faixas de altura 3"
+        },
+        {
+          "titulo": "Escreva a área do retângulo inteiro",
+          "explicacao": "Área é altura vezes largura, e a largura é a soma das larguras das faixas.",
+          "conta": "3 × (2x + 3)"
+        }
+      ]
+    }
+  ]
+}

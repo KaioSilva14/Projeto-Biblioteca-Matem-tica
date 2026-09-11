@@ -766,8 +766,21 @@ export function listasComuns({ colunas, largura = 460, rotulo = "" }) {
 
 const AVANCO = 0.6;
 
-export function fatoresRepetidos({ linhas, largura = 460, rotulo = "" }) {
+export function fatoresRepetidos({ linhas, largura, rotulo = "" }) {
   const corpoTam = 20, supTam = 13, alturaLinha = 44, m = 14;
+
+  // A caixa sai do CONTEÚDO, e não de uma largura fixa. Com 460 travados, uma
+  // figura de duas potências curtas sobrava espaço dos dois lados e caía para
+  // 0,63 do tamanho num celular de 320px — encolhendo à toa uma linha que
+  // cabia em 380.
+  const larguraLinha = (l) => {
+    const base = String(l.base), exp = String(l.expoente);
+    const produto = " = " + Array.from({ length: l.expoente }, () => base).join(" × ");
+    const total = l.resultado === undefined ? "" : " = " + String(l.resultado);
+    return (base.length + produto.length + total.length) * AVANCO * corpoTam
+      + exp.length * AVANCO * supTam + 5;
+  };
+  largura = largura ?? Math.ceil(Math.max(...linhas.map(larguraLinha)) + m * 2);
   const A = m * 2 + linhas.length * alturaLinha + (rotulo ? 24 : 0);
   let corpo = "";
 
@@ -1424,7 +1437,7 @@ export function retanguloMalha({ colunas, linhas, pintadas = 0, malha = true, ro
 // partir do canto de baixo à esquerda. Assim o manifesto descreve a figura
 // andando por ela — que é como o aluno vai percorrer o perímetro.
 
-export function figuraComposta({ movimentos, escala = 30, malha = false, rotulosLados = [], rotulo = "" }) {
+export function figuraComposta({ movimentos, escala = 30, malha = false, rotulosLados = [], cortes = [], partes = [], rotulo = "" }) {
   // caminha o contorno acumulando os vértices
   const pontos = [[0, 0]];
   for (const [dx, dy] of movimentos) {
@@ -1464,6 +1477,19 @@ export function figuraComposta({ movimentos, escala = 30, malha = false, rotulos
   }
 
   corpo += `<polygon points="${P.map((p) => p.map((v) => v.toFixed(1)).join(",")).join(" ")}" fill="${malha ? "none" : CHEIO}" fill-opacity="${malha ? 1 : 0.18}" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linejoin="round"/>`;
+
+  // Os CORTES são a matéria de Áreas do 8º ano: a figura difícil partida em
+  // figuras fáceis. Eles vão tracejados e por DENTRO do contorno, para ficar
+  // claro que não são lados — nenhum deles entra no perímetro.
+  const emTela = ([x, y]) => [recuo + m + (x - minX) * escala, m + (maxY - y) * escala];
+  for (const [a, b] of cortes) {
+    const [x1, y1] = emTela(a), [x2, y2] = emTela(b);
+    corpo += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${DESTAQUE}" stroke-width="1.8" stroke-dasharray="6 5"/>`;
+  }
+  for (const parte of partes) {
+    const [px, py] = emTela(parte.em);
+    corpo += texto(px, py, esc(parte.nome), { tamanho: 14, cor: DESTAQUE, peso: 500 });
+  }
 
   // Rótulos no meio de cada lado, empurrados para FORA. A direção não pode
   // vir do centroide: numa figura côncava (o L é o caso) o centroide fica do
@@ -1698,7 +1724,7 @@ export function planificacao({ tipo = "cubo", escala = 46, rotulo = "" }) {
 
 // ---------- Plano cartesiano ----------
 
-export function planoCartesiano({ ate = 6, pontos = [], escala = 34, ligar = false, caminho = [], rotulo = "" }) {
+export function planoCartesiano({ ate = 6, pontos = [], escala = 34, ligar = false, caminho = [], retas = [], rotulo = "" }) {
   const m = 34;
   // O rótulo de um ponto é escrito à direita dele. Um ponto encostado na
   // borda do plano jogaria o texto para fora do SVG, então a folga da
@@ -1740,6 +1766,45 @@ export function planoCartesiano({ ate = 6, pontos = [], escala = 34, ligar = fal
     const vertices = pontos.map((pt) => `${X(pt.em[0])},${Y(pt.em[1])}`).join(" ");
     corpo += `<polygon points="${vertices}" fill="${CHEIO}" fill-opacity="0.14" stroke="${DESTAQUE}" stroke-width="2.2" stroke-linejoin="round"/>`;
   }
+  // As RETAS de um sistema, cada uma na forma ax + by = c. Elas existem para
+  // a lição que mostra a solução como ENCONTRO: sem as duas desenhadas, "o
+  // par que serve nas duas equações" fica sendo uma frase, e não uma coisa
+  // que se vê. O gerador calcula onde cada reta corta a moldura do plano, em
+  // vez de receber os pontos prontos.
+  for (const reta of retas) {
+    const { a, b, c } = reta;
+    const dentro = ([px, py]) => px >= -0.001 && px <= ate + 0.001 && py >= -0.001 && py <= ate + 0.001;
+    const cortes = [];
+    if (b !== 0) {
+      cortes.push([0, c / b]);           // corta o eixo vertical
+      cortes.push([ate, (c - a * ate) / b]);
+    }
+    if (a !== 0) {
+      cortes.push([c / a, 0]);           // corta o eixo horizontal
+      cortes.push([(c - b * ate) / a, ate]);
+    }
+    const validos = cortes.filter(dentro);
+    if (validos.length < 2) continue;    // a reta não passa pelo primeiro quadrante desenhado
+    // dois pontos bastam; os extremos mais distantes dão o segmento inteiro
+    let [p1, p2] = [validos[0], validos[0]];
+    let maior = -1;
+    for (const u of validos) {
+      for (const v of validos) {
+        const d = (u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2;
+        if (d > maior) { maior = d; p1 = u; p2 = v; }
+      }
+    }
+    corpo += `<line x1="${X(p1[0]).toFixed(1)}" y1="${Y(p1[1]).toFixed(1)}" x2="${X(p2[0]).toFixed(1)}" y2="${Y(p2[1]).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="2.2" stroke-linecap="round"/>`;
+    if (reta.rotulo) {
+      // o nome da reta vai na ponta que estiver mais para dentro do plano
+      const ponta = p1[0] + p1[1] > p2[0] + p2[1] ? p1 : p2;
+      const dx = ponta[0] >= ate - 0.01 ? -10 : 10;
+      corpo += texto(X(ponta[0]) + dx, Y(ponta[1]) - 10, esc(reta.rotulo), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, ancora: dx < 0 ? "end" : "start", fonte: FONTE_MONO,
+      });
+    }
+  }
+
   // O caminho é tracejado de propósito: ele mostra um trajeto possível, e não
   // uma figura. Nos mapas, outra ordem de trechos daria o mesmo comprimento.
   if (caminho.length > 1) {
@@ -3036,4 +3101,1509 @@ export function gradeDados({ destacar, rotulo = "", mostrarSomas = true }) {
 
   if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
   return svg(Math.round(largura), altura, corpo);
+}
+
+// ---------- Bloco de notação científica (8º ano) ----------
+//
+// Três geradores, decididos antes do conteúdo — como o bloco de álgebra do
+// 7º. A matéria inteira corre o risco de virar "conte as casas e mova a
+// vírgula", e cada um destes existe contra isso:
+//
+//   · `escadaPotencias` mostra de ONDE saem o expoente zero e o negativo:
+//     descendo a escada das potências de 10, cada degrau divide por 10, e
+//     10⁰ = 1 e 10⁻¹ = 0,1 são só a continuação do padrão;
+//   · `escalaOrdens` mostra POR QUE a notação científica existe: numa régua
+//     de potências, o vírus e o Sol cabem lado a lado. Escrever esses
+//     números por extenso não caberia na folha;
+//   · `deslocarVirgula` mostra a mecânica, e mostra que o expoente CONTA os
+//     saltos — não é um número decorado.
+
+/** Expoente em algarismos sobrescritos, para caber numa linha só de texto. */
+const SOBRESCRITO = { "-": "⁻", 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" };
+export function expoente(n) {
+  return String(n).split("").map((c) => SOBRESCRITO[c] ?? c).join("");
+}
+
+/**
+ * A escada das potências de 10.
+ *
+ * Cada degrau é uma linha "10ⁿ = valor", e entre dois degraus vai a seta com
+ * "÷ 10". Descendo, o expoente cai de um e o valor divide por dez — e é essa
+ * regularidade, e não uma definição, que justifica 10⁰ = 1 e 10⁻¹ = 0,1.
+ *
+ * `destacar` marca os degraus que a lição está discutindo.
+ */
+export function escadaPotencias({ de = 3, ate = -2, base = 10, destacar = [], rotulo = "" }) {
+  const alturaLinha = 34, m = 16;
+  const degraus = [];
+  for (let e = de; e >= ate; e -= 1) degraus.push(e);
+
+  const valorDe = (e) => {
+    if (e >= 0) return String(base ** e);
+    // escrito por extenso, e não como fração: é a forma que o aluno vai
+    // encontrar no problema e digitar na resposta
+    return (base ** e).toFixed(Math.abs(e)).replace(".", ",");
+  };
+
+  const potencias = degraus.map((e) => base + expoente(e));
+  const valores = degraus.map(valorDe);
+  const larguraPot = Math.max(...potencias.map((p) => larguraTexto(p, 17, true)));
+  const larguraVal = Math.max(...valores.map((v) => larguraTexto(v, 17, true)));
+  const xIgual = m + larguraPot + 14;
+  const larguraDesenho = xIgual + 18 + larguraVal + m + 74;   // 74 = coluna do "÷ 10"
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = m * 2 + degraus.length * alturaLinha + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+
+  let corpo = "";
+  degraus.forEach((e, i) => {
+    const y = m + i * alturaLinha + alturaLinha / 2;
+    const forte = destacar.includes(e);
+    corpo += texto(recuo + m + larguraPot, y, esc(base + expoente(e)), {
+      tamanho: 17, cor: forte ? DESTAQUE : TRACO_FORTE, peso: 500, ancora: "end", fonte: FONTE_MONO,
+    });
+    corpo += texto(recuo + xIgual, y, "=", { tamanho: 17, cor: TRACO, fonte: FONTE_MONO });
+    corpo += texto(recuo + xIgual + 16, y, esc(valorDe(e)), {
+      tamanho: 17, cor: forte ? DESTAQUE : TRACO_FORTE, peso: forte ? 500 : 400, ancora: "start", fonte: FONTE_MONO,
+    });
+    if (forte) {
+      // um traço embaixo do degrau em discussão, porque a distinção não pode
+      // ser de cor: a paleta não tem acento
+      const x1 = recuo + m - 4, x2 = recuo + xIgual + 16 + larguraVal + 4;
+      corpo += `<line x1="${x1.toFixed(1)}" y1="${(y + 15).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(y + 15).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="1.6"/>`;
+    }
+    // a seta do "÷ 10" entre este degrau e o próximo
+    if (i < degraus.length - 1) {
+      const xs = recuo + larguraDesenho - 52;
+      const ya = y + 6, yb = y + alturaLinha - 6;
+      corpo += `<line x1="${xs}" y1="${ya.toFixed(1)}" x2="${xs}" y2="${(yb - 5).toFixed(1)}" stroke="${TRACO}" stroke-width="1.6"/>`;
+      corpo += `<polygon points="${xs},${yb} ${xs - 4},${yb - 6} ${xs + 4},${yb - 6}" fill="${TRACO}"/>`;
+      corpo += texto(xs + 8, (ya + yb) / 2, esc("÷ " + base), { tamanho: 12, cor: TRACO, ancora: "start", fonte: FONTE_MONO });
+    }
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+/**
+ * A régua das ordens de grandeza.
+ *
+ * Uma reta em que cada passo vale UMA potência de 10, com objetos reais
+ * pendurados nela. É a figura que justifica a matéria: o diâmetro de um
+ * vírus e a distância até o Sol não cabem na mesma folha escritos por
+ * extenso, mas cabem na mesma régua escritos como potência.
+ *
+ * Os itens vêm como { expoente, rotulo }. A régua NÃO é linear em valor —
+ * é linear em EXPOENTE, e é isso que ela ensina.
+ */
+export function escalaOrdens({ itens, de, ate, unidade = "", rotulo = "" }) {
+  const menor = de ?? Math.min(...itens.map((i) => i.expoente));
+  const maior = ate ?? Math.max(...itens.map((i) => i.expoente));
+  const divisoes = maior - menor;
+
+  // O passo sai da largura dos RÓTULOS de potência, como na retaInteiros: um
+  // passo fixo ou não cabe o "10⁻⁷" ou estica a régua além do celular.
+  const marcas = [];
+  for (let e = menor; e <= maior; e += 1) marcas.push(e);
+  const larguraMarca = Math.max(...marcas.map((e) => larguraTexto("10" + expoente(e), 12, true)));
+  const passo = Math.max(30, Math.ceil(larguraMarca) + 8);
+  const m = 26;
+  const larguraDesenho = Math.min(456, divisoes * passo + m * 2);
+  const passoReal = (larguraDesenho - m * 2) / divisoes;
+
+  // Cada item pendura uma etiqueta acima da régua; as que se encostariam
+  // sobem uma linha, como os rótulos de ponto da retaInteiros.
+  const niveis = [];
+  for (const it of itens) {
+    const x = m + (it.expoente - menor) * passoReal;
+    const meia = larguraTexto(it.rotulo, 12) / 2;
+    let nivel = 0;
+    while (niveis.some((o) => o.nivel === nivel && Math.abs(o.x - x) < o.meia + meia + 6)) nivel += 1;
+    niveis.push({ x, meia, nivel, rotulo: it.rotulo });
+  }
+  const alturaEtiquetas = (Math.max(0, ...niveis.map((n) => n.nivel)) + 1) * 20 + 14;
+
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = alturaEtiquetas + 54 + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const y = alturaEtiquetas + 8;
+  const X = (e) => recuo + m + (e - menor) * passoReal;
+
+  let corpo = "";
+  corpo += `<line x1="${(X(menor) - 14).toFixed(1)}" y1="${y}" x2="${(X(maior) + 14).toFixed(1)}" y2="${y}" stroke="${TRACO_FORTE}" stroke-width="2.4" stroke-linecap="round"/>`;
+  // Nem toda marca leva NÚMERO. Numerar as dezessete potências de 10⁻⁸ a
+  // 10⁸ numa régua de 456px punha "10⁻⁸" em cima de "10⁻⁷": cada marca tem
+  // 26px e o rótulo pede 29. O passo de numeração é o menor que cabe, e as
+  // marcas COM OBJETO são numeradas sempre — são as que o aluno vai ler.
+  const cada = Math.max(1, Math.ceil((larguraMarca + 6) / passoReal));
+  const numerada = (e) => itens.some((i) => i.expoente === e) || e % cada === 0;
+  for (const e of marcas) {
+    const alto = itens.some((i) => i.expoente === e);
+    corpo += `<line x1="${X(e).toFixed(1)}" y1="${y - (alto ? 8 : 5)}" x2="${X(e).toFixed(1)}" y2="${y + (alto ? 8 : 5)}" stroke="${alto ? DESTAQUE : TRACO}" stroke-width="${alto ? 2.2 : 1.4}"/>`;
+    // um rótulo regular encostado num de objeto cede a vez: o objeto manda
+    const vizinhoComObjeto = !alto && itens.some((i) => Math.abs(X(i.expoente) - X(e)) < larguraMarca + 4);
+    if (numerada(e) && !vizinhoComObjeto) {
+      corpo += texto(X(e), y + 20, esc("10" + expoente(e)), {
+        tamanho: 12, cor: alto ? DESTAQUE : TRACO, peso: alto ? 500 : 400, fonte: FONTE_MONO,
+      });
+    }
+  }
+  // a linha que liga a etiqueta ao ponto dela na régua
+  niveis.forEach((n) => {
+    const yEt = alturaEtiquetas - 6 - n.nivel * 20;
+    corpo += `<line x1="${(n.x + recuo).toFixed(1)}" y1="${(yEt + 7).toFixed(1)}" x2="${(n.x + recuo).toFixed(1)}" y2="${y - 9}" stroke="${TRACO}" stroke-width="1" stroke-dasharray="3 3"/>`;
+    corpo += texto(n.x + recuo, yEt, esc(n.rotulo), { tamanho: 12, cor: TRACO_FORTE });
+  });
+  if (unidade) corpo += texto(recuo + larguraDesenho - 6, y + 38, esc(unidade), { tamanho: 12, cor: TRACO, ancora: "end", fonte: FONTE_MONO });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+/**
+ * A vírgula andando, e o expoente contando os saltos.
+ *
+ * O número é escrito em DM Mono, e cada casa que a vírgula percorre ganha um
+ * arquinho numerado. O expoente escrito embaixo É a contagem dos arcos: a
+ * figura CALCULA o resultado a partir do número e do número de saltos, então
+ * ela não tem como discordar do enunciado.
+ *
+ * `casas` é negativo quando a vírgula anda para a ESQUERDA, que é o caso dos
+ * números grandes — e aí o expoente sai positivo, porque o 10 compensa.
+ *
+ * `revelar` controla o quanto a figura entrega, pela mesma razão que o `salto`
+ * da retaInteiros e o `referencia` do gráfico existem com essa ressalva:
+ *
+ *   · "tudo"   — arcos e resultado. Só na ideia e no resolvido;
+ *   · "arcos"  — a contagem das casas, sem o resultado. Serve nas questões
+ *                que pedem o PRIMEIRO FATOR, que os arcos não entregam;
+ *   · "numero" — só o número escrito. É o que vai nas questões que pedem o
+ *                expoente, porque a contagem dos arcos SERIA a resposta.
+ */
+export function deslocarVirgula({ numero, casas, revelar = "tudo", rotulo = "" }) {
+  const txt = String(numero);
+  const tam = 20, m = 18;
+  const larguraNum = larguraTexto(txt, tam, true);
+
+  // Onde a vírgula está agora: se não houver, ela está depois do último
+  // algarismo — todo inteiro tem uma vírgula invisível ali.
+  const posVirgula = txt.includes(",") ? txt.indexOf(",") : txt.length;
+  const paraEsquerda = casas < 0;
+  const passos = Math.abs(casas);
+  const exp = paraEsquerda ? passos : -passos;
+
+  const semVirgula = txt.replace(",", "");
+  const nova = posVirgula + casas;
+  const inteira = semVirgula.slice(0, nova).replace(/^0+(?=\d)/, "") || "0";
+  const decimal = semVirgula.slice(nova).replace(/0+$/, "");
+  const mantissa = decimal ? inteira + "," + decimal : inteira;
+  const resultado = mantissa + " × 10" + expoente(exp);
+  const larguraRes = larguraTexto(resultado, tam, true);
+
+  const mostraArcos = revelar === "tudo" || revelar === "arcos";
+  const mostraResultado = revelar === "tudo";
+  const alturaArcos = mostraArcos ? 34 : 12;
+  const larguraDesenho = Math.max(larguraNum, mostraResultado ? larguraRes : 0) + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = alturaArcos + (mostraResultado ? 96 : mostraArcos ? 62 : 34) + (rotulo ? 24 : 0);
+  const meioX = largura / 2;
+
+  const passoCar = tam * AVANCO;
+  const x0 = meioX - larguraNum / 2;
+  const yNum = alturaArcos + 18;
+  const X = (casa) => x0 + casa * passoCar;   // borda esquerda da casa
+
+  let corpo = "";
+  corpo += texto(meioX, yNum, esc(txt), { tamanho: tam, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+
+  // um arco por casa percorrida, numerado — é essa contagem que vira o expoente
+  for (let k = 0; mostraArcos && k < passos; k += 1) {
+    const de = paraEsquerda ? posVirgula - k : posVirgula + k;
+    const ate = paraEsquerda ? de - 1 : de + 1;
+    const xa = X(de), xb = X(ate);
+    const meio = (xa + xb) / 2;
+    const topo = yNum - 28;
+    corpo += `<path d="M ${xa.toFixed(1)} ${yNum - 14} Q ${meio.toFixed(1)} ${topo.toFixed(1)} ${xb.toFixed(1)} ${yNum - 14}" fill="none" stroke="${DESTAQUE}" stroke-width="1.6"/>`;
+    corpo += texto(meio, topo - 4, String(k + 1), { tamanho: 11, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  }
+
+  if (mostraArcos) {
+    corpo += texto(meioX, yNum + 34, esc(passos + (passos === 1 ? " casa para a " : " casas para a ") + (paraEsquerda ? "esquerda" : "direita")), { tamanho: 12, cor: TRACO });
+  }
+  if (mostraResultado) {
+    corpo += texto(meioX, yNum + 62, esc(resultado), { tamanho: tam, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+// ---------- Bloco de dízimas e números reais (8º ano) ----------
+//
+// Dois geradores, e o primeiro é a matéria inteira.
+//
+// `divisaoPeriodica` mostra a SEQUÊNCIA DE RESTOS de uma divisão, com o
+// momento em que um resto se repete marcado por uma seta de volta. É esse
+// retorno que explica por que a dízima é periódica, e não a observação de
+// que "os algarismos se repetem": os restos possíveis são finitos — de 0 a
+// divisor − 1 —, então algum tem de voltar, e quando volta a conta recomeça
+// igual. Sem esta figura, a periodicidade vira um fato observado.
+//
+// Ele CALCULA a divisão, como `fatoracao` calcula a cadeia de divisões: o
+// desenho não tem como discordar do enunciado.
+
+/** Uma barra sobre o período, que é como a dízima se escreve. */
+function comBarraPeriodo(x, y, antes, periodo, { tamanho = 20, cor = DESTAQUE, peso = 500 } = {}) {
+  const largAntes = larguraTexto(antes, tamanho, true);
+  const largPer = larguraTexto(periodo, tamanho, true);
+  const total = largAntes + largPer;
+  const x0 = x - total / 2;
+  let corpo = texto(x0, y, esc(antes), { tamanho, cor, peso, ancora: "start", fonte: FONTE_MONO });
+  corpo += texto(x0 + largAntes, y, esc(periodo), { tamanho, cor, peso, ancora: "start", fonte: FONTE_MONO });
+  // a barra marca EXATAMENTE o bloco que se repete
+  corpo += `<line x1="${(x0 + largAntes).toFixed(1)}" y1="${(y - tamanho * 0.62).toFixed(1)}" x2="${(x0 + total).toFixed(1)}" y2="${(y - tamanho * 0.62).toFixed(1)}" stroke="${cor}" stroke-width="1.8"/>`;
+  return corpo;
+}
+
+/**
+ * A divisão longa, com os restos à mostra e o retorno marcado.
+ *
+ * `passos` limita quantas linhas desenhar — uma divisão de período longo não
+ * cabe no celular, e o argumento já se vê nas primeiras.
+ */
+export function divisaoPeriodica({ dividendo, divisor, passos = 6, revelar = "tudo", rotulo = "" }) {
+  // A divisão longa, calculada aqui: cada linha guarda o resto que entrou e
+  // o algarismo que saiu.
+  const linhas = [];
+  let resto = dividendo % divisor;
+  const inteira = Math.floor(dividendo / divisor);
+  const vistos = new Map();
+  let voltaEm = -1, voltaPara = -1;
+  for (let i = 0; i < passos && resto !== 0; i += 1) {
+    if (vistos.has(resto)) { voltaEm = i; voltaPara = vistos.get(resto); break; }
+    vistos.set(resto, i);
+    const atual = resto * 10;
+    linhas.push({ resto, algarismo: Math.floor(atual / divisor) });
+    resto = atual % divisor;
+  }
+
+  const alturaLinha = 30, m = 16;
+  const textos = linhas.map((l) => `resto ${l.resto} → algarismo ${l.algarismo}`);
+  const larguraTexto0 = Math.max(0, ...textos.map((t) => larguraTexto(t, 13, true)));
+  const titulo = `${dividendo} ÷ ${divisor}`;
+  const setaCol = voltaEm >= 0 ? 34 : 0;
+  // A frase do retorno é o texto mais largo da figura, e é ela que manda na
+  // caixa: sem contá-la, ela saía cortada nas duas bordas.
+  const aviso = "o resto voltou: daqui em diante tudo se repete";
+  const larguraDesenho = Math.max(
+    larguraTexto0 + setaCol + m * 2,
+    larguraTexto(titulo, 18, true) + m * 2,
+    voltaEm >= 0 ? Math.ceil(larguraTexto(aviso, 12)) + m * 2 : 0,
+    200
+  );
+  const largura = comRotulo(larguraDesenho, rotulo);
+  // a frase ocupa uma linha PRÓPRIA entre os restos e o quociente; com 26px
+  // ela era escrita por cima do número
+  const alturaVolta = voltaEm >= 0 ? 30 : 0;
+  const altura = m + 30 + linhas.length * alturaLinha + alturaVolta
+    + (revelar === "restos" ? 12 : 52) + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const xTexto = recuo + m + setaCol;
+
+  let corpo = "";
+  corpo += texto(largura / 2, m + 12, esc(titulo), { tamanho: 18, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+
+  const yDe = (i) => m + 38 + i * alturaLinha + alturaLinha / 2;
+  linhas.forEach((l, i) => {
+    corpo += texto(xTexto, yDe(i), esc(textos[i]), {
+      tamanho: 13, cor: TRACO_FORTE, ancora: "start", fonte: FONTE_MONO,
+    });
+  });
+
+  // A seta que volta: é ela que diz por que a dízima nunca acaba.
+  if (voltaEm >= 0) {
+    const yTopo = yDe(voltaPara), yBase = yDe(linhas.length - 1) + alturaLinha;
+    const xs = recuo + m + 12;
+    corpo += `<path d="M ${xs + 14} ${yBase.toFixed(1)} L ${xs} ${yBase.toFixed(1)} L ${xs} ${yTopo.toFixed(1)} L ${(xs + 10).toFixed(1)} ${yTopo.toFixed(1)}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8"/>`;
+    corpo += `<polygon points="${xs + 14},${yTopo.toFixed(1)} ${xs + 6},${(yTopo - 4).toFixed(1)} ${xs + 6},${(yTopo + 4).toFixed(1)}" fill="${DESTAQUE}"/>`;
+    corpo += texto(largura / 2, yBase + 15, esc(aviso), { tamanho: 12, cor: TRACO });
+  }
+
+  // O quociente, com a barra sobre o período.
+  const periodo = linhas.slice(voltaPara >= 0 ? voltaPara : 0).map((l) => l.algarismo).join("");
+  const antes = String(inteira) + "," + linhas.slice(0, voltaPara >= 0 ? voltaPara : 0).map((l) => l.algarismo).join("");
+  // O quociente traz a dízima com a barra sobre o período — que é a resposta
+  // de qualquer questão que pergunte o período. Com `revelar: "restos"` a
+  // figura mostra só a conta, e o aluno tira a conclusão.
+  const yQuoc = altura - (rotulo ? 24 : 0) - 16;
+  if (revelar === "restos") {
+    // nada a escrever: a conta já está acima
+  } else if (voltaEm >= 0) {
+    corpo += comBarraPeriodo(largura / 2, yQuoc, antes, periodo, { tamanho: 20 });
+  } else {
+    corpo += texto(largura / 2, yQuoc, esc(antes + periodo), { tamanho: 20, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+/**
+ * Os conjuntos numéricos como caixas encaixadas.
+ *
+ * Naturais dentro de inteiros, dentro de racionais — e os IRRACIONAIS como
+ * uma caixa separada, ao lado, porque é exatamente isso que eles são: o que
+ * sobra dentro dos reais e não cabe em nenhuma fração. Desenhá-los dentro de
+ * uma sequência de caixas aninhadas ensinaria o contrário.
+ */
+export function conjuntosNumericos({ exemplos = {}, destacar = [], rotulo = "" }) {
+  const m = 14, alturaCaixa = 30, folga = 9;
+  const aninhados = ["naturais", "inteiros", "racionais"];
+  const nomes = { naturais: "naturais", inteiros: "inteiros", racionais: "racionais", irracionais: "irracionais" };
+
+  // A caixa dos reais envolve tudo; dentro dela, os racionais aninhados à
+  // esquerda e os irracionais numa caixa própria à direita.
+  const larguraIrr = Math.max(150, Math.ceil(larguraTexto(exemplos.irracionais || "", 12, true)) + 28);
+  const larguraRac = 214;
+  const larguraDesenho = m * 2 + 16 + larguraRac + 14 + larguraIrr + 16;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaRac = alturaCaixa * 3 + folga * 4 + 34;
+  const altura = m * 2 + alturaRac + 30 + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+
+  // O nome fica na FAIXA DE CIMA de cada caixa, e não no centro dela: com os
+  // rótulos centralizados, as três caixas encaixadas escreviam "naturais",
+  // "inteiros" e "racionais" no mesmo ponto, um por cima do outro.
+  const caixa1 = (x, y, w, h, nome, exemplo, forte) => {
+    let c = `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" rx="4" fill="none" stroke="${forte ? DESTAQUE : TRACO}" stroke-width="${forte ? 2.2 : 1.5}"/>`;
+    c += texto(x + 10, y + 13, esc(nome), { tamanho: 12, cor: forte ? DESTAQUE : TRACO_FORTE, peso: forte ? 500 : 400, ancora: "start" });
+    if (exemplo) {
+      c += texto(x + w - 10, y + 13, esc(exemplo), { tamanho: 12, cor: TRACO, ancora: "end", fonte: FONTE_MONO });
+    }
+    return c;
+  };
+
+  let corpo = "";
+  // reais, por fora de tudo
+  const xR = recuo + m, yR = m;
+  const wR = larguraDesenho - m * 2, hR = alturaRac + 22;
+  corpo += `<rect x="${xR}" y="${yR}" width="${wR}" height="${hR}" rx="5" fill="none" stroke="${destacar.includes("reais") ? DESTAQUE : TRACO_FORTE}" stroke-width="2.2"/>`;
+  corpo += texto(xR + wR / 2, yR + hR - 11, esc("reais"), { tamanho: 13, cor: TRACO_FORTE, peso: 500 });
+
+  // racionais, com inteiros e naturais dentro
+  // De fora para dentro: racionais, inteiros, naturais. Cada caixa recua 12px
+  // na horizontal e 26px no topo — o bastante para o nome da de dentro ficar
+  // abaixo do nome da de fora, que é o que torna o encaixe legível.
+  const recuoTopo = 26;
+  [...aninhados].reverse().forEach((nome, i) => {
+    const x = xR + 12 + i * 12;
+    const y = yR + 12 + i * recuoTopo;
+    const w = larguraRac - i * 24;
+    const h = alturaRac - 12 - i * (recuoTopo + 6);
+    corpo += caixa1(x, y, w, h, nomes[nome], exemplos[nome], destacar.includes(nome));
+  });
+
+  // irracionais, ao lado — e não dentro
+  const xI = xR + 12 + larguraRac + 14;
+  corpo += caixa1(xI, yR + 12, larguraIrr, alturaRac - 12, nomes.irracionais, exemplos.irracionais, destacar.includes("irracionais"));
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+// ---------- Bloco de produtos notáveis (8º ano) ----------
+//
+// Esta é a matéria que mais vira decoreba do Ensino Fundamental: três
+// fórmulas que o aluno repete sem saber de onde vêm, e que ele troca entre
+// si na prova. Os dois geradores existem contra isso, e os dois mostram a
+// mesma coisa por caminhos diferentes — que produto notável é ÁREA.
+//
+//   · `quadradoSoma` parte um quadrado de lado a + b em quatro pedaços. Os
+//     dois retângulos ab, um em cima e outro do lado, são exatamente o que
+//     falta em "(a+b)² = a² + b²" — o erro mais comum da matéria fica
+//     VISÍVEL, em vez de ser corrigido com um "não é assim";
+//   · `diferencaQuadrados` recorta um quadradinho b² do canto de um quadrado
+//     a² e mostra que o L que sobra se reorganiza num retângulo de lados
+//     a + b e a − b. É a demonstração de a² − b² = (a+b)(a−b), e ela cabe
+//     numa figura só.
+//
+// Os dois CALCULAM as áreas a partir de a e b, como `sequenciaFiguras`: a
+// figura não tem como discordar do enunciado.
+
+/**
+ * O quadrado de lado (a + b), partido nas quatro regiões.
+ *
+ * `revelar` controla o que os pedaços dizem, pela mesma razão do `salto` da
+ * retaInteiros:
+ *   · "areas"  — cada região traz a área dela (a², ab, ab, b²);
+ *   · "vazio"  — as regiões ficam sem rótulo, e o aluno as identifica;
+ *   · "numeros" — as áreas em número, quando a e b são valores concretos.
+ */
+export function quadradoSoma({ a = 3, b = 2, nomes = ["a", "b"], revelar = "areas", rotulo = "" }) {
+  const escala = Math.min(30, 190 / (a + b));
+  const la = a * escala, lb = b * escala;
+  const lado = la + lb;
+  const m = 34, mDir = 18;
+  const larguraDesenho = m + lado + mDir;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = 26 + lado + 34 + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const x0 = recuo + m, y0 = 26;
+  const [na, nb] = nomes;
+
+  // As quatro regiões, com a área de cada uma CALCULADA a partir de a e b.
+  const regioes = [
+    { x: x0, y: y0, w: la, h: la, area: `${na}²`, num: a * a, forte: true },
+    { x: x0 + la, y: y0, w: lb, h: la, area: `${na}${nb}`, num: a * b, forte: false },
+    { x: x0, y: y0 + la, w: la, h: lb, area: `${na}${nb}`, num: a * b, forte: false },
+    { x: x0 + la, y: y0 + la, w: lb, h: lb, area: `${nb}²`, num: b * b, forte: true },
+  ];
+
+  let corpo = "";
+  for (const r of regioes) {
+    corpo += `<rect x="${r.x.toFixed(1)}" y="${r.y.toFixed(1)}" width="${r.w.toFixed(1)}" height="${r.h.toFixed(1)}" fill="${CHEIO}" fill-opacity="${r.forte ? 0.22 : 0.1}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+    if (revelar !== "vazio") {
+      const txt = revelar === "numeros" ? String(r.num) : r.area;
+      corpo += texto(r.x + r.w / 2, r.y + r.h / 2, esc(txt), {
+        tamanho: 15, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+  // o contorno do quadrado inteiro, por cima
+  corpo += `<rect x="${x0.toFixed(1)}" y="${y0}" width="${lado.toFixed(1)}" height="${lado.toFixed(1)}" fill="none" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+
+  // as medidas dos lados: a e b em cima, e a + b à esquerda
+  // Com as áreas em número, os LADOS também vão em número: misturar as duas
+  // linguagens deixaria o aluno sem ligar o 25 ao lado 5.
+  const rA = revelar === "numeros" ? String(a) : na;
+  const rB = revelar === "numeros" ? String(b) : nb;
+  corpo += texto(x0 + la / 2, y0 - 12, esc(rA), { tamanho: 13, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+  corpo += texto(x0 + la + lb / 2, y0 - 12, esc(rB), { tamanho: 13, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+  corpo += texto(x0 - 10, y0 + la / 2, esc(rA), { tamanho: 13, cor: TRACO_FORTE, peso: 500, ancora: "end", fonte: FONTE_MONO });
+  corpo += texto(x0 - 10, y0 + la + lb / 2, esc(rB), { tamanho: 13, cor: TRACO_FORTE, peso: 500, ancora: "end", fonte: FONTE_MONO });
+  corpo += texto(x0 + lado / 2, y0 + lado + 16, esc(`lado ${rA} + ${rB}`), { tamanho: 12, cor: TRACO });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+/**
+ * A diferença de quadrados, recortada e rearranjada.
+ *
+ * À esquerda, o quadrado de lado a com um quadradinho de lado b tirado do
+ * canto — a área que sobra é a² − b². À direita, o mesmo L reorganizado num
+ * retângulo de lados (a + b) e (a − b). As duas áreas são iguais, e é essa
+ * igualdade que a fórmula escreve.
+ */
+export function diferencaQuadrados({ a = 5, b = 2, nomes = ["a", "b"], revelar = "areas", rotulo = "" }) {
+  const escala = Math.min(26, 130 / a);
+  const la = a * escala, lb = b * escala;
+  const m = 16, vao = 40;
+  const [na, nb] = nomes;
+
+
+  // O retângulo equivalente tem base a + b e altura a − b.
+  const largRet = (a + b) * escala, altRet = (a - b) * escala;
+  // O lado direito do retângulo leva o rótulo "a − b" escrito PARA FORA, e a
+  // margem tem de contá-lo: com 16px fixos ele saía cortado na borda.
+  const rotuloAltura = `${na} − ${nb}`;
+  const mDireita = Math.max(m, Math.ceil(larguraTexto(rotuloAltura, 13, true)) + 14);
+  const larguraDesenho = m + la + vao + largRet + mDireita;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaFig = Math.max(la, altRet);
+  const altura = 28 + alturaFig + 40 + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const y0 = 26;
+
+  let corpo = "";
+  // --- esquerda: o quadrado a² com o canto b² tirado
+  const xa = recuo + m;
+  // o L, desenhado como um polígono só: é ele que sobra depois do recorte
+  const P = [
+    [xa, y0], [xa + la, y0], [xa + la, y0 + la - lb],
+    [xa + la - lb, y0 + la - lb], [xa + la - lb, y0 + la], [xa, y0 + la],
+  ];
+  corpo += `<polygon points="${P.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ")}" fill="${CHEIO}" fill-opacity="0.18" stroke="${TRACO_FORTE}" stroke-width="2"/>`;
+  // o quadradinho retirado, tracejado
+  corpo += `<rect x="${(xa + la - lb).toFixed(1)}" y="${(y0 + la - lb).toFixed(1)}" width="${lb.toFixed(1)}" height="${lb.toFixed(1)}" fill="none" stroke="${TRACO}" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+  corpo += texto(xa + la / 2, y0 - 12, esc(na), { tamanho: 13, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+  corpo += texto(xa + la - lb / 2, y0 + la - lb / 2, esc(nb), { tamanho: 12, cor: TRACO, fonte: FONTE_MONO });
+  if (revelar !== "vazio") {
+    corpo += texto(xa + la * 0.32, y0 + la * 0.34, esc(`${na}² − ${nb}²`), {
+      tamanho: 14, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+    });
+  }
+
+  // --- a seta do rearranjo
+  const xs = xa + la + 10;
+  corpo += `<line x1="${xs}" y1="${(y0 + alturaFig / 2).toFixed(1)}" x2="${(xs + vao - 22).toFixed(1)}" y2="${(y0 + alturaFig / 2).toFixed(1)}" stroke="${TRACO}" stroke-width="1.6"/>`;
+  corpo += `<polygon points="${xs + vao - 14},${(y0 + alturaFig / 2).toFixed(1)} ${xs + vao - 22},${(y0 + alturaFig / 2 - 4).toFixed(1)} ${xs + vao - 22},${(y0 + alturaFig / 2 + 4).toFixed(1)}" fill="${TRACO}"/>`;
+
+  // --- direita: o retângulo equivalente
+  const xr = xa + la + vao;
+  const yr = y0 + (alturaFig - altRet) / 2;
+  corpo += `<rect x="${xr.toFixed(1)}" y="${yr.toFixed(1)}" width="${largRet.toFixed(1)}" height="${altRet.toFixed(1)}" fill="${CHEIO}" fill-opacity="0.18" stroke="${TRACO_FORTE}" stroke-width="2"/>`;
+  corpo += texto(xr + largRet / 2, yr - 12, esc(`${na} + ${nb}`), { tamanho: 13, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+  corpo += texto(xr + largRet + 8, yr + altRet / 2, esc(rotuloAltura), {
+    tamanho: 13, cor: TRACO_FORTE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+  });
+
+  if (revelar === "numeros") {
+    corpo += texto(xa + la / 2, y0 + alturaFig + 18, esc(String(a * a - b * b)), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+    corpo += texto(xr + largRet / 2, y0 + alturaFig + 18, esc(String((a + b) * (a - b))), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  }
+  corpo += texto(largura / 2, y0 + alturaFig + (revelar === "numeros" ? 34 : 20), esc("a mesma área, em duas formas"), { tamanho: 12, cor: TRACO });
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+
+// ---------- Bloco de fatoração (8º ano) ----------
+//
+// Fatorar é o caminho de volta dos produtos notáveis, e a matéria roda o
+// mesmo risco: virar quatro receitas decoradas que o aluno troca entre si.
+// O gerador existe contra isso.
+//
+// `retanguloFatores` desenha a soma como ÁREA de um retângulo repartido em
+// faixas. O fator comum é a ALTURA — o lado que todas as faixas dividem —, e
+// é por isso que ele pode sair na frente do parêntese. Colocar em evidência
+// deixa de ser "passe o número para fora" e passa a ser "meça o lado que
+// todos os pedaços têm juntos".
+//
+// Ele CALCULA a largura de cada faixa a partir da área e da altura, como
+// `sequenciaFiguras`: a figura não tem como discordar do enunciado.
+
+/**
+ * Um retângulo repartido em faixas verticais, para ler uma soma como área.
+ *
+ * Cada parte traz { largura, area } em texto, e `pesos` diz a proporção
+ * visual entre elas. A altura comum é o fator que sai em evidência.
+ *
+ * `revelar`:
+ *   · "tudo"    — mostra a altura, as larguras e as áreas;
+ *   · "areas"   — mostra só as áreas, e a altura fica com "?": é o que vai
+ *                 nas questões que PEDEM o fator comum;
+ *   · "vazio"   — só o desenho repartido.
+ */
+export function retanguloFatores({ altura, partes, pesos, revelar = "tudo", rotulo = "" }) {
+  const alt = 62, m = 34, folgaTopo = 26;
+  const proporcao = pesos ?? partes.map(() => 1);
+  const soma = proporcao.reduce((t, p) => t + p, 0);
+  const larguraUtil = 240;
+  const larguras = proporcao.map((p) => Math.max(52, (p / soma) * larguraUtil));
+  const larguraTotal = larguras.reduce((t, w) => t + w, 0);
+
+  const larguraDesenho = m + larguraTotal + 20;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura2 = folgaTopo + alt + 34 + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const x0 = recuo + m, y0 = folgaTopo;
+
+  let corpo = "";
+  let x = x0;
+  partes.forEach((parte, i) => {
+    const w = larguras[i];
+    corpo += `<rect x="${x.toFixed(1)}" y="${y0}" width="${w.toFixed(1)}" height="${alt}" fill="${CHEIO}" fill-opacity="${i % 2 ? 0.1 : 0.2}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+    if (revelar !== "vazio") {
+      corpo += texto(x + w / 2, y0 + alt / 2, esc(parte.area), {
+        tamanho: 15, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+    if (revelar === "tudo") {
+      corpo += texto(x + w / 2, y0 - 12, esc(parte.largura), {
+        tamanho: 13, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+    x += w;
+  });
+  corpo += `<rect x="${x0.toFixed(1)}" y="${y0}" width="${larguraTotal.toFixed(1)}" height="${alt}" fill="none" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+
+  // A ALTURA é o fator comum: é o lado que todas as faixas dividem, e por
+  // isso ele pode sair na frente do parêntese.
+  const rotuloAltura = revelar === "tudo" ? altura : "?";
+  corpo += texto(x0 - 12, y0 + alt / 2, esc(rotuloAltura), {
+    tamanho: 15, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO,
+  });
+  corpo += texto(x0 + larguraTotal / 2, y0 + alt + 18, esc("um lado só, dividido por todos"), {
+    tamanho: 12, cor: TRACO,
+  });
+
+  if (rotulo) corpo += texto(largura / 2, altura2 - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura2), corpo);
+}
+
+
+// ---------- Bloco de frações algébricas (8º ano) ----------
+//
+// A matéria inteira gira em torno de uma regra que o aluno acha que já sabe:
+// só se corta o que MULTIPLICA a fração inteira. Ele erra porque, escrita em
+// linha, uma soma no numerador parece um monte de pedaços soltos — e cortar
+// um deles com o denominador parece razoável.
+//
+// `fracaoAlgebrica` desenha a fração de verdade, com numerador sobre a barra,
+// e RISCA os fatores cancelados. O corte deixa de ser uma operação abstrata e
+// vira uma coisa que se vê acontecer; e a figura só risca o que foi passado
+// como fator, então ela não consegue ilustrar um corte proibido.
+
+/**
+ * Uma fração algébrica, com a barra de verdade e o corte à mostra.
+ *
+ * `cima` e `baixo` são listas de FATORES — é essa estrutura que torna o corte
+ * legítimo: só se risca fator, nunca parcela. Para escrever uma soma que
+ * ainda não foi fatorada, passe-a como um fator único: ["x² − 9"].
+ *
+ * `cortar` traz os fatores riscados dos dois lados.
+ */
+export function fracaoAlgebrica({ cima, baixo, cortar = [], resultado, rotulo = "" }) {
+  const tam = 19, m = 16, folga = 10;
+  const risca = (t) => cortar.includes(t);
+
+  // Cada lado é uma fileira de fatores separados por um ponto de multiplicação
+  // discreto — e não por "×", porque em álgebra os fatores se justapõem.
+  const larguraLado = (lista) => lista.reduce((t, f) => t + larguraTexto(f, tam, true), 0)
+    + Math.max(0, lista.length - 1) * 12;
+  const wCima = larguraLado(cima), wBaixo = larguraLado(baixo);
+  const wFracao = Math.max(wCima, wBaixo);
+
+  // A barra da fração passa 6px de cada lado, e o "=" precisa começar depois
+  // dela: colado, ele lê como parte do denominador.
+  const vaoIgual = 20;
+  const wResultado = resultado ? vaoIgual + larguraTexto("= " + resultado, tam, true) : 0;
+  const larguraDesenho = m * 2 + wFracao + wResultado + 8;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = 26 + tam * 2 + folga * 2 + 20 + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+
+  const xFracao = recuo + m + wFracao / 2;
+  const yBarra = 26 + tam + folga;
+
+  let corpo = "";
+  const escreveLado = (lista, w, y) => {
+    let x = recuo + m + (wFracao - w) / 2;
+    for (const f of lista) {
+      const wf = larguraTexto(f, tam, true);
+      corpo += texto(x + wf / 2, y, esc(f), {
+        tamanho: tam, cor: risca(f) ? TRACO : DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+      if (risca(f)) {
+        // o traço que mostra o fator saindo dos dois lados
+        corpo += `<line x1="${(x - 2).toFixed(1)}" y1="${(y + 7).toFixed(1)}" x2="${(x + wf + 2).toFixed(1)}" y2="${(y - 7).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="1.8"/>`;
+      }
+      x += wf + 12;
+    }
+  };
+  escreveLado(cima, wCima, yBarra - tam / 2 - folga / 2);
+  escreveLado(baixo, wBaixo, yBarra + tam / 2 + folga / 2);
+
+  corpo += `<line x1="${(xFracao - wFracao / 2 - 6).toFixed(1)}" y1="${yBarra}" x2="${(xFracao + wFracao / 2 + 6).toFixed(1)}" y2="${yBarra}" stroke="${DESTAQUE}" stroke-width="2.2"/>`;
+
+  if (resultado) {
+    corpo += texto(recuo + m + wFracao + vaoIgual, yBarra, esc("= " + resultado), {
+      tamanho: tam, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+    });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+
+// ---------- Bloco de ângulos e polígonos (8º ano) ----------
+//
+// A fórmula (n − 2) × 180° é a coisa mais decorada do 8º ano, e o "n − 2"
+// não diz nada a quem só a memorizou. `poligonoTriangulado` mostra de onde
+// ele vem: traçando as diagonais a partir de UM vértice, o polígono se parte
+// em triângulos — e sempre em DOIS a menos que o número de lados, porque os
+// dois lados vizinhos ao vértice escolhido não geram diagonal nenhuma.
+//
+// O mesmo gerador desenha TODAS as diagonais quando `modo: "todas"`, que é a
+// figura da lição de contagem. Nos dois casos ele CALCULA os vértices e as
+// ligações a partir de `lados`, então a figura não tem como discordar do
+// enunciado — e um teste conta os triângulos e as diagonais de volta do SVG.
+
+/**
+ * Um polígono regular de n lados, com as diagonais desenhadas.
+ *
+ * `modo`:
+ *   · "vertice" — só as diagonais que saem de um vértice, partindo a figura
+ *     em n − 2 triângulos. É a demonstração da soma dos ângulos internos;
+ *   · "todas"   — todas as diagonais, para contar quantas são;
+ *   · "nenhuma" — só o contorno.
+ *
+ * `numerar` escreve o número de cada triângulo, e só entra onde a contagem
+ * JÁ é conhecida: numa questão que pergunta quantos triângulos aparecem, os
+ * números seriam a resposta desenhada.
+ */
+export function poligonoTriangulado({ lados = 5, modo = "vertice", numerar = false, raio = 78, rotulo = "" }) {
+  // Vértices do polígono regular, com um vértice apontando para cima e o
+  // primeiro deles na base esquerda — a orientação que deixa a figura
+  // assentada em vez de girada.
+  const giro = -90 - 180 / lados;
+  const pts = Array.from({ length: lados }, (_, i) => {
+    const ang = (giro + (i * 360) / lados) * RAD;
+    return [Math.cos(ang) * raio, Math.sin(ang) * raio];
+  });
+
+  const c = caixa(pts, 26);
+  const larguraDesenho = Math.round(c.maxX - c.minX);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = Math.round(c.maxY - c.minY) + (rotulo ? 26 : 0);
+  const dx = -c.minX + (largura - larguraDesenho) / 2, dy = -c.minY;
+  const P = pts.map(([x, y]) => [x + dx, y + dy]);
+
+  let corpo = "";
+  corpo += `<polygon points="${P.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ")}" fill="${CHEIO}" fill-opacity="0.14" stroke="${TRACO_FORTE}" stroke-width="2.5" stroke-linejoin="round"/>`;
+
+  const diagonal = (i, j) =>
+    `<line x1="${P[i][0].toFixed(1)}" y1="${P[i][1].toFixed(1)}" x2="${P[j][0].toFixed(1)}" y2="${P[j][1].toFixed(1)}" stroke="${DESTAQUE}" stroke-width="1.8"/>`;
+
+  if (modo === "vertice") {
+    // De um vértice saem n − 3 diagonais, e elas cortam a figura em n − 2
+    // triângulos. Os dois vizinhos não contam: com eles a "diagonal" seria
+    // um lado do próprio polígono.
+    for (let j = 2; j <= lados - 2; j += 1) corpo += diagonal(0, j);
+    if (numerar) {
+      for (let t = 0; t < lados - 2; t += 1) {
+        const [a, b, cc] = [P[0], P[t + 1], P[t + 2]];
+        const cx = (a[0] + b[0] + cc[0]) / 3, cy = (a[1] + b[1] + cc[1]) / 3;
+        corpo += texto(cx, cy, String(t + 1), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+      }
+    }
+    // o vértice de onde tudo parte, marcado
+    corpo += `<circle cx="${P[0][0].toFixed(1)}" cy="${P[0][1].toFixed(1)}" r="4.5" fill="${DESTAQUE}"/>`;
+  } else if (modo === "todas") {
+    // Toda ligação entre vértices NÃO vizinhos é uma diagonal.
+    for (let i = 0; i < lados; i += 1) {
+      for (let j = i + 2; j < lados; j += 1) {
+        if (i === 0 && j === lados - 1) continue;   // esses dois são vizinhos
+        corpo += diagonal(i, j);
+      }
+    }
+  }
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+
+// ---------- Bloco de congruência de triângulos (8º ano) ----------
+//
+// A matéria inteira depende de uma notação que o aluno nunca viu: os
+// TIQUINHOS nos lados e os ARCOS nos ângulos, que dizem quais elementos se
+// sabe serem iguais. Sem eles, "estes dois lados são congruentes" só existe
+// no texto, e a figura vira enfeite — o aluno olha dois triângulos parecidos
+// e tem de acreditar.
+//
+// `parTriangulos` constrói os dois triângulos A PARTIR DOS ÂNGULOS, como o
+// `figuraPlana` do 7º ano, e marca os elementos que o enunciado declara
+// iguais. Ele também aceita GIRAR o segundo, porque congruência não exige
+// mesma posição — e essa é justamente a confusão que a lição 1 desfaz.
+
+/** Tiquinhos atravessando o meio de um segmento, na perpendicular a ele. */
+function tiquinhos(p, q, quantos) {
+  if (!quantos) return "";
+  const [mx, my] = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
+  const dx = q[0] - p[0], dy = q[1] - p[1];
+  const comp = Math.hypot(dx, dy) || 1;
+  const [ux, uy] = [dx / comp, dy / comp];       // ao longo do lado
+  const [nx, ny] = [-uy, ux];                    // perpendicular
+  let corpo = "";
+  for (let i = 0; i < quantos; i += 1) {
+    const desloca = (i - (quantos - 1) / 2) * 5;
+    const cx = mx + ux * desloca, cy = my + uy * desloca;
+    corpo += `<line x1="${(cx - nx * 6).toFixed(1)}" y1="${(cy - ny * 6).toFixed(1)}" x2="${(cx + nx * 6).toFixed(1)}" y2="${(cy + ny * 6).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="2"/>`;
+  }
+  return corpo;
+}
+
+/**
+ * Dois triângulos lado a lado, com as marcas de congruência.
+ *
+ * `angulos` é [α, β] do primeiro triângulo — o terceiro sai de 180 − α − β,
+ * como manda a soma dos ângulos internos. O segundo triângulo usa os MESMOS
+ * ângulos quando `congruentes` é true.
+ *
+ * `marcasLados` e `marcasAngulos` dizem quantos tiquinhos ou arcos cada
+ * elemento leva; 0 quer dizer que aquele elemento não foi declarado igual.
+ * `giro` gira o segundo triângulo, para mostrar que a posição não importa.
+ */
+export function parTriangulos({
+  angulos = [50, 60], marcasLados = [0, 0, 0], marcasAngulos = [0, 0, 0],
+  giro = 0, escala = 96, nomes = ["", ""], rotulo = "",
+}) {
+  const [alfa, beta] = angulos;
+  // O triângulo sai do encontro das duas retas que partem dos cantos da
+  // base com as inclinações pedidas — a mesma construção do figuraPlana.
+  const ta = Math.tan(alfa * RAD), tb = Math.tan(beta * RAD);
+  const px = tb / (ta + tb);
+  const base = [[0, 0], [1, 0], [px, px * ta]];
+
+  const monta = (rot) => {
+    const r = rot * RAD;
+    return base.map(([x, y]) => {
+      // centraliza antes de girar, para o giro não jogar a figura para longe
+      const cx = x - 0.5, cy = y - 0.28;
+      return [
+        (cx * Math.cos(r) - cy * Math.sin(r)) * escala,
+        -(cx * Math.sin(r) + cy * Math.cos(r)) * escala,
+      ];
+    });
+  };
+
+  const t1 = monta(0), t2 = monta(giro);
+  const vao = 40;
+  const caixa1 = caixa(t1, 22), caixa2 = caixa(t2, 22);
+  const l1 = caixa1.maxX - caixa1.minX, l2 = caixa2.maxX - caixa2.minX;
+  const alt = Math.max(caixa1.maxY - caixa1.minY, caixa2.maxY - caixa2.minY);
+  const larguraDesenho = l1 + vao + l2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const altura = alt + 22 + (rotulo ? 24 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+
+  let corpo = "";
+  const desenha = (pts, cx, cy, nome) => {
+    const P = pts.map(([x, y]) => [x + cx, y + cy]);
+    let c = `<polygon points="${P.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ")}" fill="${CHEIO}" fill-opacity="0.16" stroke="${TRACO_FORTE}" stroke-width="2.4" stroke-linejoin="round"/>`;
+    // as marcas dos LADOS: o lado i vai do vértice i ao seguinte
+    for (let i = 0; i < 3; i += 1) {
+      c += tiquinhos(P[i], P[(i + 1) % 3], marcasLados[i]);
+    }
+    // as marcas dos ÂNGULOS: arcos concêntricos no vértice
+    for (let i = 0; i < 3; i += 1) {
+      const quantos = marcasAngulos[i];
+      if (!quantos) continue;
+      const v = P[i], u = P[(i + 1) % 3], w = P[(i + 2) % 3];
+      const a1 = (Math.atan2(-(u[1] - v[1]), u[0] - v[0]) * 180) / Math.PI;
+      const a2 = (Math.atan2(-(w[1] - v[1]), w[0] - v[0]) * 180) / Math.PI;
+      let de = a1;
+      let d = ((a2 - a1) % 360 + 360) % 360;
+      if (d > 180) { de = a2; d = 360 - d; }
+      for (let k = 0; k < quantos; k += 1) {
+        c += `<path d="${arco(v[0], v[1], 15 + k * 5, de, de + d)}" fill="none" stroke="${DESTAQUE}" stroke-width="2"/>`;
+      }
+    }
+    if (nome) {
+      const cxN = (P[0][0] + P[1][0] + P[2][0]) / 3;
+      const cyN = (P[0][1] + P[1][1] + P[2][1]) / 3;
+      c += texto(cxN, cyN, esc(nome), { tamanho: 13, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+    }
+    return c;
+  };
+
+  corpo += desenha(t1, recuo - caixa1.minX, -caixa1.minY, nomes[0]);
+  corpo += desenha(t2, recuo + l1 + vao - caixa2.minX, -caixa2.minY, nomes[1]);
+
+  if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
+  return svg(Math.round(largura), Math.round(altura), corpo);
+}
+
+// ═════════════════ Áreas por recorte (8º ano) ═════════════════
+//
+// Três fórmulas novas entram nesta matéria — paralelogramo, trapézio e
+// losango —, e as três costumam ser decoradas. `areaPorRecorte` mostra de
+// onde cada uma vem, porque as três são o MESMO argumento: recortar a figura
+// e remontá-la como uma figura que o aluno já sabe medir.
+//
+//   · o PARALELOGRAMO vira retângulo cortando o triângulo de uma ponta e
+//     colando na outra. Daí A = base × altura, e daí também o motivo de a
+//     altura ser a distância entre as bases, e não o lado inclinado — que é
+//     o erro que a matéria inteira precisa evitar;
+//   · dois TRAPÉZIOS iguais, um deles de cabeça para baixo, encaixam num
+//     paralelogramo de base B + b. Como são dois, a área de um é a metade,
+//     e é daí que sai o "dividido por 2" da fórmula;
+//   · o LOSANGO ocupa exatamente metade do retângulo formado pelas suas
+//     diagonais, o que explica o D × d ÷ 2.
+//
+// O gerador CALCULA os vértices a partir das medidas, como `fatoracao` e
+// `sequenciaFiguras`: a figura não tem como discordar do enunciado. Um teste
+// lê os polígonos de volta do SVG e confere que a área desenhada bate com a
+// fórmula que a lição afirma.
+
+/**
+ * Uma figura plana e o recorte que a transforma numa figura conhecida.
+ *
+ * `etapa`:
+ *   · "original"    — só a figura, com as medidas marcadas;
+ *   · "recortada"   — o corte à mostra, com a silhueta do destino tracejada;
+ *   · "rearranjada" — a figura equivalente, já remontada.
+ */
+export function areaPorRecorte({
+  figura = "paralelogramo", etapa = "recortada",
+  base = 7, baseMenor = 4, altura = 4, diagonalMaior = 8, diagonalMenor = 5,
+  medidas = true, rotulos = {}, rotulo = "",
+}) {
+  let pts = [], equivalente = [], corte = [], copia = null, marcas = [];
+
+  if (figura === "paralelogramo") {
+    const r = Math.max(1, Math.round(altura * 0.6));   // o quanto o topo desliza
+    pts = [[0, 0], [base, 0], [base + r, altura], [r, altura]];
+    // O corte é a ALTURA baixada do canto de cima da esquerda. Ele é a linha
+    // tracejada e a medida ao mesmo tempo, de propósito: é essa distância que
+    // entra na fórmula, e não o lado inclinado.
+    corte = [[[r, altura], [r, 0]]];
+    equivalente = [[r, 0], [base + r, 0], [base + r, altura], [r, altura]];
+    marcas = [
+      { chave: "base", em: [base / 2, 0], txt: `base ${base}`, lado: "baixo" },
+      { chave: "altura", em: [r, altura / 2], txt: `altura ${altura}`, lado: "esquerda" },
+      { chave: "lado", em: [(base + base + r) / 2, altura / 2], txt: null, lado: "direita" },
+    ];
+  } else if (figura === "trapezio") {
+    const r = (base - baseMenor) / 2;
+    pts = [[0, 0], [base, 0], [base - r, altura], [r, altura]];
+    // a segunda cópia, girada meia-volta, encaixa no lado direito
+    copia = [[base, 0], [base + baseMenor, 0], [2 * base - r, altura], [base - r, altura]];
+    equivalente = [[0, 0], [base + baseMenor, 0], [2 * base - r, altura], [r, altura]];
+    marcas = [
+      { chave: "base", em: [base / 2, 0], txt: `B ${base}`, lado: "baixo" },
+      { chave: "baseMenor", em: [base / 2, altura], txt: `b ${baseMenor}`, lado: "cima" },
+      { chave: "altura", em: [r / 2, altura / 2], txt: `h ${altura}`, lado: "esquerda" },
+      { chave: "lado", em: [base - r / 2, altura / 2], txt: null, lado: "direita" },
+    ];
+  } else if (figura === "losango") {
+    const D = diagonalMaior, d = diagonalMenor;
+    pts = [[D / 2, 0], [D, d / 2], [D / 2, d], [0, d / 2]];
+    equivalente = [[0, 0], [D, 0], [D, d], [0, d]];    // o retângulo das diagonais
+    corte = [[[0, d / 2], [D, d / 2]], [[D / 2, 0], [D / 2, d]]];
+    marcas = [
+      { chave: "diagonalMaior", em: [D / 2, d / 2], txt: `D ${D}`, lado: "baixo" },
+      { chave: "diagonalMenor", em: [D / 2, d / 2], txt: `d ${d}`, lado: "esquerda" },
+    ];
+  } else {
+    throw new Error(`areaPorRecorte: figura desconhecida "${figura}"`);
+  }
+
+  const principal = etapa === "rearranjada" ? equivalente : pts;
+  // A caixa considera o que a etapa EFETIVAMENTE desenha. Reservar espaço
+  // para uma figura que não aparece encolhe a que aparece: com a caixa fixa
+  // no paralelogramo das duas cópias, um trapézio sozinho caía para 0,63 num
+  // celular de 320px — apertado por uma silhueta invisível.
+  const todos = etapa === "recortada"
+    ? [...pts, ...equivalente, ...(copia ?? [])]
+    : [...principal];
+  const minX = Math.min(...todos.map((p) => p[0])), maxX = Math.max(...todos.map((p) => p[0]));
+  const minY = Math.min(...todos.map((p) => p[1])), maxY = Math.max(...todos.map((p) => p[1]));
+
+  // A unidade cede para a figura caber em 430px. O teto do projeto é 456, mas
+  // aqui ele é apertado de propósito: um trapézio de base 20 encostava nos 456
+  // e caía para 0,63 num celular de 320px, abaixo do patamar que fechou o 7º
+  // ano. Cedendo a unidade, a mesma figura sobe para 0,67 sem perder nada —
+  // as proporções entre as medidas continuam intactas, que é o que a figura
+  // não pode desmentir.
+  const mEsq = 62, mDir = rotulos.lado ? 30 + larguraTexto(String(rotulos.lado), 12, true) : 30;
+  // O topo precisa caber o rótulo da base MENOR, que é escrito ACIMA da
+  // linha de cima do trapézio. Com 26px ele começava 1px fora da caixa e
+  // saía cortado — seis figuras, achadas pela auditoria de texto.
+  const mTopo = 36, mBaixo = 32;
+  const u = Math.min(28, (430 - mEsq - mDir) / Math.max(1, maxX - minX));
+
+  const larguraDesenho = mEsq + mDir + (maxX - minX) * u;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = mTopo + mBaixo + (maxY - minY) * u + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = (x) => recuo + mEsq + (x - minX) * u;
+  const Y = (y) => mTopo + (maxY - y) * u;             // y do desenho para cima
+
+  const poligono = (lista, opacidade, traco, tracejado) =>
+    `<polygon points="${lista.map(([x, y]) => `${X(x).toFixed(1)},${Y(y).toFixed(1)}`).join(" ")}" fill="${CHEIO}" fill-opacity="${opacidade}" stroke="${traco}" stroke-width="${tracejado ? 1.8 : 2.5}" stroke-linejoin="round"${tracejado ? ' stroke-dasharray="6 5"' : ""}/>`;
+
+  let corpo = "";
+  // A silhueta do destino entra por baixo, tracejada: é ela que o rearranjo
+  // vai formar, e vê-la ao mesmo tempo que o original é o argumento inteiro.
+  if (etapa === "recortada") {
+    corpo += poligono(copia ?? equivalente, 0.05, TRACO, true);
+  }
+  corpo += poligono(principal, 0.18, TRACO_FORTE, false);
+
+  if (etapa === "recortada") {
+    for (const [a, b] of corte) {
+      corpo += `<line x1="${X(a[0]).toFixed(1)}" y1="${Y(a[1]).toFixed(1)}" x2="${X(b[0]).toFixed(1)}" y2="${Y(b[1]).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="1.8" stroke-dasharray="5 4"/>`;
+      // quadradinho de ângulo reto no pé da altura do paralelogramo
+      if (figura === "paralelogramo") {
+        const [px, py] = [X(b[0]), Y(b[1])];
+        corpo += `<path d="M ${px + 12} ${py} L ${px + 12} ${py - 12} L ${px} ${py - 12}" fill="none" stroke="${TRACO}" stroke-width="1.5"/>`;
+      }
+    }
+  }
+
+  // O manifesto pode trocar o texto de qualquer medida — é assim que a
+  // questão inversa escreve "?" no lugar do valor procurado — ou apagá-la
+  // passando null. A medida do LADO INCLINADO só aparece quando pedida: ela
+  // existe para a questão da armadilha, onde o enunciado dá a medida a mais.
+  if (medidas && etapa !== "rearranjada") {
+    for (const mk of marcas) {
+      const txt = Object.prototype.hasOwnProperty.call(rotulos, mk.chave) ? rotulos[mk.chave] : mk.txt;
+      if (txt === null || txt === undefined) continue;
+      const [x, y] = mk.em;
+      const opcoes = { tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO };
+      if (mk.lado === "baixo") corpo += texto(X(x), Y(y) + 20, esc(txt), opcoes);
+      else if (mk.lado === "cima") corpo += texto(X(x), Y(y) - 18, esc(txt), opcoes);
+      else if (mk.lado === "direita") corpo += texto(X(x) + 12, Y(y), esc(txt), { ...opcoes, ancora: "start" });
+      else corpo += texto(X(x) - 12, Y(y), esc(txt), { ...opcoes, ancora: "end" });
+    }
+  }
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+// ═════════════════ Prismas e cilindros (8º ano) ═════════════════
+//
+// O 6º ano já mediu o volume do BLOCO, contando cubinhos e chegando em
+// comprimento × largura × altura. O 8º generaliza, e a generalização é a
+// matéria inteira: o volume de qualquer prisma é a ÁREA DA BASE vezes a
+// altura, e c × l × a é só o caso em que a base é retângulo.
+//
+// Isso exige um gerador que o bloco de sólidos do 6º não tinha: um prisma
+// cuja base NÃO seja retangular. Sem ele a matéria repetiria o 6º ano com
+// outras palavras — e é justamente a base triangular, trapezoidal ou
+// circular que mostra que a fórmula não depende do formato.
+//
+// `camadas` é a figura que EXPLICA a fórmula, e não a ilustra: cópias da
+// base empilhadas ao longo da altura. Uma camada de espessura 1 tem o
+// volume da área da base; empilhar h delas multiplica por h. É o mesmo
+// argumento dos cubinhos do 6º ano, agora com a base que for.
+
+/** Vértices da base, em unidades (x para a direita, z para o fundo). */
+function baseDoPrisma(tipo, med) {
+  const { largura = 6, profundidade = 4, baseMenor = 3 } = med;
+  if (tipo === "retangulo") {
+    return [[0, 0], [largura, 0], [largura, profundidade], [0, profundidade]];
+  }
+  if (tipo === "triangulo") {
+    return [[0, 0], [largura, 0], [largura * 0.38, profundidade]];
+  }
+  if (tipo === "trapezio") {
+    const r = (largura - baseMenor) / 2;
+    return [[0, 0], [largura, 0], [largura - r, profundidade], [r, profundidade]];
+  }
+  if (tipo === "losango") {
+    return [[largura / 2, 0], [largura, profundidade / 2], [largura / 2, profundidade], [0, profundidade / 2]];
+  }
+  if (tipo === "hexagono") {
+    const raio = largura / 2;
+    return Array.from({ length: 6 }, (_, i) => {
+      const a = (Math.PI / 3) * i + Math.PI / 6;
+      return [raio + raio * Math.cos(a), raio + raio * Math.sin(a)];
+    });
+  }
+  if (tipo === "livre") {
+    // A base vem como passos [dx, dz], igual à `figuraComposta`. É assim que
+    // um degrau entra na matéria: ele NÃO é um sólido estranho, é um prisma
+    // de base em L — e enxergá-lo assim é metade do que a lição 4 ensina.
+    const passos = med.movimentos ?? [];
+    const pts = [[0, 0]];
+    for (const [dx, dz] of passos) {
+      const [x, z] = pts[pts.length - 1];
+      pts.push([x + dx, z + dz]);
+    }
+    const fim = pts[pts.length - 1];
+    if (Math.abs(fim[0]) > 1e-9 || Math.abs(fim[1]) > 1e-9) {
+      throw new Error("prisma: a base livre não voltou ao ponto de partida");
+    }
+    pts.pop();
+    return pts;
+  }
+  if (tipo === "circulo") {
+    // O cilindro é o prisma de base redonda, e é assim que a lição o
+    // apresenta. Uma volta com muitos lados basta para o desenho.
+    const raio = largura / 2;
+    return Array.from({ length: 64 }, (_, i) => {
+      const a = (Math.PI * 2 * i) / 64;
+      return [raio + raio * Math.cos(a), raio + raio * Math.sin(a)];
+    });
+  }
+  throw new Error(`prisma: base desconhecida "${tipo}"`);
+}
+
+/**
+ * Um prisma (ou cilindro) em projeção oblíqua, com a base à mostra.
+ *
+ * Projeção oblíqua pela mesma razão do `bloco` do 6º ano: perspectiva de
+ * verdade encolheria as arestas do fundo e o aluno mediria errado.
+ */
+export function prisma({
+  base = "retangulo", altura = 5, escala = 26,
+  largura = 6, profundidade = 4, baseMenor = 3, movimentos,
+  furo, camadas = 0, destacarBase = true, medidas = {}, rotulo = "",
+}) {
+  const pontos = baseDoPrisma(base, { largura, profundidade, baseMenor, movimentos });
+  const redondo = base === "circulo";
+
+  // Projeção: a profundidade vai meio passo para a direita e 0,42 para cima.
+  const proj = ([x, z]) => [x * escala + z * escala * 0.5, -z * escala * 0.42];
+  const P = pontos.map(proj);
+  const h = altura * escala;
+
+  // Uma aresta da BASE que saia quase vertical na projeção é indistinguível
+  // de uma aresta de ALTURA, e a figura passa a mentir sobre o sólido: com
+  // profundidade 4 e o recuo de meio passo, o lado inclinado de um trapézio
+  // de bases 7 e 3 cai exatamente na vertical, e o prisma lê como
+  // paralelepípedo. O gerador recusa, em vez de deixar publicar — a mesma
+  // disciplina do `figuraComposta`, que recusa contorno que não fecha.
+  if (!redondo) {
+    for (let i = 0; i < P.length; i += 1) {
+      const a = P[i], b = P[(i + 1) % P.length];
+      if (Math.abs(a[0] - b[0]) < 4 && Math.abs(a[1] - b[1]) > 4) {
+        throw new Error(
+          `prisma: com base "${base}" e profundidade ${profundidade}, uma aresta da base sai vertical na projeção e vira sósia de uma aresta de altura`
+        );
+      }
+    }
+  }
+
+  const xs = P.map((p) => p[0]), ys = P.map((p) => p[1]);
+  const mEsq = medidas.altura ? Math.max(30, Math.ceil(larguraTexto(String(medidas.altura), 12, true)) + 20) : 30;
+  const mDir = 30, mTopo = 24, mBaixo = medidas.base ? 46 : 30;
+  const larguraDesenho = mEsq + mDir + (Math.max(...xs) - Math.min(...xs));
+  const larguraSvg = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = mTopo + mBaixo + (Math.max(...ys) - Math.min(...ys)) + h + (rotulo ? 22 : 0);
+  const recuo = (larguraSvg - larguraDesenho) / 2;
+
+  // topo e base já na tela; o topo fica em cima, a base h abaixo dele
+  const dx0 = recuo + mEsq - Math.min(...xs);
+  const dy0 = mTopo - Math.min(...ys);
+  const topo = P.map(([x, y]) => [x + dx0, y + dy0]);
+  const fundo = topo.map(([x, y]) => [x, y + h]);
+
+  const caminho = (pts) => pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+  let corpo = "";
+
+  // A face de baixo entra primeiro, com a parte ESCONDIDA tracejada. Uma
+  // aresta dela é visível quando o ponto logo abaixo do seu meio cai fora do
+  // contorno — o mesmo teste de normal que a `figuraComposta` usa para
+  // decidir de que lado o rótulo sai.
+  const visivel = fundo.map((a, i) => {
+    const b = fundo[(i + 1) % fundo.length];
+    const meio = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + 4];
+    return !dentroDoPoligono(meio, fundo);
+  });
+  // As arestas consecutivas de mesma visibilidade viram UMA polilinha. Uma
+  // linha por aresta deixava a elipse de trás do cilindro picotada em trinta
+  // e um tracinhos soltos, porque o tracejado reiniciava a cada segmento.
+  {
+    let i = 0;
+    while (i < fundo.length) {
+      let j = i;
+      while (j + 1 < fundo.length && visivel[j + 1] === visivel[i]) j += 1;
+      const trecho = [];
+      for (let k = i; k <= j + 1; k += 1) trecho.push(fundo[k % fundo.length]);
+      const traco = visivel[i]
+        ? `stroke="${TRACO_FORTE}" stroke-width="2.2"`
+        : `stroke="${TRACO}" stroke-width="1.5" stroke-dasharray="5 4"`;
+      corpo += `<polyline points="${caminho(trecho)}" fill="none" ${traco} stroke-linejoin="round"/>`;
+      i = j + 1;
+    }
+  }
+
+  // As camadas empilhadas: é esta figura que explica a fórmula.
+  for (let k = 1; k <= camadas; k += 1) {
+    const desloca = (h * k) / (camadas + 1);
+    corpo += `<polygon points="${caminho(topo.map(([x, y]) => [x, y + desloca]))}" fill="none" stroke="${TRACO}" stroke-width="1.2" stroke-dasharray="4 4"/>`;
+  }
+
+  // As arestas verticais. A de um vértice cujos DOIS lados da base estão
+  // escondidos é ela própria uma aresta de trás, e vai tracejada.
+  if (redondo) {
+    // No cilindro só existem as duas geratrizes da silhueta: os pontos de
+    // x mínimo e máximo. Desenhar 64 arestas verticais viraria um borrão.
+    for (const alvo of [Math.min(...topo.map((p) => p[0])), Math.max(...topo.map((p) => p[0]))]) {
+      const p = topo.find((q) => Math.abs(q[0] - alvo) < 1e-6) ?? topo[0];
+      corpo += `<line x1="${p[0].toFixed(1)}" y1="${p[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${(p[1] + h).toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+    }
+  } else {
+    topo.forEach((p, i) => {
+      const anterior = (i - 1 + topo.length) % topo.length;
+      const atras = !visivel[i] && !visivel[anterior];
+      const traco = atras
+        ? `stroke="${TRACO}" stroke-width="1.5" stroke-dasharray="5 4"`
+        : `stroke="${TRACO_FORTE}" stroke-width="2.2"`;
+      corpo += `<line x1="${p[0].toFixed(1)}" y1="${p[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${(p[1] + h).toFixed(1)}" ${traco}/>`;
+    });
+  }
+
+  // A base do topo, por último e por cima de tudo: é ela que a lição chama
+  // de "a base", porque num prisma as duas são congruentes e esta está
+  // inteira à vista.
+  corpo += `<polygon points="${caminho(topo)}" fill="${CHEIO}" fill-opacity="${destacarBase ? 0.3 : 0.12}" stroke="${TRACO_FORTE}" stroke-width="2.2" stroke-linejoin="round"/>`;
+
+  // O furo é desenhado na face do topo, com as paredes descendo tracejadas:
+  // é a boca dele que o aluno vê, e a profundidade que ele precisa lembrar
+  // de usar. `furo.profundidade` menor que a altura desenha um furo CEGO.
+  if (furo) {
+    const fpts = [];
+    let atual = [furo.x ?? 1, furo.z ?? 1];
+    fpts.push(atual);
+    for (const [dx, dz] of furo.movimentos ?? []) {
+      atual = [atual[0] + dx, atual[1] + dz];
+      fpts.push(atual);
+    }
+    fpts.pop();
+    const F = fpts.map(proj).map(([x, y]) => [x + dx0, y + dy0]);
+    corpo += `<polygon points="${caminho(F)}" fill="${CANVAS}" fill-opacity="0.9" stroke="${TRACO_FORTE}" stroke-width="1.8" stroke-linejoin="round"/>`;
+    const fundoFuro = (furo.profundidade ?? altura) * escala;
+    for (const p of F) {
+      corpo += `<line x1="${p[0].toFixed(1)}" y1="${p[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${(p[1] + fundoFuro).toFixed(1)}" stroke="${TRACO}" stroke-width="1.3" stroke-dasharray="4 4"/>`;
+    }
+  }
+
+  const centro = [
+    topo.reduce((s, p) => s + p[0], 0) / topo.length,
+    topo.reduce((s, p) => s + p[1], 0) / topo.length,
+  ];
+  if (medidas.base) {
+    corpo += texto(centro[0], centro[1], esc(String(medidas.base)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+    });
+  }
+  if (medidas.altura) {
+    // A altura é marcada na aresta vertical mais à esquerda, com o rótulo
+    // fora dela — dentro, ele cairia sobre o corpo do sólido.
+    const x = Math.min(...topo.map((p) => p[0]));
+    const y = topo.find((p) => Math.abs(p[0] - x) < 1e-6)[1];
+    corpo += `<line x1="${(x - 14).toFixed(1)}" y1="${y.toFixed(1)}" x2="${(x - 14).toFixed(1)}" y2="${(y + h).toFixed(1)}" stroke="${TRACO}" stroke-width="1.4"/>`;
+    corpo += texto(x - 20, y + h / 2, esc(String(medidas.altura)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO,
+    });
+  }
+  if (medidas.legenda) {
+    corpo += texto(larguraSvg / 2, alturaSvg - (rotulo ? 34 : 14), esc(String(medidas.legenda)), {
+      tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO,
+    });
+  }
+
+  if (rotulo) corpo += texto(larguraSvg / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(larguraSvg), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+// ═════════════ Árvore de possibilidades (Probabilidade do 8º ano) ═════════════
+//
+// A Probabilidade do 7º ano contava os casos de UM experimento — os 36 pares
+// de dois dados, numa grade. O 8º ano trata de eventos SUCESSIVOS, e aí a
+// grade não serve: ela mostra dois eventos ao mesmo tempo, e o que precisa
+// ficar visível agora é a ordem em que eles acontecem.
+//
+// A árvore mostra isso. Cada nível é uma etapa, cada ramo é uma escolha, e
+// cada folha é um resultado possível. E ela é a única figura que torna o
+// princípio multiplicativo evidente em vez de decorado: com 2 caminhos na
+// primeira etapa e 3 na segunda, saem 6 folhas porque CADA um dos 2 se abre
+// em 3 — dá para contar na figura antes de acreditar na fórmula.
+//
+// É também a figura que separa COM e SEM reposição, que é a distinção que a
+// matéria existe para fazer: sem reposição, os ramos da segunda etapa mudam
+// conforme o que saiu na primeira, e a árvore fica desigual. Numa grade isso
+// não apareceria.
+//
+// O gerador CALCULA os caminhos a partir dos níveis, como `fatoracao` e
+// `sequenciaFiguras`: ele não recebe a contagem pronta, e por isso não tem
+// como discordar do enunciado. Um teste conta as folhas de volta do SVG.
+
+/**
+ * Árvore de possibilidades para eventos sucessivos.
+ *
+ * `niveis`: [{ rotulo, opcoes: ["cara", "coroa"] }, ...]. Um nível pode dar
+ * as opções como FUNÇÃO do caminho até ali — é assim que o sorteio SEM
+ * reposição é desenhado, porque o que sobra depende do que já saiu.
+ *
+ * `ate` corta a árvore num nível: numa questão que pergunta quantos
+ * resultados existem, a árvore inteira seria a resposta desenhada.
+ */
+export function arvorePossibilidades({
+  niveis, ate, destacar, numerarFolhas = false, rotulo = "",
+}) {
+  const usados = ate === undefined ? niveis : niveis.slice(0, ate);
+
+  // Monta os caminhos. Um nível com `opcoes` em função do caminho produz
+  // ramos diferentes por galho — o sorteio sem reposição.
+  let caminhos = [[]];
+  for (const nivel of usados) {
+    const proximos = [];
+    for (const caminho of caminhos) {
+      const opcoes = typeof nivel.opcoes === "function" ? nivel.opcoes(caminho) : nivel.opcoes;
+      for (const opcao of opcoes) proximos.push([...caminho, opcao]);
+    }
+    caminhos = proximos;
+  }
+  if (caminhos.length === 0) throw new Error("arvorePossibilidades: nenhum caminho");
+  if (caminhos.length > 12) {
+    throw new Error(`arvorePossibilidades: ${caminhos.length} folhas não cabem numa figura legível`);
+  }
+
+  // Largura de cada coluna: o maior rótulo daquele nível, com folga — e o
+  // NOME DA ETAPA também conta. Ele é escrito no topo da coluna, e com
+  // colunas estreitas dois nomes vizinhos ("1ª escolha" e "2ª escolha")
+  // se encavalavam por 4px, achado pela auditoria de texto.
+  const larguraNivel = usados.map((nivel, d) => {
+    const textos = caminhos.map((c) => String(c[d]));
+    const doRamo = Math.max(...textos.map((t) => larguraTexto(t, 12, false)));
+    const daEtapa = nivel.rotulo ? larguraTexto(nivel.rotulo, 12, false) + 16 : 0;
+    return Math.max(56, Math.ceil(Math.max(doRamo, daEtapa)) + 30);
+  });
+
+  const mEsq = 18, mDir = numerarFolhas ? 46 : 18, mTopo = usados.some((n) => n.rotulo) ? 34 : 18;
+  const passoY = 30;
+  const larguraDesenho = mEsq + mDir + larguraNivel.reduce((s, w) => s + w, 0);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = mTopo + caminhos.length * passoY + 16 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+
+  // x do fim do nível d (onde o rótulo daquele ramo é escrito)
+  const xDoNivel = [];
+  let acumulado = recuo + mEsq;
+  for (const w of larguraNivel) { acumulado += w; xDoNivel.push(acumulado); }
+  const xRaiz = recuo + mEsq;
+  const yDaFolha = (i) => mTopo + i * passoY + passoY / 2;
+
+  // A altura de um prefixo é a MÉDIA das folhas que descendem dele — é o que
+  // faz os ramos saírem simétricos em vez de encostados no primeiro filho.
+  const chave = (prefixo) => prefixo.join(" ");
+  const posicaoDoPrefixo = new Map();
+  for (let d = 0; d <= usados.length; d += 1) {
+    const grupos = new Map();
+    caminhos.forEach((caminho, i) => {
+      const k = chave(caminho.slice(0, d));
+      if (!grupos.has(k)) grupos.set(k, []);
+      grupos.get(k).push(i);
+    });
+    for (const [k, indices] of grupos) {
+      posicaoDoPrefixo.set(d + "|" + k, indices.reduce((s, i) => s + yDaFolha(i), 0) / indices.length);
+    }
+  }
+  const yDoPrefixo = (prefixo) => posicaoDoPrefixo.get(prefixo.length + "|" + chave(prefixo));
+
+  let corpo = "";
+
+  // os nomes das etapas, no topo de cada coluna
+  usados.forEach((nivel, d) => {
+    if (!nivel.rotulo) return;
+    const meio = (d === 0 ? xRaiz : xDoNivel[d - 1]) + (xDoNivel[d] - (d === 0 ? xRaiz : xDoNivel[d - 1])) / 2;
+    corpo += texto(meio, 16, esc(nivel.rotulo), { tamanho: 12, cor: TRACO_FORTE, peso: 500 });
+  });
+
+  // os ramos, do fim do nível anterior até o início do rótulo deste
+  const desenhados = new Set();
+  for (const caminho of caminhos) {
+    for (let d = 0; d < usados.length; d += 1) {
+      const prefixo = caminho.slice(0, d);
+      const ramo = caminho.slice(0, d + 1);
+      const k = chave(ramo);
+      if (desenhados.has(d + "|" + k)) continue;
+      desenhados.add(d + "|" + k);
+
+      const x1 = d === 0 ? xRaiz : xDoNivel[d - 1];
+      const x2 = xDoNivel[d] - larguraNivel[d] + 22;
+      const y1 = yDoPrefixo(prefixo), y2 = yDoPrefixo(ramo);
+      const serve = destacar ? destacar(ramo) : false;
+      const traco = serve
+        ? `stroke="${DESTAQUE}" stroke-width="2.2"`
+        : `stroke="${TRACO}" stroke-width="1.6"`;
+      corpo += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" ${traco}/>`;
+      corpo += texto(x2 + 6, y2, esc(String(ramo[d])), {
+        tamanho: 12, cor: serve ? DESTAQUE : TEXTO, peso: serve ? 500 : 400, ancora: "start",
+      });
+    }
+  }
+
+  // a raiz, um pontinho de onde tudo parte
+  corpo += `<circle cx="${xRaiz.toFixed(1)}" cy="${yDoPrefixo([]).toFixed(1)}" r="3.5" fill="${TRACO_FORTE}"/>`;
+
+  if (numerarFolhas) {
+    caminhos.forEach((_, i) => {
+      corpo += texto(recuo + larguraDesenho - 16, yDaFolha(i), String(i + 1), {
+        tamanho: 11, cor: TRACO, ancora: "end", fonte: FONTE_MONO,
+      });
+    });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+
+// ═════════════ Gráfico de setores (Estatística do 8º ano) ═════════════
+//
+// O 6º ano fez colunas e barras; o 8º acrescenta o setor, e ele não é só
+// mais um formato. O gráfico de setores mostra a PARTE DO TODO, e é por
+// isso que ele aparece em resultado de eleição e de pesquisa — e também por
+// isso que ele é o mais fácil de usar para enganar, que é o assunto da
+// lição 5 desta matéria.
+//
+// O `roda` do 6º ano não serve aqui: ele reparte o círculo em fatias IGUAIS
+// para ilustrar fração. Este calcula o ângulo de cada fatia a partir dos
+// VALORES, e um teste lê os ângulos de volta do SVG e confere que eles são
+// proporcionais aos dados — se a figura desenhasse 40% com menos de 144°,
+// ela estaria mentindo sobre a pesquisa que ilustra.
+
+/**
+ * Gráfico de setores a partir de valores.
+ *
+ * `mostrar`: "porcentagem" | "valor" | "nome" | "nada". Numa questão que
+ * PEDE a porcentagem de uma fatia, escrevê-la seria a resposta desenhada —
+ * daí a opção de deixar as fatias sem número.
+ */
+export function setores({ itens, mostrar = "porcentagem", destacar = -1, rotulo = "" }) {
+  const total = itens.reduce((s, i) => s + i.valor, 0);
+  if (total <= 0) throw new Error("setores: o total precisa ser positivo");
+
+  const r = 92, cx0 = 110, cy = 112;
+  // A legenda fica à direita, e a largura dela sai do maior nome — com
+  // largura fixa, um nome comprido saía cortado pela borda.
+  const larguraLegenda = Math.max(...itens.map((i) => Math.ceil(larguraTexto(i.nome, 12, false)))) + 30;
+  const larguraDesenho = cx0 + r + 24 + larguraLegenda;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = Math.max(cy + r + 28, 40 + itens.length * 24) + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const cx = recuo + cx0;
+
+  let corpo = "";
+  let anguloAtual = -Math.PI / 2;          // começa no topo, como um relógio
+  const fatias = [];
+
+  itens.forEach((item, i) => {
+    const fracao = item.valor / total;
+    const abertura = fracao * 2 * Math.PI;
+    const a1 = anguloAtual, a2 = anguloAtual + abertura;
+    const x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1);
+    const x2 = cx + r * Math.cos(a2), y2 = cy + r * Math.sin(a2);
+    const grande = abertura > Math.PI ? 1 : 0;
+    // Uma fatia de 100% não pode ser desenhada como arco: os dois extremos
+    // coincidem e o path some. Ela vira o círculo inteiro.
+    const d = itens.length === 1
+      ? `M ${cx} ${cy - r} A ${r} ${r} 0 1 1 ${(cx - 0.01).toFixed(2)} ${cy - r} Z`
+      : `M ${cx.toFixed(2)} ${cy.toFixed(2)} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${grande} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+    const forte = i === destacar;
+    corpo += `<path d="${d}" fill="${CHEIO}" fill-opacity="${forte ? 0.42 : 0.1 + (i % 3) * 0.07}" stroke="${forte ? DESTAQUE : TRACO_FORTE}" stroke-width="${forte ? 2.6 : 2}"/>`;
+    fatias.push({ item, a1, a2, meio: (a1 + a2) / 2, fracao });
+    anguloAtual = a2;
+  });
+
+  // O número de cada fatia vai DENTRO dela, e só onde ela é larga o
+  // bastante: numa fatia de 5% o texto sairia por cima da vizinha.
+  if (mostrar !== "nada") {
+    for (const f of fatias) {
+      if (f.fracao < 0.09) continue;
+      const txt = mostrar === "valor" ? String(f.item.valor)
+        : mostrar === "nome" ? f.item.nome
+        : `${Math.round(f.fracao * 100)}%`;
+      const raioTexto = r * 0.62;
+      corpo += texto(cx + raioTexto * Math.cos(f.meio), cy + raioTexto * Math.sin(f.meio), esc(txt), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  // a legenda, com o quadradinho de cada fatia na mesma ordem do círculo
+  const xLegenda = recuo + cx0 + r + 24;
+  fatias.forEach((f, i) => {
+    const y = 30 + i * 24;
+    const forte = i === destacar;
+    corpo += `<rect x="${xLegenda}" y="${y - 7}" width="13" height="13" fill="${CHEIO}" fill-opacity="${forte ? 0.42 : 0.1 + (i % 3) * 0.07}" stroke="${forte ? DESTAQUE : TRACO_FORTE}" stroke-width="1.6"/>`;
+    corpo += texto(xLegenda + 20, y, esc(f.item.nome), {
+      tamanho: 12, cor: forte ? DESTAQUE : TEXTO, peso: forte ? 500 : 400, ancora: "start",
+    });
+  });
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
 }

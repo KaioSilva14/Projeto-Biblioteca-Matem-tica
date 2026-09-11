@@ -1,0 +1,194 @@
+{
+  "id": "adicao",
+  "numero": 3,
+  "titulo": "O método da adição",
+  "pergunta": "Como fazer uma letra sumir sem isolar nada?",
+  "ideia": {
+    "paragrafos": [
+      "O objetivo continua o mesmo: eliminar uma letra para sobrar uma equação de uma incógnita. Mas agora sem isolar nada — e sim SOMANDO as duas equações uma à outra.",
+      "Olhe x + y = 7 e x − y = 3. Somando os lados esquerdos, x + y + x − y dá 2x, porque o +y e o −y se cancelam. Somando os lados direitos, 7 + 3 dá 10. Sobra 2x = 10, ou seja, x = 5. O y desapareceu sozinho.",
+      "Somar duas equações é legítimo pelo mesmo princípio da balança do 7º ano: se dois pratos estão equilibrados e você acrescenta a mesma coisa dos dois lados, o equilíbrio continua. Como a segunda equação afirma que x − y e 3 são a mesma coisa, acrescentar um lado ou o outro dá no mesmo.",
+      "O cancelamento só acontece quando os coeficientes de uma letra são OPOSTOS — como +y e −y. Quando não são, é preciso prepará-los: multiplique uma equação inteira, ou as duas, por números escolhidos para deixar os coeficientes opostos. Em x + 2y = 8 e 3x − y = 3, multiplicando a segunda por 2 os coeficientes de y viram +2y e −2y, e aí a soma cancela.",
+      "E multiplicar uma equação inteira por um número não a altera: é como dobrar os dois pratos da balança. O que não vale é multiplicar só um lado, ou só alguns termos — o número precisa atingir a equação toda."
+    ],
+    "destaque": "Coeficientes opostos se cancelam na soma. Quando não são opostos, multiplique para que fiquem.",
+    "imagem": "si-ideia-somar"
+  },
+  "resolvido": {
+    "enunciado": "Resolva o sistema x + y = 7 e x − y = 3 pelo método da adição.",
+    "imagem": "si-res-somar",
+    "passos": [
+      {
+        "titulo": "Olhe os coeficientes de cada letra",
+        "explicacao": "Procure uma letra cujos coeficientes já sejam opostos nas duas equações.",
+        "conta": "y aparece como +y e −y"
+      },
+      {
+        "titulo": "Some as duas equações",
+        "explicacao": "Some os lados esquerdos entre si e os direitos entre si, tudo de uma vez.",
+        "conta": "(x + y) + (x − y) = 7 + 3"
+      },
+      {
+        "titulo": "Veja o cancelamento",
+        "explicacao": "O mais y com o menos y dão zero, e sobra só a outra letra.",
+        "conta": "2x = 10 → x = 5"
+      },
+      {
+        "titulo": "Volte para achar a outra",
+        "explicacao": "Com o x conhecido, qualquer uma das equações originais entrega o y.",
+        "conta": "5 + y = 7 → y = 2 → (5, 2)"
+      }
+    ],
+    "fecho": "Confira nas duas: 5 + 2 = 7 e 5 − 2 = 3."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Somando as equações x + y = 7 e x − y = 3, qual equação aparece?",
+      "imagem": "si-q-qual-soma",
+      "dica": "Some os lados esquerdos entre si e os direitos entre si, e veja o que se cancela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2x = 10" },
+        { "rotulo": "B", "texto": "2y = 10" },
+        { "rotulo": "C", "texto": "2x + 2y = 10" },
+        { "rotulo": "D", "texto": "x = 10" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2y = 10",
+          "porque": "Quem se cancela é o y, e não o x: os coeficientes dele são opostos (+1 e −1). O x tem coeficiente +1 nas duas, então ele se acumula em 2x."
+        },
+        {
+          "resposta": "2x + 2y = 10",
+          "porque": "Isso dobraria as duas letras, o que aconteceria se as duas equações fossem iguais. Aqui os sinais do y são contrários, então ele soma zero e desaparece."
+        },
+        {
+          "resposta": "x = 10",
+          "porque": "O x aparece nas duas equações, então somando ele vira 2x, e não x. O coeficiente resultante é a soma dos dois coeficientes originais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os lados esquerdos",
+          "explicacao": "Junte termo a termo: os x com os x, os y com os y.",
+          "conta": "x + x = 2x  ·  y − y = 0"
+        },
+        {
+          "titulo": "Some os direitos",
+          "explicacao": "Os dois números do outro lado se somam normalmente.",
+          "conta": "7 + 3 = 10 → 2x = 10"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolvendo x + y = 7 e x − y = 3 pela adição, quanto vale y? Digite apenas o número.",
+      "imagem": "si-q-adicao-y",
+      "dica": "Ache primeiro o x pela soma, e depois volte a uma das equações originais.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é o valor de x, que sai primeiro na soma. Falta o último passo: voltar a uma das equações originais com esse valor para achar o y."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o lado direito da equação somada, ou seja, o valor de 2x. Ainda faltava dividir por 2 para achar x, e depois voltar para achar y."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 seria o y se x valesse 3. Pela soma, o x é 5 — e então 5 + y = 7 dá y = 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some e ache o x",
+          "explicacao": "O y se cancela e sobra uma equação com uma incógnita.",
+          "conta": "2x = 10 → x = 5"
+        },
+        {
+          "titulo": "Volte a uma equação original",
+          "explicacao": "Qualquer uma das duas serve; a mais simples é a primeira.",
+          "conta": "5 + y = 7 → y = 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No sistema x + 2y = 8 e 3x − y = 3, por quanto se deve multiplicar a SEGUNDA equação para que o y se cancele na soma? Digite apenas o número.",
+      "imagem": "si-q-preparar",
+      "dica": "O y aparece como +2y e −y. Qual número deixa o segundo coeficiente oposto ao primeiro?",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o coeficiente do x na segunda equação, e não o fator que prepara o y. Para cancelar o y, o −y precisa virar −2y, e para isso o fator é 2."
+        },
+        {
+          "resposta": "-1",
+          "porque": "Multiplicar por −1 deixaria o y como +y, do mesmo sinal do +2y da primeira — e aí eles se somariam em vez de se cancelarem. Além disso os coeficientes ficariam 2 e 1, que não são opostos."
+        },
+        {
+          "resposta": "1",
+          "porque": "Multiplicar por 1 não muda nada, e os coeficientes continuariam +2y e −y. Somando, sobraria +y na equação, e a letra não teria sumido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os coeficientes do y",
+          "explicacao": "Um é +2 e o outro é −1; para cancelarem, eles precisam ser opostos.",
+          "conta": "+2y e −y"
+        },
+        {
+          "titulo": "Ache o fator",
+          "explicacao": "Multiplicando a segunda equação por 2, o −y vira −2y, oposto do +2y.",
+          "conta": "2 × (3x − y = 3) → 6x − 2y = 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que é permitido multiplicar uma equação inteira por um número?",
+      "imagem": "si-q-por-que-multiplicar",
+      "dica": "Pense na balança do 7º ano e no que acontece quando os dois pratos são dobrados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque os dois lados crescem igual, e a igualdade continua valendo" },
+        { "rotulo": "B", "texto": "Porque multiplicar não muda os números" },
+        { "rotulo": "C", "texto": "Porque a equação fica mais fácil de resolver" },
+        { "rotulo": "D", "texto": "Porque o resultado da equação não importa" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque multiplicar não muda os números",
+          "porque": "Multiplicar muda muito os números: 3x − y = 3 vira 6x − 2y = 6, e nenhum coeficiente ficou igual. O que não muda é a SOLUÇÃO, porque os dois lados foram multiplicados juntos."
+        },
+        {
+          "resposta": "Porque a equação fica mais fácil de resolver",
+          "porque": "Ficar mais fácil é a vantagem, mas não a justificativa: se não fosse permitido, a facilidade não bastaria. A permissão vem de os dois lados crescerem na mesma proporção."
+        },
+        {
+          "resposta": "Porque o resultado da equação não importa",
+          "porque": "O resultado importa e é preservado: o par que resolvia a equação antes continua resolvendo depois. Se a multiplicação mudasse a solução, o método inteiro seria inválido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que a igualdade afirma",
+          "explicacao": "Os dois lados são a mesma quantidade, como os dois pratos de uma balança.",
+          "conta": "lado esquerdo = lado direito"
+        },
+        {
+          "titulo": "Dobre os dois",
+          "explicacao": "Multiplicando os dois lados pelo mesmo número, eles continuam iguais entre si.",
+          "conta": "2 × esquerdo = 2 × direito"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Para que serve fatorar",
+  "pergunta": "Por que vale a pena transformar soma em produto?",
+  "ideia": {
+    "paragrafos": [
+      "Cinco lições ensinaram a fatorar, e agora a pergunta que ficou pendente: para quê? A resposta é curta e vale para toda a matemática daqui em diante — fração em forma de PRODUTO simplifica; em forma de SOMA, não.",
+      "Compare os dois casos. Em (x² − 9)/(x + 3), nada pode ser cortado como está: o x² e o x do denominador não se cancelam, porque estão dentro de somas. Mas fatorando o numerador, a fração vira (x + 3)(x − 3)/(x + 3) — e agora o (x + 3) está multiplicando em cima e embaixo, então ele se cancela. Sobra x − 3.",
+      "Esse é o motivo de a matéria existir, e ele vai reaparecer na próxima, sobre frações algébricas. Sem fatorar, quase nenhuma fração algébrica simplifica; fatorando, quase todas simplificam.",
+      "Vale insistir num erro que aparece toda vez: só se corta o que MULTIPLICA a fração inteira, nunca uma parcela solta. Em (x + 3)/3, o 3 de baixo não corta o 3 de cima, porque em cima ele é uma parcela de uma soma, e não um fator. Cortar ali daria x, e testando com x = 3 a fração original vale 2 — enquanto x daria 3.",
+      "Fatorar também serve para resolver equações e para calcular de cabeça. Se um produto dá zero, algum dos fatores é zero — e é assim que equações do 2º grau começam a ser resolvidas no 9º ano. Aqui basta guardar a ideia: produto é uma forma mais útil que soma."
+    ],
+    "destaque": "Só se corta o que multiplica a fração inteira. Fatorar é o que transforma parcelas em fatores.",
+    "imagem": "ft-ideia-simplificar"
+  },
+  "resolvido": {
+    "enunciado": "Simplifique a fração (x² − 9)/(x + 3).",
+    "imagem": "ft-res-simplificar",
+    "passos": [
+      {
+        "titulo": "Veja por que não dá para cortar",
+        "explicacao": "Como está, o numerador é uma soma, e nada nele multiplica a fração inteira.",
+        "conta": "x² − 9 é soma, não produto"
+      },
+      {
+        "titulo": "Fatore o numerador",
+        "explicacao": "São dois termos, os dois quadrados, com sinal de menos — o caso da lição 3.",
+        "conta": "x² − 9 = (x + 3)(x − 3)"
+      },
+      {
+        "titulo": "Corte o fator repetido",
+        "explicacao": "Agora o (x + 3) multiplica em cima e embaixo, então ele pode ser cancelado.",
+        "conta": "(x + 3)(x − 3) ÷ (x + 3)"
+      },
+      {
+        "titulo": "Escreva o que sobrou",
+        "explicacao": "Sobra o outro fator do numerador, e a fração desapareceu.",
+        "conta": "x − 3"
+      }
+    ],
+    "fecho": "Testando com x = 5: a fração original dá 16 ÷ 8 = 2, e x − 3 dá 2. Bate."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Simplificando (x² − 16)/(x − 4), qual expressão sobra?",
+      "imagem": "ft-q-simplificar-16",
+      "dica": "Fature o numerador primeiro. Ele é uma diferença de quadrados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "x + 4" },
+        { "rotulo": "B", "texto": "x − 4" },
+        { "rotulo": "C", "texto": "x² − 4" },
+        { "rotulo": "D", "texto": "4" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "x − 4",
+          "porque": "x − 4 é o fator que se CANCELA com o denominador, e não o que sobra. Depois de cortar (x − 4) de cima e de baixo, fica o outro fator do numerador: x + 4."
+        },
+        {
+          "resposta": "x² − 4",
+          "porque": "Isso parece cortar o 16 com o 4, mas nenhum dos dois multiplica a fração: eles são parcelas de somas. Só se corta fator, e para ter fator é preciso fatorar antes."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 sairia de cortar o x² com o x e o 16 com o 4, o que não é permitido: cancelamento vale para fatores da fração inteira, e não para pedaços de uma soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fatore o numerador",
+          "explicacao": "Dois termos, os dois quadrados, com sinal de menos.",
+          "conta": "x² − 16 = (x + 4)(x − 4)"
+        },
+        {
+          "titulo": "Cancele o fator repetido",
+          "explicacao": "O (x − 4) multiplica em cima e embaixo, então some dos dois lados.",
+          "conta": "sobra x + 4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um aluno simplificou (x + 3)/3 cortando o 3 e escreveu x. Testando com x = 3, quanto vale a fração ORIGINAL? Digite apenas o número.",
+      "imagem": "ft-q-nao-corta",
+      "dica": "Substitua x por 3 na fração como ela está escrita, sem cortar nada.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o que a simplificação ERRADA daria, porque ela escreveu x e o x vale 3. Fazendo a conta na fração original: (3 + 3) ÷ 3 = 6 ÷ 3 = 2 — e a diferença mostra que o corte era proibido."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o numerador depois de substituir, mas falta dividir pelo denominador. A fração inteira é 6 ÷ 3, que dá 2."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 sairia de cortar o 3 de cima com o 3 de baixo e esquecer o x. A conta é (3 + 3) ÷ 3, e o numerador vale 6 antes da divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua na fração original",
+          "explicacao": "Sem cortar nada, trocando o x pelo valor dado.",
+          "conta": "(3 + 3) ÷ 3"
+        },
+        {
+          "titulo": "Efetue e compare",
+          "explicacao": "O resultado difere do que o corte errado daria, o que prova que ele não valia.",
+          "conta": "6 ÷ 3 = 2, e não 3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Simplificando (6x + 9)/3, qual expressão sobra?",
+      "imagem": "ft-q-simplificar-comum",
+      "dica": "Fature o numerador colocando o fator comum em evidência, e veja o que se cancela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "2x + 3" },
+        { "rotulo": "B", "texto": "6x + 3" },
+        { "rotulo": "C", "texto": "2x + 9" },
+        { "rotulo": "D", "texto": "3x" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6x + 3",
+          "porque": "Isso divide só a segunda parcela pelo 3 e deixa a primeira intacta. A divisão atinge o numerador INTEIRO: fatorando, 6x + 9 é 3(2x + 3), e o 3 cancela tudo de uma vez."
+        },
+        {
+          "resposta": "2x + 9",
+          "porque": "Isso divide só a primeira parcela. As duas precisam ser divididas, e é justamente isso que a fatoração garante: o 3 sai de ambas juntas."
+        },
+        {
+          "resposta": "3x",
+          "porque": "3x parece somar 2x com 3 tratando os dois como termos semelhantes. Eles não são: um tem letra e o outro não, então a soma fica indicada como 2x + 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fatore o numerador",
+          "explicacao": "As duas parcelas têm o 3 em comum.",
+          "conta": "6x + 9 = 3(2x + 3)"
+        },
+        {
+          "titulo": "Cancele",
+          "explicacao": "Agora o 3 multiplica a fração inteira em cima, e cancela com o de baixo.",
+          "conta": "3(2x + 3) ÷ 3 = 2x + 3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que fatorar é o que permite simplificar uma fração algébrica?",
+      "imagem": "ft-q-por-que-serve",
+      "dica": "Compare o que se pode cortar numa soma e o que se pode cortar num produto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque só se cancela o que multiplica a fração inteira, e fatorar cria esses fatores" },
+        { "rotulo": "B", "texto": "Porque fatorar deixa a expressão menor" },
+        { "rotulo": "C", "texto": "Porque toda fração fatorada some" },
+        { "rotulo": "D", "texto": "Porque produtos são mais fáceis de calcular que somas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque fatorar deixa a expressão menor",
+          "porque": "Nem sempre deixa: x² − 9 tem dois termos e (x+3)(x−3) tem mais símbolos. O ganho não é de tamanho, é de FORMA — em produto, os fatores repetidos podem ser cancelados."
+        },
+        {
+          "resposta": "Porque toda fração fatorada some",
+          "porque": "Nem toda: (x+2)(x−1)/(x+3) está fatorada e não simplifica, porque nenhum fator se repete em cima e embaixo. Fatorar é a condição para o corte, e não a garantia dele."
+        },
+        {
+          "resposta": "Porque produtos são mais fáceis de calcular que somas",
+          "porque": "Nem sempre são: calcular (x+3)(x−3) para um x dado dá mais trabalho que calcular x² − 9. A vantagem do produto é permitir o cancelamento, e não a facilidade de conta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja a regra do cancelamento",
+          "explicacao": "Cortar só vale para o que multiplica todo o numerador e todo o denominador.",
+          "conta": "só fatores, nunca parcelas"
+        },
+        {
+          "titulo": "Veja o que fatorar faz",
+          "explicacao": "Ele transforma uma soma de parcelas num produto de fatores, que é a forma que o corte exige.",
+          "conta": "x² − 9 → (x+3)(x−3)"
+        }
+      ]
+    }
+  ]
+}

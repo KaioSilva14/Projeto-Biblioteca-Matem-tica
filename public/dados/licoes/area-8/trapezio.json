@@ -1,0 +1,204 @@
+{
+  "id": "trapezio",
+  "numero": 3,
+  "titulo": "Trapézio: duas cópias viram um",
+  "pergunta": "De onde vem o dividido por 2 na fórmula do trapézio?",
+  "ideia": {
+    "paragrafos": [
+      "O trapézio tem duas bases paralelas de tamanhos diferentes — uma maior, chamada B, e uma menor, chamada b — e uma altura h entre elas. A fórmula da área dele é (B + b) × h ÷ 2, e escrita assim ela parece três coisas decoradas juntas. O recorte explica cada uma.",
+      "Pegue DOIS trapézios iguais. Gire um deles de cabeça para baixo e encaixe no outro pelo lado inclinado. O que se forma é um paralelogramo perfeito: onde um tem a base maior o outro tem a menor, então a base do paralelogramo é B + b, e a altura continua sendo h.",
+      "A área desse paralelogramo é (B + b) × h, pela fórmula da lição anterior. Mas ele é feito de DOIS trapézios iguais — então a área de um trapézio é a metade disso. É daí, e só daí, que vem o dividido por 2: ele não é uma regra à parte, é a contagem das cópias usadas na montagem.",
+      "Vale conferir que a fórmula concorda com o que já se sabia. Se as duas bases fossem iguais, B + b seria o dobro da base, e a metade disso devolveria base × altura: o trapézio teria virado um paralelogramo. A fórmula do trapézio contém a do paralelogramo como caso particular.",
+      "O cuidado da altura continua o mesmo da lição 2: h é a distância perpendicular entre as duas bases, e não o lado inclinado. Num trapézio o lado inclinado é ainda mais tentador, porque ele costuma estar desenhado bem à vista."
+    ],
+    "destaque": "O ÷ 2 não é regra separada: são duas cópias do trapézio formando o paralelogramo de base B + b.",
+    "imagem": "ar8-ideia-trapezio"
+  },
+  "resolvido": {
+    "enunciado": "Um trapézio tem base maior de 6 cm, base menor de 3 cm e altura de 4 cm. Qual é a área dele?",
+    "imagem": "ar8-res-trapezio",
+    "passos": [
+      {
+        "titulo": "Monte o paralelogramo",
+        "explicacao": "Uma segunda cópia do trapézio, girada, encaixa e forma um paralelogramo.",
+        "conta": "dois trapézios · um paralelogramo"
+      },
+      {
+        "titulo": "Meça a base dele",
+        "explicacao": "A base do paralelogramo junta a base maior de um com a base menor do outro.",
+        "conta": "6 + 3 = 9"
+      },
+      {
+        "titulo": "Meça a área do paralelogramo",
+        "explicacao": "A altura não mudou no encaixe, então vale a fórmula base vezes altura.",
+        "conta": "9 × 4 = 36"
+      },
+      {
+        "titulo": "Fique com a metade",
+        "explicacao": "O paralelogramo foi montado com duas cópias iguais, e o trapézio é uma delas.",
+        "conta": "36 ÷ 2 = 18"
+      }
+    ],
+    "fecho": "Os três passos juntos são a fórmula: (B + b) × h ÷ 2."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um trapézio tem base maior de 10 cm, base menor de 6 cm e altura de 5 cm. Qual é a área dele, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-trap-simples",
+      "dica": "Some as duas bases, multiplique pela altura e lembre de onde vem a metade.",
+      "formato": "numero",
+      "resposta": 40,
+      "errosComuns": [
+        {
+          "resposta": "80",
+          "porque": "80 é (10 + 6) × 5, sem a divisão por 2. Essa conta dá a área do PARALELOGRAMO montado com as duas cópias; o trapézio é só uma delas, então vale a metade."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é 10 × 5, usando só a base maior. As duas bases entram na conta: é a soma delas que forma a base do paralelogramo."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é 6 × 5, usando só a base menor. A base maior também precisa entrar — sozinha, nenhuma das duas descreve o trapézio."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as bases",
+          "explicacao": "As duas juntas formam a base do paralelogramo das duas cópias.",
+          "conta": "10 + 6 = 16"
+        },
+        {
+          "titulo": "Multiplique pela altura",
+          "explicacao": "Isso dá a área do paralelogramo inteiro, feito de dois trapézios.",
+          "conta": "16 × 5 = 80"
+        },
+        {
+          "titulo": "Divida por 2",
+          "explicacao": "O trapézio é uma das duas cópias iguais que montaram o paralelogramo.",
+          "conta": "80 ÷ 2 = 40"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "De onde vem a divisão por 2 na fórmula da área do trapézio?",
+      "imagem": "ar8-q-de-onde-metade",
+      "dica": "Pense em quantas cópias do trapézio foram usadas para montar o paralelogramo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "De o paralelogramo montado ser feito de duas cópias do trapézio" },
+        { "rotulo": "B", "texto": "De o trapézio ter duas bases" },
+        { "rotulo": "C", "texto": "De a altura ser sempre metade da base" },
+        { "rotulo": "D", "texto": "De o trapézio ser meio retângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "De o trapézio ter duas bases",
+          "porque": "As duas bases já foram usadas na SOMA B + b, que forma a base do paralelogramo. A divisão por 2 vem de outro lugar: das duas cópias do trapézio usadas na montagem."
+        },
+        {
+          "resposta": "De a altura ser sempre metade da base",
+          "porque": "A altura não tem relação nenhuma com a base: um trapézio pode ter base 10 e altura 1, ou base 2 e altura 9. A fórmula vale para qualquer trapézio, então nada nela pode depender dessa suposição."
+        },
+        {
+          "resposta": "De o trapézio ser meio retângulo",
+          "porque": "Um trapézio não é metade de um retângulo — quem é metade de um retângulo é o triângulo retângulo. O trapézio é metade do PARALELOGRAMO de base B + b."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a figura",
+          "explicacao": "Duas cópias iguais do trapézio, uma girada, formam um paralelogramo.",
+          "conta": "2 trapézios = 1 paralelogramo"
+        },
+        {
+          "titulo": "Volte para um só",
+          "explicacao": "Se dois trapézios dão o paralelogramo inteiro, um deles vale a metade.",
+          "conta": "área do trapézio = (B + b) × h ÷ 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um trapézio tem base maior de 12 cm, base menor de 8 cm e área de 60 cm². Quanto mede a altura dele, em centímetros? Digite apenas o número.",
+      "imagem": "ar8-q-trap-inversa",
+      "dica": "Monte a fórmula com a altura desconhecida e resolva a equação que aparecer.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é 60 ÷ 20: a área foi dividida pela soma das bases, mas o ÷ 2 da fórmula não foi desfeito. Como ele dividiu na ida, é preciso multiplicar por 2 na volta."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 120 ÷ 12: o ÷ 2 foi desfeito corretamente, mas a divisão usou só a base maior. Quem multiplica a altura na fórmula é a SOMA das duas bases, 20."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é 60 ÷ 12, usando só a base maior e ainda deixando o ÷ 2 sem desfazer. Os dois descuidos se acumulam e afastam a resposta nas duas pontas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some as bases",
+          "explicacao": "É essa soma que multiplica a altura na fórmula.",
+          "conta": "12 + 8 = 20"
+        },
+        {
+          "titulo": "Escreva a equação",
+          "explicacao": "A área é a soma das bases vezes a altura, dividida por 2.",
+          "conta": "20 × altura ÷ 2 = 60"
+        },
+        {
+          "titulo": "Isole a altura",
+          "explicacao": "Multiplicando os dois lados por 2 e dividindo por 20 sobra a altura sozinha.",
+          "conta": "120 ÷ 20 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O que acontece com a fórmula do trapézio se as duas bases forem iguais?",
+      "imagem": "ar8-q-bases-iguais",
+      "dica": "Troque B e b pelo mesmo valor na fórmula e veja em que ela se transforma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Ela vira base × altura: o trapézio virou um paralelogramo" },
+        { "rotulo": "B", "texto": "Ela deixa de valer, porque trapézio exige bases diferentes" },
+        { "rotulo": "C", "texto": "A área dobra" },
+        { "rotulo": "D", "texto": "A área fica zero" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Ela deixa de valer, porque trapézio exige bases diferentes",
+          "porque": "A fórmula continua dando o número certo: com as bases iguais, ela se reduz exatamente a base × altura, que é a área do paralelogramo. Ela contém o caso do paralelogramo em vez de excluí-lo."
+        },
+        {
+          "resposta": "A área dobra",
+          "porque": "Nada dobra. Com B e b iguais, a soma B + b vira o dobro da base, mas a divisão por 2 desfaz esse dobro na mesma conta — e sobra base × altura."
+        },
+        {
+          "resposta": "A área fica zero",
+          "porque": "A área só ficaria zero se a altura fosse zero, isto é, se a figura fosse achatada numa linha. Bases iguais não achatam nada: a figura continua tendo altura h."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Troque b por B",
+          "explicacao": "Com as duas bases iguais, a soma que aparece na fórmula é B mais B.",
+          "conta": "(B + B) × h ÷ 2"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "A soma vira 2B, e o 2 cancela com a divisão por 2.",
+          "conta": "2B × h ÷ 2 = B × h"
+        }
+      ]
+    }
+  ]
+}

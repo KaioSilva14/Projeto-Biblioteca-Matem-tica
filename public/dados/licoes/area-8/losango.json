@@ -1,0 +1,194 @@
+{
+  "id": "losango",
+  "numero": 4,
+  "titulo": "Losango: metade do retângulo",
+  "pergunta": "Por que a área do losango usa as diagonais, e não os lados?",
+  "ideia": {
+    "paragrafos": [
+      "O losango é o quadrilátero de quatro lados iguais. Mas a fórmula da área dele não usa o lado — usa as duas DIAGONAIS, os segmentos que ligam vértices opostos. Isso costuma soar arbitrário, e deixa de soar assim quando se desenha o retângulo em volta.",
+      "Trace as duas diagonais do losango. Elas se cruzam no meio e formam ângulo reto — essa é uma propriedade do losango, e é ela que faz a fórmula funcionar. Agora desenhe o menor retângulo que contém o losango inteiro: os lados desse retângulo medem exatamente D e d, as duas diagonais.",
+      "Compare as duas figuras. O losango ocupa exatamente METADE desse retângulo. Dá para ver contando: as diagonais partem o losango em quatro triângulos retângulos, e cada um deles é a metade de um dos quatro retângulos menores em que o retângulo grande ficou dividido. Quatro metades, metade do total.",
+      "Daí a fórmula: área do losango é D × d ÷ 2. O ÷ 2 aqui tem origem diferente da do trapézio — lá eram duas cópias da figura, aqui é a figura ocupando metade de outra —, mas a ideia continua a mesma da matéria inteira: comparar com uma figura que já se sabe medir.",
+      "O losango também é um paralelogramo, então base × altura continua valendo para ele. As duas fórmulas dão o mesmo número; a das diagonais é usada porque, num losango, elas costumam ser as medidas que o problema fornece."
+    ],
+    "destaque": "As diagonais do losango são os lados do retângulo que o contém — e ele ocupa metade desse retângulo.",
+    "imagem": "ar8-ideia-losango"
+  },
+  "resolvido": {
+    "enunciado": "Um losango tem diagonal maior de 8 cm e diagonal menor de 5 cm. Qual é a área dele?",
+    "imagem": "ar8-res-losango",
+    "passos": [
+      {
+        "titulo": "Desenhe o retângulo em volta",
+        "explicacao": "O menor retângulo que contém o losango tem por lados as duas diagonais.",
+        "conta": "retângulo de 8 por 5"
+      },
+      {
+        "titulo": "Meça esse retângulo",
+        "explicacao": "É um retângulo comum, e área de retângulo é base vezes altura.",
+        "conta": "8 × 5 = 40"
+      },
+      {
+        "titulo": "Veja quanto o losango ocupa",
+        "explicacao": "As diagonais partem o losango em quatro triângulos, cada um metade de um pedaço do retângulo.",
+        "conta": "o losango é metade do retângulo"
+      },
+      {
+        "titulo": "Fique com a metade",
+        "explicacao": "Metade da área do retângulo é a área do losango.",
+        "conta": "40 ÷ 2 = 20"
+      }
+    ],
+    "fecho": "Os quatro passos juntos são a fórmula: D × d ÷ 2."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um losango tem diagonal maior de 12 cm e diagonal menor de 6 cm. Qual é a área dele, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "ar8-q-los-simples",
+      "dica": "Multiplique as duas diagonais e lembre da fração do retângulo que o losango ocupa.",
+      "formato": "numero",
+      "resposta": 36,
+      "errosComuns": [
+        {
+          "resposta": "72",
+          "porque": "72 é 12 × 6, a área do RETÂNGULO que contém o losango. O losango ocupa só metade dele, então falta dividir por 2."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 divide por 2 duas vezes: 12 × 6 ÷ 2 já dá a área, e não há uma segunda metade a tirar. O losango é metade do retângulo, e não um quarto dele."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é (12 + 6) ÷ 2, a soma das diagonais pela metade. As diagonais entram MULTIPLICADAS uma pela outra: somar duas medidas de comprimento devolve outro comprimento, e nunca uma área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça o retângulo em volta",
+          "explicacao": "Os lados dele são as duas diagonais do losango.",
+          "conta": "12 × 6 = 72"
+        },
+        {
+          "titulo": "Fique com a metade",
+          "explicacao": "O losango ocupa exatamente metade desse retângulo.",
+          "conta": "72 ÷ 2 = 36"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que o retângulo desenhado em volta do losango tem lados iguais às diagonais dele?",
+      "imagem": "ar8-q-por-que-retangulo",
+      "dica": "Pense em onde ficam os quatro vértices do losango em relação aos lados do retângulo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque cada vértice do losango encosta num lado do retângulo, e as diagonais o atravessam de lado a lado" },
+        { "rotulo": "B", "texto": "Porque as diagonais medem o mesmo que os lados do losango" },
+        { "rotulo": "C", "texto": "Porque todo losango é um retângulo" },
+        { "rotulo": "D", "texto": "Porque o retângulo tem o mesmo perímetro do losango" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque as diagonais medem o mesmo que os lados do losango",
+          "porque": "Elas não medem: num losango de lado 5, as diagonais podem ser 8 e 6, as duas diferentes de 5. Diagonal e lado são segmentos distintos, e é justamente por isso que a fórmula precisa dizer qual dos dois usar."
+        },
+        {
+          "resposta": "Porque todo losango é um retângulo",
+          "porque": "Losango tem os quatro lados iguais; retângulo tem os quatro ângulos retos. A única figura que é as duas coisas é o quadrado. Um losango inclinado não é retângulo — ele apenas cabe dentro de um."
+        },
+        {
+          "resposta": "Porque o retângulo tem o mesmo perímetro do losango",
+          "porque": "Os perímetros são diferentes, e isso não teria importância: perímetro igual não implica área igual. O que sustenta a fórmula é a área do losango ser metade da área do retângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe os vértices",
+          "explicacao": "Os quatro vértices do losango tocam os quatro lados do retângulo.",
+          "conta": "um vértice em cada lado"
+        },
+        {
+          "titulo": "Olhe as diagonais",
+          "explicacao": "Cada diagonal liga dois vértices opostos e atravessa o retângulo inteiro.",
+          "conta": "lados do retângulo = D e d"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um losango tem área de 30 cm² e diagonal maior de 10 cm. Quanto mede a diagonal menor, em centímetros? Digite apenas o número.",
+      "imagem": "ar8-q-los-inversa",
+      "dica": "Volte pela fórmula: desfaça primeiro a divisão por 2 e depois a multiplicação.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é 30 ÷ 10, dividindo a área pela diagonal maior sem desfazer o ÷ 2 da fórmula. Como a fórmula dividiu por 2 na ida, é preciso multiplicar por 2 na volta."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 30 − 10, subtraindo a diagonal da área. Elas não podem ser subtraídas: a área veio de uma multiplicação, e quem a desfaz é a divisão."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 sai de multiplicar por 2 no lugar de dividir em algum dos dois passos. Confira substituindo na fórmula: 10 × 12 ÷ 2 daria 60 cm², o dobro dos 30 cm² que o enunciado informou."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desfaça a divisão por 2",
+          "explicacao": "Multiplicando a área por 2 chega-se à área do retângulo em volta.",
+          "conta": "30 × 2 = 60"
+        },
+        {
+          "titulo": "Desfaça a multiplicação",
+          "explicacao": "O retângulo tem as duas diagonais por lados, e uma delas é conhecida.",
+          "conta": "60 ÷ 10 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um losango e um retângulo têm as mesmas duas medidas: 8 cm e 5 cm. Como se comparam as áreas deles?",
+      "imagem": "ar8-q-compara-los-ret",
+      "dica": "As duas medidas são as diagonais num caso e os lados no outro. Compare as duas fórmulas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A do losango é metade da do retângulo" },
+        { "rotulo": "B", "texto": "As duas são iguais" },
+        { "rotulo": "C", "texto": "A do losango é o dobro da do retângulo" },
+        { "rotulo": "D", "texto": "Não dá para comparar sem saber o lado do losango" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "As duas são iguais",
+          "porque": "Seriam iguais se o losango preenchesse o retângulo inteiro, e ele não preenche: as quatro pontas do retângulo ficam de fora, e juntas elas valem a outra metade."
+        },
+        {
+          "resposta": "A do losango é o dobro da do retângulo",
+          "porque": "É o contrário. O losango cabe DENTRO do retângulo de mesmas medidas, então a área dele é menor — exatamente a metade, e nunca o dobro."
+        },
+        {
+          "resposta": "Não dá para comparar sem saber o lado do losango",
+          "porque": "O lado não entra na fórmula da área do losango. Com as duas diagonais já dá para calcular a área, e a comparação com o retângulo sai direto das duas fórmulas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva as duas fórmulas",
+          "explicacao": "No retângulo as medidas se multiplicam; no losango elas se multiplicam e dividem por 2.",
+          "conta": "8 × 5 · 8 × 5 ÷ 2"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "A única diferença entre as duas contas é a divisão por 2.",
+          "conta": "o losango vale a metade"
+        }
+      ]
+    }
+  ]
+}

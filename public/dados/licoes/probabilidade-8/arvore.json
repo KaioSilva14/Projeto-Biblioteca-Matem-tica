@@ -1,0 +1,189 @@
+{
+  "id": "arvore",
+  "numero": 2,
+  "titulo": "A árvore de possibilidades",
+  "pergunta": "Como enxergar todos os caminhos de uma vez?",
+  "ideia": {
+    "paragrafos": [
+      "A conta da lição anterior diz QUANTOS resultados existem, mas não diz quais são. Para responder \"qual é a chance de sair duas caras\", é preciso olhar os resultados um a um — e a figura que mostra todos eles sem virar uma lista confusa é a árvore de possibilidades.",
+      "Ela se lê da esquerda para a direita. Um ponto de partida, e dele saem tantos ramos quantas são as opções da primeira etapa. De CADA um desses ramos saem os da segunda etapa, e assim por diante. Cada caminho completo, da raiz até a ponta, é um resultado possível — e as pontas são chamadas de folhas.",
+      "Jogando duas moedas, a árvore tem dois ramos na primeira etapa (cara e coroa) e dois em cada um deles na segunda. São 4 folhas: cara-cara, cara-coroa, coroa-cara e coroa-coroa. Repare que o princípio multiplicativo aparece na figura: 2 × 2 = 4 é exatamente o número de pontas.",
+      "Com a árvore desenhada, a probabilidade sai da regra que o 7º ano já deu: casos favoráveis divididos por casos possíveis. Das 4 folhas, só uma é cara-cara, então a chance é 1 em 4 — um quarto, ou 25%.",
+      "Há um cuidado que a árvore torna visível: cara-coroa e coroa-cara são folhas DIFERENTES. São dois caminhos distintos, porque a ordem em que os resultados saíram é diferente. Tratar os dois como o mesmo caso é o mesmo engano que a lição 5 do 7º ano nomeou ao contar as somas de dois dados — e ele reduziria o total de 4 para 3, estragando todas as contas.",
+      "A árvore também tem um limite prático, e vale saber disso: com muitas etapas ela fica grande demais para desenhar. Aí a contagem volta a ser feita pela multiplicação, e a árvore fica como a figura que explica por que a multiplicação funciona."
+    ],
+    "destaque": "Cada caminho da raiz até uma folha é um resultado. Contar as folhas é contar os casos possíveis.",
+    "imagem": "pb8-ideia-arvore"
+  },
+  "resolvido": {
+    "enunciado": "Uma moeda é jogada duas vezes. Qual é a probabilidade de sair cara nas duas?",
+    "imagem": "pb8-res-duas-moedas",
+    "passos": [
+      {
+        "titulo": "Monte a árvore",
+        "explicacao": "Dois ramos na primeira jogada, e dois em cada um deles na segunda.",
+        "conta": "2 × 2 = 4 folhas"
+      },
+      {
+        "titulo": "Liste os resultados",
+        "explicacao": "Cada folha é um caminho completo, e a ordem dos resultados os distingue.",
+        "conta": "CC · CK · KC · KK"
+      },
+      {
+        "titulo": "Conte os que servem",
+        "explicacao": "Só um dos quatro caminhos tem cara nas duas jogadas.",
+        "conta": "1 caso favorável"
+      },
+      {
+        "titulo": "Calcule a probabilidade",
+        "explicacao": "Casos favoráveis divididos por casos possíveis, como no 7º ano.",
+        "conta": "1 ÷ 4 = 0,25 = 25%"
+      }
+    ],
+    "fecho": "Se cara-coroa e coroa-cara fossem contadas como um caso só, o total cairia para 3 e a conta sairia errada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma moeda é jogada duas vezes seguidas. Quantos resultados diferentes são possíveis? Digite apenas o número.",
+      "imagem": "pb8-q-quantas-folhas",
+      "dica": "Monte a árvore: quantos ramos saem de cada ramo da primeira jogada?",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é o número de resultados de UMA jogada. Como a moeda é jogada duas vezes, cada um desses dois resultados ainda se abre em dois — o total é 2 × 2."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 sairia de contar cara-coroa e coroa-cara como um resultado só. Eles são caminhos diferentes na árvore: a ordem em que os lados saíram não é a mesma."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é 2 × 2 × 2, o total para TRÊS jogadas. Aqui a moeda foi jogada duas vezes, então a árvore tem dois níveis."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os ramos da primeira jogada",
+          "explicacao": "Uma moeda tem dois lados, então saem dois ramos da raiz.",
+          "conta": "2 ramos"
+        },
+        {
+          "titulo": "Abra cada um na segunda",
+          "explicacao": "De cada ramo saem outros dois, um para cada lado da segunda jogada.",
+          "conta": "2 × 2 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma moeda é jogada duas vezes. Qual é a probabilidade de sair cara nas duas jogadas, em porcentagem? Digite apenas o número.",
+      "imagem": "pb8-q-duas-caras",
+      "dica": "Conte quantas folhas da árvore servem e divida pelo total de folhas.",
+      "formato": "numero",
+      "resposta": 25,
+      "errosComuns": [
+        {
+          "resposta": "50",
+          "porque": "50% é a chance de sair cara em UMA jogada. Exigir cara nas duas é mais difícil que isso: das quatro folhas da árvore, só uma serve."
+        },
+        {
+          "resposta": "75",
+          "porque": "75% é a chance de sair PELO MENOS uma cara — três das quatro folhas. A pergunta é mais restrita: as duas jogadas precisam dar cara."
+        },
+        {
+          "resposta": "100",
+          "porque": "100% diria que é certeza, e não é: basta a primeira jogada dar coroa para o resultado já não servir. Só um dos quatro caminhos cumpre a condição."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as folhas que servem",
+          "explicacao": "Das quatro folhas, só o caminho cara-cara cumpre a condição.",
+          "conta": "1 favorável"
+        },
+        {
+          "titulo": "Divida pelo total",
+          "explicacao": "São quatro caminhos possíveis ao todo.",
+          "conta": "1 ÷ 4 = 25%"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa árvore de possibilidades, o que representa cada caminho completo, da raiz até uma folha?",
+      "imagem": "pb8-q-o-que-e-folha",
+      "dica": "Siga um caminho com o dedo e veja o que você escolheu em cada etapa.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Um resultado possível do experimento inteiro" },
+        { "rotulo": "B", "texto": "Uma etapa do experimento" },
+        { "rotulo": "C", "texto": "A probabilidade daquele ramo" },
+        { "rotulo": "D", "texto": "Uma opção da primeira etapa" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Uma etapa do experimento",
+          "porque": "Quem representa uma etapa é cada NÍVEL da árvore, e não o caminho. O caminho atravessa todos os níveis, e por isso descreve o experimento do começo ao fim."
+        },
+        {
+          "resposta": "A probabilidade daquele ramo",
+          "porque": "O caminho é o resultado em si, e não a chance dele. A probabilidade aparece depois, quando se conta quantos caminhos servem e se divide pelo total."
+        },
+        {
+          "resposta": "Uma opção da primeira etapa",
+          "porque": "Cada opção da primeira etapa é um ramo que sai da raiz, e não um caminho inteiro. O caminho continua por todas as etapas até chegar à folha."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Siga um caminho",
+          "explicacao": "Da raiz até a folha, ele passa por uma escolha de cada etapa.",
+          "conta": "uma escolha por nível"
+        },
+        {
+          "titulo": "Veja o que isso descreve",
+          "explicacao": "Todas as etapas decididas é exatamente um resultado do experimento.",
+          "conta": "caminho = resultado possível"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma moeda é jogada e, em seguida, um dado é lançado. Quantos resultados diferentes são possíveis? Digite apenas o número.",
+      "imagem": "pb8-q-moeda-dado",
+      "dica": "A árvore tem dois ramos na primeira etapa. Quantos saem de cada um deles?",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é 2 + 6, somando os lados da moeda com as faces do dado. As duas etapas se multiplicam: cada lado da moeda se abre nas 6 faces do dado."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é só o número de faces do dado, esquecendo a moeda. Cara com 3 e coroa com 3 são resultados diferentes, então a moeda dobra o total."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 6 × 6, o total de DOIS dados. Aqui uma das etapas é uma moeda, que tem 2 resultados, e não 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte cada etapa",
+          "explicacao": "A moeda tem 2 resultados e o dado tem 6.",
+          "conta": "2 · 6"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Cada lado da moeda se abre nas seis faces possíveis do dado.",
+          "conta": "2 × 6 = 12"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "id": "lal",
+  "numero": 3,
+  "titulo": "O caso LAL",
+  "pergunta": "Por que o ângulo precisa estar ENTRE os dois lados?",
+  "ideia": {
+    "paragrafos": [
+      "O segundo caso troca um lado por um ângulo: se dois lados e o ângulo ENTRE eles são iguais em dois triângulos, os triângulos são congruentes. O nome LAL guarda a ordem — lado, ângulo, lado —, e essa ordem não é decoração.",
+      "Dá para enxergar por que funciona. Fixe os dois lados como duas varetas presas num canto: a abertura entre elas é o ângulo. Fixando também essa abertura, as duas pontas soltas ficam a uma distância determinada uma da outra — e ligar essas pontas fecha o triângulo de um jeito só. O terceiro lado não tem escolha.",
+      "O ângulo do meio é quem controla tudo. Abrindo mais o ângulo, as pontas se afastam e o terceiro lado cresce; fechando, ele encolhe. É por isso que ele precisa ser o do MEIO: ele é o que decide a distância entre as pontas dos dois lados conhecidos.",
+      "Com o ângulo fora do meio, a garantia se perde. Saber dois lados e um ângulo que NÃO está entre eles pode descrever dois triângulos diferentes — é o caso ambíguo, e a lição 5 mostra como isso acontece.",
+      "Na figura, o ângulo marcado aparece com um ARCO no vértice, e os lados iguais com tiquinhos. Ler a figura é conferir que o arco está no vértice onde os dois lados marcados se encontram: se estiver em outro, o caso não é LAL."
+    ],
+    "destaque": "O ângulo do meio decide a distância entre as pontas. Fora do meio, ele não garante nada.",
+    "imagem": "cg-ideia-lal"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos têm lados de 6 cm e 8 cm, com um ângulo de 40° entre eles. Eles são congruentes?",
+    "imagem": "cg-res-lal",
+    "passos": [
+      {
+        "titulo": "Identifique os elementos conhecidos",
+        "explicacao": "São dois lados e um ângulo — falta saber onde esse ângulo está.",
+        "conta": "6 cm · 8 cm · 40°"
+      },
+      {
+        "titulo": "Confira a posição do ângulo",
+        "explicacao": "O enunciado diz que ele está ENTRE os dois lados, que é o que o caso exige.",
+        "conta": "ângulo no vértice dos dois lados ✓"
+      },
+      {
+        "titulo": "Aplique o caso",
+        "explicacao": "Dois lados e o ângulo entre eles fecham o triângulo de um jeito só.",
+        "conta": "LAL ✓"
+      },
+      {
+        "titulo": "Veja o que fica garantido",
+        "explicacao": "O terceiro lado e os outros dois ângulos também coincidem, sem precisar medir.",
+        "conta": "os 6 elementos coincidem"
+      }
+    ],
+    "fecho": "Se os 40° estivessem em outro vértice, a resposta poderia ser outra — e é disso que trata a lição 5."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No caso LAL, onde precisa estar o ângulo conhecido?",
+      "imagem": "cg-q-onde-angulo",
+      "dica": "O nome do caso guarda a ordem dos elementos: lado, ângulo, lado.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "No vértice onde os dois lados conhecidos se encontram" },
+        { "rotulo": "B", "texto": "Em qualquer um dos três vértices" },
+        { "rotulo": "C", "texto": "No vértice oposto ao maior lado" },
+        { "rotulo": "D", "texto": "No vértice onde nenhum dos lados conhecidos chega" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Em qualquer um dos três vértices",
+          "porque": "A posição decide se o caso vale. Com o ângulo fora do meio, dois triângulos diferentes podem ter as mesmas três medidas — é o caso ambíguo da lição 5."
+        },
+        {
+          "resposta": "No vértice oposto ao maior lado",
+          "porque": "Qual lado é o maior não tem relação com o caso. O que importa é o ângulo estar entre os DOIS LADOS CONHECIDOS, seja qual for o tamanho deles."
+        },
+        {
+          "resposta": "No vértice onde nenhum dos lados conhecidos chega",
+          "porque": "Esse é justamente o vértice que NÃO serve: ali o ângulo não controla a distância entre as pontas dos lados conhecidos, e a garantia se perde."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a ordem do nome",
+          "explicacao": "Lado, ângulo, lado — o A fica entre os dois L.",
+          "conta": "L-A-L"
+        },
+        {
+          "titulo": "Veja o que ele controla",
+          "explicacao": "A abertura entre os dois lados decide a que distância as pontas soltas ficam.",
+          "conta": "o ângulo fixa o terceiro lado"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Dois lados de um triângulo medem 6 e 8, e o ângulo entre eles pode variar. O que acontece com o terceiro lado quando esse ângulo AUMENTA?",
+      "imagem": "cg-q-abrir-angulo",
+      "dica": "Imagine duas varetas presas num canto, abrindo como uma tesoura.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Ele aumenta, porque as pontas se afastam" },
+        { "rotulo": "B", "texto": "Ele diminui, porque o ângulo ocupa mais espaço" },
+        { "rotulo": "C", "texto": "Ele não muda, porque os dois lados são fixos" },
+        { "rotulo": "D", "texto": "Ele vira igual ao maior lado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Ele diminui, porque o ângulo ocupa mais espaço",
+          "porque": "É o contrário: abrindo o ângulo, as duas pontas soltas se afastam uma da outra, e o segmento que as liga fica maior. Fechando o ângulo é que o terceiro lado encolhe."
+        },
+        {
+          "resposta": "Ele não muda, porque os dois lados são fixos",
+          "porque": "Os dois lados serem fixos não basta: é justamente isso que mostra por que o ângulo entre eles precisa ser conhecido. Sem ele, o terceiro lado fica livre para variar."
+        },
+        {
+          "resposta": "Ele vira igual ao maior lado",
+          "porque": "Ele pode ser menor, igual ou maior que o 8, dependendo da abertura. Não há um valor fixo para onde ele tenda — e é por isso que o ângulo precisa entrar como dado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Imagine a tesoura",
+          "explicacao": "As duas varetas presas no canto abrem, e as pontas soltas se separam.",
+          "conta": "ângulo maior → pontas mais longe"
+        },
+        {
+          "titulo": "Ligue ao terceiro lado",
+          "explicacao": "Ele é justamente o segmento que liga as duas pontas.",
+          "conta": "terceiro lado cresce"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quantos elementos precisam ser conhecidos no caso LAL? Digite apenas o número.",
+      "imagem": "cg-q-quantos-lal",
+      "dica": "Conte as letras do nome do caso.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 conta só os lados e esquece o ângulo. Dois lados sozinhos deixam o terceiro lado livre — é o ângulo entre eles que fecha a figura."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o total de elementos que a congruência GARANTE no fim. O caso LAL precisa que se conheça três deles, escolhidos na ordem certa."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 seria um elemento a mais que o necessário. As três letras do nome — L, A, L — dizem exatamente quantos são."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as letras",
+          "explicacao": "Cada letra do nome corresponde a um elemento conhecido.",
+          "conta": "L-A-L → 3"
+        },
+        {
+          "titulo": "Confira a ordem",
+          "explicacao": "Além da quantidade, a posição importa: o ângulo tem de estar no meio.",
+          "conta": "2 lados + 1 ângulo entre eles"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois triângulos têm lados de 5 e 9, e um ângulo de 30° que NÃO está entre esses dois lados. Dá para garantir que são congruentes?",
+      "imagem": "cg-q-fora-do-meio",
+      "dica": "Confira se a ordem exigida pelo caso LAL está sendo cumprida.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque o caso LAL exige o ângulo entre os dois lados" },
+        { "rotulo": "B", "texto": "Sim, porque são três medidas iguais" },
+        { "rotulo": "C", "texto": "Sim, porque o ângulo é agudo" },
+        { "rotulo": "D", "texto": "Não, porque três medidas nunca bastam" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque são três medidas iguais",
+          "porque": "Três medidas iguais não bastam se estiverem nas posições erradas. Com o ângulo fora do meio, existem dois triângulos diferentes com essas mesmas três medidas — é o caso ambíguo da lição 5."
+        },
+        {
+          "resposta": "Sim, porque o ângulo é agudo",
+          "porque": "O tipo do ângulo não decide. O que decide é a POSIÇÃO dele: entre os dois lados conhecidos, ele garante; fora, não."
+        },
+        {
+          "resposta": "Não, porque três medidas nunca bastam",
+          "porque": "Três medidas bastam sim, quando bem escolhidas — é o que LLL, LAL e ALA fazem. O problema aqui é a escolha, e não a quantidade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira a ordem",
+          "explicacao": "O caso pede lado, ângulo, lado — com o ângulo entre os dois.",
+          "conta": "aqui o ângulo está fora do meio ✗"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Sem a ordem certa, o caso não se aplica e a congruência não fica garantida.",
+          "conta": "não dá para garantir"
+        }
+      ]
+    }
+  ]
+}

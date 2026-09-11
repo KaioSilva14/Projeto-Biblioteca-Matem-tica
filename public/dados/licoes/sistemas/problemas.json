@@ -1,0 +1,188 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Do problema ao sistema",
+  "pergunta": "Como transformar um texto em duas equações?",
+  "ideia": {
+    "paragrafos": [
+      "Resolver o sistema é a parte mecânica; a parte que dá trabalho é montá-lo. E o roteiro é o mesmo que o 7º ano usou para equações, com um passo a mais: agora são duas letras e duas frases a traduzir.",
+      "Comece nomeando. Leia o problema e decida o que cada letra representa, escrevendo isso por extenso antes de qualquer conta: r é o preço do refrigerante, s é o preço do salgado. Pular esta etapa é o começo de quase todo erro — no fim, ninguém lembra se o x era o preço ou a quantidade.",
+      "Depois, procure DUAS informações numéricas diferentes no texto. Elas costumam vir em frases separadas: \"dois refrigerantes e três salgados custam 19 reais\" é uma; \"um refrigerante e um salgado custam 8 reais\" é outra. Cada frase vira uma equação.",
+      "Traduzindo: 2r + 3s = 19 e r + s = 8. Repare que a segunda tem coeficientes 1, o que torna fácil isolar uma letra — então a substituição é o caminho curto aqui. Isolando, s = 8 − r, e trocando na primeira: 2r + 3(8 − r) = 19, o que dá 2r + 24 − 3r = 19, ou seja, −r = −5 e r = 5. Daí s = 3.",
+      "E o último passo é o que a prova cobra e todo mundo esquece: voltar ao TEXTO. A pergunta era o preço do refrigerante, ou o do salgado, ou os dois? Um par de números certo respondendo à pergunta errada continua valendo zero."
+    ],
+    "destaque": "Nomeie as letras por extenso, traduza uma frase por equação, e no fim volte à pergunta.",
+    "imagem": "si-ideia-traduzir"
+  },
+  "resolvido": {
+    "enunciado": "Dois refrigerantes e três salgados custam R$ 19,00. Um refrigerante e um salgado custam R$ 8,00. Quanto custa cada um?",
+    "imagem": "si-res-lanchonete",
+    "passos": [
+      {
+        "titulo": "Nomeie as incógnitas",
+        "explicacao": "Escreva por extenso o que cada letra representa, antes de montar qualquer equação.",
+        "conta": "r = preço do refrigerante · s = preço do salgado"
+      },
+      {
+        "titulo": "Traduza a primeira frase",
+        "explicacao": "Dois refrigerantes custam 2r, três salgados custam 3s, e juntos dão 19.",
+        "conta": "2r + 3s = 19"
+      },
+      {
+        "titulo": "Traduza a segunda",
+        "explicacao": "Um refrigerante mais um salgado, somando 8 reais ao todo.",
+        "conta": "r + s = 8"
+      },
+      {
+        "titulo": "Resolva e volte à pergunta",
+        "explicacao": "A segunda equação isola fácil, então a substituição é o caminho curto.",
+        "conta": "s = 8 − r → 2r + 24 − 3r = 19 → r = 5, s = 3"
+      }
+    ],
+    "fecho": "Conferindo no texto: 2×5 + 3×3 dá 19, e 5 + 3 dá 8. O refrigerante custa 5 reais e o salgado, 3."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Dois refrigerantes e três salgados custam R$ 19,00; um de cada custa R$ 8,00. Quanto custa o refrigerante, em reais? Digite apenas o número.",
+      "imagem": "si-q-lanchonete-r",
+      "dica": "Monte as duas equações, isole uma letra na mais simples e substitua na outra.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o preço do SALGADO. Os dois saem juntos da conta, e é preciso voltar ao texto para ver qual deles a pergunta pedia — aqui, o refrigerante."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 seria o preço se os dois custassem igual, repartindo os 8 reais pela metade. Mas eles não custam igual: a primeira equação mostra que o refrigerante é mais caro."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o preço do PAR — um refrigerante mais um salgado. A pergunta é sobre um item só, e ele custa menos que o par."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o sistema",
+          "explicacao": "Cada frase do enunciado vira uma equação.",
+          "conta": "2r + 3s = 19  ·  r + s = 8"
+        },
+        {
+          "titulo": "Substitua e resolva",
+          "explicacao": "A segunda equação isola fácil, e o resto é equação do 1º grau.",
+          "conta": "2r + 3(8 − r) = 19 → r = 5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A soma de dois números é 20 e a diferença entre eles é 4. Qual é o MAIOR deles? Digite apenas o número.",
+      "imagem": "si-q-soma-diferenca",
+      "dica": "Chame os números de x e y, monte as duas equações e some-as: uma letra some.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 é o MENOR dos dois números. Os dois somam 20 e diferem em 4, então são 12 e 8 — e a pergunta pedia o maior."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 seria a resposta se os dois fossem iguais, o que aconteceria só se a diferença fosse zero. Como ela é 4, um está 2 acima de 10 e o outro 2 abaixo."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 soma o 20 com o 4, misturando as duas informações. Elas são equações separadas: uma sobre a soma, outra sobre a diferença."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o sistema",
+          "explicacao": "Uma equação para a soma e outra para a diferença.",
+          "conta": "x + y = 20  ·  x − y = 4"
+        },
+        {
+          "titulo": "Some as duas",
+          "explicacao": "Os coeficientes do y são opostos, então ele se cancela.",
+          "conta": "2x = 24 → x = 12"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é o PRIMEIRO passo ao transformar um problema em sistema?",
+      "imagem": "si-q-primeiro-passo",
+      "dica": "Pense no que precisa estar decidido antes de qualquer equação ser escrita.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Escrever por extenso o que cada letra representa" },
+        { "rotulo": "B", "texto": "Escolher entre substituição e adição" },
+        { "rotulo": "C", "texto": "Somar todos os números do enunciado" },
+        { "rotulo": "D", "texto": "Desenhar as duas retas no plano" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Escolher entre substituição e adição",
+          "porque": "A escolha do método só faz sentido DEPOIS de o sistema existir — ela depende dos coeficientes, que ainda não foram escritos. Primeiro se nomeiam as letras e se traduzem as frases."
+        },
+        {
+          "resposta": "Somar todos os números do enunciado",
+          "porque": "Os números do enunciado pertencem a frases diferentes e não devem ser misturados: cada frase vira uma equação separada. Somá-los apagaria justamente a informação que distingue as duas."
+        },
+        {
+          "resposta": "Desenhar as duas retas no plano",
+          "porque": "O desenho é uma leitura da solução, e ele também depende de as equações já existirem. Além disso, resolver por conta costuma ser mais preciso do que ler um cruzamento no papel."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que vem antes de tudo",
+          "explicacao": "Sem saber o que cada letra representa, não há como traduzir frase nenhuma.",
+          "conta": "r = preço do refrigerante"
+        },
+        {
+          "titulo": "E o que isso evita",
+          "explicacao": "Nomear por extenso impede a confusão que aparece no fim, quando o par de números precisa responder à pergunta certa.",
+          "conta": "nomear → traduzir → resolver → conferir"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num estacionamento há carros e motos, num total de 10 veículos e 32 rodas. Quantos carros há? Digite apenas o número.",
+      "imagem": "si-q-carros-motos",
+      "dica": "Cada carro tem 4 rodas e cada moto tem 2. Monte uma equação para os veículos e outra para as rodas.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é o número de MOTOS. Os dois saem juntos da conta: 6 carros e 4 motos dão 10 veículos e 6×4 + 4×2 = 32 rodas. A pergunta pedia os carros."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 carros dariam 32 rodas sozinhos, mas aí não sobraria veículo nenhum para as motos — e o total precisa ser 10 veículos. As duas condições têm de valer juntas."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 carros e 5 motos dariam 10 veículos, mas só 5×4 + 5×2 = 30 rodas. Faltam duas rodas, o que indica que há mais carros e menos motos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte as duas equações",
+          "explicacao": "Uma conta veículos e a outra conta rodas, com 4 por carro e 2 por moto.",
+          "conta": "c + m = 10  ·  4c + 2m = 32"
+        },
+        {
+          "titulo": "Substitua e resolva",
+          "explicacao": "Isolando m na primeira e trocando na segunda, sobra uma equação em c.",
+          "conta": "4c + 2(10 − c) = 32 → 2c = 12 → c = 6"
+        }
+      ]
+    }
+  ]
+}
