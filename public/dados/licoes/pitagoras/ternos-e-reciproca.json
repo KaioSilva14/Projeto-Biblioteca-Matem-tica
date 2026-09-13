@@ -1,0 +1,211 @@
+{
+  "id": "ternos-e-reciproca",
+  "numero": 4,
+  "titulo": "Ternos, e o teste do ângulo reto",
+  "pergunta": "Dá para descobrir se um triângulo é retângulo só medindo os lados?",
+  "ideia": {
+    "paragrafos": [
+      "Alguns trios de números inteiros satisfazem o teorema exatamente, e eles aparecem tanto em exercícios que vale reconhecê-los de vista. Os mais frequentes são 3-4-5, 5-12-13, 8-15-17 e 7-24-25 — chamam-se TERNOS PITAGÓRICOS, e cada um deles é um triângulo retângulo com os três lados inteiros.",
+      "Todo múltiplo de um terno também é um terno. Dobrando 3-4-5 sai 6-8-10; triplicando sai 9-12-15. Isso é semelhança em ação: multiplicar os três lados pelo mesmo fator mantém a forma, e um triângulo semelhante a um retângulo continua retângulo. Reconhecer que 30-40-50 é só o 3-4-5 ampliado economiza uma conta inteira.",
+      "Agora a parte mais útil da lição, e ela é o teorema lido de trás para frente. A RECÍPROCA diz: se num triângulo os quadrados dos dois lados menores somam o quadrado do maior, então o triângulo é retângulo. E se não somam, ele não é.",
+      "Isso transforma o teorema num TESTE. Com lados 6, 8 e 10: 36 + 64 dá 100, que é 10² — o triângulo é retângulo. Com lados 4, 5 e 6: 16 + 25 dá 41, e 6² é 36 — não é retângulo. Nenhum transferidor entrou na conferência.",
+      "O teste tem uma regra de uso que não pode ser esquecida: o quadrado que fica sozinho de um lado da igualdade é o do MAIOR lado. Testar 4² + 6² contra 5² compararia os números errados e daria uma conclusão sem sentido. Ordenar os três lados antes de começar resolve isso.",
+      "Na prática, é assim que pedreiros esquadrejam uma parede há séculos: marcam 3 palmos num lado, 4 no outro, e conferem se a diagonal dá 5. Se der, o canto está reto; se não der, está torto. O método é anterior ao teorema, e o teorema é a explicação dele."
+    ],
+    "destaque": "Se os quadrados dos dois menores somam o do maior, o triângulo É retângulo. É o teorema virando teste.",
+    "imagem": "pt9-ideia-ternos"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo tem lados 9, 12 e 15. Ele é retângulo?",
+    "imagem": "pt9-res-teste-9-12-15",
+    "passos": [
+      {
+        "titulo": "Ordene os lados",
+        "explicacao": "O maior é o candidato a hipotenusa, e fica sozinho num lado da igualdade.",
+        "conta": "9 < 12 < 15"
+      },
+      {
+        "titulo": "Some os quadrados dos dois menores",
+        "explicacao": "É o lado esquerdo do teste, e é ele que será comparado com o outro.",
+        "conta": "81 + 144 = 225"
+      },
+      {
+        "titulo": "Calcule o quadrado do maior",
+        "explicacao": "É o lado direito, e é com ele que a soma será comparada.",
+        "conta": "15² = 225"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Os dois deram o mesmo número, então a recíproca garante o ângulo reto.",
+        "conta": "225 = 225 ✓"
+      }
+    ],
+    "fecho": "É retângulo — e não por acaso: 9-12-15 é o terno 3-4-5 com todos os lados triplicados."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo tem lados 6, 8 e 10. Ele é retângulo?",
+      "imagem": "pt9-q-seis-oito-dez",
+      "dica": "Some os quadrados dos dois menores e compare com o quadrado do maior.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque 36 mais 64 dá exatamente 100" },
+        { "rotulo": "B", "texto": "Não, porque 6 mais 8 não dá 10" },
+        { "rotulo": "C", "texto": "Sim, porque os três lados são pares" },
+        { "rotulo": "D", "texto": "Não, porque os lados não são 3, 4 e 5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque 6 mais 8 não dá 10",
+          "porque": "O teste não soma os lados: soma os QUADRADOS. Somar 6 e 8 daria 14, e isso não diz nada sobre o ângulo — o que decide é 36 + 64 contra 100."
+        },
+        {
+          "resposta": "Sim, porque os três lados são pares",
+          "porque": "A conclusão está certa e o motivo não. O triângulo de lados 2, 4 e 6 também tem os três lados pares e nem chega a fechar: 2 + 4 dá exatamente 6."
+        },
+        {
+          "resposta": "Não, porque os lados não são 3, 4 e 5",
+          "porque": "Não é preciso ser exatamente 3-4-5: qualquer múltiplo serve, e 6-8-10 é o dobro. Além disso, existem outros ternos, como 5-12-13."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os quadrados dos menores",
+          "explicacao": "Os dois lados que não são o maior.",
+          "conta": "36 + 64 = 100"
+        },
+        {
+          "titulo": "Compare com o do maior",
+          "explicacao": "Se der igual, a recíproca garante o ângulo reto.",
+          "conta": "10² = 100 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo tem lados 4, 5 e 6. Ele é retângulo?",
+      "imagem": "pt9-q-quatro-cinco-seis",
+      "dica": "Faça o teste com cuidado: o quadrado que fica sozinho é o do maior lado.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque 16 mais 25 dá 41, e o quadrado do maior é 36" },
+        { "rotulo": "B", "texto": "Sim, porque os três lados são consecutivos" },
+        { "rotulo": "C", "texto": "Não, porque 4 mais 5 é maior que 6" },
+        { "rotulo": "D", "texto": "Sim, porque 4, 5 e 6 é quase 3, 4 e 5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque os três lados são consecutivos",
+          "porque": "3, 4 e 5 também são consecutivos e formam um terno, mas isso é coincidência — 4, 5 e 6 não formam. O único teste que decide é o dos quadrados."
+        },
+        {
+          "resposta": "Não, porque 4 mais 5 é maior que 6",
+          "porque": "A soma de dois lados ser maior que o terceiro é o que faz o triângulo EXISTIR, e não o que o faz retângulo. Este triângulo existe, e é acutângulo."
+        },
+        {
+          "resposta": "Sim, porque 4, 5 e 6 é quase 3, 4 e 5",
+          "porque": "\"Quase\" não serve: 41 e 36 são números diferentes, e uma diferença de 5 no teste significa um ângulo bem distante de 90°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os quadrados dos dois menores",
+          "explicacao": "São o 4 e o 5, porque o maior lado é o 6.",
+          "conta": "16 + 25 = 41"
+        },
+        {
+          "titulo": "Compare com o do maior",
+          "explicacao": "Os números diferem, então não há ângulo reto.",
+          "conta": "36 ≠ 41"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma companhia de eletricidade instalou um poste num terreno plano. Para fixá-lo, prendeu um cabo no poste a 1,4 m de altura e no chão a 2 m de distância do poste; esse cabo mede 2,5 m. Um professor afirmou que o poste NÃO está perpendicular ao solo. Ele está certo?",
+      "imagem": "pt9-q-obmep-poste",
+      "dica": "Se o poste fosse perpendicular, os três comprimentos formariam um triângulo retângulo. Faça o teste.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim: 1,96 mais 4 dá 5,96, e o quadrado do cabo é 6,25" },
+        { "rotulo": "B", "texto": "Não: 1,4 mais 2 dá 3,4, que é maior que 2,5" },
+        { "rotulo": "C", "texto": "Não: as três medidas formam um triângulo, então o ângulo é reto" },
+        { "rotulo": "D", "texto": "Sim: o cabo é o maior dos três comprimentos" }
+      ],
+      "correta": 0,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Nível 2, problema 23 — Poste elétrico"
+      },
+      "errosComuns": [
+        {
+          "resposta": "Não: 1,4 mais 2 dá 3,4, que é maior que 2,5",
+          "porque": "Isso só garante que o triângulo existe, e não que ele é retângulo. O teste certo compara os QUADRADOS: 1,96 + 4 contra 6,25."
+        },
+        {
+          "resposta": "Não: as três medidas formam um triângulo, então o ângulo é reto",
+          "porque": "Quase todo trio de medidas forma triângulo, e quase nenhum forma triângulo retângulo. Ser triângulo é uma condição bem mais fraca."
+        },
+        {
+          "resposta": "Sim: o cabo é o maior dos três comprimentos",
+          "porque": "A conclusão está certa e o motivo não. O maior lado ser o cabo é esperado em qualquer caso — inclusive num triângulo perfeitamente retângulo, onde ele seria a hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Suponha o poste em pé",
+          "explicacao": "Nesse caso o cabo seria a hipotenusa e os outros dois seriam catetos.",
+          "conta": "1,4² + 2² = 2,5²?"
+        },
+        {
+          "titulo": "Calcule os dois lados",
+          "explicacao": "Cada quadrado separadamente, e depois a soma.",
+          "conta": "1,96 + 4 = 5,96 · 2,5² = 6,25"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Os números não coincidem, então a suposição era falsa.",
+          "conta": "5,96 ≠ 6,25 → o professor está certo"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num terno pitagórico, os dois menores lados medem 9 e 12. Quanto mede o maior? Digite apenas o número.",
+      "imagem": "pt9-q-completa-o-terno",
+      "dica": "Reconheça o terno ampliado, ou some os quadrados e tire a raiz.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "21",
+          "porque": "21 é 9 + 12, somando os lados. O maior lado sai da soma dos QUADRADOS, seguida da raiz."
+        },
+        {
+          "resposta": "225",
+          "porque": "225 é a soma dos quadrados, 81 + 144. Falta tirar a raiz para chegar ao lado: √225 = 15."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é o maior lado do terno 5-12-13, e o 12 aparece nos dois — mas aqui o outro cateto é 9, e não 5. Este terno é o 3-4-5 triplicado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o terno",
+          "explicacao": "9 e 12 são 3 e 4 multiplicados por três.",
+          "conta": "3-4-5 × 3"
+        },
+        {
+          "titulo": "Confira pela conta",
+          "explicacao": "Somando os quadrados e tirando a raiz, para não depender do reconhecimento.",
+          "conta": "81 + 144 = 225 → √225 = 15"
+        }
+      ]
+    }
+  ]
+}

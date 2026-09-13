@@ -1,0 +1,190 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "Mesma forma, outro tamanho",
+  "pergunta": "O que sobra quando o tamanho deixa de importar?",
+  "ideia": {
+    "paragrafos": [
+      "No 8º ano, dois triângulos eram congruentes quando dava para sobrepor um ao outro: mesmos ângulos e mesmos lados. Semelhança afrouxa exatamente uma exigência — a dos tamanhos — e guarda a outra. Dois triângulos são SEMELHANTES quando têm a mesma forma, podendo ter tamanhos diferentes.",
+      "Dito com precisão, são duas condições ao mesmo tempo: os ângulos correspondentes são iguais, e os lados correspondentes são proporcionais. Um triângulo de lados 3, 4 e 5 é semelhante a um de lados 9, 12 e 15, porque 9 é o triplo de 3, 12 o triplo de 4 e 15 o triplo de 5 — todos os lados cresceram o MESMO tanto.",
+      "Esse número que se repete chama-se RAZÃO DE SEMELHANÇA, e costuma ser escrito k. No exemplo, k vale 3 do menor para o maior. Ele é o fator de ampliação: multiplicar todos os lados do primeiro por 3 produz o segundo, exatamente como numa fotocópia ampliada.",
+      "Repare no que a palavra \"proporcionais\" exige: não basta os lados crescerem, eles precisam crescer na mesma proporção. Um triângulo de lados 2, 3 e 4 NÃO é semelhante a um de lados 4, 6 e 9 — os dois primeiros dobraram, mas o terceiro não. Basta um lado fora do compasso para a semelhança cair.",
+      "E congruência não sumiu do mapa: ela é o caso particular em que k vale 1. Nesse caso os lados correspondentes são iguais, e a semelhança vira sobreposição. Toda figura congruente é semelhante; a recíproca é falsa, e é essa assimetria que torna semelhança uma ferramenta mais ampla.",
+      "Uma convenção que evita confusão em prova: ao escrever que dois triângulos são semelhantes, a ORDEM das letras diz quem corresponde a quem. Em ABC semelhante a DEF, o A corresponde ao D, o B ao E e o C ao F — e a proporção tem de ser montada respeitando esses pares."
+    ],
+    "destaque": "Semelhantes: ângulos iguais e lados proporcionais. A razão k é o fator de ampliação, e congruência é o caso k = 1.",
+    "imagem": "sm9-ideia-mesma-forma"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo tem lados 3, 4 e 5; outro tem lados 6, 8 e 10. Qual é a razão de semelhança do menor para o maior?",
+    "imagem": "sm9-res-razao-2",
+    "passos": [
+      {
+        "titulo": "Case os lados correspondentes",
+        "explicacao": "O menor lado de um corresponde ao menor do outro, e assim por diante.",
+        "conta": "3↔6 · 4↔8 · 5↔10"
+      },
+      {
+        "titulo": "Divida cada par",
+        "explicacao": "Cada divisão tem de dar o mesmo número, senão não há semelhança.",
+        "conta": "6/3 = 2 · 8/4 = 2 · 10/5 = 2"
+      },
+      {
+        "titulo": "Leia o resultado",
+        "explicacao": "As três divisões deram o mesmo, então a razão está confirmada.",
+        "conta": "k = 2"
+      }
+    ],
+    "fecho": "O maior é uma ampliação do menor em dobro. Se uma das divisões tivesse dado outro número, não haveria semelhança."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo tem lados 3, 4 e 5, e outro tem lados 9, 12 e 15. Qual é a razão de semelhança do menor para o maior? Digite apenas o número.",
+      "imagem": "sm9-q-razao-3",
+      "dica": "Divida cada lado do maior pelo lado correspondente do menor.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é a diferença entre 9 e 3, e semelhança é sobre MULTIPLICAR, não somar. Se fosse soma, o par 4 e 12 daria 8, um número diferente — e não haveria razão nenhuma."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 3 × 12, multiplicando dois lados que nem se correspondem. A razão sai de dividir um lado pelo correspondente dele."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o menor lado do triângulo maior, e não a razão. Ela é o quociente 9 ÷ 3, que dá 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Case os lados",
+          "explicacao": "Menor com menor, médio com médio, maior com maior.",
+          "conta": "3↔9 · 4↔12 · 5↔15"
+        },
+        {
+          "titulo": "Divida os pares",
+          "explicacao": "As três divisões precisam dar o mesmo número.",
+          "conta": "9/3 = 12/4 = 15/5 = 3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O que dois triângulos precisam ter para serem semelhantes?",
+      "imagem": "sm9-q-o-que-exige",
+      "dica": "São duas condições ao mesmo tempo, uma sobre ângulos e outra sobre lados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Ângulos correspondentes iguais e lados correspondentes proporcionais" },
+        { "rotulo": "B", "texto": "Lados iguais e ângulos iguais" },
+        { "rotulo": "C", "texto": "A mesma área" },
+        { "rotulo": "D", "texto": "O mesmo perímetro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Lados iguais e ângulos iguais",
+          "porque": "Isso é CONGRUÊNCIA, do 8º ano — o caso particular em que a razão vale 1. Semelhança pede lados proporcionais, e não iguais."
+        },
+        {
+          "resposta": "A mesma área",
+          "porque": "Triângulos semelhantes quase nunca têm a mesma área: com razão 2, a área do maior é o quádruplo. E dois triângulos de formas bem diferentes podem ter a mesma área."
+        },
+        {
+          "resposta": "O mesmo perímetro",
+          "porque": "O perímetro do maior é k vezes o do menor, então ele só coincide quando k vale 1. Perímetros iguais também não garantem forma nenhuma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "A condição dos ângulos",
+          "explicacao": "É ela que garante a mesma FORMA nos dois.",
+          "conta": "ângulos correspondentes iguais"
+        },
+        {
+          "titulo": "A condição dos lados",
+          "explicacao": "Todos crescem pelo mesmo fator, que é a razão de semelhança.",
+          "conta": "lados proporcionais"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Dois triângulos são congruentes. Qual é a razão de semelhança entre eles? Digite apenas o número.",
+      "imagem": "sm9-q-congruentes",
+      "dica": "Congruente significa lados correspondentes iguais. Divida um pelo outro.",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "0",
+          "porque": "Razão zero significaria que um dos triângulos tem lado nulo, ou seja, não existe. Lados iguais dividem-se dando 1."
+        },
+        {
+          "resposta": "2",
+          "porque": "Razão 2 seria uma ampliação em dobro, e congruentes não são ampliados: eles têm exatamente as mesmas medidas."
+        },
+        {
+          "resposta": "3",
+          "porque": "Qualquer razão diferente de 1 significaria tamanhos diferentes. Congruência é justamente o caso em que os tamanhos coincidem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que é congruência",
+          "explicacao": "Os lados correspondentes têm exatamente a mesma medida.",
+          "conta": "lado = lado"
+        },
+        {
+          "titulo": "Calcule a razão",
+          "explicacao": "Dividir um número por ele mesmo dá um.",
+          "conta": "k = 1"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo tem lados 2, 3 e 4; outro tem lados 4, 6 e 9. Eles são semelhantes?",
+      "imagem": "sm9-q-nao-sao",
+      "dica": "Divida cada par de lados correspondentes e compare os três resultados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque 9 dividido por 4 não dá o mesmo que os outros pares" },
+        { "rotulo": "B", "texto": "Sim, porque os dois têm três lados diferentes entre si" },
+        { "rotulo": "C", "texto": "Sim, porque o segundo é maior que o primeiro" },
+        { "rotulo": "D", "texto": "Não, porque os lados do segundo não são o dobro em nenhum caso" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque os dois têm três lados diferentes entre si",
+          "porque": "Ser escaleno não diz nada sobre semelhança. O que importa é os três quocientes darem o mesmo número, e aqui o terceiro sai fora: 2, 2 e 2,25."
+        },
+        {
+          "resposta": "Sim, porque o segundo é maior que o primeiro",
+          "porque": "Ser maior não basta: ele precisa ser maior na MESMA proporção em todos os lados. Dois deles dobraram, e o terceiro não."
+        },
+        {
+          "resposta": "Não, porque os lados do segundo não são o dobro em nenhum caso",
+          "porque": "Dois deles são o dobro: 4 é o dobro de 2 e 6 é o dobro de 3. O problema é justamente o terceiro, que rompe o padrão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida os três pares",
+          "explicacao": "Case menor com menor, médio com médio, maior com maior.",
+          "conta": "4/2 = 2 · 6/3 = 2 · 9/4 = 2,25"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Basta um quociente diferente para não haver semelhança.",
+          "conta": "2 ≠ 2,25"
+        }
+      ]
+    }
+  ]
+}

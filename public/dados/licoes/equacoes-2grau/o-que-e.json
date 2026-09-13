@@ -1,0 +1,195 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O que muda com o x ao quadrado",
+  "pergunta": "Por que uma equação com x² precisa de método novo?",
+  "ideia": {
+    "paragrafos": [
+      "No 7º ano, resolver 2x + 6 = 0 era desfazer operações: tira o 6, divide por 2, e sobra x = −3. Esse caminho funciona porque cada passo tem um inverso — a soma se desfaz com a subtração, a multiplicação com a divisão.",
+      "Com x² + 2x − 8 = 0 o caminho trava. Tentando isolar o x, ele aparece em dois lugares e em graus diferentes: tirar o 8 deixa x² + 2x = 8, e daí não há operação que isole o x, porque ele está preso dentro de duas parcelas incompatíveis. É preciso um método novo, e a matéria inteira é sobre construí-lo.",
+      "A forma geral de uma equação do 2º grau é ax² + bx + c = 0, com a diferente de zero — se a fosse zero, o termo quadrático sumiria e ela voltaria a ser do 1º grau. Os números a, b e c chamam-se COEFICIENTES, e identificá-los corretamente é o primeiro passo de tudo o que vem depois.",
+      "Identificar parece trivial e não é, por causa dos sinais. Em x² − 5x + 6 = 0, o coeficiente b é −5, e não 5: o sinal faz parte do número. Escrever b = 5 aqui é o engano que mais estraga contas de Bhaskara, e ele acontece antes de a fórmula sequer ser usada.",
+      "Outra armadilha é a equação não estar arrumada. 3x² = 12x não está na forma geral; para identificar os coeficientes é preciso passar tudo para um lado: 3x² − 12x = 0, e então a = 3, b = −12 e c = 0. Arrumar antes de identificar é regra, não sugestão.",
+      "Uma diferença de fundo em relação ao 1º grau: a equação do 2º grau pode ter DUAS soluções, uma só ou nenhuma. Em 2x + 6 = 0 havia sempre exatamente uma; aqui o número de respostas é parte do que se descobre, e a lição 5 mostra como saber isso antes de resolver."
+    ],
+    "destaque": "A forma geral é ax² + bx + c = 0. O sinal faz parte do coeficiente, e a equação precisa estar arrumada antes.",
+    "imagem": "eq9-ideia-coeficientes"
+  },
+  "resolvido": {
+    "enunciado": "Identifique os coeficientes a, b e c em 3x² = 12x.",
+    "imagem": "eq9-res-arrumar",
+    "passos": [
+      {
+        "titulo": "Arrume a equação",
+        "explicacao": "A forma geral exige tudo de um lado e zero do outro.",
+        "conta": "3x² − 12x = 0"
+      },
+      {
+        "titulo": "Leia o coeficiente de x²",
+        "explicacao": "É o número que multiplica o termo quadrático.",
+        "conta": "a = 3"
+      },
+      {
+        "titulo": "Leia o de x",
+        "explicacao": "O sinal de menos faz parte do coeficiente.",
+        "conta": "b = −12"
+      },
+      {
+        "titulo": "Leia o termo independente",
+        "explicacao": "Não há termo sem x, então ele vale zero.",
+        "conta": "c = 0"
+      }
+    ],
+    "fecho": "Identificar antes de arrumar daria a = 3 e b = 0, e todas as contas seguintes sairiam erradas."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na equação x² − 5x + 6 = 0, quanto vale o coeficiente b? Digite apenas o número, com o sinal.",
+      "imagem": "eq9-q-qual-b",
+      "dica": "O coeficiente b é o que multiplica o x. O sinal antes dele faz parte do número.",
+      "formato": "numero",
+      "resposta": -5,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "O sinal faz parte do coeficiente: em x² − 5x + 6, o termo é −5x, então b = −5. Esquecer o sinal aqui é o engano que mais estraga contas de Bhaskara, e ele acontece antes da fórmula."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o coeficiente c, o termo independente — aquele que não tem x. O b é o que acompanha o x sozinho."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o coeficiente a, que multiplica o x². Ele não aparece escrito quando vale 1, mas está lá."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize o termo com x",
+          "explicacao": "É o termo do meio, com x elevado à primeira potência.",
+          "conta": "−5x"
+        },
+        {
+          "titulo": "Leve o sinal junto",
+          "explicacao": "O coeficiente é o número com o sinal que vem antes dele.",
+          "conta": "b = −5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que o método de isolar o x, usado no 1º grau, não funciona em x² + 2x − 8 = 0?",
+      "imagem": "eq9-q-por-que-trava",
+      "dica": "Tente desfazer as operações e veja onde o x aparece.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o x aparece em dois termos, e em graus diferentes" },
+        { "rotulo": "B", "texto": "Porque o número 8 é negativo" },
+        { "rotulo": "C", "texto": "Porque falta o coeficiente a" },
+        { "rotulo": "D", "texto": "Porque equações do 2º grau não têm solução" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o número 8 é negativo",
+          "porque": "O sinal do termo independente não atrapalha nada: x² + 2x + 8 = 0 também não se resolve isolando. O que trava é o x aparecer ao quadrado e à primeira potência ao mesmo tempo."
+        },
+        {
+          "resposta": "Porque falta o coeficiente a",
+          "porque": "Ele não falta: quando não está escrito, vale 1. A equação é 1x² + 2x − 8 = 0, e o problema é outro."
+        },
+        {
+          "resposta": "Porque equações do 2º grau não têm solução",
+          "porque": "Esta tem duas: x = 2 e x = −4. Algumas equações do 2º grau realmente não têm solução real, mas essa não é a razão de o método de isolar falhar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tente isolar",
+          "explicacao": "Passando o 8 para o outro lado, o x continua nos dois termos da esquerda.",
+          "conta": "x² + 2x = 8"
+        },
+        {
+          "titulo": "Veja o impasse",
+          "explicacao": "Não há operação que separe x² de 2x para deixar o x sozinho.",
+          "conta": "x em dois graus"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na equação 3x² = 12x, arrumada na forma geral, quanto vale c? Digite apenas o número.",
+      "imagem": "eq9-q-arrumar-antes",
+      "dica": "Passe tudo para um lado primeiro. Depois procure o termo que não tem x.",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 vem do termo 12x, que tem x — então ele é o coeficiente b, e ainda com sinal trocado depois de arrumar: b = −12. O c é o termo SEM x, que aqui não existe."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é o coeficiente a, que multiplica o x². O c é o termo independente, e nesta equação ele vale zero."
+        },
+        {
+          "resposta": "-12",
+          "porque": "−12 é o coeficiente b depois de arrumar a equação. O c é outro: é o termo que não tem x nenhum, e aqui ele está ausente, ou seja, vale 0."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Arrume a equação",
+          "explicacao": "Passando o 12x para a esquerda, com o sinal trocado.",
+          "conta": "3x² − 12x = 0"
+        },
+        {
+          "titulo": "Procure o termo sem x",
+          "explicacao": "Não existe nenhum, então o coeficiente independente é zero.",
+          "conta": "c = 0"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que a forma geral exige que o coeficiente a seja diferente de zero?",
+      "imagem": "eq9-q-por-que-a-nao-zero",
+      "dica": "Substitua a por zero na forma geral e veja que equação sobra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque com a = 0 o termo x² some e ela vira do 1º grau" },
+        { "rotulo": "B", "texto": "Porque zero não pode multiplicar nada" },
+        { "rotulo": "C", "texto": "Porque assim a equação sempre tem duas soluções" },
+        { "rotulo": "D", "texto": "Porque a fórmula de Bhaskara exige a positivo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque zero não pode multiplicar nada",
+          "porque": "Zero multiplica normalmente — o resultado é zero. O problema não é a multiplicação ser proibida, e sim o termo x² desaparecer da equação."
+        },
+        {
+          "resposta": "Porque assim a equação sempre tem duas soluções",
+          "porque": "Com a diferente de zero ela pode ter duas, uma ou nenhuma solução real. A restrição só garante que ela seja de 2º grau, e não quantas raízes terá."
+        },
+        {
+          "resposta": "Porque a fórmula de Bhaskara exige a positivo",
+          "porque": "Bhaskara funciona com a negativo sem problema: em −x² + 3x − 2 = 0 ela dá x = 1 e x = 2. A exigência é ser diferente de zero, e não ser positivo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua a por zero",
+          "explicacao": "O termo quadrático some da equação.",
+          "conta": "0x² + bx + c = bx + c"
+        },
+        {
+          "titulo": "Veja o que sobra",
+          "explicacao": "Sobra uma equação do 1º grau, que o 7º ano já resolvia.",
+          "conta": "bx + c = 0"
+        }
+      ]
+    }
+  ]
+}

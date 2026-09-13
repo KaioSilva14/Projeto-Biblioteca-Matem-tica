@@ -1,0 +1,201 @@
+{
+  "id": "discriminante",
+  "numero": 5,
+  "titulo": "O que o discriminante conta",
+  "pergunta": "Dá para saber quantas raízes existem sem resolver a equação?",
+  "ideia": {
+    "paragrafos": [
+      "O discriminante tem esse nome porque ele DISCRIMINA — distingue os casos. Calculá-lo custa uma conta só, e ela responde quantas raízes reais a equação tem antes de qualquer outra coisa ser feita.",
+      "A razão está na fórmula: o Δ fica embaixo de uma raiz quadrada. E a lição 1 de radiciação já deixou claro que raiz quadrada de número negativo não existe entre os reais. Então o sinal do Δ decide tudo.",
+      "Com Δ POSITIVO, a raiz dele é um número real diferente de zero, e o ± produz dois valores distintos: a equação tem duas raízes reais diferentes. Foi o caso de x² − 5x + 6 = 0, com Δ = 1 e raízes 2 e 3.",
+      "Com Δ ZERO, a raiz vale zero, e somar ou subtrair zero dá o mesmo resultado: os dois sinais colapsam num valor só. A equação tem uma raiz real, chamada raiz dupla. É o caso de x² − 4x + 4 = 0, cujo Δ é 16 − 16 = 0 e cuja única raiz é 2. Repare que o trinômio ali é um quadrado perfeito, (x − 2)² — não é coincidência.",
+      "Com Δ NEGATIVO, a raiz quadrada não existe entre os reais, e a equação não tem raiz real nenhuma. É o caso de x² + x + 1 = 0, com Δ = 1 − 4 = −3. Isso não significa que a equação seja \"errada\": ela simplesmente não é satisfeita por nenhum número real.",
+      "Na prática, calcular o Δ primeiro poupa trabalho e evita um engano comum — quem não confere pode tentar extrair a raiz de um número negativo e escrever qualquer coisa. Com o Δ na mão, a resposta \"não há raízes reais\" é uma conclusão legítima, e não uma desistência."
+    ],
+    "destaque": "Δ > 0 dá duas raízes; Δ = 0 dá uma; Δ < 0 não dá nenhuma real — porque raiz de negativo não existe nos reais.",
+    "imagem": "eq9-ideia-tres-casos"
+  },
+  "resolvido": {
+    "enunciado": "Quantas raízes reais tem x² − 4x + 4 = 0?",
+    "imagem": "eq9-res-delta-zero",
+    "passos": [
+      {
+        "titulo": "Identifique os coeficientes",
+        "explicacao": "Lendo a equação já na forma geral.",
+        "conta": "a = 1 · b = −4 · c = 4"
+      },
+      {
+        "titulo": "Calcule o discriminante",
+        "explicacao": "É a conta que decide o número de raízes.",
+        "conta": "16 − 16 = 0"
+      },
+      {
+        "titulo": "Leia o sinal",
+        "explicacao": "Com o discriminante zero, a raiz dele é zero.",
+        "conta": "√0 = 0"
+      },
+      {
+        "titulo": "Veja o efeito no ±",
+        "explicacao": "Somar zero e subtrair zero dão o mesmo valor.",
+        "conta": "uma raiz real: x = 2"
+      }
+    ],
+    "fecho": "O trinômio é (x − 2)², um quadrado perfeito — e todo quadrado perfeito tem discriminante zero."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quantas raízes reais tem a equação x² + x + 1 = 0?",
+      "imagem": "eq9-q-delta-negativo",
+      "dica": "Calcule o discriminante e olhe o sinal dele antes de tentar resolver.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Nenhuma, porque o discriminante é negativo" },
+        { "rotulo": "B", "texto": "Duas, como toda equação do 2º grau" },
+        { "rotulo": "C", "texto": "Uma só" },
+        { "rotulo": "D", "texto": "Três, uma para cada coeficiente" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Duas, como toda equação do 2º grau",
+          "porque": "Nem toda tem duas: o número de raízes reais depende do sinal do discriminante. Aqui ele vale 1 − 4 = −3, e raiz quadrada de negativo não existe entre os reais."
+        },
+        {
+          "resposta": "Uma só",
+          "porque": "Uma raiz só acontece quando o discriminante é ZERO, e não negativo. Com Δ = −3 não há nenhuma raiz real."
+        },
+        {
+          "resposta": "Três, uma para cada coeficiente",
+          "porque": "O número de coeficientes não tem relação com o de raízes. Uma equação do 2º grau tem no máximo duas raízes reais, e esta não tem nenhuma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule o discriminante",
+          "explicacao": "Com a = 1, b = 1 e c = 1, todos escritos sem sinal negativo.",
+          "conta": "1 − 4 = −3"
+        },
+        {
+          "titulo": "Olhe o sinal",
+          "explicacao": "A fórmula pediria a raiz quadrada de um número negativo.",
+          "conta": "Δ < 0 → nenhuma raiz real"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o discriminante da equação x² − 6x + 9 = 0? Digite apenas o número.",
+      "imagem": "eq9-q-quadrado-perfeito",
+      "dica": "Calcule b² − 4ac. Repare no formato do trinômio.",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é só o b², parando no primeiro termo. Falta subtrair 4ac, que aqui vale 36 também — e a diferença dá zero."
+        },
+        {
+          "resposta": "72",
+          "porque": "72 é 36 + 36, somando quando a fórmula manda subtrair. O discriminante é b² MENOS 4ac."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a raiz da equação, e não o discriminante. Os dois são coisas diferentes: o discriminante é uma conta feita ANTES, para saber quantas raízes existem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule as duas partes",
+          "explicacao": "O quadrado do b e o produto 4ac.",
+          "conta": "(−6)² = 36 · 4 × 1 × 9 = 36"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "As duas partes são iguais, então a diferença é zero.",
+          "conta": "36 − 36 = 0"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que o discriminante decide o número de raízes?",
+      "imagem": "eq9-q-por-que-decide",
+      "dica": "Olhe onde o Δ aparece dentro da fórmula de Bhaskara.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque ele fica dentro da raiz quadrada da fórmula" },
+        { "rotulo": "B", "texto": "Porque ele é o maior número da fórmula" },
+        { "rotulo": "C", "texto": "Porque ele substitui o coeficiente b" },
+        { "rotulo": "D", "texto": "Porque ele é sempre positivo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque ele é o maior número da fórmula",
+          "porque": "Ele nem sempre é: em x² + x + 1 = 0 o discriminante vale −3, menor que todos os coeficientes. O que importa é a POSIÇÃO dele na fórmula, debaixo da raiz."
+        },
+        {
+          "resposta": "Porque ele substitui o coeficiente b",
+          "porque": "O b continua na fórmula, no termo −b. O discriminante é outra coisa: é b² − 4ac, e ele aparece num lugar específico — dentro da raiz."
+        },
+        {
+          "resposta": "Porque ele é sempre positivo",
+          "porque": "Ele pode ser negativo, e é justamente aí que a equação fica sem raiz real. Se fosse sempre positivo, toda equação teria duas raízes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize o Δ na fórmula",
+          "explicacao": "Ele é exatamente o que está sob o sinal de raiz.",
+          "conta": "x = (−b ± √Δ) / 2a"
+        },
+        {
+          "titulo": "Lembre a restrição da raiz",
+          "explicacao": "Raiz quadrada de negativo não existe entre os reais.",
+          "conta": "o sinal de Δ decide"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma equação do 2º grau tem discriminante zero. O que dá para afirmar sobre o trinômio dela?",
+      "imagem": "eq9-q-trinomio-perfeito",
+      "dica": "Compare com x² − 4x + 4 e x² − 6x + 9, que têm discriminante zero.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que ele é um quadrado perfeito" },
+        { "rotulo": "B", "texto": "Que ele não pode ser fatorado" },
+        { "rotulo": "C", "texto": "Que o coeficiente c vale zero" },
+        { "rotulo": "D", "texto": "Que ele tem duas raízes iguais a zero" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que ele não pode ser fatorado",
+          "porque": "É o contrário: ele fatora do jeito mais limpo possível, como um quadrado. x² − 4x + 4 é (x − 2)², e x² − 6x + 9 é (x − 3)²."
+        },
+        {
+          "resposta": "Que o coeficiente c vale zero",
+          "porque": "Quem vale zero é o DISCRIMINANTE, e não o c. Em x² − 4x + 4 o c vale 4, e mesmo assim o Δ é zero."
+        },
+        {
+          "resposta": "Que ele tem duas raízes iguais a zero",
+          "porque": "A raiz é única e quase nunca é zero: em x² − 4x + 4 ela vale 2. O que o Δ zero diz é que as duas raízes da fórmula colapsam num valor só."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe os exemplos",
+          "explicacao": "Os dois trinômios com discriminante zero se escrevem como quadrado.",
+          "conta": "(x − 2)² · (x − 3)²"
+        },
+        {
+          "titulo": "Veja por quê",
+          "explicacao": "Com Δ zero, completar o quadrado não deixa sobra nenhuma.",
+          "conta": "quadrado perfeito"
+        }
+      ]
+    }
+  ]
+}

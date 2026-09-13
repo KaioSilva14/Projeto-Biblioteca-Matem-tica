@@ -1,0 +1,207 @@
+{
+  "id": "existe",
+  "numero": 2,
+  "titulo": "Mas ele existe",
+  "pergunta": "Se nenhuma fração escreve √2, em que sentido ele é um número?",
+  "ideia": {
+    "paragrafos": [
+      "A lição anterior provou que √2 não é fração. Isso deixa uma dúvida legítima: se nenhuma fração o escreve e as casas decimais nunca acabam, esse número existe mesmo, ou é só um símbolo sem conteúdo?",
+      "Existe, e a prova é geométrica. Desenhe um quadrado de lado 1 e trace a diagonal. Esse segmento está ali, pode ser medido com régua, tem um comprimento definido — e pelo teorema de Pitágoras, que você vai demonstrar mais adiante neste ano, o comprimento dele ao quadrado é 1² + 1² = 2. Ou seja, ele mede exatamente √2.",
+      "Foi assim que os gregos encontraram o problema, e a história vale ser contada: a escola pitagórica acreditava que dois segmentos quaisquer sempre podiam ser medidos por uma unidade comum — isto é, que a razão entre eles era sempre uma fração. A diagonal do quadrado destruiu essa crença, e ela veio de dentro da própria escola.",
+      "Números como esse são chamados IRRACIONAIS, e a palavra não tem nada a ver com falta de razão no sentido comum: ela vem de RAZÃO no sentido de fração. Irracional é o número que não é razão entre dois inteiros.",
+      "Eles não são raros nem exóticos. Toda raiz quadrada de inteiro que não seja quadrado perfeito é irracional: √2, √3, √5, √6, √7, √8, √10 — só escapam √1, √4, √9, √16 e os outros quadrados. O π também é irracional, e a demonstração disso é bem mais difícil que a de √2.",
+      "Juntando os racionais e os irracionais obtém-se o conjunto dos números REAIS, e é ele que corresponde à reta: cada ponto da reta é um número real, e cada número real é um ponto da reta, sem sobrar buraco nenhum de um lado nem do outro."
+    ],
+    "destaque": "√2 é a diagonal do quadrado de lado 1. Ele se desenha com régua — o que nenhuma fração faz é ESCREVÊ-LO.",
+    "imagem": "ir9-ideia-diagonal"
+  },
+  "resolvido": {
+    "enunciado": "Por que a diagonal do quadrado de lado 1 mede √2?",
+    "imagem": "ir9-res-diagonal",
+    "passos": [
+      {
+        "titulo": "Veja o triângulo que a diagonal forma",
+        "explicacao": "Ela parte o quadrado em dois triângulos retângulos iguais.",
+        "conta": "catetos 1 e 1"
+      },
+      {
+        "titulo": "Use Pitágoras",
+        "explicacao": "O quadrado da diagonal é a soma dos quadrados dos dois lados.",
+        "conta": "d² = 1² + 1² = 2"
+      },
+      {
+        "titulo": "Volte da potência",
+        "explicacao": "Se o quadrado da diagonal é 2, a diagonal é a raiz quadrada de 2.",
+        "conta": "d = √2"
+      }
+    ],
+    "fecho": "O segmento existe e pode ser medido; o que não existe é a fração que o escreveria."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual destes números é irracional?",
+      "imagem": "ir9-q-qual-irracional",
+      "dica": "Procure a raiz cujo radicando NÃO é quadrado perfeito.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "√5" },
+        { "rotulo": "B", "texto": "√9" },
+        { "rotulo": "C", "texto": "√25" },
+        { "rotulo": "D", "texto": "√100" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "√9",
+          "porque": "√9 é exatamente 3, porque 3 × 3 = 9. Como 3 é inteiro, ele é racional — todo inteiro é fração de denominador 1."
+        },
+        {
+          "resposta": "√25",
+          "porque": "√25 é exatamente 5, porque 5 × 5 = 25. Raiz de quadrado perfeito sempre dá inteiro, e inteiro é racional."
+        },
+        {
+          "resposta": "√100",
+          "porque": "√100 é exatamente 10. O sinal de raiz não torna o número irracional: o que decide é se o radicando é quadrado perfeito."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Procure os quadrados perfeitos",
+          "explicacao": "9, 25 e 100 são quadrados de 3, 5 e 10.",
+          "conta": "√9 = 3 · √25 = 5 · √100 = 10"
+        },
+        {
+          "titulo": "Veja o que sobra",
+          "explicacao": "Nenhum inteiro multiplicado por si mesmo dá 5.",
+          "conta": "√5 é irracional"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um quadrado tem 3 cm de lado. Quanto mede a diagonal dele, em centímetros?",
+      "imagem": "ir9-q-diagonal-3",
+      "dica": "Os dois catetos medem 3. Use Pitágoras e simplifique a raiz no fim.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3√2" },
+        { "rotulo": "B", "texto": "6" },
+        { "rotulo": "C", "texto": "√6" },
+        { "rotulo": "D", "texto": "9" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é 3 + 3, somando os dois lados. A diagonal não é a soma dos catetos: ela é o caminho reto entre as pontas, e por Pitágoras o quadrado dela é 9 + 9 = 18."
+        },
+        {
+          "resposta": "√6",
+          "porque": "√6 sai de somar 3 + 3 dentro da raiz. O que se soma são os QUADRADOS dos catetos: 3² + 3² = 18, e a diagonal é √18, que vale 3√2."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 3², o quadrado do lado — e também a área do quadrado. A diagonal é outro comprimento: √18, ou 3√2, que dá aproximadamente 4,24 cm."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os quadrados dos lados",
+          "explicacao": "Os dois catetos do triângulo formado medem 3 cm.",
+          "conta": "3² + 3² = 18"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "A diagonal é a raiz dessa soma.",
+          "conta": "d = √18"
+        },
+        {
+          "titulo": "Simplifique",
+          "explicacao": "18 é 9 × 2, e a raiz de 9 sai inteira.",
+          "conta": "√18 = 3√2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "De onde vem a palavra \"irracional\" nesse contexto?",
+      "imagem": "ir9-q-por-que-o-nome",
+      "dica": "Pense no outro sentido da palavra razão, que aparece desde o 7º ano.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "De razão no sentido de fração: é o número que não é razão entre inteiros" },
+        { "rotulo": "B", "texto": "De que esses números não fazem sentido" },
+        { "rotulo": "C", "texto": "De que não dá para raciocinar com eles" },
+        { "rotulo": "D", "texto": "De que eles não podem ser desenhados" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "De que esses números não fazem sentido",
+          "porque": "Eles fazem todo o sentido: √2 é a diagonal de um quadrado de lado 1, e o π é a razão entre a volta e o diâmetro de qualquer círculo. Os dois medem coisas concretas."
+        },
+        {
+          "resposta": "De que não dá para raciocinar com eles",
+          "porque": "Dá, e a matéria inteira é sobre isso: somar, multiplicar, comparar e aproximar irracionais. A palavra vem de RAZÃO no sentido de fração, e não de raciocínio."
+        },
+        {
+          "resposta": "De que eles não podem ser desenhados",
+          "porque": "É justamente o contrário, e é o que a lição mostra: √2 é a diagonal do quadrado de lado 1, desenhável com régua. O que não existe é a fração que o escreveria."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o outro sentido de razão",
+          "explicacao": "Desde o 7º ano, razão entre dois números é o quociente entre eles.",
+          "conta": "razão = fração"
+        },
+        {
+          "titulo": "Aplique o prefixo",
+          "explicacao": "O \"i\" nega: número que não é razão entre dois inteiros.",
+          "conta": "ir-racional"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O conjunto dos números reais é formado por quais números?",
+      "imagem": "ir9-q-o-que-sao-reais",
+      "dica": "Pense em quantos tipos de número existem na reta numérica.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os racionais e os irracionais juntos" },
+        { "rotulo": "B", "texto": "Só os irracionais" },
+        { "rotulo": "C", "texto": "Só os números que existem na natureza" },
+        { "rotulo": "D", "texto": "Os inteiros e as frações" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Só os irracionais",
+          "porque": "Os racionais também são reais: 3, 0,5 e 2/7 estão todos na reta. Os irracionais são a parte que faltava para a reta ficar completa, e não o conjunto inteiro."
+        },
+        {
+          "resposta": "Só os números que existem na natureza",
+          "porque": "\"Real\" aqui é um nome técnico, e não uma afirmação sobre existir no mundo. Os irracionais são reais, e os números complexos — que não são reais — aparecem em física o tempo todo."
+        },
+        {
+          "resposta": "Os inteiros e as frações",
+          "porque": "Inteiros e frações formam os RACIONAIS, que já eram conhecidos antes. Os reais acrescentam a eles os irracionais, que é o que completa a reta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte os dois grupos",
+          "explicacao": "Os que são fração de inteiros e os que não são.",
+          "conta": "racionais + irracionais"
+        },
+        {
+          "titulo": "Veja o resultado",
+          "explicacao": "Juntos eles preenchem a reta sem deixar buraco.",
+          "conta": "os números reais"
+        }
+      ]
+    }
+  ]
+}

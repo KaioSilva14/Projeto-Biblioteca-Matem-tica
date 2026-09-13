@@ -1,0 +1,189 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Medir o que não dá para medir",
+  "pergunta": "Como a semelhança alcança o que a trena não alcança?",
+  "ideia": {
+    "paragrafos": [
+      "A semelhança serve para medir o inacessível, e é para isso que ela foi inventada. Ninguém sobe num prédio com uma trena para saber a altura dele; mede-se a sombra, que está no chão, e a conta faz o resto.",
+      "O truque da sombra funciona porque os raios de sol chegam praticamente paralelos, então eles formam o MESMO ângulo com o chão em todos os objetos ao mesmo tempo. Cada objeto e sua sombra formam um triângulo retângulo, e dois desses triângulos têm o ângulo reto e o ângulo do sol em comum: são semelhantes pelo caso AA.",
+      "Daí sai a proporção: altura do objeto está para a sombra dele assim como a altura do outro está para a sombra do outro. Com um poste de 3 m fazendo sombra de 4 m e um prédio fazendo sombra de 24 m ao mesmo tempo, tem-se 3/4 = h/24, e o prédio mede 18 m.",
+      "A palavra AO MESMO TEMPO não é enfeite: as sombras mudam de comprimento ao longo do dia, e medir uma de manhã e outra à tarde arruinaria a conta. Qualquer problema desse tipo precisa declarar que as duas medidas são simultâneas — e se não declarar, está mal enunciado.",
+      "A mesma ideia sustenta escala. Uma maquete em escala 1:50 é uma redução com razão 1/50: cada medida real dividida por 50. Um prédio de 30 m vira 0,6 m na maquete, ou 60 cm. Num mapa 1:100 000, cada centímetro do papel vale 100 000 cm de mundo, que são 1 km.",
+      "Em qualquer desses problemas o roteiro é o mesmo: identificar os dois triângulos semelhantes (ou as duas medidas correspondentes), montar a proporção com os pares certos e resolver. E, no fim, conferir se o resultado tem tamanho plausível — um prédio de 1,8 m denuncia um zero perdido no caminho."
+    ],
+    "destaque": "Objeto e sombra formam triângulos semelhantes, porque o sol chega no mesmo ângulo em todos ao mesmo tempo.",
+    "imagem": "sm9-ideia-sombra"
+  },
+  "resolvido": {
+    "enunciado": "Um poste de 3 m projeta uma sombra de 4 m. No mesmo instante, um prédio projeta sombra de 24 m. Qual é a altura do prédio?",
+    "imagem": "sm9-res-sombra",
+    "passos": [
+      {
+        "titulo": "Reconheça os dois triângulos",
+        "explicacao": "Cada objeto com sua sombra forma um triângulo retângulo, e o ângulo do sol é o mesmo nos dois.",
+        "conta": "semelhantes pelo caso AA"
+      },
+      {
+        "titulo": "Monte a proporção",
+        "explicacao": "Altura está para sombra do mesmo jeito nos dois triângulos.",
+        "conta": "3/4 = h/24"
+      },
+      {
+        "titulo": "Multiplique cruzado",
+        "explicacao": "É a regra de três, com a incógnita de um lado só.",
+        "conta": "4h = 72"
+      },
+      {
+        "titulo": "Resolva e confira o tamanho",
+        "explicacao": "Um prédio de 18 metros é um resultado plausível, com uns seis andares.",
+        "conta": "h = 18 m"
+      }
+    ],
+    "fecho": "Repare no atalho: a sombra do prédio é 6 vezes a do poste, então a altura também é — 3 × 6 = 18."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma vara de 2 m fincada no chão projeta sombra de 3 m. No mesmo instante, uma árvore projeta sombra de 12 m. Qual é a altura da árvore, em metros? Digite apenas o número.",
+      "imagem": "sm9-q-arvore",
+      "dica": "Monte a proporção entre altura e sombra, com os dois triângulos no mesmo sentido.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 sai de inverter a proporção: 3/2 = h/12. A vara é mais BAIXA que a sombra dela, então a árvore também tem de ser mais baixa que os 12 m da sombra."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 2 × 12, multiplicando a altura da vara pela sombra da árvore sem dividir pela sombra da vara. Falta o último passo da regra de três."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a razão entre as duas sombras, 12 ÷ 3 — dobro do que ela é. Na verdade 12 ÷ 3 dá 4, e a altura é 2 × 4 = 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare as sombras",
+          "explicacao": "A sombra da árvore é um múltiplo da sombra da vara.",
+          "conta": "12 / 3 = 4"
+        },
+        {
+          "titulo": "Aplique a mesma razão à altura",
+          "explicacao": "Os dois triângulos são semelhantes, então tudo cresce pelo mesmo fator.",
+          "conta": "2 × 4 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma maquete é feita na escala 1:50. Um prédio real tem 30 m de altura. Qual é a altura dele na maquete, em centímetros? Digite apenas o número.",
+      "imagem": "sm9-q-maquete",
+      "dica": "Passe a altura real para centímetros antes de dividir pela escala.",
+      "formato": "numero",
+      "resposta": 60,
+      "errosComuns": [
+        {
+          "resposta": "0,6",
+          "porque": "0,6 é a altura em METROS, e o passo do meio está certo. A pergunta pede centímetros, e 0,6 m são 60 cm."
+        },
+        {
+          "resposta": "1500",
+          "porque": "1500 é 30 × 50, multiplicando pela escala em vez de dividir. A maquete é uma REDUÇÃO: ela tem de sair menor que o prédio."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é o número da escala, e não uma medida. Ele diz por quanto dividir, e a conta é 3000 cm ÷ 50."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Passe para centímetros",
+          "explicacao": "Cada metro tem cem centímetros.",
+          "conta": "30 m = 3 000 cm"
+        },
+        {
+          "titulo": "Divida pela escala",
+          "explicacao": "A escala 1:50 reduz cada medida real cinquenta vezes.",
+          "conta": "3 000 / 50 = 60 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num mapa de escala 1:100 000, dois pontos estão a 3 cm um do outro. Qual é a distância real entre eles, em quilômetros? Digite apenas o número.",
+      "imagem": "sm9-q-mapa",
+      "dica": "Cada centímetro do mapa vale 100 000 cm de verdade. Depois passe para quilômetros.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "300000",
+          "porque": "300 000 é a distância em CENTÍMETROS, que é o passo do meio. Cada quilômetro tem 100 000 cm, então são 3 km."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 sai de dividir por 10 000 em vez de 100 000, ou seja, de perder um zero na passagem de centímetros para quilômetros."
+        },
+        {
+          "resposta": "0,03",
+          "porque": "0,03 sai de dividir pela escala em vez de multiplicar. No mapa a medida já está reduzida: para achar a real, ela é ampliada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a escala",
+          "explicacao": "Cada centímetro do mapa corresponde a cem mil centímetros reais.",
+          "conta": "3 × 100 000 = 300 000 cm"
+        },
+        {
+          "titulo": "Passe para quilômetros",
+          "explicacao": "Um quilômetro tem mil metros, ou seja, cem mil centímetros.",
+          "conta": "300 000 / 100 000 = 3 km"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que o truque da sombra funciona?",
+      "imagem": "sm9-q-por-que-sombra",
+      "dica": "Pense no ângulo com que os raios de sol chegam em dois objetos ao mesmo tempo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o sol chega no mesmo ângulo nos dois, e os triângulos ficam semelhantes" },
+        { "rotulo": "B", "texto": "Porque a sombra é sempre igual à altura do objeto" },
+        { "rotulo": "C", "texto": "Porque todo objeto faz sombra do mesmo tamanho" },
+        { "rotulo": "D", "texto": "Porque a luz do sol é sempre vertical" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a sombra é sempre igual à altura do objeto",
+          "porque": "Isso só acontece num instante específico do dia. No exemplo do poste, a altura é 3 e a sombra é 4 — e o método funciona do mesmo jeito."
+        },
+        {
+          "resposta": "Porque todo objeto faz sombra do mesmo tamanho",
+          "porque": "As sombras têm tamanhos bem diferentes, e é justamente a comparação entre elas que dá a resposta. O que é igual é o ÂNGULO, não o comprimento."
+        },
+        {
+          "resposta": "Porque a luz do sol é sempre vertical",
+          "porque": "Se fosse vertical não haveria sombra nenhuma para medir. O sol chega inclinado, e é a inclinação repetida em todos os objetos que cria a semelhança."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache os ângulos iguais",
+          "explicacao": "Os dois triângulos têm o ângulo reto do chão e o ângulo do sol.",
+          "conta": "dois ângulos iguais"
+        },
+        {
+          "titulo": "Aplique o caso AA",
+          "explicacao": "Com dois ângulos iguais, os triângulos são semelhantes.",
+          "conta": "altura/sombra é a mesma razão"
+        }
+      ]
+    }
+  ]
+}

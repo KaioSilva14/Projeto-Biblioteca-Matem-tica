@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="177" height="30" viewBox="0 0 177 30" role="img" aria-label="testes: 512 passando">
+<title>testes: 512 passando</title>
+<rect x="0.5" y="0.5" width="176" height="29" rx="3.5" fill="#2b2622" stroke="#3f3a36"/>
+<rect x="67" y="1" width="109" height="28" fill="#383330"/>
+<line x1="67" y1="1" x2="67" y2="29" stroke="#3f3a36"/>
+<text x="33.5" y="20" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#8a8179">testes</text>
+<text x="122" y="20" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" font-weight="500" fill="#f7f5f0">512 passando</text>
+</svg>

@@ -1,0 +1,12 @@
+# Biblioteca Matemática
+#
+# O site inteiro é público e pode ser indexado: não há área restrita,
+# não há cadastro e não há página gerada por usuário.
+
+User-agent: *
+Allow: /
+
+# O 404 é servido com conteúdo útil, mas não deve entrar no índice.
+Disallow: /404.html
+
+Sitemap: https://projeto-biblioteca-matem-tica.vercel.app/sitemap.xml

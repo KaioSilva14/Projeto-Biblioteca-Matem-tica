@@ -1,0 +1,189 @@
+{
+  "id": "lado-que-falta",
+  "numero": 3,
+  "titulo": "Achar o lado que falta",
+  "pergunta": "Como a proporção devolve uma medida desconhecida?",
+  "ideia": {
+    "paragrafos": [
+      "Provada a semelhança, ela vira uma máquina de calcular medidas. Se os lados correspondentes são proporcionais, basta montar a proporção com três medidas conhecidas e a quarta sai — é a regra de três do 7º ano, agora com geometria por trás.",
+      "O cuidado que decide tudo é MONTAR A PROPORÇÃO COM OS PARES CERTOS. Cada fração precisa comparar um lado de um triângulo com o lado CORRESPONDENTE do outro, e as duas frações precisam estar no mesmo sentido: menor sobre maior nas duas, ou maior sobre menor nas duas. Misturar os sentidos inverte a resposta.",
+      "Num exemplo: dois triângulos semelhantes, o menor com lados 3 e 4, o maior com o lado correspondente ao 3 medindo 6. Montando 3/6 = 4/x, chega-se a x = 8. Também serve escrever 6/3 = x/4, que dá o mesmo. O que não serve é 3/6 = x/4, que mistura os sentidos e daria 2.",
+      "Há um jeito ainda mais rápido quando a razão é fácil de ver: calcule k primeiro e depois multiplique. Aqui k é 2, então todo lado do menor vira o dobro no maior, e o 4 vira 8 direto. Em prova, achar k antes costuma economizar erro, porque uma conta só é feita duas vezes com o mesmo número.",
+      "Além do caso AA, dois outros garantem semelhança quando os ângulos não estão à mão. No caso LLL, os três lados são proporcionais — e daí os ângulos saem iguais de graça. No caso LAL, dois lados são proporcionais e o ÂNGULO ENTRE ELES é igual; o \"entre eles\" é a mesma exigência que já valia para congruência no 8º ano, e pelo mesmo motivo.",
+      "Ao responder, vale sempre conferir se o resultado faz sentido de olho: se a razão é maior que 1, o lado procurado no triângulo grande tem de sair maior que o correspondente no pequeno. Uma resposta que sai menor denuncia proporção montada ao contrário."
+    ],
+    "destaque": "Monte cada fração comparando lados CORRESPONDENTES, e as duas no mesmo sentido. Inverter uma delas inverte a resposta.",
+    "imagem": "sm9-ideia-proporcao"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos são semelhantes. No menor, dois lados medem 3 e 4. No maior, o lado correspondente ao 3 mede 6. Quanto mede o lado correspondente ao 4?",
+    "imagem": "sm9-res-lado-8",
+    "passos": [
+      {
+        "titulo": "Case os lados",
+        "explicacao": "O 3 corresponde ao 6, e o 4 corresponde ao lado procurado.",
+        "conta": "3↔6 · 4↔x"
+      },
+      {
+        "titulo": "Monte a proporção",
+        "explicacao": "As duas frações no mesmo sentido: menor sobre maior nas duas.",
+        "conta": "3/6 = 4/x"
+      },
+      {
+        "titulo": "Multiplique cruzado",
+        "explicacao": "É a regra de três do 7º ano, sem nada de novo.",
+        "conta": "3x = 24"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Uma equação do 1º grau fecha a conta.",
+        "conta": "x = 8"
+      }
+    ],
+    "fecho": "Pelo atalho: a razão é 2, e o dobro de 4 é 8. Os dois caminhos têm de concordar sempre."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Dois triângulos são semelhantes. Um lado do menor mede 4 e o lado correspondente do maior mede 10. Outro lado do menor mede 6. Quanto mede o lado correspondente a ele no maior? Digite apenas o número.",
+      "imagem": "sm9-q-lado-15",
+      "dica": "Ache a razão dividindo 10 por 4, e depois multiplique o 6 por ela.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 sai de dobrar o 6, como se a razão fosse 2. Ela é 10 ÷ 4 = 2,5 — e 6 × 2,5 dá 15."
+        },
+        {
+          "resposta": "2,4",
+          "porque": "2,4 vem de montar a proporção ao contrário: 4/10 = x/6. O sentido tem de ser o mesmo nas duas frações, e o lado do triângulo MAIOR sai maior."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 4 × 6, multiplicando dois lados do mesmo triângulo. A conta certa compara lados CORRESPONDENTES, de triângulos diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a razão",
+          "explicacao": "Dividindo o lado do maior pelo lado correspondente do menor.",
+          "conta": "10 / 4 = 2,5"
+        },
+        {
+          "titulo": "Aplique ao outro lado",
+          "explicacao": "Todos os lados crescem pelo mesmo fator.",
+          "conta": "6 × 2,5 = 15"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A razão de semelhança de um triângulo para outro maior é 3. Um lado do menor mede 7. Quanto mede o lado correspondente no maior? Digite apenas o número.",
+      "imagem": "sm9-q-aplica-razao",
+      "dica": "A razão é o fator que multiplica cada lado do menor.",
+      "formato": "numero",
+      "resposta": 21,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é 7 + 3, somando a razão. Ela é um fator de MULTIPLICAÇÃO: se fosse soma, lados diferentes cresceriam em proporções diferentes e a forma mudaria."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é 7 − 3. O triângulo maior não pode ter lado menor que o do pequeno — esse resultado já denuncia a conta trocada."
+        },
+        {
+          "resposta": "2,33",
+          "porque": "2,33 é 7 ÷ 3, dividindo em vez de multiplicar. Dividir pela razão é o caminho do maior para o menor, e aqui o percurso é o contrário."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o que a razão faz",
+          "explicacao": "Ela multiplica cada lado do menor para produzir o do maior.",
+          "conta": "lado maior = 3 × lado menor"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Aplicando a razão ao lado dado.",
+          "conta": "7 × 3 = 21"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num par de triângulos semelhantes, o lado a corresponde ao lado d, e o lado b corresponde ao lado e. Qual proporção está montada corretamente?",
+      "imagem": "sm9-q-montar-certo",
+      "dica": "Cada fração compara lados correspondentes, e as duas no mesmo sentido.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "a/d = b/e" },
+        { "rotulo": "B", "texto": "a/b = e/d" },
+        { "rotulo": "C", "texto": "a/d = e/b" },
+        { "rotulo": "D", "texto": "a/e = b/d" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "a/b = e/d",
+          "porque": "A primeira fração compara dois lados do MESMO triângulo, e a segunda inverte o sentido. Testando com 3, 4, 6 e 8 dá 0,75 de um lado e 1,33 do outro."
+        },
+        {
+          "resposta": "a/d = e/b",
+          "porque": "A primeira está certa e a segunda está invertida. Com 3, 4, 6 e 8: 3/6 dá 0,5 e 8/4 dá 2, e a igualdade não fecha."
+        },
+        {
+          "resposta": "a/e = b/d",
+          "porque": "As duas frações cruzam lados que não se correspondem. Com 3, 4, 6 e 8 sai 0,375 contra 0,67."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Case os pares",
+          "explicacao": "O enunciado já diz quem corresponde a quem.",
+          "conta": "a↔d · b↔e"
+        },
+        {
+          "titulo": "Escreva no mesmo sentido",
+          "explicacao": "As duas frações vão do primeiro triângulo para o segundo.",
+          "conta": "a/d = b/e"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Em dois triângulos semelhantes vale 4/3 = x/9. Quanto vale x? Digite apenas o número.",
+      "imagem": "sm9-q-proporcao-direta",
+      "dica": "Multiplique cruzado e resolva a equação do 1º grau.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "6,75",
+          "porque": "6,75 sai de trocar os lados na multiplicação cruzada: 3 × 9 ÷ 4. O certo é 4 × 9 ÷ 3, porque o x está no numerador do mesmo lado que o 4."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é 3 × 9, multiplicando os dois denominadores e esquecendo de dividir. A multiplicação cruzada dá 3x = 36."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 4 × 9, que é o passo do meio. Ainda falta dividir por 3, que é o que acompanha o x do outro lado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique cruzado",
+          "explicacao": "Numerador de um lado vezes denominador do outro, dos dois jeitos.",
+          "conta": "3x = 4 × 9"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Dividindo os dois lados por 3, que é o que acompanha o x.",
+          "conta": "3x = 36 → x = 12"
+        }
+      ]
+    }
+  ]
+}

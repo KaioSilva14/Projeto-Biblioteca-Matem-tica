@@ -1,0 +1,195 @@
+{
+  "id": "por-que-funciona",
+  "numero": 2,
+  "titulo": "Por que a razão só depende do ângulo",
+  "pergunta": "Como uma tabela pode servir para triângulos de qualquer tamanho?",
+  "ideia": {
+    "paragrafos": [
+      "Há uma pergunta que precisa ser feita antes de a matéria continuar, e quase nunca é: por que existe uma tabela de senos? Se o seno depende do triângulo, cada triângulo teria o seu, e nenhuma tabela daria conta. A tabela só faz sentido porque o seno depende do ÂNGULO e de mais nada.",
+      "E a razão disso é a matéria 6 deste ano: semelhança. Dois triângulos retângulos com o mesmo ângulo agudo têm, além dele, o ângulo reto — dois ângulos iguais, caso AA, triângulos semelhantes. E em triângulos semelhantes os lados correspondentes são proporcionais.",
+      "Proporcionais significa que todos os lados de um são k vezes os do outro. Então, ao dividir o oposto pela hipotenusa, o k aparece em cima e embaixo e SE CANCELA. A razão sai igual nos dois, por maior que seja a diferença de tamanho entre eles.",
+      "Num exemplo: o triângulo 3-4-5 e o triângulo 30-40-50 têm exatamente os mesmos ângulos. O seno do ângulo menor é 3/5 no primeiro e 30/50 no segundo — e 30/50 simplifica para 3/5. Mesmo número, triângulos dez vezes diferentes.",
+      "É por isso que um único valor tabelado serve para o mundo inteiro. Sen 30° é 0,5 num triângulo de centímetros, num de metros e num que liga duas estrelas. O ângulo carrega toda a informação; o tamanho não entra.",
+      "E daí vem o uso prático da matéria: conhecendo o ângulo e UM lado, todos os outros saem. É esse o mecanismo que mede a altura de uma montanha com um teodolito, ou a distância de um navio à costa — medidas que ninguém alcança com trena."
+    ],
+    "destaque": "Dois triângulos com o mesmo ângulo são semelhantes, e a razão de semelhança se cancela na divisão. Por isso a tabela existe.",
+    "imagem": "tr9-ideia-mesmo-angulo"
+  },
+  "resolvido": {
+    "enunciado": "Mostre que o seno do ângulo menor é o mesmo no triângulo 3-4-5 e no triângulo 30-40-50.",
+    "imagem": "tr9-res-cancela",
+    "passos": [
+      {
+        "titulo": "Confirme a semelhança",
+        "explicacao": "Os dois têm o ângulo reto e o mesmo ângulo agudo, então o caso AA se aplica.",
+        "conta": "razão de semelhança 10"
+      },
+      {
+        "titulo": "Escreva o seno no menor",
+        "explicacao": "O oposto ao ângulo menor é 3, e a hipotenusa é 5.",
+        "conta": "3 / 5 = 0,6"
+      },
+      {
+        "titulo": "Escreva o seno no maior",
+        "explicacao": "Os dois lados correspondentes cresceram pelo mesmo fator 10.",
+        "conta": "30 / 50 = 0,6"
+      },
+      {
+        "titulo": "Veja o fator sumir",
+        "explicacao": "O 10 aparece em cima e embaixo da fração, e some na simplificação.",
+        "conta": "(3×10)/(5×10) = 3/5"
+      }
+    ],
+    "fecho": "É o cancelamento do fator que torna a tabela possível: o tamanho do triângulo não entra na conta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Por que o seno de um ângulo é o mesmo em todos os triângulos retângulos que têm esse ângulo?",
+      "imagem": "tr9-q-por-que-igual",
+      "dica": "Pense no que dois triângulos com o mesmo ângulo agudo têm em comum, além dele.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque eles são semelhantes, e a razão de semelhança se cancela na divisão" },
+        { "rotulo": "B", "texto": "Porque todos os triângulos retângulos têm os mesmos lados" },
+        { "rotulo": "C", "texto": "Porque o seno é sempre 0,5" },
+        { "rotulo": "D", "texto": "Porque a hipotenusa é sempre 1" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque todos os triângulos retângulos têm os mesmos lados",
+          "porque": "Eles têm lados completamente diferentes: 3-4-5 e 5-12-13 são os dois retângulos e não se parecem. O que o ângulo garante é a PROPORÇÃO, e não a igualdade."
+        },
+        {
+          "resposta": "Porque o seno é sempre 0,5",
+          "porque": "0,5 é o seno de 30°, e de mais nenhum ângulo agudo. Cada ângulo tem o seu valor, e é essa variedade que a tabela registra."
+        },
+        {
+          "resposta": "Porque a hipotenusa é sempre 1",
+          "porque": "Ela pode ter qualquer medida. Existe uma construção em que a hipotenusa vale 1 e o seno vira o próprio cateto, mas ela é uma escolha de desenho, e não uma exigência."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache os dois ângulos iguais",
+          "explicacao": "O ângulo agudo dado e o ângulo reto, que os dois têm.",
+          "conta": "caso AA"
+        },
+        {
+          "titulo": "Veja o fator cancelar",
+          "explicacao": "Todos os lados de um são k vezes os do outro, e o k some na fração.",
+          "conta": "(3k)/(5k) = 3/5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num triângulo retângulo, o seno de um ângulo vale 0,6. Se a hipotenusa mede 10, quanto mede o cateto oposto a esse ângulo? Digite apenas o número.",
+      "imagem": "tr9-q-oposto-6",
+      "dica": "O seno é o oposto dividido pela hipotenusa. Aqui o oposto é a incógnita.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "16,67",
+          "porque": "16,67 é 10 ÷ 0,6, dividindo quando era preciso multiplicar. O cateto oposto é sempre MENOR que a hipotenusa, e este resultado já passou dela."
+        },
+        {
+          "resposta": "0,06",
+          "porque": "0,06 é 0,6 ÷ 10. O seno é o oposto SOBRE a hipotenusa, então o oposto sai multiplicando os dois lados por 10."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o cateto ADJACENTE deste triângulo, que corresponde ao cosseno 0,8. A pergunta é pelo oposto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a razão",
+          "explicacao": "Com o cateto oposto como incógnita.",
+          "conta": "0,6 = x / 10"
+        },
+        {
+          "titulo": "Isole",
+          "explicacao": "Multiplicando os dois lados pela hipotenusa.",
+          "conta": "x = 0,6 × 10 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Dois triângulos retângulos têm um ângulo agudo de 40° cada um, mas tamanhos bem diferentes. O que se pode afirmar?",
+      "imagem": "tr9-q-dois-tamanhos",
+      "dica": "Compare os ângulos dos dois e lembre do caso AA.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que eles são semelhantes e têm o mesmo seno, cosseno e tangente de 40°" },
+        { "rotulo": "B", "texto": "Que eles têm os mesmos lados" },
+        { "rotulo": "C", "texto": "Que o maior tem seno maior" },
+        { "rotulo": "D", "texto": "Que nada se pode afirmar sem conhecer os lados" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que eles têm os mesmos lados",
+          "porque": "Os tamanhos são diferentes, então os lados também são. O que coincide são as RAZÕES entre os lados, e não as medidas."
+        },
+        {
+          "resposta": "Que o maior tem seno maior",
+          "porque": "O seno não cresce com o tamanho: no 3-4-5 e no 30-40-50 ele vale 0,6 nos dois. O que faz o seno crescer é o ÂNGULO aumentar, e aqui ele é o mesmo."
+        },
+        {
+          "resposta": "Que nada se pode afirmar sem conhecer os lados",
+          "porque": "O ângulo agudo mais o ângulo reto já fecham o caso AA, e a semelhança está garantida. É exatamente por isso que a tabela trigonométrica existe."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os ângulos iguais",
+          "explicacao": "Os 40° e o ângulo reto, que os dois triângulos têm.",
+          "conta": "dois ângulos iguais"
+        },
+        {
+          "titulo": "Conclua sobre as razões",
+          "explicacao": "Com lados proporcionais, cada razão dá o mesmo nos dois.",
+          "conta": "mesmas três razões"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo retângulo, o seno de um ângulo vale 0,6 e a hipotenusa mede 20. Quanto mede o cateto oposto a esse ângulo? Digite apenas o número.",
+      "imagem": "tr9-q-oposto-12",
+      "dica": "A mesma razão de antes, com outra hipotenusa. Multiplique.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o oposto quando a hipotenusa vale 10. Com a hipotenusa dobrada, o oposto também dobra — é a proporcionalidade que a lição trata."
+        },
+        {
+          "resposta": "33,33",
+          "porque": "33,33 é 20 ÷ 0,6, dividindo em vez de multiplicar. O cateto oposto é menor que a hipotenusa, e este resultado já passou dela."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é o cateto ADJACENTE, que sai do cosseno 0,8. A pergunta é pelo lado de frente para o ângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a razão",
+          "explicacao": "O seno continua o mesmo, porque o ângulo não mudou.",
+          "conta": "0,6 = x / 20"
+        },
+        {
+          "titulo": "Isole",
+          "explicacao": "Multiplicando os dois lados pela hipotenusa.",
+          "conta": "x = 0,6 × 20 = 12"
+        }
+      ]
+    }
+  ]
+}

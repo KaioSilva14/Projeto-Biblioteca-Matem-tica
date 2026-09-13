@@ -1,0 +1,41 @@
+{
+  "id": "irracionais",
+  "titulo": "Números irracionais e reais",
+  "ano": 9,
+  "descricao": "O 8º ano mostrou que existem números que nenhuma fração escreve. Aqui isso deixa de ser uma afirmação e passa a ser PROVADO — a lição 1 traz a primeira demonstração por absurdo do Ensino Fundamental, a mesma que está nos Elementos de Euclides. E o resto da matéria é aprender a trabalhar com números que você nunca vai conseguir escrever por inteiro.",
+  "pergunta": "Como calcular com um número cujas casas decimais não acabam nunca?",
+  "videos": [
+    {
+      "id": "u8vkTEk1Gsc",
+      "titulo": "Demonstração de que a raiz quadrada de 2 é um número irracional",
+      "canal": "Khan Academy Brasil",
+      "descricao": "A demonstração da lição 1, passo a passo e sem pressa. Serve para quem quer ouvir o argumento uma segunda vez."
+    },
+    {
+      "id": "_ufOVRYt4oc",
+      "titulo": "AFINAL, POR QUE a Raiz Quadrada de 2 é IRRACIONAL?",
+      "canal": "Tem Ciência",
+      "descricao": "Conta a história por trás da descoberta antes de provar. Bom para entender por que isso abalou os gregos."
+    },
+    {
+      "id": "T6HMEW2ivUI",
+      "titulo": "Por que raiz de 2 é irracional ? (DEMONSTRAÇÃO)",
+      "canal": "Matheus Konlosi",
+      "descricao": "Outra passagem pela mesma demonstração, com notação de quadro. Vale se o passo do número par ainda estiver confuso."
+    },
+    {
+      "id": "LVZi7u0nnrU",
+      "titulo": "A irracionalidade da raiz quadrada de 2",
+      "canal": "Marcelo Furtado",
+      "descricao": "Mais curto e direto ao argumento. Serve como revisão antes da prova."
+    }
+  ],
+  "licoes": [
+    { "id": "prova-raiz2", "arquivo": "/dados/licoes/irracionais/prova-raiz2.json" },
+    { "id": "existe", "arquivo": "/dados/licoes/irracionais/existe.json" },
+    { "id": "aproximar", "arquivo": "/dados/licoes/irracionais/aproximar.json" },
+    { "id": "comparar", "arquivo": "/dados/licoes/irracionais/comparar.json" },
+    { "id": "operar", "arquivo": "/dados/licoes/irracionais/operar.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/irracionais/problemas.json" }
+  ]
+}

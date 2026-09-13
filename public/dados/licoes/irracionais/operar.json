@@ -1,0 +1,200 @@
+{
+  "id": "operar",
+  "numero": 5,
+  "titulo": "Quando o irracional some",
+  "pergunta": "Somando ou multiplicando irracionais, o resultado é sempre irracional?",
+  "ideia": {
+    "paragrafos": [
+      "Com os inteiros vale uma regra confortável: somando dois inteiros sai inteiro, multiplicando também. Com os racionais, idem. É natural esperar que os irracionais se comportem do mesmo jeito — e essa é justamente a expectativa que esta lição desfaz.",
+      "Comece pelo caso mais simples. √2 é irracional. Multiplicando √2 por √2 sai 2, pela própria definição de raiz quadrada: ela é o número que multiplicado por si mesmo devolve o radicando. E 2 é inteiro, portanto racional. Dois irracionais se multiplicaram e o resultado deixou de ser irracional.",
+      "Com a soma acontece o mesmo. √2 é irracional, e −√2 também. Somando os dois sai 0, que é racional — e nem precisa ser um caso tão extremo: (1 + √2) + (1 − √2) dá 2, e as duas parcelas são irracionais.",
+      "A conclusão é que os irracionais NÃO são fechados para soma nem para multiplicação. \"Fechado\" é o termo técnico para o que os inteiros têm: a operação entre dois elementos do conjunto nunca sai dele. Entre os irracionais, ela pode sair.",
+      "Isso não significa que o resultado seja imprevisível. Vale uma regra útil: racional mais irracional dá SEMPRE irracional. Se 2 + √2 fosse racional, chamando-o de r teríamos √2 = r − 2, que é diferença de racionais e portanto racional — contradizendo a lição 1. O mesmo argumento vale para racional (diferente de zero) vezes irracional.",
+      "Então o cuidado é com as operações entre DOIS irracionais: aí o resultado pode ser qualquer coisa, e só a conta decide. √2 × √8 dá √16, que é 4; já √2 × √3 dá √6, que continua irracional. Não há atalho — é preciso fazer."
+    ],
+    "destaque": "Racional + irracional é sempre irracional. Mas irracional com irracional pode dar racional: √2 × √2 = 2.",
+    "imagem": "ir9-ideia-fechamento"
+  },
+  "resolvido": {
+    "enunciado": "Quanto vale √2 × √8, e o resultado é racional ou irracional?",
+    "imagem": "ir9-res-raiz2-raiz8",
+    "passos": [
+      {
+        "titulo": "Junte as raízes",
+        "explicacao": "O produto de duas raízes quadradas é a raiz do produto.",
+        "conta": "√2 × √8 = √(2 × 8)"
+      },
+      {
+        "titulo": "Multiplique dentro",
+        "explicacao": "Resolvendo o produto sob o sinal de raiz.",
+        "conta": "√16"
+      },
+      {
+        "titulo": "Tire a raiz",
+        "explicacao": "16 é quadrado perfeito, então a raiz sai inteira.",
+        "conta": "√16 = 4"
+      },
+      {
+        "titulo": "Classifique",
+        "explicacao": "O resultado é inteiro, e todo inteiro é racional.",
+        "conta": "4 é racional"
+      }
+    ],
+    "fecho": "Dois irracionais se multiplicaram e o resultado é um inteiro — o que os inteiros nunca fazem ao contrário."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale √3 × √12? Digite apenas o número.",
+      "imagem": "ir9-q-raiz3-raiz12",
+      "dica": "Junte as duas raízes numa só, multiplique dentro e veja se o resultado é quadrado perfeito.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 é 3 + 12, somando os radicandos. Quem se multiplica são as raízes, então o que vai para dentro é o PRODUTO: 3 × 12 = 36."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é o produto dos radicandos, que fica DENTRO da raiz. Falta o último passo: √36 = 6."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 sai de somar as raízes aproximadas ou de multiplicar 3 por 3. A conta é √3 × √12 = √36, que dá 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte numa raiz só",
+          "explicacao": "O produto de raízes de mesmo índice é a raiz do produto.",
+          "conta": "√3 × √12 = √36"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "36 é quadrado perfeito, porque 6 × 6 = 36.",
+          "conta": "√36 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O número 2 + √2 é racional ou irracional?",
+      "imagem": "ir9-q-racional-mais-irracional",
+      "dica": "Suponha que fosse racional e veja se isso obrigaria √2 a ser racional também.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Irracional: racional somado a irracional dá sempre irracional" },
+        { "rotulo": "B", "texto": "Racional, porque o 2 é racional" },
+        { "rotulo": "C", "texto": "Racional, porque a soma arredonda as casas" },
+        { "rotulo": "D", "texto": "Depende do valor aproximado usado para √2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Racional, porque o 2 é racional",
+          "porque": "Uma parcela racional não torna a soma racional: ela só desloca o número. Se 2 + √2 fosse racional, subtrair 2 daria √2 racional — o que a lição 1 provou ser impossível."
+        },
+        {
+          "resposta": "Racional, porque a soma arredonda as casas",
+          "porque": "Somar 2 não mexe em nenhuma casa decimal: 2 + 1,4142... continua 3,4142..., com as mesmas casas infinitas e sem período. A parte inteira muda, a decimal não."
+        },
+        {
+          "resposta": "Depende do valor aproximado usado para √2",
+          "porque": "A aproximação usada não muda o número: √2 é o que é, e as contas com aproximações são só contas aproximadas. A classificação vale para o número exato."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Suponha que fosse racional",
+          "explicacao": "Chamando a soma de r, um número racional.",
+          "conta": "2 + √2 = r"
+        },
+        {
+          "titulo": "Isole a raiz",
+          "explicacao": "Subtraindo 2 dos dois lados, e diferença de racionais é racional.",
+          "conta": "√2 = r − 2 → racional ✗"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Some (1 + √2) com (1 − √2). Digite apenas o número do resultado.",
+      "imagem": "ir9-q-soma-some",
+      "dica": "Junte as partes racionais de um lado e as raízes do outro, e veja o que acontece com elas.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "0",
+          "porque": "0 sai de somar só as raízes, que de fato se cancelam. Mas as partes racionais também se somam: 1 + 1 dá 2, e é isso que sobra."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 conta a parte racional de uma só das parcelas. As duas têm um 1, e os dois entram na soma."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 sai de somar tudo como se as raízes também se acumulassem. Uma delas é positiva e a outra negativa, então elas se cancelam em vez de somar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Junte as partes racionais",
+          "explicacao": "Cada uma das duas parcelas traz um 1 fora da raiz.",
+          "conta": "1 + 1 = 2"
+        },
+        {
+          "titulo": "Junte as raízes",
+          "explicacao": "Uma é o oposto da outra, então elas se cancelam.",
+          "conta": "√2 − √2 = 0"
+        },
+        {
+          "titulo": "Some os dois resultados",
+          "explicacao": "As raízes sumiram, e sobra apenas a parte racional da conta.",
+          "conta": "2 + 0 = 2"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O conjunto dos números irracionais é fechado para a multiplicação?",
+      "imagem": "ir9-q-fechado",
+      "dica": "Fechado significa que o resultado nunca sai do conjunto. Procure um contraexemplo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: √2 × √2 dá 2, que é racional" },
+        { "rotulo": "B", "texto": "Sim: produto de irracionais é sempre irracional" },
+        { "rotulo": "C", "texto": "Sim, desde que os dois sejam raízes" },
+        { "rotulo": "D", "texto": "Não, porque irracional não pode ser multiplicado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim: produto de irracionais é sempre irracional",
+          "porque": "Um contraexemplo derruba isso: √2 × √2 = 2, que é racional. Basta um caso para uma afirmação do tipo \"sempre\" cair."
+        },
+        {
+          "resposta": "Sim, desde que os dois sejam raízes",
+          "porque": "√2 e √2 são raízes, e o produto delas dá 2. A ressalva não salva a afirmação: o contraexemplo é feito exatamente de duas raízes."
+        },
+        {
+          "resposta": "Não, porque irracional não pode ser multiplicado",
+          "porque": "Pode, e a matéria faz isso o tempo todo: √2 × √3 = √6, √3 × √12 = 6. A resposta é \"não\" pelo motivo certo — o resultado às vezes sai do conjunto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que fechado significa",
+          "explicacao": "A operação entre dois elementos nunca produz algo de fora do conjunto.",
+          "conta": "resultado sempre dentro"
+        },
+        {
+          "titulo": "Procure um contraexemplo",
+          "explicacao": "Dois irracionais cujo produto é racional.",
+          "conta": "√2 × √2 = 2"
+        }
+      ]
+    }
+  ]
+}

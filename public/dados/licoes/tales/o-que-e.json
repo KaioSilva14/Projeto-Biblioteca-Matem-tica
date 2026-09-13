@@ -1,0 +1,195 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "O feixe e a proporção",
+  "pergunta": "O que retas paralelas fazem com quem as atravessa?",
+  "ideia": {
+    "paragrafos": [
+      "Trace três retas paralelas e corte-as com duas retas quaisquer, chamadas transversais. Cada transversal fica dividida em dois pedaços pelos pontos de encontro. O Teorema de Tales afirma que esses pedaços estão na MESMA PROPORÇÃO nas duas transversais — mesmo que as duas atravessem o feixe em inclinações completamente diferentes.",
+      "Repare no que ele NÃO diz. Ele não diz que os segmentos são iguais nas duas transversais: uma transversal mais inclinada tem pedaços mais compridos, e isso é visível no desenho. O que se repete é a RAZÃO entre os pedaços. Se numa transversal os segmentos são 4 e 6, na outra podem ser 6 e 9 — números diferentes, mesma razão de 2 para 3.",
+      "A distância entre as paralelas é quem manda. Se a paralela do meio está mais perto da de cima, o primeiro pedaço é o menor em TODAS as transversais ao mesmo tempo — não há como uma transversal ter o primeiro pedaço maior e outra ter menor. É essa impossibilidade que o teorema captura.",
+      "Por que vale? A justificativa completa é de um curso mais adiante, mas a intuição é acessível: o feixe funciona como uma régua projetada. Aproximar ou afastar as paralelas muda todos os pedaços de todas as transversais na mesma medida relativa, porque o que separa dois pontos de encontro numa transversal é sempre a mesma faixa entre as mesmas duas paralelas.",
+      "Uma notação que ajuda: se as paralelas são r, s e t, e uma transversal as encontra em A, B e C, os segmentos são AB e BC. Na outra transversal, com pontos A', B' e C', os segmentos são A'B' e B'C'. O teorema escreve-se AB/BC = A'B'/B'C' — e ele continua valendo com quatro, cinco ou quantas paralelas houver.",
+      "Tales de Mileto viveu no século VI antes de Cristo, e a lenda diz que ele mediu a altura da pirâmide de Quéops pela sombra. Seja verdade ou não, o método é o mesmo da matéria anterior — e este teorema e a semelhança de triângulos são, no fundo, duas caras do mesmo fato."
+    ],
+    "destaque": "Um feixe de paralelas deixa segmentos PROPORCIONAIS nas transversais — proporcionais, e não iguais.",
+    "imagem": "tl9-ideia-feixe"
+  },
+  "resolvido": {
+    "enunciado": "Três paralelas cortam duas transversais. Na primeira, os segmentos medem 4 e 6. Na segunda, o primeiro segmento mede 6. Quanto mede o segundo?",
+    "imagem": "tl9-res-quatro-seis",
+    "passos": [
+      {
+        "titulo": "Escreva a razão da primeira transversal",
+        "explicacao": "É ela que o feixe repete em qualquer outra transversal.",
+        "conta": "4/6 = 2/3"
+      },
+      {
+        "titulo": "Monte a proporção",
+        "explicacao": "Os segmentos da segunda transversal estão na mesma razão.",
+        "conta": "4/6 = 6/x"
+      },
+      {
+        "titulo": "Multiplique cruzado",
+        "explicacao": "É a regra de três do 7º ano, com a incógnita isolada de um lado.",
+        "conta": "4x = 36"
+      },
+      {
+        "titulo": "Resolva e confira",
+        "explicacao": "O segundo pedaço tem de ser maior que o primeiro, como na outra transversal.",
+        "conta": "x = 9"
+      }
+    ],
+    "fecho": "Os segmentos são 4 e 6 numa transversal e 6 e 9 na outra — números diferentes, a mesma razão de 2 para 3."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O Teorema de Tales garante que os segmentos determinados nas duas transversais são:",
+      "imagem": "tl9-q-o-que-garante",
+      "dica": "Compare os quatro segmentos do desenho: eles têm o mesmo tamanho?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Proporcionais, mas quase nunca iguais" },
+        { "rotulo": "B", "texto": "Iguais dois a dois" },
+        { "rotulo": "C", "texto": "Todos do mesmo tamanho" },
+        { "rotulo": "D", "texto": "Sempre inteiros" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Iguais dois a dois",
+          "porque": "Eles só ficam iguais quando as duas transversais têm a mesma inclinação. Uma transversal mais deitada atravessa o feixe com pedaços maiores, e o desenho mostra isso."
+        },
+        {
+          "resposta": "Todos do mesmo tamanho",
+          "porque": "Isso exigiria as paralelas igualmente espaçadas E as transversais igualmente inclinadas. O teorema vale sem nenhuma dessas duas condições."
+        },
+        {
+          "resposta": "Sempre inteiros",
+          "porque": "Medidas de segmento não têm obrigação de ser inteiras: um feixe qualquer produz pedaços quebrados o tempo todo. O que se conserva é a razão entre eles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe os quatro pedaços",
+          "explicacao": "Na figura, os da transversal mais inclinada são visivelmente maiores.",
+          "conta": "tamanhos diferentes"
+        },
+        {
+          "titulo": "Compare as razões",
+          "explicacao": "Dividindo o primeiro pedaço pelo segundo, em cada transversal, sai o mesmo número.",
+          "conta": "AB/BC = A'B'/B'C'"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num feixe de paralelas, uma transversal tem segmentos de 4 e 6, e a outra tem o primeiro segmento igual a 10. Quanto mede o segundo segmento dela? Digite apenas o número.",
+      "imagem": "tl9-q-segundo-segmento",
+      "dica": "A razão 4 para 6 tem de se repetir na segunda transversal.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é 10 + 2, somando a diferença entre 4 e 6. O feixe conserva a RAZÃO, e não a diferença: 4 para 6 é uma proporção, não um acréscimo de 2."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o segundo segmento da PRIMEIRA transversal. Os pedaços da segunda são maiores, porque ela está mais inclinada — o primeiro já mede 10, e não 4."
+        },
+        {
+          "resposta": "6,67",
+          "porque": "6,67 sai de montar a proporção ao contrário: 6/4 = 10/x. O segundo pedaço tem de ser maior que o primeiro nas duas transversais, e este saiu menor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a razão",
+          "explicacao": "Ela é a mesma nas duas transversais.",
+          "conta": "4/6 = 10/x"
+        },
+        {
+          "titulo": "Multiplique cruzado e resolva",
+          "explicacao": "Sobra uma equação do 1º grau, do 7º ano, com um passo só.",
+          "conta": "4x = 60 → x = 15"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num feixe de paralelas, o que decide se o primeiro segmento é maior ou menor que o segundo?",
+      "imagem": "tl9-q-quem-decide",
+      "dica": "Pense no que muda quando a paralela do meio é arrastada para cima ou para baixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A distância entre as paralelas" },
+        { "rotulo": "B", "texto": "A inclinação da transversal" },
+        { "rotulo": "C", "texto": "O comprimento das paralelas desenhadas" },
+        { "rotulo": "D", "texto": "O número de transversais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A inclinação da transversal",
+          "porque": "Ela muda o TAMANHO dos pedaços, mas não a razão entre eles. Uma transversal mais deitada tem os dois pedaços maiores, e na mesma proporção de antes."
+        },
+        {
+          "resposta": "O comprimento das paralelas desenhadas",
+          "porque": "Uma reta não tem comprimento: o que se desenha é só um pedaço dela. Esticar o traço no papel não muda nenhuma medida do problema."
+        },
+        {
+          "resposta": "O número de transversais",
+          "porque": "Acrescentar transversais não muda nada nas que já existiam — cada nova simplesmente repete a mesma razão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Arraste a paralela do meio",
+          "explicacao": "Aproximando-a da de cima, o primeiro pedaço encolhe em todas as transversais.",
+          "conta": "o espaçamento manda"
+        },
+        {
+          "titulo": "Incline a transversal",
+          "explicacao": "Os dois pedaços crescem juntos, e a razão entre eles fica igual.",
+          "conta": "a razão não muda"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num feixe de paralelas, uma transversal tem segmentos de 3 e 5. Na outra transversal, o segundo segmento mede 20. Quanto mede o primeiro? Digite apenas o número.",
+      "imagem": "tl9-q-primeiro-segmento",
+      "dica": "Agora quem falta é o primeiro pedaço. Monte a proporção com cuidado com a ordem.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "33,33",
+          "porque": "33,33 sai de trocar a ordem: 5/3 = x/20. Como o primeiro pedaço é menor que o segundo nas duas transversais, a resposta tem de ser menor que 20."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 20 − 2, tirando a diferença entre 5 e 3. O feixe conserva a razão, e não a diferença."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é o primeiro segmento da OUTRA transversal. Esta é mais inclinada e tem pedaços maiores — o segundo dela já mede 20, contra 5 da primeira."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "Primeiro sobre segundo, nas duas transversais, na mesma ordem.",
+          "conta": "3/5 = x/20"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando cruzado e dividindo.",
+          "conta": "5x = 60 → x = 12"
+        }
+      ]
+    }
+  ]
+}

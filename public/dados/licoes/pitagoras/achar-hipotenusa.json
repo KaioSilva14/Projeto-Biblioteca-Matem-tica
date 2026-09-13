@@ -1,0 +1,189 @@
+{
+  "id": "achar-hipotenusa",
+  "numero": 2,
+  "titulo": "Achar a hipotenusa",
+  "pergunta": "Como o teorema devolve o lado maior?",
+  "ideia": {
+    "paragrafos": [
+      "Com os dois catetos conhecidos, a hipotenusa sai em três passos que nunca mudam: eleve cada cateto ao quadrado, some, e tire a raiz quadrada da soma. O último passo é o que costuma ser esquecido — a soma dos quadrados é a ÁREA do quadrado da hipotenusa, e não a hipotenusa.",
+      "Num exemplo: catetos 6 e 8. Os quadrados são 36 e 64, e a soma é 100. A hipotenusa é a raiz de 100, ou seja, 10. Parar em 100 e responder 100 é o erro mais comum da lição, e ele tem cura fácil: o resultado tem de ser um comprimento comparável aos catetos, e 100 é dez vezes maior que o maior deles.",
+      "Aliás, essa conferência de plausibilidade vale sempre, e é rápida. A hipotenusa é maior que qualquer um dos catetos, mas menor que a soma dos dois — porque o caminho reto é mais curto que o caminho pelos dois lados. Com catetos 6 e 8, ela tem de ficar entre 8 e 14, e 10 está lá dentro.",
+      "Em muitos exercícios a raiz sai exata, porque os números foram escolhidos assim. Mas ela não precisa sair: com catetos 1 e 1, a hipotenusa é √2, um irracional — o mesmo √2 da primeira matéria do 9º ano, e foi exatamente por esse triângulo que ele foi descoberto.",
+      "Quando a raiz não é exata, o caminho é o da matéria de radiciação: simplificar o radical e, se o problema pedir um valor decimal, aproximar só no fim. Com catetos 2 e 4, a soma dos quadrados dá 20, e √20 simplifica para 2√5 — bem mais informativo que um 4,47 arredondado no meio do caminho.",
+      "Um cuidado de leitura que vale por vários pontos em prova: só use a soma quando os dois lados conhecidos forem CATETOS. Se um deles for a hipotenusa, a conta é outra — e é a da próxima lição."
+    ],
+    "destaque": "Eleve, some e TIRE A RAIZ. Parar na soma é responder a área do quadrado em vez do lado.",
+    "imagem": "pt9-ideia-tres-passos"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo retângulo tem catetos de 6 cm e 8 cm. Quanto mede a hipotenusa?",
+    "imagem": "pt9-res-hipotenusa-10",
+    "passos": [
+      {
+        "titulo": "Confirme quem são os catetos",
+        "explicacao": "Os dois lados dados encostam no ângulo reto, então nenhum deles é a hipotenusa.",
+        "conta": "catetos 6 e 8"
+      },
+      {
+        "titulo": "Eleve cada um ao quadrado",
+        "explicacao": "São as áreas dos quadrados construídos sobre eles.",
+        "conta": "36 e 64"
+      },
+      {
+        "titulo": "Some as duas áreas",
+        "explicacao": "A soma é a área do quadrado da hipotenusa, e ainda não é a hipotenusa.",
+        "conta": "36 + 64 = 100"
+      },
+      {
+        "titulo": "Tire a raiz",
+        "explicacao": "É o passo que devolve o comprimento a partir da área.",
+        "conta": "√100 = 10 cm"
+      }
+    ],
+    "fecho": "Conferindo a plausibilidade: 10 é maior que 8 e menor que 6 + 8 = 14, como tem de ser."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo retângulo tem catetos de 9 cm e 12 cm. Quanto mede a hipotenusa, em centímetros? Digite apenas o número.",
+      "imagem": "pt9-q-hipotenusa-15",
+      "dica": "Eleve os dois ao quadrado, some e não esqueça de tirar a raiz.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "225",
+          "porque": "225 é a soma dos quadrados, ou seja, a ÁREA do quadrado da hipotenusa. Falta o último passo: √225 = 15."
+        },
+        {
+          "resposta": "21",
+          "porque": "21 é 9 + 12, somando os lados. O teorema soma os quadrados, e a hipotenusa é sempre menor que a soma dos catetos."
+        },
+        {
+          "resposta": "108",
+          "porque": "108 é 9 × 12, multiplicando os catetos. Esse número vale o dobro da área do triângulo, e não tem relação com a hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve e some",
+          "explicacao": "As áreas dos dois quadrados menores.",
+          "conta": "81 + 144 = 225"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "É a raiz que devolve o comprimento a partir da área.",
+          "conta": "√225 = 15"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo retângulo tem catetos de 5 m e 12 m. Quanto mede a hipotenusa, em metros? Digite apenas o número.",
+      "imagem": "pt9-q-hipotenusa-13",
+      "dica": "Some os quadrados e tire a raiz. A resposta sai exata.",
+      "formato": "numero",
+      "resposta": 13,
+      "errosComuns": [
+        {
+          "resposta": "169",
+          "porque": "169 é a soma dos quadrados, que é a área do quadrado da hipotenusa. A hipotenusa é √169, que dá 13."
+        },
+        {
+          "resposta": "17",
+          "porque": "17 é 5 + 12, somando os lados em vez dos quadrados. A hipotenusa fica entre 12 e 17, e é 13."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é 12 − 5. Subtrair seria o caminho se um dos dados fosse a hipotenusa, e aqui os dois são catetos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve e some",
+          "explicacao": "Os quadrados dos dois catetos, que são as áreas dos quadrados deles.",
+          "conta": "25 + 144 = 169"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "169 é um quadrado perfeito, então a raiz sai exata.",
+          "conta": "√169 = 13"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Entre que valores tem de ficar a hipotenusa de um triângulo retângulo de catetos 6 e 8?",
+      "imagem": "pt9-q-plausibilidade",
+      "dica": "Ela é maior que qualquer cateto, e o caminho reto é mais curto que o caminho pelos dois lados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Entre 8 e 14" },
+        { "rotulo": "B", "texto": "Entre 0 e 6" },
+        { "rotulo": "C", "texto": "Acima de 14" },
+        { "rotulo": "D", "texto": "Exatamente 7, que é a média dos catetos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Entre 0 e 6",
+          "porque": "A hipotenusa é o MAIOR lado do triângulo retângulo, então ela passa dos dois catetos. Ela não pode ser menor que 6."
+        },
+        {
+          "resposta": "Acima de 14",
+          "porque": "14 é a soma dos catetos, e o caminho reto entre dois pontos é mais curto que o caminho pelos dois lados. A hipotenusa fica abaixo dessa soma."
+        },
+        {
+          "resposta": "Exatamente 7, que é a média dos catetos",
+          "porque": "A média dos catetos é menor que o maior deles, e a hipotenusa é maior que os dois. Aqui ela vale 10, que nem é média de nada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o piso",
+          "explicacao": "A hipotenusa é maior que qualquer um dos catetos.",
+          "conta": "maior que 8"
+        },
+        {
+          "titulo": "Ache o teto",
+          "explicacao": "Ir em linha reta é mais curto que ir pelos dois catetos.",
+          "conta": "menor que 6 + 8 = 14"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo retângulo tem catetos de 8 cm e 15 cm. Quanto mede a hipotenusa, em centímetros? Digite apenas o número.",
+      "imagem": "pt9-q-hipotenusa-17",
+      "dica": "64 mais 225 dá um quadrado perfeito.",
+      "formato": "numero",
+      "resposta": 17,
+      "errosComuns": [
+        {
+          "resposta": "289",
+          "porque": "289 é a soma dos quadrados, ou seja, a área do quadrado da hipotenusa. Falta o último passo, que devolve o comprimento: √289 = 17."
+        },
+        {
+          "resposta": "23",
+          "porque": "23 é 8 + 15, somando os lados. A hipotenusa fica entre 15 e 23, e vale 17."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é 8 × 15, o produto dos catetos. Ele aparece na área do triângulo, e não no teorema."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve e some",
+          "explicacao": "Os quadrados dos catetos dados.",
+          "conta": "64 + 225 = 289"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "289 é quadrado perfeito, e a raiz dele é 17.",
+          "conta": "√289 = 17"
+        }
+      ]
+    }
+  ]
+}

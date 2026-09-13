@@ -83,9 +83,9 @@ function larguraTexto(txt, tamanho = 14, mono = false) {
  * Por isso a medição virou `larguraTexto`, que soma por caractere: com o
  * fator único de 0.52 um rótulo cheio de maiúsculas ainda escapava.
  */
-function comRotulo(largura, rotulo, tamanho = 14) {
+function comRotulo(largura, rotulo, tamanho = 14, mono = false) {
   if (!rotulo) return largura;
-  return Math.max(largura, Math.ceil(larguraTexto(rotulo, tamanho)) + 24);
+  return Math.max(largura, Math.ceil(larguraTexto(rotulo, tamanho, mono)) + 24);
 }
 
 /**
@@ -259,7 +259,7 @@ export function recipientes({ itens, largura = 460 }) {
 // em cada etapa. É o desenho que torna visível a diferença entre
 // "1/3 do total" e "1/3 do que sobrou".
 
-export function barraEtapas({ etapas, largura = 456, rotuloTotal = "total" }) {
+export function barraEtapas({ etapas, largura = 456, rotuloTotal = "total", rotulo = "" }) {
   const m = 8, h = 58;
   // O rótulo do total fica ACIMA da barra. Centrado dentro dela ele caía em
   // cima das divisórias e competia com as legendas de cada etapa.
@@ -267,7 +267,11 @@ export function barraEtapas({ etapas, largura = 456, rotuloTotal = "total" }) {
   const yBarra = topoRotulo + 10;
   const util = largura - m * 2;
   const baseLegendas = yBarra + h + 18;
-  const A = baseLegendas + etapas.length * 30 + 8;
+  // O rótulo de rodapé é opcional e chegou tarde: a barra nasceu só com o
+  // `rotuloTotal`, que fica ACIMA dela e descreve o todo. O de baixo
+  // descreve a figura, como em todos os outros geradores, e é ele que
+  // carrega a pergunta quando a barra vai para uma questão.
+  const A = baseLegendas + etapas.length * 30 + 8 + (rotulo ? 22 : 0);
   let corpo = "";
   let inicio = 0;
 
@@ -284,12 +288,18 @@ export function barraEtapas({ etapas, largura = 456, rotuloTotal = "total" }) {
       corpo += `<line x1="${px.toFixed(2)}" y1="${yBarra + h}" x2="${px.toFixed(2)}" y2="${yl}" stroke="${TRACO}" stroke-width="1.5" stroke-dasharray="3 3"/>`;
     }
     corpo += `<line x1="${x.toFixed(2)}" y1="${yl}" x2="${(x + w).toFixed(2)}" y2="${yl}" stroke="${TRACO_FORTE}" stroke-width="1.5"/>`;
-    corpo += texto(x + w / 2, yl + 14, esc(etapa.rotulo), { tamanho: 13, cor: etapa.vazio ? DESTAQUE : CHEIO, fonte: FONTE_MONO });
+    // A legenda é centrada na etapa, mas PRESA dentro da caixa: numa etapa
+    // muito estreita na ponta — a sobra de 1% da tábua de √50 m — o texto
+    // centrado nela saía pela borda direita do SVG.
+    const meiaLegenda = larguraTexto(String(etapa.rotulo), 13, true) / 2 + 4;
+    const xLegenda = Math.min(Math.max(x + w / 2, meiaLegenda), largura - meiaLegenda);
+    corpo += texto(xLegenda, yl + 14, esc(etapa.rotulo), { tamanho: 13, cor: etapa.vazio ? DESTAQUE : CHEIO, fonte: FONTE_MONO });
     inicio += etapa.fracao;
   });
 
   corpo += `<rect x="${m}" y="${yBarra}" width="${util}" height="${h}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.5"/>`;
-  return svg(largura, A, corpo);
+  if (rotulo) corpo += texto(largura / 2, A - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(largura, A, corpo, rotulo, 14);
 }
 
 // ---------- Retângulo cortado nas duas direções (equivalência) ----------
@@ -1554,7 +1564,11 @@ export function trianguloAltura({ base, altura, rotuloBase, rotuloAltura, apice 
   if (rotuloBase) corpo += texto(x0 + b / 2, y0 + 20, esc(rotuloBase), { tamanho: 13, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
   if (rotuloAltura) corpo += texto(xa - 10, m + h / 2, esc(rotuloAltura), { tamanho: 13, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO });
   if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
-  return svg(largura, alturaSvg, corpo);
+  // A caixa do SVG sai ARREDONDADA, como em todos os outros geradores: uma
+  // altura quebrada aparece quando a altura pedida é irracional — o
+  // equilátero de Pitágoras pede base × √3/2 —, e ela deixa o PNG com uma
+  // dimensão fracionária que o rasterizador arredonda por conta própria.
+  return svg(Math.round(largura), Math.round(alturaSvg), corpo);
 }
 
 // ═════════════════ Sólidos, planificações e plano cartesiano ═════════════════
@@ -3464,7 +3478,14 @@ export function conjuntosNumericos({ exemplos = {}, destacar = [], rotulo = "" }
 
   // A caixa dos reais envolve tudo; dentro dela, os racionais aninhados à
   // esquerda e os irracionais numa caixa própria à direita.
-  const larguraIrr = Math.max(150, Math.ceil(larguraTexto(exemplos.irracionais || "", 12, true)) + 28);
+  // A caixa dos irracionais tem de caber o NOME dela e os exemplos lado a
+  // lado — com a largura saindo só dos exemplos, "irracionais" e
+  // "√2 · π · √5" se encavalavam por 6px.
+  const larguraIrr = Math.max(
+    150,
+    Math.ceil(larguraTexto(exemplos.irracionais || "", 12, true)) + 28,
+    Math.ceil(larguraTexto(nomes.irracionais, 12, false) + larguraTexto(exemplos.irracionais || "", 12, true)) + 34
+  );
   const larguraRac = 214;
   const larguraDesenho = m * 2 + 16 + larguraRac + 14 + larguraIrr + 16;
   const largura = comRotulo(larguraDesenho, rotulo);
@@ -3931,7 +3952,7 @@ function tiquinhos(p, q, quantos) {
  */
 export function parTriangulos({
   angulos = [50, 60], marcasLados = [0, 0, 0], marcasAngulos = [0, 0, 0],
-  giro = 0, escala = 96, nomes = ["", ""], rotulo = "",
+  giro = 0, escala = 96, escalas = null, medidas = null, nomes = ["", ""], rotulo = "",
 }) {
   const [alfa, beta] = angulos;
   // O triângulo sai do encontro das duas retas que partem dos cantos da
@@ -3940,21 +3961,32 @@ export function parTriangulos({
   const px = tb / (ta + tb);
   const base = [[0, 0], [1, 0], [px, px * ta]];
 
-  const monta = (rot) => {
+  // Semelhança precisa de dois TAMANHOS diferentes, e congruência não
+  // precisava: o gerador nasceu com uma escala só. `escalas` dá uma para
+  // cada triângulo, e sem ela nada muda para as figuras do 8º ano.
+  const [e1, e2] = escalas ?? [escala, escala];
+
+  const monta = (rot, esc2) => {
     const r = rot * RAD;
     return base.map(([x, y]) => {
       // centraliza antes de girar, para o giro não jogar a figura para longe
       const cx = x - 0.5, cy = y - 0.28;
       return [
-        (cx * Math.cos(r) - cy * Math.sin(r)) * escala,
-        -(cx * Math.sin(r) + cy * Math.cos(r)) * escala,
+        (cx * Math.cos(r) - cy * Math.sin(r)) * esc2,
+        -(cx * Math.sin(r) + cy * Math.cos(r)) * esc2,
       ];
     });
   };
 
-  const t1 = monta(0), t2 = monta(giro);
+  const t1 = monta(0, e1), t2 = monta(giro, e2);
   const vao = 40;
-  const caixa1 = caixa(t1, 22), caixa2 = caixa(t2, 22);
+  // A folga da caixa cresce com o rótulo de lado mais comprido: ele é
+  // escrito PARA FORA do triângulo, e com a folga fixa de 22px um "10 cm"
+  // saía cortado. É o mesmo defeito que já apareceu em cinco geradores.
+  const folgaMedida = medidas
+    ? Math.max(...medidas.flat().map((m) => Math.ceil(larguraTexto(String(m ?? ""), 12, true)) / 2 + 16), 22)
+    : 22;
+  const caixa1 = caixa(t1, folgaMedida), caixa2 = caixa(t2, folgaMedida);
   const l1 = caixa1.maxX - caixa1.minX, l2 = caixa2.maxX - caixa2.minX;
   const alt = Math.max(caixa1.maxY - caixa1.minY, caixa2.maxY - caixa2.minY);
   const larguraDesenho = l1 + vao + l2;
@@ -3963,7 +3995,7 @@ export function parTriangulos({
   const recuo = (largura - larguraDesenho) / 2;
 
   let corpo = "";
-  const desenha = (pts, cx, cy, nome) => {
+  const desenha = (pts, cx, cy, nome, rotulosLado) => {
     const P = pts.map(([x, y]) => [x + cx, y + cy]);
     let c = `<polygon points="${P.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ")}" fill="${CHEIO}" fill-opacity="0.16" stroke="${TRACO_FORTE}" stroke-width="2.4" stroke-linejoin="round"/>`;
     // as marcas dos LADOS: o lado i vai do vértice i ao seguinte
@@ -3984,6 +4016,23 @@ export function parTriangulos({
         c += `<path d="${arco(v[0], v[1], 15 + k * 5, de, de + d)}" fill="none" stroke="${DESTAQUE}" stroke-width="2"/>`;
       }
     }
+    // as MEDIDAS dos lados, escritas para fora do contorno. A direção de
+    // "fora" sai do baricentro: o texto foge dele.
+    if (rotulosLado) {
+      const gx = (P[0][0] + P[1][0] + P[2][0]) / 3;
+      const gy = (P[0][1] + P[1][1] + P[2][1]) / 3;
+      for (let i = 0; i < 3; i += 1) {
+        const txt = rotulosLado[i];
+        if (!txt) continue;
+        const mx = (P[i][0] + P[(i + 1) % 3][0]) / 2;
+        const my = (P[i][1] + P[(i + 1) % 3][1]) / 2;
+        const dx = mx - gx, dy = my - gy;
+        const n = Math.hypot(dx, dy) || 1;
+        c += texto(mx + (dx / n) * 15, my + (dy / n) * 15 + 4, esc(String(txt)), {
+          tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+        });
+      }
+    }
     if (nome) {
       const cxN = (P[0][0] + P[1][0] + P[2][0]) / 3;
       const cyN = (P[0][1] + P[1][1] + P[2][1]) / 3;
@@ -3992,8 +4041,8 @@ export function parTriangulos({
     return c;
   };
 
-  corpo += desenha(t1, recuo - caixa1.minX, -caixa1.minY, nomes[0]);
-  corpo += desenha(t2, recuo + l1 + vao - caixa2.minX, -caixa2.minY, nomes[1]);
+  corpo += desenha(t1, recuo - caixa1.minX, -caixa1.minY, nomes[0], medidas?.[0]);
+  corpo += desenha(t2, recuo + l1 + vao - caixa2.minX, -caixa2.minY, nomes[1], medidas?.[1]);
 
   if (rotulo) corpo += texto(largura / 2, altura - 10, esc(rotulo), { tamanho: 14 });
   return svg(Math.round(largura), Math.round(altura), corpo);
@@ -4257,7 +4306,14 @@ export function prisma({
   const mEsq = medidas.altura ? Math.max(30, Math.ceil(larguraTexto(String(medidas.altura), 12, true)) + 20) : 30;
   const mDir = 30, mTopo = 24, mBaixo = medidas.base ? 46 : 30;
   const larguraDesenho = mEsq + mDir + (Math.max(...xs) - Math.min(...xs));
-  const larguraSvg = comRotulo(larguraDesenho, rotulo);
+  // A legenda é escrita centralizada no rodapé, como o rótulo, e por isso
+  // precisa do mesmo tratamento: "base quadrada de 4 cm de lado" mede 209px
+  // e saía cortada nas duas bordas de uma figura de 193. É o `comRotulo`
+  // pela quinta vez, agora num campo que não era rótulo.
+  const larguraSvg = Math.max(
+    comRotulo(larguraDesenho, rotulo),
+    medidas.legenda ? comRotulo(larguraDesenho, String(medidas.legenda), 12, true) : 0
+  );
   const alturaSvg = mTopo + mBaixo + (Math.max(...ys) - Math.min(...ys)) + h + (rotulo ? 22 : 0);
   const recuo = (larguraSvg - larguraDesenho) / 2;
 
@@ -4606,4 +4662,1478 @@ export function setores({ itens, mostrar = "porcentagem", destacar = -1, rotulo 
 
   if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
   return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+
+// ═══════════ Cadeia de argumento (9º ano) ═══════════
+//
+// O 9º ano é o primeiro em que o aluno vê DEMONSTRAÇÃO de verdade: que √2
+// não é fração, que a² + b² = c², que os triângulos de Tales são
+// proporcionais. Até aqui as justificativas cabiam numa figura só — o
+// recorte do paralelogramo, a paralela pelo vértice. Uma demonstração por
+// absurdo não cabe: ela é uma CADEIA, em que cada elo decorre do anterior,
+// e o que a torna convincente é justamente enxergar a cadeia inteira.
+//
+// Por isso ela é figura, e não texto corrido: no texto, o aluno lê seis
+// frases e não vê que a sexta contradiz a primeira. Desenhada, a volta se
+// enxerga — e é essa volta que fecha o argumento.
+//
+// `contradiz` liga o último elo de volta a um anterior, com a seta de
+// retorno. É o mesmo recurso do `divisaoPeriodica` do 8º ano, onde a seta
+// mostrava o resto voltando; aqui ela mostra a suposição sendo negada pelo
+// que ela mesma produziu.
+
+/**
+ * Os elos de uma demonstração, empilhados e ligados por setas.
+ *
+ * `passos`: [{ texto, nota }]. O `nota` é a justificativa do elo, escrita
+ * ao lado da seta — é ela que responde "por quê?" em cada passagem.
+ *
+ * `contradiz`: índice do elo que o último contradiz. A seta de retorno sai
+ * pela esquerda e fecha o argumento.
+ */
+export function cadeiaArgumento({ passos, contradiz, destacar = [], rotulo = "" }) {
+  const larguraCaixa = 236;
+  const mEsq = contradiz === undefined ? 20 : 44;
+  const mDir = Math.max(...passos.map((p) => (p.nota ? Math.ceil(larguraTexto(p.nota, 11, false)) + 26 : 0)), 20);
+  const alturaCaixa = 40, vao = 30;
+
+  const larguraDesenho = mEsq + larguraCaixa + mDir;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = 16 + passos.length * alturaCaixa + (passos.length - 1) * vao + 18 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const x = recuo + mEsq;
+  const yDo = (i) => 16 + i * (alturaCaixa + vao);
+
+  let corpo = "";
+
+  // as setas entre os elos, com a justificativa ao lado
+  for (let i = 0; i < passos.length - 1; i += 1) {
+    const y1 = yDo(i) + alturaCaixa, y2 = yDo(i + 1);
+    const meio = x + larguraCaixa / 2;
+    corpo += `<line x1="${meio}" y1="${y1}" x2="${meio}" y2="${(y2 - 7).toFixed(1)}" stroke="${TRACO}" stroke-width="1.6"/>`;
+    corpo += `<path d="M ${meio - 4} ${(y2 - 8).toFixed(1)} L ${meio} ${y2} L ${meio + 4} ${(y2 - 8).toFixed(1)}" fill="none" stroke="${TRACO}" stroke-width="1.6" stroke-linejoin="round"/>`;
+    const nota = passos[i + 1].nota;
+    if (nota) {
+      corpo += texto(x + larguraCaixa + 12, (y1 + y2) / 2, esc(nota), {
+        tamanho: 11, cor: TRACO_FORTE, ancora: "start",
+      });
+    }
+  }
+
+  // as caixas
+  passos.forEach((passo, i) => {
+    const forte = destacar.includes(i) || (contradiz !== undefined && i === passos.length - 1);
+    corpo += `<rect x="${x}" y="${yDo(i)}" width="${larguraCaixa}" height="${alturaCaixa}" rx="4" fill="${CHEIO}" fill-opacity="${forte ? 0.24 : 0.08}" stroke="${forte ? DESTAQUE : TRACO_FORTE}" stroke-width="${forte ? 2.2 : 1.6}"/>`;
+    corpo += texto(x + larguraCaixa / 2, yDo(i) + alturaCaixa / 2, esc(passo.texto), {
+      tamanho: 13, cor: forte ? DESTAQUE : TEXTO, peso: forte ? 500 : 400, fonte: FONTE_MONO,
+    });
+  });
+
+  // a seta de retorno: o último elo negando um anterior
+  if (contradiz !== undefined) {
+    const yFim = yDo(passos.length - 1) + alturaCaixa / 2;
+    const yAlvo = yDo(contradiz) + alturaCaixa / 2;
+    const xFora = x - 24;
+    corpo += `<path d="M ${x} ${yFim} L ${xFora} ${yFim} L ${xFora} ${yAlvo} L ${(x - 8).toFixed(1)} ${yAlvo}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8" stroke-dasharray="5 4"/>`;
+    corpo += `<path d="M ${(x - 9).toFixed(1)} ${yAlvo - 4} L ${x} ${yAlvo} L ${(x - 9).toFixed(1)} ${yAlvo + 4}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8" stroke-linejoin="round"/>`;
+  }
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+// ═══════════ Quadrado com a diagonal (9º ano) ═══════════
+//
+// A figura que mostra que √2 EXISTE. A demonstração da lição 1 prova que ele
+// não é fração; sem esta figura, o aluno pode concluir que ele não existe.
+// A diagonal do quadrado de lado 1 é um segmento que se pode desenhar com
+// régua — e o comprimento dele é exatamente o número que nenhuma fração
+// escreve. É o argumento dos gregos, e é o que dá peso à matéria.
+
+export function quadradoDiagonal({ lado = 1, rotuloLado = "1", rotuloDiagonal = "", marcarAngulo = true, rotulo = "" }) {
+  const s = 128;
+  // A margem ESQUERDA precisa conter o rótulo do lado, que é escrito a 14px
+  // do quadrado e alinhado pela direita: com 34px fixos, "10 m" começava 9px
+  // fora da caixa. É o mesmo defeito que o `bloco` do 6º ano já teve.
+  const mEsq = Math.max(34, Math.ceil(larguraTexto(String(rotuloLado || ""), 12, true)) + 20);
+  const m = 34;
+  const larguraDesenho = s + mEsq + m + (rotuloDiagonal ? 30 : 0);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = s + m * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const x0 = recuo + mEsq, y0 = m;
+
+  let corpo = "";
+  corpo += `<rect x="${x0}" y="${y0}" width="${s}" height="${s}" fill="${CHEIO}" fill-opacity="0.14" stroke="${TRACO_FORTE}" stroke-width="2.4"/>`;
+  corpo += `<line x1="${x0}" y1="${y0 + s}" x2="${x0 + s}" y2="${y0}" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+
+  if (marcarAngulo) {
+    corpo += `<path d="M ${x0 + 14} ${y0 + s} L ${x0 + 14} ${y0 + s - 14} L ${x0} ${y0 + s - 14}" fill="none" stroke="${TRACO}" stroke-width="1.5"/>`;
+  }
+  if (rotuloLado) {
+    corpo += texto(x0 + s / 2, y0 + s + 18, esc(rotuloLado), { tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+    corpo += texto(x0 - 14, y0 + s / 2, esc(rotuloLado), { tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO });
+  }
+  if (rotuloDiagonal) {
+    corpo += texto(x0 + s / 2 + 16, y0 + s / 2 - 12, esc(rotuloDiagonal), { tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+  }
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+
+// ---------- Bloco de funções (9º ano) ----------
+//
+// O `planoCartesiano` do 6º ano desenha o PRIMEIRO QUADRANTE, e isso bastou
+// enquanto o assunto era localizar ponto e cruzar duas retas de sistema. Não
+// basta mais: função afim tem coeficiente linear negativo, tem função
+// decrescente, e a parábola da matéria seguinte tem vértice abaixo do eixo.
+// Meio plano não desenha nada disso, e esticar o antigo quebraria as trinta e
+// poucas figuras já publicadas que contam com o zero no canto.
+//
+// Por isso um plano novo, com os quatro quadrantes. Três decisões dele:
+//
+//   · a curva é AMOSTRADA, e não recebida em pontos. O manifesto passa os
+//     coeficientes e o gerador calcula a linha — a mesma disciplina de
+//     `fatoracao`, `sequenciaFiguras` e do `retas` dos sistemas: o desenho
+//     não tem como discordar do enunciado. Reta e parábola saem do mesmo
+//     caminho, com a amostragem cortada na moldura;
+//   · o DEGRAU é o que impede a matéria de virar decoreba. "a é a taxa de
+//     variação" é uma frase; um passo de 1 para a direita e a subida de a
+//     desenhados ao lado da reta são uma coisa que se vê. É a figura que
+//     Função afim precisa ter, do mesmo jeito que `trianguloParalela` era
+//     obrigatória na soma dos ângulos;
+//   · a numeração dos eixos CEDE antes de encavalar. Num plano de −10 a 10
+//     com escala pequena, "−10" e "−9" se encostam; o passo de numeração é o
+//     menor que cabe, como já acontece na `retaInteiros` e na `escalaOrdens`.
+
+/**
+ * Plano cartesiano completo, com funções desenhadas a partir dos coeficientes.
+ *
+ * `curvas`: [{ tipo, a, b, c, rotulo, tracejada }]
+ *   · "reta"     — y = a·x + b
+ *   · "parabola" — y = a·x² + b·x + c
+ *
+ * `degraus`: [{ de, passo, curva, rotuloX, rotuloY }] desenha, sobre a curva
+ * indicada, o caminho de x até x + passo: o trecho horizontal e a subida que
+ * ele provoca. É a taxa de variação virando desenho.
+ *
+ * `pontos`: [{ em: [x, y], rotulo, vazado }] — o vazado é o ponto que NÃO
+ * pertence ao gráfico, e ele vaza com a cor da canvas pela mesma razão da
+ * bolinha aberta da inequação: com fundo transparente, a linha passaria por
+ * dentro do círculo.
+ */
+export function planoFuncao({
+  xDe = -6, xAte = 6, yDe = -6, yAte = 6, escala = 24,
+  curvas = [], pontos = [], degraus = [], rotulo = "",
+}) {
+  const m = 30;
+  const larguraGrade = (xAte - xDe) * escala;
+  const alturaGrade = (yAte - yDe) * escala;
+  // O rótulo de um ponto é escrito à direita dele, e o de uma curva na ponta
+  // em que ela sai da moldura: a folga da direita conta os dois, senão o
+  // texto sai cortado pela borda — o defeito que já apareceu em cinco
+  // geradores por confiar a caixa só ao desenho.
+  const folgaDir = Math.max(
+    14,
+    ...pontos.map((p) => Math.ceil(larguraTexto(String(p.rotulo ?? ""), 12, true)) - (xAte - p.em[0]) * escala + 16),
+    ...curvas.map((c) => (c.rotulo ? Math.ceil(larguraTexto(c.rotulo, 12, true)) + 10 : 0))
+  );
+  const mEsq = Math.max(m, Math.ceil(larguraTexto(inteiro(Math.min(xDe, yDe)), 11, true)) + 16);
+  const larguraDesenho = Math.round(mEsq + larguraGrade + folgaDir);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = Math.round(alturaGrade + m * 2 + (rotulo ? 22 : 0));
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = (x) => recuo + mEsq + (x - xDe) * escala;
+  const Y = (y) => m + (yAte - y) * escala;
+
+  // O passo da numeração é o menor que não encavala: o maior rótulo mais um
+  // respiro de seis pixels tem de caber num passo da malha.
+  const maiorRotulo = Math.max(
+    larguraTexto(inteiro(xDe), 11, true), larguraTexto(inteiro(xAte), 11, true),
+    larguraTexto(inteiro(yDe), 11, true), larguraTexto(inteiro(yAte), 11, true)
+  );
+  let passo = 1;
+  while (passo * escala < maiorRotulo + 6) passo += 1;
+
+  let corpo = "";
+
+  // malha
+  for (let x = xDe; x <= xAte; x += 1) {
+    corpo += `<line x1="${X(x)}" y1="${Y(yDe)}" x2="${X(x)}" y2="${Y(yAte)}" stroke="${TRACO}" stroke-width="1" stroke-opacity="0.55"/>`;
+  }
+  for (let y = yDe; y <= yAte; y += 1) {
+    corpo += `<line x1="${X(xDe)}" y1="${Y(y)}" x2="${X(xAte)}" y2="${Y(y)}" stroke="${TRACO}" stroke-width="1" stroke-opacity="0.55"/>`;
+  }
+  // eixos, com a seta na ponta positiva
+  corpo += `<line x1="${X(xDe)}" y1="${Y(0)}" x2="${X(xAte) + 10}" y2="${Y(0)}" stroke="${TRACO_FORTE}" stroke-width="2.4"/>`;
+  corpo += `<line x1="${X(0)}" y1="${Y(yDe)}" x2="${X(0)}" y2="${Y(yAte) - 10}" stroke="${TRACO_FORTE}" stroke-width="2.4"/>`;
+  corpo += `<polygon points="${X(xAte) + 16},${Y(0)} ${X(xAte) + 8},${Y(0) - 4} ${X(xAte) + 8},${Y(0) + 4}" fill="${TRACO_FORTE}"/>`;
+  corpo += `<polygon points="${X(0)},${Y(yAte) - 16} ${X(0) - 4},${Y(yAte) - 8} ${X(0) + 4},${Y(yAte) - 8}" fill="${TRACO_FORTE}"/>`;
+
+  for (let x = Math.ceil(xDe / passo) * passo; x <= xAte; x += passo) {
+    if (x === 0) continue;
+    corpo += texto(X(x), Y(0) + 15, inteiro(x), { tamanho: 11, cor: TRACO_FORTE, fonte: FONTE_MONO });
+  }
+  // O rótulo do eixo vertical que cai logo abaixo do horizontal DESVIA da
+  // fileira dos rótulos de x, em vez de passar por cima dela. No canto de
+  // baixo à esquerda os dois "−1" ficam a menos de dez pixels um do outro, e
+  // eles saíam empilhados — o encavalamento que a auditoria de texto pegou em
+  // duas figuras de Função quadrática.
+  //
+  // Separar na horizontal não resolve: para não encostar, o rótulo do eixo y
+  // teria de ficar colado no eixo ou mais de um passo de malha à esquerda, e
+  // as duas coisas são piores que o desvio. É a mesma saída dos rótulos de
+  // ponto da `retaInteiros`, que sobem uma linha quando encostariam no
+  // vizinho.
+  const fileiraDeX = Y(0) + 15;
+  for (let y = Math.ceil(yDe / passo) * passo; y <= yAte; y += passo) {
+    if (y === 0) continue;
+    const encosta = Math.abs(Y(y) - fileiraDeX) < 13;
+    corpo += texto(X(0) - 9, encosta ? fileiraDeX + 13 : Y(y), inteiro(y), {
+      tamanho: 11, cor: TRACO_FORTE, ancora: "end", fonte: FONTE_MONO,
+    });
+  }
+  // O zero vai à DIREITA do eixo vertical, e não à esquerda como manda o
+  // costume. O canto de baixo à esquerda é onde moram os dois rótulos −1: o
+  // do eixo horizontal a 24px de distância e o do vertical a 9px abaixo, e é
+  // esse segundo que engolia o zero — "0" e "−1" saíam empilhados como "−10",
+  // o mesmo encavalamento que a auditoria de texto já pegou em seis figuras.
+  // Do lado direito o vizinho mais próximo é o rótulo do 1, a um passo
+  // inteiro de malha: sobra folga em qualquer escala.
+  corpo += texto(X(0) + 6, Y(0) + 15, "0", { tamanho: 11, cor: TRACO_FORTE, ancora: "start", fonte: FONTE_MONO });
+
+  // --- as curvas, AMOSTRADAS a partir dos coeficientes
+  const valor = (curva, x) => (curva.tipo === "parabola"
+    ? (curva.a ?? 1) * x * x + (curva.b ?? 0) * x + (curva.c ?? 0)
+    : (curva.a ?? 1) * x + (curva.b ?? 0));
+
+  for (const curva of curvas) {
+    // Amostra fina o bastante para a parábola não virar polígono: um ponto a
+    // cada dois pixels de largura.
+    const amostras = Math.max(40, Math.round(larguraGrade / 2));
+    const trechos = [];
+    let atual = [];
+    for (let i = 0; i <= amostras; i += 1) {
+      const x = xDe + ((xAte - xDe) * i) / amostras;
+      const y = valor(curva, x);
+      if (y >= yDe && y <= yAte) {
+        atual.push(`${X(x).toFixed(1)},${Y(y).toFixed(1)}`);
+      } else if (atual.length) {
+        trechos.push(atual); atual = [];
+      }
+    }
+    if (atual.length) trechos.push(atual);
+    for (const trecho of trechos) {
+      if (trecho.length < 2) continue;
+      corpo += `<polyline points="${trecho.join(" ")}" fill="none" stroke="${DESTAQUE}" stroke-width="2.2"`
+        + `${curva.tracejada ? ' stroke-dasharray="7 5"' : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
+    }
+    if (curva.rotulo && trechos.length) {
+      // o nome vai na ponta DIREITA do trecho mais longo, que é onde a curva
+      // tem mais espaço em volta
+      const maior = trechos.reduce((a, t) => (t.length > a.length ? t : a), trechos[0]);
+      const [px, py] = maior[maior.length - 1].split(",").map(Number);
+      corpo += texto(px + 8, py - 6, esc(curva.rotulo), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  // --- os degraus: um passo para a direita e a subida que ele provoca
+  for (const degrau of degraus) {
+    const curva = curvas[degrau.curva ?? 0];
+    if (!curva) continue;
+    const x1 = degrau.de, passoX = degrau.passo ?? 1, x2 = x1 + passoX;
+    const y1 = valor(curva, x1), y2 = valor(curva, x2);
+    corpo += `<line x1="${X(x1)}" y1="${Y(y1)}" x2="${X(x2)}" y2="${Y(y1)}" stroke="${TRACO_FORTE}" stroke-width="1.8" stroke-dasharray="5 4"/>`;
+    corpo += `<line x1="${X(x2)}" y1="${Y(y1)}" x2="${X(x2)}" y2="${Y(y2)}" stroke="${TRACO_FORTE}" stroke-width="1.8" stroke-dasharray="5 4"/>`;
+    if (degrau.rotuloX) {
+      corpo += texto((X(x1) + X(x2)) / 2, Y(y1) + (y2 > y1 ? 15 : -8), esc(degrau.rotuloX), {
+        tamanho: 11, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+    if (degrau.rotuloY) {
+      corpo += texto(X(x2) + 7, (Y(y1) + Y(y2)) / 2, esc(degrau.rotuloY), {
+        tamanho: 11, cor: TRACO_FORTE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  for (const ponto of pontos) {
+    const [px, py] = ponto.em;
+    corpo += `<circle cx="${X(px)}" cy="${Y(py)}" r="5.5" fill="${ponto.vazado ? CANVAS : DESTAQUE}" stroke="${ponto.vazado ? DESTAQUE : TRACO_FORTE}" stroke-width="2"/>`;
+    if (ponto.rotulo) {
+      // o rótulo desvia para a esquerda quando o ponto está encostado na
+      // borda direita: escrever para fora cortaria o texto
+      const paraDentro = px > xAte - 2;
+      corpo += texto(X(px) + (paraDentro ? -10 : 10), Y(py) - 11, esc(ponto.rotulo), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, ancora: paraDentro ? "end" : "start", fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
+}
+
+
+/**
+ * Um triângulo cortado por uma reta PARALELA a um dos lados.
+ *
+ * É a figura central de Semelhança, e depois a de Tales: a paralela corta um
+ * triângulo menor no topo que tem exatamente a mesma forma do original. O
+ * motivo é do 7º ano — a transversal cria ângulos correspondentes iguais —,
+ * e sem o desenho isso vira uma afirmação que o aluno aceita sem ver.
+ *
+ * `fracao` diz onde a paralela corta, medindo de A (o vértice de cima) até a
+ * base. Ela não é enfeite: os dois triângulos desenhados são de fato
+ * semelhantes com razão igual a ela, então a figura não tem como discordar
+ * do enunciado — a mesma disciplina de `fatoracao` e `sequenciaFiguras`.
+ *
+ * `rotulos` aceita ad, db, de, bc e os nomes dos cinco pontos. O que não for
+ * passado simplesmente não é escrito, e é assim que a questão esconde a
+ * medida procurada.
+ */
+export function trianguloCortado({
+  fracao = 0.5, rotulos = {}, destacarTopo = false, rotulo = "",
+}) {
+  const t = Math.min(0.85, Math.max(0.15, fracao));
+  // Um triângulo bem escaleno, para ninguém confundir com isósceles: o
+  // vértice de cima fica longe do meio da base, senão a figura vira um
+  // triângulo simétrico e a semelhança parece depender disso.
+  const A = [92, 16], B = [16, 176], C = [248, 176];
+  const D = [A[0] + (B[0] - A[0]) * t, A[1] + (B[1] - A[1]) * t];
+  const E = [A[0] + (C[0] - A[0]) * t, A[1] + (C[1] - A[1]) * t];
+
+  // A caixa conta os rótulos escritos FORA do contorno: o de AD e o de DB
+  // saem pela esquerda, e o de DE e BC pela direita e por baixo. Com folga
+  // fixa, um "12 cm" saía cortado — o defeito de sempre.
+  const larguraDe = (k) => (rotulos[k] ? Math.ceil(larguraTexto(String(rotulos[k]), 12, true)) : 0);
+  const mEsq = Math.max(26, larguraDe("ad") + 16, larguraDe("db") + 16, larguraDe("b") + 14);
+  const mDir = Math.max(26, larguraDe("de") + 16, larguraDe("c") + 14);
+  const larguraDesenho = 264 + mEsq + mDir - 32;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  // O nome do vértice de cima é escrito 8px ACIMA dele, e o vértice mora em
+  // y = 16: um "A" em 12px começava 1px fora da caixa. A margem do topo
+  // também conta rótulo — é o mesmo defeito que o `areaPorRecorte` teve com
+  // a base menor do trapézio, e que o `comRotulo` não cobre porque não é
+  // rodapé.
+  const mTopo = rotulos.a ? 10 : 0;
+  const alturaSvg = 216 + mTopo + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2 + mEsq - 16;
+  const P = ([x, y]) => [x + recuo, y + mTopo];
+  const [ax, ay] = P(A), [bx, by] = P(B), [cx, cy] = P(C), [dx, dy] = P(D), [ex, ey] = P(E);
+
+  let corpo = "";
+  // o triângulo inteiro
+  corpo += `<polygon points="${ax},${ay} ${bx},${by} ${cx},${cy}" fill="${CHEIO}" fill-opacity="0.12" stroke="${TRACO_FORTE}" stroke-width="2.4" stroke-linejoin="round"/>`;
+  // o triângulo de cima, o que a paralela recorta
+  if (destacarTopo) {
+    corpo += `<polygon points="${ax},${ay} ${dx.toFixed(1)},${dy.toFixed(1)} ${ex.toFixed(1)},${ey.toFixed(1)}" fill="${CHEIO}" fill-opacity="0.3" stroke="none"/>`;
+  }
+  // a paralela
+  corpo += `<line x1="${dx.toFixed(1)}" y1="${dy.toFixed(1)}" x2="${ex.toFixed(1)}" y2="${ey.toFixed(1)}" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+  // as duas setinhas que dizem "estas duas retas são paralelas"
+  const seta = (x, y) => `<path d="M ${x - 5} ${y + 5} L ${x} ${y} L ${x - 5} ${y - 5}" fill="none" stroke="${TRACO_FORTE}" stroke-width="1.6" stroke-linejoin="round"/>`;
+  // As setinhas ficam a 30% do segmento, e não no meio: no meio elas
+  // batiam no rótulo da medida, que também é centralizado.
+  const emTrinta = (p1, p2) => [p1[0] + (p2[0] - p1[0]) * 0.3, p1[1] + (p2[1] - p1[1]) * 0.3];
+  corpo += seta(...emTrinta([dx, dy], [ex, ey]));
+  corpo += seta(...emTrinta([bx, by], [cx, cy]));
+
+  const marca = (p, nome, dxx, dyy, ancora) => (nome
+    ? texto(p[0] + dxx, p[1] + dyy, esc(String(nome)), { tamanho: 12, cor: TRACO_FORTE, peso: 500, ancora, fonte: FONTE_MONO })
+    : "");
+  corpo += marca([ax, ay], rotulos.a, 0, -8, "middle");
+  corpo += marca([bx, by], rotulos.b, -8, 14, "end");
+  corpo += marca([cx, cy], rotulos.c, 8, 14, "start");
+  corpo += marca([dx, dy], rotulos.d, -9, 0, "end");
+  corpo += marca([ex, ey], rotulos.e, 9, 0, "start");
+
+  const medida = (p, q, txt, dxx, dyy, ancora) => (txt
+    ? texto((p[0] + q[0]) / 2 + dxx, (p[1] + q[1]) / 2 + dyy, esc(String(txt)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, ancora, fonte: FONTE_MONO,
+    })
+    : "");
+  corpo += medida([ax, ay], [dx, dy], rotulos.ad, -9, 0, "end");
+  corpo += medida([dx, dy], [bx, by], rotulos.db, -9, 0, "end");
+  corpo += medida([dx, dy], [ex, ey], rotulos.de, 0, -9, "middle");
+  corpo += medida([bx, by], [cx, cy], rotulos.bc, 0, 18, "middle");
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
+}
+
+/**
+ * Objetos verticais com as sombras deles, e o raio de sol que as produz.
+ *
+ * É a figura que justifica o método mais antigo de medir o inacessível, e
+ * ela precisa ser honesta: o raio de sol chega no MESMO ângulo em todos os
+ * objetos, e é isso que torna os triângulos semelhantes. Por isso o gerador
+ * RECUSA um conjunto em que as razões altura/sombra discordem — desenhar
+ * isso seria ilustrar uma situação impossível, pelo mesmo motivo que faz o
+ * `prisma` recusar base degenerada.
+ *
+ * A medida procurada entra como texto em `rotuloAltura` (um "?" serve), e a
+ * altura desenhada continua saindo do valor de verdade: a figura mostra a
+ * situação sem escrever a resposta.
+ */
+export function objetoESombra({ itens, rotulo = "" }) {
+  const razoes = itens.map((i) => i.altura / i.sombra);
+  for (const r of razoes) {
+    if (Math.abs(r - razoes[0]) > 1e-9) {
+      throw new Error("objetoESombra: as razões altura/sombra precisam ser iguais — o sol é o mesmo para todos");
+    }
+  }
+  const maiorAlt = Math.max(...itens.map((i) => i.altura));
+  const somaSombras = itens.reduce((s, i) => s + i.sombra, 0);
+  // A escala sai do que couber: 190px de altura útil e 300px de largura útil
+  // para as sombras somadas, o menor dos dois fatores mandando.
+  const escala = Math.min(190 / maiorAlt, 300 / somaSombras);
+  // A margem ESQUERDA precisa caber o rótulo de altura, que é escrito a 8px
+  // do objeto e alinhado pela direita: com 30px fixos, um "3 m" começava 3px
+  // fora da caixa. É o mesmo defeito que o `bloco` do 6º ano já teve.
+  const vao = 34, base = 34;
+  const mLado = Math.max(30, Math.ceil(larguraTexto(String(itens[0].rotuloAltura ?? ""), 12, true)) + 14);
+
+  const larguras = itens.map((i) => i.sombra * escala);
+  const larguraDesenho = larguras.reduce((s, w) => s + w, 0) + vao * (itens.length - 1) + mLado * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = maiorAlt * escala + base + 26 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const yChao = maiorAlt * escala + 26;
+
+  let corpo = "";
+  corpo += `<line x1="${recuo + 8}" y1="${yChao}" x2="${largura - recuo - 8}" y2="${yChao}" stroke="${TRACO_FORTE}" stroke-width="2.4" stroke-linecap="round"/>`;
+
+  let x = recuo + mLado;
+  for (let i = 0; i < itens.length; i += 1) {
+    const it = itens[i];
+    const h = it.altura * escala, s = it.sombra * escala;
+    const topo = yChao - h;
+    // a sombra, deitada no chão
+    corpo += `<line x1="${x.toFixed(1)}" y1="${yChao}" x2="${(x + s).toFixed(1)}" y2="${yChao}" stroke="${CHEIO}" stroke-width="7" stroke-opacity="0.4" stroke-linecap="butt"/>`;
+    // o objeto, de pé
+    corpo += `<line x1="${x.toFixed(1)}" y1="${yChao}" x2="${x.toFixed(1)}" y2="${topo.toFixed(1)}" stroke="${DESTAQUE}" stroke-width="3.2" stroke-linecap="round"/>`;
+    // o raio de sol, do topo ate a ponta da sombra
+    corpo += `<line x1="${x.toFixed(1)}" y1="${topo.toFixed(1)}" x2="${(x + s).toFixed(1)}" y2="${yChao}" stroke="${TRACO}" stroke-width="1.8" stroke-dasharray="6 4"/>`;
+    // o ângulo do sol, marcado na ponta da sombra
+    corpo += `<path d="${arco(x + s, yChao, 16, 180 - (Math.atan2(h, s) * 180) / Math.PI, 180)}" fill="none" stroke="${TRACO}" stroke-width="1.5"/>`;
+    if (it.rotuloAltura) {
+      corpo += texto(x - 8, topo + h / 2, esc(String(it.rotuloAltura)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO,
+      });
+    }
+    if (it.rotuloSombra) {
+      corpo += texto(x + s / 2, yChao + 18, esc(String(it.rotuloSombra)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+    if (it.nome) {
+      corpo += texto(x + s / 2, yChao + 32, esc(String(it.nome)), { tamanho: 11, cor: TRACO });
+    }
+    x += s + vao;
+  }
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+
+/**
+ * Um feixe de retas paralelas cortado por duas transversais.
+ *
+ * É a figura do Teorema de Tales, e ela tem uma exigência que quase nenhuma
+ * outra tem: a proporção precisa EXISTIR no desenho. O gerador recebe as
+ * alturas das paralelas e as inclinações das transversais e CALCULA os
+ * pontos de encontro — daí os segmentos saem proporcionais por construção, e
+ * a figura não tem como discordar do enunciado. Passar pontos prontos
+ * deixaria a porta aberta para um desenho que desmente o próprio rótulo, que
+ * é o defeito mais caro da geometria deste projeto.
+ *
+ * `alturas` vai de 0 (a paralela de cima) a 1 (a de baixo), e é ela que
+ * decide a proporção: alturas [0, 0.4, 1] produzem segmentos na razão 2 para
+ * 3 nas DUAS transversais, seja qual for a inclinação delas.
+ *
+ * `medidas` traz, por transversal, o texto de cada segmento entre paralelas
+ * consecutivas. Um "?" no lugar do valor procurado é o jeito de a questão
+ * mostrar os dados sem mostrar a resposta.
+ */
+export function feixeParalelas({
+  alturas = [0, 0.45, 1], inclinacoes = [0.34, -0.22],
+  nomesParalelas = [], medidas = [], rotulo = "",
+}) {
+  const alturaUtil = 190, larguraUtil = 210;
+  const mTopo = 24;
+  const Y = (t) => mTopo + t * alturaUtil;
+  // A transversal i passa pelo ponto (baseX[i], meio) e anda `inclinacoes[i]`
+  // em x a cada unidade de t. O x de encontro com a paralela de altura t sai
+  // dessa reta, e é dele que os segmentos nascem.
+  const bases = inclinacoes.map((_, i) => 40 + i * larguraUtil);
+  const Xde = (i, t) => bases[i] + (t - 0.5) * inclinacoes[i] * alturaUtil;
+
+  const todosX = inclinacoes.flatMap((_, i) => alturas.map((t) => Xde(i, t)));
+  const minX = Math.min(...todosX), maxX = Math.max(...todosX);
+  // As paralelas precisam ultrapassar as duas transversais dos dois lados,
+  // senão elas parecem segmentos soltos em vez de retas.
+  const sobra = 26;
+  const larguraTracos = maxX - minX + sobra * 2;
+
+  // A caixa conta os rótulos escritos fora do desenho: o nome da paralela vai
+  // à esquerda, e a medida de cada segmento fica ao lado da transversal.
+  const mEsq = Math.max(20, ...nomesParalelas.map((n) => Math.ceil(larguraTexto(String(n ?? ""), 12, true)) + 12));
+  const mDir = Math.max(20, ...medidas.flat().map((m) => Math.ceil(larguraTexto(String(m ?? ""), 12, true)) + 14));
+  const larguraDesenho = mEsq + larguraTracos + mDir;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = alturaUtil + mTopo * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2 + mEsq - minX + sobra;
+  const X = (x) => x + recuo;
+
+  let corpo = "";
+
+  // as paralelas
+  alturas.forEach((t, k) => {
+    corpo += `<line x1="${X(minX - sobra).toFixed(1)}" y1="${Y(t).toFixed(1)}" x2="${X(maxX + sobra).toFixed(1)}" y2="${Y(t).toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="2.4" stroke-linecap="round"/>`;
+    if (nomesParalelas[k]) {
+      corpo += texto(X(minX - sobra) - 8, Y(t), esc(String(nomesParalelas[k])), {
+        tamanho: 12, cor: TRACO_FORTE, peso: 500, ancora: "end", fonte: FONTE_MONO,
+      });
+    }
+  });
+
+  // as transversais e os pontos de encontro
+  inclinacoes.forEach((_, i) => {
+    const p1 = [X(Xde(i, -0.08)), Y(-0.08)], p2 = [X(Xde(i, 1.08)), Y(1.08)];
+    corpo += `<line x1="${p1[0].toFixed(1)}" y1="${p1[1].toFixed(1)}" x2="${p2[0].toFixed(1)}" y2="${p2[1].toFixed(1)}" stroke="${DESTAQUE}" stroke-width="2.2" stroke-linecap="round"/>`;
+    alturas.forEach((t) => {
+      corpo += `<circle cx="${X(Xde(i, t)).toFixed(1)}" cy="${Y(t).toFixed(1)}" r="4.5" fill="${DESTAQUE}" stroke="${TRACO_FORTE}" stroke-width="1.6"/>`;
+    });
+    // as medidas, uma por segmento entre paralelas consecutivas
+    const daTransversal = medidas[i] ?? [];
+    for (let k = 0; k + 1 < alturas.length; k += 1) {
+      const txt = daTransversal[k];
+      if (!txt) continue;
+      const mx = (Xde(i, alturas[k]) + Xde(i, alturas[k + 1])) / 2;
+      const my = (Y(alturas[k]) + Y(alturas[k + 1])) / 2;
+      corpo += texto(X(mx) + 10, my + 4, esc(String(txt)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+      });
+    }
+  });
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), Math.round(alturaSvg), corpo, rotulo, 14);
+}
+
+
+/**
+ * O triângulo retângulo, com ou sem os quadrados construídos sobre os lados.
+ *
+ * É a figura que DEMONSTRA o teorema em vez de enunciá-lo: o quadrado da
+ * hipotenusa tem a mesma área que os dois quadrados dos catetos juntos, e
+ * isso é uma coisa que se vê. Sem ela, "a² + b² = c²" é mais uma fórmula a
+ * decorar — o mesmo risco que `trianguloParalela` afastou na soma dos
+ * ângulos e `piDesenrolado` afastou no π.
+ *
+ * O gerador CALCULA a hipotenusa a partir dos catetos e constrói os três
+ * quadrados a partir dos vértices, com o normal apontando para fora. Nada é
+ * posicionado à mão, então a figura não tem como discordar do enunciado.
+ *
+ * `quais` diz quais quadrados desenhar: [] deixa só o triângulo, que é o que
+ * vai nas questões de calcular um lado. `medidas` rotula os lados, e
+ * `mostrar` decide o que vai escrito dentro dos quadrados — "areas" para os
+ * números, "letras" para a² e b², "vazio" para nada.
+ */
+export function quadradosPitagoras({
+  a = 3, b = 4, quais = ["a", "b", "c"], medidas = {}, mostrar = "areas",
+  marcarReto = true, rotulo = "",
+}) {
+  const c = Math.hypot(a, b);
+  // Vértices em unidades: o ângulo reto na origem, os catetos nos eixos.
+  const C = [0, 0], B = [b, 0], A = [0, a];
+  const quadrados = {
+    // sobre o cateto horizontal, para baixo
+    b: { pontos: [C, B, [b, -b], [0, -b]], centro: [b / 2, -b / 2], area: b * b, letra: "b²" },
+    // sobre o cateto vertical, para a esquerda
+    a: { pontos: [C, A, [-a, a], [-a, 0]], centro: [-a / 2, a / 2], area: a * a, letra: "a²" },
+    // sobre a hipotenusa, para fora do triângulo
+    c: { pontos: [A, B, [b + a, b], [a, a + b]], centro: [(b + a) / 2, (a + b) / 2], area: c * c, letra: "c²" },
+  };
+
+  const usados = quais.filter((k) => quadrados[k]);
+  const todosPontos = [C, B, A, ...usados.flatMap((k) => quadrados[k].pontos)];
+  const minU = [Math.min(...todosPontos.map((p) => p[0])), Math.min(...todosPontos.map((p) => p[1]))];
+  const maxU = [Math.max(...todosPontos.map((p) => p[0])), Math.max(...todosPontos.map((p) => p[1]))];
+  const larguraU = maxU[0] - minU[0], alturaU = maxU[1] - minU[1];
+  const escala = Math.min(230 / larguraU, 210 / alturaU);
+
+  const m = 26;
+  // As margens contam os rótulos dos lados, e elas são ASSIMÉTRICAS: o do
+  // cateto vertical é escrito à esquerda e alinhado pela direita, então
+  // precisa do texto INTEIRO de folga daquele lado — com a margem fixa de
+  // 26px, um "5 cm" começava fora da caixa. O da hipotenusa é escrito para
+  // dentro e só pede folga quando não há quadrado cobrindo aquele canto.
+  const folgaEsq = Math.max(m, Math.ceil(larguraTexto(String(medidas.a ?? ""), 12, true)) + 14);
+  const folgaDir = Math.max(m, Math.ceil(larguraTexto(String(medidas.c ?? ""), 12, true)) / 2 + 16);
+  const larguraDesenho = Math.round(larguraU * escala + folgaEsq + folgaDir);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = Math.round(alturaU * escala + m * 2 + (rotulo ? 22 : 0));
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = (u) => recuo + folgaEsq + (u - minU[0]) * escala;
+  const Y = (v) => m + (maxU[1] - v) * escala;
+  const P = ([u, v]) => `${X(u).toFixed(1)},${Y(v).toFixed(1)}`;
+
+  let corpo = "";
+
+  for (const k of usados) {
+    const q = quadrados[k];
+    corpo += `<polygon points="${q.pontos.map(P).join(" ")}" fill="${CHEIO}" fill-opacity="${k === "c" ? 0.3 : 0.16}" stroke="${TRACO_FORTE}" stroke-width="2"/>`;
+    if (mostrar !== "vazio") {
+      const txt = mostrar === "letras" ? q.letra : String(Math.round(q.area));
+      corpo += texto(X(q.centro[0]), Y(q.centro[1]), esc(txt), {
+        tamanho: 14, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  // o triângulo por cima, para o contorno dele não sumir sob os quadrados
+  corpo += `<polygon points="${[C, B, A].map(P).join(" ")}" fill="${CHEIO}" fill-opacity="0.22" stroke="${DESTAQUE}" stroke-width="2.6" stroke-linejoin="round"/>`;
+
+  if (marcarReto) {
+    const t = Math.min(a, b) * 0.16;
+    corpo += `<path d="M ${P([t, 0])} L ${P([t, t])} L ${P([0, t])}" fill="none" stroke="${TRACO}" stroke-width="1.6"/>`;
+  }
+
+  // os rótulos dos lados, escritos para FORA do triângulo
+  if (medidas.b) corpo += texto(X(b / 2), Y(0) + 17, esc(String(medidas.b)), { tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO });
+  if (medidas.a) corpo += texto(X(0) - 9, Y(a / 2), esc(String(medidas.a)), { tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO });
+  if (medidas.c) corpo += texto(X(b / 2) + 14, Y(a / 2) - 8, esc(String(medidas.c)), { tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO });
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
+}
+
+
+/**
+ * O triângulo retângulo com a ALTURA relativa à hipotenusa traçada.
+ *
+ * É a figura das relações métricas, e ela não ilustra o assunto: ela É o
+ * assunto. A altura parte a figura em dois triângulos que são semelhantes ao
+ * original e entre si, e todas as cinco relações saem de escrever proporções
+ * entre esses três triângulos. Sem o desenho, as fórmulas viram cinco linhas
+ * decoradas que ninguém distingue na hora da prova.
+ *
+ * O gerador CALCULA tudo a partir dos dois catetos: a hipotenusa, o pé da
+ * altura, as duas projeções e a altura. Passar essas medidas prontas abriria
+ * a porta para um desenho que desmente o enunciado — e aqui isso seria
+ * grave, porque a matéria inteira é sobre as proporções da figura.
+ *
+ * `rotulos` nomeia cada elemento (a, b, c, h, m, n), e o que não for passado
+ * não é escrito: é assim que a questão esconde a medida procurada.
+ * `destacar` pinta um dos dois triângulos menores, para a lição mostrar de
+ * onde cada proporção sai.
+ */
+export function relacoesMetricas({
+  b = 3, c = 4, rotulos = {}, destacar = null, marcarRetos = true, rotulo = "",
+}) {
+  const a = Math.hypot(b, c);
+  const n = (c * c) / a;   // projeção do cateto c, encostada em B
+  const m = (b * b) / a;   // projeção do cateto b, encostada em C
+  const h = (b * c) / a;
+
+  const escala = Math.min(250 / a, 150 / h);
+  const B = [0, 0], C = [a * escala, 0], H = [n * escala, 0], A = [n * escala, -h * escala];
+
+  const mTopo = 30, mBaixo = 38;
+  // As margens laterais contam os rótulos dos catetos, escritos para fora do
+  // contorno: com margem fixa, um "12 cm" saía cortado — o defeito que já
+  // apareceu em seis geradores.
+  const larg = (k) => (rotulos[k] ? Math.ceil(larguraTexto(String(rotulos[k]), 12, true)) : 0);
+  const mEsq = Math.max(24, larg("c") + 16, larg("n") / 2 + 10);
+  const mDir = Math.max(24, larg("b") + 16, larg("m") / 2 + 10);
+  const larguraDesenho = Math.round(a * escala + mEsq + mDir);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = Math.round(h * escala + mTopo + mBaixo + (rotulo ? 22 : 0));
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = (u) => recuo + mEsq + u;
+  const Y = (v) => mTopo + h * escala + v;
+  const P = ([u, v]) => `${X(u).toFixed(1)},${Y(v).toFixed(1)}`;
+
+  let corpo = "";
+
+  // o triângulo menor destacado, quando pedido
+  if (destacar === "esquerdo") {
+    corpo += `<polygon points="${[B, H, A].map(P).join(" ")}" fill="${CHEIO}" fill-opacity="0.34" stroke="none"/>`;
+  } else if (destacar === "direito") {
+    corpo += `<polygon points="${[H, C, A].map(P).join(" ")}" fill="${CHEIO}" fill-opacity="0.34" stroke="none"/>`;
+  }
+
+  corpo += `<polygon points="${[B, C, A].map(P).join(" ")}" fill="${CHEIO}" fill-opacity="0.16" stroke="${DESTAQUE}" stroke-width="2.6" stroke-linejoin="round"/>`;
+  corpo += `<line x1="${X(A[0]).toFixed(1)}" y1="${Y(A[1]).toFixed(1)}" x2="${X(H[0]).toFixed(1)}" y2="${Y(H[1]).toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+
+  if (marcarRetos) {
+    const t = Math.min(14, h * escala * 0.22);
+    // o ângulo reto no pé da altura
+    corpo += `<path d="M ${P([n * escala - t, 0])} L ${P([n * escala - t, -t])} L ${P([n * escala, -t])}" fill="none" stroke="${TRACO}" stroke-width="1.5"/>`;
+    // o ângulo reto no vértice de cima, entre os dois catetos
+    // Os vértices já estão em PIXELS, e `t` também: multiplicar o passo pela
+    // escala de novo jogava a marca do ângulo reto para fora do desenho, e
+    // ela simplesmente não aparecia.
+    const u = [(B[0] - A[0]) / (c * escala), (B[1] - A[1]) / (c * escala)];
+    const w = [(C[0] - A[0]) / (b * escala), (C[1] - A[1]) / (b * escala)];
+    const p1 = [A[0] + u[0] * t, A[1] + u[1] * t];
+    const p2 = [A[0] + (u[0] + w[0]) * t, A[1] + (u[1] + w[1]) * t];
+    const p3 = [A[0] + w[0] * t, A[1] + w[1] * t];
+    corpo += `<path d="M ${P(p1)} L ${P(p2)} L ${P(p3)}" fill="none" stroke="${TRACO}" stroke-width="1.5"/>`;
+  }
+
+  const escreve = (ponto, txt, dx, dy, ancora) => (txt
+    ? texto(X(ponto[0]) + dx, Y(ponto[1]) + dy, esc(String(txt)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, ancora, fonte: FONTE_MONO,
+    })
+    : "");
+
+  // a hipotenusa, por baixo de tudo
+  corpo += escreve([(B[0] + C[0]) / 2, 0], rotulos.a, 0, 32, "middle");
+  // as duas projeções, logo abaixo da linha
+  corpo += escreve([(B[0] + H[0]) / 2, 0], rotulos.n, 0, 16, "middle");
+  corpo += escreve([(H[0] + C[0]) / 2, 0], rotulos.m, 0, 16, "middle");
+  // a altura, ao lado do segmento vertical
+  corpo += escreve([H[0], -h * escala / 2], rotulos.h, 7, 4, "start");
+  // os catetos, para fora do contorno
+  corpo += escreve([(B[0] + A[0]) / 2, -h * escala / 2], rotulos.c, -10, -2, "end");
+  corpo += escreve([(C[0] + A[0]) / 2, -h * escala / 2], rotulos.b, 10, -2, "start");
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
+}
+
+
+/**
+ * Triângulo retângulo com um ângulo agudo MARCADO, para trigonometria.
+ *
+ * A figura existe para uma coisa que nenhum outro gerador do projeto fazia:
+ * mostrar quem é o cateto OPOSTO e quem é o ADJACENTE em relação a um ângulo
+ * escolhido. Essa distinção é o assunto inteiro da matéria, e ela não é
+ * propriedade do triângulo — é propriedade do ângulo que se olha. Trocar de
+ * ângulo troca os papéis dos dois catetos, e a figura precisa deixar isso
+ * visível.
+ *
+ * O triângulo é CONSTRUÍDO a partir do ângulo: o cateto adjacente é fixado e
+ * o oposto sai de tan(θ). Passar os lados prontos deixaria a porta aberta
+ * para um desenho rotulado 30° com um ângulo de 50° — o defeito que a revisão
+ * do 7º ano achou em dez figuras de `paralelasTransversal`.
+ *
+ * `rotulos` aceita oposto, adjacente, hipotenusa e angulo. O que não for
+ * passado não é escrito, e é assim que a questão esconde o que ela pergunta.
+ */
+export function trianguloTrig({
+  angulo = 30, rotulos = {}, destacarLado = null, rotulo = "",
+}) {
+  if (angulo <= 5 || angulo >= 85) {
+    throw new Error("trianguloTrig: ângulo fora da faixa que o desenho comporta (6° a 84°)");
+  }
+  const rad = angulo * RAD;
+  // O cateto adjacente é a unidade; o oposto sai da tangente, e a escala
+  // cede para a figura caber tanto num ângulo raso quanto num íngreme.
+  const oposto = Math.tan(rad);
+  const escala = Math.min(230, 175 / oposto);
+  const A = [0, 0], B = [escala, 0], C = [escala, -oposto * escala];
+
+  const mTopo = 26, mBaixo = 34;
+  const larg = (k) => (rotulos[k] ? Math.ceil(larguraTexto(String(rotulos[k]), 12, true)) : 0);
+  const mEsq = Math.max(24, larg("angulo") + 14);
+  const mDir = Math.max(24, larg("oposto") + 16);
+  const larguraDesenho = Math.round(escala + mEsq + mDir);
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = Math.round(oposto * escala + mTopo + mBaixo + (rotulo ? 22 : 0));
+  const recuo = (largura - larguraDesenho) / 2;
+  const X = (u) => recuo + mEsq + u;
+  const Y = (v) => mTopo + oposto * escala + v;
+  const P = ([u, v]) => `${X(u).toFixed(1)},${Y(v).toFixed(1)}`;
+
+  let corpo = "";
+  corpo += `<polygon points="${[A, B, C].map(P).join(" ")}" fill="${CHEIO}" fill-opacity="0.16" stroke="${DESTAQUE}" stroke-width="2.6" stroke-linejoin="round"/>`;
+
+  // o lado em destaque, por cima do contorno
+  const lados = { adjacente: [A, B], oposto: [B, C], hipotenusa: [A, C] };
+  if (destacarLado && lados[destacarLado]) {
+    const [p, q] = lados[destacarLado];
+    corpo += `<line x1="${X(p[0]).toFixed(1)}" y1="${Y(p[1]).toFixed(1)}" x2="${X(q[0]).toFixed(1)}" y2="${Y(q[1]).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="5" stroke-linecap="round"/>`;
+  }
+
+  // o ângulo reto, no vértice B
+  const t = Math.min(15, escala * 0.1, oposto * escala * 0.18);
+  corpo += `<path d="M ${P([escala - t, 0])} L ${P([escala - t, -t])} L ${P([escala, -t])}" fill="none" stroke="${TRACO}" stroke-width="1.5"/>`;
+
+  // o arco do ângulo agudo, no vértice A
+  const r = Math.min(30, escala * 0.3);
+  corpo += `<path d="${arco(X(0), Y(0), r, 0, angulo)}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8"/>`;
+  if (rotulos.angulo) {
+    corpo += texto(X(0) + r + 10, Y(0) - r * 0.32, esc(String(rotulos.angulo)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+    });
+  }
+
+  const escreve = (ponto, txt, dx, dy, ancora) => (txt
+    ? texto(X(ponto[0]) + dx, Y(ponto[1]) + dy, esc(String(txt)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, ancora, fonte: FONTE_MONO,
+    })
+    : "");
+  corpo += escreve([escala / 2, 0], rotulos.adjacente, 0, 20, "middle");
+  corpo += escreve([escala, -oposto * escala / 2], rotulos.oposto, 10, 4, "start");
+  corpo += escreve([escala / 2, -oposto * escala / 2], rotulos.hipotenusa, -10, -6, "end");
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
+}
+
+
+/**
+ * Circunferência com pontos, ângulo central, ângulo inscrito e arcos.
+ *
+ * É a figura da matéria de arcos e ângulos, e ela existe para uma afirmação
+ * que ninguém acredita sem ver: o ângulo inscrito mede METADE do central que
+ * enxerga o mesmo arco. Com os dois desenhados na mesma circunferência, o
+ * aluno compara de olho antes de aceitar a fórmula — é o mesmo papel que
+ * `trianguloParalela` faz na soma dos ângulos.
+ *
+ * Todas as posições entram em GRAUS sobre a circunferência, e o gerador
+ * calcula os pontos. O ângulo inscrito desenhado é, por construção, metade do
+ * central — nenhum rótulo pode desmenti-lo, porque nada é posicionado à mão.
+ *
+ * `arco` pinta o arco em destaque; `setor` pinta a fatia até o centro.
+ */
+export function circunferenciaAngulos({
+  // O parâmetro NÃO pode se chamar `arco`: existe um helper de módulo com
+  // esse nome, e a desestruturação o sombrearia dentro desta função — o arco
+  // do ângulo central sairia chamando um objeto em vez da função.
+  pontos = [], central = null, inscrito = null, arcoDestacado = null, setor = null,
+  poligono = null,
+  mostrarCentro = true, rotulo = "",
+}) {
+  const R = 96, m = 34;
+  const larguraDesenho = R * 2 + m * 2;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = R * 2 + m * 2 + (rotulo ? 22 : 0);
+  const recuo = (largura - larguraDesenho) / 2;
+  const O = [recuo + m + R, m + R];
+  const P = (g) => [O[0] + R * Math.cos(-g * RAD), O[1] + R * Math.sin(-g * RAD)];
+  const xy = ([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`;
+
+  let corpo = "";
+
+  // o setor pintado, do centro até o arco
+  if (setor) {
+    const a = P(setor.de), b = P(setor.ate);
+    const grande = ((setor.ate - setor.de) % 360 + 360) % 360 > 180 ? 1 : 0;
+    corpo += `<path d="M ${xy(O)} L ${xy(a)} A ${R} ${R} 0 ${grande} 0 ${xy(b)} Z" fill="${CHEIO}" fill-opacity="0.3" stroke="none"/>`;
+  }
+
+  corpo += `<circle cx="${O[0]}" cy="${O[1]}" r="${R}" fill="none" stroke="${TRACO_FORTE}" stroke-width="2.4"/>`;
+
+  // O POLÍGONO inscrito, fechado. Sem ele, um quadrilátero inscrito saía
+  // como duas cordas soltas e um ponto perdido — a figura não mostrava a
+  // figura de que a lição fala.
+  if (poligono && poligono.length > 2) {
+    corpo += `<polygon points="${poligono.map((g) => xy(P(g))).join(" ")}" fill="${CHEIO}" fill-opacity="0.14" stroke="${DESTAQUE}" stroke-width="2.2" stroke-linejoin="round"/>`;
+  }
+
+  // o arco em destaque, por cima da circunferência
+  if (arcoDestacado) {
+    const a = P(arcoDestacado.de), b = P(arcoDestacado.ate);
+    const grande = ((arcoDestacado.ate - arcoDestacado.de) % 360 + 360) % 360 > 180 ? 1 : 0;
+    corpo += `<path d="M ${xy(a)} A ${R} ${R} 0 ${grande} 0 ${xy(b)}" fill="none" stroke="${DESTAQUE}" stroke-width="5" stroke-linecap="round"/>`;
+    if (arcoDestacado.rotulo) {
+      const meio = (arcoDestacado.de + arcoDestacado.ate) / 2 + (grande ? 180 : 0);
+      const [mx, my] = P(meio);
+      corpo += texto(O[0] + (mx - O[0]) * 1.22, O[1] + (my - O[1]) * 1.22, esc(String(arcoDestacado.rotulo)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  // o ângulo CENTRAL: dois raios saindo do centro
+  if (central) {
+    for (const g of [central.de, central.ate]) {
+      const q = P(g);
+      corpo += `<line x1="${O[0]}" y1="${O[1]}" x2="${q[0].toFixed(1)}" y2="${q[1].toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+    }
+    const abertura = ((central.ate - central.de) % 360 + 360) % 360;
+    corpo += `<path d="${arco(O[0], O[1], 26, central.de, central.de + abertura)}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8"/>`;
+    if (central.rotulo) {
+      const meio = central.de + abertura / 2;
+      corpo += texto(O[0] + 42 * Math.cos(-meio * RAD), O[1] + 42 * Math.sin(-meio * RAD), esc(String(central.rotulo)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  // o ângulo INSCRITO: duas cordas saindo de um ponto da circunferência
+  if (inscrito) {
+    const V = P(inscrito.vertice);
+    for (const g of [inscrito.de, inscrito.ate]) {
+      const q = P(g);
+      corpo += `<line x1="${V[0].toFixed(1)}" y1="${V[1].toFixed(1)}" x2="${q[0].toFixed(1)}" y2="${q[1].toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="2.2"/>`;
+    }
+    const dir = (g) => {
+      const q = P(g);
+      return (Math.atan2(-(q[1] - V[1]), q[0] - V[0]) * 180) / Math.PI;
+    };
+    let de = dir(inscrito.de), ate = dir(inscrito.ate);
+    let d = ((ate - de) % 360 + 360) % 360;
+    if (d > 180) { [de, d] = [ate, 360 - d]; }
+    corpo += `<path d="${arco(V[0], V[1], 24, de, de + d)}" fill="none" stroke="${DESTAQUE}" stroke-width="1.8"/>`;
+    if (inscrito.rotulo) {
+      const meio = de + d / 2;
+      corpo += texto(V[0] + 40 * Math.cos(-meio * RAD), V[1] + 40 * Math.sin(-meio * RAD), esc(String(inscrito.rotulo)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  if (mostrarCentro) {
+    corpo += `<circle cx="${O[0]}" cy="${O[1]}" r="3.5" fill="${TRACO_FORTE}"/>`;
+    corpo += texto(O[0] - 11, O[1] + 13, "O", { tamanho: 11, cor: TRACO, fonte: FONTE_MONO });
+  }
+
+  // os pontos nomeados, por último para ficarem por cima das linhas
+  for (const pt of pontos) {
+    const [x, y] = P(pt.em);
+    corpo += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="${DESTAQUE}" stroke="${TRACO_FORTE}" stroke-width="1.6"/>`;
+    if (pt.nome) {
+      corpo += texto(O[0] + (x - O[0]) * 1.16, O[1] + (y - O[1]) * 1.16 + 3, esc(String(pt.nome)), {
+        tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
+}
+
+// ═══════ Sólidos pontudos e esfera (Volume de sólidos, 9º ano) ═══════
+//
+// O `prisma` do 8º ano desenha o que tem lados retos e duas bases iguais. A
+// matéria do 9º é sobre os que TERMINAM EM PONTA — cone e pirâmide — e sobre
+// a esfera, que não tem base nenhuma.
+//
+// O gerador existe sobretudo pelo `comparar`. Ele desenha, tracejado e por
+// fora, o cilindro (ou o prisma) de MESMA base e MESMA altura, com o sólido
+// pontudo encaixado dentro. É essa figura que dá sentido ao terço: sem ela,
+// V = B × h / 3 é mais uma fórmula em que o aluno esquece se o três vai
+// embaixo ou se o raio é que vai ao quadrado.
+//
+// Uma tentativa de desenhar TAMBÉM o líquido de um cone despejado (a tampa
+// dele em h/3, dentro do mesmo cilindro) foi feita e descartada: com o cone e
+// a coluna de líquido no mesmo desenho, nenhum dos dois se lê. Quem prova o
+// terço é o `cuboEmPiramides`; aqui o trabalho é mostrar que a base e a
+// altura são as MESMAS, e isso um desenho limpo faz melhor.
+//
+// As proporções saem das medidas, e não do olho: um cone de raio 3 e altura
+// 10 sai mesmo alto e estreito, porque o desenho usa a MESMA escala nas duas
+// direções. É o defeito que a revisão de Volume do 8º ano achou em seis
+// figuras, e que só medir pega.
+
+/**
+ * Cone, pirâmide ou esfera em projeção oblíqua.
+ *
+ * A projeção é a do `prisma`, e isso não é economia: o aluno acabou de ver o
+ * cilindro desenhado assim, e o cone precisa parecer o mesmo objeto com a
+ * tampa puxada para um ponto.
+ */
+export function solidoPontudo({
+  tipo = "cone", base = "circulo",
+  largura = 6, profundidade = 4, baseMenor = 3, movimentos,
+  altura = 7, escala = 26, raio = 3.5,
+  comparar = false, geratriz = false, mostrarAltura = true,
+  pedestal = null, caixa: comCaixa = false,
+  medidas = {}, rotulo = "",
+}) {
+  const m = { topo: 26, baixo: 30, esq: 30, dir: 30 };
+  const folga = (v) => (v == null || v === false ? 0 : Math.ceil(larguraTexto(String(v), 12, true)) + 16);
+  // O rótulo da altura é escrito com âncora à DIREITA em m.esq − 20, então a
+  // margem tem de ser a largura dele mais 22, e não mais 16: com 16 ele
+  // começava 4px fora da caixa, e a auditoria de texto pegou isso em nove
+  // figuras. É a mesma conta de margem que o `bloco` do 6º ano precisou.
+  const folgaEsq = (v) => (v == null || v === false ? 0 : Math.ceil(larguraTexto(String(v), 12, true)) + 24);
+  m.esq = Math.max(m.esq, folgaEsq(medidas.altura), folgaEsq(pedestal && pedestal.medida) + 12);
+  m.dir = Math.max(m.dir, folga(medidas.raio), folga(medidas.geratriz));
+
+  let corpo = "";
+
+  if (tipo === "esfera") {
+    // A esfera não tem base nem projeção a respeitar: ela é um círculo com o
+    // equador em elipse, e é o equador que a distingue de um disco.
+    const r = raio * escala;
+    // Com a caixa em volta, o cubo avança meio lado para a direita e 0,42
+    // para cima além da bola: a folga tem de ser aberta ANTES de a bola ser
+    // posicionada, senão ela só alarga a caixa e o cubo sai cortado.
+    const extraDir = comCaixa ? r : 0;
+    const extraTopo = comCaixa ? r * 2 * 0.42 : 0;
+    const cx = m.esq + r;
+    const cy = m.topo + extraTopo + r;
+    corpo += `<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="${CHEIO}" fill-opacity="0.18" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+    corpo += `<ellipse cx="${cx}" cy="${cy}" rx="${r.toFixed(1)}" ry="${(r * 0.3).toFixed(1)}" fill="none" stroke="${TRACO}" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+    corpo += `<circle cx="${cx}" cy="${cy}" r="2.6" fill="${TRACO_FORTE}"/>`;
+    // A caixa cúbica em que a bola encosta nas seis faces. A face da frente é
+    // um quadrado de lado 2r com a bola inscrita nele; o resto do cubo sai da
+    // mesma projeção oblíqua do `cuboEmPiramides`.
+    if (comCaixa) {
+      const a = r * 2;
+      const pj = ([x, y, z]) => [cx - r + x * a + z * a * 0.5, cy + r - y * a - z * a * 0.42];
+      const cantos = [];
+      for (const x of [0, 1]) for (const y of [0, 1]) for (const z of [0, 1]) cantos.push([x, y, z]);
+      for (const p1 of cantos) {
+        for (const p2 of cantos) {
+          const d = Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]) + Math.abs(p1[2] - p2[2]);
+          if (d !== 1 || !(p1[0] < p2[0] || p1[1] < p2[1] || p1[2] < p2[2])) continue;
+          const [x1, y1] = pj(p1);
+          const [x2, y2] = pj(p2);
+          corpo += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+        }
+      }
+    }
+    if (medidas.raio) {
+      corpo += `<line x1="${cx}" y1="${cy}" x2="${(cx + r).toFixed(1)}" y2="${(cy - r * 0.18).toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="1.8"/>`;
+      corpo += texto(cx + r / 2, cy - r * 0.09 - 11, esc(String(medidas.raio)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+    return montarSolido({
+      corpo,
+      caixa: { larg: r * 2 + extraDir, alt: r * 2 + extraTopo },
+      m, rotulo, medidas,
+    });
+  }
+
+  const pts = baseDoPrisma(base, { largura, profundidade, baseMenor, movimentos });
+  const redondo = base === "circulo";
+  const h = altura * escala;
+  // Projeção oblíqua, a mesma do prisma: a profundidade recua meio passo para
+  // a direita e 0,42 para cima. A altura é vertical pura, e é por isso que a
+  // figura pode ser MEDIDA de volta pelas arestas verticais.
+  const proj = ([x, z]) => [x * escala + z * escala * 0.5, -z * escala * 0.42];
+  const P = pts.map(proj);
+  const centro = [
+    P.reduce((s, p) => s + p[0], 0) / P.length,
+    P.reduce((s, p) => s + p[1], 0) / P.length,
+  ];
+
+  const xs = P.map((p) => p[0]);
+  const ys = P.map((p) => p[1]);
+  // A caixa mede o que o desenho EFETIVAMENTE ocupa, e isso muda com o
+  // `comparar`: sem ele o ponto mais alto é o ápice, com ele é a tampa do
+  // cilindro, que passa meia elipse acima do ápice. Reservar sempre o pior
+  // caso deixaria um vão de meia elipse no topo de todo cone sozinho — o
+  // mesmo defeito que o `areaPorRecorte` teve com a silhueta que não aparece.
+  const topoConteudo = (comparar ? Math.min(...ys) : centro[1]) - h;
+  const hp = pedestal ? pedestal.altura * escala : 0;
+  const caixa = {
+    larg: Math.max(...xs) - Math.min(...xs),
+    alt: Math.max(...ys) + hp - topoConteudo,
+  };
+  const dx0 = m.esq - Math.min(...xs);
+  const dy0 = m.topo - topoConteudo;
+  const mover = ([x, y]) => [x + dx0, y + dy0];
+  const B = P.map(mover);                       // a base, no chão
+  const C = mover(centro);                      // o centro da base
+  const V = [C[0], C[1] - h];                   // o ápice, h acima do centro
+  const T = B.map(([x, y]) => [x, y - h]);      // a tampa do sólido de comparação
+
+  const dizer = (lista) => lista.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+  const tracejado = `stroke="${TRACO}" stroke-width="1.5" stroke-dasharray="5 4"`;
+  const cheio = `stroke="${DESTAQUE}" stroke-width="2.3"`;
+
+  // Uma aresta da base é visível quando o ponto logo abaixo do meio dela cai
+  // fora do contorno — o mesmo teste de normal do `prisma`.
+  const visivel = B.map((a, i) => {
+    const b = B[(i + 1) % B.length];
+    const meio = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + 4];
+    return !dentroDoPoligono(meio, B);
+  });
+
+  // ── o pedestal: o corpo reto em que o sólido pontudo se apoia ──
+  //
+  // É o silo da lição 6, e é a razão de ele existir: quase nenhum objeto real
+  // é um cone puro. A tampa do pedestal é a MESMA base do sólido pontudo, e
+  // por isso ela não é desenhada duas vezes — o que se vê é uma peça só.
+  if (pedestal) {
+    const pe = B.map(([x, y]) => [x, y + hp]);
+    const visivelPe = pe.map((a, i) => {
+      const b = pe[(i + 1) % pe.length];
+      const meio = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + 4];
+      return !dentroDoPoligono(meio, pe);
+    });
+    let i = 0;
+    while (i < pe.length) {
+      let j = i;
+      while (j + 1 < pe.length && visivelPe[j + 1] === visivelPe[i]) j += 1;
+      const trecho = [];
+      for (let k = i; k <= j + 1; k += 1) trecho.push(pe[k % pe.length]);
+      corpo += `<polyline points="${dizer(trecho)}" fill="none" ${visivelPe[i] ? cheio : tracejado} stroke-linejoin="round"/>`;
+      i = j + 1;
+    }
+    const lados = redondo
+      ? [Math.min(...B.map((q) => q[0])), Math.max(...B.map((q) => q[0]))].map(
+        (alvo) => B.reduce((a, b) => (Math.abs(b[0] - alvo) < Math.abs(a[0] - alvo) ? b : a))
+      )
+      : B;
+    for (const q of lados) {
+      corpo += `<line x1="${q[0].toFixed(1)}" y1="${q[1].toFixed(1)}" x2="${q[0].toFixed(1)}" y2="${(q[1] + hp).toFixed(1)}" ${cheio}/>`;
+    }
+    if (pedestal.medida) {
+      const x = Math.min(...B.map((q) => q[0])) - 12;
+      const y0 = B.reduce((a, b) => (b[0] < a[0] ? b : a))[1];
+      corpo += `<line x1="${x.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x.toFixed(1)}" y2="${(y0 + hp).toFixed(1)}" stroke="${TRACO}" stroke-width="1.4"/>`;
+      corpo += texto(x - 6, y0 + hp / 2, esc(String(pedestal.medida)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO,
+      });
+    }
+  }
+
+  // ── o sólido de comparação, por fora e tracejado ──
+  if (comparar) {
+    corpo += `<polygon points="${dizer(T)}" fill="none" ${tracejado}/>`;
+    if (redondo) {
+      for (const alvo of [Math.min(...T.map((p) => p[0])), Math.max(...T.map((p) => p[0]))]) {
+        const p = T.reduce((a, b) => (Math.abs(b[0] - alvo) < Math.abs(a[0] - alvo) ? b : a));
+        corpo += `<line x1="${p[0].toFixed(1)}" y1="${p[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${(p[1] + h).toFixed(1)}" ${tracejado}/>`;
+      }
+    } else {
+      for (const p of T) {
+        corpo += `<line x1="${p[0].toFixed(1)}" y1="${p[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${(p[1] + h).toFixed(1)}" ${tracejado}/>`;
+      }
+    }
+  }
+
+  // ── a base, com a metade de trás tracejada ──
+  {
+    let i = 0;
+    while (i < B.length) {
+      let j = i;
+      while (j + 1 < B.length && visivel[j + 1] === visivel[i]) j += 1;
+      const trecho = [];
+      for (let k = i; k <= j + 1; k += 1) trecho.push(B[k % B.length]);
+      corpo += `<polyline points="${dizer(trecho)}" fill="none" ${visivel[i] ? cheio : tracejado} stroke-linejoin="round"/>`;
+      i = j + 1;
+    }
+  }
+
+  // ── as arestas laterais, subindo até o ápice ──
+  if (redondo) {
+    // No cone só existem as duas geratrizes da silhueta: os pontos da base
+    // vistos do ápice com abertura extrema. Desenhar as 64 viraria um borrão.
+    let esqIdx = 0;
+    let dirIdx = 0;
+    let menor = Infinity;
+    let maior = -Infinity;
+    B.forEach((p, i) => {
+      // O y da tela cresce para BAIXO, então todo ponto da base está em
+      // ângulo entre 0 e π visto do ápice: perto de 0 é a geratriz da
+      // direita, perto de π a da esquerda. Trocar os dois punha o rótulo da
+      // geratriz por dentro do cone.
+      const a = Math.atan2(p[1] - V[1], p[0] - V[0]);
+      if (a < menor) { menor = a; dirIdx = i; }
+      if (a > maior) { maior = a; esqIdx = i; }
+    });
+    for (const idx of [esqIdx, dirIdx]) {
+      const marcar = geratriz && idx === dirIdx;
+      corpo += `<line x1="${V[0].toFixed(1)}" y1="${V[1].toFixed(1)}" x2="${B[idx][0].toFixed(1)}" y2="${B[idx][1].toFixed(1)}" stroke="${DESTAQUE}" stroke-width="${marcar ? 3.4 : 2.3}"/>`;
+    }
+    if (medidas.geratriz) {
+      const p = B[dirIdx];
+      corpo += texto((V[0] + p[0]) / 2 + 9, (V[1] + p[1]) / 2, esc(String(medidas.geratriz)), {
+        tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "start", fonte: FONTE_MONO,
+      });
+    }
+  } else {
+    B.forEach((p, i) => {
+      const anterior = (i - 1 + B.length) % B.length;
+      const atras = !visivel[i] && !visivel[anterior];
+      corpo += `<line x1="${V[0].toFixed(1)}" y1="${V[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" ${atras ? tracejado : cheio}/>`;
+    });
+  }
+
+  // ── a altura, do ápice ao centro da base ──
+  if (mostrarAltura) {
+    corpo += `<line x1="${V[0].toFixed(1)}" y1="${V[1].toFixed(1)}" x2="${C[0].toFixed(1)}" y2="${C[1].toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+    // A marca de ângulo reto no pé da altura: ela é perpendicular à BASE, e
+    // não a um lado do sólido — é a confusão que a lição 3 desfaz.
+    corpo += `<polyline points="${(C[0] + 9).toFixed(1)},${C[1].toFixed(1)} ${(C[0] + 9).toFixed(1)},${(C[1] - 9).toFixed(1)} ${C[0].toFixed(1)},${(C[1] - 9).toFixed(1)}" fill="none" stroke="${TRACO}" stroke-width="1.3"/>`;
+  }
+  if (medidas.altura) {
+    const x = m.esq - 14;
+    corpo += `<line x1="${x.toFixed(1)}" y1="${V[1].toFixed(1)}" x2="${x.toFixed(1)}" y2="${C[1].toFixed(1)}" stroke="${TRACO}" stroke-width="1.4"/>`;
+    corpo += texto(x - 6, (V[1] + C[1]) / 2, esc(String(medidas.altura)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, ancora: "end", fonte: FONTE_MONO,
+    });
+  }
+
+  // ── o raio (ou o lado) da base ──
+  if (medidas.raio) {
+    const dir = B.reduce((a, b) => (b[0] > a[0] ? b : a));
+    corpo += `<line x1="${C[0].toFixed(1)}" y1="${C[1].toFixed(1)}" x2="${dir[0].toFixed(1)}" y2="${dir[1].toFixed(1)}" stroke="${TRACO_FORTE}" stroke-width="1.7"/>`;
+    // Acima do segmento, e não abaixo: embaixo o rótulo cai exatamente sobre
+    // o contorno da base, que passa por ali.
+    corpo += texto((C[0] + dir[0]) / 2, (C[1] + dir[1]) / 2 - 8, esc(String(medidas.raio)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+    });
+  }
+  if (medidas.lado) {
+    const baixo = Math.max(...B.map((p) => p[1]));
+    const aresta = B.filter((p) => Math.abs(p[1] - baixo) < 1e-6);
+    const meioX = aresta.length > 1
+      ? (aresta[0][0] + aresta[1][0]) / 2
+      : (B[0][0] + B[1][0]) / 2;
+    corpo += texto(meioX, baixo + 17, esc(String(medidas.lado)), {
+      tamanho: 12, cor: DESTAQUE, peso: 500, fonte: FONTE_MONO,
+    });
+    m.baixo = Math.max(m.baixo, 34);
+  }
+
+  return montarSolido({ corpo, caixa, m, rotulo, medidas });
+}
+
+// A moldura é a mesma nos três geradores do bloco, e por isso mora à parte:
+// eles diferem no desenho, não na conta da caixa.
+function montarSolido({ corpo, caixa, m, rotulo, medidas = {} }) {
+  const larguraDesenho = caixa.larg + m.esq + m.dir;
+  // A legenda é escrita centralizada no rodapé, como o rótulo, e em DM Mono:
+  // "base: triângulo de 8 cm por 3 cm" mede 224px e saía fora de uma figura
+  // de 218. Toda linha centralizada no rodapé passa pelo `comRotulo`.
+  const largura = Math.max(
+    comRotulo(larguraDesenho, rotulo),
+    medidas.legenda ? comRotulo(larguraDesenho, String(medidas.legenda), 12, true) : 0
+  );
+  const alturaSvg = Math.round(
+    caixa.alt + m.topo + m.baixo + (medidas.legenda ? 18 : 0) + (rotulo ? 22 : 0)
+  );
+  let extra = "";
+  if (medidas.legenda) {
+    extra += texto(largura / 2, alturaSvg - (rotulo ? 32 : 12), esc(String(medidas.legenda)), {
+      tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO,
+    });
+  }
+  if (rotulo) extra += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo + extra, rotulo, 14);
+}
+
+// ═══════ O cubo repartido em três pirâmides ═══════
+//
+// Esta é a figura mais importante da matéria, e existe pela mesma razão de
+// `trianguloParalela` na soma dos ângulos e de `piDesenrolado` no π: sem ela,
+// o terço entra por decreto.
+//
+// Escolhido um vértice do cubo — digamos o do fundo, em cima, à direita —, as
+// TRÊS faces que não o contêm são bases de três pirâmides com ápice nele. As
+// três juntas são o cubo inteiro, sem sobra e sem sobreposição. Como são
+// congruentes, cada uma vale um terço do cubo: e cada uma tem base igual à
+// face e altura igual à aresta. Daí, e não de um experimento com areia, sai
+// V = B × h / 3.
+//
+// A repartição é exata e dá para conferir: um ponto (x, y, z) do cubo cai na
+// pirâmide cuja face-base é a do MENOR entre x, y e z. O teste da matéria
+// varre a grade do cubo e conta os pontos de cada região, exigindo um terço
+// para cada uma — sem usar em lugar nenhum a fórmula que a lição ensina.
+export function cuboEmPiramides({
+  quais = [0, 1, 2], aresta = 1, escala = 74, nomes = [], rotulo = "",
+  mostrarMedidas = false,
+}) {
+  // `aresta` é só o número que vai escrito: um cubo é um cubo, e escalar o
+  // desenho por ele faria a figura de um cubo de 9 cm sair nove vezes maior
+  // que a de um de 1 cm sem nada mudar de conteúdo.
+  const e = escala;
+  // (x para a direita, y para cima, z para o fundo) → tela
+  const proj = ([x, y, z]) => [x * e + z * e * 0.5, -y * e - z * e * 0.42];
+  const V = [1, 1, 1];                  // o ápice comum: fundo, topo, direita
+  // As três faces que NÃO contêm o ápice, cada uma dada em ordem de contorno.
+  const faces = [
+    { nome: "base de baixo", pts: [[0, 0, 0], [1, 0, 0], [1, 0, 1], [0, 0, 1]] },
+    { nome: "face da frente", pts: [[0, 0, 0], [1, 0, 0], [1, 1, 0], [0, 1, 0]] },
+    { nome: "face da esquerda", pts: [[0, 0, 0], [0, 0, 1], [0, 1, 1], [0, 1, 0]] },
+  ];
+  const cantos = [];
+  for (const x of [0, 1]) for (const y of [0, 1]) for (const z of [0, 1]) cantos.push([x, y, z]);
+  const arestasDoCubo = [];
+  for (const a of cantos) {
+    for (const b of cantos) {
+      const d = Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]);
+      if (d === 1 && (a[0] < b[0] || a[1] < b[1] || a[2] < b[2])) arestasDoCubo.push([a, b]);
+    }
+  }
+
+  const todos = cantos.map(proj);
+  const larg = Math.max(...todos.map((p) => p[0])) - Math.min(...todos.map((p) => p[0]));
+  const alt = Math.max(...todos.map((p) => p[1])) - Math.min(...todos.map((p) => p[1]));
+  const minX = Math.min(...todos.map((p) => p[0]));
+  const minY = Math.min(...todos.map((p) => p[1]));
+
+  const vao = 22;
+  // O nome de cada painel é centralizado nele, e um nome mais comprido que o
+  // cubo sai cortado pelas duas bordas — o mesmo defeito que o `comRotulo`
+  // resolveu em quatro geradores, agora por PAINEL e não pela figura toda:
+  // "uma das três pirâmides" mede 158px e o cubo desenhado mede 111.
+  const maiorNome = Math.max(0, ...nomes.map((n) => larguraTexto(String(n), 12, true)));
+  const painel = Math.max(larg + 18, Math.ceil(maiorNome) + 12);
+  const m = { topo: 22, baixo: nomes.length ? 40 : 26 };
+  const larguraDesenho = quais.length * painel + (quais.length - 1) * vao;
+  const largura = comRotulo(larguraDesenho, rotulo);
+  const alturaSvg = Math.round(alt + m.topo + m.baixo + (rotulo ? 22 : 0));
+  const recuo = (largura - larguraDesenho) / 2;
+
+  let corpo = "";
+  quais.forEach((qual, k) => {
+    const off = recuo + k * (painel + vao) + (painel - larg) / 2 - minX;
+    const p = (pt) => {
+      const [x, y] = proj(pt);
+      return [x + off, y - minY + m.topo];
+    };
+    const dizer = (lista) => lista.map((pt) => {
+      const [x, y] = p(pt);
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(" ");
+
+    // O cubo em fio de arame: ele é o contexto, e fica claro.
+    for (const [a, b] of arestasDoCubo) {
+      const [x1, y1] = p(a);
+      const [x2, y2] = p(b);
+      corpo += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${TRACO}" stroke-width="1" stroke-opacity="0.75"/>`;
+    }
+
+    // A pirâmide destacada, desenhada como SÓLIDO e não como arame. A
+    // primeira versão pintava só a face-base e traçava as quatro arestas: os
+    // três painéis saíam praticamente iguais, cada um lendo como "uma caixa
+    // de arame com um risco na diagonal". O que separa as três pirâmides é
+    // qual FACE do cubo é a base delas, e isso só aparece quando as faces
+    // visíveis do sólido são pintadas e as escondidas vão tracejadas.
+    const face = faces[qual];
+    const dentro = face.pts.concat([V]).reduce(
+      (a, b) => [a[0] + b[0] / 5, a[1] + b[1] / 5, a[2] + b[2] / 5], [0, 0, 0]
+    );
+    // A direção de onde se olha sai da própria projeção: dois pontos que
+    // diferem por (−0,5; −0,42; 1) caem no mesmo pixel, então o observador
+    // está do lado oposto disso.
+    const olho = [0.5, 0.42, -1];
+    const facesDaPiramide = [face.pts].concat(
+      face.pts.map((_, i) => [face.pts[i], face.pts[(i + 1) % face.pts.length], V])
+    );
+    const paraFora = facesDaPiramide.map((f) => {
+      const [a, b, c] = f;
+      const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+      const w = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+      let n = [u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]];
+      const meio = f.reduce((s2, q) => [s2[0] + q[0] / f.length, s2[1] + q[1] / f.length, s2[2] + q[2] / f.length], [0, 0, 0]);
+      const fora = [meio[0] - dentro[0], meio[1] - dentro[1], meio[2] - dentro[2]];
+      if (n[0] * fora[0] + n[1] * fora[1] + n[2] * fora[2] < 0) n = n.map((v) => -v);
+      return n[0] * olho[0] + n[1] * olho[1] + n[2] * olho[2] > 0;
+    });
+
+    // as arestas de trás primeiro, tracejadas
+    facesDaPiramide.forEach((f, i) => {
+      if (paraFora[i]) return;
+      corpo += `<polygon points="${dizer(f)}" fill="none" stroke="${TRACO}" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+    });
+    facesDaPiramide.forEach((f, i) => {
+      if (!paraFora[i]) return;
+      // a base do sólido é a face que a lição chama de base, e ela é a mais
+      // cheia: é a medida B da fórmula
+      const cheia = i === 0 ? 0.34 : 0.19;
+      corpo += `<polygon points="${dizer(f)}" fill="${CHEIO}" fill-opacity="${cheia}" stroke="${DESTAQUE}" stroke-width="2.1" stroke-linejoin="round"/>`;
+    });
+    const [vx, vy] = p(V);
+    corpo += `<circle cx="${vx.toFixed(1)}" cy="${vy.toFixed(1)}" r="3.4" fill="${DESTAQUE}"/>`;
+
+    if (nomes[k]) {
+      corpo += texto(recuo + k * (painel + vao) + painel / 2, alturaSvg - (rotulo ? 34 : 12), esc(String(nomes[k])), {
+        tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO,
+      });
+    }
+  });
+
+  if (mostrarMedidas) {
+    corpo += texto(largura / 2, m.topo - 8, esc(`cubo de aresta ${aresta}`), {
+      tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO,
+    });
+  }
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
+}
+
+// ═══════ A balança de Arquimedes (a esfera) ═══════
+//
+// O volume da esfera é a única fórmula da matéria que não sai do terço, e
+// decorá-la é o destino normal dela. Mas o argumento de Arquimedes cabe no 9º
+// ano inteiro, e usa exatamente o que as lições 1 e 3 já estabeleceram.
+//
+// Corte a meia-esfera de raio r e o cilindro de raio r e altura r com um cone
+// de mesma base e altura retirado de dentro. Numa altura y qualquer:
+//
+//   meia-esfera → círculo de raio √(r² − y²), área π(r² − y²)
+//   cilindro vazado → coroa de raio externo r e interno y, área πr² − πy²
+//
+// As duas áreas são IGUAIS em toda altura. Logo os dois sólidos têm o mesmo
+// volume, e o da direita é cilindro menos cone: πr³ − πr³/3 = 2πr³/3. Dobrando
+// para a esfera inteira, 4πr³/3.
+//
+// O gerador CALCULA os dois raios a partir da altura do corte, e um teste lê
+// os dois segmentos de volta do SVG e exige que meçam o mesmo — se a figura
+// discordasse, ela estaria desmentindo a demonstração que ilustra.
+export function cavalieriEsfera({ raio = 3.2, corte = 0.55, escala, rotulo = "" }) {
+  // Dois sólidos lado a lado passam fácil dos 456px do projeto — com escala
+  // 34 a figura media 535 e caía para 0,55 num celular de 320px. A escala
+  // CEDE para caber, como o braço das paralelas do 7º ano.
+  const e = escala ?? Math.min(34, 330 / (raio * 4));
+  const r = raio * e;
+  const y = corte * r;                       // altura do corte, acima da base
+  const rEsfera = Math.sqrt(Math.max(0, r * r - y * y));
+  const achata = 0.3;
+  const vao = 40;
+  // A caixa precisa contar a ELIPSE DE BAIXO, e não parar na linha do chão:
+  // com a altura fechada em r + margens, o nome de cada sólido caía em cima
+  // da própria base. É o mesmo defeito da margem de topo do `areaPorRecorte`,
+  // agora embaixo.
+  const m = { topo: 30, baixo: Math.round(r * achata) + 32, lado: 30 };
+  const larguraDesenho = r * 2 + vao + r * 2;
+  const largura = comRotulo(larguraDesenho + m.lado * 2, rotulo);
+  const alturaSvg = Math.round(r + m.topo + m.baixo + (rotulo ? 22 : 0));
+  const recuo = (largura - larguraDesenho - m.lado * 2) / 2 + m.lado;
+  const chao = m.topo + r;
+  const yCorte = chao - y;
+
+  const cxA = recuo + r;
+  const cxB = recuo + r * 2 + vao + r;
+  let corpo = "";
+
+  // ── esquerda: a meia-esfera ──
+  corpo += `<path d="M ${(cxA - r).toFixed(1)} ${chao.toFixed(1)} A ${r.toFixed(1)} ${r.toFixed(1)} 0 0 1 ${(cxA + r).toFixed(1)} ${chao.toFixed(1)}" fill="${CHEIO}" fill-opacity="0.18" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+  corpo += `<ellipse cx="${cxA}" cy="${chao}" rx="${r.toFixed(1)}" ry="${(r * achata).toFixed(1)}" fill="none" stroke="${DESTAQUE}" stroke-width="2.2"/>`;
+
+  // ── direita: o cilindro com o cone tirado de dentro ──
+  corpo += `<line x1="${(cxB - r).toFixed(1)}" y1="${chao.toFixed(1)}" x2="${(cxB - r).toFixed(1)}" y2="${(chao - r).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+  corpo += `<line x1="${(cxB + r).toFixed(1)}" y1="${chao.toFixed(1)}" x2="${(cxB + r).toFixed(1)}" y2="${(chao - r).toFixed(1)}" stroke="${DESTAQUE}" stroke-width="2.4"/>`;
+  corpo += `<ellipse cx="${cxB}" cy="${chao}" rx="${r.toFixed(1)}" ry="${(r * achata).toFixed(1)}" fill="none" stroke="${DESTAQUE}" stroke-width="2.2"/>`;
+  corpo += `<ellipse cx="${cxB}" cy="${(chao - r).toFixed(1)}" rx="${r.toFixed(1)}" ry="${(r * achata).toFixed(1)}" fill="none" stroke="${DESTAQUE}" stroke-width="2.2"/>`;
+  // o cone retirado: ponta no centro da base, boca na tampa
+  corpo += `<path d="M ${(cxB - r).toFixed(1)} ${(chao - r).toFixed(1)} L ${cxB.toFixed(1)} ${chao.toFixed(1)} L ${(cxB + r).toFixed(1)} ${(chao - r).toFixed(1)}" fill="${CANVAS}" fill-opacity="0.55" stroke="${TRACO_FORTE}" stroke-width="1.8" stroke-dasharray="6 4"/>`;
+
+  // ── o corte, na MESMA altura dos dois lados ──
+  const tracoCorte = `stroke="${TRACO}" stroke-width="1.3" stroke-dasharray="4 4"`;
+  corpo += `<line x1="${(recuo - 14).toFixed(1)}" y1="${yCorte.toFixed(1)}" x2="${(cxB + r + 14).toFixed(1)}" y2="${yCorte.toFixed(1)}" ${tracoCorte}/>`;
+
+  // a fatia da esquerda: o disco de raio √(r² − y²)
+  corpo += `<ellipse cx="${cxA}" cy="${yCorte.toFixed(1)}" rx="${rEsfera.toFixed(1)}" ry="${(rEsfera * achata).toFixed(1)}" fill="${CHEIO}" fill-opacity="0.4" stroke="${DESTAQUE}" stroke-width="2"/>`;
+  // a da direita: a coroa entre o raio r e o raio y
+  corpo += `<ellipse cx="${cxB}" cy="${yCorte.toFixed(1)}" rx="${r.toFixed(1)}" ry="${(r * achata).toFixed(1)}" fill="${CHEIO}" fill-opacity="0.4" stroke="${DESTAQUE}" stroke-width="2"/>`;
+  corpo += `<ellipse cx="${cxB}" cy="${yCorte.toFixed(1)}" rx="${y.toFixed(1)}" ry="${(y * achata).toFixed(1)}" fill="${CANVAS}" fill-opacity="0.92" stroke="${TRACO_FORTE}" stroke-width="1.6"/>`;
+
+  const yNome = chao + r * achata + 20;
+  corpo += texto(cxA, yNome, esc("meia-esfera"), { tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+  corpo += texto(cxB, yNome, esc("cilindro sem o cone"), { tamanho: 12, cor: TRACO_FORTE, peso: 500, fonte: FONTE_MONO });
+
+  if (rotulo) corpo += texto(largura / 2, alturaSvg - 10, esc(rotulo), { tamanho: 14 });
+  return fechar(Math.round(largura), alturaSvg, corpo, rotulo, 14);
 }

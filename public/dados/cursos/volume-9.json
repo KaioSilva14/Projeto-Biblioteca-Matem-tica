@@ -1,0 +1,41 @@
+{
+  "id": "volume-9",
+  "titulo": "Volume de sólidos",
+  "ano": 9,
+  "descricao": "O 8º ano fechou a conta dos sólidos de lados retos: volume é área da base vezes altura. Aqui entram os que terminam em ponta — cone e pirâmide —, e eles cabem exatamente três vezes no sólido reto de mesma base e mesma altura. Esse terço não é para decorar: um cubo se reparte em três pirâmides iguais, e dá para ver as três. Depois vem a esfera, pelo argumento de Arquimedes, que usa só o que as lições anteriores já provaram.",
+  "pergunta": "Por que o cone tem exatamente um terço do cilindro?",
+  "videos": [
+    {
+      "id": "kSuPous5WPU",
+      "titulo": "CONE: RESUMÃO COMPLETO de ÁREA e VOLUME",
+      "canal": "Gis com Giz",
+      "descricao": "Cone do começo ao fim: elementos, planificação, área e volume. Serve de segunda passagem pelas lições 3 e 4, e cobre a área lateral, que o site só encosta."
+    },
+    {
+      "id": "JBTZKuD4_Ro",
+      "titulo": "PIRÂMIDE - VOLUME DA PIRÂMIDE | PIRÂMIDE BASE QUADRADA |",
+      "canal": "Gis com Giz",
+      "descricao": "A pirâmide de base quadrada resolvida passo a passo, com a altura e o apótema separados. Bom para treinar depois da lição 4, onde essa distinção é a armadilha."
+    },
+    {
+      "id": "76MyVgKf4wQ",
+      "titulo": "VOLUME E ÁREA DA ESFERA em 6 minutos",
+      "canal": "Professora Angela Matemática",
+      "descricao": "As duas fórmulas da esfera direto ao ponto, com exemplos numéricos. Útil depois da lição 5, para fixar quem é cubo e quem é quadrado."
+    },
+    {
+      "id": "lqORAy15W54",
+      "titulo": "Geometria Espacial: Volume da esfera",
+      "canal": "Matemática no Papel",
+      "descricao": "Uma explicação mais longa e mais funda do volume da esfera, para quem quiser ir além do que a lição 5 demonstra."
+    }
+  ],
+  "licoes": [
+    { "id": "de-onde-vem-o-terco", "arquivo": "/dados/licoes/volume-9/de-onde-vem-o-terco.json" },
+    { "id": "piramide", "arquivo": "/dados/licoes/volume-9/piramide.json" },
+    { "id": "cone", "arquivo": "/dados/licoes/volume-9/cone.json" },
+    { "id": "esfera", "arquivo": "/dados/licoes/volume-9/esfera.json" },
+    { "id": "escolher-o-solido", "arquivo": "/dados/licoes/volume-9/escolher-o-solido.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/volume-9/problemas.json" }
+  ]
+}

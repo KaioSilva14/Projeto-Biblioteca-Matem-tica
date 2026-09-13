@@ -1,0 +1,194 @@
+{
+  "id": "dividir-segmento",
+  "numero": 4,
+  "titulo": "Repartir sem medir",
+  "pergunta": "Como dividir um segmento em partes iguais sem régua graduada?",
+  "ideia": {
+    "paragrafos": [
+      "Aqui o teorema deixa de ser um jeito de calcular e vira uma ferramenta de construção. O problema é antigo e concreto: dividir um segmento em partes exatamente iguais — três, cinco, sete — sem contar com uma régua que tenha as marcas certas. Tales resolve isso com paralelas.",
+      "A construção é esta. A partir de uma ponta do segmento, trace uma reta auxiliar qualquer, numa inclinação qualquer. Sobre ela, marque com o compasso tantos pedaços iguais quantas partes você quer — cinco pedaços para cinco partes. Ligue a última marca à outra ponta do segmento e trace, por cada marca, uma paralela a essa ligação.",
+      "As paralelas cortam o segmento original em pedaços iguais. E o motivo é exatamente o teorema: elas formam um feixe, a reta auxiliar e o segmento são as duas transversais, e os pedaços iguais de um lado forçam pedaços iguais do outro. Nada foi medido no segmento — ele nem precisa ter medida conhecida.",
+      "A mesma construção reparte em PROPORÇÃO qualquer, e não só em partes iguais. Para dividir na razão 2 para 3, marque 2 pedaços e depois mais 3 na reta auxiliar, e trace a paralela pela marca que separa os dois grupos. O segmento fica dividido em duas partes na razão 2 para 3.",
+      "Quando o comprimento é conhecido, a conta substitui o desenho e fica mais rápida: dividir 20 cm na razão 2 para 3 é repartir em 2 + 3 = 5 partes, cada uma de 4 cm, e depois juntar — 8 cm para a primeira e 12 cm para a segunda. A soma tem de devolver os 20 cm originais, e essa conferência pega quase todo erro.",
+      "A ideia das partes iguais aparece em lugares que não parecem geometria: postes de cerca igualmente espaçados, degraus de escada, marcas de régua. Em todos, a distância entre dois pontos quaisquer é um múltiplo da distância entre dois vizinhos — e é contando ESPAÇOS, e não postes, que a conta sai certa."
+    ],
+    "destaque": "Marque partes iguais numa reta auxiliar e transfira com paralelas. O que é igual de um lado fica igual do outro.",
+    "imagem": "tl9-ideia-repartir"
+  },
+  "resolvido": {
+    "enunciado": "Divida um segmento de 20 cm em duas partes na razão 2 para 3.",
+    "imagem": "tl9-res-vinte",
+    "passos": [
+      {
+        "titulo": "Some as partes da razão",
+        "explicacao": "É em quantos pedaços iguais o segmento vai ser repartido.",
+        "conta": "2 + 3 = 5 partes"
+      },
+      {
+        "titulo": "Ache o tamanho de cada parte",
+        "explicacao": "O comprimento total dividido pelo número de partes.",
+        "conta": "20 / 5 = 4 cm"
+      },
+      {
+        "titulo": "Junte de novo",
+        "explicacao": "Duas partes para o primeiro pedaço e três para o segundo.",
+        "conta": "2 × 4 = 8 · 3 × 4 = 12"
+      },
+      {
+        "titulo": "Confira a soma",
+        "explicacao": "Os dois pedaços juntos têm de devolver o comprimento original.",
+        "conta": "8 + 12 = 20 ✓"
+      }
+    ],
+    "fecho": "Os pedaços medem 8 cm e 12 cm, e 8/12 simplifica para 2/3 — a razão pedida."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um segmento de 35 cm é dividido em duas partes na razão 3 para 4. Quanto mede a parte MAIOR, em centímetros? Digite apenas o número.",
+      "imagem": "tl9-q-trinta-e-cinco",
+      "dica": "Some as partes da razão, divida o total por essa soma e depois junte.",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "15",
+          "porque": "15 é a parte MENOR, que corresponde ao 3 da razão. A pergunta pede a maior, que leva 4 das 7 partes."
+        },
+        {
+          "resposta": "17,5",
+          "porque": "17,5 é metade de 35, ou seja, a divisão ao meio. A razão 3 para 4 não é meio a meio: uma parte fica maior que a outra."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o tamanho de UMA parte, que é 35 ÷ 7. Esse é o passo do meio: a parte maior leva quatro delas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some a razão",
+          "explicacao": "O segmento inteiro vale 3 + 4 partes iguais.",
+          "conta": "3 + 4 = 7"
+        },
+        {
+          "titulo": "Ache uma parte",
+          "explicacao": "Dividindo o comprimento total pelo número de partes.",
+          "conta": "35 / 7 = 5"
+        },
+        {
+          "titulo": "Junte quatro delas",
+          "explicacao": "A parte maior corresponde ao 4 da razão.",
+          "conta": "4 × 5 = 20"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que a construção com paralelas divide o segmento em partes iguais?",
+      "imagem": "tl9-q-por-que-funciona",
+      "dica": "As paralelas formam um feixe. Quais são as duas transversais?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque um feixe de paralelas transfere pedaços iguais de uma transversal para a outra" },
+        { "rotulo": "B", "texto": "Porque a reta auxiliar tem o mesmo comprimento do segmento" },
+        { "rotulo": "C", "texto": "Porque as paralelas são perpendiculares ao segmento" },
+        { "rotulo": "D", "texto": "Porque o compasso mede o segmento diretamente" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a reta auxiliar tem o mesmo comprimento do segmento",
+          "porque": "Ela quase nunca tem, e não precisa ter: a inclinação e o tamanho dela são livres. O que importa são os pedaços iguais marcados sobre ela."
+        },
+        {
+          "resposta": "Porque as paralelas são perpendiculares ao segmento",
+          "porque": "Elas são paralelas à reta que liga a última marca à outra ponta, e essa reta é inclinada. Perpendicularidade não entra na construção."
+        },
+        {
+          "resposta": "Porque o compasso mede o segmento diretamente",
+          "porque": "O compasso mede pedaços na reta AUXILIAR, e nunca toca o segmento. É justamente por isso que o método funciona sem régua graduada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o feixe",
+          "explicacao": "São as paralelas traçadas por cada marca da reta auxiliar.",
+          "conta": "as paralelas do desenho"
+        },
+        {
+          "titulo": "Ache as transversais",
+          "explicacao": "São a reta auxiliar e o próprio segmento a dividir.",
+          "conta": "pedaços iguais viram pedaços iguais"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um segmento de 45 cm é dividido em 5 partes iguais. Quanto mede cada parte, em centímetros? Digite apenas o número.",
+      "imagem": "tl9-q-cinco-partes",
+      "dica": "Partes iguais é o caso mais simples: uma divisão resolve.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é 45 − 5, subtraindo o número de partes. Repartir é dividir, e não tirar."
+        },
+        {
+          "resposta": "11,25",
+          "porque": "11,25 é 45 ÷ 4, dividindo pelo número de CORTES em vez do número de partes. Cinco partes precisam de quatro cortes, mas quem divide o comprimento é o número de partes."
+        },
+        {
+          "resposta": "225",
+          "porque": "225 é 45 × 5. Cada parte tem de ser menor que o segmento inteiro — um resultado maior que 45 já denuncia a conta trocada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida pelo número de partes",
+          "explicacao": "Todas as partes têm o mesmo tamanho, então uma divisão resolve.",
+          "conta": "45 / 5"
+        },
+        {
+          "titulo": "Confira somando",
+          "explicacao": "Cinco partes de 9 têm de devolver o comprimento original.",
+          "conta": "5 × 9 = 45 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa fileira de 6 postes igualmente espaçados, quantos ESPAÇOS existem entre o primeiro e o último? Digite apenas o número.",
+      "imagem": "tl9-q-espacos",
+      "dica": "Conte os vãos, e não os postes. O primeiro poste não abre espaço nenhum atrás dele.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é o número de POSTES, e não de espaços. Cada poste novo acrescenta um vão, menos o primeiro — então os vãos são sempre um a menos."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 seria o número de postes ENTRE o primeiro e o último. Os espaços contam também o vão que chega ao último poste."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é um a mais que o número de postes. Contar vãos a mais que postes só aconteceria se a fileira fosse fechada num círculo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desenhe uma fileira pequena",
+          "explicacao": "Com 2 postes há 1 espaço; com 3, há 2.",
+          "conta": "2 → 1 · 3 → 2"
+        },
+        {
+          "titulo": "Continue o padrão",
+          "explicacao": "O número de espaços é sempre um a menos que o de postes.",
+          "conta": "6 − 1 = 5"
+        }
+      ]
+    }
+  ]
+}

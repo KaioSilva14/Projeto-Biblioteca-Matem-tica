@@ -1,0 +1,35 @@
+{
+  "id": "tales",
+  "titulo": "Teorema de Tales",
+  "ano": 9,
+  "descricao": "Um feixe de retas paralelas corta duas transversais quaisquer e deixa nelas segmentos proporcionais — não iguais, proporcionais. É um dos teoremas mais antigos que a escola ensina, e um dos mais usados: ele divide terrenos entre duas ruas, reparte um segmento em partes iguais sem medir e explica, de quebra, por que a paralela a um lado de um triângulo recorta uma figura semelhante.",
+  "pergunta": "O que um feixe de paralelas faz com as retas que o atravessam?",
+  "videos": [
+    {
+      "id": "RKegZ1TiO28",
+      "titulo": "TEOREMA DE TALES",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação do teorema e do que ele afirma, do começo. Serve de segunda passagem pela lição 1."
+    },
+    {
+      "id": "byrefiSZw0k",
+      "titulo": "TEOREMA DE TALES EXERCÍCIOS  | RETAS PARALELAS CORTADAS POR TRANSVERSAIS. \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só exercícios de montar a proporção e achar a medida que falta. Bom para treinar depois da lição 2."
+    },
+    {
+      "id": "Atm-4gad9J4",
+      "titulo": "FEIXE DE RETAS PARALELAS | TEOREMA DE TALES",
+      "canal": "Canal Hidreto",
+      "descricao": "Outra explicação do mesmo feixe, com outra voz e outros exemplos. Útil se a primeira não pegou."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/tales/o-que-e.json" },
+    { "id": "montar-a-proporcao", "arquivo": "/dados/licoes/tales/montar-a-proporcao.json" },
+    { "id": "no-triangulo", "arquivo": "/dados/licoes/tales/no-triangulo.json" },
+    { "id": "dividir-segmento", "arquivo": "/dados/licoes/tales/dividir-segmento.json" },
+    { "id": "quando-nao-vale", "arquivo": "/dados/licoes/tales/quando-nao-vale.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/tales/problemas.json" }
+  ]
+}

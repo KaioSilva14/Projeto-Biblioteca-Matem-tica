@@ -3,16 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- seo -->
   <title>Matemática por ano — Biblioteca Matemática</title>
-  <meta name="description" content="As matérias de Matemática de um ano do Ensino Fundamental II, em lições guiadas." />
+  <meta name="description" content="As matérias de Matemática de um ano do Ensino Fundamental II, cada uma em lições guiadas com questões comentadas. Escolha o ano e comece a estudar de graça." />
+  <link rel="canonical" href="https://projeto-biblioteca-matem-tica.vercel.app/ano.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Biblioteca Matemática" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://projeto-biblioteca-matem-tica.vercel.app/ano.html" />
+  <meta property="og:title" content="Matemática por ano — Biblioteca Matemática" />
+  <meta property="og:description" content="As matérias de Matemática de um ano do Ensino Fundamental II, cada uma em lições guiadas com questões comentadas. Escolha o ano e comece a estudar de graça." />
+  <meta property="og:image" content="https://projeto-biblioteca-matem-tica.vercel.app/assets/site/capa-social.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Biblioteca Matemática — matemática explicada como se explica de verdade." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Matemática por ano — Biblioteca Matemática" />
+  <meta name="twitter:description" content="As matérias de Matemática de um ano do Ensino Fundamental II, cada uma em lições guiadas com questões comentadas. Escolha o ano e comece a estudar de graça." />
+  <meta name="twitter:image" content="https://projeto-biblioteca-matem-tica.vercel.app/assets/site/capa-social.png" />
+
   <meta name="theme-color" content="#2b2622" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png" />
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png" />
+  <link rel="icon" href="/favicon-144.png" sizes="144x144" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- /seo -->
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/licao.css" />
 </head>
 <body data-pagina="ano">
+  <!-- nav -->
   <header class="nav">
     <div class="nav__barra">
-      <a href="/" class="marca">
+      <a href="/" class="marca" aria-label="Biblioteca Matemática, página inicial">
         <svg class="marca__glifo" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
           <circle cx="11" cy="4.5" r="2.4" fill="currentColor" />
           <rect x="1.5" y="10" width="19" height="2" rx="1" fill="currentColor" />
@@ -30,9 +61,12 @@
         <a class="nav__link" href="/ano.html?a=7">7º ano</a>
         <a class="nav__link" href="/ano.html?a=8">8º ano</a>
         <a class="nav__link" href="/ano.html?a=9">9º ano</a>
+        <a class="nav__link" href="/sobre.html">Como funciona</a>
+        <a class="nav__link" href="/perguntas.html">Perguntas</a>
       </nav>
     </div>
   </header>
+<!-- /nav -->
 
   <main>
     <div class="container">
@@ -42,16 +76,47 @@
           <p class="t-md cor-mute">Carregando as matérias…</p>
         </div>
       </section>
-      <section class="banda banda--curta" id="certificado" data-certificado-ano hidden></section>
+      <section class="banda banda--curta" id="certificado" data-certificado-ano hidden>
+        <div class="container"></div>
+      </section>
     </div>
   </main>
 
+  <!-- rodape -->
   <footer class="rodape">
     <div class="rodape__interno">
-      <p class="t-sm-strong">Biblioteca Matemática</p>
-      <p class="t-sm cor-mute" data-nota-embreve>As matérias marcadas como “em breve” ainda não foram escritas.</p>
+      <div class="rodape__grade">
+        <div class="rodape__marca">
+          <p class="t-sm-strong">Biblioteca Matemática</p>
+          <p class="t-sm cor-mute">
+            Matemática do 6º ao 9º ano em lições guiadas, com questões que
+            dizem onde você errou. De graça, sem cadastro e sem anúncio.
+          </p>
+        </div>
+        <nav class="rodape__coluna" aria-label="Matérias por ano">
+          <p class="eyebrow">Estudar</p>
+          <a href="/ano.html?a=6">Matemática do 6º ano</a>
+          <a href="/ano.html?a=7">Matemática do 7º ano</a>
+          <a href="/ano.html?a=8">Matemática do 8º ano</a>
+          <a href="/ano.html?a=9">Matemática do 9º ano</a>
+        </nav>
+        <nav class="rodape__coluna" aria-label="Sobre o site">
+          <p class="eyebrow">O site</p>
+          <a href="/sobre.html">Como funciona</a>
+          <a href="/perguntas.html">Perguntas frequentes</a>
+          <a href="/agradecimentos.html">Agradecimentos</a>
+          <a href="/privacidade.html">Privacidade</a>
+        </nav>
+      </div>
+      <p class="t-sm cor-mute rodape__fim">
+        Questões de aplicação da OBMEP, usadas com atribuição. Seu progresso
+        fica no seu navegador, nesta máquina — nada é enviado para servidor
+        nenhum.
+      </p>
+      <p class="t-sm cor-mute" data-nota-embreve>As matérias marcadas como &ldquo;em breve&rdquo; ainda não foram escritas.</p>
     </div>
   </footer>
+<!-- /rodape -->
 
   <script type="module" src="/js/app.js"></script>
 </body>

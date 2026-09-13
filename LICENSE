@@ -1,0 +1,68 @@
+MIT License
+
+Copyright (c) 2026 Kaio Silva
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+O QUE ESTA LICENÇA COBRE, E O QUE ELA NÃO COBRE
+===============================================
+
+A licença MIT acima cobre o CÓDIGO deste repositório: o TypeScript, o CSS, o
+HTML, os geradores de figura e as ferramentas.
+
+Ela NÃO cobre as duas coisas abaixo. Leia antes de reutilizar qualquer parte
+deste projeto.
+
+
+1. O conteúdo pedagógico
+------------------------
+
+O texto das lições, os enunciados escritos para o site e os diagnósticos de
+erro (em public/dados/) são de autoria de Kaio Silva. Podem ser usados
+livremente para estudo e em sala de aula, com atribuição.
+
+
+2. As questões da OBMEP  —  ATENÇÃO
+-----------------------------------
+
+As questões identificadas com o campo "fonte" nos arquivos de lição NÃO são
+deste projeto. Elas vêm de provas e Bancos de Questões da OBMEP (Olimpíada
+Brasileira de Matemática das Escolas Públicas), publicados abertamente por
+ela, e cada uma declara a prova, o ano e o número do problema.
+
+A OBMEP disponibiliza esse material publicamente e sem custo, para fim
+educacional. Ela NÃO publica uma licença aberta (Creative Commons ou
+equivalente) que autorize redistribuição comercial, e os direitos sobre as
+questões continuam sendo dela e do IMPA.
+
+Portanto, e isto vale para qualquer pessoa que use, copie ou derive deste
+repositório:
+
+    ESSAS QUESTÕES NÃO PODEM SER COMERCIALIZADAS.
+
+Não as venda, não as inclua em material pago, em apostila comercial, em
+curso ou aplicativo com cobrança, assinatura ou anúncio, e não as
+redistribua sem a atribuição que acompanha cada uma.
+
+A permissão ampla da licença MIT, no alto deste arquivo, se aplica ao código
+e NÃO se estende a essas questões. Se você pretende usar este projeto para
+qualquer fim comercial, remova antes as questões com o campo "fonte" — ou
+procure a OBMEP para obter autorização.

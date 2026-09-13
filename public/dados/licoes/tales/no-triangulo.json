@@ -1,0 +1,195 @@
+{
+  "id": "no-triangulo",
+  "numero": 3,
+  "titulo": "Tales dentro do triângulo",
+  "pergunta": "Por que a paralela a um lado reparte os outros dois em proporção?",
+  "ideia": {
+    "paragrafos": [
+      "A matéria anterior já mostrou que uma reta paralela a um lado de um triângulo recorta no topo um triângulo semelhante. Agora a mesma figura aparece de outro jeito: os dois lados que a paralela corta ficam divididos em partes PROPORCIONAIS, e isso é o Teorema de Tales aplicado a um feixe de duas paralelas.",
+      "A ligação é direta. No triângulo ABC com DE paralela a BC, as retas DE e BC são duas paralelas, e os lados AB e AC são as duas transversais. O ponto A é o encontro delas, e é um dos pontos de divisão — só que ele coincide nas duas transversais, porque elas se cruzam ali.",
+      "A conclusão é AD/DB = AE/EC: o pedaço de cima está para o de baixo do mesmo jeito nos dois lados. Repare que essa proporção compara PEDAÇOS DO MESMO LADO, e é diferente da que a matéria anterior usava — lá se comparava AD com AB, o lado inteiro. As duas valem, e servem a perguntas diferentes.",
+      "Saber qual usar depende do que o problema dá. Se o enunciado fornece os dois pedaços de um lado e um pedaço do outro, a versão de Tales resolve direto. Se ele fornece a base BC e pede DE, a versão da semelhança é a que serve, porque só ela envolve esses dois segmentos.",
+      "Um exemplo: AD = 4, DB = 6 e AE = 6. Pela proporção de Tales, 4/6 = 6/EC, e EC mede 9. Repare que o lado AC ficou dividido em 6 e 9, na mesma razão 2 para 3 em que AB ficou dividido em 4 e 6 — os números mudaram, a proporção não.",
+      "Esse resultado tem uma recíproca útil, e ela cai em prova: se uma reta corta dois lados de um triângulo em partes proporcionais, então ela É paralela ao terceiro lado. É assim que se PROVA paralelismo a partir de medidas, sem precisar de transferidor."
+    ],
+    "destaque": "No triângulo, AD/DB = AE/EC. Essa proporção compara pedaços do mesmo lado — e é outra da que a semelhança usa.",
+    "imagem": "tl9-ideia-no-triangulo"
+  },
+  "resolvido": {
+    "enunciado": "No triângulo ABC, DE é paralela a BC. Sabendo que AD = 4, DB = 6 e AE = 6, quanto mede EC?",
+    "imagem": "tl9-res-ec-nove",
+    "passos": [
+      {
+        "titulo": "Reconheça o feixe",
+        "explicacao": "DE e BC são as duas paralelas; AB e AC são as transversais.",
+        "conta": "DE ∥ BC"
+      },
+      {
+        "titulo": "Monte a proporção de Tales",
+        "explicacao": "O pedaço de cima sobre o de baixo, nos dois lados.",
+        "conta": "AD/DB = AE/EC"
+      },
+      {
+        "titulo": "Substitua os valores",
+        "explicacao": "Três medidas conhecidas e uma incógnita, como sempre.",
+        "conta": "4/6 = 6/EC"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Multiplicando cruzado e isolando a medida procurada.",
+        "conta": "4 × EC = 36 → EC = 9"
+      }
+    ],
+    "fecho": "O lado AB ficou 4 e 6; o lado AC ficou 6 e 9. A razão 2 para 3 se repetiu nos dois."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No triângulo ABC, DE é paralela a BC. Sabendo que AD = 3, DB = 9 e AE = 4, quanto mede EC? Digite apenas o número.",
+      "imagem": "tl9-q-ec-doze",
+      "dica": "Compare o pedaço de cima com o de baixo, nos dois lados.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "1,33",
+          "porque": "1,33 sai de inverter uma das frações: 9/3 = 4/EC. Como DB é o triplo de AD, o EC tem de ser o triplo de AE — bem maior que 4, e não menor."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 4 + 6, somando a diferença entre 9 e 3. A proporção multiplica: o pedaço de baixo é 3 vezes o de cima nos dois lados."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 seria AC inteiro se EC valesse 12, ou 4 × 4. A pergunta é pelo pedaço EC, e não pelo lado todo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "De cima sobre de baixo, nos dois lados do triângulo.",
+          "conta": "3/9 = 4/EC"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando cruzado e dividindo por 3.",
+          "conta": "3 × EC = 36 → EC = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que a proporção AD/DB = AE/EC vale quando DE é paralela a BC?",
+      "imagem": "tl9-q-por-que-vale",
+      "dica": "Procure o feixe de paralelas escondido na figura do triângulo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque DE e BC formam um feixe de paralelas cortado pelos lados AB e AC" },
+        { "rotulo": "B", "texto": "Porque o triângulo é isósceles" },
+        { "rotulo": "C", "texto": "Porque DE divide o triângulo ao meio" },
+        { "rotulo": "D", "texto": "Porque AD e AE são sempre iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o triângulo é isósceles",
+          "porque": "A proporção vale em qualquer triângulo, escaleno inclusive — e a figura da lição é escaleno de propósito, para deixar isso claro."
+        },
+        {
+          "resposta": "Porque DE divide o triângulo ao meio",
+          "porque": "Ela pode cortar em qualquer altura, e quase nunca divide ao meio. A proporção vale para toda posição da paralela."
+        },
+        {
+          "resposta": "Porque AD e AE são sempre iguais",
+          "porque": "Eles só coincidem quando o triângulo é isósceles e a paralela está bem colocada. No exemplo da lição, AD é 4 e AE é 6."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache as paralelas",
+          "explicacao": "São DE e BC, que o enunciado já diz serem paralelas.",
+          "conta": "DE ∥ BC"
+        },
+        {
+          "titulo": "Ache as transversais",
+          "explicacao": "São os dois lados que cortam as duas paralelas.",
+          "conta": "AB e AC"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No triângulo ABC, DE é paralela a BC. Sabendo que AD = 2, AB = 6 e AE = 3, quanto mede AC? Digite apenas o número.",
+      "imagem": "tl9-q-ac-nove",
+      "dica": "Aqui os dados são o lado INTEIRO, e não os dois pedaços. Use a proporção da semelhança.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "6",
+          "porque": "6 é a medida de AB, dada no enunciado. AC é o outro lado, e ele sai da proporção 2/6 = 3/AC."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é a medida de DB, que é 6 − 2. A pergunta é pelo lado AC inteiro, e não por um pedaço dele."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 sai de inverter a proporção: 6/2 = 3/AC. O lado inteiro tem de ser maior que o pedaço AE, que já mede 3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use a proporção do lado inteiro",
+          "explicacao": "O pedaço de cima está para o lado todo do mesmo jeito nos dois lados.",
+          "conta": "AD/AB = AE/AC"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Substituindo e multiplicando cruzado.",
+          "conta": "2/6 = 3/AC → AC = 9"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo, uma reta corta dois lados em partes proporcionais. O que se pode concluir sobre ela?",
+      "imagem": "tl9-q-reciproca",
+      "dica": "É o teorema lido de trás para frente.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que ela é paralela ao terceiro lado" },
+        { "rotulo": "B", "texto": "Que ela passa pelo ponto médio dos dois lados" },
+        { "rotulo": "C", "texto": "Que ela divide o triângulo em duas partes de mesma área" },
+        { "rotulo": "D", "texto": "Que ela é perpendicular ao terceiro lado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que ela passa pelo ponto médio dos dois lados",
+          "porque": "Isso só vale quando a proporção é 1 para 1. Uma reta que divide os lados na razão 2 para 3 também é paralela ao terceiro lado, e não passa por ponto médio nenhum."
+        },
+        {
+          "resposta": "Que ela divide o triângulo em duas partes de mesma área",
+          "porque": "As áreas quase nunca ficam iguais: o triângulo de cima é semelhante ao todo com razão menor que 1, então ele é bem menor que o trapézio de baixo."
+        },
+        {
+          "resposta": "Que ela é perpendicular ao terceiro lado",
+          "porque": "Perpendicular é o contrário de paralela. Uma reta perpendicular à base cortaria os lados em partes que não obedecem a proporção nenhuma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o teorema ao contrário",
+          "explicacao": "Se paralela produz proporção, a recíproca pergunta se proporção produz paralela.",
+          "conta": "proporção → paralela"
+        },
+        {
+          "titulo": "Use isso como ferramenta",
+          "explicacao": "É assim que se prova paralelismo a partir de medidas, sem transferidor.",
+          "conta": "DE ∥ BC"
+        }
+      ]
+    }
+  ]
+}

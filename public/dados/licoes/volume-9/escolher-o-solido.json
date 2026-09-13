@@ -1,0 +1,189 @@
+{
+  "id": "escolher-o-solido",
+  "numero": 5,
+  "titulo": "Quando entra o terço",
+  "pergunta": "Como saber se a conta leva a divisão por três?",
+  "ideia": {
+    "paragrafos": [
+      "Esta lição não ensina fórmula nova. Ela ensina a ESCOLHER, que é onde a matéria costuma desandar: a prova nunca diz qual fórmula usar, e o erro mais caro do assunto é aplicar o terço onde ele não vai, ou esquecê-lo onde vai.",
+      "O critério é um só, e é visual: o sólido tem duas bases iguais, uma em cima e outra embaixo, ou termina em PONTA? Se tem duas bases, o volume é a área da base vezes a altura, sem divisão nenhuma. Se termina em ponta, o mesmo produto ainda vale, mas dividido por três.",
+      "Levam o terço a pirâmide e o cone. Não levam o prisma, o cubo, o paralelepípedo e o cilindro. A esfera não entra nessa conversa: ela não tem base, e tem fórmula própria.",
+      "O roteiro completo tem quatro passos. Primeiro, reconhecer o sólido. Segundo, descobrir qual é a base e calcular a ÁREA dela — e essa parte acontece no plano, com as fórmulas de Áreas. Terceiro, identificar a altura, que é sempre perpendicular à base. Quarto, decidir se entra o terço.",
+      "O terceiro passo tem uma armadilha própria em cada sólido pontudo. Na pirâmide, a altura não é a aresta lateral nem a altura de uma face. No cone, não é a geratriz. As duas confusões fazem o volume sair maior do que o verdadeiro, porque a medida inclinada é sempre mais comprida que a altura.",
+      "E vale guardar a conferência que fecha qualquer conta desta matéria: um sólido pontudo tem de dar um número MENOR que o do sólido reto de mesmas medidas, e a razão entre os dois é exatamente três. Se der maior, ou se der o mesmo, alguma coisa saiu errada no caminho."
+    ],
+    "destaque": "Duas bases iguais: sem terço. Termina em ponta: com terço. É a única decisão da matéria.",
+    "imagem": "vl9-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Um cilindro e um cone têm, os dois, 3 cm de raio da base e 8 cm de altura. Quanto vale cada um, em cm³, e quantas vezes um é maior que o outro? Use π = 3,14.",
+    "imagem": "vl9-res-cilindro-e-cone",
+    "passos": [
+      {
+        "titulo": "Calcule a base, que é comum aos dois",
+        "explicacao": "Os dois têm o mesmo círculo por base, então essa conta serve para ambos.",
+        "conta": "3,14 × 3 × 3 = 28,26 cm²"
+      },
+      {
+        "titulo": "O cilindro tem duas bases iguais",
+        "explicacao": "Ele não termina em ponta, então a conta para na multiplicação.",
+        "conta": "28,26 × 8 = 226,08 cm³"
+      },
+      {
+        "titulo": "O cone termina em ponta",
+        "explicacao": "Mesmo produto, agora repartido em três.",
+        "conta": "226,08 / 3 = 75,36 cm³"
+      },
+      {
+        "titulo": "Compare os dois",
+        "explicacao": "A razão entre eles não depende das medidas escolhidas.",
+        "conta": "226,08 / 75,36 = 3"
+      }
+    ],
+    "fecho": "Três vezes, exatamente — e daria três com qualquer raio e qualquer altura, desde que fossem os mesmos nos dois sólidos."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um prisma tem base quadrada de 4 cm de lado e 9 cm de altura. Qual é o volume dele, em cm³? Digite apenas o número.",
+      "imagem": "vl9-q-prisma-sem-terco",
+      "dica": "Antes de calcular, decida se este sólido é dos que levam a divisão por três.",
+      "formato": "numero",
+      "resposta": 144,
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 é 144 ÷ 3, aplicando o terço a um sólido que não leva terço. O prisma tem duas bases iguais e não termina em ponta: nele a conta para na multiplicação."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 4 × 9, usando o LADO da base no lugar da área dela. A base é um quadrado de lado 4, e a área dela é 4 × 4 = 16."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é só a ÁREA da base. Ela é o primeiro passo do roteiro; ainda falta multiplicar pela altura de 9 cm."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Reconheça o sólido",
+          "explicacao": "Um prisma tem duas bases iguais e não termina em ponta.",
+          "conta": "sem terço"
+        },
+        {
+          "titulo": "Área da base vezes altura",
+          "explicacao": "A base é um quadrado de lado 4 cm.",
+          "conta": "16 × 9 = 144 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Em qual destes sólidos a conta do volume leva a divisão por três?",
+      "imagem": "vl9-q-quem-leva-terco",
+      "dica": "Repare em quais deles têm duas bases iguais e quais terminam num bico.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Na pirâmide e no cone, que são os que terminam em ponta" },
+        { "rotulo": "B", "texto": "No cilindro e no prisma, que são os que têm base de formato definido" },
+        { "rotulo": "C", "texto": "Em todos os sólidos de três dimensões" },
+        { "rotulo": "D", "texto": "Só na esfera, porque ela é o sólido mais redondo de todos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "No cilindro e no prisma, que são os que têm base de formato definido",
+          "porque": "É exatamente o contrário. Esses dois têm duas bases iguais, uma em cima e outra embaixo, e por isso a conta deles para na multiplicação da base pela altura."
+        },
+        {
+          "resposta": "Em todos os sólidos de três dimensões",
+          "porque": "Se valesse para todos, o cubo de aresta 2 teria volume 8 ÷ 3, e ninguém calcula caixa assim. O terço é o que distingue o sólido pontudo do reto de mesmas medidas."
+        },
+        {
+          "resposta": "Só na esfera, porque ela é o sólido mais redondo de todos",
+          "porque": "A esfera não tem base nem altura, então nem entra nessa decisão — ela tem fórmula própria. O três que aparece nela vem do quatro terços, que é outra história."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe por formato",
+          "explicacao": "De um lado os que têm duas bases iguais, do outro os que têm bico.",
+          "conta": "duas bases · uma ponta"
+        },
+        {
+          "titulo": "Aplique o critério",
+          "explicacao": "Só os pontudos cabem três vezes no sólido reto de mesmas medidas.",
+          "conta": "pirâmide e cone"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um cilindro tem 2 cm de raio da base e 10 cm de altura. Qual é o volume dele, em cm³? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl9-q-cilindro-dois-dez",
+      "dica": "Passe pelo roteiro inteiro, inclusive pelo passo que decide sobre o terço.",
+      "formato": "numero",
+      "resposta": 125.6,
+      "errosComuns": [
+        {
+          "resposta": "41,87",
+          "porque": "41,87 é 125,6 ÷ 3, aplicando o terço a um cilindro. O cilindro tem duas bases iguais, e nele não há divisão nenhuma no fim."
+        },
+        {
+          "resposta": "62,8",
+          "porque": "62,8 usa o raio uma vez só, 3,14 × 2 × 10. A área do círculo é π × r × r, com o raio entrando duas vezes: aqui, 3,14 × 4."
+        },
+        {
+          "resposta": "12,56",
+          "porque": "12,56 é só a ÁREA da base, 3,14 × 2 × 2. Ela é o primeiro passo do roteiro; ainda falta multiplicar pela altura de 10 cm."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "A base é um círculo de raio 2 cm.",
+          "conta": "3,14 × 2 × 2 = 12,56 cm²"
+        },
+        {
+          "titulo": "Multiplique pela altura, e pare aí",
+          "explicacao": "O cilindro tem duas bases iguais, então não entra o terço.",
+          "conta": "12,56 × 10 = 125,6 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma pirâmide e um prisma têm exatamente a mesma base e a mesma altura. Quantas vezes o volume do prisma é maior que o da pirâmide? Digite apenas o número.",
+      "imagem": "vl9-q-quantas-vezes",
+      "dica": "Não é preciso nenhum número: a relação entre os dois sólidos já responde.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 seria a resposta se a pirâmide ocupasse metade do prisma. Ela ocupa um terço, e a lição 1 mostrou por quê: um cubo se reparte em três pirâmides iguais, e não em duas."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 diria que os dois têm o mesmo volume. Mas a pirâmide cabe inteira dentro do prisma sobrando espaço, então ela é forçosamente menor."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é o número de faces de um cubo, e não a razão entre os dois volumes. A repartição do cubo produz três pirâmides, porque só três faces não tocam o vértice escolhido."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva as duas fórmulas",
+          "explicacao": "Com a mesma base e a mesma altura, elas só diferem no terço.",
+          "conta": "prisma B × h · pirâmide B × h / 3"
+        },
+        {
+          "titulo": "Divida uma pela outra",
+          "explicacao": "A parte comum se cancela e sobra só o fator que as separa.",
+          "conta": "3 vezes"
+        }
+      ]
+    }
+  ]
+}

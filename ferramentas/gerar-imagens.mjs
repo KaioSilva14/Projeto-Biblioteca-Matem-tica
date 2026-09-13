@@ -4,13 +4,19 @@
 // public/assets/. O site serve arquivos de imagem — nunca monta figura em
 // tempo de execução.
 //
-// Uso:  node ferramentas/gerar-imagens.mjs [--so=<id>]
+// Uso:  node ferramentas/gerar-imagens.mjs [--so=<id>] [--faltando]
+//
+// `--faltando` gera só as figuras que ainda NÃO estão no índice e mantém as
+// outras entradas como estavam. É o modo certo para acrescentar meia dúzia
+// de figuras sem refazer as mil e oitocentas — mas ele não conserta figura
+// cujo GERADOR mudou, porque ele nem olha para as que já existem. Depois de
+// mexer num gerador, o lote é completo.
 //
 // O Chrome headless faz a rasterização com escala 2x (imagem nítida em tela
 // retina) e fundo transparente, para o PNG assentar sobre a canvas quente
 // sem moldura branca.
 
-import { writeFileSync, mkdirSync, existsSync, rmSync } from "node:fs";
+import { writeFileSync, readFileSync, mkdirSync, existsSync, rmSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -50,15 +56,22 @@ function paginaHtml(svg, largura, altura) {
 </style></head><body>${svg}</body></html>`;
 }
 
-function gerar(filtro) {
+function gerar(filtro, soFaltando) {
   const chrome = acharChrome();
   mkdirSync(TEMP, { recursive: true });
 
-  const indice = {};
+  const caminhoIndice = join(RAIZ, "public", "dados", "imagens.json");
+  // No modo incremental o índice de partida é o que já existe: as entradas
+  // das figuras não regeradas têm de sobreviver, senão o site perde todas as
+  // outras — que é exatamente a armadilha do `--so=`.
+  const indice = soFaltando && existsSync(caminhoIndice)
+    ? JSON.parse(readFileSync(caminhoIndice, "utf8"))
+    : {};
   let feitas = 0;
 
   for (const item of MANIFESTO) {
     if (filtro && item.id !== filtro) continue;
+    if (soFaltando && indice[item.id]) continue;
 
     const svg = item.desenho();
     const { largura, altura } = medir(svg);
@@ -104,4 +117,4 @@ function gerar(filtro) {
 }
 
 const arg = process.argv.find((a) => a.startsWith("--so="));
-gerar(arg ? arg.slice(5) : null);
+gerar(arg ? arg.slice(5) : null, process.argv.includes("--faltando"));

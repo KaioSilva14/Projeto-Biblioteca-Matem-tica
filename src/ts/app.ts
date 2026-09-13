@@ -27,6 +27,7 @@ import {
   type IndiceImagens,
 } from "./ui.js";
 import { qs, el, limpar, rolarAte, parametro } from "./util.js";
+import { metaDaPagina, trilha } from "./seo.js";
 
 const CATALOGO = "/dados/catalogo.json";
 
@@ -47,6 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
     case "ano": void iniciarAno(); break;
     case "curso": void iniciarCurso(); break;
     case "licao": void iniciarLicao(); break;
+    // A 404 mostra a mesma grade de anos da home: uma página de erro que
+    // oferece para onde ir vale mais que uma que só informa o erro.
+    case "404": void iniciarHome(); break;
   }
 });
 
@@ -60,9 +64,60 @@ function initMenu(): void {
   });
 }
 
-function recado(alvo: HTMLElement, texto: string): void {
+/**
+ * O recado de erro.
+ *
+ * Uma frase solta no meio de uma página vazia informa e abandona. O aluno que
+ * caiu aqui clicou num link que não existe mais, digitou errado ou voltou de
+ * um favorito antigo — e nenhuma dessas pessoas sabe o que fazer em seguida.
+ * Por isso todo recado tem três partes: o que aconteceu, por que pode ter
+ * acontecido, e um caminho de volta que funciona.
+ */
+/**
+ * O miolo de uma faixa, limpo e pronto para receber conteúdo.
+ *
+ * `.banda` só tem respiro VERTICAL: quem dá a largura máxima e a margem
+ * lateral é o `.container` dentro dela. Duas seções montadas por script
+ * limpavam a faixa inteira e escreviam direto nela — e o `limpar` apagava
+ * justamente o container que o HTML trazia. O resultado eram os certificados
+ * colados na borda da janela, desalinhados de todo o resto do site.
+ *
+ * Este helper existe para que isso não possa acontecer de novo: quem monta
+ * uma faixa pede o miolo dela, e o miolo sempre é um container.
+ */
+function miolo(faixa: HTMLElement): HTMLElement {
+  const existente = faixa.querySelector<HTMLElement>(":scope > .container");
+  if (existente) {
+    limpar(existente);
+    return existente;
+  }
+  limpar(faixa);
+  const novo = el("div", { classe: "container" });
+  faixa.appendChild(novo);
+  return novo;
+}
+
+function recado(
+  alvo: HTMLElement,
+  titulo: string,
+  motivo: string,
+  saidas: { texto: string; href: string; primaria?: boolean }[] = []
+): void {
   limpar(alvo);
-  alvo.appendChild(el("p", { classe: "t-lg cor-body", texto }));
+  const caixa = el("div", { classe: "recado" });
+  caixa.appendChild(el("h2", { classe: "d-sm recado__titulo", texto: titulo }));
+  caixa.appendChild(el("p", { classe: "t-md", texto: motivo }));
+  const acoes = el("div", { classe: "recado__acoes" });
+  const lista = saidas.length ? saidas : [{ texto: "Voltar ao início", href: "/", primaria: true }];
+  for (const s of lista) {
+    acoes.appendChild(el("a", {
+      classe: `botao ${s.primaria ? "botao--primario" : "botao--fantasma"}`,
+      texto: s.texto,
+      atributos: { href: s.href },
+    }));
+  }
+  caixa.appendChild(acoes);
+  alvo.appendChild(caixa);
 }
 
 // ---------- Home ----------
@@ -94,12 +149,12 @@ async function iniciarHome(): Promise<void> {
   if (areaCert) {
     const anos = listarCertificadosAno();
     const certificados = listarCertificados();
-    limpar(areaCert);
+    const dentro = miolo(areaCert);
     if (anos.length === 0 && certificados.length === 0) {
       areaCert.hidden = true;
     } else {
       areaCert.hidden = false;
-      areaCert.appendChild(el("h2", { classe: "d-md secao__titulo", texto: "Seus certificados" }));
+      dentro.appendChild(el("h2", { classe: "d-md secao__titulo", texto: "Seus certificados" }));
       const lista = el("div", { classe: "lista" });
 
       for (const c of anos) {
@@ -125,7 +180,7 @@ async function iniciarHome(): Promise<void> {
           })
         );
       }
-      areaCert.appendChild(lista);
+      dentro.appendChild(lista);
     }
   }
 }
@@ -164,9 +219,27 @@ async function iniciarAno(): Promise<void> {
   const catalogo = await json<Catalogo>(CATALOGO);
   const numero = Number(parametro("a"));
   const ano = catalogo?.anos.find((a) => a.ano === numero);
-  if (!ano) return recado(alvo, "Não encontramos esse ano. Volte ao início e escolha de novo.");
+  if (!ano) {
+    return recado(
+      alvo,
+      "Esse ano não existe aqui",
+      "A Biblioteca Matemática cobre do 6º ao 9º ano do Ensino Fundamental. O endereço que você abriu pede um ano fora dessa faixa — provavelmente um link digitado à mão.",
+      [
+        { texto: "Ver os quatro anos", href: "/#anos", primaria: true },
+        { texto: "Como o site funciona", href: "/sobre.html" },
+      ]
+    );
+  }
 
-  document.title = `Matemática do ${ano.ano}º ano — Biblioteca Matemática`;
+  metaDaPagina({
+    titulo: `Matemática do ${ano.ano}º ano — Biblioteca Matemática`,
+    descricao: `${ano.descricao} São ${ano.cursos.filter((c) => c.disponivel).length} matérias em lições guiadas, de graça e sem cadastro.`,
+    caminho: `/ano.html?a=${ano.ano}`,
+  });
+  trilha([
+    { nome: "Biblioteca Matemática", caminho: "/" },
+    { nome: `${ano.ano}º ano`, caminho: `/ano.html?a=${ano.ano}` },
+  ]);
   const cabecalho = qs<HTMLElement>("[data-cabecalho]");
   if (cabecalho) {
     limpar(cabecalho);
@@ -227,7 +300,7 @@ function montarBlocoDoAno(ano: Catalogo["anos"][number]): void {
   const area = qs<HTMLElement>("[data-certificado-ano]");
   if (!area) return;
 
-  limpar(area);
+  miolo(area);
   const publicadas = ano.cursos.filter((c) => c.disponivel);
   if (publicadas.length !== ano.cursos.length || publicadas.length === 0) {
     area.hidden = true;
@@ -236,7 +309,7 @@ function montarBlocoDoAno(ano: Catalogo["anos"][number]): void {
   area.hidden = false;
 
   const desenhar = (): void => {
-    limpar(area);
+    const dentro = miolo(area);
     const resumo = resumirAno(publicadas.map((c) => c.id));
     const salvo = lerCertificadoAno(ano.ano);
 
@@ -258,7 +331,7 @@ function montarBlocoDoAno(ano: Catalogo["anos"][number]): void {
 
     if (resumo.concluido && !salvo) emitirCertificadoAno(montar(nomeSugerido));
 
-    area.appendChild(
+    dentro.appendChild(
       renderCertificadoAno({
         ano: ano.ano,
         concluido: resumo.concluido,
@@ -287,15 +360,56 @@ async function iniciarCurso(): Promise<void> {
   const catalogo = await json<Catalogo>(CATALOGO);
   const id = parametro("c");
   const item = catalogo?.anos.flatMap((a) => a.cursos).find((c) => c.id === id);
-  if (!item?.arquivo) return recado(alvo, "Essa matéria ainda não está disponível.");
+  if (!item) {
+    return recado(
+      alvo,
+      "Essa matéria não existe",
+      "Não há nenhuma matéria com esse endereço no site. Pode ser um link antigo ou um erro de digitação — nada foi removido daqui.",
+      [
+        { texto: "Ver as matérias por ano", href: "/#anos", primaria: true },
+        { texto: "Perguntas frequentes", href: "/perguntas.html" },
+      ]
+    );
+  }
+  if (!item.arquivo) {
+    return recado(
+      alvo,
+      "Essa matéria ainda não está disponível",
+      `${item.titulo} está no catálogo, mas ainda não foi escrita. As matérias são publicadas uma a uma, e cada uma só entra depois que todas as contas dela passam nos testes.`,
+      [
+        { texto: "Ver o que já está pronto", href: "/#anos", primaria: true },
+        { texto: "Como o site funciona", href: "/sobre.html" },
+      ]
+    );
+  }
 
   const curso = await json<Curso>(item.arquivo);
-  if (!curso) return recado(alvo, "Não foi possível carregar essa matéria.");
+  if (!curso) {
+    return recado(
+      alvo,
+      "Não conseguimos carregar essa matéria",
+      "O conteúdo existe, mas não chegou até aqui. Quase sempre é a conexão: recarregar a página costuma resolver.",
+      [
+        { texto: "Tentar de novo", href: `/curso.html?c=${encodeURIComponent(String(id))}`, primaria: true },
+        { texto: "Voltar ao início", href: "/" },
+      ]
+    );
+  }
 
   const licoes = (await Promise.all(curso.licoes.map((l) => json<Licao>(l.arquivo))))
     .filter((l): l is Licao => l !== null);
 
-  document.title = `${curso.titulo} — Biblioteca Matemática`;
+  const anoDoCurso = catalogo?.anos.find((a) => a.cursos.some((c) => c.id === id));
+  metaDaPagina({
+    titulo: `${curso.titulo} — Biblioteca Matemática`,
+    descricao: curso.descricao,
+    caminho: `/curso.html?c=${curso.id}`,
+  });
+  trilha([
+    { nome: "Biblioteca Matemática", caminho: "/" },
+    ...(anoDoCurso ? [{ nome: `${anoDoCurso.ano}º ano`, caminho: `/ano.html?a=${anoDoCurso.ano}` }] : []),
+    { nome: curso.titulo, caminho: `/curso.html?c=${curso.id}` },
+  ]);
 
   const cabecalho = qs<HTMLElement>("[data-cabecalho]");
   if (cabecalho) {
@@ -472,23 +586,64 @@ async function iniciarLicao(): Promise<void> {
   const licaoId = parametro("l");
   const catalogo = await json<Catalogo>(CATALOGO);
   const item = catalogo?.anos.flatMap((a) => a.cursos).find((c) => c.id === cursoId);
-  if (!item?.arquivo || !licaoId) return recado(alvo, "Não encontramos essa lição. Volte e escolha de novo.");
+  if (!item?.arquivo || !licaoId) {
+    return recado(
+      alvo,
+      "Não encontramos essa lição",
+      "O endereço precisa dizer a matéria e a lição, e um dos dois está faltando ou não existe. Pode ser um link cortado pela metade ao ser copiado.",
+      [
+        { texto: "Ver as matérias por ano", href: "/#anos", primaria: true },
+        { texto: "Como o site funciona", href: "/sobre.html" },
+      ]
+    );
+  }
 
   const curso = await json<Curso>(item.arquivo);
   const entrada = curso?.licoes.find((l) => l.id === licaoId);
-  if (!curso || !entrada) return recado(alvo, "Não encontramos essa lição. Volte e escolha de novo.");
+  if (!curso || !entrada) {
+    return recado(
+      alvo,
+      "Essa lição não existe nesta matéria",
+      curso
+        ? `${curso.titulo} tem ${curso.licoes.length} lições, e nenhuma delas tem esse endereço. A lista completa está na página da matéria.`
+        : "Não conseguimos carregar a matéria a que essa lição pertence.",
+      [
+        { texto: `Ver as lições`, href: `/curso.html?c=${encodeURIComponent(String(cursoId))}`, primaria: true },
+        { texto: "Voltar ao início", href: "/" },
+      ]
+    );
+  }
 
   const [licao, imagens] = await Promise.all([
     json<Licao>(entrada.arquivo),
     json<IndiceImagens>("/dados/imagens.json"),
   ]);
-  if (!licao) return recado(alvo, "Não foi possível carregar essa lição.");
+  if (!licao) {
+    return recado(
+      alvo,
+      "Não conseguimos carregar essa lição",
+      "A lição existe, mas o conteúdo dela não chegou até aqui. Quase sempre é a conexão: recarregar a página costuma resolver.",
+      [
+        { texto: "Tentar de novo", href: `/licao.html?c=${encodeURIComponent(String(cursoId))}&l=${encodeURIComponent(licaoId)}`, primaria: true },
+        { texto: "Ver as outras lições", href: `/curso.html?c=${encodeURIComponent(String(cursoId))}` },
+      ]
+    );
+  }
 
   montarLicao(alvo, curso, licao, imagens ?? {});
 }
 
 function montarLicao(alvo: HTMLElement, curso: Curso, licao: Licao, imagens: IndiceImagens): void {
-  document.title = `${licao.titulo} — ${curso.titulo} | Biblioteca Matemática`;
+  metaDaPagina({
+    titulo: `${licao.titulo} — ${curso.titulo}`,
+    descricao: `${licao.pergunta} ${licao.ideia.destaque}`,
+    caminho: `/licao.html?c=${curso.id}&l=${licao.id}`,
+  });
+  trilha([
+    { nome: "Biblioteca Matemática", caminho: "/" },
+    { nome: curso.titulo, caminho: `/curso.html?c=${curso.id}` },
+    { nome: licao.titulo, caminho: `/licao.html?c=${curso.id}&l=${licao.id}` },
+  ]);
   const totalLicoes = curso.licoes.length;
 
   const cabecalho = qs<HTMLElement>("[data-cabecalho]");

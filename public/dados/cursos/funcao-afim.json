@@ -1,0 +1,41 @@
+{
+  "id": "funcao-afim",
+  "titulo": "Função afim",
+  "ano": 9,
+  "descricao": "Função é a primeira ideia do Fundamental que não é uma conta: é uma RELAÇÃO entre duas grandezas, e tudo o que se faz com ela depende de entender isso. A matéria começa pela regra, passa pela tabela e só então chega ao gráfico — e o gráfico não é ilustração, é o mesmo objeto visto de outro jeito. No fim, os dois coeficientes deixam de ser letras: um diz o quanto a coisa cresce, o outro diz de onde ela partiu.",
+  "pergunta": "O que uma função afim descreve, e por que o gráfico dela é uma reta?",
+  "videos": [
+    {
+      "id": "KbvcwmMnv7c",
+      "titulo": "FUNÇÃO DO 1 GRAU | FUNÇÃO AFIM |  \\Prof. Gis/- AULA 1",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação da ideia, do começo. Serve de segunda passagem pela lição 1."
+    },
+    {
+      "id": "HOySM8JgIhE",
+      "titulo": "VALOR  NUMÉRICO DE UMA FUNÇÃO DO 1° grau  | FUNCAO AFIM | EXERCÍCIOS AULA 3 \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só exercícios de calcular f(x) para um valor dado. Bom para treinar depois da lição 2."
+    },
+    {
+      "id": "u-pg5Pz_YUw",
+      "titulo": "ZERO DE UMA FUNÇÃO AFIM - PRIMEIRO 1º GRAU \\Prof. Gis/ - AULA 4",
+      "canal": "Gis com Giz",
+      "descricao": "Dedicado à raiz da função, que é o assunto inteiro da lição 5."
+    },
+    {
+      "id": "EP2oefn05eY",
+      "titulo": "FUNÇÃO AFIM -  LEI DE FORMAÇÃO | FUNÇÃO POLINOMIAL DO PRIMEIRO GRAU \\Prof. GIs/ - AULA 6",
+      "canal": "Gis com Giz",
+      "descricao": "Como escrever a lei a partir do enunciado — o passo que a lição 2 trata como o mais difícil."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/funcao-afim/o-que-e.json" },
+    { "id": "lei-da-funcao", "arquivo": "/dados/licoes/funcao-afim/lei-da-funcao.json" },
+    { "id": "grafico", "arquivo": "/dados/licoes/funcao-afim/grafico.json" },
+    { "id": "coeficientes", "arquivo": "/dados/licoes/funcao-afim/coeficientes.json" },
+    { "id": "raiz", "arquivo": "/dados/licoes/funcao-afim/raiz.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/funcao-afim/problemas.json" }
+  ]
+}

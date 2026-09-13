@@ -1,0 +1,184 @@
+{
+  "id": "inscrito",
+  "numero": 2,
+  "titulo": "O ângulo inscrito",
+  "pergunta": "O que muda quando o vértice sai do centro e vai para a borda?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui o ângulo tinha o vértice no centro. Agora ele muda de lugar: o vértice vai para um ponto da própria circunferência, e os dois lados continuam sendo cordas que chegam nas pontas do arco. Um ângulo assim chama-se ÂNGULO INSCRITO.",
+      "E aqui está o resultado central da matéria: o ângulo inscrito mede exatamente METADE do ângulo central que enxerga o mesmo arco. Se o central vale 120°, todo inscrito naquele arco vale 60° — não importa em que ponto da circunferência o vértice esteja.",
+      "Vale parar nessa última frase, porque ela é surpreendente. Movendo o vértice ao longo do arco oposto, a forma do desenho muda bastante: os lados ficam mais compridos ou mais curtos, o triângulo fica achatado ou pontudo. E a abertura do ângulo não muda nem um grau.",
+      "A demonstração completa é de um curso mais adiante, mas o caso mais simples dá para acompanhar. Quando um dos lados do ângulo inscrito passa pelo centro, o triângulo formado pelo vértice, o centro e a outra ponta é isósceles — dois lados dele são raios. Os dois ângulos da base são iguais, e o ângulo central é o externo deles, valendo a soma dos dois: o dobro de cada.",
+      "Escrita como fórmula, a relação é inscrito = central ÷ 2, ou central = 2 × inscrito. Os dois sentidos caem em prova, e trocá-los é o erro mais comum da matéria — vale conferir de olho na figura: o ângulo que abre mais é sempre o do centro.",
+      "E, como o arco tem a medida do ângulo central, a regra também se escreve assim: o ângulo inscrito vale metade do ARCO que ele enxerga. É essa versão que costuma aparecer nos enunciados de prova, e as duas dizem a mesma coisa."
+    ],
+    "destaque": "O inscrito vale METADE do central que enxerga o mesmo arco — e isso não depende de onde o vértice está.",
+    "imagem": "ar9-ideia-inscrito"
+  },
+  "resolvido": {
+    "enunciado": "Numa circunferência, o ângulo central que enxerga o arco AB mede 120°. Quanto mede um ângulo inscrito que enxerga o mesmo arco?",
+    "imagem": "ar9-res-metade",
+    "passos": [
+      {
+        "titulo": "Identifique os dois ângulos",
+        "explicacao": "Um tem vértice no centro; o outro, num ponto da circunferência.",
+        "conta": "central 120° · inscrito ?"
+      },
+      {
+        "titulo": "Escreva a relação",
+        "explicacao": "O inscrito vale metade do central que enxerga o mesmo arco.",
+        "conta": "inscrito = central / 2"
+      },
+      {
+        "titulo": "Calcule",
+        "explicacao": "Basta dividir por dois, porque o inscrito é a metade.",
+        "conta": "120 / 2 = 60°"
+      }
+    ],
+    "fecho": "E o valor não muda se o vértice andar pelo arco oposto: qualquer inscrito naquele arco mede 60°."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa circunferência, o ângulo central que enxerga um arco mede 100°. Quanto mede o ângulo inscrito que enxerga esse mesmo arco? Digite apenas o número.",
+      "imagem": "ar9-q-inscrito-50",
+      "dica": "O inscrito é metade do central.",
+      "formato": "numero",
+      "resposta": 50,
+      "errosComuns": [
+        {
+          "resposta": "200",
+          "porque": "200 é o DOBRO de 100, invertendo a relação. Quem vale o dobro é o central: o inscrito é sempre o menor dos dois."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é o próprio ângulo central. O inscrito mede metade dele, e por isso vale 50°."
+        },
+        {
+          "resposta": "80",
+          "porque": "80 é 180 − 100, um caminho que não corresponde a nenhuma relação da lição. O inscrito sai de uma divisão por dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a relação",
+          "explicacao": "O inscrito é metade do central que enxerga o mesmo arco.",
+          "conta": "inscrito = 100 / 2"
+        },
+        {
+          "titulo": "Calcule e confira",
+          "explicacao": "O resultado tem de sair menor que o central, e sai.",
+          "conta": "50°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um ângulo inscrito mede 35°. Quanto mede o ângulo central que enxerga o mesmo arco? Digite apenas o número.",
+      "imagem": "ar9-q-central-70",
+      "dica": "Agora o caminho é o contrário: o central é o dobro.",
+      "formato": "numero",
+      "resposta": 70,
+      "errosComuns": [
+        {
+          "resposta": "17,5",
+          "porque": "17,5 é metade de 35, aplicando a relação no sentido errado. O CENTRAL é o maior dos dois, então ele sai de uma multiplicação."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é o próprio inscrito. O central que enxerga o mesmo arco vale o dobro dele."
+        },
+        {
+          "resposta": "145",
+          "porque": "145 é 180 − 35, um caminho de ângulos suplementares que não vale aqui. A relação entre inscrito e central é de dobro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Inverta a relação",
+          "explicacao": "Se o inscrito é metade do central, o central é o dobro do inscrito.",
+          "conta": "central = 2 × 35"
+        },
+        {
+          "titulo": "Calcule e confira",
+          "explicacao": "O central tem de sair maior que o inscrito, e sai.",
+          "conta": "70°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que acontece com um ângulo inscrito quando o vértice dele se move ao longo do arco oposto?",
+      "imagem": "ar9-q-vertice-anda",
+      "dica": "Compare a abertura do ângulo em duas posições diferentes do vértice.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A abertura não muda, porque o arco enxergado continua o mesmo" },
+        { "rotulo": "B", "texto": "O ângulo aumenta quando o vértice se afasta" },
+        { "rotulo": "C", "texto": "O ângulo diminui quando o vértice se afasta" },
+        { "rotulo": "D", "texto": "O ângulo vira central quando o vértice passa pelo centro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O ângulo aumenta quando o vértice se afasta",
+          "porque": "Os lados ficam mais compridos, e é fácil achar que o ângulo cresce junto. Mas ele fica idêntico: a abertura depende só do arco enxergado."
+        },
+        {
+          "resposta": "O ângulo diminui quando o vértice se afasta",
+          "porque": "Também não: com o vértice em qualquer ponto do arco oposto, a medida é sempre metade do central. É justamente isso que surpreende na matéria."
+        },
+        {
+          "resposta": "O ângulo vira central quando o vértice passa pelo centro",
+          "porque": "O vértice de um inscrito anda SOBRE a circunferência, e o centro não está nela. Ele nunca passa por lá."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fixe o arco",
+          "explicacao": "As duas pontas dos lados continuam nos mesmos dois pontos.",
+          "conta": "mesmo arco"
+        },
+        {
+          "titulo": "Aplique a relação",
+          "explicacao": "Metade do mesmo central dá sempre o mesmo número.",
+          "conta": "abertura constante"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um ângulo inscrito enxerga um arco de 80°. Quanto mede esse ângulo inscrito, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-pelo-arco",
+      "dica": "O arco tem a medida do ângulo central, e o inscrito vale metade dela.",
+      "formato": "numero",
+      "resposta": 40,
+      "errosComuns": [
+        {
+          "resposta": "80",
+          "porque": "80 é a medida do ARCO, que é a mesma do ângulo central. O inscrito vale metade disso."
+        },
+        {
+          "resposta": "160",
+          "porque": "160 é o dobro de 80, invertendo a relação. O inscrito é sempre o menor: ele vale metade do arco que enxerga."
+        },
+        {
+          "resposta": "280",
+          "porque": "280 é 360 − 80, ou seja, o OUTRO arco entre os mesmos dois pontos. O inscrito da questão enxerga o arco de 80°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o arco em ângulo central",
+          "explicacao": "O arco tem exatamente a medida do central que o enxerga.",
+          "conta": "central = 80°"
+        },
+        {
+          "titulo": "Tome a metade",
+          "explicacao": "É a relação da lição, escrita na versão do arco.",
+          "conta": "80 / 2 = 40°"
+        }
+      ]
+    }
+  ]
+}

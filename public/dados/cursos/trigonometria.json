@@ -1,0 +1,41 @@
+{
+  "id": "trigonometria",
+  "titulo": "Trigonometria no triângulo retângulo",
+  "ano": 9,
+  "descricao": "Três razões — seno, cosseno e tangente — que ligam um ângulo às medidas dos lados. A pergunta que a matéria responde é antiga e prática: como medir uma altura, uma distância ou uma inclinação que ninguém consegue alcançar. E ela só funciona por causa da semelhança de triângulos, que é o que garante que a razão dependa do ângulo e de mais nada.",
+  "pergunta": "Como um ângulo sozinho determina a razão entre os lados?",
+  "videos": [
+    {
+      "id": "D-E_A04ReTE",
+      "titulo": "SENO, COSSENO E TANGENTE - TRIGONOMETRIA NO TRIÂNGULO RETÂNGULO \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação das três razões e de como identificar cada lado. Serve de segunda passagem pelas lições 1 e 2."
+    },
+    {
+      "id": "3sJwHnMuPr0",
+      "titulo": "TABELA TRIGONOMÉTRICA - ÂNGULOS NOTÁVEIS  SENO, COSSENO E TANGENTE EXERCÍCIOS|  \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "A tabela dos ângulos notáveis com exercícios resolvidos. Bom para fixar depois da lição 3."
+    },
+    {
+      "id": "PbTFufj_pdI",
+      "titulo": "Ângulos Notáveis 30, 45, 60: Demonstração | Trigonometria",
+      "canal": "Universo Narrado",
+      "descricao": "A dedução dos valores da tabela a partir do quadrado e do triângulo equilátero, que é o argumento da lição 3."
+    },
+    {
+      "id": "DK8Bqz04y3U",
+      "titulo": "SENO, COSSENO E TANGENTE DE 30, 45 E 60 GRAUS. TRIGONOMETRIA",
+      "canal": "Matemática com Nora Raquel ",
+      "descricao": "Outra explicação dos mesmos valores, com outra voz. Útil se a primeira abordagem não pegou."
+    }
+  ],
+  "licoes": [
+    { "id": "tres-razoes", "arquivo": "/dados/licoes/trigonometria/tres-razoes.json" },
+    { "id": "por-que-funciona", "arquivo": "/dados/licoes/trigonometria/por-que-funciona.json" },
+    { "id": "angulos-notaveis", "arquivo": "/dados/licoes/trigonometria/angulos-notaveis.json" },
+    { "id": "achar-lado", "arquivo": "/dados/licoes/trigonometria/achar-lado.json" },
+    { "id": "achar-angulo", "arquivo": "/dados/licoes/trigonometria/achar-angulo.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/trigonometria/problemas.json" }
+  ]
+}

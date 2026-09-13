@@ -1,0 +1,190 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "Quando o ritmo deixa de ser constante",
+  "pergunta": "O que muda quando aparece um x ao quadrado?",
+  "ideia": {
+    "paragrafos": [
+      "Na função afim, a saída avançava sempre o mesmo tanto a cada passo da entrada — e foi isso que fez o gráfico ser uma reta. A função quadrática quebra exatamente essa propriedade, e tudo o que ela tem de diferente vem daí.",
+      "Tome a mais simples delas, f(x) = x². Para x = 0, 1, 2, 3 e 4 as saídas são 0, 1, 4, 9 e 16. Olhe os avanços: de 0 para 1 subiu 1; de 1 para 4 subiu 3; de 4 para 9 subiu 5; de 9 para 16 subiu 7. O passo da entrada é sempre 1, mas o avanço da saída cresce a cada vez.",
+      "Esse é o comportamento novo: o ritmo não é constante, ele próprio aumenta. Uma função assim não pode ter gráfico reto — reta exige avanço sempre igual. Os pontos vão se afastando cada vez mais depressa, e a linha que os liga entorta.",
+      "Há uma regularidade escondida aí, e ela é bonita: os avanços foram 1, 3, 5 e 7, e a diferença ENTRE eles é sempre 2. O ritmo muda, mas muda de um jeito constante. É a assinatura da função quadrática, e serve para reconhecê-la numa tabela sem olhar a lei.",
+      "A forma geral é f(x) = ax² + bx + c, com a diferente de zero — a mesma exigência da equação do 2º grau, e pelo mesmo motivo: com a igual a zero o termo quadrático some e sobra uma função afim. Os três números continuam se chamando coeficientes, e os sinais continuam fazendo parte deles.",
+      "Repare que a equação do 2º grau e a função quadrática são o mesmo objeto olhado de dois jeitos. A equação pergunta \"para que x isso dá zero?\"; a função pergunta \"o que sai para cada x?\". A primeira é um caso da segunda, e é por isso que a matéria anterior vem antes desta."
+    ],
+    "destaque": "Na quadrática o avanço da saída não é constante: ele cresce. É isso que entorta o gráfico.",
+    "imagem": "fq9-ideia-avancos"
+  },
+  "resolvido": {
+    "enunciado": "Sendo f(x) = x² − 3x + 2, quanto vale f(4)?",
+    "imagem": "fq9-res-f-de-4",
+    "passos": [
+      {
+        "titulo": "Troque o x pelo valor",
+        "explicacao": "O 4 entra em todos os lugares onde havia x, inclusive no termo quadrático.",
+        "conta": "f(4) = 4² − 3 × 4 + 2"
+      },
+      {
+        "titulo": "Resolva a potência primeiro",
+        "explicacao": "Potência vem antes de multiplicação e de soma, como sempre.",
+        "conta": "16 − 3 × 4 + 2"
+      },
+      {
+        "titulo": "Multiplique e some",
+        "explicacao": "Agora sobram só as operações que se resolvem da esquerda para a direita.",
+        "conta": "16 − 12 + 2 = 6"
+      }
+    ],
+    "fecho": "Então f(4) = 6. Note que f(3) dá 2 e f(5) dá 12 — o avanço passou de 4 para 6."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Sendo f(x) = x² − 3x + 2, quanto vale f(5)? Digite apenas o número.",
+      "imagem": "fq9-q-f-de-5",
+      "dica": "Resolva a potência antes da multiplicação e da soma.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "100",
+          "porque": "100 sai de elevar ao quadrado o resultado de 5 − 3 × 5 + 2, ou de dobrar o 5 antes. A potência atinge só o x, e vem antes de qualquer outra conta."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 5 × 2, como se x² fosse o dobro de x. Elevar ao quadrado é multiplicar o número por ele mesmo: 5² dá 25, e não 10."
+        },
+        {
+          "resposta": "42",
+          "porque": "42 sai de somar 25 + 15 + 2, trocando o sinal do termo do meio. Ele é −3x, então 15 é SUBTRAÍDO."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua e resolva a potência",
+          "explicacao": "O 5 entra em todos os lugares do x, e o quadrado se resolve primeiro.",
+          "conta": "25 − 3 × 5 + 2"
+        },
+        {
+          "titulo": "Termine as contas",
+          "explicacao": "Multiplicação antes da soma, e o sinal de menos vai junto com o 15.",
+          "conta": "25 − 15 + 2 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que f(x) = 2x + 5 NÃO é uma função quadrática?",
+      "imagem": "fq9-q-nao-e-quadratica",
+      "dica": "Compare a lei dela com a forma geral ax² + bx + c.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque não existe termo com x elevado ao quadrado" },
+        { "rotulo": "B", "texto": "Porque o coeficiente 2 é par" },
+        { "rotulo": "C", "texto": "Porque ela tem só dois termos" },
+        { "rotulo": "D", "texto": "Porque o resultado é sempre positivo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o coeficiente 2 é par",
+          "porque": "A paridade não decide nada: f(x) = 2x² + 5 tem o mesmo 2 e É quadrática. O que falta na função do enunciado é o termo com x ao quadrado."
+        },
+        {
+          "resposta": "Porque ela tem só dois termos",
+          "porque": "Número de termos não decide: f(x) = x² é quadrática com um termo só. O que importa é existir o x elevado ao quadrado."
+        },
+        {
+          "resposta": "Porque o resultado é sempre positivo",
+          "porque": "Ele nem é: f(−10) dá −15. E o sinal da saída não tem relação nenhuma com o grau da função."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare com a forma geral",
+          "explicacao": "A forma geral exige um termo em x ao quadrado com coeficiente diferente de zero.",
+          "conta": "ax² + bx + c"
+        },
+        {
+          "titulo": "Veja o que falta",
+          "explicacao": "Na lei do enunciado o coeficiente do termo quadrático é zero.",
+          "conta": "a = 0 → é afim"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na função f(x) = x², os avanços da saída de um passo para o outro foram 1, 3 e 5. Qual é o avanço seguinte, de f(3) para f(4)? Digite apenas o número.",
+      "imagem": "fq9-q-proximo-avanco",
+      "dica": "Olhe a diferença ENTRE os avanços: ela também tem um padrão.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é o avanço ANTERIOR, de f(2) para f(3). Os avanços crescem de 2 em 2, então o próximo é 7 — e de fato 16 − 9 dá 7."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o valor de f(3), e não o avanço a partir dele. O avanço é a diferença entre duas saídas seguidas: 16 − 9."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é a diferença ENTRE os avanços, que é o que se mantém constante. O avanço em si continua crescendo: 1, 3, 5 e depois 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o padrão dos avanços",
+          "explicacao": "De um avanço para o seguinte, a diferença é sempre a mesma.",
+          "conta": "3 − 1 = 2 · 5 − 3 = 2"
+        },
+        {
+          "titulo": "Continue a sequência",
+          "explicacao": "Somando 2 ao último avanço, e conferindo pelas saídas.",
+          "conta": "5 + 2 = 7 · 16 − 9 = 7"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O que distingue uma função quadrática de uma função afim, olhando só a tabela de valores?",
+      "imagem": "fq9-q-o-que-distingue",
+      "dica": "Compare, nas duas tabelas, o quanto a saída avança a cada passo da entrada.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Na quadrática o avanço da saída muda de um passo para o outro" },
+        { "rotulo": "B", "texto": "Na quadrática as saídas são sempre maiores" },
+        { "rotulo": "C", "texto": "Na quadrática as saídas são sempre positivas" },
+        { "rotulo": "D", "texto": "Na quadrática a tabela tem mais linhas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Na quadrática as saídas são sempre maiores",
+          "porque": "Depende dos valores: para x entre 0 e 1, x² é MENOR que x. E f(x) = x² − 100 é quadrática com saídas pequenas. O que distingue é o ritmo, e não o tamanho."
+        },
+        {
+          "resposta": "Na quadrática as saídas são sempre positivas",
+          "porque": "Em f(x) = x² − 4, a saída é −4 quando x é zero. O termo quadrático nunca é negativo, mas os outros dois podem puxar a soma para baixo."
+        },
+        {
+          "resposta": "Na quadrática a tabela tem mais linhas",
+          "porque": "O número de linhas é escolha de quem monta a tabela, e não propriedade da função. As duas podem ter quantas linhas se quiser."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte as duas tabelas",
+          "explicacao": "Com passos de 1 na entrada, nas duas.",
+          "conta": "2x: 0 · 2 · 4 · 6 — x²: 0 · 1 · 4 · 9"
+        },
+        {
+          "titulo": "Compare os avanços",
+          "explicacao": "Na afim eles se repetem; na quadrática, crescem.",
+          "conta": "2 · 2 · 2 contra 1 · 3 · 5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "id": "vertice",
+  "numero": 4,
+  "titulo": "O ponto de virada",
+  "pergunta": "Onde a curva para de descer e começa a subir?",
+  "ideia": {
+    "paragrafos": [
+      "A parábola tem um ponto que nenhuma reta tem: o lugar onde ela muda de sentido. Chama-se VÉRTICE, e é o ponto mais baixo da curva quando ela abre para cima, ou o mais alto quando abre para baixo. É por causa dele que a função quadrática resolve problemas de máximo e de mínimo.",
+      "Achar a primeira coordenada do vértice é mais fácil do que parece, e a simetria entrega tudo. Se a parábola corta o eixo horizontal em dois pontos, esses dois cortes estão à mesma distância do eixo de simetria — então o vértice fica bem no MEIO deles. Em f(x) = x² − 5x + 6, com raízes 2 e 3, o vértice está em 2,5.",
+      "A média das raízes é (2 + 3)/2, e pela relação de soma e produto do 2º grau a soma das raízes é −b/a. Metade disso é −b/2a, e essa é a fórmula do x do vértice. Ela não precisa ser decorada: é a média das raízes, escrita com os coeficientes.",
+      "E ela continua valendo mesmo quando não existem raízes reais. Em f(x) = x² + x + 1, sem corte nenhum no eixo, o eixo de simetria continua existindo e fica em −1/2 — a curva não precisa tocar o eixo para ser simétrica. É por isso que a fórmula com os coeficientes é mais geral que a média das raízes.",
+      "Achado o x do vértice, a segunda coordenada sai substituindo: o y do vértice é simplesmente f do x do vértice. Não há fórmula nova a decorar, e esse é o caminho mais seguro — a fórmula −Δ/4a existe, mas ela é só o resultado dessa substituição feita de véspera.",
+      "Qual dos dois o vértice é, máximo ou mínimo, depende de para que lado a curva abre. Com a positivo ela desce e sobe, então o vértice é o ponto de MÍNIMO. Com a negativo ela sobe e desce, e o vértice é o ponto de MÁXIMO. É a mesma leitura de concavidade da lição 2, agora com nome de resposta."
+    ],
+    "destaque": "O vértice fica no meio das raízes, em −b/2a. A altura dele sai substituindo, e o sinal de a diz se é máximo ou mínimo.",
+    "imagem": "fq9-ideia-vertice"
+  },
+  "resolvido": {
+    "enunciado": "Quais são as coordenadas do vértice de f(x) = x² − 6x + 5?",
+    "imagem": "fq9-res-vertice",
+    "passos": [
+      {
+        "titulo": "Identifique os coeficientes",
+        "explicacao": "O sinal do b faz parte dele, e é fácil perdê-lo aqui.",
+        "conta": "a = 1 · b = −6 · c = 5"
+      },
+      {
+        "titulo": "Calcule o x do vértice",
+        "explicacao": "É o oposto do b sobre o dobro do a, que é a média das raízes.",
+        "conta": "6 / 2 = 3"
+      },
+      {
+        "titulo": "Substitua para achar a altura",
+        "explicacao": "A segunda coordenada é simplesmente a saída naquele ponto.",
+        "conta": "f(3) = 9 − 18 + 5 = −4"
+      },
+      {
+        "titulo": "Diga que ponto é esse",
+        "explicacao": "Com o a positivo, a curva abre para cima e o vértice é o mais baixo.",
+        "conta": "mínimo em (3, −4)"
+      }
+    ],
+    "fecho": "Conferindo pela simetria: as raízes são 1 e 5, e a média delas é mesmo 3."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a primeira coordenada do vértice de f(x) = x² − 8x + 7? Digite apenas o número.",
+      "imagem": "fq9-q-x-do-vertice",
+      "dica": "Use o oposto do b dividido pelo dobro do a.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "-4",
+          "porque": "O sinal ficou pela metade: a fórmula é −b sobre 2a, e o b já vale −8. O oposto de −8 é +8, e metade disso é +4."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o oposto do b, e ainda falta dividir pelo dobro do a. Com a igual a 1, o denominador é 2."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o termo independente, que não entra no cálculo do x do vértice. Ele só aparece depois, quando se calcula a altura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique a e b",
+          "explicacao": "O coeficiente do termo quadrático não está escrito, então vale 1.",
+          "conta": "a = 1 · b = −8"
+        },
+        {
+          "titulo": "Aplique a média",
+          "explicacao": "O oposto do b sobre o dobro do a, que é o meio entre as raízes.",
+          "conta": "8 / 2 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a segunda coordenada do vértice de f(x) = x² − 8x + 7, sabendo que a primeira é 4? Digite apenas o número, com o sinal.",
+      "imagem": "fq9-q-y-do-vertice",
+      "dica": "A altura do vértice é a saída da função naquele ponto: calcule f(4).",
+      "formato": "numero",
+      "resposta": -9,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "O sinal se perdeu na conta: 16 − 32 + 7 dá −9, porque o 32 é maior que a soma dos outros dois. A parábola desce abaixo do eixo."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é a primeira coordenada, dada no enunciado. A segunda é o valor que a função devolve nesse ponto, ou seja, f(4)."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é o termo independente, que é a altura em x = 0, e não em x = 4. Os dois pontos são diferentes: f(0) dá 7 e f(4) dá −9."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua o x do vértice",
+          "explicacao": "A altura do vértice é a saída da função naquela entrada.",
+          "conta": "f(4) = 16 − 32 + 7"
+        },
+        {
+          "titulo": "Faça a conta",
+          "explicacao": "O termo do meio é maior que a soma dos outros dois, então o resultado é negativo.",
+          "conta": "16 − 32 + 7 = −9"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "A função f(x) = −2x² + 8x tem um ponto de máximo ou de mínimo?",
+      "imagem": "fq9-q-maximo-ou-minimo",
+      "dica": "Olhe o sinal de a e lembre para que lado a parábola abre.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "De máximo, porque a parábola abre para baixo" },
+        { "rotulo": "B", "texto": "De mínimo, porque a parábola abre para cima" },
+        { "rotulo": "C", "texto": "De mínimo, porque o termo independente é zero" },
+        { "rotulo": "D", "texto": "Nenhum dos dois, porque não há termo independente" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "De mínimo, porque a parábola abre para cima",
+          "porque": "Ela abre para baixo: o coeficiente do termo quadrático é −2. Com a negativo, a curva sobe, vira e desce, e o vértice é o ponto mais alto."
+        },
+        {
+          "resposta": "De mínimo, porque o termo independente é zero",
+          "porque": "O c diz onde a curva cruza o eixo vertical, e aqui isso acontece na origem. Quem decide máximo ou mínimo é o sinal do a."
+        },
+        {
+          "resposta": "Nenhum dos dois, porque não há termo independente",
+          "porque": "Toda parábola tem vértice, com ou sem termo independente. Esta tem o dela em (2, 8), que é o ponto mais alto da curva."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o sinal do a",
+          "explicacao": "Ele é o que multiplica o termo quadrático.",
+          "conta": "a = −2"
+        },
+        {
+          "titulo": "Traduza na concavidade",
+          "explicacao": "A negativo abre para baixo, e o ponto de virada fica no alto.",
+          "conta": "ponto de máximo"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma parábola corta o eixo horizontal em 2 e em 8. Qual é a primeira coordenada do vértice dela? Digite apenas o número.",
+      "imagem": "fq9-q-meio-das-raizes",
+      "dica": "O eixo de simetria passa bem no meio dos dois cortes.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é a SOMA das duas raízes, e ainda falta dividir por 2 para chegar ao meio delas."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a diferença entre as raízes, que mede a distância entre os dois cortes. O vértice fica no meio do caminho, e não à distância entre eles."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é o produto das raízes. Ele tem a ver com o termo independente da função, e não com a posição do vértice."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use a simetria",
+          "explicacao": "Os dois cortes ficam à mesma distância do eixo de simetria.",
+          "conta": "o vértice está no meio"
+        },
+        {
+          "titulo": "Calcule a média",
+          "explicacao": "O meio entre dois números é a média deles.",
+          "conta": "(2 + 8) / 2 = 5"
+        }
+      ]
+    }
+  ]
+}

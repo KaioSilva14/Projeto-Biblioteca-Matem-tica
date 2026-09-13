@@ -1,0 +1,189 @@
+{
+  "id": "montar-a-proporcao",
+  "numero": 2,
+  "titulo": "Montar a proporção certa",
+  "pergunta": "Onde os erros de Tales realmente acontecem?",
+  "ideia": {
+    "paragrafos": [
+      "O teorema é curto e a conta é simples, mas os erros são muitos — e quase todos acontecem no mesmo lugar: na hora de escrever a proporção. Uma proporção montada fora de ordem produz uma conta impecável com resposta errada, e nada no meio do caminho denuncia o engano.",
+      "A regra é uma só: as duas frações têm de ser lidas no MESMO sentido. Se a primeira compara o segmento de cima com o de baixo, a segunda também tem de comparar o de cima com o de baixo. Escrever AB/BC de um lado e B'C'/A'B' do outro inverte uma das razões e destrói a igualdade.",
+      "Há dois jeitos igualmente corretos de montar, e vale conhecer os dois. O primeiro compara os pedaços DENTRO de cada transversal: AB/BC = A'B'/B'C'. O segundo compara transversal com transversal: AB/A'B' = BC/B'C'. Os dois saem do mesmo teorema, e às vezes um deles deixa a conta mais limpa que o outro.",
+      "Depois de montada, a proporção é resolvida como qualquer regra de três do 7º ano: multiplica cruzado e isola a incógnita. Nenhuma técnica nova entra aqui — o que a matéria acrescenta é saber QUAIS números entram na proporção, e em que lugar.",
+      "Uma conferência que custa cinco segundos e evita quase todo erro: olhe a figura e pergunte se o resultado é plausível. Se na primeira transversal o segundo pedaço é maior que o primeiro, ele tem de ser maior na segunda também. Um resultado que inverte essa relação está errado, e o desenho diz isso sem precisar refazer a conta.",
+      "Vale ainda uma advertência sobre os nomes: em muitas figuras os pontos vêm nomeados em ordens estranhas, e a ordem das letras não garante a ordem no desenho. O que manda é a POSIÇÃO no desenho — qual paralela vem antes de qual —, e não a ordem alfabética dos nomes."
+    ],
+    "destaque": "As duas frações no mesmo sentido. E confira se o resultado é plausível olhando o desenho, antes de fechar a conta.",
+    "imagem": "tl9-ideia-mesmo-sentido"
+  },
+  "resolvido": {
+    "enunciado": "Num feixe de três paralelas, uma transversal tem segmentos 3 e 5, e a outra tem o primeiro segmento igual a 6. Quanto mede o segundo segmento dela?",
+    "imagem": "tl9-res-tres-cinco",
+    "passos": [
+      {
+        "titulo": "Escolha um sentido de leitura",
+        "explicacao": "Aqui, o segmento de cima dividido pelo de baixo, nas duas transversais.",
+        "conta": "cima / baixo"
+      },
+      {
+        "titulo": "Monte a proporção",
+        "explicacao": "Cada fração usa os dois pedaços de uma transversal só.",
+        "conta": "3/5 = 6/x"
+      },
+      {
+        "titulo": "Multiplique cruzado",
+        "explicacao": "Numerador de um lado vezes denominador do outro, dos dois jeitos.",
+        "conta": "3x = 30"
+      },
+      {
+        "titulo": "Resolva e confira o sentido",
+        "explicacao": "O de baixo é maior que o de cima nas duas, como o desenho mostra.",
+        "conta": "x = 10"
+      }
+    ],
+    "fecho": "Pelo outro caminho: 3/6 = 5/x também dá x = 10. As duas montagens corretas concordam sempre."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num feixe de paralelas, uma transversal tem segmentos 4 e 6. Na outra, o primeiro segmento mede 10. Quanto mede o segundo? Digite apenas o número.",
+      "imagem": "tl9-q-monta-15",
+      "dica": "Escreva as duas frações no mesmo sentido: primeiro sobre segundo, nas duas.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "6,67",
+          "porque": "6,67 sai de 6/4 = 10/x, com uma das frações invertida. O resultado já denuncia: ele ficou menor que 10, e o segundo pedaço é o maior nas duas transversais."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é 10 + 2, somando a diferença entre 4 e 6 em vez de aplicar a razão. Tales conserva proporção, não diferença."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 4 × 6, multiplicando os dois pedaços da primeira transversal. Eles entram na proporção como uma fração, e não como um produto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte no mesmo sentido",
+          "explicacao": "Primeiro pedaço sobre segundo pedaço, nas duas transversais.",
+          "conta": "4/6 = 10/x"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando cruzado e dividindo pelos 4.",
+          "conta": "4x = 60 → x = 15"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num feixe de paralelas, uma transversal tem segmentos 2 e 3. Na outra, o SEGUNDO segmento mede 12. Quanto mede o primeiro? Digite apenas o número.",
+      "imagem": "tl9-q-monta-8",
+      "dica": "Aqui a incógnita está no numerador. Mantenha o sentido das duas frações.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 sai de 3/2 = x/12, com o sentido invertido. O primeiro pedaço é o MENOR nas duas transversais, então ele não pode passar de 12."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 é 12 − 1, tirando a diferença entre 3 e 2. O que se repete de uma transversal para a outra é a razão, e não a diferença."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é 2 × 3, o produto dos dois pedaços da primeira transversal. Eles entram na proporção divididos um pelo outro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte no mesmo sentido",
+          "explicacao": "Primeiro sobre segundo, nas duas, com a incógnita no lugar certo.",
+          "conta": "2/3 = x/12"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando cruzado e dividindo por 3.",
+          "conta": "3x = 24 → x = 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Com os pontos A, B, C numa transversal e A', B', C' na outra, qual proporção NÃO vale?",
+      "imagem": "tl9-q-qual-nao-vale",
+      "dica": "Procure a que lê uma das frações ao contrário da outra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "AB/BC = B'C'/A'B'" },
+        { "rotulo": "B", "texto": "AB/BC = A'B'/B'C'" },
+        { "rotulo": "C", "texto": "AB/A'B' = BC/B'C'" },
+        { "rotulo": "D", "texto": "BC/AB = B'C'/A'B'" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "AB/BC = A'B'/B'C'",
+          "porque": "Essa é a montagem padrão do teorema, e vale. Com AB = 3, BC = 6, A'B' = 5 e B'C' = 10 ela dá 0,5 dos dois lados."
+        },
+        {
+          "resposta": "AB/A'B' = BC/B'C'",
+          "porque": "Essa é a outra montagem correta: compara transversal com transversal. Com os mesmos números ela dá 0,6 dos dois lados."
+        },
+        {
+          "resposta": "BC/AB = B'C'/A'B'",
+          "porque": "Essa é a primeira montagem virada de cabeça para baixo nos DOIS lados, e inverter os dois lados de uma igualdade preserva a igualdade. Com os mesmos números ela dá 2 dos dois lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste com números",
+          "explicacao": "Tomando AB = 3, BC = 6, A'B' = 5 e B'C' = 10, que é um feixe legítimo.",
+          "conta": "3/6 = 0,5 · 10/5 = 2"
+        },
+        {
+          "titulo": "Veja o que aconteceu",
+          "explicacao": "Só uma das frações foi invertida, e isso quebra a igualdade.",
+          "conta": "sentidos opostos"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num feixe de paralelas, uma transversal tem o primeiro segmento igual a 5 e o segundo desconhecido. Na outra, os segmentos medem 10 e 14. Quanto mede o segmento desconhecido? Digite apenas o número.",
+      "imagem": "tl9-q-monta-7",
+      "dica": "A razão da segunda transversal é 10 para 14. Repita-a na primeira.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é 14 − 5, misturando medidas de transversais diferentes numa subtração. O teorema liga as duas por uma razão, e não por diferença."
+        },
+        {
+          "resposta": "28",
+          "porque": "28 sai de 10/14 = x/5 invertido, ou de dobrar o 14. O primeiro pedaço é menor que o segundo nas duas transversais, e esta é a transversal menor: a resposta fica bem abaixo de 14."
+        },
+        {
+          "resposta": "2,5",
+          "porque": "2,5 sai de dividir 5 por 2, tratando a razão entre as transversais como se fosse a razão dentro delas. A razão 10 para 14 é que precisa se repetir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte no mesmo sentido",
+          "explicacao": "Primeiro sobre segundo, nas duas transversais.",
+          "conta": "5/x = 10/14"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando cruzado e dividindo por 10.",
+          "conta": "10x = 70 → x = 7"
+        }
+      ]
+    }
+  ]
+}

@@ -8638,5 +8638,2633 @@
     "alt": "Tabela com o que quem financia uma pesquisa consegue influenciar e o que não consegue.",
     "largura": 389,
     "altura": 148
+  },
+  "ir9-ideia-cadeia": {
+    "arquivo": "/assets/licoes/ir9-ideia-cadeia.png",
+    "alt": "Cadeia da demonstração de que √2 não é fração, com a seta de retorno negando a suposição inicial.",
+    "largura": 418,
+    "altura": 446
+  },
+  "ir9-res-par-impar": {
+    "arquivo": "/assets/licoes/ir9-res-par-impar.png",
+    "alt": "Cadeia mostrando que o quadrado de um número ímpar é sempre ímpar.",
+    "largura": 388,
+    "altura": 306
+  },
+  "ir9-q-o-que-e-absurdo": {
+    "arquivo": "/assets/questoes/ir9-q-o-que-e-absurdo.png",
+    "alt": "Esquema genérico de uma demonstração por absurdo, sem mencionar a raiz de 2.",
+    "largura": 432,
+    "altura": 236
+  },
+  "ir9-q-por-que-simplificada": {
+    "arquivo": "/assets/questoes/ir9-q-por-que-simplificada.png",
+    "alt": "A cadeia da demonstração com o primeiro e o último elo destacados.",
+    "largura": 394,
+    "altura": 446
+  },
+  "ir9-q-impar-ao-quadrado": {
+    "arquivo": "/assets/questoes/ir9-q-impar-ao-quadrado.png",
+    "alt": "Tabela com números ímpares e os quadrados deles.",
+    "largura": 284,
+    "altura": 216
+  },
+  "ir9-q-vale-para-4": {
+    "arquivo": "/assets/questoes/ir9-q-vale-para-4.png",
+    "alt": "Arranjos retangulares quadrados representando 4, 9 e 16 como quadrados perfeitos.",
+    "largura": 264,
+    "altura": 129
+  },
+  "ir9-ideia-diagonal": {
+    "arquivo": "/assets/licoes/ir9-ideia-diagonal.png",
+    "alt": "Quadrado de lado 1 com a diagonal traçada e marcada como raiz de 2.",
+    "largura": 226,
+    "altura": 218
+  },
+  "ir9-res-diagonal": {
+    "arquivo": "/assets/licoes/ir9-res-diagonal.png",
+    "alt": "Quadrado de lado 1 com a diagonal formando um triângulo retângulo de catetos 1 e 1.",
+    "largura": 284,
+    "altura": 218
+  },
+  "ir9-q-qual-irracional": {
+    "arquivo": "/assets/questoes/ir9-q-qual-irracional.png",
+    "alt": "Arranjos retangulares quadrados para 9, 25 e 100.",
+    "largura": 309,
+    "altura": 145
+  },
+  "ir9-q-diagonal-3": {
+    "arquivo": "/assets/questoes/ir9-q-diagonal-3.png",
+    "alt": "Quadrado de lado 3 cm com a diagonal traçada, sem a medida dela.",
+    "largura": 211,
+    "altura": 218
+  },
+  "ir9-q-por-que-o-nome": {
+    "arquivo": "/assets/questoes/ir9-q-por-que-o-nome.png",
+    "alt": "Tabela ligando a palavra razão ao seu sentido de fração.",
+    "largura": 384,
+    "altura": 148
+  },
+  "ir9-q-o-que-sao-reais": {
+    "arquivo": "/assets/questoes/ir9-q-o-que-sao-reais.png",
+    "alt": "Diagrama dos conjuntos numéricos, com os irracionais numa caixa separada dentro dos reais.",
+    "largura": 438,
+    "altura": 242
+  },
+  "ir9-ideia-aproximar": {
+    "arquivo": "/assets/licoes/ir9-ideia-aproximar.png",
+    "alt": "Reta decimal de 7 a 8 com o intervalo onde a raiz de 50 está presa.",
+    "largura": 400,
+    "altura": 116
+  },
+  "ir9-res-entre-quais": {
+    "arquivo": "/assets/licoes/ir9-res-entre-quais.png",
+    "alt": "Tabela com os quadrados perfeitos vizinhos de 50.",
+    "largura": 284,
+    "altura": 182
+  },
+  "ir9-q-entre-20": {
+    "arquivo": "/assets/questoes/ir9-q-entre-20.png",
+    "alt": "Lista dos quadrados perfeitos vizinhos de 20, sem os inteiros que os geram.",
+    "largura": 212,
+    "altura": 216
+  },
+  "ir9-q-preserva-ordem": {
+    "arquivo": "/assets/questoes/ir9-q-preserva-ordem.png",
+    "alt": "Tabela comparando pares de números e as raízes deles.",
+    "largura": 304,
+    "altura": 182
+  },
+  "ir9-q-duas-casas": {
+    "arquivo": "/assets/questoes/ir9-q-duas-casas.png",
+    "alt": "Tabela com os quadrados de 1,40, 1,41 e 1,42.",
+    "largura": 300,
+    "altura": 182
+  },
+  "ir9-q-igual-ou-aprox": {
+    "arquivo": "/assets/questoes/ir9-q-igual-ou-aprox.png",
+    "alt": "Tabela com dois sinais de comparação e o que cada um afirma.",
+    "largura": 339,
+    "altura": 148
+  },
+  "ir9-ideia-comparar": {
+    "arquivo": "/assets/licoes/ir9-ideia-comparar.png",
+    "alt": "Reta decimal de 1 a 2 com marcas de décimo em décimo.",
+    "largura": 400,
+    "altura": 116
+  },
+  "ir9-res-ordenar": {
+    "arquivo": "/assets/licoes/ir9-res-ordenar.png",
+    "alt": "Tabela com três números escritos de formas diferentes e o valor decimal de cada um.",
+    "largura": 320,
+    "altura": 182
+  },
+  "ir9-q-duas-raizes": {
+    "arquivo": "/assets/questoes/ir9-q-duas-raizes.png",
+    "alt": "Tabela com pares de radicandos e as raízes correspondentes.",
+    "largura": 304,
+    "altura": 182
+  },
+  "ir9-q-raiz-e-inteiro": {
+    "arquivo": "/assets/questoes/ir9-q-raiz-e-inteiro.png",
+    "alt": "Tabela com um número e o quadrado dele, para comparar raiz com inteiro.",
+    "largura": 300,
+    "altura": 148
+  },
+  "ir9-q-quantas-casas": {
+    "arquivo": "/assets/questoes/ir9-q-quantas-casas.png",
+    "alt": "Tabela mostrando os dois números truncados em duas e em três casas decimais.",
+    "largura": 312,
+    "altura": 148
+  },
+  "ir9-q-na-reta": {
+    "arquivo": "/assets/questoes/ir9-q-na-reta.png",
+    "alt": "Reta numérica dos inteiros de menos cinco a cinco.",
+    "largura": 380,
+    "altura": 114
+  },
+  "ir9-ideia-fechamento": {
+    "arquivo": "/assets/licoes/ir9-ideia-fechamento.png",
+    "alt": "Tabela com operações entre irracionais e o tipo de cada resultado.",
+    "largura": 316,
+    "altura": 182
+  },
+  "ir9-res-raiz2-raiz8": {
+    "arquivo": "/assets/licoes/ir9-res-raiz2-raiz8.png",
+    "alt": "Cadeia dos passos que levam de raiz de 2 vezes raiz de 8 até o número 4.",
+    "largura": 399,
+    "altura": 306
+  },
+  "ir9-q-raiz3-raiz12": {
+    "arquivo": "/assets/questoes/ir9-q-raiz3-raiz12.png",
+    "alt": "Tabela com o produto de duas raízes deixado em aberto.",
+    "largura": 335,
+    "altura": 148
+  },
+  "ir9-q-racional-mais-irracional": {
+    "arquivo": "/assets/questoes/ir9-q-racional-mais-irracional.png",
+    "alt": "Cadeia supondo que 2 mais raiz de 2 seja racional, com a seta de retorno.",
+    "largura": 420,
+    "altura": 236
+  },
+  "ir9-q-soma-some": {
+    "arquivo": "/assets/questoes/ir9-q-soma-some.png",
+    "alt": "Tokens separando a parte racional e a parte com raiz das duas parcelas.",
+    "largura": 244,
+    "altura": 134
+  },
+  "ir9-q-fechado": {
+    "arquivo": "/assets/questoes/ir9-q-fechado.png",
+    "alt": "Tabela comparando conjuntos fechados e não fechados para a multiplicação.",
+    "largura": 320,
+    "altura": 182
+  },
+  "ir9-ideia-roteiro": {
+    "arquivo": "/assets/licoes/ir9-ideia-roteiro.png",
+    "alt": "Tabela com as três decisões de um problema com irracional.",
+    "largura": 324,
+    "altura": 182
+  },
+  "ir9-res-diagonal-5": {
+    "arquivo": "/assets/licoes/ir9-res-diagonal-5.png",
+    "alt": "Quadrado de lado 5 m com a diagonal traçada e marcada com o símbolo da raiz.",
+    "largura": 234,
+    "altura": 218
+  },
+  "ir9-q-diagonal-10": {
+    "arquivo": "/assets/questoes/ir9-q-diagonal-10.png",
+    "alt": "Quadrado de lado 10 m com a diagonal traçada, sem a medida dela.",
+    "largura": 211,
+    "altura": 218
+  },
+  "ir9-q-por-que-guardar": {
+    "arquivo": "/assets/questoes/ir9-q-por-que-guardar.png",
+    "alt": "Tabela comparando arredondar no começo e arredondar no fim de uma conta.",
+    "largura": 340,
+    "altura": 148
+  },
+  "ir9-q-tabua": {
+    "arquivo": "/assets/questoes/ir9-q-tabua.png",
+    "alt": "Barra de etapas representando a tábua repartida em metros inteiros, com uma sobra no fim.",
+    "largura": 400,
+    "altura": 174
+  },
+  "ir9-q-falsa-precisao": {
+    "arquivo": "/assets/questoes/ir9-q-falsa-precisao.png",
+    "alt": "Tabela comparando as casas decimais da medida original com as do resultado.",
+    "largura": 345,
+    "altura": 148
+  },
+  "rd9-ideia-indice": {
+    "arquivo": "/assets/licoes/rd9-ideia-indice.png",
+    "alt": "Tabela ligando cada índice de raiz à potência que ela desfaz.",
+    "largura": 331,
+    "altura": 182
+  },
+  "rd9-res-raiz-quarta": {
+    "arquivo": "/assets/licoes/rd9-res-raiz-quarta.png",
+    "alt": "Tabela com as quartas potências de 2, 3 e 4.",
+    "largura": 288,
+    "altura": 182
+  },
+  "rd9-q-raiz-cubica-27": {
+    "arquivo": "/assets/questoes/rd9-q-raiz-cubica-27.png",
+    "alt": "Tabela com alguns cubos de inteiros, sem o de 3.",
+    "largura": 288,
+    "altura": 182
+  },
+  "rd9-q-por-que-nao-existe": {
+    "arquivo": "/assets/questoes/rd9-q-por-que-nao-existe.png",
+    "alt": "Tabela com os quadrados de números positivos e negativos.",
+    "largura": 288,
+    "altura": 216
+  },
+  "rd9-q-cubica-negativa": {
+    "arquivo": "/assets/questoes/rd9-q-cubica-negativa.png",
+    "alt": "Tabela com os cubos de números negativos, mostrando que o sinal se conserva.",
+    "largura": 288,
+    "altura": 182
+  },
+  "rd9-q-o-que-e-indice": {
+    "arquivo": "/assets/questoes/rd9-q-o-que-e-indice.png",
+    "alt": "Tabela nomeando as partes de um radical: índice, radicando e raiz.",
+    "largura": 336,
+    "altura": 148
+  },
+  "rd9-ideia-fracionario": {
+    "arquivo": "/assets/licoes/rd9-ideia-fracionario.png",
+    "alt": "Cadeia mostrando que 4 elevado a um meio tem de ser a raiz de 4.",
+    "largura": 400,
+    "altura": 306
+  },
+  "rd9-res-oito-dois-tercos": {
+    "arquivo": "/assets/licoes/rd9-res-oito-dois-tercos.png",
+    "alt": "Tabela separando o papel do numerador e do denominador num expoente fracionário.",
+    "largura": 340,
+    "altura": 148
+  },
+  "rd9-q-nove-meio": {
+    "arquivo": "/assets/questoes/rd9-q-nove-meio.png",
+    "alt": "Tabela com potências de expoente um meio e o que cada uma significa.",
+    "largura": 328,
+    "altura": 182
+  },
+  "rd9-q-por-que-forcado": {
+    "arquivo": "/assets/questoes/rd9-q-por-que-forcado.png",
+    "alt": "Cadeia elevando 4 a um meio ao quadrado, deixando a conclusão em aberto.",
+    "largura": 423,
+    "altura": 236
+  },
+  "rd9-q-dezesseis": {
+    "arquivo": "/assets/questoes/rd9-q-dezesseis.png",
+    "alt": "Tabela com as potências de 2, sem a terceira.",
+    "largura": 308,
+    "altura": 182
+  },
+  "rd9-q-qual-ordem": {
+    "arquivo": "/assets/questoes/rd9-q-qual-ordem.png",
+    "alt": "Tabela comparando os números que aparecem em cada ordem de cálculo.",
+    "largura": 336,
+    "altura": 148
+  },
+  "rd9-ideia-propriedades": {
+    "arquivo": "/assets/licoes/rd9-ideia-propriedades.png",
+    "alt": "Tabela com as operações sobre as quais a raiz distribui e a que não distribui.",
+    "largura": 340,
+    "altura": 182
+  },
+  "rd9-res-soma-nao-vale": {
+    "arquivo": "/assets/licoes/rd9-res-soma-nao-vale.png",
+    "alt": "Tabela comparando a raiz da soma com a soma das raízes.",
+    "largura": 320,
+    "altura": 148
+  },
+  "rd9-q-produto-raizes": {
+    "arquivo": "/assets/questoes/rd9-q-produto-raizes.png",
+    "alt": "Tabela com as raízes de 4 e de 25 calculadas separadamente.",
+    "largura": 288,
+    "altura": 148
+  },
+  "rd9-q-soma-dentro": {
+    "arquivo": "/assets/questoes/rd9-q-soma-dentro.png",
+    "alt": "Tabela com os dois caminhos deixados em aberto para comparação.",
+    "largura": 320,
+    "altura": 148
+  },
+  "rd9-q-quociente": {
+    "arquivo": "/assets/questoes/rd9-q-quociente.png",
+    "alt": "Tabela com as raízes de 100 e de 4.",
+    "largura": 317,
+    "altura": 148
+  },
+  "rd9-q-quais-distribuem": {
+    "arquivo": "/assets/questoes/rd9-q-quais-distribuem.png",
+    "alt": "Tabela testando a distribuição da raiz sobre produto e sobre soma.",
+    "largura": 324,
+    "altura": 148
+  },
+  "rd9-ideia-simplificar": {
+    "arquivo": "/assets/licoes/rd9-ideia-simplificar.png",
+    "alt": "Fatoração de 72 em primos por divisões sucessivas.",
+    "largura": 278,
+    "altura": 204
+  },
+  "rd9-res-fatorar-72": {
+    "arquivo": "/assets/licoes/rd9-res-fatorar-72.png",
+    "alt": "Os fatores primos de 72 agrupados, mostrando os pares e o fator sozinho.",
+    "largura": 197,
+    "altura": 140
+  },
+  "rd9-q-simplificar-50": {
+    "arquivo": "/assets/questoes/rd9-q-simplificar-50.png",
+    "alt": "Fatoração de 50 em primos por divisões sucessivas.",
+    "largura": 227,
+    "altura": 152
+  },
+  "rd9-q-simplificar-45": {
+    "arquivo": "/assets/questoes/rd9-q-simplificar-45.png",
+    "alt": "Fatoração de 45 em primos por divisões sucessivas.",
+    "largura": 302,
+    "altura": 152
+  },
+  "rd9-q-simplificar-200": {
+    "arquivo": "/assets/questoes/rd9-q-simplificar-200.png",
+    "alt": "Fatoração de 200 em primos por divisões sucessivas.",
+    "largura": 221,
+    "altura": 204
+  },
+  "rd9-q-quando-parou": {
+    "arquivo": "/assets/questoes/rd9-q-quando-parou.png",
+    "alt": "Tabela com radicais simplificados e não simplificados.",
+    "largura": 336,
+    "altura": 182
+  },
+  "rd9-ideia-semelhantes": {
+    "arquivo": "/assets/licoes/rd9-ideia-semelhantes.png",
+    "alt": "Tokens com duas fileiras de caixinhas iguais, mostrando parcelas semelhantes.",
+    "largura": 308,
+    "altura": 134
+  },
+  "rd9-res-oito-mais-dezoito": {
+    "arquivo": "/assets/licoes/rd9-res-oito-mais-dezoito.png",
+    "alt": "Tabela com a simplificação de raiz de 8 e de raiz de 18, revelando o mesmo radical.",
+    "largura": 304,
+    "altura": 148
+  },
+  "rd9-q-somar-semelhantes": {
+    "arquivo": "/assets/questoes/rd9-q-somar-semelhantes.png",
+    "alt": "Duas fileiras de caixinhas iguais, sem o total escrito.",
+    "largura": 296,
+    "altura": 134
+  },
+  "rd9-q-nao-junta": {
+    "arquivo": "/assets/questoes/rd9-q-nao-junta.png",
+    "alt": "Tokens com caixinhas de formas diferentes, representando radicais não semelhantes.",
+    "largura": 204,
+    "altura": 134
+  },
+  "rd9-q-simplificar-antes": {
+    "arquivo": "/assets/questoes/rd9-q-simplificar-antes.png",
+    "alt": "Tabela com raiz de 12 e raiz de 27 ainda sem simplificar.",
+    "largura": 304,
+    "altura": 148
+  },
+  "rd9-q-primeiro-passo": {
+    "arquivo": "/assets/questoes/rd9-q-primeiro-passo.png",
+    "alt": "Tabela com dois pares de radicais, um deles semelhante só depois de simplificar.",
+    "largura": 324,
+    "altura": 148
+  },
+  "rd9-ideia-racionalizar": {
+    "arquivo": "/assets/licoes/rd9-ideia-racionalizar.png",
+    "alt": "Fração com raiz no denominador sendo multiplicada em cima e embaixo pela mesma raiz.",
+    "largura": 287,
+    "altura": 128
+  },
+  "rd9-res-seis-sobre-raiz3": {
+    "arquivo": "/assets/licoes/rd9-res-seis-sobre-raiz3.png",
+    "alt": "Cadeia dos passos que levam de seis sobre raiz de três até dois raiz de três.",
+    "largura": 371,
+    "altura": 306
+  },
+  "rd9-q-racionalizar-um": {
+    "arquivo": "/assets/questoes/rd9-q-racionalizar-um.png",
+    "alt": "Fração um sobre raiz de dois, com a multiplicação indicada mas não resolvida.",
+    "largura": 276,
+    "altura": 128
+  },
+  "rd9-q-racionalizar-dez": {
+    "arquivo": "/assets/questoes/rd9-q-racionalizar-dez.png",
+    "alt": "Fração dez sobre raiz de dois, sem a resolução.",
+    "largura": 288,
+    "altura": 128
+  },
+  "rd9-q-por-que-existe": {
+    "arquivo": "/assets/questoes/rd9-q-por-que-existe.png",
+    "alt": "Tabela comparando dividir por um irracional e dividir por um inteiro.",
+    "largura": 332,
+    "altura": 148
+  },
+  "rd9-q-precisa-mesmo": {
+    "arquivo": "/assets/questoes/rd9-q-precisa-mesmo.png",
+    "alt": "Fração raiz de dois sobre três, com a raiz no numerador.",
+    "largura": 225,
+    "altura": 128
+  },
+  "eq9-ideia-coeficientes": {
+    "arquivo": "/assets/licoes/eq9-ideia-coeficientes.png",
+    "alt": "Tabela nomeando os três coeficientes de uma equação do 2º grau.",
+    "largura": 324,
+    "altura": 182
+  },
+  "eq9-res-arrumar": {
+    "arquivo": "/assets/licoes/eq9-res-arrumar.png",
+    "alt": "Tabela comparando a equação como veio e depois de arrumada na forma geral.",
+    "largura": 328,
+    "altura": 114
+  },
+  "eq9-q-qual-b": {
+    "arquivo": "/assets/questoes/eq9-q-qual-b.png",
+    "alt": "Tabela com os três termos de x² menos 5x mais 6 e o coeficiente de cada um.",
+    "largura": 304,
+    "altura": 182
+  },
+  "eq9-q-por-que-trava": {
+    "arquivo": "/assets/questoes/eq9-q-por-que-trava.png",
+    "alt": "Cadeia tentando isolar o x e parando num impasse.",
+    "largura": 409,
+    "altura": 236
+  },
+  "eq9-q-arrumar-antes": {
+    "arquivo": "/assets/questoes/eq9-q-arrumar-antes.png",
+    "alt": "Tabela com a equação 3x² igual a 12x e a forma geral dela ainda em aberto.",
+    "largura": 328,
+    "altura": 114
+  },
+  "eq9-q-por-que-a-nao-zero": {
+    "arquivo": "/assets/questoes/eq9-q-por-que-a-nao-zero.png",
+    "alt": "Tabela mostrando o que sobra da forma geral quando o coeficiente a vale zero.",
+    "largura": 336,
+    "altura": 148
+  },
+  "eq9-ideia-incompletas": {
+    "arquivo": "/assets/licoes/eq9-ideia-incompletas.png",
+    "alt": "Tabela com os dois tipos de equação incompleta e o caminho de cada um.",
+    "largura": 376,
+    "altura": 148
+  },
+  "eq9-res-fator-comum": {
+    "arquivo": "/assets/licoes/eq9-res-fator-comum.png",
+    "alt": "Retângulo repartido em duas faixas de altura x, com as áreas 3x ao quadrado e menos 12x.",
+    "largura": 294,
+    "altura": 146
+  },
+  "eq9-q-b-zero": {
+    "arquivo": "/assets/questoes/eq9-q-b-zero.png",
+    "alt": "Tabela com os quadrados de 3 e de menos 3, os dois dando 9.",
+    "largura": 288,
+    "altura": 148
+  },
+  "eq9-q-quantas-raizes": {
+    "arquivo": "/assets/questoes/eq9-q-quantas-raizes.png",
+    "alt": "Tabela com pares de números opostos e o quadrado de cada um.",
+    "largura": 288,
+    "altura": 216
+  },
+  "eq9-q-raiz-zero": {
+    "arquivo": "/assets/questoes/eq9-q-raiz-zero.png",
+    "alt": "Retângulo repartido em duas faixas de altura x, com as áreas 2x ao quadrado e menos 10x.",
+    "largura": 294,
+    "altura": 146
+  },
+  "eq9-q-produto-nulo": {
+    "arquivo": "/assets/questoes/eq9-q-produto-nulo.png",
+    "alt": "Tabela com produtos de dois fatores e o resultado de cada um.",
+    "largura": 304,
+    "altura": 182
+  },
+  "eq9-ideia-completar": {
+    "arquivo": "/assets/licoes/eq9-ideia-completar.png",
+    "alt": "Quadrado de lado x mais 3 partido em quatro pedaços, com o canto de 3 por 3 no fim.",
+    "largura": 242,
+    "altura": 274
+  },
+  "eq9-res-completar": {
+    "arquivo": "/assets/licoes/eq9-res-completar.png",
+    "alt": "Cadeia dos cinco passos de completar o quadrado em x² mais 6x igual a 7.",
+    "largura": 376,
+    "altura": 376
+  },
+  "eq9-q-quanto-falta": {
+    "arquivo": "/assets/questoes/eq9-q-quanto-falta.png",
+    "alt": "Quadrado partido em quatro regiões sem rótulo, com o segundo lado em aberto.",
+    "largura": 281,
+    "altura": 274
+  },
+  "eq9-q-dois-lados": {
+    "arquivo": "/assets/questoes/eq9-q-dois-lados.png",
+    "alt": "Balança em equilíbrio, com os dois pratos carregados igualmente.",
+    "largura": 268,
+    "altura": 150
+  },
+  "eq9-q-duas-raizes-completar": {
+    "arquivo": "/assets/questoes/eq9-q-duas-raizes-completar.png",
+    "alt": "Tabela com o quadrado já montado e a raiz por tirar.",
+    "largura": 324,
+    "altura": 148
+  },
+  "eq9-q-o-canto-vazio": {
+    "arquivo": "/assets/questoes/eq9-q-o-canto-vazio.png",
+    "alt": "Quadrado de lado x mais 3 partido em quatro regiões sem rótulo.",
+    "largura": 258,
+    "altura": 274
+  },
+  "eq9-ideia-deducao": {
+    "arquivo": "/assets/licoes/eq9-ideia-deducao.png",
+    "alt": "Cadeia da dedução de Bhaskara, da forma geral até a fórmula.",
+    "largura": 389,
+    "altura": 376
+  },
+  "eq9-res-bhaskara": {
+    "arquivo": "/assets/licoes/eq9-res-bhaskara.png",
+    "alt": "Tabela com os coeficientes e o discriminante de x² menos 5x mais 6.",
+    "largura": 288,
+    "altura": 216
+  },
+  "eq9-q-calcular-delta": {
+    "arquivo": "/assets/questoes/eq9-q-calcular-delta.png",
+    "alt": "Tabela com os coeficientes de x² mais 2x menos 8 e o discriminante em aberto.",
+    "largura": 304,
+    "altura": 216
+  },
+  "eq9-q-raiz-positiva": {
+    "arquivo": "/assets/questoes/eq9-q-raiz-positiva.png",
+    "alt": "Tabela com a fórmula já montada com os valores e os dois sinais por resolver.",
+    "largura": 336,
+    "altura": 114
+  },
+  "eq9-q-de-onde-o-mais-menos": {
+    "arquivo": "/assets/questoes/eq9-q-de-onde-o-mais-menos.png",
+    "alt": "Cadeia da dedução cortada no passo em que a raiz é tirada dos dois lados.",
+    "largura": 357,
+    "altura": 166
+  },
+  "eq9-q-com-a-diferente": {
+    "arquivo": "/assets/questoes/eq9-q-com-a-diferente.png",
+    "alt": "Tabela com os coeficientes de 2x² menos 7x mais 3 e o denominador em aberto.",
+    "largura": 288,
+    "altura": 216
+  },
+  "eq9-ideia-tres-casos": {
+    "arquivo": "/assets/licoes/eq9-ideia-tres-casos.png",
+    "alt": "Tabela com os três sinais possíveis do discriminante e o número de raízes de cada caso.",
+    "largura": 328,
+    "altura": 182
+  },
+  "eq9-res-delta-zero": {
+    "arquivo": "/assets/licoes/eq9-res-delta-zero.png",
+    "alt": "Tabela com as duas parcelas do discriminante de x² menos 4x mais 4 e a diferença.",
+    "largura": 288,
+    "altura": 182
+  },
+  "eq9-q-delta-negativo": {
+    "arquivo": "/assets/questoes/eq9-q-delta-negativo.png",
+    "alt": "Tabela com os coeficientes de x² mais x mais 1 e o discriminante em aberto.",
+    "largura": 288,
+    "altura": 216
+  },
+  "eq9-q-quadrado-perfeito": {
+    "arquivo": "/assets/questoes/eq9-q-quadrado-perfeito.png",
+    "alt": "Tabela com as duas parcelas do discriminante de x² menos 6x mais 9.",
+    "largura": 288,
+    "altura": 148
+  },
+  "eq9-q-por-que-decide": {
+    "arquivo": "/assets/questoes/eq9-q-por-que-decide.png",
+    "alt": "A fórmula de Bhaskara com o passo da raiz do discriminante destacado.",
+    "largura": 395,
+    "altura": 166
+  },
+  "eq9-q-trinomio-perfeito": {
+    "arquivo": "/assets/questoes/eq9-q-trinomio-perfeito.png",
+    "alt": "Tabela com dois trinômios de discriminante zero.",
+    "largura": 304,
+    "altura": 148
+  },
+  "eq9-ideia-soma-produto": {
+    "arquivo": "/assets/licoes/eq9-ideia-soma-produto.png",
+    "alt": "Tabela ligando a soma e o produto das raízes aos coeficientes.",
+    "largura": 312,
+    "altura": 148
+  },
+  "eq9-res-terreno": {
+    "arquivo": "/assets/licoes/eq9-res-terreno.png",
+    "alt": "Retângulo com a altura marcada x e a largura marcada x mais 3.",
+    "largura": 320,
+    "altura": 252
+  },
+  "eq9-q-obmep-produto": {
+    "arquivo": "/assets/questoes/eq9-q-obmep-produto.png",
+    "alt": "Tabela com três pares de naturais que somam 11 e o produto de cada um.",
+    "largura": 304,
+    "altura": 182
+  },
+  "eq9-q-soma-raizes": {
+    "arquivo": "/assets/questoes/eq9-q-soma-raizes.png",
+    "alt": "Tabela com os coeficientes de x² menos 7x mais 12.",
+    "largura": 288,
+    "altura": 182
+  },
+  "eq9-q-terreno-36": {
+    "arquivo": "/assets/questoes/eq9-q-terreno-36.png",
+    "alt": "Retângulo com a altura marcada x e a largura marcada x mais 5.",
+    "largura": 350,
+    "altura": 222
+  },
+  "eq9-q-por-que-descarta": {
+    "arquivo": "/assets/questoes/eq9-q-por-que-descarta.png",
+    "alt": "Reta numérica com as duas raízes marcadas, uma de cada lado do zero.",
+    "largura": 384,
+    "altura": 114
+  },
+  "fa9-ideia-maquina": {
+    "arquivo": "/assets/licoes/fa9-ideia-maquina.png",
+    "alt": "Máquina da regra 3n mais 2, com três entradas e as saídas de cada uma.",
+    "largura": 284,
+    "altura": 186
+  },
+  "fa9-res-f-de-4": {
+    "arquivo": "/assets/licoes/fa9-res-f-de-4.png",
+    "alt": "Máquina da regra 3n mais 2 com a entrada 4 e a saída 14.",
+    "largura": 284,
+    "altura": 130
+  },
+  "fa9-q-f-de-3": {
+    "arquivo": "/assets/questoes/fa9-q-f-de-3.png",
+    "alt": "Máquina da regra 2n mais 5 com a entrada 3 e a saída em aberto.",
+    "largura": 284,
+    "altura": 130
+  },
+  "fa9-q-duas-saidas": {
+    "arquivo": "/assets/questoes/fa9-q-duas-saidas.png",
+    "alt": "Tabela com a entrada 4 aparecendo duas vezes, com saídas diferentes.",
+    "largura": 264,
+    "altura": 148
+  },
+  "fa9-q-f-de-zero": {
+    "arquivo": "/assets/questoes/fa9-q-f-de-zero.png",
+    "alt": "Máquina da regra 4n menos 1 com a entrada zero e a saída em aberto.",
+    "largura": 284,
+    "altura": 130
+  },
+  "fa9-q-o-que-significa": {
+    "arquivo": "/assets/questoes/fa9-q-o-que-significa.png",
+    "alt": "Tabela separando o que está dentro do parêntese do que está depois da igualdade.",
+    "largura": 288,
+    "altura": 148
+  },
+  "fa9-ideia-fixo-variavel": {
+    "arquivo": "/assets/licoes/fa9-ideia-fixo-variavel.png",
+    "alt": "Tabela separando a parte fixa da parte que depende da entrada.",
+    "largura": 328,
+    "altura": 148
+  },
+  "fa9-res-pizzaria": {
+    "arquivo": "/assets/licoes/fa9-res-pizzaria.png",
+    "alt": "Retângulo repartido em duas faixas: a taxa de entrega e o preço das pizzas.",
+    "largura": 294,
+    "altura": 146
+  },
+  "fa9-q-caminho-de-volta": {
+    "arquivo": "/assets/questoes/fa9-q-caminho-de-volta.png",
+    "alt": "Máquina da regra 5n mais 10 com a saída 45 e a entrada em aberto.",
+    "largura": 284,
+    "altura": 130
+  },
+  "fa9-q-estacionamento": {
+    "arquivo": "/assets/questoes/fa9-q-estacionamento.png",
+    "alt": "Tabela com a taxa fixa e o preço por hora de um estacionamento.",
+    "largura": 304,
+    "altura": 148
+  },
+  "fa9-q-traduzir": {
+    "arquivo": "/assets/questoes/fa9-q-traduzir.png",
+    "alt": "Tabela com os dois pedaços da frase, um em cada linha, sem a lei montada.",
+    "largura": 352,
+    "altura": 148
+  },
+  "fa9-q-tabela-continua": {
+    "arquivo": "/assets/questoes/fa9-q-tabela-continua.png",
+    "alt": "Tabela com as três primeiras saídas de uma função afim.",
+    "largura": 244,
+    "altura": 182
+  },
+  "fa9-ideia-por-que-reta": {
+    "arquivo": "/assets/licoes/fa9-ideia-por-que-reta.png",
+    "alt": "Reta de y igual a 2x menos 3 no plano, com um degrau mostrando a subida por passo.",
+    "largura": 339,
+    "altura": 370
+  },
+  "fa9-res-reta-2x-3": {
+    "arquivo": "/assets/licoes/fa9-res-reta-2x-3.png",
+    "alt": "Reta de y igual a 2x menos 3 com os pontos de entrada zero e três marcados.",
+    "largura": 332,
+    "altura": 370
+  },
+  "fa9-q-por-que-reta": {
+    "arquivo": "/assets/questoes/fa9-q-por-que-reta.png",
+    "alt": "Tabela com quatro saídas seguidas de uma função afim.",
+    "largura": 284,
+    "altura": 216
+  },
+  "fa9-q-quantos-pontos": {
+    "arquivo": "/assets/questoes/fa9-q-quantos-pontos.png",
+    "alt": "Plano com um ponto marcado e três retas diferentes passando por ele.",
+    "largura": 332,
+    "altura": 370
+  },
+  "fa9-q-pertence": {
+    "arquivo": "/assets/questoes/fa9-q-pertence.png",
+    "alt": "Plano com a reta de y igual a 2x menos 1 e nenhum ponto marcado.",
+    "largura": 332,
+    "altura": 370
+  },
+  "fa9-q-ler-grafico": {
+    "arquivo": "/assets/questoes/fa9-q-ler-grafico.png",
+    "alt": "Plano com uma reta que corta o eixo vertical em 1 e sobe um por passo.",
+    "largura": 332,
+    "altura": 370
+  },
+  "fa9-ideia-a-e-b": {
+    "arquivo": "/assets/licoes/fa9-ideia-a-e-b.png",
+    "alt": "Plano com a reta de y igual a 2x mais 1, o corte no eixo vertical e um degrau.",
+    "largura": 332,
+    "altura": 370
+  },
+  "fa9-res-decrescente": {
+    "arquivo": "/assets/licoes/fa9-res-decrescente.png",
+    "alt": "Plano com a reta de y igual a menos 2x mais 5 descendo, com um degrau de descida.",
+    "largura": 284,
+    "altura": 370
+  },
+  "fa9-q-taxa": {
+    "arquivo": "/assets/questoes/fa9-q-taxa.png",
+    "alt": "Tabela com três saídas seguidas de f de x igual a 3x menos 7.",
+    "largura": 284,
+    "altura": 182
+  },
+  "fa9-q-cresce-ou-desce": {
+    "arquivo": "/assets/questoes/fa9-q-cresce-ou-desce.png",
+    "alt": "Tabela com os dois coeficientes de f de x igual a menos 4x mais 1.",
+    "largura": 304,
+    "altura": 148
+  },
+  "fa9-q-corta-y": {
+    "arquivo": "/assets/questoes/fa9-q-corta-y.png",
+    "alt": "Plano com a reta de y igual a 2x mais 6 e nenhum ponto marcado.",
+    "largura": 284,
+    "altura": 418
+  },
+  "fa9-q-paralelas": {
+    "arquivo": "/assets/questoes/fa9-q-paralelas.png",
+    "alt": "Tabela com duas leis de mesmo coeficiente a e coeficientes b diferentes.",
+    "largura": 304,
+    "altura": 148
+  },
+  "fa9-ideia-raiz": {
+    "arquivo": "/assets/licoes/fa9-ideia-raiz.png",
+    "alt": "Plano com a reta de y igual a 3x menos 12 cruzando o eixo horizontal em 4.",
+    "largura": 298,
+    "altura": 514
+  },
+  "fa9-res-raiz-3x-12": {
+    "arquivo": "/assets/licoes/fa9-res-raiz-3x-12.png",
+    "alt": "Cadeia dos três passos para achar a raiz de 3x menos 12.",
+    "largura": 386,
+    "altura": 306
+  },
+  "fa9-q-raiz-2x-10": {
+    "arquivo": "/assets/questoes/fa9-q-raiz-2x-10.png",
+    "alt": "Cadeia começando em 2x menos 10 e parando na equação por resolver.",
+    "largura": 379,
+    "altura": 166
+  },
+  "fa9-q-raiz-negativa": {
+    "arquivo": "/assets/questoes/fa9-q-raiz-negativa.png",
+    "alt": "Cadeia começando em menos x mais 3 e parando na equação por resolver.",
+    "largura": 385,
+    "altura": 166
+  },
+  "fa9-q-raiz-no-grafico": {
+    "arquivo": "/assets/questoes/fa9-q-raiz-no-grafico.png",
+    "alt": "Plano com uma reta atravessando os dois eixos, sem nenhum ponto marcado.",
+    "largura": 332,
+    "altura": 370
+  },
+  "fa9-q-sinal": {
+    "arquivo": "/assets/questoes/fa9-q-sinal.png",
+    "alt": "Tabela com duas saídas negativas de f de x igual a 4x menos 8.",
+    "largura": 284,
+    "altura": 148
+  },
+  "fa9-ideia-dois-planos": {
+    "arquivo": "/assets/licoes/fa9-ideia-dois-planos.png",
+    "alt": "Plano com duas retas de inclinações diferentes se cruzando.",
+    "largura": 315,
+    "altura": 322
+  },
+  "fa9-res-cruzamento": {
+    "arquivo": "/assets/licoes/fa9-res-cruzamento.png",
+    "alt": "Tabela com as leis dos dois planos de celular, lado a lado.",
+    "largura": 304,
+    "altura": 148
+  },
+  "fa9-q-duas-locadoras": {
+    "arquivo": "/assets/questoes/fa9-q-duas-locadoras.png",
+    "alt": "Tabela com a taxa fixa e o preço por hora de duas locadoras.",
+    "largura": 336,
+    "altura": 148
+  },
+  "fa9-q-obmep-taxi": {
+    "arquivo": "/assets/questoes/fa9-q-obmep-taxi.png",
+    "alt": "Tabela com a bandeirada, o preço de cada cem metros e o dinheiro do bolso.",
+    "largura": 304,
+    "altura": 182
+  },
+  "fa9-q-obmep-telefone": {
+    "arquivo": "/assets/questoes/fa9-q-obmep-telefone.png",
+    "alt": "Tabela com as três regras de cobrança do plano telefônico.",
+    "largura": 324,
+    "altura": 182
+  },
+  "fa9-q-obmep-velas": {
+    "arquivo": "/assets/questoes/fa9-q-obmep-velas.png",
+    "alt": "Duas barras de mesmo comprimento, com o tempo de queima de cada uma.",
+    "largura": 312,
+    "altura": 148
+  },
+  "fq9-ideia-avancos": {
+    "arquivo": "/assets/licoes/fq9-ideia-avancos.png",
+    "alt": "Tabela com as saídas de x ao quadrado e o avanço de uma linha para a outra.",
+    "largura": 312,
+    "altura": 250
+  },
+  "fq9-res-f-de-4": {
+    "arquivo": "/assets/licoes/fq9-res-f-de-4.png",
+    "alt": "Cadeia da substituição de 4 em x ao quadrado menos 3x mais 2.",
+    "largura": 382,
+    "altura": 236
+  },
+  "fq9-q-f-de-5": {
+    "arquivo": "/assets/questoes/fq9-q-f-de-5.png",
+    "alt": "Cadeia da substituição de 5, parada logo depois da potência.",
+    "largura": 375,
+    "altura": 166
+  },
+  "fq9-q-nao-e-quadratica": {
+    "arquivo": "/assets/questoes/fq9-q-nao-e-quadratica.png",
+    "alt": "Tabela comparando a forma geral com a lei do enunciado, termo a termo.",
+    "largura": 316,
+    "altura": 182
+  },
+  "fq9-q-proximo-avanco": {
+    "arquivo": "/assets/questoes/fq9-q-proximo-avanco.png",
+    "alt": "Tabela com os três primeiros avanços de x ao quadrado e o quarto em aberto.",
+    "largura": 276,
+    "altura": 216
+  },
+  "fq9-q-o-que-distingue": {
+    "arquivo": "/assets/questoes/fq9-q-o-que-distingue.png",
+    "alt": "Tabela com as saídas de uma função afim e de uma quadrática lado a lado.",
+    "largura": 300,
+    "altura": 216
+  },
+  "fq9-ideia-concavidade": {
+    "arquivo": "/assets/licoes/fq9-ideia-concavidade.png",
+    "alt": "Plano com duas parábolas, uma abrindo para cima e outra para baixo.",
+    "largura": 241,
+    "altura": 434
+  },
+  "fq9-res-abre-para-baixo": {
+    "arquivo": "/assets/licoes/fq9-res-abre-para-baixo.png",
+    "alt": "Plano com a parábola de menos x ao quadrado mais 4, com o topo e os dois cortes marcados.",
+    "largura": 236,
+    "altura": 370
+  },
+  "fq9-q-para-que-lado": {
+    "arquivo": "/assets/questoes/fq9-q-para-que-lado.png",
+    "alt": "Tabela com os três coeficientes de menos 2x ao quadrado mais 3x mais 1.",
+    "largura": 304,
+    "altura": 182
+  },
+  "fq9-q-cruza-vertical": {
+    "arquivo": "/assets/questoes/fq9-q-cruza-vertical.png",
+    "alt": "Cadeia lembrando que no eixo vertical a entrada vale zero.",
+    "largura": 391,
+    "altura": 166
+  },
+  "fq9-q-simetria": {
+    "arquivo": "/assets/questoes/fq9-q-simetria.png",
+    "alt": "Plano com a parábola de x ao quadrado e dois pontos marcados no eixo horizontal, simétricos.",
+    "largura": 303,
+    "altura": 370
+  },
+  "fq9-q-f-de-menos-3": {
+    "arquivo": "/assets/questoes/fq9-q-f-de-menos-3.png",
+    "alt": "Tabela com os quadrados de dois números opostos e de um positivo.",
+    "largura": 252,
+    "altura": 182
+  },
+  "fq9-ideia-tres-casos": {
+    "arquivo": "/assets/licoes/fq9-ideia-tres-casos.png",
+    "alt": "Plano com três parábolas: uma que corta o eixo duas vezes, uma que encosta e uma que não toca.",
+    "largura": 283,
+    "altura": 390
+  },
+  "fq9-res-dois-cortes": {
+    "arquivo": "/assets/licoes/fq9-res-dois-cortes.png",
+    "alt": "Plano com a parábola de x ao quadrado menos 5x mais 6 cortando o eixo em dois pontos.",
+    "largura": 282,
+    "altura": 368
+  },
+  "fq9-q-maior-raiz": {
+    "arquivo": "/assets/questoes/fq9-q-maior-raiz.png",
+    "alt": "Cadeia igualando x ao quadrado menos 7x mais 10 a zero.",
+    "largura": 379,
+    "altura": 166
+  },
+  "fq9-q-quantas-raizes": {
+    "arquivo": "/assets/questoes/fq9-q-quantas-raizes.png",
+    "alt": "Tabela com os três coeficientes de x ao quadrado mais x mais 1 e o discriminante em aberto.",
+    "largura": 288,
+    "altura": 216
+  },
+  "fq9-q-raizes-no-grafico": {
+    "arquivo": "/assets/questoes/fq9-q-raizes-no-grafico.png",
+    "alt": "Plano com uma parábola atravessando o eixo horizontal, sem nada marcado.",
+    "largura": 236,
+    "altura": 418
+  },
+  "fq9-q-tangencia": {
+    "arquivo": "/assets/questoes/fq9-q-tangencia.png",
+    "alt": "Tabela com as duas parcelas do discriminante de x ao quadrado menos 4x mais 4.",
+    "largura": 288,
+    "altura": 148
+  },
+  "fq9-ideia-vertice": {
+    "arquivo": "/assets/licoes/fq9-ideia-vertice.png",
+    "alt": "Plano com a parábola de x ao quadrado menos 6x mais 5, o vértice e as duas raízes marcados.",
+    "largura": 242,
+    "altura": 394
+  },
+  "fq9-res-vertice": {
+    "arquivo": "/assets/licoes/fq9-res-vertice.png",
+    "alt": "Cadeia dos passos para achar as duas coordenadas do vértice.",
+    "largura": 408,
+    "altura": 306
+  },
+  "fq9-q-x-do-vertice": {
+    "arquivo": "/assets/questoes/fq9-q-x-do-vertice.png",
+    "alt": "Tabela com os três coeficientes de x ao quadrado menos 8x mais 7.",
+    "largura": 288,
+    "altura": 182
+  },
+  "fq9-q-y-do-vertice": {
+    "arquivo": "/assets/questoes/fq9-q-y-do-vertice.png",
+    "alt": "Cadeia com a substituição do x do vértice, parada antes do resultado.",
+    "largura": 396,
+    "altura": 166
+  },
+  "fq9-q-maximo-ou-minimo": {
+    "arquivo": "/assets/questoes/fq9-q-maximo-ou-minimo.png",
+    "alt": "Tabela com os coeficientes de menos 2x ao quadrado mais 8x.",
+    "largura": 304,
+    "altura": 182
+  },
+  "fq9-q-meio-das-raizes": {
+    "arquivo": "/assets/questoes/fq9-q-meio-das-raizes.png",
+    "alt": "Tabela com os dois pontos em que a parábola corta o eixo horizontal.",
+    "largura": 292,
+    "altura": 148
+  },
+  "fq9-ideia-roteiro": {
+    "arquivo": "/assets/licoes/fq9-ideia-roteiro.png",
+    "alt": "Tabela com os quatro passos do roteiro de esboço e o que cada um custa.",
+    "largura": 292,
+    "altura": 216
+  },
+  "fq9-res-esboco": {
+    "arquivo": "/assets/licoes/fq9-res-esboco.png",
+    "alt": "Plano com a parábola de x ao quadrado menos 2x menos 3, com as raízes, o vértice e o corte vertical marcados.",
+    "largura": 294,
+    "altura": 394
+  },
+  "fq9-q-acima-do-eixo": {
+    "arquivo": "/assets/questoes/fq9-q-acima-do-eixo.png",
+    "alt": "Tabela com o sinal do coeficiente a e o sinal do discriminante.",
+    "largura": 304,
+    "altura": 148
+  },
+  "fq9-q-vertice-simples": {
+    "arquivo": "/assets/questoes/fq9-q-vertice-simples.png",
+    "alt": "Cadeia com a lei de x ao quadrado menos 4 e o x do vértice já achado.",
+    "largura": 376,
+    "altura": 166
+  },
+  "fq9-q-ordem-do-roteiro": {
+    "arquivo": "/assets/questoes/fq9-q-ordem-do-roteiro.png",
+    "alt": "Tabela com duas parábolas de mesmas raízes abrindo para lados opostos.",
+    "largura": 299,
+    "altura": 148
+  },
+  "fq9-q-valor-maximo": {
+    "arquivo": "/assets/questoes/fq9-q-valor-maximo.png",
+    "alt": "Cadeia com a lei de menos x ao quadrado mais 6x menos 5 e o x do vértice em aberto.",
+    "largura": 412,
+    "altura": 236
+  },
+  "fq9-ideia-area-maxima": {
+    "arquivo": "/assets/licoes/fq9-ideia-area-maxima.png",
+    "alt": "Tabela com retângulos de perímetro 40 e a área de cada um.",
+    "largura": 321,
+    "altura": 216
+  },
+  "fq9-res-cerca": {
+    "arquivo": "/assets/licoes/fq9-res-cerca.png",
+    "alt": "Cadeia da montagem da área do terreno a partir do perímetro de 40 metros.",
+    "largura": 401,
+    "altura": 306
+  },
+  "fq9-q-cerca-24": {
+    "arquivo": "/assets/questoes/fq9-q-cerca-24.png",
+    "alt": "Tabela com três retângulos de perímetro 24 e a área de cada um.",
+    "largura": 299,
+    "altura": 182
+  },
+  "fq9-q-obmep-castigo": {
+    "arquivo": "/assets/questoes/fq9-q-obmep-castigo.png",
+    "alt": "Tabela com dois exemplos do desconto proporcional à nota.",
+    "largura": 276,
+    "altura": 148
+  },
+  "fq9-q-obmep-nota-final": {
+    "arquivo": "/assets/questoes/fq9-q-obmep-nota-final.png",
+    "alt": "Tabela com duas notas originais e o que sobra de cada uma depois do desconto.",
+    "largura": 308,
+    "altura": 148
+  },
+  "fq9-q-obmep-simetria": {
+    "arquivo": "/assets/questoes/fq9-q-obmep-simetria.png",
+    "alt": "Tabela com uma nota original e a nota final dela, e uma segunda linha em aberto.",
+    "largura": 276,
+    "altura": 148
+  },
+  "sm9-ideia-mesma-forma": {
+    "arquivo": "/assets/licoes/sm9-ideia-mesma-forma.png",
+    "alt": "Dois triângulos de mesma forma e tamanhos diferentes, com os lados medidos.",
+    "largura": 338,
+    "altura": 156
+  },
+  "sm9-res-razao-2": {
+    "arquivo": "/assets/licoes/sm9-res-razao-2.png",
+    "alt": "Tabela com os três pares de lados correspondentes e o quociente de cada par.",
+    "largura": 293,
+    "altura": 182
+  },
+  "sm9-q-razao-3": {
+    "arquivo": "/assets/questoes/sm9-q-razao-3.png",
+    "alt": "Dois triângulos de mesma forma, o maior com os lados medidos e o menor também.",
+    "largura": 346,
+    "altura": 164
+  },
+  "sm9-q-o-que-exige": {
+    "arquivo": "/assets/questoes/sm9-q-o-que-exige.png",
+    "alt": "Tabela comparando o que congruência exige com o que semelhança exige.",
+    "largura": 316,
+    "altura": 148
+  },
+  "sm9-q-congruentes": {
+    "arquivo": "/assets/questoes/sm9-q-congruentes.png",
+    "alt": "Dois triângulos do mesmo tamanho, com os lados marcados como iguais.",
+    "largura": 342,
+    "altura": 168
+  },
+  "sm9-q-nao-sao": {
+    "arquivo": "/assets/questoes/sm9-q-nao-sao.png",
+    "alt": "Tabela com os três pares de lados e o quociente de dois deles.",
+    "largura": 292,
+    "altura": 182
+  },
+  "sm9-ideia-caso-aa": {
+    "arquivo": "/assets/licoes/sm9-ideia-caso-aa.png",
+    "alt": "Dois triângulos de tamanhos diferentes com dois ângulos marcados como iguais em cada um.",
+    "largura": 348,
+    "altura": 185
+  },
+  "sm9-res-terceiro-angulo": {
+    "arquivo": "/assets/licoes/sm9-res-terceiro-angulo.png",
+    "alt": "Tabela com os ângulos dados de dois triângulos e o terceiro ângulo de cada um.",
+    "largura": 292,
+    "altura": 148
+  },
+  "sm9-q-terceiro": {
+    "arquivo": "/assets/questoes/sm9-q-terceiro.png",
+    "alt": "Tabela com dois ângulos de um triângulo e o terceiro em aberto.",
+    "largura": 280,
+    "altura": 182
+  },
+  "sm9-q-por-que-dois": {
+    "arquivo": "/assets/questoes/sm9-q-por-que-dois.png",
+    "alt": "Cadeia ligando dois ângulos conhecidos ao terceiro pela soma dos internos.",
+    "largura": 387,
+    "altura": 236
+  },
+  "sm9-q-aaa-nao-basta": {
+    "arquivo": "/assets/questoes/sm9-q-aaa-nao-basta.png",
+    "alt": "Dois triângulos de mesma forma e tamanhos bem diferentes, com os três ângulos marcados.",
+    "largura": 362,
+    "altura": 162
+  },
+  "sm9-q-razao-pelos-lados": {
+    "arquivo": "/assets/questoes/sm9-q-razao-pelos-lados.png",
+    "alt": "Tabela com os ângulos iguais dos dois triângulos e o menor lado de cada um.",
+    "largura": 296,
+    "altura": 148
+  },
+  "sm9-ideia-proporcao": {
+    "arquivo": "/assets/licoes/sm9-ideia-proporcao.png",
+    "alt": "Tabela mostrando uma proporção montada no sentido certo e duas montadas ao contrário.",
+    "largura": 292,
+    "altura": 182
+  },
+  "sm9-res-lado-8": {
+    "arquivo": "/assets/licoes/sm9-res-lado-8.png",
+    "alt": "Dois triângulos semelhantes com três lados medidos e o quarto marcado com x.",
+    "largura": 366,
+    "altura": 165
+  },
+  "sm9-q-lado-15": {
+    "arquivo": "/assets/questoes/sm9-q-lado-15.png",
+    "alt": "Dois triângulos semelhantes com dois lados do menor e um lado do maior medidos.",
+    "largura": 360,
+    "altura": 147
+  },
+  "sm9-q-aplica-razao": {
+    "arquivo": "/assets/questoes/sm9-q-aplica-razao.png",
+    "alt": "Tabela com a razão de semelhança e o lado conhecido do triângulo menor.",
+    "largura": 296,
+    "altura": 182
+  },
+  "sm9-q-montar-certo": {
+    "arquivo": "/assets/questoes/sm9-q-montar-certo.png",
+    "alt": "Dois triângulos com os lados nomeados por letras, sem medidas.",
+    "largura": 348,
+    "altura": 158
+  },
+  "sm9-q-proporcao-direta": {
+    "arquivo": "/assets/questoes/sm9-q-proporcao-direta.png",
+    "alt": "Tabela com a proporção quatro terços igual a x sobre nove.",
+    "largura": 345,
+    "altura": 114
+  },
+  "sm9-ideia-paralela": {
+    "arquivo": "/assets/licoes/sm9-ideia-paralela.png",
+    "alt": "Triângulo cortado por uma paralela à base, com o triângulo de cima destacado.",
+    "largura": 300,
+    "altura": 248
+  },
+  "sm9-res-paralela": {
+    "arquivo": "/assets/licoes/sm9-res-paralela.png",
+    "alt": "Triângulo cortado por uma paralela, com AD, DB e DE medidos e BC em aberto.",
+    "largura": 284,
+    "altura": 248
+  },
+  "sm9-q-paralela-8": {
+    "arquivo": "/assets/questoes/sm9-q-paralela-8.png",
+    "alt": "Triângulo cortado por uma paralela, com AD e DB iguais a 3 e DE igual a 4.",
+    "largura": 284,
+    "altura": 248
+  },
+  "sm9-q-por-que-semelhante": {
+    "arquivo": "/assets/questoes/sm9-q-por-que-semelhante.png",
+    "alt": "Triângulo cortado por uma paralela, sem medida nenhuma.",
+    "largura": 339,
+    "altura": 248
+  },
+  "sm9-q-paralela-de": {
+    "arquivo": "/assets/questoes/sm9-q-paralela-de.png",
+    "alt": "Triângulo cortado por uma paralela, com AD, AB e BC medidos e DE em aberto.",
+    "largura": 284,
+    "altura": 248
+  },
+  "sm9-q-qual-nao-vale": {
+    "arquivo": "/assets/questoes/sm9-q-qual-nao-vale.png",
+    "alt": "Triângulo cortado por uma paralela, com os cinco pontos nomeados.",
+    "largura": 284,
+    "altura": 248
+  },
+  "sm9-ideia-area-k2": {
+    "arquivo": "/assets/licoes/sm9-ideia-area-k2.png",
+    "alt": "Malha quadrada de quatro por quatro, com os dezesseis quadradinhos à vista.",
+    "largura": 307,
+    "altura": 222
+  },
+  "sm9-res-area-45": {
+    "arquivo": "/assets/licoes/sm9-res-area-45.png",
+    "alt": "Tabela ligando a razão de semelhança ao fator que multiplica a área.",
+    "largura": 296,
+    "altura": 182
+  },
+  "sm9-q-area-28": {
+    "arquivo": "/assets/questoes/sm9-q-area-28.png",
+    "alt": "Tabela com a razão de semelhança e a área do polígono menor.",
+    "largura": 300,
+    "altura": 182
+  },
+  "sm9-q-razao-pelas-areas": {
+    "arquivo": "/assets/questoes/sm9-q-razao-pelas-areas.png",
+    "alt": "Tabela com as duas áreas e a razão de semelhança em aberto.",
+    "largura": 300,
+    "altura": 182
+  },
+  "sm9-q-o-que-acontece": {
+    "arquivo": "/assets/questoes/sm9-q-o-que-acontece.png",
+    "alt": "Malha quadrada de quatro por quatro, sem nenhuma contagem escrita.",
+    "largura": 300,
+    "altura": 222
+  },
+  "sm9-q-perimetro": {
+    "arquivo": "/assets/questoes/sm9-q-perimetro.png",
+    "alt": "Tabela com a razão de semelhança e o perímetro do polígono menor.",
+    "largura": 337,
+    "altura": 182
+  },
+  "sm9-ideia-sombra": {
+    "arquivo": "/assets/licoes/sm9-ideia-sombra.png",
+    "alt": "Um poste e um prédio com as sombras deles e os raios de sol no mesmo ângulo.",
+    "largura": 402,
+    "altura": 272
+  },
+  "sm9-res-sombra": {
+    "arquivo": "/assets/licoes/sm9-res-sombra.png",
+    "alt": "Um poste medido e um prédio com a altura em aberto, com as sombras dos dois.",
+    "largura": 402,
+    "altura": 272
+  },
+  "sm9-q-arvore": {
+    "arquivo": "/assets/questoes/sm9-q-arvore.png",
+    "alt": "Uma vara medida e uma árvore com a altura em aberto, com as sombras das duas.",
+    "largura": 406,
+    "altura": 242
+  },
+  "sm9-q-maquete": {
+    "arquivo": "/assets/questoes/sm9-q-maquete.png",
+    "alt": "Tabela com a escala da maquete e a altura real do prédio.",
+    "largura": 296,
+    "altura": 182
+  },
+  "sm9-q-mapa": {
+    "arquivo": "/assets/questoes/sm9-q-mapa.png",
+    "alt": "Tabela com a escala do mapa e a distância medida no papel.",
+    "largura": 304,
+    "altura": 182
+  },
+  "sm9-q-por-que-sombra": {
+    "arquivo": "/assets/questoes/sm9-q-por-que-sombra.png",
+    "alt": "Dois objetos com sombras de comprimentos diferentes e os raios de sol, sem medida nenhuma.",
+    "largura": 394,
+    "altura": 232
+  },
+  "tl9-ideia-feixe": {
+    "arquivo": "/assets/licoes/tl9-ideia-feixe.png",
+    "alt": "Três retas paralelas cortadas por duas transversais, com os quatro segmentos medidos.",
+    "largura": 357,
+    "altura": 260
+  },
+  "tl9-res-quatro-seis": {
+    "arquivo": "/assets/licoes/tl9-res-quatro-seis.png",
+    "alt": "Feixe de três paralelas com três segmentos medidos e o quarto em aberto.",
+    "largura": 357,
+    "altura": 260
+  },
+  "tl9-q-o-que-garante": {
+    "arquivo": "/assets/questoes/tl9-q-o-que-garante.png",
+    "alt": "Feixe de três paralelas com duas transversais de inclinações bem diferentes, sem medidas.",
+    "largura": 361,
+    "altura": 260
+  },
+  "tl9-q-segundo-segmento": {
+    "arquivo": "/assets/questoes/tl9-q-segundo-segmento.png",
+    "alt": "Feixe com os dois segmentos de uma transversal medidos e só o primeiro da outra.",
+    "largura": 364,
+    "altura": 260
+  },
+  "tl9-q-quem-decide": {
+    "arquivo": "/assets/questoes/tl9-q-quem-decide.png",
+    "alt": "Dois feixes com a paralela do meio em alturas diferentes, sem medidas.",
+    "largura": 355,
+    "altura": 260
+  },
+  "tl9-q-primeiro-segmento": {
+    "arquivo": "/assets/questoes/tl9-q-primeiro-segmento.png",
+    "alt": "Feixe com os dois segmentos de uma transversal medidos e só o segundo da outra.",
+    "largura": 364,
+    "altura": 260
+  },
+  "tl9-ideia-mesmo-sentido": {
+    "arquivo": "/assets/licoes/tl9-ideia-mesmo-sentido.png",
+    "alt": "Tabela com duas montagens corretas da proporção e uma montada ao contrário.",
+    "largura": 327,
+    "altura": 182
+  },
+  "tl9-res-tres-cinco": {
+    "arquivo": "/assets/licoes/tl9-res-tres-cinco.png",
+    "alt": "Feixe com os segmentos 3 e 5 numa transversal e 6 e o valor procurado na outra.",
+    "largura": 357,
+    "altura": 260
+  },
+  "tl9-q-monta-15": {
+    "arquivo": "/assets/questoes/tl9-q-monta-15.png",
+    "alt": "Feixe com os segmentos 4 e 6 numa transversal e 10 na outra.",
+    "largura": 366,
+    "altura": 260
+  },
+  "tl9-q-monta-8": {
+    "arquivo": "/assets/questoes/tl9-q-monta-8.png",
+    "alt": "Feixe com os segmentos 2 e 3 numa transversal e o segundo segmento 12 na outra.",
+    "largura": 364,
+    "altura": 260
+  },
+  "tl9-q-qual-nao-vale": {
+    "arquivo": "/assets/questoes/tl9-q-qual-nao-vale.png",
+    "alt": "Feixe com os seis pontos de encontro nomeados, sem medidas.",
+    "largura": 385,
+    "altura": 260
+  },
+  "tl9-q-monta-7": {
+    "arquivo": "/assets/questoes/tl9-q-monta-7.png",
+    "alt": "Feixe com o primeiro segmento de uma transversal e os dois da outra medidos.",
+    "largura": 364,
+    "altura": 260
+  },
+  "tl9-ideia-no-triangulo": {
+    "arquivo": "/assets/licoes/tl9-ideia-no-triangulo.png",
+    "alt": "Triângulo cortado por uma paralela à base, com os quatro pedaços dos lados nomeados.",
+    "largura": 337,
+    "altura": 248
+  },
+  "tl9-res-ec-nove": {
+    "arquivo": "/assets/licoes/tl9-res-ec-nove.png",
+    "alt": "Triângulo cortado por uma paralela, com AD, DB e AE medidos e EC em aberto.",
+    "largura": 284,
+    "altura": 248
+  },
+  "tl9-q-ec-doze": {
+    "arquivo": "/assets/questoes/tl9-q-ec-doze.png",
+    "alt": "Triângulo cortado por uma paralela, com AD igual a 3 e DB igual a 9.",
+    "largura": 284,
+    "altura": 248
+  },
+  "tl9-q-por-que-vale": {
+    "arquivo": "/assets/questoes/tl9-q-por-que-vale.png",
+    "alt": "Triângulo escaleno cortado por uma paralela à base, sem medida nenhuma.",
+    "largura": 284,
+    "altura": 248
+  },
+  "tl9-q-ac-nove": {
+    "arquivo": "/assets/questoes/tl9-q-ac-nove.png",
+    "alt": "Triângulo cortado por uma paralela, com AD medido e o lado AB inteiro dado.",
+    "largura": 284,
+    "altura": 248
+  },
+  "tl9-q-reciproca": {
+    "arquivo": "/assets/questoes/tl9-q-reciproca.png",
+    "alt": "Triângulo cortado por uma reta que divide os dois lados em partes proporcionais.",
+    "largura": 301,
+    "altura": 248
+  },
+  "tl9-ideia-repartir": {
+    "arquivo": "/assets/licoes/tl9-ideia-repartir.png",
+    "alt": "Feixe de quatro paralelas que corta uma transversal em três pedaços iguais.",
+    "largura": 347,
+    "altura": 260
+  },
+  "tl9-res-vinte": {
+    "arquivo": "/assets/licoes/tl9-res-vinte.png",
+    "alt": "Barra de vinte centímetros repartida em cinco partes, com duas de um lado e três do outro.",
+    "largura": 380,
+    "altura": 196
+  },
+  "tl9-q-trinta-e-cinco": {
+    "arquivo": "/assets/questoes/tl9-q-trinta-e-cinco.png",
+    "alt": "Barra repartida em duas partes, uma com três pedaços e outra com quatro.",
+    "largura": 380,
+    "altura": 196
+  },
+  "tl9-q-por-que-funciona": {
+    "arquivo": "/assets/questoes/tl9-q-por-que-funciona.png",
+    "alt": "Feixe de quatro paralelas cortando duas transversais, com marcas iguais numa delas.",
+    "largura": 348,
+    "altura": 260
+  },
+  "tl9-q-cinco-partes": {
+    "arquivo": "/assets/questoes/tl9-q-cinco-partes.png",
+    "alt": "Barra repartida em cinco partes iguais, com o comprimento total marcado.",
+    "largura": 380,
+    "altura": 286
+  },
+  "tl9-q-espacos": {
+    "arquivo": "/assets/questoes/tl9-q-espacos.png",
+    "alt": "Fileira de seis postes igualmente espaçados sobre uma linha.",
+    "largura": 230,
+    "altura": 114
+  },
+  "tl9-ideia-sem-paralelismo": {
+    "arquivo": "/assets/licoes/tl9-ideia-sem-paralelismo.png",
+    "alt": "Tabela com as duas razões de um feixe de verdade e as de três retas que não são paralelas.",
+    "largura": 316,
+    "altura": 148
+  },
+  "tl9-res-nao-sao": {
+    "arquivo": "/assets/licoes/tl9-res-nao-sao.png",
+    "alt": "Tabela com os segmentos das duas transversais e a razão de cada uma.",
+    "largura": 348,
+    "altura": 148
+  },
+  "tl9-q-a-condicao": {
+    "arquivo": "/assets/questoes/tl9-q-a-condicao.png",
+    "alt": "Feixe de três paralelas com duas transversais de inclinações diferentes.",
+    "largura": 363,
+    "altura": 260
+  },
+  "tl9-q-sao-paralelas": {
+    "arquivo": "/assets/questoes/tl9-q-sao-paralelas.png",
+    "alt": "Tabela com os segmentos das duas transversais, sem as razões calculadas.",
+    "largura": 300,
+    "altura": 148
+  },
+  "tl9-q-proporcional-nao-e-igual": {
+    "arquivo": "/assets/questoes/tl9-q-proporcional-nao-e-igual.png",
+    "alt": "Feixe com os quatro segmentos medidos, todos com valores diferentes.",
+    "largura": 357,
+    "altura": 260
+  },
+  "tl9-q-para-ser-paralela": {
+    "arquivo": "/assets/questoes/tl9-q-para-ser-paralela.png",
+    "alt": "Feixe com os segmentos 6 e 9 numa transversal e o primeiro segmento 8 na outra.",
+    "largura": 357,
+    "altura": 260
+  },
+  "tl9-ideia-lotes": {
+    "arquivo": "/assets/licoes/tl9-ideia-lotes.png",
+    "alt": "Quarteirão entre duas ruas paralelas repartido em três lotes por divisas paralelas.",
+    "largura": 396,
+    "altura": 260
+  },
+  "tl9-res-lotes": {
+    "arquivo": "/assets/licoes/tl9-res-lotes.png",
+    "alt": "Tabela com as frentes dos três lotes na rua A e o total das duas ruas.",
+    "largura": 284,
+    "altura": 216
+  },
+  "tl9-q-obmep-cerca": {
+    "arquivo": "/assets/questoes/tl9-q-obmep-cerca.png",
+    "alt": "Fileira de doze postes igualmente espaçados, com o terceiro e o sexto destacados.",
+    "largura": 379,
+    "altura": 114
+  },
+  "tl9-q-dois-lotes": {
+    "arquivo": "/assets/questoes/tl9-q-dois-lotes.png",
+    "alt": "Dois lotes entre duas ruas paralelas, com as frentes da rua A e a primeira da rua B.",
+    "largura": 396,
+    "altura": 260
+  },
+  "tl9-q-frente-menor": {
+    "arquivo": "/assets/questoes/tl9-q-frente-menor.png",
+    "alt": "Tabela com as frentes dos dois lotes na rua A e o total da rua B.",
+    "largura": 345,
+    "altura": 182
+  },
+  "tl9-q-por-que-divisas": {
+    "arquivo": "/assets/questoes/tl9-q-por-que-divisas.png",
+    "alt": "Quarteirão entre duas ruas repartido em lotes por divisas paralelas, sem medidas.",
+    "largura": 387,
+    "altura": 260
+  },
+  "pt9-ideia-tres-quadrados": {
+    "arquivo": "/assets/licoes/pt9-ideia-tres-quadrados.png",
+    "alt": "Triângulo retângulo de catetos 3 e 4 com os quadrados construídos sobre os três lados e as áreas escritas.",
+    "largura": 243,
+    "altura": 284
+  },
+  "pt9-res-tres-quatro-cinco": {
+    "arquivo": "/assets/licoes/pt9-res-tres-quatro-cinco.png",
+    "alt": "Os três quadrados do triângulo 3-4-5 com as áreas escritas em letras.",
+    "largura": 243,
+    "altura": 284
+  },
+  "pt9-q-quem-e-hipotenusa": {
+    "arquivo": "/assets/questoes/pt9-q-quem-e-hipotenusa.png",
+    "alt": "Triângulo retângulo com os três lados nomeados por letras e o ângulo reto marcado.",
+    "largura": 282,
+    "altura": 202
+  },
+  "pt9-q-area-do-maior": {
+    "arquivo": "/assets/questoes/pt9-q-area-do-maior.png",
+    "alt": "Triângulo retângulo de catetos 6 e 8 com os quadrados dos catetos desenhados e o da hipotenusa ausente.",
+    "largura": 262,
+    "altura": 284
+  },
+  "pt9-q-por-que-quadrado": {
+    "arquivo": "/assets/questoes/pt9-q-por-que-quadrado.png",
+    "alt": "Os três quadrados do triângulo 3-4-5, sem nenhuma área escrita.",
+    "largura": 268,
+    "altura": 284
+  },
+  "pt9-q-area-que-falta": {
+    "arquivo": "/assets/questoes/pt9-q-area-que-falta.png",
+    "alt": "Triângulo retângulo com a área de um quadrado de cateto e a do quadrado da hipotenusa escritas.",
+    "largura": 282,
+    "altura": 284
+  },
+  "pt9-ideia-tres-passos": {
+    "arquivo": "/assets/licoes/pt9-ideia-tres-passos.png",
+    "alt": "Tabela com os três passos para achar a hipotenusa a partir dos catetos.",
+    "largura": 342,
+    "altura": 182
+  },
+  "pt9-res-hipotenusa-10": {
+    "arquivo": "/assets/licoes/pt9-res-hipotenusa-10.png",
+    "alt": "Triângulo retângulo de catetos 6 cm e 8 cm com a hipotenusa em aberto.",
+    "largura": 299,
+    "altura": 247
+  },
+  "pt9-q-hipotenusa-15": {
+    "arquivo": "/assets/questoes/pt9-q-hipotenusa-15.png",
+    "alt": "Triângulo retângulo de catetos 9 cm e 12 cm com a hipotenusa em aberto.",
+    "largura": 299,
+    "altura": 247
+  },
+  "pt9-q-hipotenusa-13": {
+    "arquivo": "/assets/questoes/pt9-q-hipotenusa-13.png",
+    "alt": "Triângulo retângulo de catetos 5 m e 12 m com a hipotenusa em aberto.",
+    "largura": 292,
+    "altura": 170
+  },
+  "pt9-q-plausibilidade": {
+    "arquivo": "/assets/questoes/pt9-q-plausibilidade.png",
+    "alt": "Tabela com o piso e o teto que a hipotenusa precisa respeitar.",
+    "largura": 412,
+    "altura": 148
+  },
+  "pt9-q-hipotenusa-17": {
+    "arquivo": "/assets/questoes/pt9-q-hipotenusa-17.png",
+    "alt": "Triângulo retângulo de catetos 8 cm e 15 cm com a hipotenusa em aberto.",
+    "largura": 299,
+    "altura": 197
+  },
+  "pt9-ideia-subtrair": {
+    "arquivo": "/assets/licoes/pt9-ideia-subtrair.png",
+    "alt": "Cadeia isolando o quadrado do cateto que falta na fórmula do teorema.",
+    "largura": 366,
+    "altura": 236
+  },
+  "pt9-res-cateto-12": {
+    "arquivo": "/assets/licoes/pt9-res-cateto-12.png",
+    "alt": "Triângulo retângulo com hipotenusa 13 cm, um cateto de 5 cm e o outro em aberto.",
+    "largura": 166,
+    "altura": 284
+  },
+  "pt9-q-cateto-24": {
+    "arquivo": "/assets/questoes/pt9-q-cateto-24.png",
+    "alt": "Triângulo retângulo com hipotenusa 25 cm, um cateto de 7 cm e o outro em aberto.",
+    "largura": 200,
+    "altura": 284
+  },
+  "pt9-q-cateto-8": {
+    "arquivo": "/assets/questoes/pt9-q-cateto-8.png",
+    "alt": "Triângulo retângulo com hipotenusa 10 m, um cateto de 6 m e o outro em aberto.",
+    "largura": 297,
+    "altura": 247
+  },
+  "pt9-q-por-que-subtrai": {
+    "arquivo": "/assets/questoes/pt9-q-por-que-subtrai.png",
+    "alt": "Tabela comparando o que se isola quando falta a hipotenusa e quando falta um cateto.",
+    "largura": 320,
+    "altura": 148
+  },
+  "pt9-q-cateto-15": {
+    "arquivo": "/assets/questoes/pt9-q-cateto-15.png",
+    "alt": "Triângulo retângulo com hipotenusa 17 cm, um cateto de 8 cm e o outro em aberto.",
+    "largura": 257,
+    "altura": 284
+  },
+  "pt9-ideia-ternos": {
+    "arquivo": "/assets/licoes/pt9-ideia-ternos.png",
+    "alt": "Tabela com quatro ternos pitagóricos e os quadrados de cada um.",
+    "largura": 327,
+    "altura": 216
+  },
+  "pt9-res-teste-9-12-15": {
+    "arquivo": "/assets/licoes/pt9-res-teste-9-12-15.png",
+    "alt": "Triângulo de lados 9, 12 e 15 com as três medidas escritas.",
+    "largura": 335,
+    "altura": 247
+  },
+  "pt9-q-seis-oito-dez": {
+    "arquivo": "/assets/questoes/pt9-q-seis-oito-dez.png",
+    "alt": "Tabela com os três lados 6, 8 e 10 e o quadrado de cada um.",
+    "largura": 292,
+    "altura": 182
+  },
+  "pt9-q-quatro-cinco-seis": {
+    "arquivo": "/assets/questoes/pt9-q-quatro-cinco-seis.png",
+    "alt": "Tabela com os três lados 4, 5 e 6 e os quadrados de cada um.",
+    "largura": 292,
+    "altura": 182
+  },
+  "pt9-q-obmep-poste": {
+    "arquivo": "/assets/questoes/pt9-q-obmep-poste.png",
+    "alt": "Tabela com as três medidas do cabo, da altura e da distância ao poste.",
+    "largura": 327,
+    "altura": 182
+  },
+  "pt9-q-completa-o-terno": {
+    "arquivo": "/assets/questoes/pt9-q-completa-o-terno.png",
+    "alt": "Triângulo retângulo de catetos 9 e 12 com a hipotenusa em aberto.",
+    "largura": 293,
+    "altura": 247
+  },
+  "pt9-ideia-diagonal": {
+    "arquivo": "/assets/licoes/pt9-ideia-diagonal.png",
+    "alt": "Quadrado com a diagonal traçada e o ângulo reto do canto marcado.",
+    "largura": 342,
+    "altura": 218
+  },
+  "pt9-res-diagonal-quadrado": {
+    "arquivo": "/assets/licoes/pt9-res-diagonal-quadrado.png",
+    "alt": "Quadrado de lado 5 cm com a diagonal traçada e marcada com uma interrogação.",
+    "largura": 241,
+    "altura": 218
+  },
+  "pt9-q-diagonal-8": {
+    "arquivo": "/assets/questoes/pt9-q-diagonal-8.png",
+    "alt": "Quadrado de lado 8 cm com a diagonal traçada e marcada com uma interrogação.",
+    "largura": 241,
+    "altura": 218
+  },
+  "pt9-q-altura-equilatero": {
+    "arquivo": "/assets/questoes/pt9-q-altura-equilatero.png",
+    "alt": "Triângulo equilátero de lado 10 cm com a altura traçada até o meio da base.",
+    "largura": 328,
+    "altura": 315
+  },
+  "pt9-q-por-que-metade": {
+    "arquivo": "/assets/questoes/pt9-q-por-que-metade.png",
+    "alt": "Triângulo equilátero com a altura traçada, sem medida nenhuma.",
+    "largura": 302,
+    "altura": 293
+  },
+  "pt9-q-lado-pela-diagonal": {
+    "arquivo": "/assets/questoes/pt9-q-lado-pela-diagonal.png",
+    "alt": "Quadrado com a diagonal medindo seis raiz de dois e o lado em aberto.",
+    "largura": 226,
+    "altura": 218
+  },
+  "pt9-ideia-escada": {
+    "arquivo": "/assets/licoes/pt9-ideia-escada.png",
+    "alt": "Triângulo retângulo representando uma escada encostada numa parede.",
+    "largura": 254,
+    "altura": 284
+  },
+  "pt9-res-escada": {
+    "arquivo": "/assets/licoes/pt9-res-escada.png",
+    "alt": "Escada de 5 m encostada numa parede com a base a 3 m dela e a altura em aberto.",
+    "largura": 216,
+    "altura": 284
+  },
+  "pt9-q-escada-12": {
+    "arquivo": "/assets/questoes/pt9-q-escada-12.png",
+    "alt": "Escada de 13 m encostada numa parede com a base a 5 m dela e a altura em aberto.",
+    "largura": 277,
+    "altura": 284
+  },
+  "pt9-q-atalho": {
+    "arquivo": "/assets/questoes/pt9-q-atalho.png",
+    "alt": "Plano com o caminho pelas ruas em linha tracejada, de seis para leste e oito para o norte.",
+    "largura": 374,
+    "altura": 396
+  },
+  "pt9-q-distancia-plano": {
+    "arquivo": "/assets/questoes/pt9-q-distancia-plano.png",
+    "alt": "Plano cartesiano com os pontos na origem e em nove por doze, sem o segmento entre eles.",
+    "largura": 354,
+    "altura": 376
+  },
+  "pt9-q-quem-e-a-escada": {
+    "arquivo": "/assets/questoes/pt9-q-quem-e-a-escada.png",
+    "alt": "Triângulo retângulo de uma escada encostada na parede, com as três medidas nomeadas.",
+    "largura": 275,
+    "altura": 284
+  },
+  "rm9-ideia-tres-triangulos": {
+    "arquivo": "/assets/licoes/rm9-ideia-tres-triangulos.png",
+    "alt": "Triângulo retângulo com a altura até a hipotenusa traçada e os seis elementos nomeados por letras.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-res-nomes": {
+    "arquivo": "/assets/licoes/rm9-res-nomes.png",
+    "alt": "Triângulo retângulo de catetos 15 e 20 com todas as seis medidas escritas.",
+    "largura": 312,
+    "altura": 210
+  },
+  "rm9-q-por-que-semelhantes": {
+    "arquivo": "/assets/questoes/rm9-q-por-que-semelhantes.png",
+    "alt": "Triângulo retângulo com o triângulo da esquerda destacado pela altura.",
+    "largura": 328,
+    "altura": 210
+  },
+  "rm9-q-soma-projecoes": {
+    "arquivo": "/assets/questoes/rm9-q-soma-projecoes.png",
+    "alt": "Triângulo retângulo com as duas projeções medindo 9 e 16 e a hipotenusa em aberto.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-q-o-que-e-projecao": {
+    "arquivo": "/assets/questoes/rm9-q-o-que-e-projecao.png",
+    "alt": "Triângulo retângulo com a altura traçada e os dois pedaços da hipotenusa nomeados.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-q-outra-projecao": {
+    "arquivo": "/assets/questoes/rm9-q-outra-projecao.png",
+    "alt": "Triângulo retângulo de hipotenusa 20 com uma projeção medindo 4 e a outra em aberto.",
+    "largura": 298,
+    "altura": 190
+  },
+  "rm9-ideia-projecoes": {
+    "arquivo": "/assets/licoes/rm9-ideia-projecoes.png",
+    "alt": "Triângulo retângulo com o triângulo da direita destacado e os lados que entram na relação nomeados.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-res-cateto-15": {
+    "arquivo": "/assets/licoes/rm9-res-cateto-15.png",
+    "alt": "Triângulo retângulo de hipotenusa 25 com a projeção 9 marcada e o cateto correspondente em aberto.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-q-cateto-20": {
+    "arquivo": "/assets/questoes/rm9-q-cateto-20.png",
+    "alt": "Triângulo retângulo de hipotenusa 25 com a projeção 16 marcada e o cateto correspondente em aberto.",
+    "largura": 338,
+    "altura": 210
+  },
+  "rm9-q-cateto-10": {
+    "arquivo": "/assets/questoes/rm9-q-cateto-10.png",
+    "alt": "Triângulo retângulo de hipotenusa 20 com a projeção 5 marcada e o cateto correspondente em aberto.",
+    "largura": 298,
+    "altura": 198
+  },
+  "rm9-q-de-onde-vem": {
+    "arquivo": "/assets/questoes/rm9-q-de-onde-vem.png",
+    "alt": "Tabela mostrando que papel cada lado faz no triângulo menor e no original.",
+    "largura": 317,
+    "altura": 148
+  },
+  "rm9-q-projecao-36": {
+    "arquivo": "/assets/questoes/rm9-q-projecao-36.png",
+    "alt": "Triângulo retângulo de hipotenusa 10 com um cateto de 6 e a projeção dele em aberto.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-ideia-altura": {
+    "arquivo": "/assets/licoes/rm9-ideia-altura.png",
+    "alt": "Triângulo retângulo com a altura e as duas projeções nomeadas.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-res-altura-12": {
+    "arquivo": "/assets/licoes/rm9-res-altura-12.png",
+    "alt": "Triângulo retângulo com as projeções 9 e 16 marcadas e a altura em aberto.",
+    "largura": 298,
+    "altura": 210
+  },
+  "rm9-q-altura-6": {
+    "arquivo": "/assets/questoes/rm9-q-altura-6.png",
+    "alt": "Triângulo retângulo com as projeções 4 e 9 marcadas e a altura em aberto.",
+    "largura": 301,
+    "altura": 205
+  },
+  "rm9-q-altura-48": {
+    "arquivo": "/assets/questoes/rm9-q-altura-48.png",
+    "alt": "Triângulo retângulo de catetos 6 e 8 e hipotenusa 10, com a altura em aberto.",
+    "largura": 319,
+    "altura": 210
+  },
+  "rm9-q-qual-relacao": {
+    "arquivo": "/assets/questoes/rm9-q-qual-relacao.png",
+    "alt": "Tabela com as cinco relações e as medidas que cada uma exige.",
+    "largura": 338,
+    "altura": 216
+  },
+  "rm9-q-altura-4": {
+    "arquivo": "/assets/questoes/rm9-q-altura-4.png",
+    "alt": "Triângulo retângulo com as projeções 2 e 8 marcadas e a altura em aberto.",
+    "largura": 298,
+    "altura": 190
+  },
+  "rm9-ideia-roteiro": {
+    "arquivo": "/assets/licoes/rm9-ideia-roteiro.png",
+    "alt": "Tabela com as cinco relações da matéria, uma por linha.",
+    "largura": 287,
+    "altura": 250
+  },
+  "rm9-res-dois-passos": {
+    "arquivo": "/assets/licoes/rm9-res-dois-passos.png",
+    "alt": "Triângulo retângulo de catetos 9 e 12 com a hipotenusa e a altura em aberto.",
+    "largura": 305,
+    "altura": 210
+  },
+  "rm9-q-escolher": {
+    "arquivo": "/assets/questoes/rm9-q-escolher.png",
+    "alt": "Triângulo retângulo com a hipotenusa e uma projeção medidas e o cateto correspondente em aberto.",
+    "largura": 299,
+    "altura": 210
+  },
+  "rm9-q-hipotenusa-15": {
+    "arquivo": "/assets/questoes/rm9-q-hipotenusa-15.png",
+    "alt": "Triângulo retângulo de catetos 9 e 12 com a hipotenusa em aberto.",
+    "largura": 305,
+    "altura": 210
+  },
+  "rm9-q-projecao-54": {
+    "arquivo": "/assets/questoes/rm9-q-projecao-54.png",
+    "alt": "Triângulo retângulo de hipotenusa 15 com um cateto de 9 e a projeção dele em aberto.",
+    "largura": 299,
+    "altura": 210
+  },
+  "rm9-q-por-que-nao-serve": {
+    "arquivo": "/assets/questoes/rm9-q-por-que-nao-serve.png",
+    "alt": "Tabela comparando o que a relação da altura exige com o que o problema deu.",
+    "largura": 324,
+    "altura": 114
+  },
+  "rm9-ideia-soma-das-duas": {
+    "arquivo": "/assets/licoes/rm9-ideia-soma-das-duas.png",
+    "alt": "Cadeia somando as duas relações das projeções até chegar ao teorema de Pitágoras.",
+    "largura": 370,
+    "altura": 306
+  },
+  "rm9-res-soma": {
+    "arquivo": "/assets/licoes/rm9-res-soma.png",
+    "alt": "Tabela com as duas relações das projeções em números e a soma delas.",
+    "largura": 280,
+    "altura": 182
+  },
+  "rm9-q-soma-dos-produtos": {
+    "arquivo": "/assets/questoes/rm9-q-soma-dos-produtos.png",
+    "alt": "Tabela com a hipotenusa e as duas projeções do triângulo, sem os produtos calculados.",
+    "largura": 292,
+    "altura": 182
+  },
+  "rm9-q-o-que-sai": {
+    "arquivo": "/assets/questoes/rm9-q-o-que-sai.png",
+    "alt": "Cadeia com a soma das duas relações parada antes da conclusão.",
+    "largura": 390,
+    "altura": 236
+  },
+  "rm9-q-confere-625": {
+    "arquivo": "/assets/questoes/rm9-q-confere-625.png",
+    "alt": "Triângulo retângulo de catetos 15 e 20, com as duas medidas escritas.",
+    "largura": 312,
+    "altura": 210
+  },
+  "rm9-q-nao-e-circular": {
+    "arquivo": "/assets/questoes/rm9-q-nao-e-circular.png",
+    "alt": "Tabela com cada demonstração e a ferramenta que ela usa.",
+    "largura": 366,
+    "altura": 148
+  },
+  "rm9-ideia-telhado": {
+    "arquivo": "/assets/licoes/rm9-ideia-telhado.png",
+    "alt": "Telhado de duas águas representado como triângulo retângulo com a altura do cume traçada.",
+    "largura": 340,
+    "altura": 210
+  },
+  "rm9-res-telhado": {
+    "arquivo": "/assets/licoes/rm9-res-telhado.png",
+    "alt": "Telhado de águas 9 m e 12 m sobre um vão de 15 m, com a altura do cume em aberto.",
+    "largura": 333,
+    "altura": 210
+  },
+  "rm9-q-telhado-12": {
+    "arquivo": "/assets/questoes/rm9-q-telhado-12.png",
+    "alt": "Telhado de águas 15 m e 20 m sobre um vão de 25 m, com a altura do cume em aberto.",
+    "largura": 340,
+    "altura": 210
+  },
+  "rm9-q-area-54": {
+    "arquivo": "/assets/questoes/rm9-q-area-54.png",
+    "alt": "Triângulo retângulo de catetos 9 m e 12 m, com a altura traçada.",
+    "largura": 333,
+    "altura": 210
+  },
+  "rm9-q-pilar-6": {
+    "arquivo": "/assets/questoes/rm9-q-pilar-6.png",
+    "alt": "Rampa apoiada num pilar, com os trechos de chão medindo 4 m e 9 m e o pilar em aberto.",
+    "largura": 298,
+    "altura": 205
+  },
+  "rm9-q-por-que-area": {
+    "arquivo": "/assets/questoes/rm9-q-por-que-area.png",
+    "alt": "Tabela com a área do triângulo escrita de dois jeitos, pela base que se escolher.",
+    "largura": 316,
+    "altura": 148
+  },
+  "tr9-ideia-nomes": {
+    "arquivo": "/assets/licoes/tr9-ideia-nomes.png",
+    "alt": "Triângulo retângulo com o ângulo teta marcado e os três lados nomeados por função.",
+    "largura": 314,
+    "altura": 255
+  },
+  "tr9-res-tres-razoes": {
+    "arquivo": "/assets/licoes/tr9-res-tres-razoes.png",
+    "alt": "Triângulo retângulo de catetos 3 e 4 com o ângulo teta e as três medidas escritas.",
+    "largura": 290,
+    "altura": 255
+  },
+  "tr9-q-seno-06": {
+    "arquivo": "/assets/questoes/tr9-q-seno-06.png",
+    "alt": "Triângulo retângulo de catetos 3 e 4 com o cateto oposto destacado.",
+    "largura": 278,
+    "altura": 255
+  },
+  "tr9-q-cosseno-08": {
+    "arquivo": "/assets/questoes/tr9-q-cosseno-08.png",
+    "alt": "Triângulo retângulo de catetos 3 e 4 com o cateto adjacente destacado.",
+    "largura": 278,
+    "altura": 255
+  },
+  "tr9-q-troca-de-papel": {
+    "arquivo": "/assets/questoes/tr9-q-troca-de-papel.png",
+    "alt": "Tabela mostrando os papéis dos dois catetos conforme o ângulo agudo escolhido.",
+    "largura": 316,
+    "altura": 148
+  },
+  "tr9-q-tangente-075": {
+    "arquivo": "/assets/questoes/tr9-q-tangente-075.png",
+    "alt": "Triângulo retângulo de catetos 3 e 4, com a hipotenusa sem medida escrita.",
+    "largura": 278,
+    "altura": 255
+  },
+  "tr9-ideia-mesmo-angulo": {
+    "arquivo": "/assets/licoes/tr9-ideia-mesmo-angulo.png",
+    "alt": "Dois triângulos retângulos de mesma forma e tamanhos bem diferentes, com os lados medidos.",
+    "largura": 344,
+    "altura": 164
+  },
+  "tr9-res-cancela": {
+    "arquivo": "/assets/licoes/tr9-res-cancela.png",
+    "alt": "Tabela com o seno calculado nos dois triângulos e a simplificação da fração.",
+    "largura": 304,
+    "altura": 148
+  },
+  "tr9-q-por-que-igual": {
+    "arquivo": "/assets/questoes/tr9-q-por-que-igual.png",
+    "alt": "Dois triângulos retângulos de mesma forma e tamanhos diferentes, sem medidas.",
+    "largura": 338,
+    "altura": 159
+  },
+  "tr9-q-oposto-6": {
+    "arquivo": "/assets/questoes/tr9-q-oposto-6.png",
+    "alt": "Triângulo retângulo com a hipotenusa medindo 10 e o cateto oposto em aberto.",
+    "largura": 278,
+    "altura": 255
+  },
+  "tr9-q-dois-tamanhos": {
+    "arquivo": "/assets/questoes/tr9-q-dois-tamanhos.png",
+    "alt": "Dois triângulos retângulos com um ângulo de 40° marcado em cada um, de tamanhos diferentes.",
+    "largura": 338,
+    "altura": 162
+  },
+  "tr9-q-oposto-12": {
+    "arquivo": "/assets/questoes/tr9-q-oposto-12.png",
+    "alt": "Triângulo retângulo com a hipotenusa medindo 20 e o cateto oposto em aberto.",
+    "largura": 278,
+    "altura": 255
+  },
+  "tr9-ideia-tabela": {
+    "arquivo": "/assets/licoes/tr9-ideia-tabela.png",
+    "alt": "Tabela com o seno, o cosseno e a tangente dos ângulos de 30, 45 e 60 graus.",
+    "largura": 376,
+    "altura": 182
+  },
+  "tr9-res-quarenta-e-cinco": {
+    "arquivo": "/assets/licoes/tr9-res-quarenta-e-cinco.png",
+    "alt": "Quadrado de lado 1 com a diagonal traçada e marcada como raiz de dois.",
+    "largura": 226,
+    "altura": 218
+  },
+  "tr9-q-sen-30": {
+    "arquivo": "/assets/questoes/tr9-q-sen-30.png",
+    "alt": "Triângulo equilátero de lado 2 com a altura traçada até o meio da base.",
+    "largura": 276,
+    "altura": 270
+  },
+  "tr9-q-tg-45": {
+    "arquivo": "/assets/questoes/tr9-q-tg-45.png",
+    "alt": "Triângulo retângulo com os dois catetos iguais e o ângulo de 45 graus marcado.",
+    "largura": 256,
+    "altura": 257
+  },
+  "tr9-q-por-que-metade": {
+    "arquivo": "/assets/questoes/tr9-q-por-que-metade.png",
+    "alt": "Triângulo equilátero com a altura traçada, sem nenhuma medida.",
+    "largura": 276,
+    "altura": 270
+  },
+  "tr9-q-cos-60": {
+    "arquivo": "/assets/questoes/tr9-q-cos-60.png",
+    "alt": "Triângulo retângulo com o ângulo de 60 graus marcado e os três lados medidos.",
+    "largura": 264,
+    "altura": 257
+  },
+  "tr9-ideia-escolher": {
+    "arquivo": "/assets/licoes/tr9-ideia-escolher.png",
+    "alt": "Tabela com os pares de lados e a razão que serve para cada par.",
+    "largura": 372,
+    "altura": 182
+  },
+  "tr9-res-rampa": {
+    "arquivo": "/assets/licoes/tr9-res-rampa.png",
+    "alt": "Rampa de 20 metros com inclinação de 30 graus e a altura em aberto.",
+    "largura": 290,
+    "altura": 215
+  },
+  "tr9-q-oposto-30": {
+    "arquivo": "/assets/questoes/tr9-q-oposto-30.png",
+    "alt": "Triângulo retângulo com ângulo de 30 graus, hipotenusa 12 e cateto oposto em aberto.",
+    "largura": 290,
+    "altura": 215
+  },
+  "tr9-q-oposto-45": {
+    "arquivo": "/assets/questoes/tr9-q-oposto-45.png",
+    "alt": "Triângulo retângulo com ângulo de 45 graus, cateto adjacente 7 e o oposto em aberto.",
+    "largura": 252,
+    "altura": 257
+  },
+  "tr9-q-qual-razao": {
+    "arquivo": "/assets/questoes/tr9-q-qual-razao.png",
+    "alt": "Triângulo retângulo com a hipotenusa marcada como dada e o cateto adjacente em aberto.",
+    "largura": 272,
+    "altura": 257
+  },
+  "tr9-q-hipotenusa-60": {
+    "arquivo": "/assets/questoes/tr9-q-hipotenusa-60.png",
+    "alt": "Triângulo retângulo com ângulo de 60 graus, cateto adjacente 5 e hipotenusa em aberto.",
+    "largura": 278,
+    "altura": 257
+  },
+  "tr9-ideia-de-volta": {
+    "arquivo": "/assets/licoes/tr9-ideia-de-volta.png",
+    "alt": "Tabela com os valores das razões e o ângulo notável correspondente a cada um.",
+    "largura": 304,
+    "altura": 182
+  },
+  "tr9-res-inclinacao-30": {
+    "arquivo": "/assets/licoes/tr9-res-inclinacao-30.png",
+    "alt": "Rampa de 10 metros que vence 5 metros de altura, com o ângulo em aberto.",
+    "largura": 292,
+    "altura": 215
+  },
+  "tr9-q-angulo-45": {
+    "arquivo": "/assets/questoes/tr9-q-angulo-45.png",
+    "alt": "Triângulo retângulo com os dois catetos medindo 6 e o ângulo em aberto.",
+    "largura": 223,
+    "altura": 257
+  },
+  "tr9-q-angulo-30": {
+    "arquivo": "/assets/questoes/tr9-q-angulo-30.png",
+    "alt": "Triângulo retângulo com cateto oposto 5, hipotenusa 10 e o ângulo em aberto.",
+    "largura": 278,
+    "altura": 215
+  },
+  "tr9-q-qual-para-angulo": {
+    "arquivo": "/assets/questoes/tr9-q-qual-para-angulo.png",
+    "alt": "Triângulo retângulo com os dois catetos marcados como dados e a hipotenusa sem medida.",
+    "largura": 247,
+    "altura": 257
+  },
+  "tr9-q-angulo-60": {
+    "arquivo": "/assets/questoes/tr9-q-angulo-60.png",
+    "alt": "Triângulo retângulo com cateto adjacente 4, hipotenusa 8 e o ângulo em aberto.",
+    "largura": 273,
+    "altura": 257
+  },
+  "tr9-ideia-elevacao": {
+    "arquivo": "/assets/licoes/tr9-ideia-elevacao.png",
+    "alt": "Triângulo do ângulo de elevação, com a distância no chão e a altura do prédio nomeadas.",
+    "largura": 362,
+    "altura": 215
+  },
+  "tr9-res-predio": {
+    "arquivo": "/assets/licoes/tr9-res-predio.png",
+    "alt": "Prédio visto de 60 metros de distância sob ângulo de elevação de 30 graus, com a altura em aberto.",
+    "largura": 293,
+    "altura": 215
+  },
+  "tr9-q-rampa-45": {
+    "arquivo": "/assets/questoes/tr9-q-rampa-45.png",
+    "alt": "Rampa de 45 graus que avança 8 metros na horizontal, com a altura em aberto.",
+    "largura": 260,
+    "altura": 257
+  },
+  "tr9-q-escada-60": {
+    "arquivo": "/assets/questoes/tr9-q-escada-60.png",
+    "alt": "Escada de 10 metros apoiada a 60 graus do chão, com a altura alcançada em aberto.",
+    "largura": 184,
+    "altura": 257
+  },
+  "tr9-q-torre-30": {
+    "arquivo": "/assets/questoes/tr9-q-torre-30.png",
+    "alt": "Torre vista de 90 metros de distância sob ângulo de elevação de 30 graus, com a altura em aberto.",
+    "largura": 290,
+    "altura": 215
+  },
+  "tr9-q-por-que-mede": {
+    "arquivo": "/assets/questoes/tr9-q-por-que-mede.png",
+    "alt": "Tabela separando o que se mede no chão do que a razão devolve.",
+    "largura": 352,
+    "altura": 148
+  },
+  "ar9-ideia-arco-central": {
+    "arquivo": "/assets/licoes/ar9-ideia-arco-central.png",
+    "alt": "Circunferência com dois pontos, o ângulo central entre eles e o arco em destaque.",
+    "largura": 278,
+    "altura": 282
+  },
+  "ar9-res-110": {
+    "arquivo": "/assets/licoes/ar9-res-110.png",
+    "alt": "Circunferência com o ângulo central de 110 graus e o arco maior em destaque.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-outro-arco": {
+    "arquivo": "/assets/questoes/ar9-q-outro-arco.png",
+    "alt": "Circunferência com um arco de 140 graus em destaque e o outro sem medida.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-o-que-mede": {
+    "arquivo": "/assets/questoes/ar9-q-o-que-mede.png",
+    "alt": "Duas circunferências de tamanhos diferentes, cada uma com um arco de 120 graus.",
+    "largura": 324,
+    "altura": 148
+  },
+  "ar9-q-relogio": {
+    "arquivo": "/assets/questoes/ar9-q-relogio.png",
+    "alt": "Circunferência repartida pelas doze marcas de um relógio, sem medida escrita.",
+    "largura": 282,
+    "altura": 282
+  },
+  "ar9-q-diametro": {
+    "arquivo": "/assets/questoes/ar9-q-diametro.png",
+    "alt": "Circunferência com um diâmetro traçado e as duas pontas marcadas.",
+    "largura": 277,
+    "altura": 282
+  },
+  "ar9-ideia-inscrito": {
+    "arquivo": "/assets/licoes/ar9-ideia-inscrito.png",
+    "alt": "Circunferência com o ângulo central de 120 graus e o inscrito de 60 graus sobre o mesmo arco.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-res-metade": {
+    "arquivo": "/assets/licoes/ar9-res-metade.png",
+    "alt": "Circunferência com o ângulo central de 120 graus e o inscrito correspondente em aberto.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-inscrito-50": {
+    "arquivo": "/assets/questoes/ar9-q-inscrito-50.png",
+    "alt": "Circunferência com o ângulo central de 100 graus e o inscrito em aberto.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-central-70": {
+    "arquivo": "/assets/questoes/ar9-q-central-70.png",
+    "alt": "Circunferência com o ângulo inscrito de 35 graus e o central em aberto.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-vertice-anda": {
+    "arquivo": "/assets/questoes/ar9-q-vertice-anda.png",
+    "alt": "Circunferência com dois ângulos inscritos de vértices diferentes sobre o mesmo arco, sem medidas.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-pelo-arco": {
+    "arquivo": "/assets/questoes/ar9-q-pelo-arco.png",
+    "alt": "Circunferência com um arco de 80 graus em destaque e o ângulo inscrito em aberto.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-ideia-semicirculo": {
+    "arquivo": "/assets/licoes/ar9-ideia-semicirculo.png",
+    "alt": "Circunferência com um diâmetro e um triângulo inscrito que tem o ângulo reto no terceiro vértice.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-res-reto": {
+    "arquivo": "/assets/licoes/ar9-res-reto.png",
+    "alt": "Triângulo inscrito com um lado sobre o diâmetro e o ângulo oposto em aberto.",
+    "largura": 316,
+    "altura": 282
+  },
+  "ar9-q-reto-90": {
+    "arquivo": "/assets/questoes/ar9-q-reto-90.png",
+    "alt": "Triângulo inscrito com um lado sobre o diâmetro, com o terceiro vértice em outra posição.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-todos-iguais": {
+    "arquivo": "/assets/questoes/ar9-q-todos-iguais.png",
+    "alt": "Circunferência com três ângulos inscritos de vértices diferentes sobre o mesmo arco.",
+    "largura": 360,
+    "altura": 282
+  },
+  "ar9-q-por-que-reto": {
+    "arquivo": "/assets/questoes/ar9-q-por-que-reto.png",
+    "alt": "Circunferência com um diâmetro e um ângulo inscrito nas pontas dele, sem medidas.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-outro-agudo": {
+    "arquivo": "/assets/questoes/ar9-q-outro-agudo.png",
+    "alt": "Triângulo inscrito com um lado sobre o diâmetro e um dos ângulos agudos medindo 28 graus.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-ideia-quadrilatero": {
+    "arquivo": "/assets/licoes/ar9-ideia-quadrilatero.png",
+    "alt": "Quadrilátero com os quatro vértices sobre uma circunferência.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-res-oposto-110": {
+    "arquivo": "/assets/licoes/ar9-res-oposto-110.png",
+    "alt": "Quadrilátero inscrito com um ângulo de 70 graus marcado e o oposto em aberto.",
+    "largura": 300,
+    "altura": 182
+  },
+  "ar9-q-oposto-95": {
+    "arquivo": "/assets/questoes/ar9-q-oposto-95.png",
+    "alt": "Quadrilátero inscrito com um ângulo de 85 graus marcado e o oposto em aberto.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-por-que-180": {
+    "arquivo": "/assets/questoes/ar9-q-por-que-180.png",
+    "alt": "Quadrilátero inscrito com os dois arcos entre um par de vértices em destaque.",
+    "largura": 301,
+    "altura": 282
+  },
+  "ar9-q-vizinhos": {
+    "arquivo": "/assets/questoes/ar9-q-vizinhos.png",
+    "alt": "Tabela com dois ângulos vizinhos de um quadrilátero inscrito e o oposto procurado.",
+    "largura": 304,
+    "altura": 182
+  },
+  "ar9-q-retangulo": {
+    "arquivo": "/assets/questoes/ar9-q-retangulo.png",
+    "alt": "Retângulo com os quatro vértices sobre uma circunferência e as diagonais passando pelo centro.",
+    "largura": 326,
+    "altura": 282
+  },
+  "ar9-ideia-setor": {
+    "arquivo": "/assets/licoes/ar9-ideia-setor.png",
+    "alt": "Circunferência com um setor de 60 graus pintado e o arco correspondente em destaque.",
+    "largura": 266,
+    "altura": 282
+  },
+  "ar9-res-comprimento": {
+    "arquivo": "/assets/licoes/ar9-res-comprimento.png",
+    "alt": "Tabela ligando a fração da volta ao comprimento do arco num círculo de raio 6.",
+    "largura": 304,
+    "altura": 182
+  },
+  "ar9-q-arco-90": {
+    "arquivo": "/assets/questoes/ar9-q-arco-90.png",
+    "alt": "Circunferência com um setor de 90 graus pintado, sem medidas escritas.",
+    "largura": 300,
+    "altura": 282
+  },
+  "ar9-q-setor-60": {
+    "arquivo": "/assets/questoes/ar9-q-setor-60.png",
+    "alt": "Circunferência com um setor de 60 graus pintado, sem medidas escritas.",
+    "largura": 260,
+    "altura": 282
+  },
+  "ar9-q-r-ou-r2": {
+    "arquivo": "/assets/questoes/ar9-q-r-ou-r2.png",
+    "alt": "Tabela comparando a fórmula do comprimento da circunferência com a da área do círculo.",
+    "largura": 312,
+    "altura": 148
+  },
+  "ar9-q-arco-180": {
+    "arquivo": "/assets/questoes/ar9-q-arco-180.png",
+    "alt": "Circunferência com metade dela em destaque e o diâmetro traçado.",
+    "largura": 292,
+    "altura": 282
+  },
+  "ar9-ideia-relogio": {
+    "arquivo": "/assets/licoes/ar9-ideia-relogio.png",
+    "alt": "Mostrador de relógio com as doze marcas e o ângulo entre duas delas destacado.",
+    "largura": 276,
+    "altura": 282
+  },
+  "ar9-res-tres-horas": {
+    "arquivo": "/assets/licoes/ar9-res-tres-horas.png",
+    "alt": "Mostrador de relógio com os ponteiros nas posições das três horas em ponto.",
+    "largura": 271,
+    "altura": 282
+  },
+  "ar9-q-quatro-horas": {
+    "arquivo": "/assets/questoes/ar9-q-quatro-horas.png",
+    "alt": "Mostrador de relógio com os ponteiros nas posições das quatro horas em ponto.",
+    "largura": 283,
+    "altura": 282
+  },
+  "ar9-q-roda-gigante": {
+    "arquivo": "/assets/questoes/ar9-q-roda-gigante.png",
+    "alt": "Circunferência com vinte cabines igualmente espaçadas, sem medidas.",
+    "largura": 279,
+    "altura": 282
+  },
+  "ar9-q-percurso": {
+    "arquivo": "/assets/questoes/ar9-q-percurso.png",
+    "alt": "Circunferência com um quarto da volta em destaque.",
+    "largura": 307,
+    "altura": 282
+  },
+  "ar9-q-tres-e-meia": {
+    "arquivo": "/assets/questoes/ar9-q-tres-e-meia.png",
+    "alt": "Mostrador de relógio com as doze marcas e o arco entre o 3 e o 4 destacado.",
+    "largura": 297,
+    "altura": 282
+  },
+  "vl9-ideia-cubo-em-tres": {
+    "arquivo": "/assets/licoes/vl9-ideia-cubo-em-tres.png",
+    "alt": "Três cubos iguais lado a lado; em cada um, uma pirâmide diferente está destacada, com o bico no mesmo vértice.",
+    "largura": 431,
+    "altura": 189
+  },
+  "vl9-res-cubo-seis": {
+    "arquivo": "/assets/licoes/vl9-res-cubo-seis.png",
+    "alt": "Cubo de 6 cm de aresta com uma das três pirâmides destacada.",
+    "largura": 171,
+    "altura": 167
+  },
+  "vl9-q-cubo-nove": {
+    "arquivo": "/assets/questoes/vl9-q-cubo-nove.png",
+    "alt": "Cubo de 9 cm de aresta com uma das três pirâmides destacada.",
+    "largura": 171,
+    "altura": 167
+  },
+  "vl9-q-por-que-tres": {
+    "arquivo": "/assets/questoes/vl9-q-por-que-tres.png",
+    "alt": "Cubo com uma pirâmide destacada e o vértice que serve de bico marcado com um ponto cheio.",
+    "largura": 300,
+    "altura": 189
+  },
+  "vl9-q-base-e-altura": {
+    "arquivo": "/assets/questoes/vl9-q-base-e-altura.png",
+    "alt": "Pirâmide de base quadrada com a altura marcada em 10 cm e a área da base indicada por escrito.",
+    "largura": 252,
+    "altura": 277
+  },
+  "vl9-q-altura-no-cubo": {
+    "arquivo": "/assets/questoes/vl9-q-altura-no-cubo.png",
+    "alt": "Cubo de 8 cm de aresta com uma pirâmide destacada e a altura dela sem medida escrita.",
+    "largura": 207,
+    "altura": 167
+  },
+  "vl9-ideia-piramide": {
+    "arquivo": "/assets/licoes/vl9-ideia-piramide.png",
+    "alt": "Pirâmide de base quadrada encaixada dentro do prisma de mesma base e mesma altura, desenhado tracejado.",
+    "largura": 257,
+    "altura": 285
+  },
+  "vl9-res-quadrada-seis": {
+    "arquivo": "/assets/licoes/vl9-res-quadrada-seis.png",
+    "alt": "Pirâmide de base quadrada de 6 cm de lado, com a altura de 10 cm marcada por dentro.",
+    "largura": 252,
+    "altura": 263
+  },
+  "vl9-q-quadrada-nove": {
+    "arquivo": "/assets/questoes/vl9-q-quadrada-nove.png",
+    "alt": "Pirâmide de base quadrada de 9 cm de lado, com a altura de 8 cm marcada por dentro.",
+    "largura": 286,
+    "altura": 208
+  },
+  "vl9-q-retangular": {
+    "arquivo": "/assets/questoes/vl9-q-retangular.png",
+    "alt": "Pirâmide de base retangular com a altura de 9 cm marcada e as medidas da base escritas embaixo.",
+    "largura": 236,
+    "altura": 255
+  },
+  "vl9-q-triangular": {
+    "arquivo": "/assets/questoes/vl9-q-triangular.png",
+    "alt": "Pirâmide de base triangular com a altura de 10 cm marcada e as medidas do triângulo escritas embaixo.",
+    "largura": 255,
+    "altura": 251
+  },
+  "vl9-q-achar-altura": {
+    "arquivo": "/assets/questoes/vl9-q-achar-altura.png",
+    "alt": "Pirâmide de base quadrada de 6 cm de lado com a altura marcada por uma interrogação.",
+    "largura": 242,
+    "altura": 263
+  },
+  "vl9-ideia-cone": {
+    "arquivo": "/assets/licoes/vl9-ideia-cone.png",
+    "alt": "Cone encaixado dentro do cilindro de mesma base e mesma altura, desenhado tracejado.",
+    "largura": 236,
+    "altura": 330
+  },
+  "vl9-res-cone-tres-oito": {
+    "arquivo": "/assets/licoes/vl9-res-cone-tres-oito.png",
+    "alt": "Cone com 3 cm de raio da base e 8 cm de altura, com as duas medidas marcadas.",
+    "largura": 272,
+    "altura": 297
+  },
+  "vl9-q-cone-seis-dez": {
+    "arquivo": "/assets/questoes/vl9-q-cone-seis-dez.png",
+    "alt": "Cone com 6 cm de raio da base e 10 cm de altura, com as duas medidas marcadas.",
+    "largura": 333,
+    "altura": 269
+  },
+  "vl9-q-geratriz": {
+    "arquivo": "/assets/questoes/vl9-q-geratriz.png",
+    "alt": "Cone de 3 cm de raio e 4 cm de altura, com a geratriz destacada e rotulada pela letra g.",
+    "largura": 272,
+    "altura": 193
+  },
+  "vl9-q-cilindro-noventa": {
+    "arquivo": "/assets/questoes/vl9-q-cilindro-noventa.png",
+    "alt": "Cone encaixado no cilindro tracejado de mesma base e altura, com o volume do cilindro escrito embaixo.",
+    "largura": 221,
+    "altura": 326
+  },
+  "vl9-q-cone-cinco-nove": {
+    "arquivo": "/assets/questoes/vl9-q-cone-cinco-nove.png",
+    "alt": "Cone com 5 cm de raio da base e 9 cm de altura, com as duas medidas marcadas.",
+    "largura": 310,
+    "altura": 267
+  },
+  "vl9-ideia-arquimedes": {
+    "arquivo": "/assets/licoes/vl9-ideia-arquimedes.png",
+    "alt": "Meia-esfera ao lado de um cilindro com um cone retirado de dentro, os dois cortados na mesma altura e as duas seções pintadas.",
+    "largura": 435,
+    "altura": 192
+  },
+  "vl9-res-esfera-tres": {
+    "arquivo": "/assets/licoes/vl9-res-esfera-tres.png",
+    "alt": "Esfera de 3 cm de raio, com o equador tracejado e o raio marcado a partir do centro.",
+    "largura": 255,
+    "altura": 236
+  },
+  "vl9-q-esfera-seis": {
+    "arquivo": "/assets/questoes/vl9-q-esfera-seis.png",
+    "alt": "Esfera de 6 cm de raio, com o equador tracejado e o raio marcado a partir do centro.",
+    "largura": 255,
+    "altura": 236
+  },
+  "vl9-q-area-cinco": {
+    "arquivo": "/assets/questoes/vl9-q-area-cinco.png",
+    "alt": "Esfera de 5 cm de raio, com o raio marcado e a superfície em destaque.",
+    "largura": 255,
+    "altura": 254
+  },
+  "vl9-q-por-que-vale": {
+    "arquivo": "/assets/questoes/vl9-q-por-que-vale.png",
+    "alt": "Meia-esfera ao lado de um cilindro com um cone retirado, os dois cortados na mesma altura.",
+    "largura": 430,
+    "altura": 192
+  },
+  "vl9-q-raio-dobra": {
+    "arquivo": "/assets/questoes/vl9-q-raio-dobra.png",
+    "alt": "Tabela com o raio das duas bolas: 2 cm e 4 cm.",
+    "largura": 316,
+    "altura": 148
+  },
+  "vl9-ideia-roteiro": {
+    "arquivo": "/assets/licoes/vl9-ideia-roteiro.png",
+    "alt": "Quatro sólidos lado a lado: prisma, cilindro, pirâmide e cone, nomeados.",
+    "largura": 298,
+    "altura": 274
+  },
+  "vl9-res-cilindro-e-cone": {
+    "arquivo": "/assets/licoes/vl9-res-cilindro-e-cone.png",
+    "alt": "Cone de 3 cm de raio e 8 cm de altura encaixado no cilindro tracejado de mesmas medidas.",
+    "largura": 272,
+    "altura": 330
+  },
+  "vl9-q-prisma-sem-terco": {
+    "arquivo": "/assets/questoes/vl9-q-prisma-sem-terco.png",
+    "alt": "Prisma de base quadrada de 4 cm de lado e 9 cm de altura, com a altura marcada.",
+    "largura": 233,
+    "altura": 257
+  },
+  "vl9-q-quem-leva-terco": {
+    "arquivo": "/assets/questoes/vl9-q-quem-leva-terco.png",
+    "alt": "Quatro sólidos lado a lado: cilindro, cone, prisma e pirâmide, nomeados e sem medidas.",
+    "largura": 298,
+    "altura": 274
+  },
+  "vl9-q-cilindro-dois-dez": {
+    "arquivo": "/assets/questoes/vl9-q-cilindro-dois-dez.png",
+    "alt": "Cilindro de 2 cm de raio e 10 cm de altura, com a altura marcada.",
+    "largura": 175,
+    "altura": 288
+  },
+  "vl9-q-quantas-vezes": {
+    "arquivo": "/assets/questoes/vl9-q-quantas-vezes.png",
+    "alt": "Pirâmide encaixada dentro do prisma tracejado de mesma base e mesma altura, sem medidas escritas.",
+    "largura": 255,
+    "altura": 285
+  },
+  "vl9-ideia-mundo": {
+    "arquivo": "/assets/licoes/vl9-ideia-mundo.png",
+    "alt": "Silo: um cilindro com um cone de telhado em cima, desenhado como uma peça só.",
+    "largura": 285,
+    "altura": 296
+  },
+  "vl9-res-casquinha": {
+    "arquivo": "/assets/licoes/vl9-res-casquinha.png",
+    "alt": "Cone de 3 cm de raio na boca e 10 cm de profundidade, com as duas medidas marcadas.",
+    "largura": 253,
+    "altura": 304
+  },
+  "vl9-q-silo": {
+    "arquivo": "/assets/questoes/vl9-q-silo.png",
+    "alt": "Silo formado por um cilindro de 5 m de altura com um cone de 3 m em cima, ambos de 2 m de raio.",
+    "largura": 203,
+    "altura": 268
+  },
+  "vl9-q-triplicar": {
+    "arquivo": "/assets/questoes/vl9-q-triplicar.png",
+    "alt": "Tabela com as medidas das duas maquetes: a segunda tem o triplo de cada medida da primeira.",
+    "largura": 356,
+    "altura": 148
+  },
+  "vl9-q-bola-na-caixa": {
+    "arquivo": "/assets/questoes/vl9-q-bola-na-caixa.png",
+    "alt": "Bola de 3 cm de raio dentro de uma caixa cúbica de 6 cm de aresta, encostando nas faces.",
+    "largura": 309,
+    "altura": 296
+  },
+  "vl9-q-tres-cilindros": {
+    "arquivo": "/assets/questoes/vl9-q-tres-cilindros.png",
+    "alt": "Tabela com o raio e a altura dos três cilindros do enunciado.",
+    "largura": 348,
+    "altura": 182
+  },
+  "site-suavez": {
+    "arquivo": "/assets/site/site-suavez.png",
+    "alt": "Quadrado de lado a mais b repartido em quatro regiões: dois quadrados e dois retângulos iguais.",
+    "largura": 204,
+    "altura": 234
+  },
+  "site-pi": {
+    "arquivo": "/assets/site/site-pi.png",
+    "alt": "Círculo com o diâmetro marcado e, abaixo, a volta dele esticada numa fita repartida em três diâmetros mais uma sobra.",
+    "largura": 316,
+    "altura": 228
+  },
+  "site-figura": {
+    "arquivo": "/assets/site/site-figura.png",
+    "alt": "Três cubos lado a lado, cada um com uma pirâmide diferente destacada dentro dele.",
+    "largura": 431,
+    "altura": 189
+  },
+  "site-conta": {
+    "arquivo": "/assets/site/site-conta.png",
+    "alt": "Grade com os trinta e seis resultados possíveis de dois dados, com as somas escritas em cada célula.",
+    "largura": 250,
+    "altura": 288
+  },
+  "site-resolvido": {
+    "arquivo": "/assets/site/site-resolvido.png",
+    "alt": "Balança de dois pratos, com uma caixinha marcada x e uma ficha de valor 2 de um lado e uma ficha de valor 5 do outro.",
+    "largura": 268,
+    "altura": 150
+  },
+  "site-ideia": {
+    "arquivo": "/assets/site/site-ideia.png",
+    "alt": "Triângulo com uma reta paralela à base traçada pelo vértice de cima: os ângulos a e b da base reaparecem ao lado do ângulo c, formando um ângulo raso.",
+    "largura": 330,
+    "altura": 254
   }
 }

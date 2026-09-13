@@ -1,0 +1,191 @@
+{
+  "id": "de-onde-vem-o-terco",
+  "numero": 1,
+  "titulo": "De onde vem o terço",
+  "pergunta": "Por que a pirâmide vale exatamente um terço do prisma?",
+  "ideia": {
+    "paragrafos": [
+      "O 8º ano fechou a conta dos sólidos de lados retos: o volume é a área da base vezes a altura, com a base que for. Um prisma de base triangular, um cilindro, uma peça em L — todos obedecem à mesma frase, porque todos são camadas iguais empilhadas.",
+      "Um sólido que termina em PONTA não é assim. Subindo, a fatia vai encolhendo até virar um ponto, e por isso ele cabe dentro do prisma de mesma base e mesma altura sobrando muito espaço. A pergunta é quanto sobra — e a resposta é sempre a mesma: o sólido pontudo ocupa exatamente um terço.",
+      "Quase todo livro apresenta isso como experiência: enche-se um cone de areia, despeja-se no cilindro, repete-se três vezes e ele fica cheio. A experiência convence, mas não explica. E vale mais ver uma vez por que o número é três do que aceitar que é três.",
+      "Olhe para um cubo e escolha um vértice dele. Três das seis faces do cubo NÃO contêm esse vértice — a de baixo, a da frente e a da esquerda, se o vértice escolhido for o de cima, atrás, à direita. Cada uma dessas três faces é a base de uma pirâmide cujo bico é o vértice escolhido.",
+      "As três pirâmides não se sobrepõem e não deixam vão: juntas, são o cubo inteiro. Dá para dizer exatamente onde cada ponto do cubo cai — ele pertence à pirâmide cuja face-base é a mais próxima dele. E as três são iguais, porque as três faces são iguais e a distância do vértice a cada uma é a mesma aresta.",
+      "Então cada pirâmide é um terço do cubo. Repare no que cada uma tem: a base é uma FACE do cubo, e a altura é a ARESTA. Se a aresta vale a, o cubo vale a × a × a, cada pirâmide vale a³/3 — que é exatamente (área da base) × (altura) ÷ 3. A fórmula não foi imposta: ela apareceu.",
+      "Esse terço vale para qualquer pirâmide e para qualquer cone, com base de qualquer formato. A demonstração completa do caso geral fica para o Ensino Médio, mas o caso do cubo já mostra de onde o três sai: não de uma experiência com areia, e sim de uma repartição que dá para desenhar."
+    ],
+    "destaque": "Um cubo se reparte em três pirâmides iguais, cada uma com uma face por base e a aresta por altura. É daí que sai o terço.",
+    "imagem": "vl9-ideia-cubo-em-tres"
+  },
+  "resolvido": {
+    "enunciado": "Um cubo tem 6 cm de aresta e foi repartido nas três pirâmides da figura. Qual é o volume de cada uma delas, em cm³?",
+    "imagem": "vl9-res-cubo-seis",
+    "passos": [
+      {
+        "titulo": "Calcule o volume do cubo",
+        "explicacao": "Ele é um prisma comum: a área da base vezes a altura.",
+        "conta": "6 × 6 × 6 = 216 cm³"
+      },
+      {
+        "titulo": "Reparta em três",
+        "explicacao": "As três pirâmides são iguais e juntas formam o cubo inteiro.",
+        "conta": "216 / 3 = 72 cm³"
+      },
+      {
+        "titulo": "Confira pela fórmula que acabou de aparecer",
+        "explicacao": "A base de cada pirâmide é uma face do cubo, e a altura é a aresta.",
+        "conta": "36 × 6 / 3 = 72 cm³"
+      }
+    ],
+    "fecho": "Os dois caminhos dão 72 cm³, e essa concordância é o ponto da lição: o terço não é uma regra à parte, é o que a repartição do cubo produz."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um cubo de 9 cm de aresta é repartido em três pirâmides iguais, do mesmo jeito da lição. Qual é o volume de cada pirâmide, em cm³? Digite apenas o número.",
+      "imagem": "vl9-q-cubo-nove",
+      "dica": "Ache primeiro o volume do cubo inteiro e depois reparta entre as três pirâmides.",
+      "formato": "numero",
+      "resposta": 243,
+      "errosComuns": [
+        {
+          "resposta": "729",
+          "porque": "729 é o volume do CUBO inteiro, 9 × 9 × 9. Ele é a soma das três pirâmides, e a questão pede uma delas — falta dividir por três."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é 81 ÷ 3, ou seja, a área de uma face repartida em três. Isso é uma área, e não um volume: o volume da pirâmide ainda precisa da altura, que aqui é a aresta de 9 cm."
+        },
+        {
+          "resposta": "81",
+          "porque": "81 é a área de uma FACE do cubo, que é a base da pirâmide. Ela entra na conta, mas ainda falta multiplicar pela altura e dividir por três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o volume do cubo",
+          "explicacao": "Aresta vezes aresta vezes aresta, como em qualquer prisma.",
+          "conta": "9 × 9 × 9 = 729 cm³"
+        },
+        {
+          "titulo": "Reparta entre as três pirâmides",
+          "explicacao": "Elas são iguais e preenchem o cubo sem sobra.",
+          "conta": "729 / 3 = 243 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Na repartição do cubo mostrada na lição, por que as pirâmides são exatamente TRÊS?",
+      "imagem": "vl9-q-por-que-tres",
+      "dica": "Conte quantas faces do cubo não tocam o vértice que serve de bico às pirâmides.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque três das seis faces do cubo não contêm o vértice escolhido, e cada uma delas é a base de uma pirâmide" },
+        { "rotulo": "B", "texto": "Porque o cubo tem três dimensões: comprimento, largura e altura" },
+        { "rotulo": "C", "texto": "Porque foi o número que deu certo na experiência de encher de areia" },
+        { "rotulo": "D", "texto": "Porque toda figura de três dimensões se reparte em três pedaços iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o cubo tem três dimensões: comprimento, largura e altura",
+          "porque": "A coincidência entre os dois números é só coincidência. O três da repartição vem de contar FACES que não tocam o vértice escolhido: são seis faces ao todo, e as três que contêm o vértice ficam de fora."
+        },
+        {
+          "resposta": "Porque foi o número que deu certo na experiência de encher de areia",
+          "porque": "A experiência mostra o resultado, mas não explica nada — e a lição existe justamente para não parar nela. A repartição do cubo é uma demonstração: dá para dizer em qual pirâmide cai cada ponto."
+        },
+        {
+          "resposta": "Porque toda figura de três dimensões se reparte em três pedaços iguais",
+          "porque": "Isso não é verdade para figura nenhuma em geral. Um cilindro, por exemplo, não se reparte em três cilindros iguais. O que vale aqui é a repartição específica do cubo por um vértice."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as faces do cubo",
+          "explicacao": "Um cubo tem seis faces, e cada vértice dele pertence a três delas.",
+          "conta": "6 faces · 3 tocam o vértice"
+        },
+        {
+          "titulo": "Veja quantas sobram",
+          "explicacao": "As faces que não tocam o vértice são as que podem servir de base.",
+          "conta": "6 − 3 = 3 pirâmides"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma pirâmide tem base de 36 cm² e altura de 10 cm. Qual é o volume dela, em cm³? Digite apenas o número.",
+      "imagem": "vl9-q-base-e-altura",
+      "dica": "Use a fórmula que apareceu na repartição do cubo: base vezes altura, dividido por três.",
+      "formato": "numero",
+      "resposta": 120,
+      "errosComuns": [
+        {
+          "resposta": "360",
+          "porque": "360 é 36 × 10, que é o volume do PRISMA de mesma base e mesma altura. A pirâmide termina em ponta e ocupa só um terço dele."
+        },
+        {
+          "resposta": "46",
+          "porque": "46 é 36 + 10, somando a base com a altura. Volume não se obtém somando medidas de naturezas diferentes: uma é área, a outra é comprimento."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é 36 ÷ 3, dividindo só a base por três e esquecendo a altura. A altura tem de entrar na conta, senão o resultado continua sendo uma área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o prisma de mesma base e altura",
+          "explicacao": "É o sólido dentro do qual a pirâmide cabe três vezes.",
+          "conta": "36 × 10 = 360 cm³"
+        },
+        {
+          "titulo": "Tome o terço",
+          "explicacao": "A pirâmide ocupa um terço desse prisma, pelo que a lição mostrou.",
+          "conta": "360 / 3 = 120 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na repartição de um cubo de aresta 8 cm, qual é a ALTURA de cada uma das três pirâmides?",
+      "imagem": "vl9-q-altura-no-cubo",
+      "dica": "A altura vai do bico da pirâmide até o plano da base dela, em linha perpendicular.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "8 cm, porque o bico fica num vértice do cubo e a base é a face oposta a ele" },
+        { "rotulo": "B", "texto": "4 cm, porque o bico fica no meio do cubo" },
+        { "rotulo": "C", "texto": "24 cm, porque são três pirâmides de 8 cm cada uma" },
+        { "rotulo": "D", "texto": "Depende de qual das três pirâmides, porque elas têm alturas diferentes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "4 cm, porque o bico fica no meio do cubo",
+          "porque": "O bico das três pirâmides não fica no meio do cubo: ele fica num VÉRTICE dele. Essa é outra repartição, que daria seis pirâmides em vez de três."
+        },
+        {
+          "resposta": "24 cm, porque são três pirâmides de 8 cm cada uma",
+          "porque": "As três alturas não se somam: cada pirâmide é medida sozinha, e a altura de cada uma é a distância do bico até a base dela. Somar daria a altura de três cubos empilhados."
+        },
+        {
+          "resposta": "Depende de qual das três pirâmides, porque elas têm alturas diferentes",
+          "porque": "As três são iguais, e é exatamente por isso que cada uma vale um terço. Se as alturas fossem diferentes, os volumes também seriam, e a repartição não provaria nada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o bico e a base",
+          "explicacao": "O bico é o vértice escolhido, e a base é uma face que não o contém.",
+          "conta": "vértice · face oposta"
+        },
+        {
+          "titulo": "Meça a distância entre eles",
+          "explicacao": "De um vértice até a face que não o contém vai exatamente uma aresta.",
+          "conta": "altura = 8 cm"
+        }
+      ]
+    }
+  ]
+}

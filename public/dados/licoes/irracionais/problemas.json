@@ -1,0 +1,199 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Problemas com irracionais",
+  "pergunta": "Quando aproximar, e quando guardar o símbolo da raiz?",
+  "ideia": {
+    "paragrafos": [
+      "Na prática, todo problema com irracional termina num número decimal — ninguém corta madeira em √2 metros. O que esta lição organiza é QUANDO fazer essa passagem, porque fazê-la cedo demais custa precisão e fazê-la tarde demais não custa nada.",
+      "A regra é simples: guarde o símbolo até o fim. Numa conta com vários passos, cada aproximação intermediária arrasta um errinho, e os errinhos se acumulam. Calculando a diagonal de um quadrado de lado 3 e depois dobrando: 3√2 × 2 = 6√2 ≈ 8,485 é exato até o último passo; arredondando antes, 4,24 × 2 = 8,48, já perdeu uma casa.",
+      "A segunda decisão é quantas casas usar no fim, e ela vem do problema, não da matemática. Uma medida de marcenaria pede milímetros: duas casas em metros bastam. Um cálculo de engenharia pode pedir seis. Escrever mais casas do que a medida original tinha é falsa precisão — se o lado foi medido com régua de milímetro, a diagonal não fica mais exata por ter oito decimais.",
+      "A terceira é o sentido do arredondamento, e ele às vezes é decidido pelo problema em vez da regra usual. Para saber quantos ladrilhos comprar, arredonde para CIMA — faltar um ladrilho para o chão inteiro é pior que sobrar. Para saber quantas peças cabem numa tábua, arredonde para BAIXO, porque peça pela metade não serve. É o mesmo raciocínio da lição 6 de Inequações, no 7º ano.",
+      "E vale lembrar da conferência de ordem de grandeza, que continua valendo aqui: √50 tem de dar algo entre 7 e 8. Se a sua conta deu 25 ou 0,7, alguma coisa saiu errada antes de qualquer arredondamento — e o intervalo entre inteiros, que sai sem calculadora, é o que permite perceber isso."
+    ],
+    "destaque": "Guarde o símbolo da raiz até o último passo. Cada arredondamento intermediário arrasta um erro que se acumula.",
+    "imagem": "ir9-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Um quadrado tem 5 m de lado. Qual é a diagonal dele, em metros, com duas casas decimais? Use √2 ≈ 1,4142.",
+    "imagem": "ir9-res-diagonal-5",
+    "passos": [
+      {
+        "titulo": "Monte a conta com o símbolo",
+        "explicacao": "A diagonal do quadrado de lado L é L vezes a raiz de 2.",
+        "conta": "d = 5√2"
+      },
+      {
+        "titulo": "Confira a ordem de grandeza",
+        "explicacao": "Como √2 está entre 1 e 2, a diagonal está entre 5 e 10.",
+        "conta": "5 < d < 10"
+      },
+      {
+        "titulo": "Aproxime só agora",
+        "explicacao": "Trocando o símbolo pelo valor aproximado no último passo.",
+        "conta": "5 × 1,4142 = 7,071"
+      },
+      {
+        "titulo": "Arredonde como o problema pede",
+        "explicacao": "Duas casas decimais, que é a precisão pedida.",
+        "conta": "d ≈ 7,07 m"
+      }
+    ],
+    "fecho": "Aproximar √2 como 1,4 no primeiro passo daria 7,0 — uma casa a menos de precisão, de graça."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um quadrado tem 10 m de lado. Qual é a diagonal dele, em metros, com duas casas decimais? Use √2 ≈ 1,4142 e digite apenas o número.",
+      "imagem": "ir9-q-diagonal-10",
+      "dica": "Monte a conta com o símbolo da raiz e só troque pelo valor aproximado no fim.",
+      "formato": "numero",
+      "resposta": 14.14,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é 10 + 10, somando os dois lados. A diagonal não é a soma dos catetos: por Pitágoras, o quadrado dela é 100 + 100 = 200, e a diagonal é √200 ≈ 14,14."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é 10², a ÁREA do quadrado em metros quadrados. A diagonal é um comprimento, e vale 10√2 metros."
+        },
+        {
+          "resposta": "1.41",
+          "porque": "1,41 é a aproximação de √2 sozinha, sem multiplicar pelo lado. A diagonal de um quadrado de 10 m não pode ser menor que o próprio lado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte com o símbolo",
+          "explicacao": "A diagonal do quadrado é o lado multiplicado pela raiz de 2.",
+          "conta": "d = 10√2"
+        },
+        {
+          "titulo": "Aproxime no fim",
+          "explicacao": "Trocando √2 pelo valor dado só no último passo.",
+          "conta": "10 × 1,4142 = 14,142"
+        },
+        {
+          "titulo": "Arredonde",
+          "explicacao": "O problema pede duas casas decimais.",
+          "conta": "d ≈ 14,14 m"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que convém guardar o símbolo √2 até o último passo de uma conta?",
+      "imagem": "ir9-q-por-que-guardar",
+      "dica": "Pense no que acontece com o errinho de cada arredondamento quando há vários passos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque cada arredondamento intermediário acumula erro no resultado" },
+        { "rotulo": "B", "texto": "Porque √2 não pode ser multiplicado por inteiros" },
+        { "rotulo": "C", "texto": "Porque assim o resultado fica exato" },
+        { "rotulo": "D", "texto": "Porque é proibido usar decimais em geometria" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque √2 não pode ser multiplicado por inteiros",
+          "porque": "Pode, e é o que se faz o tempo todo: 5√2 é exatamente isso. Guardar o símbolo não é uma restrição da operação — é uma escolha de quando trocar o número exato pelo aproximado."
+        },
+        {
+          "resposta": "Porque assim o resultado fica exato",
+          "porque": "O resultado final ainda será aproximado, porque em algum momento o decimal entra. O que se ganha é que o erro aparece uma vez só, em vez de se acumular a cada passo."
+        },
+        {
+          "resposta": "Porque é proibido usar decimais em geometria",
+          "porque": "Não há proibição nenhuma: toda medida prática acaba em decimal. A questão é apenas o MOMENTO de converter, e converter no fim é mais preciso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o arredondamento faz",
+          "explicacao": "Cada aproximação troca o número exato por um vizinho.",
+          "conta": "um errinho por passo"
+        },
+        {
+          "titulo": "Veja o efeito de vários passos",
+          "explicacao": "Os errinhos se somam e podem mudar a última casa do resultado.",
+          "conta": "erro acumulado"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma tábua tem √50 metros de comprimento e será cortada em peças inteiras de 1 metro. Quantas peças saem? Digite apenas o número.",
+      "imagem": "ir9-q-tabua",
+      "dica": "√50 está entre dois inteiros. Peça pela metade não serve, então o arredondamento tem um sentido só.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "8",
+          "porque": "8 arredonda para CIMA, e aqui isso não serve: a tábua tem cerca de 7,07 m, então a oitava peça sairia com 7 centímetros. Peça incompleta não conta."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é o radicando, e não a medida da tábua. Ela mede √50 metros, que fica entre 7 e 8 — bem longe de 50."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é metade de 50, e não a raiz de 50. Metade e raiz são operações diferentes: 25 × 25 daria 625."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Prenda a medida entre inteiros",
+          "explicacao": "Os quadrados perfeitos vizinhos de 50 são 49 e 64.",
+          "conta": "7 < √50 < 8"
+        },
+        {
+          "titulo": "Decida o arredondamento pelo problema",
+          "explicacao": "A peça precisa ter 1 metro inteiro, então o que sobra não vira peça.",
+          "conta": "para baixo: 7 peças"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um lado foi medido com régua de milímetro e deu 2,3 cm. Faz sentido escrever a diagonal do quadrado como 3,25269 cm?",
+      "imagem": "ir9-q-falsa-precisao",
+      "dica": "Compare quantas casas a medida original tinha com quantas o resultado apresenta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: o resultado não pode ser mais preciso que a medida que o gerou" },
+        { "rotulo": "B", "texto": "Sim, quanto mais casas melhor" },
+        { "rotulo": "C", "texto": "Sim, porque a conta dá exatamente esse valor" },
+        { "rotulo": "D", "texto": "Não, porque diagonal nunca tem casas decimais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, quanto mais casas melhor",
+          "porque": "Mais casas só ajudam se a informação de origem as sustentar. Como o lado foi medido até o milímetro, a incerteza dele já é maior que as casas extras — elas sugerem uma precisão que a medição não tem."
+        },
+        {
+          "resposta": "Sim, porque a conta dá exatamente esse valor",
+          "porque": "A conta dá esse valor a partir de 2,3, mas o lado real pode estar entre 2,25 e 2,35 cm. Toda essa faixa produz diagonais diferentes, e nenhuma das casas extras do resultado é confiável."
+        },
+        {
+          "resposta": "Não, porque diagonal nunca tem casas decimais",
+          "porque": "Ela quase sempre tem: a diagonal de um quadrado de lado inteiro é irracional, com infinitas casas. O problema aqui não é haver casas, e sim escrever mais do que a medição sustenta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as casas da medida",
+          "explicacao": "O lado foi medido com uma casa decimal, até o milímetro.",
+          "conta": "2,3 cm · 1 casa"
+        },
+        {
+          "titulo": "Compare com o resultado",
+          "explicacao": "Cinco casas no resultado sugerem uma precisão que a régua não deu.",
+          "conta": "falsa precisão"
+        }
+      ]
+    }
+  ]
+}

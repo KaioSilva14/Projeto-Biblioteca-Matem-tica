@@ -1,0 +1,190 @@
+{
+  "id": "raiz",
+  "numero": 5,
+  "titulo": "A raiz da função",
+  "pergunta": "Onde a função vale zero, e por que isso importa?",
+  "ideia": {
+    "paragrafos": [
+      "A RAIZ de uma função, também chamada de zero da função, é o valor de entrada que faz a saída ser zero. Achá-la é resolver f(x) = 0 — ou seja, ax + b = 0, que é uma equação do 1º grau do 7º ano. Em f(x) = 3x − 12, isso dá 3x = 12, logo x = 4.",
+      "No gráfico, a raiz é o ponto em que a reta cruza o eixo HORIZONTAL. Faz sentido: os pontos desse eixo são exatamente os de saída zero. Vale guardar a distinção, porque as duas coisas se confundem — o b diz onde a reta corta o eixo vertical, e a raiz diz onde ela corta o horizontal.",
+      "A raiz não é curiosidade de prova: em situação real, ela costuma ser o ponto de virada. Numa conta de lucro, é onde o negócio deixa de dar prejuízo. Num tanque que esvazia, é o instante em que a água acaba. Numa dívida que vai sendo paga, é o dia em que ela zera. Perguntar \"quando isso chega a zero?\" é perguntar pela raiz.",
+      "Toda função afim de verdade tem exatamente UMA raiz, e é fácil ver por quê: a reta não é horizontal, então ela cruza o eixo horizontal, e cruza uma vez só. Só o caso degenerado com a igual a zero escapa — aí a reta é horizontal e ou nunca toca o eixo, ou é o próprio eixo.",
+      "A raiz também reparte o eixo em duas regiões, e é ela que responde à pergunta \"para quais valores a função é positiva?\". De um lado da raiz a saída é positiva, do outro é negativa — e qual lado é qual depende do sinal do a. Em f(x) = 4x − 8, com a positivo, a função é negativa antes de 2 e positiva depois.",
+      "Quando o a é negativo, os lados trocam: em f(x) = −x + 3 a raiz é 3, a função é positiva ANTES dela e negativa depois. Não vale decorar o lado; vale calcular a raiz e testar um valor de cada lado — dois testes rápidos que nunca falham."
+    ],
+    "destaque": "A raiz é o x que zera a função, e é onde a reta cruza o eixo horizontal. Toda função afim tem uma, e uma só.",
+    "imagem": "fa9-ideia-raiz"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a raiz de f(x) = 3x − 12?",
+    "imagem": "fa9-res-raiz-3x-12",
+    "passos": [
+      {
+        "titulo": "Escreva o que a raiz exige",
+        "explicacao": "A raiz é a entrada que faz a saída ser zero.",
+        "conta": "3x − 12 = 0"
+      },
+      {
+        "titulo": "Passe o termo independente",
+        "explicacao": "Somando 12 aos dois lados, como no 7º ano.",
+        "conta": "3x = 12"
+      },
+      {
+        "titulo": "Divida pelo coeficiente",
+        "explicacao": "É o último passo da equação do 1º grau.",
+        "conta": "x = 4"
+      }
+    ],
+    "fecho": "Conferindo: f(4) = 12 − 12 = 0 ✓. No gráfico, a reta cruza o eixo horizontal em 4."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a raiz da função f(x) = 2x − 10? Digite apenas o número.",
+      "imagem": "fa9-q-raiz-2x-10",
+      "dica": "Iguale a lei a zero e resolva a equação do 1º grau que aparece.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "-10",
+          "porque": "−10 é o coeficiente b, que diz onde a reta corta o eixo VERTICAL. A raiz é o corte no eixo horizontal, e sai de resolver 2x − 10 = 0."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 sai de esquecer a divisão por 2. Depois de passar o −10, fica 2x = 10, e ainda falta dividir os dois lados por 2."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 troca o sinal no caminho: passando o −10 para o outro lado ele vira +10, e não −10. Conferindo, f(−5) daria −20, e não zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale a zero",
+          "explicacao": "É a definição de raiz: a entrada que anula a saída.",
+          "conta": "2x − 10 = 0"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Passa o termo independente e divide pelo coeficiente de x.",
+          "conta": "2x = 10 → x = 5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a raiz da função f(x) = −x + 3? Digite apenas o número.",
+      "imagem": "fa9-q-raiz-negativa",
+      "dica": "Iguale a zero. Cuidado: aqui o coeficiente de x é −1.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "-3",
+          "porque": "O sinal se perdeu na passagem: de −x + 3 = 0 vem −x = −3, e dividindo os dois lados por −1 sai x = 3. Conferindo, f(3) = −3 + 3 = 0 ✓."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o valor da SAÍDA na raiz, e não da entrada. A pergunta é qual x produz essa saída, e f(0) daria 3, não zero."
+        },
+        {
+          "resposta": "-1",
+          "porque": "−1 é o coeficiente que multiplica o x, e não a raiz. Substituindo, f(−1) daria 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale a zero",
+          "explicacao": "A raiz é a entrada que anula a saída, como sempre.",
+          "conta": "−x + 3 = 0"
+        },
+        {
+          "titulo": "Isole o x",
+          "explicacao": "Passando o 3 e dividindo os dois lados por −1, os dois sinais se desfazem.",
+          "conta": "−x = −3 → x = 3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que a raiz de uma função afim representa no gráfico?",
+      "imagem": "fa9-q-raiz-no-grafico",
+      "dica": "Pense em que ponto do plano a saída vale zero.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O ponto em que a reta cruza o eixo horizontal" },
+        { "rotulo": "B", "texto": "O ponto em que a reta cruza o eixo vertical" },
+        { "rotulo": "C", "texto": "A inclinação da reta" },
+        { "rotulo": "D", "texto": "O ponto em que a reta passa pela origem" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O ponto em que a reta cruza o eixo vertical",
+          "porque": "Esse é o b, e é o corte onde a ENTRADA vale zero. Na raiz quem vale zero é a saída, e isso acontece no outro eixo."
+        },
+        {
+          "resposta": "A inclinação da reta",
+          "porque": "A inclinação é o coeficiente a, que diz o quanto a reta sobe por passo. A raiz é um ponto do eixo horizontal, e não uma medida de subida."
+        },
+        {
+          "resposta": "O ponto em que a reta passa pela origem",
+          "porque": "A reta só passa pela origem quando b vale zero, o que é um caso particular. Toda função afim tem raiz, mas quase nenhuma passa pela origem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza a condição",
+          "explicacao": "Raiz é a entrada cuja saída é zero.",
+          "conta": "f(x) = 0"
+        },
+        {
+          "titulo": "Ache esses pontos no plano",
+          "explicacao": "Os pontos de saída zero formam o eixo horizontal.",
+          "conta": "cruzamento com o eixo x"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Para quais valores de x a função f(x) = 4x − 8 é positiva?",
+      "imagem": "fa9-q-sinal",
+      "dica": "Ache a raiz primeiro, depois teste um valor de cada lado dela.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Para x maior que 2" },
+        { "rotulo": "B", "texto": "Para x menor que 2" },
+        { "rotulo": "C", "texto": "Para x maior que 8" },
+        { "rotulo": "D", "texto": "Para todo x, porque o coeficiente é positivo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Para x menor que 2",
+          "porque": "É o lado errado da raiz. Testando x = 0, que é menor que 2, sai f(0) = −8 — negativo. O lado positivo, com a positivo, é o da direita."
+        },
+        {
+          "resposta": "Para x maior que 8",
+          "porque": "8 é o termo independente, e não a raiz. A raiz sai de 4x = 8, que dá x = 2 — e a partir de 2 a função já é positiva: f(3) vale 4."
+        },
+        {
+          "resposta": "Para todo x, porque o coeficiente é positivo",
+          "porque": "O sinal do a diz o SENTIDO da reta, não o sinal da saída. Uma reta crescente passa pelos negativos antes da raiz: f(1) vale −4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a raiz",
+          "explicacao": "É ela que separa a região positiva da negativa.",
+          "conta": "4x − 8 = 0 → x = 2"
+        },
+        {
+          "titulo": "Teste os dois lados",
+          "explicacao": "Um valor antes da raiz e um depois resolvem a dúvida sem decoreba.",
+          "conta": "f(1) = −4 · f(3) = 4"
+        }
+      ]
+    }
+  ]
+}

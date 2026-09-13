@@ -1,0 +1,184 @@
+{
+  "id": "comprimento-e-area",
+  "numero": 5,
+  "titulo": "Do grau ao centímetro",
+  "pergunta": "Quanto anda, em centímetros, um arco de 60°?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui o arco foi medido em graus, que é abertura. Agora entra a outra medida: o COMPRIMENTO, em centímetros ou metros — o quanto se anda percorrendo aquele pedaço de curva. E a ponte entre as duas é uma proporção simples.",
+      "A ideia é esta: o arco está para a circunferência inteira assim como o ângulo está para 360°. Um arco de 60° é 60/360 da volta, ou seja, um sexto dela. Então o comprimento dele é um sexto do comprimento total da circunferência, que o 7º ano já deu: 2πr.",
+      "Num exemplo com raio 6 cm: a circunferência inteira mede 2 × 3,14 × 6 = 37,68 cm. Um arco de 60° leva um sexto disso, ou seja, 6,28 cm. A mesma conta escrita de uma vez: (60/360) × 2πr.",
+      "O SETOR circular é a fatia de pizza correspondente ao arco — a região limitada pelos dois raios e pelo arco. A área dele sai da mesma proporção, agora aplicada à área do círculo, que é πr². Um setor de 60° tem um sexto da área total.",
+      "No mesmo círculo de raio 6: a área inteira é 3,14 × 36 = 113,04 cm², e o setor de 60° leva 18,84 cm². Repare que a fração é a MESMA nos dois casos — um sexto —, mas ela se aplica a grandezas diferentes, e os números não têm relação entre si.",
+      "Um cuidado que evita confusão em prova: o comprimento do arco usa o RAIO na primeira potência; a área do setor usa o raio ao QUADRADO. É a mesma distinção entre perímetro e área que atravessa o Fundamental inteiro, e que a matéria de semelhança tratou com k e k²."
+    ],
+    "destaque": "O arco está para a volta assim como o ângulo está para 360°. A mesma fração serve para o comprimento e para a área.",
+    "imagem": "ar9-ideia-setor"
+  },
+  "resolvido": {
+    "enunciado": "Numa circunferência de raio 6 cm, quanto mede o comprimento de um arco de 60°? Use π = 3,14.",
+    "imagem": "ar9-res-comprimento",
+    "passos": [
+      {
+        "titulo": "Ache a fração da volta",
+        "explicacao": "O ângulo do arco dividido pelos 360° da volta inteira.",
+        "conta": "60 / 360 = 1/6"
+      },
+      {
+        "titulo": "Calcule a circunferência inteira",
+        "explicacao": "É a fórmula do 7º ano, com o raio dado.",
+        "conta": "2 × 3,14 × 6 = 37,68 cm"
+      },
+      {
+        "titulo": "Tome a fração",
+        "explicacao": "O arco leva a mesma fatia do comprimento total.",
+        "conta": "37,68 / 6 = 6,28 cm"
+      }
+    ],
+    "fecho": "Conferindo o sentido: 6,28 é bem menor que os 37,68 da volta inteira, como um sexto tem de ser."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa circunferência de raio 10 cm, quanto mede o comprimento de um arco de 90°? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ar9-q-arco-90",
+      "dica": "Um arco de 90° é um quarto da volta.",
+      "formato": "numero",
+      "resposta": 15.7,
+      "errosComuns": [
+        {
+          "resposta": "62,8",
+          "porque": "62,8 é a circunferência INTEIRA, 2 × 3,14 × 10. Falta tomar a fração: um arco de 90° leva um quarto dela."
+        },
+        {
+          "resposta": "78,5",
+          "porque": "78,5 é um quarto da ÁREA do círculo, que usa o raio ao quadrado. Comprimento de arco usa o raio na primeira potência."
+        },
+        {
+          "resposta": "31,4",
+          "porque": "31,4 é metade da circunferência, ou seja, o arco de 180°. Um arco de 90° é a metade disso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a fração",
+          "explicacao": "Noventa graus de trezentos e sessenta é um quarto.",
+          "conta": "90 / 360 = 1/4"
+        },
+        {
+          "titulo": "Calcule e reparta",
+          "explicacao": "A circunferência inteira dividida em quatro partes.",
+          "conta": "62,8 / 4 = 15,7 cm"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num círculo de raio 6 cm, qual é a área de um setor de 60°? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ar9-q-setor-60",
+      "dica": "A mesma fração de antes, agora aplicada à área do círculo.",
+      "formato": "numero",
+      "resposta": 18.84,
+      "errosComuns": [
+        {
+          "resposta": "113,04",
+          "porque": "113,04 é a área do círculo INTEIRO. Falta tomar a fração: um setor de 60° leva um sexto dela."
+        },
+        {
+          "resposta": "6,28",
+          "porque": "6,28 é o COMPRIMENTO do arco de 60° neste círculo. Comprimento e área são grandezas diferentes, e a área usa o raio ao quadrado."
+        },
+        {
+          "resposta": "37,68",
+          "porque": "37,68 é a circunferência inteira. A área do círculo usa πr², e não 2πr."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a área do círculo",
+          "explicacao": "A fórmula do 7º ano, com o raio ao quadrado.",
+          "conta": "3,14 × 36 = 113,04"
+        },
+        {
+          "titulo": "Tome a fração",
+          "explicacao": "Sessenta graus de trezentos e sessenta é um sexto.",
+          "conta": "113,04 / 6 = 18,84 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que o comprimento de um arco usa o raio, e a área do setor usa o raio ao quadrado?",
+      "imagem": "ar9-q-r-ou-r2",
+      "dica": "Pense em quantas dimensões cada uma das duas medidas tem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque comprimento tem uma dimensão e área tem duas" },
+        { "rotulo": "B", "texto": "Porque o π aparece duas vezes na área" },
+        { "rotulo": "C", "texto": "Porque a área é sempre maior que o comprimento" },
+        { "rotulo": "D", "texto": "Porque o setor tem dois raios e o arco tem um" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o π aparece duas vezes na área",
+          "porque": "Ele aparece uma vez só nas duas fórmulas: 2πr e πr². Quem está ao quadrado é o raio, e o motivo é a área ter duas dimensões."
+        },
+        {
+          "resposta": "Porque a área é sempre maior que o comprimento",
+          "porque": "Comparar os dois números não faz sentido: um está em centímetros e o outro em centímetros quadrados. São grandezas de naturezas diferentes."
+        },
+        {
+          "resposta": "Porque o setor tem dois raios e o arco tem um",
+          "porque": "A contagem de raios desenhados não entra na fórmula. O expoente vem da dimensão da grandeza, e é a mesma razão pela qual semelhança usa k e k²."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte as dimensões",
+          "explicacao": "Comprimento mede numa direção só; área, em duas.",
+          "conta": "1 e 2 dimensões"
+        },
+        {
+          "titulo": "Traduza no expoente",
+          "explicacao": "Cada dimensão acrescenta um fator de raio.",
+          "conta": "2πr e πr²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa circunferência de raio 5 cm, quanto mede o comprimento de um arco de 180°? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ar9-q-arco-180",
+      "dica": "Um arco de 180° é metade da volta.",
+      "formato": "numero",
+      "resposta": 15.7,
+      "errosComuns": [
+        {
+          "resposta": "31,4",
+          "porque": "31,4 é a circunferência INTEIRA, 2 × 3,14 × 5. Um arco de 180° leva metade dela."
+        },
+        {
+          "resposta": "78,5",
+          "porque": "78,5 é a área do círculo inteiro, 3,14 × 25. A pergunta é por um comprimento, que usa 2πr."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é o diâmetro, ou seja, a corda que liga as pontas do arco. O arco é o caminho pela curva, e ele é mais longo que a reta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a fração",
+          "explicacao": "Cento e oitenta graus de trezentos e sessenta é a metade.",
+          "conta": "180 / 360 = 1/2"
+        },
+        {
+          "titulo": "Calcule e reparta",
+          "explicacao": "Metade da circunferência inteira.",
+          "conta": "31,4 / 2 = 15,7 cm"
+        }
+      ]
+    }
+  ]
+}

@@ -505,3 +505,113 @@
   border-radius: var(--r-xs);
 }
 .certificado__aviso { margin: var(--e-lg) 0 0; }
+
+/* ═══════════ Páginas fixas (sobre, perguntas, privacidade, agradecimentos) ═══════════ */
+
+/* Uma faixa de explicação: texto de um lado, figura do outro, alternando o
+   lado a cada faixa. A figura é PNG de verdade, saída do mesmo gerador que
+   desenha as lições — quem chega pela busca vê o que vai encontrar dentro. */
+.faixa {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-3xl);
+  align-items: center;
+  padding-block: var(--e-3xl);
+  border-top: 1px solid var(--hairline);
+}
+.faixa:first-of-type { border-top: 0; }
+.faixa__texto p:last-child { margin-bottom: 0; }
+.faixa__texto .eyebrow { display: block; margin-bottom: var(--e-md); }
+.faixa__titulo { margin: 0 0 var(--e-lg); }
+.faixa__figura {
+  display: flex;
+  justify-content: center;
+  padding: var(--e-xl);
+  background: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+}
+.faixa__figura img { display: block; height: auto; max-width: 100%; }
+.faixa--invertida .faixa__texto { order: 2; }
+@media (max-width: 860px) {
+  .faixa { grid-template-columns: 1fr; gap: var(--e-xl); padding-block: var(--e-2xl); }
+  .faixa--invertida .faixa__texto { order: 0; }
+  .faixa__figura { padding: var(--e-lg); margin-inline: calc(var(--e-lg) * -1); border-radius: 0; }
+}
+
+/* A figura dos cards de método, no mesmo lugar do texto. */
+.metodo__figura {
+  display: block;
+  margin: 0 0 var(--e-lg);
+  border-radius: 3px;
+  background: var(--canvas);
+  padding: var(--e-md);
+}
+.metodo__figura img { display: block; width: 100%; height: auto; }
+
+/* Perguntas frequentes: um <details> por pergunta, para a resposta abrir sem
+   script e continuar no HTML — o buscador lê o conteúdo fechado. */
+.faq { border-top: 1px solid var(--hairline); }
+.faq__item { border-bottom: 1px solid var(--hairline); }
+.faq__item summary {
+  display: flex;
+  align-items: baseline;
+  gap: var(--e-lg);
+  padding: var(--e-xl) 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--ink);
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "+";
+  margin-left: auto;
+  font-family: var(--fonte-mono);
+  color: var(--mute);
+  font-size: 20px;
+  line-height: 1;
+}
+.faq__item[open] summary::after { content: "−"; }
+.faq__item summary:hover { color: var(--ink); }
+.faq__resposta { padding: 0 0 var(--e-xl); max-width: var(--largura-leitura); }
+.faq__resposta p:last-child { margin-bottom: 0; }
+
+/* Páginas de texto corrido (privacidade, agradecimentos). */
+.prosa { max-width: var(--largura-leitura); }
+.prosa h2 { margin: var(--e-3xl) 0 var(--e-lg); }
+.prosa h2:first-child { margin-top: 0; }
+.prosa ul { margin: 0 0 var(--e-lg); padding-left: var(--e-xl); color: var(--body); }
+.prosa li { margin-bottom: var(--e-sm); }
+.prosa li:last-child { margin-bottom: 0; }
+
+/* Recado de erro: um bloco que diz o que aconteceu e para onde ir, em vez de
+   uma frase solta no meio da página vazia. */
+.recado {
+  max-width: 60ch;
+  padding: var(--e-2xl);
+  background: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+}
+.recado__titulo { margin: 0 0 var(--e-md); }
+.recado p { color: var(--body); }
+.recado p:last-of-type { margin-bottom: var(--e-xl); }
+.recado__acoes { display: flex; flex-wrap: wrap; gap: var(--e-md); }
+
+/* Os três cards de método têm figuras de proporções diferentes, e sem uma
+   altura comum o texto de cada um começa numa linha. A caixa da figura é
+   fixa e a imagem se ajusta dentro dela. */
+.metodo__figura {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.metodo__figura img { width: auto; max-width: 100%; max-height: 100%; }
+
+/* O par de botões depois de uma lista de perguntas ou de um texto corrido
+   precisa de ar: encostado na última linha ele lê como parte dela. */
+.faq + .hero__acoes,
+.prosa + .hero__acoes { margin-top: var(--e-2xl); }

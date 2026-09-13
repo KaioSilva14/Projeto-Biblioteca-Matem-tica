@@ -1,0 +1,35 @@
+{
+  "id": "arcos-angulos",
+  "titulo": "Arcos e ângulos na circunferência",
+  "ano": 9,
+  "descricao": "Uma circunferência tem 360°, e essa medida se reparte entre os arcos. A partir daí vem o resultado que dá nome à matéria: um ângulo com vértice na própria curva mede METADE do ângulo que o centro enxerga do mesmo arco — e disso saem, de graça, o ângulo reto no semicírculo e a regra dos quadriláteros inscritos.",
+  "pergunta": "Por que o ângulo visto da borda vale metade do visto do centro?",
+  "videos": [
+    {
+      "id": "H06B-VG2i3g",
+      "titulo": "ÂNGULO CENTRAL E INSCRITO | ÂNGULOS NA CIRCUNFERÊNCIA |",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação dos dois ângulos e da relação entre eles. Serve de segunda passagem pelas lições 1 e 2."
+    },
+    {
+      "id": "p7BBwBtRsaQ",
+      "titulo": "[ÂNGULOS NA CIRCUNFERÊNCIA](9º ANO) Arco, Ângulo ao Centro e Ângulo Inscrito, Exercícios Resolvidos",
+      "canal": "Arrasa na Escola | Ricardo Ferreira",
+      "descricao": "Exercícios resolvidos de arco, ângulo central e inscrito. Bom para treinar depois da lição 3."
+    },
+    {
+      "id": "C6tBmJPAjLo",
+      "titulo": "ÂNGULO CENTRAL e ÂNGULO INSCRITO - ÂNGULOS NA CIRCUNFERÊNCIA - Professora Angela Matemática",
+      "canal": "Professora Angela Matemática",
+      "descricao": "Outra explicação da mesma relação, com outros exemplos. Útil se a primeira não pegou."
+    }
+  ],
+  "licoes": [
+    { "id": "arco-e-central", "arquivo": "/dados/licoes/arcos-angulos/arco-e-central.json" },
+    { "id": "inscrito", "arquivo": "/dados/licoes/arcos-angulos/inscrito.json" },
+    { "id": "casos-do-inscrito", "arquivo": "/dados/licoes/arcos-angulos/casos-do-inscrito.json" },
+    { "id": "quadrilatero-inscrito", "arquivo": "/dados/licoes/arcos-angulos/quadrilatero-inscrito.json" },
+    { "id": "comprimento-e-area", "arquivo": "/dados/licoes/arcos-angulos/comprimento-e-area.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/arcos-angulos/problemas.json" }
+  ]
+}

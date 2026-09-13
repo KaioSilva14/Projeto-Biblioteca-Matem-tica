@@ -1,0 +1,41 @@
+{
+  "id": "funcao-quadratica",
+  "titulo": "Função quadrática",
+  "ano": 9,
+  "descricao": "A função afim cresce sempre no mesmo ritmo; esta não. O ritmo dela muda, e é isso que entorta o gráfico numa parábola — a curva que aparece no jato d'água, na trajetória da bola e em todo problema de área máxima. A matéria junta duas coisas que já existem: as raízes são as da equação do 2º grau, e o vértice é o ponto que a simetria da curva entrega de graça.",
+  "pergunta": "Por que o gráfico entorta, e onde fica o ponto de virada?",
+  "videos": [
+    {
+      "id": "IfTsMZpH_tA",
+      "titulo": "FUNÇÃO QUADRÁTICA | FUNÇÂO DO SEGUNDO 2º GRAU - AULA 1",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação da função e dos coeficientes, do começo. Serve de segunda passagem pela lição 1."
+    },
+    {
+      "id": "a0ndXBGjqCU",
+      "titulo": "RAÍZES OU ZEROS DA FUNÇÃO QUADRÁTICA | FUNÇÃO DO SEGUNDO 2º GRAU – AULA 2",
+      "canal": "Gis com Giz",
+      "descricao": "Dedicado só às raízes, com vários exemplos resolvidos — é o assunto inteiro da lição 3."
+    },
+    {
+      "id": "DCT9jRSAwfs",
+      "titulo": "COORDENADAS DO VÉRTICE DA PARÁBOLA - FUNÇÃO QUADRÁTICA - AULA 3 \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "As duas coordenadas do vértice, passo a passo e com exemplos. Bom para treinar depois da lição 4."
+    },
+    {
+      "id": "aIOKZ0rFzS4",
+      "titulo": "GRÁFICO DA FUNÇÃO QUADRÁTICA | SEGUNDO GRAU 2º |  PARÁBOLA - AULA 4",
+      "canal": "Gis com Giz",
+      "descricao": "O traçado da parábola do começo ao fim, na mesma ordem do roteiro que a lição 5 propõe."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/funcao-quadratica/o-que-e.json" },
+    { "id": "parabola", "arquivo": "/dados/licoes/funcao-quadratica/parabola.json" },
+    { "id": "raizes", "arquivo": "/dados/licoes/funcao-quadratica/raizes.json" },
+    { "id": "vertice", "arquivo": "/dados/licoes/funcao-quadratica/vertice.json" },
+    { "id": "esboco", "arquivo": "/dados/licoes/funcao-quadratica/esboco.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/funcao-quadratica/problemas.json" }
+  ]
+}

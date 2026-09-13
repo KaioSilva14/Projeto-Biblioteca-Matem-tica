@@ -34,6 +34,10 @@ import {
   parTriangulos,
   paralelasTransversal, varetas, trianguloParalela, piDesenrolado, gradeDados,
   areaPorRecorte, prisma, arvorePossibilidades, setores,
+  cadeiaArgumento, quadradoDiagonal, planoFuncao,
+  trianguloCortado, objetoESombra, feixeParalelas, quadradosPitagoras,
+  relacoesMetricas, trianguloTrig, circunferenciaAngulos,
+  solidoPontudo, cuboEmPiramides, cavalieriEsfera,
 } from "./desenhos.mjs";
 
 /** Colunas do quadro de ordens usadas nas licoes de decimais. */
@@ -12337,6 +12341,4618 @@ export const MANIFESTO = [
             ["escolher o recorte", "inventar entrevistados"],
           ],
           rotulo: "isso torna o resultado falso?", larguraCol: 166,
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════ 9º ano · Números irracionais e reais ═══════════════
+  //
+  // A matéria abre o 9º ano com a primeira DEMONSTRAÇÃO do Fundamental, e é
+  // por isso que a `cadeiaArgumento` estreia aqui: uma prova por absurdo não
+  // cabe numa figura estática como o recorte do paralelogramo cabia. Ela é
+  // uma sequência de elos, e o que a torna convincente é ver o último
+  // voltando para negar o primeiro.
+  //
+  // A segunda figura-chave é o `quadradoDiagonal`. A lição 1 prova que √2
+  // não é fração, e sem ela o aluno pode concluir que o número não existe —
+  // a diagonal desenhada com régua é o que responde a isso.
+  ...(() => {
+    const PROVA = [
+      { texto: "√2 = p/q irredutível" },
+      { texto: "p² = 2q²", nota: "elevando ao quadrado" },
+      { texto: "p é par", nota: "p² é par" },
+      { texto: "q² = 2k²", nota: "trocando p por 2k" },
+      { texto: "q também é par", nota: "q² é par" },
+      { texto: "p e q têm fator comum", nota: "os dois pares" },
+    ];
+    return [
+      // --- lição 1: provar que √2 não é fração ---
+      {
+        id: "ir9-ideia-cadeia", pasta: "licoes",
+        alt: "Cadeia da demonstração de que √2 não é fração, com a seta de retorno negando a suposição inicial.",
+        desenho: () => cadeiaArgumento({
+          passos: PROVA, contradiz: 0,
+          rotulo: "a suposição nega a si mesma",
+        }),
+      },
+      {
+        id: "ir9-res-par-impar", pasta: "licoes",
+        alt: "Cadeia mostrando que o quadrado de um número ímpar é sempre ímpar.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "p é ímpar" },
+            { texto: "p = 2n + 1", nota: "todo ímpar é par + 1" },
+            { texto: "p² = 4n² + 4n + 1", nota: "quadrado da soma" },
+            { texto: "p² é ímpar", nota: "par + par + 1" },
+          ],
+          rotulo: "por isso quadrado par só vem de base par",
+        }),
+      },
+      {
+        id: "ir9-q-o-que-e-absurdo", pasta: "questoes",
+        alt: "Esquema genérico de uma demonstração por absurdo, sem mencionar a raiz de 2.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "suponha que É possível" },
+            { texto: "…" , nota: "os passos do argumento" },
+            { texto: "conclusão impossível", nota: "a contradição" },
+          ],
+          contradiz: 0,
+          rotulo: "o esquema da demonstração por absurdo",
+        }),
+      },
+      {
+        id: "ir9-q-por-que-simplificada", pasta: "questoes",
+        alt: "A cadeia da demonstração com o primeiro e o último elo destacados.",
+        desenho: () => cadeiaArgumento({
+          passos: PROVA, destacar: [0, 5],
+          rotulo: "compare o primeiro elo com o último",
+        }),
+      },
+      {
+        id: "ir9-q-impar-ao-quadrado", pasta: "questoes",
+        alt: "Tabela com números ímpares e os quadrados deles.",
+        desenho: () => tabela({
+          cabecalho: ["ímpar", "ao quadrado"],
+          linhas: [["3", "9"], ["5", "25"], ["7", "49"], ["9", "81"]],
+          rotulo: "o que sobra ao dividir por 2?", larguraCol: 130,
+        }),
+      },
+      {
+        id: "ir9-q-vale-para-4", pasta: "questoes",
+        alt: "Arranjos retangulares quadrados representando 4, 9 e 16 como quadrados perfeitos.",
+        desenho: () => arranjos({
+          pares: [[2, 2], [3, 3], [4, 4]],
+          rotulo: "quadrados perfeitos têm raiz inteira",
+        }),
+      },
+
+      // --- lição 2: mas ele existe ---
+      {
+        id: "ir9-ideia-diagonal", pasta: "licoes",
+        alt: "Quadrado de lado 1 com a diagonal traçada e marcada como raiz de 2.",
+        desenho: () => quadradoDiagonal({
+          rotuloLado: "1", rotuloDiagonal: "√2",
+          rotulo: "a diagonal existe e mede √2",
+        }),
+      },
+      {
+        id: "ir9-res-diagonal", pasta: "licoes",
+        alt: "Quadrado de lado 1 com a diagonal formando um triângulo retângulo de catetos 1 e 1.",
+        desenho: () => quadradoDiagonal({
+          rotuloLado: "1",
+          rotulo: "a diagonal fecha um triângulo retângulo",
+        }),
+      },
+      {
+        id: "ir9-q-qual-irracional", pasta: "questoes",
+        alt: "Arranjos retangulares quadrados para 9, 25 e 100.",
+        desenho: () => arranjos({
+          pares: [[3, 3], [5, 5]],
+          rotulo: "quais destes radicandos formam quadrado?",
+        }),
+      },
+      {
+        id: "ir9-q-diagonal-3", pasta: "questoes",
+        alt: "Quadrado de lado 3 cm com a diagonal traçada, sem a medida dela.",
+        desenho: () => quadradoDiagonal({
+          rotuloLado: "3 cm",
+          rotulo: "quanto mede a diagonal?",
+        }),
+      },
+      {
+        id: "ir9-q-por-que-o-nome", pasta: "questoes",
+        alt: "Tabela ligando a palavra razão ao seu sentido de fração.",
+        desenho: () => tabela({
+          cabecalho: ["a palavra", "significa"],
+          linhas: [["razão", "quociente entre dois"], ["racional", "que é razão de inteiros"]],
+          rotulo: "e o prefixo ir- nega o quê?", larguraCol: 158,
+        }),
+      },
+      {
+        id: "ir9-q-o-que-sao-reais", pasta: "questoes",
+        alt: "Diagrama dos conjuntos numéricos, com os irracionais numa caixa separada dentro dos reais.",
+        desenho: () => conjuntosNumericos({
+          exemplos: { naturais: "0, 1, 2", inteiros: "−3, −1", racionais: "1/2 · 0,75", irracionais: "√2 · π" },
+          rotulo: "quem mora dentro da caixa dos reais?",
+        }),
+      },
+
+      // --- lição 3: aproximar um irracional ---
+      {
+        id: "ir9-ideia-aproximar", pasta: "licoes",
+        alt: "Reta decimal de 7 a 8 com o intervalo onde a raiz de 50 está presa.",
+        desenho: () => retaDecimal({
+          inicio: 7, fim: 8, divisoes: 10, largura: 400, casas: 1,
+          marcados: [{ valor: 7.07, rotulo: "√50" }],
+        }),
+      },
+      {
+        id: "ir9-res-entre-quais", pasta: "licoes",
+        alt: "Tabela com os quadrados perfeitos vizinhos de 50.",
+        desenho: () => tabela({
+          cabecalho: ["inteiro", "ao quadrado"],
+          linhas: [["7", "49"], ["?", "50"], ["8", "64"]],
+          rotulo: "49 < 50 < 64", larguraCol: 130,
+        }),
+      },
+      {
+        id: "ir9-q-entre-20", pasta: "questoes",
+        alt: "Lista dos quadrados perfeitos vizinhos de 20, sem os inteiros que os geram.",
+        // Só os QUADRADOS: a coluna dos inteiros traria o 4 escrito, que é
+        // a resposta — o aluno acertaria lendo em vez de decidindo.
+        desenho: () => tabela({
+          cabecalho: ["quadrados perfeitos"],
+          linhas: [["9"], ["16"], ["25"], ["36"]],
+          rotulo: "entre quais deles o 20 está?", larguraCol: 176,
+        }),
+      },
+      {
+        id: "ir9-q-preserva-ordem", pasta: "questoes",
+        alt: "Tabela comparando pares de números e as raízes deles.",
+        desenho: () => tabela({
+          cabecalho: ["números", "as raízes"],
+          linhas: [["4 < 9", "2 < 3"], ["16 < 25", "4 < 5"], ["36 < 49", "6 < 7"]],
+          rotulo: "a ordem se mantém ou se inverte?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "ir9-q-duas-casas", pasta: "questoes",
+        alt: "Tabela com os quadrados de 1,40, 1,41 e 1,42.",
+        desenho: () => tabela({
+          cabecalho: ["decimal", "ao quadrado"],
+          linhas: [["1,40", "1,9600"], ["1,41", "1,9881"], ["1,42", "2,0164"]],
+          rotulo: "qual ainda não passou de 2?", larguraCol: 138,
+        }),
+      },
+      {
+        id: "ir9-q-igual-ou-aprox", pasta: "questoes",
+        alt: "Tabela com dois sinais de comparação e o que cada um afirma.",
+        desenho: () => tabela({
+          cabecalho: ["o sinal", "afirma"],
+          linhas: [["=", "são o mesmo número"], ["≈", "estão próximos"]],
+          rotulo: "qual serve para 1,41 e √2?", larguraCol: 152,
+        }),
+      },
+
+      // --- lição 4: comparar e ordenar reais ---
+      {
+        id: "ir9-ideia-comparar", pasta: "licoes",
+        alt: "Reta decimal de 1 a 2 com marcas de décimo em décimo.",
+        desenho: () => retaDecimal({
+          inicio: 1, fim: 2, divisoes: 10, largura: 400, casas: 1,
+          marcados: [{ valor: 1.5, rotulo: "3/2" }],
+        }),
+      },
+      {
+        id: "ir9-res-ordenar", pasta: "licoes",
+        alt: "Tabela com três números escritos de formas diferentes e o valor decimal de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["escrito como", "em decimal"],
+          linhas: [["3/2", "1,500"], ["√2", "1,414…"], ["1,41", "1,410"]],
+          rotulo: "a terceira casa é que decide", larguraCol: 148,
+        }),
+      },
+      {
+        id: "ir9-q-duas-raizes", pasta: "questoes",
+        alt: "Tabela com pares de radicandos e as raízes correspondentes.",
+        desenho: () => tabela({
+          cabecalho: ["radicandos", "as raízes"],
+          linhas: [["4 e 9", "2 e 3"], ["25 e 36", "5 e 6"], ["5 e 7", "?"]],
+          rotulo: "quem vence quando o radicando cresce?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "ir9-q-raiz-e-inteiro", pasta: "questoes",
+        alt: "Tabela com um número e o quadrado dele, para comparar raiz com inteiro.",
+        desenho: () => tabela({
+          cabecalho: ["número", "ao quadrado"],
+          linhas: [["√10", "10"], ["3", "9"]],
+          rotulo: "elevando os dois, quem é maior?", larguraCol: 138,
+        }),
+      },
+      {
+        id: "ir9-q-quantas-casas", pasta: "questoes",
+        alt: "Tabela mostrando os dois números truncados em duas e em três casas decimais.",
+        desenho: () => tabela({
+          cabecalho: ["com 2 casas", "com 3 casas"],
+          linhas: [["1,41", "1,410"], ["1,41", "1,414"]],
+          rotulo: "1,41 e √2 · onde eles se separam?", larguraCol: 144,
+        }),
+      },
+      {
+        id: "ir9-q-na-reta", pasta: "questoes",
+        alt: "Reta numérica dos inteiros de menos cinco a cinco.",
+        desenho: () => retaInteiros({
+          de: -5, ate: 5,
+          rotulo: "para que lado os números crescem?",
+        }),
+      },
+
+      // --- lição 5: quando o irracional some ---
+      {
+        id: "ir9-ideia-fechamento", pasta: "licoes",
+        alt: "Tabela com operações entre irracionais e o tipo de cada resultado.",
+        desenho: () => tabela({
+          cabecalho: ["a conta", "o resultado"],
+          linhas: [
+            ["√2 × √2", "2 · racional"],
+            ["√2 × √3", "√6 · irracional"],
+            ["√2 + (−√2)", "0 · racional"],
+          ],
+          rotulo: "o resultado não tem tipo fixo", larguraCol: 146,
+        }),
+      },
+      {
+        id: "ir9-res-raiz2-raiz8", pasta: "licoes",
+        alt: "Cadeia dos passos que levam de raiz de 2 vezes raiz de 8 até o número 4.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "√2 × √8" },
+            { texto: "√(2 × 8)", nota: "raízes se juntam" },
+            { texto: "√16", nota: "multiplicando dentro" },
+            { texto: "4 · racional", nota: "16 é quadrado perfeito" },
+          ],
+          rotulo: "dois irracionais, um resultado inteiro",
+        }),
+      },
+      {
+        id: "ir9-q-raiz3-raiz12", pasta: "questoes",
+        alt: "Tabela com o produto de duas raízes deixado em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["passo", "fica"],
+          linhas: [["√3 × √12", "√(3 × 12)"], ["multiplicar dentro", "?"]],
+          rotulo: "36 é quadrado perfeito?", larguraCol: 148,
+        }),
+      },
+      {
+        id: "ir9-q-racional-mais-irracional", pasta: "questoes",
+        alt: "Cadeia supondo que 2 mais raiz de 2 seja racional, com a seta de retorno.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "suponha 2 + √2 = r" },
+            { texto: "√2 = r − 2", nota: "isolando a raiz" },
+            { texto: "√2 seria racional", nota: "diferença de racionais" },
+          ],
+          contradiz: 0,
+          rotulo: "e a lição 1 provou que não é",
+        }),
+      },
+      {
+        id: "ir9-q-soma-some", pasta: "questoes",
+        alt: "Tokens separando a parte racional e a parte com raiz das duas parcelas.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "1ª parcela", tokens: ["1", "x"] },
+            { rotulo: "2ª parcela", tokens: ["1", "−x"] },
+          ],
+          rotulo: "x vale √2 · o que sobra na soma?",
+        }),
+      },
+      {
+        id: "ir9-q-fechado", pasta: "questoes",
+        alt: "Tabela comparando conjuntos fechados e não fechados para a multiplicação.",
+        desenho: () => tabela({
+          cabecalho: ["conjunto", "produto de dois"],
+          linhas: [["inteiros", "sempre inteiro"], ["racionais", "sempre racional"], ["irracionais", "?"]],
+          rotulo: "qual deles pode escapar?", larguraCol: 148,
+        }),
+      },
+
+      // --- lição 6: problemas com irracionais ---
+      {
+        id: "ir9-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com as três decisões de um problema com irracional.",
+        desenho: () => tabela({
+          cabecalho: ["decida", "e a regra é"],
+          linhas: [
+            ["quando aproximar", "só no fim"],
+            ["quantas casas", "o problema diz"],
+            ["para que lado", "o problema diz"],
+          ],
+          rotulo: "o roteiro dos problemas", larguraCol: 150,
+        }),
+      },
+      {
+        id: "ir9-res-diagonal-5", pasta: "licoes",
+        alt: "Quadrado de lado 5 m com a diagonal traçada e marcada com o símbolo da raiz.",
+        desenho: () => quadradoDiagonal({
+          rotuloLado: "5 m", rotuloDiagonal: "5√2",
+          rotulo: "o símbolo guardado até o fim",
+        }),
+      },
+      {
+        id: "ir9-q-diagonal-10", pasta: "questoes",
+        alt: "Quadrado de lado 10 m com a diagonal traçada, sem a medida dela.",
+        desenho: () => quadradoDiagonal({
+          rotuloLado: "10 m",
+          rotulo: "√2 ≈ 1,4142",
+        }),
+      },
+      {
+        id: "ir9-q-por-que-guardar", pasta: "questoes",
+        alt: "Tabela comparando arredondar no começo e arredondar no fim de uma conta.",
+        desenho: () => tabela({
+          cabecalho: ["quando arredondar", "o que acontece"],
+          linhas: [
+            ["a cada passo", "o erro se soma"],
+            ["só no fim", "erra uma vez só"],
+          ],
+          rotulo: "qual caminho conserva mais precisão?", larguraCol: 158,
+        }),
+      },
+      {
+        id: "ir9-q-tabua", pasta: "questoes",
+        alt: "Barra de etapas representando a tábua repartida em metros inteiros, com uma sobra no fim.",
+        desenho: () => barraEtapas({
+          // Duas etapas, e não oito: a barra empilha uma legenda por etapa, e
+          // oito legendas fariam a figura passar de 400px de altura.
+          etapas: [
+            { rotulo: "peças de 1 m", fracao: 7 / Math.sqrt(50) },
+            { rotulo: "sobra", fracao: 1 - 7 / Math.sqrt(50), vazio: true },
+          ],
+          largura: 400, rotuloTotal: "a tábua mede √50 m",
+        }),
+      },
+      {
+        id: "ir9-q-falsa-precisao", pasta: "questoes",
+        alt: "Tabela comparando as casas decimais da medida original com as do resultado.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "casas decimais"],
+          linhas: [["o lado medido", "1"], ["o resultado escrito", "5"]],
+          rotulo: "a régua sustenta cinco casas?", larguraCol: 150,
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════ 9º ano · Potenciação e radiciação ═══════════════
+  //
+  // A matéria não pediu gerador novo, e isso não é economia: é o resultado
+  // de a lição 2 fazer a ponte entre raiz e potência. Feita a ponte, as
+  // figuras que já existiam passam a servir — a `fatoracao` do 6º ano é
+  // exatamente o que mostra por que √72 vira 6√2, e os `tokensAlgebricos`
+  // do 7º mostram por que 2√3 + 5√3 junta e √2 + √3 não.
+  //
+  // A caixinha do token vale pelo RADICAL e a moeda pelo número, como lá
+  // valiam pela letra e pelo número. É de propósito: o aluno precisa
+  // reconhecer que somar radicais semelhantes é a mesma regra de somar
+  // termos semelhantes, e não uma regra nova.
+  ...(() => {
+    return [
+      // --- lição 1: a raiz de qualquer índice ---
+      {
+        id: "rd9-ideia-indice", pasta: "licoes",
+        alt: "Tabela ligando cada índice de raiz à potência que ela desfaz.",
+        desenho: () => tabela({
+          cabecalho: ["a raiz", "desfaz"],
+          linhas: [["√ (índice 2)", "o quadrado"], ["∛ (índice 3)", "o cubo"], ["⁴√", "a quarta potência"]],
+          rotulo: "o índice diz qual potência", larguraCol: 152,
+        }),
+      },
+      {
+        id: "rd9-res-raiz-quarta", pasta: "licoes",
+        alt: "Tabela com as quartas potências de 2, 3 e 4.",
+        desenho: () => tabela({
+          cabecalho: ["número", "à quarta"],
+          linhas: [["2", "16"], ["3", "81"], ["4", "256"]],
+          rotulo: "qual deles devolve 81?", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rd9-q-raiz-cubica-27", pasta: "questoes",
+        alt: "Tabela com alguns cubos de inteiros, sem o de 3.",
+        // O cubo de 3×3×3 seria a figura óbvia, e foi trocado: a `camadas`
+        // NUMERA as camadas, e contar "camada 1, 2, 3" é a resposta escrita
+        // na figura. A tabela dá a vizinhança do 27 e deixa o aluno procurar.
+        desenho: () => tabela({
+          cabecalho: ["número", "ao cubo"],
+          linhas: [["2", "8"], ["4", "64"], ["5", "125"]],
+          rotulo: "∛27 · que número falta na lista?", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rd9-q-por-que-nao-existe", pasta: "questoes",
+        alt: "Tabela com os quadrados de números positivos e negativos.",
+        desenho: () => tabela({
+          cabecalho: ["número", "ao quadrado"],
+          linhas: [["2", "4"], ["−2", "4"], ["5", "25"], ["−5", "25"]],
+          rotulo: "algum deles dá resultado negativo?", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rd9-q-cubica-negativa", pasta: "questoes",
+        alt: "Tabela com os cubos de números negativos, mostrando que o sinal se conserva.",
+        desenho: () => tabela({
+          cabecalho: ["número", "ao cubo"],
+          linhas: [["−1", "−1"], ["−3", "−27"], ["−4", "−64"]],
+          rotulo: "índice ímpar conserva o sinal", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rd9-q-o-que-e-indice", pasta: "questoes",
+        alt: "Tabela nomeando as partes de um radical: índice, radicando e raiz.",
+        desenho: () => tabela({
+          cabecalho: ["a parte", "onde fica"],
+          linhas: [["radicando", "dentro do sinal"], ["a raiz", "é o resultado"]],
+          rotulo: "e o número do canto, como se chama?", larguraCol: 156,
+        }),
+      },
+
+      // --- lição 2: raiz é potência de expoente fracionário ---
+      {
+        id: "rd9-ideia-fracionario", pasta: "licoes",
+        alt: "Cadeia mostrando que 4 elevado a um meio tem de ser a raiz de 4.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "seja x = 4^(1/2)" },
+            { texto: "x² = 4^(1/2 × 2)", nota: "potência de potência" },
+            { texto: "x² = 4¹ = 4", nota: "somando os expoentes" },
+            { texto: "x = √4", nota: "só ele cumpre isso" },
+          ],
+          rotulo: "a definição é forçada pela propriedade",
+        }),
+      },
+      {
+        id: "rd9-res-oito-dois-tercos", pasta: "licoes",
+        alt: "Tabela separando o papel do numerador e do denominador num expoente fracionário.",
+        desenho: () => tabela({
+          cabecalho: ["no expoente m/n", "o papel"],
+          linhas: [["o denominador n", "índice da raiz"], ["o numerador m", "a potência"]],
+          rotulo: "em 8^(2/3): raiz cúbica, ao quadrado", larguraCol: 158,
+        }),
+      },
+      {
+        id: "rd9-q-nove-meio", pasta: "questoes",
+        alt: "Tabela com potências de expoente um meio e o que cada uma significa.",
+        desenho: () => tabela({
+          cabecalho: ["escrito assim", "significa"],
+          linhas: [["4^(1/2)", "√4"], ["25^(1/2)", "√25"], ["9^(1/2)", "?"]],
+          rotulo: "o denominador 2 pede a raiz quadrada", larguraCol: 152,
+        }),
+      },
+      {
+        id: "rd9-q-por-que-forcado", pasta: "questoes",
+        alt: "Cadeia elevando 4 a um meio ao quadrado, deixando a conclusão em aberto.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "x = 4^(1/2)" },
+            { texto: "x² = 4", nota: "multiplicando os expoentes" },
+            { texto: "quem cumpre isso?", nota: "entre os positivos" },
+          ],
+          rotulo: "o que obriga x a ser √4?",
+        }),
+      },
+      {
+        id: "rd9-q-dezesseis", pasta: "questoes",
+        alt: "Tabela com as potências de 2, sem a terceira.",
+        // A linha 2³ = 8 estava na tabela, e 8 É a resposta da questão. A
+        // escada continua servindo para achar que 16 é 2⁴ — o cubo o aluno
+        // faz. Mais um achado do `figurasNaoEntregam`.
+        desenho: () => tabela({
+          cabecalho: ["potência", "vale"],
+          linhas: [["2¹", "2"], ["2²", "4"], ["2⁴", "16"]],
+          rotulo: "16^(3/4): tire a raiz quarta e eleve ao cubo", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rd9-q-qual-ordem", pasta: "questoes",
+        alt: "Tabela comparando os números que aparecem em cada ordem de cálculo.",
+        desenho: () => tabela({
+          cabecalho: ["ordem", "passa por"],
+          linhas: [["raiz primeiro", "∛8 = 2"], ["potência primeiro", "8² = 64"]],
+          rotulo: "as duas chegam a 4 · qual dá menos trabalho?", larguraCol: 156,
+        }),
+      },
+
+      // --- lição 3: as propriedades dos radicais ---
+      {
+        id: "rd9-ideia-propriedades", pasta: "licoes",
+        alt: "Tabela com as operações sobre as quais a raiz distribui e a que não distribui.",
+        desenho: () => tabela({
+          cabecalho: ["a operação", "a raiz distribui?"],
+          linhas: [["produto", "sim"], ["quociente", "sim"], ["soma", "NÃO"]],
+          rotulo: "o mesmo padrão de (a + b)²", larguraCol: 158,
+        }),
+      },
+      {
+        id: "rd9-res-soma-nao-vale", pasta: "licoes",
+        alt: "Tabela comparando a raiz da soma com a soma das raízes.",
+        desenho: () => tabela({
+          cabecalho: ["o caminho", "resultado"],
+          linhas: [["√(9 + 16)", "√25 = 5"], ["√9 + √16", "3 + 4 = 7"]],
+          rotulo: "5 e 7 são números diferentes", larguraCol: 148,
+        }),
+      },
+      {
+        id: "rd9-q-produto-raizes", pasta: "questoes",
+        alt: "Tabela com as raízes de 4 e de 25 calculadas separadamente.",
+        desenho: () => tabela({
+          cabecalho: ["a raiz", "vale"],
+          linhas: [["√4", "2"], ["√25", "5"]],
+          rotulo: "e o produto delas?", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rd9-q-soma-dentro", pasta: "questoes",
+        alt: "Tabela com os dois caminhos deixados em aberto para comparação.",
+        desenho: () => tabela({
+          cabecalho: ["o caminho", "dá quanto?"],
+          linhas: [["√(9 + 16)", "?"], ["√9 + √16", "?"]],
+          rotulo: "calcule os dois e compare", larguraCol: 148,
+        }),
+      },
+      {
+        id: "rd9-q-quociente", pasta: "questoes",
+        alt: "Tabela com as raízes de 100 e de 4.",
+        desenho: () => tabela({
+          cabecalho: ["a raiz", "vale"],
+          linhas: [["√100", "10"], ["√4", "2"]],
+          rotulo: "a raiz do quociente é o quociente das raízes", larguraCol: 132,
+        }),
+      },
+      {
+        id: "rd9-q-quais-distribuem", pasta: "questoes",
+        alt: "Tabela testando a distribuição da raiz sobre produto e sobre soma.",
+        desenho: () => tabela({
+          cabecalho: ["teste", "os dois lados"],
+          linhas: [["√(4 × 9)", "6 e 6"], ["√(9 + 16)", "5 e 7"]],
+          rotulo: "em qual deles os lados batem?", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 4: simplificar radicais ---
+      {
+        id: "rd9-ideia-simplificar", pasta: "licoes",
+        alt: "Fatoração de 72 em primos por divisões sucessivas.",
+        // A `fatoracao` do 6º ano MONTA a cadeia de divisões: ela não recebe
+        // os fatores prontos, e por isso não tem como discordar do enunciado.
+        desenho: () => fatoracao({ numero: 72, rotulo: "cada PAR de fatores iguais sai da raiz" }),
+      },
+      {
+        id: "rd9-res-fatorar-72", pasta: "licoes",
+        alt: "Os fatores primos de 72 agrupados, mostrando os pares e o fator sozinho.",
+        desenho: () => fatoresRepetidos({
+          linhas: [{ base: 2, expoente: 3 }, { base: 3, expoente: 2 }],
+          rotulo: "72 = 2 × 2 × 2 × 3 × 3",
+        }),
+      },
+      {
+        id: "rd9-q-simplificar-50", pasta: "questoes",
+        alt: "Fatoração de 50 em primos por divisões sucessivas.",
+        desenho: () => fatoracao({ numero: 50, rotulo: "procure o par de fatores iguais" }),
+      },
+      {
+        id: "rd9-q-simplificar-45", pasta: "questoes",
+        alt: "Fatoração de 45 em primos por divisões sucessivas.",
+        desenho: () => fatoracao({ numero: 45, rotulo: "quem tem par sai, quem está sozinho fica" }),
+      },
+      {
+        id: "rd9-q-simplificar-200", pasta: "questoes",
+        alt: "Fatoração de 200 em primos por divisões sucessivas.",
+        desenho: () => fatoracao({ numero: 200, rotulo: "quantos pares você encontra?" }),
+      },
+      {
+        id: "rd9-q-quando-parou", pasta: "questoes",
+        alt: "Tabela com radicais simplificados e não simplificados.",
+        desenho: () => tabela({
+          cabecalho: ["radical", "ainda simplifica?"],
+          linhas: [["√8", "sim: 8 = 4 × 2"], ["√11", "não: 11 é primo"], ["√45", "sim: 45 = 9 × 5"]],
+          rotulo: "o que decide é o fator quadrado", larguraCol: 156,
+        }),
+      },
+
+      // --- lição 5: somar e subtrair radicais ---
+      {
+        id: "rd9-ideia-semelhantes", pasta: "licoes",
+        alt: "Tokens com duas fileiras de caixinhas iguais, mostrando parcelas semelhantes.",
+        // A caixinha vale pelo RADICAL, como valia pela letra no 7º ano — a
+        // regra de somar semelhantes é a mesma, e a figura diz isso.
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "2√3", tokens: ["x", "x"] },
+            { rotulo: "5√3", tokens: ["x", "x", "x", "x", "x"] },
+          ],
+          rotulo: "x vale √3 · as duas contam a mesma coisa",
+        }),
+      },
+      {
+        id: "rd9-res-oito-mais-dezoito", pasta: "licoes",
+        alt: "Tabela com a simplificação de raiz de 8 e de raiz de 18, revelando o mesmo radical.",
+        desenho: () => tabela({
+          cabecalho: ["radical", "simplificado"],
+          linhas: [["√8", "2√2"], ["√18", "3√2"]],
+          rotulo: "os dois viraram múltiplos de √2", larguraCol: 140,
+        }),
+      },
+      {
+        id: "rd9-q-somar-semelhantes", pasta: "questoes",
+        alt: "Duas fileiras de caixinhas iguais, sem o total escrito.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "1ª parcela", tokens: ["x", "x"] },
+            { rotulo: "2ª parcela", tokens: ["x", "x", "x", "x", "x"] },
+          ],
+          rotulo: "x vale √3 · quantos x no total?",
+        }),
+      },
+      {
+        id: "rd9-q-nao-junta", pasta: "questoes",
+        alt: "Tokens com caixinhas de formas diferentes, representando radicais não semelhantes.",
+        desenho: () => tokensAlgebricos({
+          linhas: [
+            { rotulo: "√2", tokens: ["x"] },
+            { rotulo: "√3", tokens: ["y"] },
+          ],
+          rotulo: "x e y são coisas diferentes",
+        }),
+      },
+      {
+        id: "rd9-q-simplificar-antes", pasta: "questoes",
+        alt: "Tabela com raiz de 12 e raiz de 27 ainda sem simplificar.",
+        desenho: () => tabela({
+          cabecalho: ["radical", "simplificado"],
+          linhas: [["√12", "?"], ["√27", "?"]],
+          rotulo: "simplifique os dois antes de decidir", larguraCol: 140,
+        }),
+      },
+      {
+        id: "rd9-q-primeiro-passo", pasta: "questoes",
+        alt: "Tabela com dois pares de radicais, um deles semelhante só depois de simplificar.",
+        desenho: () => tabela({
+          cabecalho: ["o par", "parece"],
+          linhas: [["√8 e √18", "diferente"], ["√2 e √3", "diferente"]],
+          rotulo: "só um dos dois junta · o que revela isso?", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 6: racionalizar o denominador ---
+      {
+        id: "rd9-ideia-racionalizar", pasta: "licoes",
+        alt: "Fração com raiz no denominador sendo multiplicada em cima e embaixo pela mesma raiz.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["1", "√2"], baixo: ["√2", "√2"], cortar: [],
+          resultado: "√2 / 2",
+          rotulo: "multiplicar por √2/√2 é multiplicar por 1",
+        }),
+      },
+      {
+        id: "rd9-res-seis-sobre-raiz3", pasta: "licoes",
+        alt: "Cadeia dos passos que levam de seis sobre raiz de três até dois raiz de três.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "6 / √3" },
+            { texto: "6√3 / (√3 × √3)", nota: "× √3/√3" },
+            { texto: "6√3 / 3", nota: "√3 × √3 = 3" },
+            { texto: "2√3", nota: "simplificando 6/3" },
+          ],
+          rotulo: "a raiz mudou de andar",
+        }),
+      },
+      {
+        id: "rd9-q-racionalizar-um", pasta: "questoes",
+        alt: "Fração um sobre raiz de dois, com a multiplicação indicada mas não resolvida.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["1"], baixo: ["√2"], cortar: [],
+          rotulo: "multiplique em cima e embaixo por √2",
+        }),
+      },
+      {
+        id: "rd9-q-racionalizar-dez", pasta: "questoes",
+        alt: "Fração dez sobre raiz de dois, sem a resolução.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["10"], baixo: ["√2"], cortar: [],
+          rotulo: "racionalize e confira se ainda simplifica",
+        }),
+      },
+      {
+        id: "rd9-q-por-que-existe", pasta: "questoes",
+        alt: "Tabela comparando dividir por um irracional e dividir por um inteiro.",
+        desenho: () => tabela({
+          cabecalho: ["a divisão", "por que número"],
+          linhas: [["1 ÷ √2", "infinitas casas"], ["√2 ÷ 2", "um inteiro"]],
+          rotulo: "qual delas se faz à mão?", larguraCol: 154,
+        }),
+      },
+      {
+        id: "rd9-q-precisa-mesmo", pasta: "questoes",
+        alt: "Fração raiz de dois sobre três, com a raiz no numerador.",
+        desenho: () => fracaoAlgebrica({
+          cima: ["√2"], baixo: ["3"], cortar: [],
+          rotulo: "onde está a raiz nesta fração?",
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Equações do 2º grau ═══════════════
+  //
+  // Bhaskara é a fórmula mais decorada do Fundamental, e a matéria existe
+  // para ela não ser decorada. Por isso duas figuras carregam o argumento:
+  //
+  //   · o `quadradoSoma` do 8º ano, que mostra o método GEOMETRICAMENTE —
+  //     x² + 6x é um quadrado com dois retângulos grudados, e o que falta
+  //     para fechar é literalmente o quadradinho do canto. "Completar o
+  //     quadrado" deixa de ser nome esquisito e vira descrição do desenho;
+  //   · a `cadeiaArgumento` do 9º, que percorre a dedução com letras. São
+  //     cinco elos, e nenhum deles é novo: dividir por a, completar o
+  //     quadrado, tirar a raiz. A fórmula sai no último.
+  //
+  // A `balanca` do 7º ano reaparece numa figura só, e de propósito: somar o
+  // mesmo número aos DOIS lados é o princípio que ela carrega desde lá, e
+  // completar o quadrado depende dele.
+  //
+  // O `retanguloFatores` do 8º volta para as incompletas: pôr o x em
+  // evidência é a mesma fatoração de lá, com a letra no lugar do número.
+  ...(() => {
+    return [
+      // --- lição 1: o que muda com o x ao quadrado ---
+      {
+        id: "eq9-ideia-coeficientes", pasta: "licoes",
+        alt: "Tabela nomeando os três coeficientes de uma equação do 2º grau.",
+        desenho: () => tabela({
+          cabecalho: ["na equação", "o coeficiente"],
+          linhas: [["multiplica x²", "a"], ["multiplica x", "b"], ["sem x nenhum", "c"]],
+          rotulo: "ax² + bx + c = 0", larguraCol: 150,
+        }),
+      },
+      {
+        id: "eq9-res-arrumar", pasta: "licoes",
+        alt: "Tabela comparando a equação como veio e depois de arrumada na forma geral.",
+        desenho: () => tabela({
+          cabecalho: ["como veio", "arrumada"],
+          linhas: [["3x² = 12x", "3x² − 12x = 0"]],
+          rotulo: "arrumar antes de identificar", larguraCol: 152,
+        }),
+      },
+      {
+        id: "eq9-q-qual-b", pasta: "questoes",
+        alt: "Tabela com os três termos de x² menos 5x mais 6 e o coeficiente de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["o termo", "o coeficiente"],
+          linhas: [["x²", "a = 1"], ["−5x", "b = ?"], ["+6", "c = 6"]],
+          rotulo: "o sinal faz parte do número", larguraCol: 140,
+        }),
+      },
+      {
+        id: "eq9-q-por-que-trava", pasta: "questoes",
+        alt: "Cadeia tentando isolar o x e parando num impasse.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "x² + 2x − 8 = 0" },
+            { texto: "x² + 2x = 8", nota: "passando o 8" },
+            { texto: "e agora?", nota: "o x está em dois termos" },
+          ],
+          destacar: [2],
+          rotulo: "onde o método do 1º grau trava",
+        }),
+      },
+      {
+        id: "eq9-q-arrumar-antes", pasta: "questoes",
+        alt: "Tabela com a equação 3x² igual a 12x e a forma geral dela ainda em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["como veio", "na forma geral"],
+          linhas: [["3x² = 12x", "?"]],
+          rotulo: "arrume antes de ler os coeficientes", larguraCol: 152,
+        }),
+      },
+      {
+        id: "eq9-q-por-que-a-nao-zero", pasta: "questoes",
+        alt: "Tabela mostrando o que sobra da forma geral quando o coeficiente a vale zero.",
+        desenho: () => tabela({
+          cabecalho: ["se a vale", "a equação fica"],
+          linhas: [["1", "x² + bx + c = 0"], ["0", "bx + c = 0"]],
+          rotulo: "que grau tem a segunda?", larguraCol: 156,
+        }),
+      },
+
+      // --- lição 2: as que se resolvem sem fórmula ---
+      {
+        id: "eq9-ideia-incompletas", pasta: "licoes",
+        alt: "Tabela com os dois tipos de equação incompleta e o caminho de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["quando falta", "o caminho"],
+          linhas: [["o termo c", "pôr x em evidência"], ["o termo b", "isolar x² e tirar raiz"]],
+          rotulo: "nenhum dos dois precisa de fórmula", larguraCol: 158,
+        }),
+      },
+      {
+        id: "eq9-res-fator-comum", pasta: "licoes",
+        alt: "Retângulo repartido em duas faixas de altura x, com as áreas 3x ao quadrado e menos 12x.",
+        // O `retanguloFatores` do 8º ano mostra o fator comum como ALTURA —
+        // a mesma leitura que pôr o x em evidência pede aqui.
+        desenho: () => retanguloFatores({
+          altura: "x",
+          partes: [{ largura: "3x", area: "3x²" }, { largura: "−12", area: "−12x" }],
+          pesos: [2, 1.6],
+          rotulo: "x é o lado que as duas faixas dividem",
+        }),
+      },
+      {
+        id: "eq9-q-b-zero", pasta: "questoes",
+        alt: "Tabela com os quadrados de 3 e de menos 3, os dois dando 9.",
+        desenho: () => tabela({
+          cabecalho: ["número", "ao quadrado"],
+          linhas: [["3", "9"], ["−3", "9"]],
+          rotulo: "x² = 16 · o quadrado apaga o sinal", larguraCol: 132,
+        }),
+      },
+      {
+        id: "eq9-q-quantas-raizes", pasta: "questoes",
+        alt: "Tabela com pares de números opostos e o quadrado de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["número", "ao quadrado"],
+          linhas: [["2", "4"], ["−2", "4"], ["1", "1"], ["−1", "1"]],
+          rotulo: "x² = 9 · quantos números servem?", larguraCol: 132,
+        }),
+      },
+      {
+        id: "eq9-q-raiz-zero", pasta: "questoes",
+        alt: "Retângulo repartido em duas faixas de altura x, com as áreas 2x ao quadrado e menos 10x.",
+        desenho: () => retanguloFatores({
+          altura: "x",
+          partes: [{ largura: "2x", area: "2x²" }, { largura: "−10", area: "−10x" }],
+          pesos: [2, 1.6],
+          rotulo: "os dois termos dividem o lado x",
+        }),
+      },
+      {
+        id: "eq9-q-produto-nulo", pasta: "questoes",
+        alt: "Tabela com produtos de dois fatores e o resultado de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["o produto", "dá zero?"],
+          linhas: [["3 × 5", "não"], ["0 × 5", "sim"], ["3 × 0", "sim"]],
+          rotulo: "o que precisa acontecer para dar zero?", larguraCol: 140,
+        }),
+      },
+
+      // --- lição 3: completar o quadrado ---
+      {
+        id: "eq9-ideia-completar", pasta: "licoes",
+        alt: "Quadrado de lado x mais 3 partido em quatro pedaços, com o canto de 3 por 3 no fim.",
+        // A figura que dá NOME ao método: o canto é exatamente o 9 que se
+        // soma, e "completar o quadrado" vira descrição do desenho.
+        desenho: () => quadradoSoma({
+          a: 5, b: 3, nomes: ["x", "3"],
+          rotulo: "o canto que falta mede 3 por 3",
+        }),
+      },
+      {
+        id: "eq9-res-completar", pasta: "licoes",
+        alt: "Cadeia dos cinco passos de completar o quadrado em x² mais 6x igual a 7.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "x² + 6x = 7" },
+            { texto: "x² + 6x + 9 = 16", nota: "+9 dos dois lados" },
+            { texto: "(x + 3)² = 16", nota: "quadrado da soma" },
+            { texto: "x + 3 = ±4", nota: "tira a raiz" },
+            { texto: "x = 1 ou x = −7", nota: "duas do 1º grau" },
+          ],
+          rotulo: "a metade de 6, ao quadrado, é o 9",
+        }),
+      },
+      {
+        id: "eq9-q-quanto-falta", pasta: "questoes",
+        alt: "Quadrado partido em quatro regiões sem rótulo, com o segundo lado em aberto.",
+        desenho: () => quadradoSoma({
+          a: 6, b: 3, nomes: ["x", "?"], revelar: "vazio",
+          rotulo: "x² + 8x · os dois retângulos somam 8x",
+        }),
+      },
+      {
+        id: "eq9-q-dois-lados", pasta: "questoes",
+        alt: "Balança em equilíbrio, com os dois pratos carregados igualmente.",
+        desenho: () => balanca({
+          esquerda: ["x", "6"], direita: ["13"],
+          rotulo: "e se o peso entrar num prato só?",
+        }),
+      },
+      {
+        id: "eq9-q-duas-raizes-completar", pasta: "questoes",
+        alt: "Tabela com o quadrado já montado e a raiz por tirar.",
+        desenho: () => tabela({
+          cabecalho: ["o passo", "fica"],
+          linhas: [["(x − 2)² = 9", "x − 2 = ±3"], ["resolver os dois", "?"]],
+          rotulo: "dois sinais, duas equações do 1º grau", larguraCol: 150,
+        }),
+      },
+      {
+        id: "eq9-q-o-canto-vazio", pasta: "questoes",
+        alt: "Quadrado de lado x mais 3 partido em quatro regiões sem rótulo.",
+        desenho: () => quadradoSoma({
+          a: 5, b: 3, nomes: ["x", "3"], revelar: "vazio",
+          rotulo: "o que o nome do método descreve?",
+        }),
+      },
+
+      // --- lição 4: a fórmula, e de onde ela vem ---
+      {
+        id: "eq9-ideia-deducao", pasta: "licoes",
+        alt: "Cadeia da dedução de Bhaskara, da forma geral até a fórmula.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "ax² + bx + c = 0" },
+            { texto: "x² + (b/a)x = −c/a", nota: "÷ a · passa o c" },
+            { texto: "(x + b/2a)² = Δ/4a²", nota: "completa o quadrado" },
+            { texto: "x + b/2a = ±√Δ/2a", nota: "tira a raiz" },
+            { texto: "x = (−b ± √Δ)/2a", nota: "isola o x" },
+          ],
+          destacar: [4],
+          rotulo: "o método da lição 3, feito com letras",
+        }),
+      },
+      {
+        id: "eq9-res-bhaskara", pasta: "licoes",
+        alt: "Tabela com os coeficientes e o discriminante de x² menos 5x mais 6.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a", "1"], ["b", "−5"], ["c", "6"], ["Δ = b² − 4ac", "1"]],
+          rotulo: "x² − 5x + 6 = 0", larguraCol: 132,
+        }),
+      },
+      {
+        id: "eq9-q-calcular-delta", pasta: "questoes",
+        alt: "Tabela com os coeficientes de x² mais 2x menos 8 e o discriminante em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a", "1"], ["b", "2"], ["c", "−8"], ["Δ = b² − 4ac", "?"]],
+          rotulo: "cuidado com o sinal do c", larguraCol: 140,
+        }),
+      },
+      {
+        id: "eq9-q-raiz-positiva", pasta: "questoes",
+        alt: "Tabela com a fórmula já montada com os valores e os dois sinais por resolver.",
+        desenho: () => tabela({
+          cabecalho: ["a fórmula fica", "os dois sinais"],
+          linhas: [["(−2 ± 6) / 2", "+ e −"]],
+          rotulo: "qual deles dá a raiz positiva?", larguraCol: 156,
+        }),
+      },
+      {
+        id: "eq9-q-de-onde-o-mais-menos", pasta: "questoes",
+        alt: "Cadeia da dedução cortada no passo em que a raiz é tirada dos dois lados.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "(x + b/2a)² = Δ/4a²" },
+            { texto: "tirar a raiz", nota: "dos dois lados" },
+          ],
+          destacar: [1],
+          rotulo: "lembre de x² = 9 · quantos valores servem?",
+        }),
+      },
+      {
+        id: "eq9-q-com-a-diferente", pasta: "questoes",
+        alt: "Tabela com os coeficientes de 2x² menos 7x mais 3 e o denominador em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a", "2"], ["b", "−7"], ["c", "3"], ["2a", "?"]],
+          rotulo: "o denominador da fórmula é 2a", larguraCol: 132,
+        }),
+      },
+
+      // --- lição 5: o que o discriminante conta ---
+      {
+        id: "eq9-ideia-tres-casos", pasta: "licoes",
+        alt: "Tabela com os três sinais possíveis do discriminante e o número de raízes de cada caso.",
+        desenho: () => tabela({
+          cabecalho: ["o sinal de Δ", "raízes reais"],
+          linhas: [["positivo", "duas"], ["zero", "uma"], ["negativo", "nenhuma"]],
+          rotulo: "√ de negativo não existe nos reais", larguraCol: 152,
+        }),
+      },
+      {
+        id: "eq9-res-delta-zero", pasta: "licoes",
+        alt: "Tabela com as duas parcelas do discriminante de x² menos 4x mais 4 e a diferença.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "vale"],
+          linhas: [["b²", "16"], ["4ac", "16"], ["Δ", "0"]],
+          rotulo: "x² − 4x + 4 = 0", larguraCol: 132,
+        }),
+      },
+      {
+        id: "eq9-q-delta-negativo", pasta: "questoes",
+        alt: "Tabela com os coeficientes de x² mais x mais 1 e o discriminante em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a", "1"], ["b", "1"], ["c", "1"], ["Δ", "?"]],
+          rotulo: "calcule o Δ antes de tentar resolver", larguraCol: 132,
+        }),
+      },
+      {
+        id: "eq9-q-quadrado-perfeito", pasta: "questoes",
+        alt: "Tabela com as duas parcelas do discriminante de x² menos 6x mais 9.",
+        desenho: () => tabela({
+          cabecalho: ["parte", "vale"],
+          linhas: [["b²", "36"], ["4ac", "36"]],
+          rotulo: "e a diferença entre elas?", larguraCol: 132,
+        }),
+      },
+      {
+        id: "eq9-q-por-que-decide", pasta: "questoes",
+        alt: "A fórmula de Bhaskara com o passo da raiz do discriminante destacado.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "x = (−b ± √Δ) / 2a" },
+            { texto: "√Δ existe?", nota: "depende do sinal de Δ" },
+          ],
+          destacar: [1],
+          rotulo: "onde o Δ aparece na fórmula",
+        }),
+      },
+      {
+        id: "eq9-q-trinomio-perfeito", pasta: "questoes",
+        alt: "Tabela com dois trinômios de discriminante zero.",
+        desenho: () => tabela({
+          cabecalho: ["trinômio", "Δ"],
+          linhas: [["x² − 4x + 4", "0"], ["x² − 6x + 9", "0"]],
+          rotulo: "como os dois se fatoram?", larguraCol: 140,
+        }),
+      },
+
+      // --- lição 6: soma, produto e problemas ---
+      {
+        id: "eq9-ideia-soma-produto", pasta: "licoes",
+        alt: "Tabela ligando a soma e o produto das raízes aos coeficientes.",
+        desenho: () => tabela({
+          cabecalho: ["das raízes", "vale"],
+          linhas: [["a soma", "−b/a"], ["o produto", "c/a"]],
+          rotulo: "os dois saem da própria fórmula", larguraCol: 144,
+        }),
+      },
+      {
+        id: "eq9-res-terreno", pasta: "licoes",
+        alt: "Retângulo com a altura marcada x e a largura marcada x mais 3.",
+        desenho: () => retanguloMalha({
+          colunas: 8, linhas: 5, malha: false, cel: 30,
+          rotuloLargura: "x + 3", rotuloAltura: "x",
+          rotulo: "a área é 40 m²",
+        }),
+      },
+      {
+        id: "eq9-q-obmep-produto", pasta: "questoes",
+        alt: "Tabela com três pares de naturais que somam 11 e o produto de cada um.",
+        // Os pares pequenos aparecem; o de maior produto (5 e 6), que é a
+        // resposta, fica de fora — o aluno tem de continuar a lista.
+        desenho: () => tabela({
+          cabecalho: ["o par", "o produto"],
+          linhas: [["1 e 10", "10"], ["2 e 9", "18"], ["3 e 8", "24"]],
+          rotulo: "continue a lista · para onde o produto vai?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "eq9-q-soma-raizes", pasta: "questoes",
+        alt: "Tabela com os coeficientes de x² menos 7x mais 12.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a", "1"], ["b", "−7"], ["c", "12"]],
+          rotulo: "a soma das raízes é o oposto de b", larguraCol: 132,
+        }),
+      },
+      {
+        id: "eq9-q-terreno-36", pasta: "questoes",
+        alt: "Retângulo com a altura marcada x e a largura marcada x mais 5.",
+        desenho: () => retanguloMalha({
+          colunas: 9, linhas: 4, malha: false, cel: 30,
+          rotuloLargura: "x + 5", rotuloAltura: "x",
+          rotulo: "a área é 36 m² · quanto vale x?",
+        }),
+      },
+      {
+        id: "eq9-q-por-que-descarta", pasta: "questoes",
+        alt: "Reta numérica com as duas raízes marcadas, uma de cada lado do zero.",
+        desenho: () => retaInteiros({
+          de: -10, ate: 8, rotuloCada: 2,
+          marcados: [{ em: -8, rotulo: "raiz" }, { em: 5, rotulo: "raiz" }],
+          rotulo: "largura de terreno mora de que lado?",
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Função afim ═══════════════
+  //
+  // A matéria estreia o `planoFuncao`, e a razão está registrada no gerador:
+  // o plano do 6º ano é só o primeiro quadrante, e função afim mora nos
+  // quatro. Mas a figura que carrega a matéria é o DEGRAU dele — o passo de
+  // 1 para a direita e a subida de a, desenhados ao lado da reta. Sem ele,
+  // "a é a taxa de variação" é uma frase que o aluno decora.
+  //
+  // A `maquinaFuncao` do 7º ano volta na lição 1, e de propósito: a função
+  // não é ideia nova, é o mesmo objeto com nome e notação. Quem já viu a
+  // máquina entende f(x) em dois minutos.
+  //
+  // Uma ressalva que aparece três vezes neste bloco: em questão que PEDE a
+  // raiz, ou o valor lido no gráfico, a reta desenhada seria a resposta —
+  // basta olhar onde ela cruza. Nessas o plano dá lugar a uma cadeia ou a
+  // uma tabela cortada antes do valor procurado. É a mesma ressalva do
+  // `salto` da retaInteiros e do `referencia` do gráfico.
+  ...(() => {
+    return [
+      // --- lição 1: o que é uma função ---
+      {
+        id: "fa9-ideia-maquina", pasta: "licoes",
+        alt: "Máquina da regra 3n mais 2, com três entradas e as saídas de cada uma.",
+        desenho: () => maquinaFuncao({
+          regra: "3n + 2",
+          pares: [{ entra: "1", sai: "5" }, { entra: "2", sai: "8" }, { entra: "4", sai: "14" }],
+          rotulo: "uma saída para cada entrada",
+        }),
+      },
+      {
+        id: "fa9-res-f-de-4", pasta: "licoes",
+        alt: "Máquina da regra 3n mais 2 com a entrada 4 e a saída 14.",
+        desenho: () => maquinaFuncao({
+          regra: "3n + 2",
+          pares: [{ entra: "4", sai: "14" }],
+          rotulo: "f(4): entra 4, sai 14",
+        }),
+      },
+      {
+        id: "fa9-q-f-de-3", pasta: "questoes",
+        alt: "Máquina da regra 2n mais 5 com a entrada 3 e a saída em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "2n + 5",
+          pares: [{ entra: "3", sai: "?" }],
+          rotulo: "f(3) = ?",
+        }),
+      },
+      {
+        id: "fa9-q-duas-saidas", pasta: "questoes",
+        alt: "Tabela com a entrada 4 aparecendo duas vezes, com saídas diferentes.",
+        desenho: () => tabela({
+          cabecalho: ["entra", "sai"],
+          linhas: [["4", "9"], ["4", "14"]],
+          rotulo: "a mesma entrada, duas saídas", larguraCol: 120,
+        }),
+      },
+      {
+        id: "fa9-q-f-de-zero", pasta: "questoes",
+        alt: "Máquina da regra 4n menos 1 com a entrada zero e a saída em aberto.",
+        desenho: () => maquinaFuncao({
+          regra: "4n − 1",
+          pares: [{ entra: "0", sai: "?" }],
+          rotulo: "e quando entra o zero?",
+        }),
+      },
+      {
+        id: "fa9-q-o-que-significa", pasta: "questoes",
+        alt: "Tabela separando o que está dentro do parêntese do que está depois da igualdade.",
+        desenho: () => tabela({
+          cabecalho: ["f(2) = 7", "quem é"],
+          linhas: [["o 2", "?"], ["o 7", "?"]],
+          rotulo: "um deles entra, o outro sai", larguraCol: 132,
+        }),
+      },
+
+      // --- lição 2: a lei da função e a tabela ---
+      {
+        id: "fa9-ideia-fixo-variavel", pasta: "licoes",
+        alt: "Tabela separando a parte fixa da parte que depende da entrada.",
+        desenho: () => tabela({
+          cabecalho: ["no enunciado", "na lei"],
+          linhas: [["6 reais fixos", "+ 6"], ["3 reais por hora", "3x"]],
+          rotulo: "o que depende da entrada multiplica o x", larguraCol: 152,
+        }),
+      },
+      {
+        id: "fa9-res-pizzaria", pasta: "licoes",
+        alt: "Retângulo repartido em duas faixas: a taxa de entrega e o preço das pizzas.",
+        // O `retanguloFatores` do 8º ano lê a soma como área, e aqui ele
+        // separa o pedaço fixo do que cresce com a quantidade.
+        desenho: () => retanguloFatores({
+          altura: "R$",
+          partes: [{ largura: "30x", area: "as pizzas" }, { largura: "20", area: "a entrega" }],
+          pesos: [2.4, 1.2],
+          rotulo: "f(x) = 30x + 20",
+        }),
+      },
+      {
+        id: "fa9-q-caminho-de-volta", pasta: "questoes",
+        alt: "Máquina da regra 5n mais 10 com a saída 45 e a entrada em aberto.",
+        // A máquina INVERTIDA, como em Equações do 1º grau: a saída é
+        // conhecida e quem falta é a entrada.
+        desenho: () => maquinaFuncao({
+          regra: "5n + 10",
+          pares: [{ entra: "?", sai: "45" }],
+          rotulo: "que entrada devolve 45?",
+        }),
+      },
+      {
+        id: "fa9-q-estacionamento", pasta: "questoes",
+        alt: "Tabela com a taxa fixa e o preço por hora de um estacionamento.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "quanto"],
+          linhas: [["taxa fixa", "R$ 6,00"], ["por hora", "R$ 3,00"]],
+          rotulo: "quanto custam 4 horas?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "fa9-q-traduzir", pasta: "questoes",
+        alt: "Tabela com os dois pedaços da frase, um em cada linha, sem a lei montada.",
+        desenho: () => tabela({
+          cabecalho: ["na frase", "em símbolos"],
+          linhas: [["o dobro de um número", "?"], ["menos 7", "?"]],
+          rotulo: "traduza na ordem em que a frase diz", larguraCol: 150,
+        }),
+      },
+      {
+        id: "fa9-q-tabela-continua", pasta: "questoes",
+        alt: "Tabela com as três primeiras saídas de uma função afim.",
+        desenho: () => tabela({
+          cabecalho: ["x", "f(x)"],
+          linhas: [["1", "7"], ["2", "11"], ["3", "15"]],
+          rotulo: "quanto cresce a cada passo?", larguraCol: 110,
+        }),
+      },
+
+      // --- lição 3: por que o gráfico é uma reta ---
+      {
+        id: "fa9-ideia-por-que-reta", pasta: "licoes",
+        alt: "Reta de y igual a 2x menos 3 no plano, com um degrau mostrando a subida por passo.",
+        desenho: () => planoFuncao({
+          curvas: [{ tipo: "reta", a: 2, b: -3 }],
+          degraus: [{ de: 2, rotuloX: "+1", rotuloY: "+2" }],
+          rotulo: "f(x) = 2x − 3 · o mesmo passo, a mesma subida",
+        }),
+      },
+      {
+        id: "fa9-res-reta-2x-3", pasta: "licoes",
+        alt: "Reta de y igual a 2x menos 3 com os pontos de entrada zero e três marcados.",
+        desenho: () => planoFuncao({
+          curvas: [{ tipo: "reta", a: 2, b: -3 }],
+          pontos: [{ em: [0, -3], rotulo: "(0,−3)" }, { em: [3, 3], rotulo: "(3,3)" }],
+          rotulo: "dois pontos bastam",
+        }),
+      },
+      {
+        id: "fa9-q-por-que-reta", pasta: "questoes",
+        alt: "Tabela com quatro saídas seguidas de uma função afim.",
+        desenho: () => tabela({
+          cabecalho: ["x", "f(x) = 2x − 3"],
+          linhas: [["0", "−3"], ["1", "−1"], ["2", "1"], ["3", "3"]],
+          rotulo: "o que se repete de linha em linha?", larguraCol: 130,
+        }),
+      },
+      {
+        id: "fa9-q-quantos-pontos", pasta: "questoes",
+        alt: "Plano com um ponto marcado e três retas diferentes passando por ele.",
+        // Três retas pelo MESMO ponto: é o desenho de por que um ponto não
+        // basta. As três passam por (2, 1), e cada uma tem outra inclinação.
+        desenho: () => planoFuncao({
+          curvas: [
+            { tipo: "reta", a: 1, b: -1 },
+            { tipo: "reta", a: -1, b: 3 },
+            { tipo: "reta", a: 3, b: -5 },
+          ],
+          pontos: [{ em: [2, 1] }],
+          rotulo: "por um ponto passam infinitas retas",
+        }),
+      },
+      {
+        id: "fa9-q-pertence", pasta: "questoes",
+        alt: "Plano com a reta de y igual a 2x menos 1 e nenhum ponto marcado.",
+        desenho: () => planoFuncao({
+          curvas: [{ tipo: "reta", a: 2, b: -1 }],
+          rotulo: "o ponto (3, 5) cai sobre esta reta?",
+        }),
+      },
+      {
+        id: "fa9-q-ler-grafico", pasta: "questoes",
+        alt: "Plano com uma reta que corta o eixo vertical em 1 e sobe um por passo.",
+        desenho: () => planoFuncao({
+          curvas: [{ tipo: "reta", a: 1, b: 1 }],
+          pontos: [{ em: [0, 1], rotulo: "(0,1)" }],
+          rotulo: "quanto vale f(4)?",
+        }),
+      },
+
+      // --- lição 4: o que a e b fazem ---
+      {
+        id: "fa9-ideia-a-e-b", pasta: "licoes",
+        alt: "Plano com a reta de y igual a 2x mais 1, o corte no eixo vertical e um degrau.",
+        desenho: () => planoFuncao({
+          curvas: [{ tipo: "reta", a: 2, b: 1 }],
+          pontos: [{ em: [0, 1], rotulo: "b = 1" }],
+          degraus: [{ de: 1, rotuloX: "+1", rotuloY: "+2" }],
+          rotulo: "o b é onde começa, o a é quanto sobe",
+        }),
+      },
+      {
+        id: "fa9-res-decrescente", pasta: "licoes",
+        alt: "Plano com a reta de y igual a menos 2x mais 5 descendo, com um degrau de descida.",
+        desenho: () => planoFuncao({
+          xDe: -2, xAte: 8, yDe: -6, yAte: 6,
+          curvas: [{ tipo: "reta", a: -2, b: 5 }],
+          degraus: [{ de: 2, rotuloX: "+1", rotuloY: "−2" }],
+          rotulo: "a negativo: andar para a direita desce",
+        }),
+      },
+      {
+        id: "fa9-q-taxa", pasta: "questoes",
+        alt: "Tabela com três saídas seguidas de f de x igual a 3x menos 7.",
+        desenho: () => tabela({
+          cabecalho: ["x", "f(x) = 3x − 7"],
+          linhas: [["0", "−7"], ["1", "−4"], ["2", "−1"]],
+          rotulo: "quanto a saída anda a cada passo?", larguraCol: 130,
+        }),
+      },
+      {
+        id: "fa9-q-cresce-ou-desce", pasta: "questoes",
+        alt: "Tabela com os dois coeficientes de f de x igual a menos 4x mais 1.",
+        // Sem plano: a reta desenhada mostraria a descida, que é a resposta.
+        desenho: () => tabela({
+          cabecalho: ["coeficiente", "vale"],
+          linhas: [["a", "−4"], ["b", "1"]],
+          rotulo: "qual deles decide o sentido?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "fa9-q-corta-y", pasta: "questoes",
+        alt: "Plano com a reta de y igual a 2x mais 6 e nenhum ponto marcado.",
+        desenho: () => planoFuncao({
+          xDe: -6, xAte: 4, yDe: -4, yAte: 10,
+          curvas: [{ tipo: "reta", a: 2, b: 6 }],
+          rotulo: "onde ela cruza o eixo de pé?",
+        }),
+      },
+      {
+        id: "fa9-q-paralelas", pasta: "questoes",
+        alt: "Tabela com duas leis de mesmo coeficiente a e coeficientes b diferentes.",
+        // As duas retas desenhadas seriam a resposta — elas ficariam
+        // visivelmente paralelas. A tabela dá os dados e cala o desenho.
+        desenho: () => tabela({
+          cabecalho: ["a lei", "a e b"],
+          linhas: [["f(x) = 2x + 1", "a = 2 · b = 1"], ["g(x) = 2x − 3", "a = 2 · b = −3"]],
+          rotulo: "mesmo a, b diferente", larguraCol: 140,
+        }),
+      },
+
+      // --- lição 5: a raiz da função ---
+      {
+        id: "fa9-ideia-raiz", pasta: "licoes",
+        alt: "Plano com a reta de y igual a 3x menos 12 cruzando o eixo horizontal em 4.",
+        desenho: () => planoFuncao({
+          xDe: -2, xAte: 8, yDe: -14, yAte: 10, escala: 18,
+          curvas: [{ tipo: "reta", a: 3, b: -12 }],
+          pontos: [{ em: [4, 0], rotulo: "raiz" }],
+          rotulo: "a raiz é o cruzamento com o eixo deitado",
+        }),
+      },
+      {
+        id: "fa9-res-raiz-3x-12", pasta: "licoes",
+        alt: "Cadeia dos três passos para achar a raiz de 3x menos 12.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = 3x − 12" },
+            { texto: "3x − 12 = 0", nota: "a raiz zera a saída" },
+            { texto: "3x = 12", nota: "passa o termo solto" },
+            { texto: "x = 4", nota: "divide pelo a" },
+          ],
+          destacar: [3],
+          rotulo: "achar a raiz é resolver uma equação do 1º grau",
+        }),
+      },
+      {
+        id: "fa9-q-raiz-2x-10", pasta: "questoes",
+        alt: "Cadeia começando em 2x menos 10 e parando na equação por resolver.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = 2x − 10" },
+            { texto: "2x − 10 = 0", nota: "a raiz zera a saída" },
+          ],
+          destacar: [1],
+          rotulo: "resolva e ache a raiz",
+        }),
+      },
+      {
+        id: "fa9-q-raiz-negativa", pasta: "questoes",
+        alt: "Cadeia começando em menos x mais 3 e parando na equação por resolver.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = −x + 3" },
+            { texto: "−x + 3 = 0", nota: "cuidado: o a vale −1" },
+          ],
+          destacar: [1],
+          rotulo: "resolva e ache a raiz",
+        }),
+      },
+      {
+        id: "fa9-q-raiz-no-grafico", pasta: "questoes",
+        alt: "Plano com uma reta atravessando os dois eixos, sem nenhum ponto marcado.",
+        desenho: () => planoFuncao({
+          curvas: [{ tipo: "reta", a: 1, b: -2 }],
+          rotulo: "em que eixo a saída vale zero?",
+        }),
+      },
+      {
+        id: "fa9-q-sinal", pasta: "questoes",
+        alt: "Tabela com duas saídas negativas de f de x igual a 4x menos 8.",
+        // A tabela para ANTES da raiz: continuar a lista é o que a questão
+        // pede, e mostrar a linha em que a saída vira positiva seria a
+        // resposta desenhada.
+        desenho: () => tabela({
+          cabecalho: ["x", "f(x) = 4x − 8"],
+          linhas: [["0", "−8"], ["1", "−4"]],
+          rotulo: "continue · onde a saída vira positiva?", larguraCol: 130,
+        }),
+      },
+
+      // --- lição 6: onde isso aparece ---
+      {
+        id: "fa9-ideia-dois-planos", pasta: "licoes",
+        alt: "Plano com duas retas de inclinações diferentes se cruzando.",
+        desenho: () => planoFuncao({
+          xDe: -1, xAte: 9, yDe: -1, yAte: 9,
+          curvas: [
+            { tipo: "reta", a: 0.5, b: 3, rotulo: "A" },
+            { tipo: "reta", a: 1.5, b: 1, rotulo: "B" },
+          ],
+          rotulo: "quem começa mais barato sobe mais rápido",
+        }),
+      },
+      {
+        id: "fa9-res-cruzamento", pasta: "licoes",
+        alt: "Tabela com as leis dos dois planos de celular, lado a lado.",
+        desenho: () => tabela({
+          cabecalho: ["plano", "a lei"],
+          linhas: [["A", "0,5x + 30"], ["B", "1,5x + 10"]],
+          rotulo: "onde as duas contas empatam?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "fa9-q-duas-locadoras", pasta: "questoes",
+        alt: "Tabela com a taxa fixa e o preço por hora de duas locadoras.",
+        desenho: () => tabela({
+          cabecalho: ["locadora", "fixo", "por hora"],
+          linhas: [["A", "R$ 40", "R$ 2"], ["B", "R$ 10", "R$ 5"]],
+          rotulo: "com quantas horas as duas empatam?", larguraCol: 104,
+        }),
+      },
+      {
+        id: "fa9-q-obmep-taxi", pasta: "questoes",
+        alt: "Tabela com a bandeirada, o preço de cada cem metros e o dinheiro do bolso.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "quanto"],
+          linhas: [["bandeirada", "R$ 2,50"], ["cada 100 m", "R$ 0,10"], ["no bolso", "R$ 10,00"]],
+          rotulo: "a bandeirada sai antes de o táxi andar", larguraCol: 140,
+        }),
+      },
+      {
+        id: "fa9-q-obmep-telefone", pasta: "questoes",
+        alt: "Tabela com as três regras de cobrança do plano telefônico.",
+        desenho: () => tabela({
+          cabecalho: ["a regra", "o valor"],
+          linhas: [["tarifa fixa", "R$ 18,00"], ["grátis por mês", "10 horas"], ["minuto excedente", "R$ 0,03"]],
+          rotulo: "um dos meses não passou da gratuidade", larguraCol: 150,
+        }),
+      },
+      {
+        id: "fa9-q-obmep-velas", pasta: "questoes",
+        alt: "Duas barras de mesmo comprimento, com o tempo de queima de cada uma.",
+        desenho: () => tabela({
+          cabecalho: ["vela", "queima em"],
+          linhas: [["a mais rápida", "3 horas"], ["a mais lenta", "4 horas"]],
+          rotulo: "mesmo comprimento, ritmos diferentes", larguraCol: 144,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Função quadrática ═══════════════
+  //
+  // Nenhum gerador novo: o `planoFuncao` nasceu em Função afim já sabendo
+  // desenhar parábola, e foi de propósito — os dois assuntos são o mesmo
+  // gerador com outro `tipo`, e a curva sai dos COEFICIENTES, sem ninguém
+  // passar pontos prontos.
+  //
+  // A ressalva de sempre pesa mais aqui do que em qualquer matéria anterior:
+  // a parábola desenhada RESPONDE quase toda pergunta desta matéria. Onde
+  // ela corta, para que lado abre, onde está o vértice — tudo isso se lê do
+  // desenho. Por isso o plano aparece nas ideias e nos resolvidos, e nas
+  // questões ele só entra quando o que se pergunta não é legível na curva.
+  // Nas outras entram tabela e cadeia, cortadas antes do valor procurado.
+  ...(() => {
+    return [
+      // --- lição 1: quando o ritmo deixa de ser constante ---
+      {
+        id: "fq9-ideia-avancos", pasta: "licoes",
+        alt: "Tabela com as saídas de x ao quadrado e o avanço de uma linha para a outra.",
+        desenho: () => tabela({
+          cabecalho: ["x", "x²", "avanço"],
+          linhas: [["0", "0", "—"], ["1", "1", "1"], ["2", "4", "3"], ["3", "9", "5"], ["4", "16", "7"]],
+          rotulo: "o passo é sempre 1, mas o avanço cresce", larguraCol: 96,
+        }),
+      },
+      {
+        id: "fq9-res-f-de-4", pasta: "licoes",
+        alt: "Cadeia da substituição de 4 em x ao quadrado menos 3x mais 2.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(4) = 4² − 3×4 + 2" },
+            { texto: "16 − 3×4 + 2", nota: "a potência primeiro" },
+            { texto: "16 − 12 + 2 = 6", nota: "depois o resto" },
+          ],
+          destacar: [2],
+          rotulo: "a ordem das operações decide o resultado",
+        }),
+      },
+      {
+        id: "fq9-q-f-de-5", pasta: "questoes",
+        alt: "Cadeia da substituição de 5, parada logo depois da potência.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(5) = 5² − 3×5 + 2" },
+            { texto: "25 − 3×5 + 2", nota: "a potência já saiu" },
+          ],
+          destacar: [1],
+          rotulo: "termine a conta",
+        }),
+      },
+      {
+        id: "fq9-q-nao-e-quadratica", pasta: "questoes",
+        alt: "Tabela comparando a forma geral com a lei do enunciado, termo a termo.",
+        desenho: () => tabela({
+          cabecalho: ["na forma geral", "na lei dada"],
+          linhas: [["ax²", "?"], ["bx", "2x"], ["c", "5"]],
+          rotulo: "qual linha ficou vazia?", larguraCol: 146,
+        }),
+      },
+      {
+        id: "fq9-q-proximo-avanco", pasta: "questoes",
+        alt: "Tabela com os três primeiros avanços de x ao quadrado e o quarto em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["do passo", "avanço"],
+          linhas: [["f(0) a f(1)", "1"], ["f(1) a f(2)", "3"], ["f(2) a f(3)", "5"], ["f(3) a f(4)", "?"]],
+          rotulo: "os avanços também têm padrão", larguraCol: 126,
+        }),
+      },
+      {
+        id: "fq9-q-o-que-distingue", pasta: "questoes",
+        alt: "Tabela com as saídas de uma função afim e de uma quadrática lado a lado.",
+        desenho: () => tabela({
+          cabecalho: ["x", "2x", "x²"],
+          linhas: [["0", "0", "0"], ["1", "2", "1"], ["2", "4", "4"], ["3", "6", "9"]],
+          rotulo: "acompanhe o avanço em cada coluna", larguraCol: 92,
+        }),
+      },
+
+      // --- lição 2: a parábola, e para que lado ela abre ---
+      {
+        id: "fq9-ideia-concavidade", pasta: "licoes",
+        alt: "Plano com duas parábolas, uma abrindo para cima e outra para baixo.",
+        desenho: () => planoFuncao({
+          xDe: -4, xAte: 4, yDe: -8, yAte: 8, escala: 22,
+          curvas: [
+            { tipo: "parabola", a: 1, b: 0, c: 0 },
+            { tipo: "parabola", a: -1, b: 0, c: 0 },
+          ],
+          rotulo: "o sinal de a vira a boca da curva",
+        }),
+      },
+      {
+        id: "fq9-res-abre-para-baixo", pasta: "licoes",
+        alt: "Plano com a parábola de menos x ao quadrado mais 4, com o topo e os dois cortes marcados.",
+        desenho: () => planoFuncao({
+          xDe: -4, xAte: 4, yDe: -6, yAte: 6, escala: 24,
+          curvas: [{ tipo: "parabola", a: -1, b: 0, c: 4 }],
+          pontos: [{ em: [0, 4], rotulo: "(0,4)" }, { em: [-2, 0] }, { em: [2, 0] }],
+          rotulo: "f(x) = −x² + 4",
+        }),
+      },
+      {
+        id: "fq9-q-para-que-lado", pasta: "questoes",
+        alt: "Tabela com os três coeficientes de menos 2x ao quadrado mais 3x mais 1.",
+        // Sem plano: a parábola desenhada mostraria a boca, que é a resposta.
+        desenho: () => tabela({
+          cabecalho: ["coeficiente", "vale"],
+          linhas: [["a", "−2"], ["b", "3"], ["c", "1"]],
+          rotulo: "qual deles decide a concavidade?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "fq9-q-cruza-vertical", pasta: "questoes",
+        alt: "Cadeia lembrando que no eixo vertical a entrada vale zero.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = x² − 2x − 3" },
+            { texto: "no eixo de pé, x = 0", nota: "é o que define o eixo" },
+          ],
+          destacar: [1],
+          rotulo: "calcule f(0)",
+        }),
+      },
+      {
+        id: "fq9-q-simetria", pasta: "questoes",
+        alt: "Plano com a parábola de x ao quadrado e dois pontos marcados no eixo horizontal, simétricos.",
+        desenho: () => planoFuncao({
+          xDe: -4, xAte: 4, yDe: -2, yAte: 10, escala: 24,
+          curvas: [{ tipo: "parabola", a: 1, b: 0, c: 0 }],
+          pontos: [{ em: [-2, 0] }, { em: [2, 0] }],
+          rotulo: "duas entradas à mesma distância do meio",
+        }),
+      },
+      {
+        id: "fq9-q-f-de-menos-3", pasta: "questoes",
+        alt: "Tabela com os quadrados de dois números opostos e de um positivo.",
+        desenho: () => tabela({
+          cabecalho: ["x", "x²"],
+          linhas: [["1", "1"], ["2", "4"], ["−2", "4"]],
+          rotulo: "o quadrado apaga o sinal · e f(−3)?", larguraCol: 110,
+        }),
+      },
+
+      // --- lição 3: onde a parábola corta o eixo ---
+      {
+        id: "fq9-ideia-tres-casos", pasta: "licoes",
+        alt: "Plano com três parábolas: uma que corta o eixo duas vezes, uma que encosta e uma que não toca.",
+        desenho: () => planoFuncao({
+          xDe: -4, xAte: 4, yDe: -6, yAte: 8, escala: 22,
+          curvas: [
+            { tipo: "parabola", a: 1, b: 0, c: -4 },
+            { tipo: "parabola", a: 1, b: 0, c: 0 },
+            { tipo: "parabola", a: 1, b: 0, c: 2 },
+          ],
+          rotulo: "dois cortes, um encosto, nenhum toque",
+        }),
+      },
+      {
+        id: "fq9-res-dois-cortes", pasta: "licoes",
+        alt: "Plano com a parábola de x ao quadrado menos 5x mais 6 cortando o eixo em dois pontos.",
+        desenho: () => planoFuncao({
+          xDe: -1, xAte: 6, yDe: -3, yAte: 8, escala: 26,
+          curvas: [{ tipo: "parabola", a: 1, b: -5, c: 6 }],
+          pontos: [{ em: [2, 0] }, { em: [3, 0] }],
+          rotulo: "f(x) = x² − 5x + 6 · cortes em 2 e em 3",
+        }),
+      },
+      {
+        id: "fq9-q-maior-raiz", pasta: "questoes",
+        alt: "Cadeia igualando x ao quadrado menos 7x mais 10 a zero.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = x² − 7x + 10" },
+            { texto: "x² − 7x + 10 = 0", nota: "a raiz zera a saída" },
+          ],
+          destacar: [1],
+          rotulo: "resolva e pegue a maior",
+        }),
+      },
+      {
+        id: "fq9-q-quantas-raizes", pasta: "questoes",
+        alt: "Tabela com os três coeficientes de x ao quadrado mais x mais 1 e o discriminante em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a", "1"], ["b", "1"], ["c", "1"], ["Δ", "?"]],
+          rotulo: "calcule o Δ antes de tentar resolver", larguraCol: 132,
+        }),
+      },
+      {
+        id: "fq9-q-raizes-no-grafico", pasta: "questoes",
+        alt: "Plano com uma parábola atravessando o eixo horizontal, sem nada marcado.",
+        desenho: () => planoFuncao({
+          xDe: -4, xAte: 4, yDe: -6, yAte: 8, escala: 24,
+          curvas: [{ tipo: "parabola", a: 1, b: 1, c: -4 }],
+          rotulo: "em que eixo a saída vale zero?",
+        }),
+      },
+      {
+        id: "fq9-q-tangencia", pasta: "questoes",
+        alt: "Tabela com as duas parcelas do discriminante de x ao quadrado menos 4x mais 4.",
+        // Sem plano: a parábola que encosta no eixo mostraria a contagem.
+        desenho: () => tabela({
+          cabecalho: ["parte", "vale"],
+          linhas: [["b²", "16"], ["4ac", "16"]],
+          rotulo: "e a diferença entre elas?", larguraCol: 132,
+        }),
+      },
+
+      // --- lição 4: o ponto de virada ---
+      {
+        id: "fq9-ideia-vertice", pasta: "licoes",
+        alt: "Plano com a parábola de x ao quadrado menos 6x mais 5, o vértice e as duas raízes marcados.",
+        desenho: () => planoFuncao({
+          xDe: -1, xAte: 7, yDe: -6, yAte: 7, escala: 24,
+          curvas: [{ tipo: "parabola", a: 1, b: -6, c: 5 }],
+          pontos: [{ em: [1, 0] }, { em: [5, 0] }, { em: [3, -4], rotulo: "vértice" }],
+          rotulo: "o vértice fica no meio das raízes",
+        }),
+      },
+      {
+        id: "fq9-res-vertice", pasta: "licoes",
+        alt: "Cadeia dos passos para achar as duas coordenadas do vértice.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = x² − 6x + 5" },
+            { texto: "x = 6 / 2 = 3", nota: "o oposto de b sobre 2a" },
+            { texto: "f(3) = 9 − 18 + 5", nota: "a altura sai substituindo" },
+            { texto: "vértice (3, −4)", nota: "a > 0 · é mínimo" },
+          ],
+          destacar: [3],
+          rotulo: "a primeira coordenada, e depois a segunda",
+        }),
+      },
+      {
+        id: "fq9-q-x-do-vertice", pasta: "questoes",
+        alt: "Tabela com os três coeficientes de x ao quadrado menos 8x mais 7.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a", "1"], ["b", "−8"], ["c", "7"]],
+          rotulo: "o x do vértice é −b sobre 2a", larguraCol: 132,
+        }),
+      },
+      {
+        id: "fq9-q-y-do-vertice", pasta: "questoes",
+        alt: "Cadeia com a substituição do x do vértice, parada antes do resultado.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = x² − 8x + 7" },
+            { texto: "f(4) = 16 − 32 + 7", nota: "a altura é f do vértice" },
+          ],
+          destacar: [1],
+          rotulo: "termine a conta",
+        }),
+      },
+      {
+        id: "fq9-q-maximo-ou-minimo", pasta: "questoes",
+        alt: "Tabela com os coeficientes de menos 2x ao quadrado mais 8x.",
+        // Sem plano: a curva de boca para baixo mostraria a resposta.
+        desenho: () => tabela({
+          cabecalho: ["coeficiente", "vale"],
+          linhas: [["a", "−2"], ["b", "8"], ["c", "0"]],
+          rotulo: "o sinal de a decide o tipo de vértice", larguraCol: 140,
+        }),
+      },
+      {
+        id: "fq9-q-meio-das-raizes", pasta: "questoes",
+        alt: "Tabela com os dois pontos em que a parábola corta o eixo horizontal.",
+        desenho: () => tabela({
+          cabecalho: ["os cortes", "em"],
+          linhas: [["o da esquerda", "2"], ["o da direita", "8"]],
+          rotulo: "onde fica o eixo de simetria?", larguraCol: 134,
+        }),
+      },
+
+      // --- lição 5: esboçar a parábola ---
+      {
+        id: "fq9-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com os quatro passos do roteiro de esboço e o que cada um custa.",
+        desenho: () => tabela({
+          cabecalho: ["o passo", "custa"],
+          linhas: [
+            ["concavidade", "olhar o a"],
+            ["corte de pé", "olhar o c"],
+            ["raízes", "uma equação"],
+            ["vértice", "uma divisão"],
+          ],
+          rotulo: "os dois primeiros saem sem conta", larguraCol: 134,
+        }),
+      },
+      {
+        id: "fq9-res-esboco", pasta: "licoes",
+        alt: "Plano com a parábola de x ao quadrado menos 2x menos 3, com as raízes, o vértice e o corte vertical marcados.",
+        desenho: () => planoFuncao({
+          xDe: -3, xAte: 5, yDe: -6, yAte: 7, escala: 24,
+          curvas: [{ tipo: "parabola", a: 1, b: -2, c: -3 }],
+          pontos: [{ em: [-1, 0] }, { em: [3, 0] }, { em: [0, -3] }, { em: [1, -4], rotulo: "vértice" }],
+          rotulo: "quatro dados e a curva está determinada",
+        }),
+      },
+      {
+        id: "fq9-q-acima-do-eixo", pasta: "questoes",
+        alt: "Tabela com o sinal do coeficiente a e o sinal do discriminante.",
+        // Sem plano: a curva flutuando acima do eixo seria a resposta.
+        desenho: () => tabela({
+          cabecalho: ["o que", "o sinal"],
+          linhas: [["a", "positivo"], ["Δ", "negativo"]],
+          rotulo: "junte os dois e diga onde a curva fica", larguraCol: 140,
+        }),
+      },
+      {
+        id: "fq9-q-vertice-simples", pasta: "questoes",
+        alt: "Cadeia com a lei de x ao quadrado menos 4 e o x do vértice já achado.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = x² − 4" },
+            { texto: "b = 0 → vértice em x = 0", nota: "o eixo é o vertical" },
+          ],
+          destacar: [1],
+          rotulo: "e a altura dele?",
+        }),
+      },
+      {
+        id: "fq9-q-ordem-do-roteiro", pasta: "questoes",
+        alt: "Tabela com duas parábolas de mesmas raízes abrindo para lados opostos.",
+        // A tabela existe para desmontar a alternativa "as raízes bastam":
+        // as duas leis têm as MESMAS raízes e concavidades opostas.
+        desenho: () => tabela({
+          cabecalho: ["a lei", "as raízes"],
+          linhas: [["x² − 4", "−2 e 2"], ["−x² + 4", "−2 e 2"]],
+          rotulo: "as raízes bastam para decidir o desenho?", larguraCol: 134,
+        }),
+      },
+      {
+        id: "fq9-q-valor-maximo", pasta: "questoes",
+        alt: "Cadeia com a lei de menos x ao quadrado mais 6x menos 5 e o x do vértice em aberto.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "f(x) = −x² + 6x − 5" },
+            { texto: "a < 0 → há máximo", nota: "a boca aponta para baixo" },
+            { texto: "x do vértice = ?", nota: "−b sobre 2a" },
+          ],
+          destacar: [2],
+          rotulo: "ache o x do vértice e depois a altura",
+        }),
+      },
+
+      // --- lição 6: problemas de máximo ---
+      {
+        id: "fq9-ideia-area-maxima", pasta: "licoes",
+        alt: "Tabela com retângulos de perímetro 40 e a área de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["lados", "área"],
+          linhas: [["2 e 18", "36"], ["5 e 15", "75"], ["8 e 12", "96"], ["10 e 10", "100"]],
+          rotulo: "mesma cerca · a área máxima é do quadrado", larguraCol: 122,
+        }),
+      },
+      {
+        id: "fq9-res-cerca", pasta: "licoes",
+        alt: "Cadeia da montagem da área do terreno a partir do perímetro de 40 metros.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "lados x e 20 − x" },
+            { texto: "A(x) = −x² + 20x", nota: "área é o produto" },
+            { texto: "x = 20 / 2 = 10", nota: "o vértice, com a < 0" },
+            { texto: "A(10) = 100 m²", nota: "um quadrado 10 por 10" },
+          ],
+          destacar: [3],
+          rotulo: "a área máxima mora no vértice",
+        }),
+      },
+      {
+        id: "fq9-q-cerca-24", pasta: "questoes",
+        alt: "Tabela com três retângulos de perímetro 24 e a área de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["lados", "área"],
+          linhas: [["1 e 11", "11"], ["3 e 9", "27"], ["4 e 8", "32"]],
+          rotulo: "continue a lista · até onde a área cresce?", larguraCol: 122,
+        }),
+      },
+      {
+        id: "fq9-q-obmep-castigo", pasta: "questoes",
+        alt: "Tabela com dois exemplos do desconto proporcional à nota.",
+        desenho: () => tabela({
+          cabecalho: ["tirou", "perde"],
+          linhas: [["60", "60% da nota"], ["20", "20% da nota"]],
+          rotulo: "o desconto cresce junto com a nota", larguraCol: 126,
+        }),
+      },
+      {
+        id: "fq9-q-obmep-nota-final", pasta: "questoes",
+        alt: "Tabela com duas notas originais e o que sobra de cada uma depois do desconto.",
+        desenho: () => tabela({
+          cabecalho: ["tirou", "fica com"],
+          linhas: [["20", "16"], ["40", "24"]],
+          rotulo: "continue subindo · até onde a final cresce?", larguraCol: 126,
+        }),
+      },
+      {
+        id: "fq9-q-obmep-simetria", pasta: "questoes",
+        alt: "Tabela com uma nota original e a nota final dela, e uma segunda linha em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["tirou", "fica com"],
+          linhas: [["30", "21"], ["?", "21"]],
+          rotulo: "o eixo de simetria passa pela nota 50", larguraCol: 126,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Semelhança de triângulos ═══════════════
+  //
+  // A matéria reaproveita o `parTriangulos` de Congruência, e isso não é
+  // economia: é o conteúdo. Os tiquinhos e os arcos que marcam o que se sabe
+  // são a mesma notação de lá, e semelhança é congruência com uma exigência
+  // a menos. O gerador ganhou só duas coisas — `escalas`, para os dois
+  // triângulos terem tamanhos diferentes (que é o ponto inteiro da matéria),
+  // e `medidas`, para os lados carregarem número.
+  //
+  // Dois geradores novos:
+  //
+  //   · `trianguloCortado` é a configuração mais frequente da geometria do
+  //     9º ano — a paralela a um lado recortando um triângulo semelhante. A
+  //     `fracao` não é decoração: os dois triângulos desenhados têm de fato
+  //     a razão pedida, então a figura não discorda do enunciado;
+  //   · `objetoESombra` desenha o método mais antigo de medir o
+  //     inacessível, e RECUSA um conjunto em que as razões altura/sombra
+  //     discordem. Desenhar sombras de ângulos diferentes seria ilustrar
+  //     uma situação que o sol não produz.
+  ...(() => {
+    // Os ângulos do triângulo saem dos LADOS pedidos, pela lei dos cossenos.
+    // O `parTriangulos` desenha o lado 0 na base, o 1 à direita e o 2 à
+    // esquerda, e cada um é oposto a um ângulo. Escolher os ângulos a olho e
+    // rotular os lados com os números do enunciado produz figura que
+    // desmente o próprio rótulo — o defeito que a revisão do 7º ano achou em
+    // dez desenhos, e que aqui apareceria num 3-4-5 com a base 3 sendo o
+    // lado mais comprido do desenho.
+    const anguloOposto = (x, y, z) => (Math.acos((y * y + z * z - x * x) / (2 * y * z)) * 180) / Math.PI;
+    const angulosDeLados = (a, b, c) => [anguloOposto(b, a, c), anguloOposto(c, a, b)];
+    return [
+      // --- lição 1: mesma forma, outro tamanho ---
+      {
+        id: "sm9-ideia-mesma-forma", pasta: "licoes",
+        alt: "Dois triângulos de mesma forma e tamanhos diferentes, com os lados medidos.",
+        desenho: () => parTriangulos({
+          angulos: angulosDeLados(5, 3, 4), escalas: [72, 132],
+          medidas: [["5", "3", "4"], ["10", "6", "8"]],
+          rotulo: "todos os lados dobraram",
+        }),
+      },
+      {
+        id: "sm9-res-razao-2", pasta: "licoes",
+        alt: "Tabela com os três pares de lados correspondentes e o quociente de cada par.",
+        desenho: () => tabela({
+          cabecalho: ["o par", "o quociente"],
+          linhas: [["3 e 6", "2"], ["4 e 8", "2"], ["5 e 10", "2"]],
+          rotulo: "os três deram o mesmo · há semelhança", larguraCol: 134,
+        }),
+      },
+      {
+        id: "sm9-q-razao-3", pasta: "questoes",
+        alt: "Dois triângulos de mesma forma, o maior com os lados medidos e o menor também.",
+        desenho: () => parTriangulos({
+          angulos: angulosDeLados(5, 3, 4), escalas: [64, 148],
+          medidas: [["5", "3", "4"], ["15", "9", "12"]],
+          rotulo: "por quanto o menor foi ampliado?",
+        }),
+      },
+      {
+        id: "sm9-q-o-que-exige", pasta: "questoes",
+        alt: "Tabela comparando o que congruência exige com o que semelhança exige.",
+        desenho: () => tabela({
+          cabecalho: ["congruência", "semelhança"],
+          linhas: [["ângulos iguais", "ângulos iguais"], ["lados iguais", "lados ?"]],
+          rotulo: "o que muda de uma para a outra?", larguraCol: 146,
+        }),
+      },
+      {
+        id: "sm9-q-congruentes", pasta: "questoes",
+        alt: "Dois triângulos do mesmo tamanho, com os lados marcados como iguais.",
+        desenho: () => parTriangulos({
+          angulos: angulosDeLados(5, 3, 4), escalas: [112, 112],
+          marcasLados: [1, 2, 3], giro: 24,
+          rotulo: "lados correspondentes iguais",
+        }),
+      },
+      {
+        id: "sm9-q-nao-sao", pasta: "questoes",
+        alt: "Tabela com os três pares de lados e o quociente de dois deles.",
+        // O terceiro quociente fica em aberto: é ele que decide a questão, e
+        // escrevê-lo seria dar a resposta.
+        desenho: () => tabela({
+          cabecalho: ["o par", "o quociente"],
+          linhas: [["2 e 4", "2"], ["3 e 6", "2"], ["4 e 9", "?"]],
+          rotulo: "os três precisam dar o mesmo", larguraCol: 134,
+        }),
+      },
+
+      // --- lição 2: dois ângulos bastam ---
+      {
+        id: "sm9-ideia-caso-aa", pasta: "licoes",
+        alt: "Dois triângulos de tamanhos diferentes com dois ângulos marcados como iguais em cada um.",
+        desenho: () => parTriangulos({
+          angulos: [50, 60], escalas: [86, 134],
+          marcasAngulos: [1, 2, 0],
+          rotulo: "dois ângulos iguais arrastam o terceiro",
+        }),
+      },
+      {
+        id: "sm9-res-terceiro-angulo", pasta: "licoes",
+        alt: "Tabela com os ângulos dados de dois triângulos e o terceiro ângulo de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["dados", "o terceiro"],
+          linhas: [["50° e 60°", "70°"], ["60° e 70°", "50°"]],
+          rotulo: "o mesmo trio nos dois", larguraCol: 134,
+        }),
+      },
+      {
+        id: "sm9-q-terceiro", pasta: "questoes",
+        alt: "Tabela com dois ângulos de um triângulo e o terceiro em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["ângulo", "mede"],
+          linhas: [["o primeiro", "40°"], ["o segundo", "75°"], ["o terceiro", "?"]],
+          rotulo: "os três somam 180°", larguraCol: 128,
+        }),
+      },
+      {
+        id: "sm9-q-por-que-dois", pasta: "questoes",
+        alt: "Cadeia ligando dois ângulos conhecidos ao terceiro pela soma dos internos.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "dois ângulos iguais" },
+            { texto: "180 − os dois", nota: "a soma dos internos" },
+            { texto: "o terceiro também" },
+          ],
+          destacar: [2],
+          rotulo: "por que dois já bastam",
+        }),
+      },
+      {
+        id: "sm9-q-aaa-nao-basta", pasta: "questoes",
+        alt: "Dois triângulos de mesma forma e tamanhos bem diferentes, com os três ângulos marcados.",
+        // A escala do menor não pode ser pequena demais: os arcos dos
+        // ângulos têm raio fixo, e num triângulo de 58px eles saíam maiores
+        // que a própria figura, virando rabisco.
+        desenho: () => parTriangulos({
+          angulos: angulosDeLados(5, 3, 4), escalas: [84, 150],
+          marcasAngulos: [1, 2, 3],
+          rotulo: "mesmos ângulos · dá para sobrepor?",
+        }),
+      },
+      {
+        id: "sm9-q-razao-pelos-lados", pasta: "questoes",
+        alt: "Tabela com os ângulos iguais dos dois triângulos e o menor lado de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["o triângulo", "menor lado"],
+          linhas: [["o primeiro", "5 cm"], ["o segundo", "15 cm"]],
+          rotulo: "os dois têm 30°, 60° e 90°", larguraCol: 136,
+        }),
+      },
+
+      // --- lição 3: achar o lado que falta ---
+      {
+        id: "sm9-ideia-proporcao", pasta: "licoes",
+        alt: "Tabela mostrando uma proporção montada no sentido certo e duas montadas ao contrário.",
+        desenho: () => tabela({
+          cabecalho: ["a proporção", "serve?"],
+          linhas: [["3/6 = 4/x", "sim"], ["6/3 = x/4", "sim"], ["3/6 = x/4", "não"]],
+          rotulo: "as duas frações no mesmo sentido", larguraCol: 134,
+        }),
+      },
+      {
+        id: "sm9-res-lado-8", pasta: "licoes",
+        alt: "Dois triângulos semelhantes com três lados medidos e o quarto marcado com x.",
+        desenho: () => parTriangulos({
+          angulos: angulosDeLados(5, 3, 4), escalas: [82, 156],
+          medidas: [["", "3", "4"], ["", "6", "x"]],
+          rotulo: "3 está para 6 assim como 4 está para x",
+        }),
+      },
+      {
+        id: "sm9-q-lado-15", pasta: "questoes",
+        alt: "Dois triângulos semelhantes com dois lados do menor e um lado do maior medidos.",
+        desenho: () => parTriangulos({
+          angulos: angulosDeLados(8, 4, 6), escalas: [76, 150],
+          medidas: [["", "4", "6"], ["", "10", "?"]],
+          rotulo: "quanto mede o lado que falta?",
+        }),
+      },
+      {
+        id: "sm9-q-aplica-razao", pasta: "questoes",
+        alt: "Tabela com a razão de semelhança e o lado conhecido do triângulo menor.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a razão", "3"], ["lado do menor", "7"], ["lado do maior", "?"]],
+          rotulo: "a razão multiplica cada lado", larguraCol: 136,
+        }),
+      },
+      {
+        id: "sm9-q-montar-certo", pasta: "questoes",
+        alt: "Dois triângulos com os lados nomeados por letras, sem medidas.",
+        desenho: () => parTriangulos({
+          angulos: angulosDeLados(5, 3, 4), escalas: [78, 142],
+          medidas: [["c", "a", "b"], ["f", "d", "e"]],
+          rotulo: "a↔d · b↔e · c↔f",
+        }),
+      },
+      {
+        id: "sm9-q-proporcao-direta", pasta: "questoes",
+        alt: "Tabela com a proporção quatro terços igual a x sobre nove.",
+        desenho: () => tabela({
+          cabecalho: ["a proporção", "o passo"],
+          linhas: [["4/3 = x/9", "multiplicar cruzado"]],
+          rotulo: "resolva para x", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 4: a paralela que recorta ---
+      {
+        id: "sm9-ideia-paralela", pasta: "licoes",
+        alt: "Triângulo cortado por uma paralela à base, com o triângulo de cima destacado.",
+        desenho: () => trianguloCortado({
+          fracao: 2 / 3, destacarTopo: true,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E" },
+          rotulo: "DE paralela a BC recorta ADE semelhante",
+        }),
+      },
+      {
+        id: "sm9-res-paralela", pasta: "licoes",
+        alt: "Triângulo cortado por uma paralela, com AD, DB e DE medidos e BC em aberto.",
+        desenho: () => trianguloCortado({
+          fracao: 2 / 3, destacarTopo: true,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E", ad: "4", db: "2", de: "5", bc: "?" },
+          rotulo: "AD/AB compara com o lado INTEIRO",
+        }),
+      },
+      {
+        id: "sm9-q-paralela-8", pasta: "questoes",
+        alt: "Triângulo cortado por uma paralela, com AD e DB iguais a 3 e DE igual a 4.",
+        desenho: () => trianguloCortado({
+          fracao: 0.5,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E", ad: "3", db: "3", de: "4", bc: "?" },
+          rotulo: "quanto mede BC?",
+        }),
+      },
+      {
+        id: "sm9-q-por-que-semelhante", pasta: "questoes",
+        alt: "Triângulo cortado por uma paralela, sem medida nenhuma.",
+        desenho: () => trianguloCortado({
+          fracao: 0.55, destacarTopo: true,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E" },
+          rotulo: "que ângulos os dois triângulos têm em comum?",
+        }),
+      },
+      {
+        id: "sm9-q-paralela-de", pasta: "questoes",
+        alt: "Triângulo cortado por uma paralela, com AD, AB e BC medidos e DE em aberto.",
+        desenho: () => trianguloCortado({
+          fracao: 2 / 3,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E", ad: "6", de: "?", bc: "12" },
+          rotulo: "AB mede 9 · quanto mede DE?",
+        }),
+      },
+      {
+        id: "sm9-q-qual-nao-vale", pasta: "questoes",
+        alt: "Triângulo cortado por uma paralela, com os cinco pontos nomeados.",
+        desenho: () => trianguloCortado({
+          fracao: 2 / 3,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E" },
+          rotulo: "qual proporção não se sustenta aqui?",
+        }),
+      },
+
+      // --- lição 5: dobrar o lado não dobra a área ---
+      {
+        id: "sm9-ideia-area-k2", pasta: "licoes",
+        alt: "Malha quadrada de quatro por quatro, com os dezesseis quadradinhos à vista.",
+        // A malha é o que torna a regra visível: dá para CONTAR quantos
+        // quadrados de lado 2 cabem num de lado 4, em vez de aceitar o k².
+        desenho: () => retanguloMalha({
+          colunas: 4, linhas: 4, cel: 30,
+          rotuloLargura: "4", rotuloAltura: "4",
+          rotulo: "um quadrado de lado 2 cabe 4 vezes neste",
+        }),
+      },
+      {
+        id: "sm9-res-area-45", pasta: "licoes",
+        alt: "Tabela ligando a razão de semelhança ao fator que multiplica a área.",
+        desenho: () => tabela({
+          cabecalho: ["cresce", "pelo fator"],
+          linhas: [["o lado", "3"], ["o perímetro", "3"], ["a área", "9"]],
+          rotulo: "a área usa o quadrado da razão", larguraCol: 136,
+        }),
+      },
+      {
+        id: "sm9-q-area-28", pasta: "questoes",
+        alt: "Tabela com a razão de semelhança e a área do polígono menor.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a razão", "2"], ["área do menor", "7 cm²"], ["área do maior", "?"]],
+          rotulo: "a área não cresce pela razão", larguraCol: 138,
+        }),
+      },
+      {
+        id: "sm9-q-razao-pelas-areas", pasta: "questoes",
+        alt: "Tabela com as duas áreas e a razão de semelhança em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["área do menor", "9 cm²"], ["área do maior", "36 cm²"], ["a razão", "?"]],
+          rotulo: "o caminho de volta pede uma raiz", larguraCol: 138,
+        }),
+      },
+      {
+        id: "sm9-q-o-que-acontece", pasta: "questoes",
+        alt: "Malha quadrada de quatro por quatro, sem nenhuma contagem escrita.",
+        desenho: () => retanguloMalha({
+          colunas: 4, linhas: 4, cel: 30,
+          rotuloLargura: "4", rotuloAltura: "4",
+          rotulo: "quantos quadrados de lado 2 cabem aqui?",
+        }),
+      },
+      {
+        id: "sm9-q-perimetro", pasta: "questoes",
+        alt: "Tabela com a razão de semelhança e o perímetro do polígono menor.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a razão", "2,5"], ["perímetro do menor", "12 cm"], ["perímetro do maior", "?"]],
+          rotulo: "perímetro é soma de comprimentos", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 6: medir o que não dá para medir ---
+      {
+        id: "sm9-ideia-sombra", pasta: "licoes",
+        alt: "Um poste e um prédio com as sombras deles e os raios de sol no mesmo ângulo.",
+        desenho: () => objetoESombra({
+          itens: [
+            { altura: 3, sombra: 4, rotuloAltura: "3 m", rotuloSombra: "4 m", nome: "poste" },
+            { altura: 18, sombra: 24, rotuloAltura: "18 m", rotuloSombra: "24 m", nome: "prédio" },
+          ],
+          rotulo: "o mesmo ângulo de sol nos dois",
+        }),
+      },
+      {
+        id: "sm9-res-sombra", pasta: "licoes",
+        alt: "Um poste medido e um prédio com a altura em aberto, com as sombras dos dois.",
+        desenho: () => objetoESombra({
+          itens: [
+            { altura: 3, sombra: 4, rotuloAltura: "3 m", rotuloSombra: "4 m", nome: "poste" },
+            { altura: 18, sombra: 24, rotuloAltura: "?", rotuloSombra: "24 m", nome: "prédio" },
+          ],
+          rotulo: "altura está para sombra nos dois",
+        }),
+      },
+      {
+        id: "sm9-q-arvore", pasta: "questoes",
+        alt: "Uma vara medida e uma árvore com a altura em aberto, com as sombras das duas.",
+        desenho: () => objetoESombra({
+          itens: [
+            { altura: 2, sombra: 3, rotuloAltura: "2 m", rotuloSombra: "3 m", nome: "vara" },
+            { altura: 8, sombra: 12, rotuloAltura: "?", rotuloSombra: "12 m", nome: "árvore" },
+          ],
+          rotulo: "medidas tomadas no mesmo instante",
+        }),
+      },
+      {
+        id: "sm9-q-maquete", pasta: "questoes",
+        alt: "Tabela com a escala da maquete e a altura real do prédio.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a escala", "1 : 50"], ["o prédio real", "30 m"], ["na maquete", "? cm"]],
+          rotulo: "passe para centímetros antes de dividir", larguraCol: 136,
+        }),
+      },
+      {
+        id: "sm9-q-mapa", pasta: "questoes",
+        alt: "Tabela com a escala do mapa e a distância medida no papel.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a escala", "1 : 100 000"], ["no papel", "3 cm"], ["no mundo", "? km"]],
+          rotulo: "cada centímetro do papel vale quanto?", larguraCol: 140,
+        }),
+      },
+      {
+        id: "sm9-q-por-que-sombra", pasta: "questoes",
+        alt: "Dois objetos com sombras de comprimentos diferentes e os raios de sol, sem medida nenhuma.",
+        desenho: () => objetoESombra({
+          itens: [
+            { altura: 2, sombra: 3, nome: "o baixo" },
+            { altura: 6, sombra: 9, nome: "o alto" },
+          ],
+          rotulo: "o que os dois triângulos têm em comum?",
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Teorema de Tales ═══════════════
+  //
+  // Um gerador novo, `feixeParalelas`, e ele existe por uma razão que vale
+  // registrar: a proporção do teorema precisa EXISTIR no desenho. O gerador
+  // recebe as alturas das paralelas e CALCULA os pontos de encontro, então
+  // os segmentos saem proporcionais por construção — uma figura rotulada
+  // "4 e 6" contra "6 e 9" não tem como sair fora de proporção, porque
+  // ninguém desenha os pontos à mão.
+  //
+  // A `alturas` é o parâmetro que carrega o conteúdo: [0, 0.4, 1] produz a
+  // razão 2 para 3 em QUALQUER transversal, seja qual for a inclinação dela.
+  // É essa independência da inclinação que o teorema afirma, e ela fica
+  // visível ao desenhar as duas transversais tortas para lados opostos.
+  //
+  // O `trianguloCortado` de Semelhança volta na lição 3, e é de propósito:
+  // Tales no triângulo e o teorema fundamental da semelhança são a MESMA
+  // figura, e usar dois desenhos diferentes esconderia isso do aluno.
+  ...(() => {
+    return [
+      // --- lição 1: o feixe e a proporção ---
+      {
+        id: "tl9-ideia-feixe", pasta: "licoes",
+        alt: "Três retas paralelas cortadas por duas transversais, com os quatro segmentos medidos.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["4", "6"], ["6", "9"]],
+          rotulo: "medidas diferentes, a mesma razão",
+        }),
+      },
+      {
+        id: "tl9-res-quatro-seis", pasta: "licoes",
+        alt: "Feixe de três paralelas com três segmentos medidos e o quarto em aberto.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["4", "6"], ["6", "?"]],
+          rotulo: "4/6 = 6/x",
+        }),
+      },
+      {
+        id: "tl9-q-o-que-garante", pasta: "questoes",
+        alt: "Feixe de três paralelas com duas transversais de inclinações bem diferentes, sem medidas.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], inclinacoes: [0.5, -0.12],
+          nomesParalelas: ["r", "s", "t"],
+          rotulo: "compare os quatro pedaços",
+        }),
+      },
+      {
+        id: "tl9-q-segundo-segmento", pasta: "questoes",
+        alt: "Feixe com os dois segmentos de uma transversal medidos e só o primeiro da outra.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["4", "6"], ["10", "?"]],
+          rotulo: "a razão se repete na outra transversal",
+        }),
+      },
+      {
+        id: "tl9-q-quem-decide", pasta: "questoes",
+        alt: "Dois feixes com a paralela do meio em alturas diferentes, sem medidas.",
+        // A `alturas` é o que muda entre os dois desenhos, e é exatamente a
+        // resposta da questão — por isso os dois feixes vão SEM medida.
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.22, 1], inclinacoes: [0.32, -0.24],
+          nomesParalelas: ["r", "s", "t"],
+          rotulo: "arraste a do meio · o que muda?",
+        }),
+      },
+      {
+        id: "tl9-q-primeiro-segmento", pasta: "questoes",
+        alt: "Feixe com os dois segmentos de uma transversal medidos e só o segundo da outra.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.375, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["3", "5"], ["?", "20"]],
+          rotulo: "agora quem falta é o de cima",
+        }),
+      },
+
+      // --- lição 2: montar a proporção certa ---
+      {
+        id: "tl9-ideia-mesmo-sentido", pasta: "licoes",
+        alt: "Tabela com duas montagens corretas da proporção e uma montada ao contrário.",
+        desenho: () => tabela({
+          cabecalho: ["a montagem", "serve?"],
+          linhas: [
+            ["AB/BC = A'B'/B'C'", "sim"],
+            ["AB/A'B' = BC/B'C'", "sim"],
+            ["AB/BC = B'C'/A'B'", "não"],
+          ],
+          rotulo: "as duas frações no mesmo sentido", larguraCol: 148,
+        }),
+      },
+      {
+        id: "tl9-res-tres-cinco", pasta: "licoes",
+        alt: "Feixe com os segmentos 3 e 5 numa transversal e 6 e o valor procurado na outra.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.375, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["3", "5"], ["6", "?"]],
+          rotulo: "3/5 = 6/x",
+        }),
+      },
+      {
+        id: "tl9-q-monta-15", pasta: "questoes",
+        alt: "Feixe com os segmentos 4 e 6 numa transversal e 10 na outra.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], inclinacoes: [0.28, -0.3],
+          nomesParalelas: ["r", "s", "t"],
+          medidas: [["4", "6"], ["10", "?"]],
+          rotulo: "monte no mesmo sentido",
+        }),
+      },
+      {
+        id: "tl9-q-monta-8", pasta: "questoes",
+        alt: "Feixe com os segmentos 2 e 3 numa transversal e o segundo segmento 12 na outra.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["2", "3"], ["?", "12"]],
+          rotulo: "a incógnita mudou de lugar",
+        }),
+      },
+      {
+        id: "tl9-q-qual-nao-vale", pasta: "questoes",
+        alt: "Feixe com os seis pontos de encontro nomeados, sem medidas.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.375, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["A→B", "B→C"], ["A'→B'", "B'→C'"]],
+          rotulo: "qual montagem inverte uma fração só?",
+        }),
+      },
+      {
+        id: "tl9-q-monta-7", pasta: "questoes",
+        alt: "Feixe com o primeiro segmento de uma transversal e os dois da outra medidos.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.417, 1], inclinacoes: [0.22, -0.34],
+          nomesParalelas: ["r", "s", "t"],
+          medidas: [["5", "?"], ["10", "14"]],
+          rotulo: "repita a razão da segunda na primeira",
+        }),
+      },
+
+      // --- lição 3: Tales dentro do triângulo ---
+      {
+        id: "tl9-ideia-no-triangulo", pasta: "licoes",
+        alt: "Triângulo cortado por uma paralela à base, com os quatro pedaços dos lados nomeados.",
+        desenho: () => trianguloCortado({
+          fracao: 0.4,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E" },
+          rotulo: "DE e BC são o feixe · AB e AC, as transversais",
+        }),
+      },
+      {
+        id: "tl9-res-ec-nove", pasta: "licoes",
+        alt: "Triângulo cortado por uma paralela, com AD, DB e AE medidos e EC em aberto.",
+        desenho: () => trianguloCortado({
+          fracao: 0.4,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E", ad: "4", db: "6" },
+          rotulo: "AE = 6 · quanto mede EC?",
+        }),
+      },
+      {
+        id: "tl9-q-ec-doze", pasta: "questoes",
+        alt: "Triângulo cortado por uma paralela, com AD igual a 3 e DB igual a 9.",
+        desenho: () => trianguloCortado({
+          fracao: 0.25,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E", ad: "3", db: "9" },
+          rotulo: "AE = 4 · quanto mede EC?",
+        }),
+      },
+      {
+        id: "tl9-q-por-que-vale", pasta: "questoes",
+        alt: "Triângulo escaleno cortado por uma paralela à base, sem medida nenhuma.",
+        desenho: () => trianguloCortado({
+          fracao: 0.45, destacarTopo: true,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E" },
+          rotulo: "onde está o feixe de paralelas aqui?",
+        }),
+      },
+      {
+        id: "tl9-q-ac-nove", pasta: "questoes",
+        alt: "Triângulo cortado por uma paralela, com AD medido e o lado AB inteiro dado.",
+        desenho: () => trianguloCortado({
+          fracao: 1 / 3,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E", ad: "2" },
+          rotulo: "AB = 6 · AE = 3 · quanto mede AC?",
+        }),
+      },
+      {
+        id: "tl9-q-reciproca", pasta: "questoes",
+        alt: "Triângulo cortado por uma reta que divide os dois lados em partes proporcionais.",
+        desenho: () => trianguloCortado({
+          fracao: 0.4,
+          rotulos: { a: "A", b: "B", c: "C", d: "D", e: "E", ad: "2", db: "3" },
+          rotulo: "AE/EC também dá 2/3 · o que isso prova?",
+        }),
+      },
+
+      // --- lição 4: repartir sem medir ---
+      {
+        id: "tl9-ideia-repartir", pasta: "licoes",
+        alt: "Feixe de quatro paralelas que corta uma transversal em três pedaços iguais.",
+        // As alturas igualmente espaçadas são o conteúdo da lição: pedaços
+        // iguais de um lado forçam pedaços iguais do outro.
+        desenho: () => feixeParalelas({
+          alturas: [0, 1 / 3, 2 / 3, 1], inclinacoes: [0.4, -0.05],
+          nomesParalelas: ["", "", "", ""],
+          medidas: [["1", "1", "1"], ["", "", ""]],
+          rotulo: "pedaços iguais viram pedaços iguais",
+        }),
+      },
+      {
+        id: "tl9-res-vinte", pasta: "licoes",
+        alt: "Barra de vinte centímetros repartida em cinco partes, com duas de um lado e três do outro.",
+        desenho: () => barraEtapas({ largura: 380,
+          etapas: [
+            { rotulo: "2 partes", fracao: 2 / 5 },
+            { rotulo: "3 partes", fracao: 3 / 5 },
+          ],
+          rotuloTotal: "20 cm",
+          rotulo: "cada parte mede 20 ÷ 5",
+        }),
+      },
+      {
+        id: "tl9-q-trinta-e-cinco", pasta: "questoes",
+        alt: "Barra repartida em duas partes, uma com três pedaços e outra com quatro.",
+        desenho: () => barraEtapas({ largura: 380,
+          etapas: [
+            { rotulo: "3 partes", fracao: 3 / 7 },
+            { rotulo: "4 partes", fracao: 4 / 7 },
+          ],
+          rotuloTotal: "35 cm",
+          rotulo: "quanto mede a parte maior?",
+        }),
+      },
+      {
+        id: "tl9-q-por-que-funciona", pasta: "questoes",
+        alt: "Feixe de quatro paralelas cortando duas transversais, com marcas iguais numa delas.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 1 / 3, 2 / 3, 1], inclinacoes: [0.4, -0.05],
+          nomesParalelas: ["", "", "", ""],
+          medidas: [["1", "1", "1"], ["", "", ""]],
+          rotulo: "o que transfere a igualdade de um lado ao outro?",
+        }),
+      },
+      {
+        id: "tl9-q-cinco-partes", pasta: "questoes",
+        alt: "Barra repartida em cinco partes iguais, com o comprimento total marcado.",
+        desenho: () => barraEtapas({ largura: 380,
+          etapas: [
+            { rotulo: "", fracao: 1 / 5 }, { rotulo: "", fracao: 1 / 5 },
+            { rotulo: "", fracao: 1 / 5 }, { rotulo: "", fracao: 1 / 5 },
+            { rotulo: "", fracao: 1 / 5 },
+          ],
+          rotuloTotal: "45 cm",
+          rotulo: "quanto mede cada parte?",
+        }),
+      },
+      {
+        id: "tl9-q-espacos", pasta: "questoes",
+        alt: "Fileira de seis postes igualmente espaçados sobre uma linha.",
+        desenho: () => retaInteiros({
+          // Sem numerar a régua: com `rotuloCada: 1` o desenho escreveria o 5,
+          // que É a resposta da questão. Nenhum valor de 1 a 6 é múltiplo de 7,
+          // então a numeração some e ficam só os dois postes nomeados.
+          de: 1, ate: 6, rotuloCada: 7,
+          marcados: [
+            { em: 1, rotulo: "1º" }, { em: 2 }, { em: 3 },
+            { em: 4 }, { em: 5 }, { em: 6, rotulo: "6º" },
+          ],
+          rotulo: "conte os vãos, e não os postes",
+        }),
+      },
+
+      // --- lição 5: quando o teorema NÃO vale ---
+      {
+        id: "tl9-ideia-sem-paralelismo", pasta: "licoes",
+        alt: "Tabela com as duas razões de um feixe de verdade e as de três retas que não são paralelas.",
+        desenho: () => tabela({
+          cabecalho: ["as retas", "as duas razões"],
+          linhas: [["paralelas", "iguais"], ["quase paralelas", "diferentes"]],
+          rotulo: "sem paralelismo não há proporção", larguraCol: 146,
+        }),
+      },
+      {
+        id: "tl9-res-nao-sao", pasta: "licoes",
+        alt: "Tabela com os segmentos das duas transversais e a razão de cada uma.",
+        desenho: () => tabela({
+          cabecalho: ["transversal", "segmentos", "razão"],
+          linhas: [["a primeira", "4 e 8", "0,5"], ["a segunda", "5 e 12", "0,42"]],
+          rotulo: "razões diferentes · não são paralelas", larguraCol: 108,
+        }),
+      },
+      {
+        id: "tl9-q-a-condicao", pasta: "questoes",
+        alt: "Feixe de três paralelas com duas transversais de inclinações diferentes.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], inclinacoes: [0.44, -0.2],
+          nomesParalelas: ["r", "s", "t"],
+          rotulo: "o que o desenho exige de r, s e t?",
+        }),
+      },
+      {
+        id: "tl9-q-sao-paralelas", pasta: "questoes",
+        alt: "Tabela com os segmentos das duas transversais, sem as razões calculadas.",
+        desenho: () => tabela({
+          cabecalho: ["transversal", "segmentos"],
+          linhas: [["a primeira", "3 e 6"], ["a segunda", "4 e 10"]],
+          rotulo: "calcule as duas razões e compare", larguraCol: 138,
+        }),
+      },
+      {
+        id: "tl9-q-proporcional-nao-e-igual", pasta: "questoes",
+        alt: "Feixe com os quatro segmentos medidos, todos com valores diferentes.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], nomesParalelas: ["r", "s", "t"],
+          medidas: [["4", "6"], ["6", "9"]],
+          rotulo: "algum número se repete entre as transversais?",
+        }),
+      },
+      {
+        id: "tl9-q-para-ser-paralela", pasta: "questoes",
+        alt: "Feixe com os segmentos 6 e 9 numa transversal e o primeiro segmento 8 na outra.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], inclinacoes: [0.24, -0.32],
+          nomesParalelas: ["r", "s", "t"],
+          medidas: [["6", "9"], ["8", "?"]],
+          rotulo: "que valor tornaria r, s e t paralelas?",
+        }),
+      },
+
+      // --- lição 6: terrenos, cercas e ruas ---
+      {
+        id: "tl9-ideia-lotes", pasta: "licoes",
+        alt: "Quarteirão entre duas ruas paralelas repartido em três lotes por divisas paralelas.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 2 / 9, 5 / 9, 1], inclinacoes: [0.3, -0.3],
+          nomesParalelas: ["rua A", "", "", "rua B"],
+          medidas: [["12", "18", "24"], ["8", "12", "16"]],
+          rotulo: "as divisas são o feixe · as ruas, as transversais",
+        }),
+      },
+      {
+        id: "tl9-res-lotes", pasta: "licoes",
+        alt: "Tabela com as frentes dos três lotes na rua A e o total das duas ruas.",
+        desenho: () => tabela({
+          cabecalho: ["o lote", "na rua A"],
+          linhas: [["o primeiro", "12 m"], ["o segundo", "18 m"], ["o terceiro", "24 m"], ["total", "54 m"]],
+          rotulo: "na rua B o total é 36 m", larguraCol: 130,
+        }),
+      },
+      {
+        id: "tl9-q-obmep-cerca", pasta: "questoes",
+        alt: "Fileira de doze postes igualmente espaçados, com o terceiro e o sexto destacados.",
+        desenho: () => retaInteiros({
+          de: 1, ate: 12, rotuloCada: 3,
+          marcados: [{ em: 3, rotulo: "3º" }, { em: 6, rotulo: "6º" }],
+          rotulo: "do 3º ao 6º são 3,3 m",
+        }),
+      },
+      {
+        id: "tl9-q-dois-lotes", pasta: "questoes",
+        alt: "Dois lotes entre duas ruas paralelas, com as frentes da rua A e a primeira da rua B.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 0.4, 1], inclinacoes: [0.3, -0.3],
+          nomesParalelas: ["rua A", "", "rua B"],
+          medidas: [["10", "15"], ["8", "?"]],
+          rotulo: "quanto mede a outra frente na rua B?",
+        }),
+      },
+      {
+        id: "tl9-q-frente-menor", pasta: "questoes",
+        alt: "Tabela com as frentes dos dois lotes na rua A e o total da rua B.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "mede"],
+          linhas: [["lote menor na rua A", "20 m"], ["lote maior na rua A", "30 m"], ["total na rua B", "40 m"]],
+          rotulo: "ache primeiro o total da rua A", larguraCol: 150,
+        }),
+      },
+      {
+        id: "tl9-q-por-que-divisas", pasta: "questoes",
+        alt: "Quarteirão entre duas ruas repartido em lotes por divisas paralelas, sem medidas.",
+        desenho: () => feixeParalelas({
+          alturas: [0, 2 / 9, 5 / 9, 1], inclinacoes: [0.3, -0.3],
+          nomesParalelas: ["rua A", "", "", "rua B"],
+          rotulo: "o que aconteceria se as divisas se cruzassem?",
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Teorema de Pitágoras ═══════════════
+  //
+  // Um gerador novo, `quadradosPitagoras`, e ele é a matéria inteira numa
+  // figura: os três quadrados construídos sobre os lados, com os dois
+  // menores somando o maior. Sem esse desenho, a² + b² = c² é mais uma
+  // fórmula decorada — o mesmo risco que `trianguloParalela` afastou na soma
+  // dos ângulos e `piDesenrolado` afastou no π.
+  //
+  // Ele CALCULA a hipotenusa a partir dos catetos e constrói os quadrados a
+  // partir dos vértices, com o normal apontando para fora. Nenhum ponto é
+  // posicionado à mão, então a figura não tem como desmentir o rótulo — e um
+  // teste mede as áreas dos três polígonos de volta do SVG.
+  //
+  // Com `quais: []` ele deixa só o triângulo, que é o que vai nas questões
+  // de calcular um lado: ali os quadrados seriam pista demais, porque as
+  // áreas escritas praticamente resolvem a conta.
+  ...(() => {
+    return [
+      // --- lição 1: os três quadrados ---
+      {
+        id: "pt9-ideia-tres-quadrados", pasta: "licoes",
+        alt: "Triângulo retângulo de catetos 3 e 4 com os quadrados construídos sobre os três lados e as áreas escritas.",
+        desenho: () => quadradosPitagoras({
+          a: 3, b: 4,
+          rotulo: "9 + 16 = 25",
+        }),
+      },
+      {
+        id: "pt9-res-tres-quatro-cinco", pasta: "licoes",
+        alt: "Os três quadrados do triângulo 3-4-5 com as áreas escritas em letras.",
+        desenho: () => quadradosPitagoras({
+          a: 3, b: 4, mostrar: "letras",
+          rotulo: "a² + b² = c²",
+        }),
+      },
+      {
+        id: "pt9-q-quem-e-hipotenusa", pasta: "questoes",
+        alt: "Triângulo retângulo com os três lados nomeados por letras e o ângulo reto marcado.",
+        desenho: () => quadradosPitagoras({
+          a: 5, b: 9, quais: [], medidas: { a: "y", b: "z", c: "x" },
+          rotulo: "qual deles é a hipotenusa?",
+        }),
+      },
+      {
+        id: "pt9-q-area-do-maior", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 6 e 8 com os quadrados dos catetos desenhados e o da hipotenusa ausente.",
+        desenho: () => quadradosPitagoras({
+          a: 6, b: 8, quais: ["a", "b"],
+          rotulo: "e a área do quadrado que falta?",
+        }),
+      },
+      {
+        id: "pt9-q-por-que-quadrado", pasta: "questoes",
+        alt: "Os três quadrados do triângulo 3-4-5, sem nenhuma área escrita.",
+        desenho: () => quadradosPitagoras({
+          a: 3, b: 4, mostrar: "vazio",
+          rotulo: "o que a figura soma: lados ou áreas?",
+        }),
+      },
+      {
+        id: "pt9-q-area-que-falta", pasta: "questoes",
+        alt: "Triângulo retângulo com a área de um quadrado de cateto e a do quadrado da hipotenusa escritas.",
+        // A área do outro cateto é a resposta, então o quadrado dele fica
+        // desenhado e sem número.
+        desenho: () => quadradosPitagoras({
+          a: 5, b: 12, mostrar: "vazio",
+          rotulo: "um cateto dá 25 e a hipotenusa dá 169",
+        }),
+      },
+
+      // --- lição 2: achar a hipotenusa ---
+      {
+        id: "pt9-ideia-tres-passos", pasta: "licoes",
+        alt: "Tabela com os três passos para achar a hipotenusa a partir dos catetos.",
+        desenho: () => tabela({
+          cabecalho: ["o passo", "o que faz"],
+          linhas: [["elevar", "acha as duas áreas"], ["somar", "acha a área maior"], ["tirar a raiz", "volta ao comprimento"]],
+          rotulo: "parar na soma é responder uma área", larguraCol: 140,
+        }),
+      },
+      {
+        id: "pt9-res-hipotenusa-10", pasta: "licoes",
+        alt: "Triângulo retângulo de catetos 6 cm e 8 cm com a hipotenusa em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 6, b: 8, quais: [], medidas: { a: "6 cm", b: "8 cm", c: "?" },
+          rotulo: "quanto mede a hipotenusa?",
+        }),
+      },
+      {
+        id: "pt9-q-hipotenusa-15", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 9 cm e 12 cm com a hipotenusa em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 9, b: 12, quais: [], medidas: { a: "9 cm", b: "12 cm", c: "?" },
+          rotulo: "eleve, some e tire a raiz",
+        }),
+      },
+      {
+        id: "pt9-q-hipotenusa-13", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 5 m e 12 m com a hipotenusa em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 5, b: 12, quais: [], medidas: { a: "5 m", b: "12 m", c: "?" },
+          rotulo: "a raiz sai exata neste",
+        }),
+      },
+      {
+        id: "pt9-q-plausibilidade", pasta: "questoes",
+        alt: "Tabela com o piso e o teto que a hipotenusa precisa respeitar.",
+        desenho: () => tabela({
+          cabecalho: ["a hipotenusa é", "porque"],
+          linhas: [["maior que cada cateto", "é o maior lado"], ["menor que a soma deles", "reto é o caminho curto"]],
+          rotulo: "catetos 6 e 8 · entre que valores?", larguraCol: 156,
+        }),
+      },
+      {
+        id: "pt9-q-hipotenusa-17", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 8 cm e 15 cm com a hipotenusa em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 8, b: 15, quais: [], medidas: { a: "8 cm", b: "15 cm", c: "?" },
+          rotulo: "64 mais 225 dá um quadrado perfeito",
+        }),
+      },
+
+      // --- lição 3: achar um cateto ---
+      {
+        id: "pt9-ideia-subtrair", pasta: "licoes",
+        alt: "Cadeia isolando o quadrado do cateto que falta na fórmula do teorema.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "a² + b² = c²" },
+            { texto: "b² = c² − a²", nota: "isola o que falta" },
+            { texto: "b = √(c² − a²)", nota: "tira a raiz" },
+          ],
+          destacar: [1],
+          rotulo: "é a mesma fórmula, com o x em outro lugar",
+        }),
+      },
+      {
+        id: "pt9-res-cateto-12", pasta: "licoes",
+        alt: "Triângulo retângulo com hipotenusa 13 cm, um cateto de 5 cm e o outro em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 12, b: 5, quais: [], medidas: { a: "?", b: "5 cm", c: "13 cm" },
+          rotulo: "agora falta um cateto",
+        }),
+      },
+      {
+        id: "pt9-q-cateto-24", pasta: "questoes",
+        alt: "Triângulo retângulo com hipotenusa 25 cm, um cateto de 7 cm e o outro em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 24, b: 7, quais: [], medidas: { a: "?", b: "7 cm", c: "25 cm" },
+          rotulo: "quem é a hipotenusa aqui?",
+        }),
+      },
+      {
+        id: "pt9-q-cateto-8", pasta: "questoes",
+        alt: "Triângulo retângulo com hipotenusa 10 m, um cateto de 6 m e o outro em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 6, b: 8, quais: [], medidas: { a: "6 m", b: "?", c: "10 m" },
+          rotulo: "subtraia os quadrados, e depois a raiz",
+        }),
+      },
+      {
+        id: "pt9-q-por-que-subtrai", pasta: "questoes",
+        alt: "Tabela comparando o que se isola quando falta a hipotenusa e quando falta um cateto.",
+        desenho: () => tabela({
+          cabecalho: ["o que falta", "o que se isola"],
+          linhas: [["a hipotenusa", "c²"], ["um cateto", "b²"]],
+          rotulo: "a mesma igualdade, outro termo isolado", larguraCol: 148,
+        }),
+      },
+      {
+        id: "pt9-q-cateto-15", pasta: "questoes",
+        alt: "Triângulo retângulo com hipotenusa 17 cm, um cateto de 8 cm e o outro em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 15, b: 8, quais: [], medidas: { a: "?", b: "8 cm", c: "17 cm" },
+          rotulo: "289 menos 64 dá quadrado perfeito",
+        }),
+      },
+
+      // --- lição 4: ternos, e o teste do ângulo reto ---
+      {
+        id: "pt9-ideia-ternos", pasta: "licoes",
+        alt: "Tabela com quatro ternos pitagóricos e os quadrados de cada um.",
+        desenho: () => tabela({
+          cabecalho: ["o terno", "a conta"],
+          linhas: [
+            ["3-4-5", "9 + 16 = 25"],
+            ["5-12-13", "25 + 144 = 169"],
+            ["8-15-17", "64 + 225 = 289"],
+            ["7-24-25", "49 + 576 = 625"],
+          ],
+          rotulo: "todo múltiplo de um terno também é um terno", larguraCol: 118,
+        }),
+      },
+      {
+        id: "pt9-res-teste-9-12-15", pasta: "licoes",
+        alt: "Triângulo de lados 9, 12 e 15 com as três medidas escritas.",
+        desenho: () => quadradosPitagoras({
+          a: 9, b: 12, quais: [], marcarReto: false,
+          medidas: { a: "9", b: "12", c: "15" },
+          rotulo: "os quadrados dos menores somam o do maior?",
+        }),
+      },
+      {
+        id: "pt9-q-seis-oito-dez", pasta: "questoes",
+        alt: "Tabela com os três lados 6, 8 e 10 e o quadrado de cada um.",
+        // Sem figura de triângulo: o gerador constrói a partir de dois
+        // catetos, então qualquer desenho dele JÁ sai retângulo — e a questão
+        // pergunta exatamente isso. A tabela dá os dados e cala o desenho.
+        desenho: () => tabela({
+          cabecalho: ["o lado", "ao quadrado"],
+          linhas: [["6", "36"], ["8", "64"], ["10", "100"]],
+          rotulo: "os dois menores somam o maior?", larguraCol: 134,
+        }),
+      },
+      {
+        id: "pt9-q-quatro-cinco-seis", pasta: "questoes",
+        alt: "Tabela com os três lados 4, 5 e 6 e os quadrados de cada um.",
+        // Aqui o triângulo NÃO é retângulo, então desenhá-lo com o gerador,
+        // que constrói a partir de dois catetos, produziria uma figura falsa.
+        desenho: () => tabela({
+          cabecalho: ["o lado", "ao quadrado"],
+          linhas: [["4", "16"], ["5", "25"], ["6", "36"]],
+          rotulo: "os dois menores somam o maior?", larguraCol: 134,
+        }),
+      },
+      {
+        id: "pt9-q-obmep-poste", pasta: "questoes",
+        alt: "Tabela com as três medidas do cabo, da altura e da distância ao poste.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "mede"],
+          linhas: [["altura no poste", "1,4 m"], ["distância no chão", "2 m"], ["o cabo", "2,5 m"]],
+          rotulo: "se o poste estivesse em pé, o que valeria?", larguraCol: 148,
+        }),
+      },
+      {
+        id: "pt9-q-completa-o-terno", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 9 e 12 com a hipotenusa em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 9, b: 12, quais: [], medidas: { a: "9", b: "12", c: "?" },
+          rotulo: "que terno conhecido está ampliado aqui?",
+        }),
+      },
+
+      // --- lição 5: a diagonal e a altura ---
+      {
+        id: "pt9-ideia-diagonal", pasta: "licoes",
+        alt: "Quadrado com a diagonal traçada e o ângulo reto do canto marcado.",
+        desenho: () => quadradoDiagonal({
+          lado: 5, rotuloLado: "L", rotuloDiagonal: "L√2", marcarAngulo: true,
+          rotulo: "a diagonal é a hipotenusa de dois catetos iguais",
+        }),
+      },
+      {
+        id: "pt9-res-diagonal-quadrado", pasta: "licoes",
+        alt: "Quadrado de lado 5 cm com a diagonal traçada e marcada com uma interrogação.",
+        desenho: () => quadradoDiagonal({
+          lado: 5, rotuloLado: "5 cm", rotuloDiagonal: "?", marcarAngulo: true,
+          rotulo: "quanto mede a diagonal?",
+        }),
+      },
+      {
+        id: "pt9-q-diagonal-8", pasta: "questoes",
+        alt: "Quadrado de lado 8 cm com a diagonal traçada e marcada com uma interrogação.",
+        desenho: () => quadradoDiagonal({
+          lado: 8, rotuloLado: "8 cm", rotuloDiagonal: "?", marcarAngulo: true,
+          rotulo: "use √2 = 1,41",
+        }),
+      },
+      {
+        id: "pt9-q-altura-equilatero", pasta: "questoes",
+        alt: "Triângulo equilátero de lado 10 cm com a altura traçada até o meio da base.",
+        // O ápice fica em 0,5 e a altura é base × √3/2: assim o triângulo
+        // DESENHADO é mesmo equilátero, e a figura não desmente o enunciado.
+        desenho: () => trianguloAltura({
+          base: 10, altura: 10 * Math.sqrt(3) / 2, apice: 0.5,
+          rotuloBase: "10 cm", rotuloAltura: "?",
+          rotulo: "a altura cai no meio da base",
+        }),
+      },
+      {
+        id: "pt9-q-por-que-metade", pasta: "questoes",
+        alt: "Triângulo equilátero com a altura traçada, sem medida nenhuma.",
+        desenho: () => trianguloAltura({
+          base: 9, altura: 9 * Math.sqrt(3) / 2, apice: 0.5,
+          rotulo: "por que o pé da altura cai no meio?",
+        }),
+      },
+      {
+        id: "pt9-q-lado-pela-diagonal", pasta: "questoes",
+        alt: "Quadrado com a diagonal medindo seis raiz de dois e o lado em aberto.",
+        desenho: () => quadradoDiagonal({
+          lado: 6, rotuloLado: "?", rotuloDiagonal: "6√2", marcarAngulo: true,
+          rotulo: "agora o caminho é o contrário",
+        }),
+      },
+
+      // --- lição 6: escadas, telas e atalhos ---
+      {
+        id: "pt9-ideia-escada", pasta: "licoes",
+        alt: "Triângulo retângulo representando uma escada encostada numa parede.",
+        desenho: () => quadradosPitagoras({
+          a: 4, b: 3, quais: [], medidas: { a: "parede", b: "chão", c: "escada" },
+          rotulo: "a escada é a hipotenusa, sempre",
+        }),
+      },
+      {
+        id: "pt9-res-escada", pasta: "licoes",
+        alt: "Escada de 5 m encostada numa parede com a base a 3 m dela e a altura em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 4, b: 3, quais: [], medidas: { a: "?", b: "3 m", c: "5 m" },
+          rotulo: "que altura a escada alcança?",
+        }),
+      },
+      {
+        id: "pt9-q-escada-12", pasta: "questoes",
+        alt: "Escada de 13 m encostada numa parede com a base a 5 m dela e a altura em aberto.",
+        desenho: () => quadradosPitagoras({
+          a: 12, b: 5, quais: [], medidas: { a: "?", b: "5 m", c: "13 m" },
+          rotulo: "a altura é sempre menor que a escada",
+        }),
+      },
+      {
+        id: "pt9-q-atalho", pasta: "questoes",
+        alt: "Plano com o caminho pelas ruas em linha tracejada, de seis para leste e oito para o norte.",
+        desenho: () => planoCartesiano({
+          ate: 9, pontos: [{ em: [0, 0], rotulo: "A" }, { em: [6, 8], rotulo: "B" }],
+          caminho: [[0, 0], [6, 0], [6, 8]],
+          rotulo: "pelas ruas são 14 · e em linha reta?",
+        }),
+      },
+      {
+        id: "pt9-q-distancia-plano", pasta: "questoes",
+        alt: "Plano cartesiano com os pontos na origem e em nove por doze, sem o segmento entre eles.",
+        desenho: () => planoCartesiano({
+          ate: 13, escala: 22,
+          pontos: [{ em: [0, 0], rotulo: "(0,0)" }, { em: [9, 12], rotulo: "(9,12)" }],
+          rotulo: "as diferenças em cada eixo são os catetos",
+        }),
+      },
+      {
+        id: "pt9-q-quem-e-a-escada", pasta: "questoes",
+        alt: "Triângulo retângulo de uma escada encostada na parede, com as três medidas nomeadas.",
+        desenho: () => quadradosPitagoras({
+          a: 4, b: 3, quais: [], medidas: { a: "a altura", b: "o afastamento", c: "a escada" },
+          rotulo: "onde está o ângulo reto?",
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Relações métricas no triângulo retângulo ═══════════════
+  //
+  // Um gerador novo, `relacoesMetricas`, e a matéria depende dele de um jeito
+  // que nenhuma outra depende: as cinco fórmulas SÃO proporções entre os três
+  // triângulos que a altura cria, e sem o desenho elas viram cinco linhas
+  // decoradas que o aluno troca uma pela outra na prova.
+  //
+  // Ele calcula tudo a partir dos dois catetos — a hipotenusa, o pé da altura,
+  // as duas projeções e a altura. Passar essas medidas prontas abriria a porta
+  // para uma figura fora de proporção, e aqui isso seria grave: a matéria
+  // inteira é sobre as proporções da figura. Um teste lê os vértices de volta
+  // do SVG e confere as cinco relações no desenho.
+  //
+  // O `destacar` pinta um dos dois triângulos menores, e é ele que permite
+  // mostrar de onde cada relação sai — a da esquerda com o cateto c, a da
+  // direita com o cateto b.
+  ...(() => {
+    return [
+      // --- lição 1: um corte, três triângulos ---
+      {
+        id: "rm9-ideia-tres-triangulos", pasta: "licoes",
+        alt: "Triângulo retângulo com a altura até a hipotenusa traçada e os seis elementos nomeados por letras.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "a", b: "b", c: "c", h: "h", m: "m", n: "n" },
+          rotulo: "a altura parte a hipotenusa em n e m",
+        }),
+      },
+      {
+        id: "rm9-res-nomes", pasta: "licoes",
+        alt: "Triângulo retângulo de catetos 15 e 20 com todas as seis medidas escritas.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "25", b: "15", c: "20", h: "12", m: "9", n: "16" },
+          rotulo: "o cateto maior tem a projeção maior",
+        }),
+      },
+      {
+        id: "rm9-q-por-que-semelhantes", pasta: "questoes",
+        alt: "Triângulo retângulo com o triângulo da esquerda destacado pela altura.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20, destacar: "esquerdo",
+          rotulo: "que ângulos o menor compartilha com o todo?",
+        }),
+      },
+      {
+        id: "rm9-q-soma-projecoes", pasta: "questoes",
+        alt: "Triângulo retângulo com as duas projeções medindo 9 e 16 e a hipotenusa em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "?", m: "9", n: "16" },
+          rotulo: "as duas projeções formam a hipotenusa",
+        }),
+      },
+      {
+        id: "rm9-q-o-que-e-projecao", pasta: "questoes",
+        alt: "Triângulo retângulo com a altura traçada e os dois pedaços da hipotenusa nomeados.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { b: "b", c: "c", m: "m", n: "n" },
+          rotulo: "quem é m e quem é n?",
+        }),
+      },
+      {
+        id: "rm9-q-outra-projecao", pasta: "questoes",
+        alt: "Triângulo retângulo de hipotenusa 20 com uma projeção medindo 4 e a outra em aberto.",
+        // O 4 é a projeção do cateto MENOR, e no gerador ela fica à direita.
+        // Rotulá-la como `n` punha o 4 em cima do pedaço grande do desenho —
+        // figura desmentindo o próprio rótulo, o defeito mais caro daqui.
+        desenho: () => relacoesMetricas({
+          b: 8.944, c: 17.889,
+          rotulos: { a: "20", m: "4", n: "?" },
+          rotulo: "quanto sobra para a outra projeção?",
+        }),
+      },
+
+      // --- lição 2: cada cateto e a projeção dele ---
+      {
+        id: "rm9-ideia-projecoes", pasta: "licoes",
+        alt: "Triângulo retângulo com o triângulo da direita destacado e os lados que entram na relação nomeados.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20, destacar: "direito",
+          rotulos: { a: "a", b: "b", m: "m" },
+          rotulo: "no menor, b é a hipotenusa · b/a = m/b",
+        }),
+      },
+      {
+        id: "rm9-res-cateto-15", pasta: "licoes",
+        alt: "Triângulo retângulo de hipotenusa 25 com a projeção 9 marcada e o cateto correspondente em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "25", m: "9", b: "?" },
+          rotulo: "b² = 25 × 9",
+        }),
+      },
+      {
+        id: "rm9-q-cateto-20", pasta: "questoes",
+        alt: "Triângulo retângulo de hipotenusa 25 com a projeção 16 marcada e o cateto correspondente em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "25", n: "16", c: "?" },
+          rotulo: "o quadrado do cateto é a vezes a projeção dele",
+        }),
+      },
+      {
+        id: "rm9-q-cateto-10", pasta: "questoes",
+        alt: "Triângulo retângulo de hipotenusa 20 com a projeção 5 marcada e o cateto correspondente em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 10, c: 17.321,
+          rotulos: { a: "20", m: "5", b: "?" },
+          rotulo: "multiplique e tire a raiz",
+        }),
+      },
+      {
+        id: "rm9-q-de-onde-vem", pasta: "questoes",
+        alt: "Tabela mostrando que papel cada lado faz no triângulo menor e no original.",
+        desenho: () => tabela({
+          cabecalho: ["o lado b", "no triângulo"],
+          linhas: [["é cateto", "original"], ["é hipotenusa", "menor da direita"]],
+          rotulo: "o mesmo lado, dois papéis", larguraCol: 146,
+        }),
+      },
+      {
+        id: "rm9-q-projecao-36", pasta: "questoes",
+        alt: "Triângulo retângulo de hipotenusa 10 com um cateto de 6 e a projeção dele em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 6, c: 8,
+          rotulos: { a: "10", b: "6", m: "?" },
+          rotulo: "agora a incógnita é a projeção",
+        }),
+      },
+
+      // --- lição 3: as duas relações da altura ---
+      {
+        id: "rm9-ideia-altura", pasta: "licoes",
+        alt: "Triângulo retângulo com a altura e as duas projeções nomeadas.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "a", b: "b", c: "c", h: "h", m: "m", n: "n" },
+          rotulo: "h² = m·n · e também a·h = b·c",
+        }),
+      },
+      {
+        id: "rm9-res-altura-12", pasta: "licoes",
+        alt: "Triângulo retângulo com as projeções 9 e 16 marcadas e a altura em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { m: "9", n: "16", h: "?" },
+          rotulo: "com as duas projeções na mão",
+        }),
+      },
+      {
+        id: "rm9-q-altura-6", pasta: "questoes",
+        alt: "Triângulo retângulo com as projeções 4 e 9 marcadas e a altura em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 7.211, c: 10.817,
+          rotulos: { m: "4", n: "9", h: "?" },
+          rotulo: "a altura é a raiz do produto das projeções",
+        }),
+      },
+      {
+        id: "rm9-q-altura-48", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 6 e 8 e hipotenusa 10, com a altura em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 6, c: 8,
+          rotulos: { a: "10", b: "6", c: "8", h: "?" },
+          rotulo: "aqui os dados são os catetos e a hipotenusa",
+        }),
+      },
+      {
+        id: "rm9-q-qual-relacao", pasta: "questoes",
+        alt: "Tabela com as cinco relações e as medidas que cada uma exige.",
+        desenho: () => tabela({
+          cabecalho: ["a relação", "usa"],
+          linhas: [
+            ["a = m + n", "as projeções"],
+            ["b² = a·m", "hipotenusa e projeção"],
+            ["h² = m·n", "as duas projeções"],
+            ["a·h = b·c", "hipotenusa e catetos"],
+          ],
+          rotulo: "qual delas usa só o que o problema deu?", larguraCol: 128,
+        }),
+      },
+      {
+        id: "rm9-q-altura-4", pasta: "questoes",
+        alt: "Triângulo retângulo com as projeções 2 e 8 marcadas e a altura em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 4.472, c: 8.944,
+          rotulos: { m: "2", n: "8", h: "?" },
+          rotulo: "multiplique as projeções e tire a raiz",
+        }),
+      },
+
+      // --- lição 4: escolher a relação certa ---
+      {
+        id: "rm9-ideia-roteiro", pasta: "licoes",
+        alt: "Tabela com as cinco relações da matéria, uma por linha.",
+        desenho: () => tabela({
+          cabecalho: ["a relação", "devolve"],
+          linhas: [
+            ["a = m + n", "a hipotenusa"],
+            ["b² = a·m", "um cateto"],
+            ["c² = a·n", "o outro cateto"],
+            ["h² = m·n", "a altura"],
+            ["a·h = b·c", "a altura também"],
+          ],
+          rotulo: "as cinco, e o que cada uma entrega", larguraCol: 124,
+        }),
+      },
+      {
+        id: "rm9-res-dois-passos", pasta: "licoes",
+        alt: "Triângulo retângulo de catetos 9 e 12 com a hipotenusa e a altura em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 9, c: 12,
+          rotulos: { b: "9", c: "12", a: "?", h: "?" },
+          rotulo: "faltam dois · qual sai primeiro?",
+        }),
+      },
+      {
+        id: "rm9-q-escolher", pasta: "questoes",
+        alt: "Triângulo retângulo com a hipotenusa e uma projeção medidas e o cateto correspondente em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "dada", m: "dada", b: "?" },
+          rotulo: "que relação contém esses três?",
+        }),
+      },
+      {
+        id: "rm9-q-hipotenusa-15", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 9 e 12 com a hipotenusa em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 9, c: 12,
+          rotulos: { b: "9", c: "12", a: "?" },
+          rotulo: "a matéria anterior resolve este passo",
+        }),
+      },
+      {
+        id: "rm9-q-projecao-54", pasta: "questoes",
+        alt: "Triângulo retângulo de hipotenusa 15 com um cateto de 9 e a projeção dele em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 9, c: 12,
+          rotulos: { a: "15", b: "9", m: "?" },
+          rotulo: "a mesma relação, com a projeção isolada",
+        }),
+      },
+      {
+        id: "rm9-q-por-que-nao-serve", pasta: "questoes",
+        alt: "Tabela comparando o que a relação da altura exige com o que o problema deu.",
+        desenho: () => tabela({
+          cabecalho: ["h² = m·n pede", "o problema deu"],
+          linhas: [["as projeções", "os catetos"]],
+          rotulo: "as duas listas coincidem?", larguraCol: 150,
+        }),
+      },
+
+      // --- lição 5: Pitágoras sai de graça ---
+      {
+        id: "rm9-ideia-soma-das-duas", pasta: "licoes",
+        alt: "Cadeia somando as duas relações das projeções até chegar ao teorema de Pitágoras.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "b² = a·m  e  c² = a·n" },
+            { texto: "b² + c² = a·m + a·n", nota: "somando os dois" },
+            { texto: "b² + c² = a(m + n)", nota: "fator comum" },
+            { texto: "b² + c² = a²", nota: "porque m + n = a" },
+          ],
+          destacar: [3],
+          rotulo: "e nenhum passo usou Pitágoras",
+        }),
+      },
+      {
+        id: "rm9-res-soma", pasta: "licoes",
+        alt: "Tabela com as duas relações das projeções em números e a soma delas.",
+        desenho: () => tabela({
+          cabecalho: ["a relação", "em números"],
+          linhas: [["b² = a·m", "225 = 25 × 9"], ["c² = a·n", "400 = 25 × 16"], ["somadas", "625 = 25 × 25"]],
+          rotulo: "no triângulo de catetos 15 e 20", larguraCol: 128,
+        }),
+      },
+      {
+        id: "rm9-q-soma-dos-produtos", pasta: "questoes",
+        alt: "Tabela com a hipotenusa e as duas projeções do triângulo, sem os produtos calculados.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a hipotenusa", "25"], ["uma projeção", "9"], ["a outra", "16"]],
+          rotulo: "quanto dá a·m + a·n?", larguraCol: 134,
+        }),
+      },
+      {
+        id: "rm9-q-o-que-sai", pasta: "questoes",
+        alt: "Cadeia com a soma das duas relações parada antes da conclusão.",
+        desenho: () => cadeiaArgumento({
+          passos: [
+            { texto: "b² = a·m  e  c² = a·n" },
+            { texto: "b² + c² = a(m + n)", nota: "somando e fatorando" },
+            { texto: "e agora?", nota: "quanto vale m + n?" },
+          ],
+          destacar: [2],
+          rotulo: "termine o argumento",
+        }),
+      },
+      {
+        id: "rm9-q-confere-625", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 15 e 20, com as duas medidas escritas.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { b: "15", c: "20" },
+          rotulo: "quanto dá b² + c²?",
+        }),
+      },
+      {
+        id: "rm9-q-nao-e-circular", pasta: "questoes",
+        alt: "Tabela com cada demonstração e a ferramenta que ela usa.",
+        desenho: () => tabela({
+          cabecalho: ["a demonstração", "usa"],
+          linhas: [["b² = a·m", "semelhança (caso AA)"], ["b² + c² = a²", "as duas relações acima"]],
+          rotulo: "alguma delas usa o teorema?", larguraCol: 148,
+        }),
+      },
+
+      // --- lição 6: telhados, rampas e áreas ---
+      {
+        id: "rm9-ideia-telhado", pasta: "licoes",
+        alt: "Telhado de duas águas representado como triângulo retângulo com a altura do cume traçada.",
+        desenho: () => relacoesMetricas({
+          b: 9, c: 12,
+          rotulos: { a: "o vão", b: "água", c: "água", h: "cume" },
+          rotulo: "as águas são os catetos, o vão é a hipotenusa",
+        }),
+      },
+      {
+        id: "rm9-res-telhado", pasta: "licoes",
+        alt: "Telhado de águas 9 m e 12 m sobre um vão de 15 m, com a altura do cume em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 9, c: 12,
+          rotulos: { a: "15 m", b: "9 m", c: "12 m", h: "?" },
+          rotulo: "que altura o cume alcança?",
+        }),
+      },
+      {
+        id: "rm9-q-telhado-12", pasta: "questoes",
+        alt: "Telhado de águas 15 m e 20 m sobre um vão de 25 m, com a altura do cume em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 15, c: 20,
+          rotulos: { a: "25 m", b: "15 m", c: "20 m", h: "?" },
+          rotulo: "o produto das águas sobre o vão",
+        }),
+      },
+      {
+        id: "rm9-q-area-54", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 9 m e 12 m, com a altura traçada.",
+        desenho: () => relacoesMetricas({
+          b: 9, c: 12,
+          rotulos: { b: "9 m", c: "12 m" },
+          rotulo: "os catetos já são perpendiculares",
+        }),
+      },
+      {
+        id: "rm9-q-pilar-6", pasta: "questoes",
+        alt: "Rampa apoiada num pilar, com os trechos de chão medindo 4 m e 9 m e o pilar em aberto.",
+        desenho: () => relacoesMetricas({
+          b: 7.211, c: 10.817,
+          rotulos: { m: "4 m", n: "9 m", h: "?" },
+          rotulo: "os trechos de chão são as projeções",
+        }),
+      },
+      {
+        id: "rm9-q-por-que-area", pasta: "questoes",
+        alt: "Tabela com a área do triângulo escrita de dois jeitos, pela base que se escolher.",
+        desenho: () => tabela({
+          cabecalho: ["tomando por base", "a área é"],
+          linhas: [["um cateto", "b · c / 2"], ["a hipotenusa", "a · h / 2"]],
+          rotulo: "as duas medem a mesma coisa", larguraCol: 146,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Trigonometria no triângulo retângulo ═══════════════
+  //
+  // Um gerador novo, `trianguloTrig`, e ele existe por uma razão que nenhum
+  // outro cobria: mostrar quem é o cateto OPOSTO e quem é o ADJACENTE em
+  // relação a um ângulo escolhido. Essa distinção não é propriedade do
+  // triângulo — é propriedade do ângulo que se olha, e trocar de ângulo troca
+  // os dois de papel. É o engano número um da matéria, e ele acontece antes
+  // de qualquer conta.
+  //
+  // O triângulo é CONSTRUÍDO a partir do ângulo: o cateto adjacente é a
+  // unidade e o oposto sai de tan(θ). Uma figura rotulada 30° com um ângulo
+  // de 50° desenhado é exatamente o defeito que a revisão do 7º ano achou em
+  // dez desenhos de `paralelasTransversal`, e aqui ele seria pior — a matéria
+  // toda é sobre o que o ângulo determina. Um teste mede o ângulo desenhado.
+  //
+  // As deduções da tabela usam figuras já existentes: o `quadradoDiagonal` do
+  // 8º ano para o 45°, e o `trianguloAltura` para o equilátero de 30° e 60°.
+  // Reaproveitá-las é o conteúdo: a tabela SAI daquelas duas figuras.
+  ...(() => {
+    // Os ângulos do triângulo 3-4-5, calculados e não chutados.
+    const agudoDo345 = (Math.atan(3 / 4) * 180) / Math.PI;
+    return [
+      // --- lição 1: oposto, adjacente e hipotenusa ---
+      {
+        id: "tr9-ideia-nomes", pasta: "licoes",
+        alt: "Triângulo retângulo com o ângulo teta marcado e os três lados nomeados por função.",
+        desenho: () => trianguloTrig({
+          angulo: agudoDo345,
+          rotulos: { angulo: "θ", oposto: "oposto", adjacente: "adjacente", hipotenusa: "hipotenusa" },
+          rotulo: "os nomes vêm do ângulo escolhido",
+        }),
+      },
+      {
+        id: "tr9-res-tres-razoes", pasta: "licoes",
+        alt: "Triângulo retângulo de catetos 3 e 4 com o ângulo teta e as três medidas escritas.",
+        desenho: () => trianguloTrig({
+          angulo: agudoDo345,
+          rotulos: { angulo: "θ", oposto: "3", adjacente: "4", hipotenusa: "5" },
+          rotulo: "sen, cos e tg saem destes três números",
+        }),
+      },
+      {
+        id: "tr9-q-seno-06", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 3 e 4 com o cateto oposto destacado.",
+        desenho: () => trianguloTrig({
+          angulo: agudoDo345, destacarLado: "oposto",
+          rotulos: { angulo: "θ", oposto: "3", adjacente: "4", hipotenusa: "5" },
+          rotulo: "seno é oposto sobre hipotenusa",
+        }),
+      },
+      {
+        id: "tr9-q-cosseno-08", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 3 e 4 com o cateto adjacente destacado.",
+        desenho: () => trianguloTrig({
+          angulo: agudoDo345, destacarLado: "adjacente",
+          rotulos: { angulo: "θ", oposto: "3", adjacente: "4", hipotenusa: "5" },
+          rotulo: "cosseno é adjacente sobre hipotenusa",
+        }),
+      },
+      {
+        id: "tr9-q-troca-de-papel", pasta: "questoes",
+        alt: "Tabela mostrando os papéis dos dois catetos conforme o ângulo agudo escolhido.",
+        desenho: () => tabela({
+          cabecalho: ["olhando de", "o cateto 3 é"],
+          linhas: [["um ângulo", "oposto"], ["o outro", "?"]],
+          rotulo: "os nomes são do ângulo, não do triângulo", larguraCol: 146,
+        }),
+      },
+      {
+        id: "tr9-q-tangente-075", pasta: "questoes",
+        alt: "Triângulo retângulo de catetos 3 e 4, com a hipotenusa sem medida escrita.",
+        // A hipotenusa fica sem número de propósito: a tangente não a usa, e
+        // escrevê-la só convidaria a errar a razão.
+        desenho: () => trianguloTrig({
+          angulo: agudoDo345,
+          rotulos: { angulo: "θ", oposto: "3", adjacente: "4" },
+          rotulo: "a tangente dispensa a hipotenusa",
+        }),
+      },
+
+      // --- lição 2: por que a razão só depende do ângulo ---
+      {
+        id: "tr9-ideia-mesmo-angulo", pasta: "licoes",
+        alt: "Dois triângulos retângulos de mesma forma e tamanhos bem diferentes, com os lados medidos.",
+        desenho: () => parTriangulos({
+          angulos: [(Math.acos((25 + 16 - 9) / (2 * 5 * 4)) * 180) / Math.PI,
+            (Math.acos((25 + 9 - 16) / (2 * 5 * 3)) * 180) / Math.PI],
+          escalas: [62, 148],
+          medidas: [["5", "3", "4"], ["50", "30", "40"]],
+          rotulo: "3/5 e 30/50 dão o mesmo número",
+        }),
+      },
+      {
+        id: "tr9-res-cancela", pasta: "licoes",
+        alt: "Tabela com o seno calculado nos dois triângulos e a simplificação da fração.",
+        desenho: () => tabela({
+          cabecalho: ["no triângulo", "o seno"],
+          linhas: [["3-4-5", "3/5 = 0,6"], ["30-40-50", "30/50 = 0,6"]],
+          rotulo: "o fator 10 aparece em cima e embaixo", larguraCol: 140,
+        }),
+      },
+      {
+        id: "tr9-q-por-que-igual", pasta: "questoes",
+        alt: "Dois triângulos retângulos de mesma forma e tamanhos diferentes, sem medidas.",
+        desenho: () => parTriangulos({
+          angulos: [(Math.acos((25 + 16 - 9) / (2 * 5 * 4)) * 180) / Math.PI,
+            (Math.acos((25 + 9 - 16) / (2 * 5 * 3)) * 180) / Math.PI],
+          escalas: [66, 144],
+          marcasAngulos: [1, 0, 0],
+          rotulo: "que caso de semelhança se aplica aqui?",
+        }),
+      },
+      {
+        id: "tr9-q-oposto-6", pasta: "questoes",
+        alt: "Triângulo retângulo com a hipotenusa medindo 10 e o cateto oposto em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: agudoDo345,
+          rotulos: { angulo: "θ", hipotenusa: "10", oposto: "?" },
+          rotulo: "sen θ = 0,6 · quanto mede o oposto?",
+        }),
+      },
+      {
+        id: "tr9-q-dois-tamanhos", pasta: "questoes",
+        alt: "Dois triângulos retângulos com um ângulo de 40° marcado em cada um, de tamanhos diferentes.",
+        desenho: () => parTriangulos({
+          angulos: [40, 50], escalas: [64, 146],
+          marcasAngulos: [1, 0, 0],
+          rotulo: "os dois têm 40° · o que isso garante?",
+        }),
+      },
+      {
+        id: "tr9-q-oposto-12", pasta: "questoes",
+        alt: "Triângulo retângulo com a hipotenusa medindo 20 e o cateto oposto em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: agudoDo345,
+          rotulos: { angulo: "θ", hipotenusa: "20", oposto: "?" },
+          rotulo: "o mesmo seno, outra hipotenusa",
+        }),
+      },
+
+      // --- lição 3: os três ângulos notáveis ---
+      {
+        id: "tr9-ideia-tabela", pasta: "licoes",
+        alt: "Tabela com o seno, o cosseno e a tangente dos ângulos de 30, 45 e 60 graus.",
+        desenho: () => tabela({
+          cabecalho: ["ângulo", "seno", "cosseno", "tangente"],
+          linhas: [
+            ["30°", "1/2", "√3/2", "√3/3"],
+            ["45°", "√2/2", "√2/2", "1"],
+            ["60°", "√3/2", "1/2", "√3"],
+          ],
+          rotulo: "os senos são √1/2, √2/2 e √3/2", larguraCol: 88,
+        }),
+      },
+      {
+        id: "tr9-res-quarenta-e-cinco", pasta: "licoes",
+        alt: "Quadrado de lado 1 com a diagonal traçada e marcada como raiz de dois.",
+        desenho: () => quadradoDiagonal({
+          rotuloLado: "1", rotuloDiagonal: "√2", marcarAngulo: true,
+          rotulo: "o 45° sai do quadrado cortado",
+        }),
+      },
+      {
+        id: "tr9-q-sen-30", pasta: "questoes",
+        alt: "Triângulo equilátero de lado 2 com a altura traçada até o meio da base.",
+        desenho: () => trianguloAltura({
+          base: 8, altura: 8 * Math.sqrt(3) / 2, apice: 0.5,
+          rotuloBase: "2", rotuloAltura: "√3",
+          rotulo: "a altura corta a base ao meio",
+        }),
+      },
+      {
+        id: "tr9-q-tg-45", pasta: "questoes",
+        alt: "Triângulo retângulo com os dois catetos iguais e o ângulo de 45 graus marcado.",
+        desenho: () => trianguloTrig({
+          angulo: 45,
+          // Os catetos vão como L, e não como 1: com "1" escrito duas vezes
+          // a figura entrega a resposta da questão, que é justamente 1.
+          rotulos: { angulo: "45°", oposto: "L", adjacente: "L" },
+          rotulo: "tangente é um cateto sobre o outro",
+        }),
+      },
+      {
+        id: "tr9-q-por-que-metade", pasta: "questoes",
+        alt: "Triângulo equilátero com a altura traçada, sem nenhuma medida.",
+        desenho: () => trianguloAltura({
+          base: 8, altura: 8 * Math.sqrt(3) / 2, apice: 0.5,
+          rotulo: "o que a altura faz com a base?",
+        }),
+      },
+      {
+        id: "tr9-q-cos-60", pasta: "questoes",
+        alt: "Triângulo retângulo com o ângulo de 60 graus marcado e os três lados medidos.",
+        desenho: () => trianguloTrig({
+          angulo: 60,
+          rotulos: { angulo: "60°", adjacente: "1", oposto: "√3", hipotenusa: "2" },
+          rotulo: "qual lado encosta no ângulo de 60°?",
+        }),
+      },
+
+      // --- lição 4: achar um lado ---
+      {
+        id: "tr9-ideia-escolher", pasta: "licoes",
+        alt: "Tabela com os pares de lados e a razão que serve para cada par.",
+        desenho: () => tabela({
+          cabecalho: ["os dois lados", "a razão"],
+          linhas: [
+            ["oposto e hipotenusa", "seno"],
+            ["adjacente e hipotenusa", "cosseno"],
+            ["os dois catetos", "tangente"],
+          ],
+          rotulo: "a escolha é mecânica", larguraCol: 154,
+        }),
+      },
+      {
+        id: "tr9-res-rampa", pasta: "licoes",
+        alt: "Rampa de 20 metros com inclinação de 30 graus e a altura em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 30,
+          rotulos: { angulo: "30°", hipotenusa: "20 m", oposto: "?" },
+          rotulo: "a rampa é a hipotenusa",
+        }),
+      },
+      {
+        id: "tr9-q-oposto-30", pasta: "questoes",
+        alt: "Triângulo retângulo com ângulo de 30 graus, hipotenusa 12 e cateto oposto em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 30,
+          rotulos: { angulo: "30°", hipotenusa: "12", oposto: "?" },
+          rotulo: "que razão usa esses dois lados?",
+        }),
+      },
+      {
+        id: "tr9-q-oposto-45", pasta: "questoes",
+        alt: "Triângulo retângulo com ângulo de 45 graus, cateto adjacente 7 e o oposto em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 45,
+          rotulos: { angulo: "45°", adjacente: "7", oposto: "?" },
+          rotulo: "os dois lados em jogo são catetos",
+        }),
+      },
+      {
+        id: "tr9-q-qual-razao", pasta: "questoes",
+        alt: "Triângulo retângulo com a hipotenusa marcada como dada e o cateto adjacente em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 38,
+          rotulos: { angulo: "θ", hipotenusa: "dada", adjacente: "?" },
+          rotulo: "que razão contém esses dois?",
+        }),
+      },
+      {
+        id: "tr9-q-hipotenusa-60", pasta: "questoes",
+        alt: "Triângulo retângulo com ângulo de 60 graus, cateto adjacente 5 e hipotenusa em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 60,
+          rotulos: { angulo: "60°", adjacente: "5", hipotenusa: "?" },
+          rotulo: "agora a incógnita está no denominador",
+        }),
+      },
+
+      // --- lição 5: achar o ângulo ---
+      {
+        id: "tr9-ideia-de-volta", pasta: "licoes",
+        alt: "Tabela com os valores das razões e o ângulo notável correspondente a cada um.",
+        desenho: () => tabela({
+          cabecalho: ["se a razão der", "o ângulo é"],
+          linhas: [["seno 0,5", "30°"], ["tangente 1", "45°"], ["cosseno 0,5", "60°"]],
+          rotulo: "a tabela lida ao contrário", larguraCol: 140,
+        }),
+      },
+      {
+        id: "tr9-res-inclinacao-30", pasta: "licoes",
+        alt: "Rampa de 10 metros que vence 5 metros de altura, com o ângulo em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 30,
+          rotulos: { angulo: "?", hipotenusa: "10 m", oposto: "5 m" },
+          rotulo: "qual é a inclinação desta rampa?",
+        }),
+      },
+      {
+        id: "tr9-q-angulo-45", pasta: "questoes",
+        alt: "Triângulo retângulo com os dois catetos medindo 6 e o ângulo em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 45,
+          rotulos: { angulo: "?", oposto: "6", adjacente: "6" },
+          rotulo: "os dois catetos são iguais",
+        }),
+      },
+      {
+        id: "tr9-q-angulo-30", pasta: "questoes",
+        alt: "Triângulo retângulo com cateto oposto 5, hipotenusa 10 e o ângulo em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 30,
+          rotulos: { angulo: "?", oposto: "5", hipotenusa: "10" },
+          rotulo: "calcule a razão e procure na tabela",
+        }),
+      },
+      {
+        id: "tr9-q-qual-para-angulo", pasta: "questoes",
+        alt: "Triângulo retângulo com os dois catetos marcados como dados e a hipotenusa sem medida.",
+        desenho: () => trianguloTrig({
+          angulo: 52,
+          rotulos: { angulo: "?", oposto: "dado", adjacente: "dado" },
+          rotulo: "que razão dispensa a hipotenusa?",
+        }),
+      },
+      {
+        id: "tr9-q-angulo-60", pasta: "questoes",
+        alt: "Triângulo retângulo com cateto adjacente 4, hipotenusa 8 e o ângulo em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 60,
+          rotulos: { angulo: "?", adjacente: "4", hipotenusa: "8" },
+          rotulo: "cosseno menor significa ângulo maior",
+        }),
+      },
+
+      // --- lição 6: medir o que não se alcança ---
+      {
+        id: "tr9-ideia-elevacao", pasta: "licoes",
+        alt: "Triângulo do ângulo de elevação, com a distância no chão e a altura do prédio nomeadas.",
+        desenho: () => trianguloTrig({
+          angulo: 30,
+          rotulos: { angulo: "elevação", adjacente: "distância", oposto: "altura" },
+          rotulo: "mede-se o chão e o ângulo; sai a altura",
+        }),
+      },
+      {
+        id: "tr9-res-predio", pasta: "licoes",
+        alt: "Prédio visto de 60 metros de distância sob ângulo de elevação de 30 graus, com a altura em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 30,
+          rotulos: { angulo: "30°", adjacente: "60 m", oposto: "?" },
+          rotulo: "a distância no chão é o cateto adjacente",
+        }),
+      },
+      {
+        id: "tr9-q-rampa-45", pasta: "questoes",
+        alt: "Rampa de 45 graus que avança 8 metros na horizontal, com a altura em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 45,
+          rotulos: { angulo: "45°", adjacente: "8 m", oposto: "?" },
+          rotulo: "avanço e altura são os dois catetos",
+        }),
+      },
+      {
+        id: "tr9-q-escada-60", pasta: "questoes",
+        alt: "Escada de 10 metros apoiada a 60 graus do chão, com a altura alcançada em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 60,
+          rotulos: { angulo: "60°", hipotenusa: "10 m", oposto: "?" },
+          rotulo: "a escada é a hipotenusa",
+        }),
+      },
+      {
+        id: "tr9-q-torre-30", pasta: "questoes",
+        alt: "Torre vista de 90 metros de distância sob ângulo de elevação de 30 graus, com a altura em aberto.",
+        desenho: () => trianguloTrig({
+          angulo: 30,
+          rotulos: { angulo: "30°", adjacente: "90 m", oposto: "?" },
+          rotulo: "a distância no chão encosta no ângulo",
+        }),
+      },
+      {
+        id: "tr9-q-por-que-mede", pasta: "questoes",
+        alt: "Tabela separando o que se mede no chão do que a razão devolve.",
+        desenho: () => tabela({
+          cabecalho: ["o que se mede", "o que sai"],
+          linhas: [["a distância no chão", "a altura"], ["o ângulo de elevação", "sem subir nada"]],
+          rotulo: "por que o método funciona?", larguraCol: 150,
+        }),
+      },
+    ];
+  })(),
+
+
+  // ═══════════════ 9º ano · Arcos e ângulos na circunferência ═══════════════
+  //
+  // Um gerador novo, `circunferenciaAngulos`, e ele existe por uma afirmação
+  // que ninguém acredita sem ver: o ângulo inscrito mede METADE do central que
+  // enxerga o mesmo arco. Com os dois desenhados na mesma circunferência, o
+  // aluno compara de olho antes de aceitar a fórmula — o mesmo papel que
+  // `trianguloParalela` faz na soma dos ângulos e `piDesenrolado` faz no π.
+  //
+  // Todas as posições entram em GRAUS, e o gerador calcula os pontos. O
+  // inscrito desenhado é, por construção, metade do central, e um teste mede
+  // os dois no SVG — a figura não tem como desmentir o rótulo.
+  //
+  // O parâmetro do arco em destaque chama-se `arcoDestacado`, e não `arco`,
+  // por uma razão que custou uma depuração: existe um helper de módulo
+  // chamado `arco`, e a desestruturação o sombrearia dentro da função.
+  ...(() => {
+    return [
+      // --- lição 1: o arco e o ângulo central ---
+      {
+        id: "ar9-ideia-arco-central", pasta: "licoes",
+        alt: "Circunferência com dois pontos, o ângulo central entre eles e o arco em destaque.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 60, nome: "A" }, { em: 170, nome: "B" }],
+          central: { de: 60, ate: 170, rotulo: "110°" },
+          arcoDestacado: { de: 60, ate: 170 },
+          rotulo: "o arco tem a medida do ângulo central",
+        }),
+      },
+      {
+        id: "ar9-res-110", pasta: "licoes",
+        alt: "Circunferência com o ângulo central de 110 graus e o arco maior em destaque.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 60, nome: "A" }, { em: 170, nome: "B" }],
+          central: { de: 60, ate: 170, rotulo: "110°" },
+          arcoDestacado: { de: 170, ate: 60, rotulo: "o outro" },
+          rotulo: "os dois arcos fecham a volta",
+        }),
+      },
+      {
+        id: "ar9-q-outro-arco", pasta: "questoes",
+        alt: "Circunferência com um arco de 140 graus em destaque e o outro sem medida.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 20, nome: "A" }, { em: 160, nome: "B" }],
+          arcoDestacado: { de: 20, ate: 160, rotulo: "140°" },
+          rotulo: "e o outro arco entre A e B?",
+        }),
+      },
+      {
+        id: "ar9-q-o-que-mede", pasta: "questoes",
+        alt: "Duas circunferências de tamanhos diferentes, cada uma com um arco de 120 graus.",
+        desenho: () => tabela({
+          cabecalho: ["a circunferência", "o arco de 120°"],
+          linhas: [["pequena", "curto"], ["grande", "comprido"]],
+          rotulo: "mesma abertura, comprimentos diferentes", larguraCol: 150,
+        }),
+      },
+      {
+        id: "ar9-q-relogio", pasta: "questoes",
+        alt: "Circunferência repartida pelas doze marcas de um relógio, sem medida escrita.",
+        desenho: () => circunferenciaAngulos({
+          pontos: Array.from({ length: 12 }, (_, i) => ({ em: 90 - i * 30 })),
+          central: { de: 60, ate: 90 },
+          rotulo: "doze marcas · quanto mede cada arco?",
+        }),
+      },
+      {
+        id: "ar9-q-diametro", pasta: "questoes",
+        alt: "Circunferência com um diâmetro traçado e as duas pontas marcadas.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 0, nome: "A" }, { em: 180, nome: "B" }],
+          central: { de: 0, ate: 180 },
+          rotulo: "que ângulo o diâmetro abre no centro?",
+        }),
+      },
+
+      // --- lição 2: o ângulo inscrito ---
+      {
+        id: "ar9-ideia-inscrito", pasta: "licoes",
+        alt: "Circunferência com o ângulo central de 120 graus e o inscrito de 60 graus sobre o mesmo arco.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 150, nome: "A" }, { em: 30, nome: "B" }, { em: 255, nome: "C" }],
+          central: { de: 30, ate: 150, rotulo: "120°" },
+          inscrito: { vertice: 255, de: 30, ate: 150, rotulo: "60°" },
+          rotulo: "o de baixo abre exatamente metade",
+        }),
+      },
+      {
+        id: "ar9-res-metade", pasta: "licoes",
+        alt: "Circunferência com o ângulo central de 120 graus e o inscrito correspondente em aberto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 150, nome: "A" }, { em: 30, nome: "B" }, { em: 255, nome: "C" }],
+          central: { de: 30, ate: 150, rotulo: "120°" },
+          inscrito: { vertice: 255, de: 30, ate: 150, rotulo: "?" },
+          rotulo: "quanto abre o de vértice em C?",
+        }),
+      },
+      {
+        id: "ar9-q-inscrito-50", pasta: "questoes",
+        alt: "Circunferência com o ângulo central de 100 graus e o inscrito em aberto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 140, nome: "A" }, { em: 40, nome: "B" }, { em: 260, nome: "C" }],
+          central: { de: 40, ate: 140, rotulo: "100°" },
+          inscrito: { vertice: 260, de: 40, ate: 140, rotulo: "?" },
+          rotulo: "o inscrito é metade do central",
+        }),
+      },
+      {
+        id: "ar9-q-central-70", pasta: "questoes",
+        alt: "Circunferência com o ângulo inscrito de 35 graus e o central em aberto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 125, nome: "A" }, { em: 55, nome: "B" }, { em: 270, nome: "C" }],
+          central: { de: 55, ate: 125, rotulo: "?" },
+          inscrito: { vertice: 270, de: 55, ate: 125, rotulo: "35°" },
+          rotulo: "agora o caminho é o contrário",
+        }),
+      },
+      {
+        id: "ar9-q-vertice-anda", pasta: "questoes",
+        alt: "Circunferência com dois ângulos inscritos de vértices diferentes sobre o mesmo arco, sem medidas.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 150, nome: "A" }, { em: 30, nome: "B" }, { em: 230, nome: "C" }, { em: 290, nome: "D" }],
+          inscrito: { vertice: 230, de: 30, ate: 150 },
+          rotulo: "e se o vértice for de C para D?",
+        }),
+      },
+      {
+        id: "ar9-q-pelo-arco", pasta: "questoes",
+        alt: "Circunferência com um arco de 80 graus em destaque e o ângulo inscrito em aberto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 130, nome: "A" }, { em: 50, nome: "B" }, { em: 270, nome: "C" }],
+          arcoDestacado: { de: 50, ate: 130, rotulo: "80°" },
+          inscrito: { vertice: 270, de: 50, ate: 130, rotulo: "?" },
+          rotulo: "o arco já dá a medida do central",
+        }),
+      },
+
+      // --- lição 3: dois presentes da regra ---
+      {
+        id: "ar9-ideia-semicirculo", pasta: "licoes",
+        alt: "Circunferência com um diâmetro e um triângulo inscrito que tem o ângulo reto no terceiro vértice.",
+        desenho: () => circunferenciaAngulos({
+          // O vértice C fica longe do topo: com ele a 105°, o rótulo do
+          // inscrito caía em cima do rótulo do central, que é escrito na
+          // vertical por ser um ângulo raso.
+          pontos: [{ em: 0, nome: "A" }, { em: 180, nome: "B" }, { em: 140, nome: "C" }],
+          poligono: [0, 180, 140],
+          central: { de: 0, ate: 180, rotulo: "180°" },
+          inscrito: { vertice: 140, de: 0, ate: 180, rotulo: "90°" },
+          rotulo: "metade de 180 é 90, sempre",
+        }),
+      },
+      {
+        id: "ar9-res-reto", pasta: "licoes",
+        alt: "Triângulo inscrito com um lado sobre o diâmetro e o ângulo oposto em aberto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 0, nome: "A" }, { em: 180, nome: "B" }, { em: 120, nome: "C" }],
+          poligono: [0, 180, 120],
+          inscrito: { vertice: 120, de: 0, ate: 180, rotulo: "?" },
+          rotulo: "AB é diâmetro · quanto abre o ângulo em C?",
+        }),
+      },
+      {
+        id: "ar9-q-reto-90", pasta: "questoes",
+        alt: "Triângulo inscrito com um lado sobre o diâmetro, com o terceiro vértice em outra posição.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 0, nome: "A" }, { em: 180, nome: "B" }, { em: 50, nome: "C" }],
+          poligono: [0, 180, 50],
+          inscrito: { vertice: 50, de: 0, ate: 180, rotulo: "?" },
+          rotulo: "o lado AB passa pelo centro",
+        }),
+      },
+      {
+        id: "ar9-q-todos-iguais", pasta: "questoes",
+        alt: "Circunferência com três ângulos inscritos de vértices diferentes sobre o mesmo arco.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 140, nome: "A" }, { em: 40, nome: "B" },
+            { em: 220, nome: "C" }, { em: 265, nome: "D" }, { em: 310, nome: "E" }],
+          inscrito: { vertice: 265, de: 40, ate: 140, rotulo: "35°" },
+          rotulo: "os de vértice em C e em E também abrem quanto?",
+        }),
+      },
+      {
+        id: "ar9-q-por-que-reto", pasta: "questoes",
+        alt: "Circunferência com um diâmetro e um ângulo inscrito nas pontas dele, sem medidas.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 0, nome: "A" }, { em: 180, nome: "B" }, { em: 130, nome: "C" }],
+          poligono: [0, 180, 130],
+          inscrito: { vertice: 130, de: 0, ate: 180 },
+          arcoDestacado: { de: 180, ate: 0 },
+          rotulo: "que arco o ângulo em C enxerga?",
+        }),
+      },
+      {
+        id: "ar9-q-outro-agudo", pasta: "questoes",
+        alt: "Triângulo inscrito com um lado sobre o diâmetro e um dos ângulos agudos medindo 28 graus.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 0, nome: "A" }, { em: 180, nome: "B" }, { em: 124, nome: "C" }],
+          poligono: [0, 180, 124],
+          inscrito: { vertice: 0, de: 124, ate: 180, rotulo: "28°" },
+          rotulo: "AB é diâmetro · e o ângulo em B?",
+        }),
+      },
+
+      // --- lição 4: o quadrilátero inscrito ---
+      {
+        id: "ar9-ideia-quadrilatero", pasta: "licoes",
+        alt: "Quadrilátero com os quatro vértices sobre uma circunferência.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 70, nome: "A" }, { em: 165, nome: "B" }, { em: 240, nome: "C" }, { em: 340, nome: "D" }],
+          poligono: [70, 165, 240, 340],
+          inscrito: { vertice: 70, de: 165, ate: 340 },
+          mostrarCentro: false,
+          rotulo: "os ângulos opostos somam 180°",
+        }),
+      },
+      {
+        id: "ar9-res-oposto-110", pasta: "licoes",
+        alt: "Quadrilátero inscrito com um ângulo de 70 graus marcado e o oposto em aberto.",
+        desenho: () => tabela({
+          cabecalho: ["o ângulo", "mede"],
+          linhas: [["um deles", "70°"], ["o oposto", "?"], ["os dois juntos", "180°"]],
+          rotulo: "quanto falta para fechar meia volta?", larguraCol: 138,
+        }),
+      },
+      {
+        id: "ar9-q-oposto-95", pasta: "questoes",
+        alt: "Quadrilátero inscrito com um ângulo de 85 graus marcado e o oposto em aberto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 80, nome: "A" }, { em: 170, nome: "B" }, { em: 250, nome: "C" }, { em: 330, nome: "D" }],
+          poligono: [80, 170, 250, 330],
+          inscrito: { vertice: 80, de: 170, ate: 330, rotulo: "85°" },
+          mostrarCentro: false,
+          rotulo: "quanto mede o ângulo em C?",
+        }),
+      },
+      {
+        id: "ar9-q-por-que-180", pasta: "questoes",
+        alt: "Quadrilátero inscrito com os dois arcos entre um par de vértices em destaque.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 70, nome: "A" }, { em: 165, nome: "B" }, { em: 240, nome: "C" }, { em: 340, nome: "D" }],
+          poligono: [70, 165, 240, 340],
+          arcoDestacado: { de: 165, ate: 340 },
+          mostrarCentro: false,
+          rotulo: "quanto somam os dois arcos entre B e D?",
+        }),
+      },
+      {
+        id: "ar9-q-vizinhos", pasta: "questoes",
+        alt: "Tabela com dois ângulos vizinhos de um quadrilátero inscrito e o oposto procurado.",
+        desenho: () => tabela({
+          cabecalho: ["o ângulo", "mede"],
+          linhas: [["em A", "80°"], ["em B, vizinho", "95°"], ["oposto ao de A", "?"]],
+          rotulo: "a regra vale só para o par de opostos", larguraCol: 140,
+        }),
+      },
+      {
+        id: "ar9-q-retangulo", pasta: "questoes",
+        alt: "Retângulo com os quatro vértices sobre uma circunferência e as diagonais passando pelo centro.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 35, nome: "A" }, { em: 145, nome: "B" }, { em: 215, nome: "C" }, { em: 325, nome: "D" }],
+          poligono: [35, 145, 215, 325],
+          central: { de: 145, ate: 325 },
+          rotulo: "as diagonais do retângulo passam pelo centro",
+        }),
+      },
+
+      // --- lição 5: do grau ao centímetro ---
+      {
+        id: "ar9-ideia-setor", pasta: "licoes",
+        alt: "Circunferência com um setor de 60 graus pintado e o arco correspondente em destaque.",
+        desenho: () => circunferenciaAngulos({
+          setor: { de: 30, ate: 90 },
+          central: { de: 30, ate: 90, rotulo: "60°" },
+          arcoDestacado: { de: 30, ate: 90 },
+          rotulo: "um sexto da volta, um sexto de tudo",
+        }),
+      },
+      {
+        id: "ar9-res-comprimento", pasta: "licoes",
+        alt: "Tabela ligando a fração da volta ao comprimento do arco num círculo de raio 6.",
+        desenho: () => tabela({
+          cabecalho: ["o que", "vale"],
+          linhas: [["a fração", "60/360 = 1/6"], ["a volta inteira", "2πr = 37,68 cm"], ["o arco", "?"]],
+          rotulo: "raio 6 cm · π = 3,14", larguraCol: 140,
+        }),
+      },
+      {
+        id: "ar9-q-arco-90", pasta: "questoes",
+        alt: "Circunferência com um setor de 90 graus pintado, sem medidas escritas.",
+        desenho: () => circunferenciaAngulos({
+          setor: { de: 0, ate: 90 },
+          central: { de: 0, ate: 90, rotulo: "90°" },
+          arcoDestacado: { de: 0, ate: 90 },
+          rotulo: "raio 10 cm · qual o comprimento do arco?",
+        }),
+      },
+      {
+        id: "ar9-q-setor-60", pasta: "questoes",
+        alt: "Circunferência com um setor de 60 graus pintado, sem medidas escritas.",
+        desenho: () => circunferenciaAngulos({
+          setor: { de: 20, ate: 80 },
+          central: { de: 20, ate: 80, rotulo: "60°" },
+          rotulo: "raio 6 cm · qual é a área do setor?",
+        }),
+      },
+      {
+        id: "ar9-q-r-ou-r2", pasta: "questoes",
+        alt: "Tabela comparando a fórmula do comprimento da circunferência com a da área do círculo.",
+        desenho: () => tabela({
+          cabecalho: ["a medida", "a fórmula"],
+          linhas: [["o comprimento", "2πr"], ["a área", "πr²"]],
+          rotulo: "por que uma tem expoente e a outra não?", larguraCol: 144,
+        }),
+      },
+      {
+        id: "ar9-q-arco-180", pasta: "questoes",
+        alt: "Circunferência com metade dela em destaque e o diâmetro traçado.",
+        desenho: () => circunferenciaAngulos({
+          pontos: [{ em: 0, nome: "A" }, { em: 180, nome: "B" }],
+          central: { de: 0, ate: 180, rotulo: "180°" },
+          arcoDestacado: { de: 0, ate: 180 },
+          rotulo: "raio 5 cm · qual o comprimento do arco?",
+        }),
+      },
+
+      // --- lição 6: relógios, rodas e fatias ---
+      {
+        id: "ar9-ideia-relogio", pasta: "licoes",
+        alt: "Mostrador de relógio com as doze marcas e o ângulo entre duas delas destacado.",
+        desenho: () => circunferenciaAngulos({
+          pontos: Array.from({ length: 12 }, (_, i) => ({ em: 90 - i * 30 })),
+          central: { de: 60, ate: 90, rotulo: "30°" },
+          rotulo: "cada arco entre duas marcas vale 30°",
+        }),
+      },
+      {
+        id: "ar9-res-tres-horas", pasta: "licoes",
+        alt: "Mostrador de relógio com os ponteiros nas posições das três horas em ponto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: Array.from({ length: 12 }, (_, i) => ({ em: 90 - i * 30 })),
+          central: { de: 0, ate: 90, rotulo: "?" },
+          rotulo: "três horas em ponto · quantos arcos?",
+        }),
+      },
+      {
+        id: "ar9-q-quatro-horas", pasta: "questoes",
+        alt: "Mostrador de relógio com os ponteiros nas posições das quatro horas em ponto.",
+        desenho: () => circunferenciaAngulos({
+          pontos: Array.from({ length: 12 }, (_, i) => ({ em: 90 - i * 30 })),
+          central: { de: -30, ate: 90, rotulo: "?" },
+          rotulo: "quatro horas em ponto · conte os arcos",
+        }),
+      },
+      {
+        id: "ar9-q-roda-gigante", pasta: "questoes",
+        alt: "Circunferência com vinte cabines igualmente espaçadas, sem medidas.",
+        desenho: () => circunferenciaAngulos({
+          pontos: Array.from({ length: 20 }, (_, i) => ({ em: 90 - i * 18 })),
+          central: { de: 72, ate: 90 },
+          rotulo: "vinte cabines · quanto abre cada arco?",
+        }),
+      },
+      {
+        id: "ar9-q-percurso", pasta: "questoes",
+        alt: "Circunferência com um quarto da volta em destaque.",
+        desenho: () => circunferenciaAngulos({
+          central: { de: 0, ate: 90, rotulo: "90°" },
+          arcoDestacado: { de: 0, ate: 90 },
+          rotulo: "raio 20 m · quantos metros a cabine anda?",
+        }),
+      },
+      {
+        id: "ar9-q-tres-e-meia", pasta: "questoes",
+        alt: "Mostrador de relógio com as doze marcas e o arco entre o 3 e o 4 destacado.",
+        desenho: () => circunferenciaAngulos({
+          pontos: Array.from({ length: 12 }, (_, i) => ({ em: 90 - i * 30 })),
+          central: { de: -30, ate: 0, rotulo: "30°" },
+          rotulo: "às 3h30, onde está o ponteiro das horas?",
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════ 9º ano · Volume de sólidos ═══════════════
+  //
+  // Três geradores novos, e o primeiro deles é o que a matéria existe para
+  // mostrar. `cuboEmPiramides` reparte um cubo em três pirâmides iguais, cada
+  // uma com uma face do cubo por base e o mesmo vértice por bico: as três
+  // juntas são o cubo, e daí o terço sai DEMONSTRADO em vez de decretado. É o
+  // mesmo papel que `trianguloParalela` faz na soma dos ângulos.
+  //
+  // `solidoPontudo` desenha cone, pirâmide e esfera na projeção oblíqua do
+  // `prisma` do 8º ano — de propósito, porque o aluno vem de lá e o cone
+  // precisa parecer o cilindro com a tampa puxada para um ponto. O `comparar`
+  // põe o sólido reto de mesma base e mesma altura por fora, tracejado, e é
+  // essa figura que dá sentido à divisão por três.
+  //
+  // `cavalieriEsfera` é o argumento de Arquimedes desenhado: a meia-esfera e o
+  // cilindro sem o cone, cortados na mesma altura, com as duas seções
+  // pintadas. Os raios das duas são CALCULADOS da altura do corte, e um teste
+  // lê os dois de volta do SVG e exige que as áreas batam.
+  //
+  // As proporções saem das medidas: um cone de raio 3 e altura 8 sai mesmo
+  // alto e estreito, porque o desenho usa a mesma escala nas duas direções.
+  // Foi o defeito que a revisão de Volume do 8º ano achou em seis figuras.
+  ...(() => {
+    return [
+      // --- lição 1: de onde vem o terço ---
+      {
+        id: "vl9-ideia-cubo-em-tres", pasta: "licoes",
+        alt: "Três cubos iguais lado a lado; em cada um, uma pirâmide diferente está destacada, com o bico no mesmo vértice.",
+        desenho: () => cuboEmPiramides({
+          quais: [0, 1, 2],
+          nomes: ["base: o chão", "base: a frente", "base: a lateral"],
+          rotulo: "as três, juntas, são o cubo inteiro",
+        }),
+      },
+      {
+        id: "vl9-res-cubo-seis", pasta: "licoes",
+        alt: "Cubo de 6 cm de aresta com uma das três pirâmides destacada.",
+        desenho: () => cuboEmPiramides({
+          quais: [0], aresta: 6, mostrarMedidas: true,
+          nomes: ["uma das três pirâmides"],
+        }),
+      },
+      {
+        id: "vl9-q-cubo-nove", pasta: "questoes",
+        alt: "Cubo de 9 cm de aresta com uma das três pirâmides destacada.",
+        desenho: () => cuboEmPiramides({
+          quais: [0], aresta: 9, mostrarMedidas: true,
+          nomes: ["uma das três pirâmides"],
+        }),
+      },
+      {
+        id: "vl9-q-por-que-tres", pasta: "questoes",
+        alt: "Cubo com uma pirâmide destacada e o vértice que serve de bico marcado com um ponto cheio.",
+        desenho: () => cuboEmPiramides({
+          quais: [1],
+          nomes: ["o bico fica num vértice"],
+          rotulo: "quantas pirâmides assim cabem no cubo?",
+        }),
+      },
+      {
+        id: "vl9-q-base-e-altura", pasta: "questoes",
+        alt: "Pirâmide de base quadrada com a altura marcada em 10 cm e a área da base indicada por escrito.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "retangulo", largura: 6, profundidade: 6,
+          altura: 10, escala: 18,
+          medidas: { altura: "10 cm", legenda: "área da base: 36 cm²" },
+        }),
+      },
+      {
+        id: "vl9-q-altura-no-cubo", pasta: "questoes",
+        alt: "Cubo de 8 cm de aresta com uma pirâmide destacada e a altura dela sem medida escrita.",
+        desenho: () => cuboEmPiramides({
+          quais: [0], aresta: 8, mostrarMedidas: true,
+          nomes: ["a altura vai do bico à base"],
+        }),
+      },
+
+      // --- lição 2: volume da pirâmide ---
+      {
+        id: "vl9-ideia-piramide", pasta: "licoes",
+        alt: "Pirâmide de base quadrada encaixada dentro do prisma de mesma base e mesma altura, desenhado tracejado.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "retangulo", largura: 5, profundidade: 5,
+          altura: 6, escala: 26, comparar: true,
+          medidas: { altura: "h", legenda: "B é a área da base" },
+        }),
+      },
+      {
+        id: "vl9-res-quadrada-seis", pasta: "licoes",
+        alt: "Pirâmide de base quadrada de 6 cm de lado, com a altura de 10 cm marcada por dentro.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "retangulo", largura: 6, profundidade: 6,
+          altura: 10, escala: 18,
+          medidas: { altura: "10 cm", lado: "6 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-quadrada-nove", pasta: "questoes",
+        alt: "Pirâmide de base quadrada de 9 cm de lado, com a altura de 8 cm marcada por dentro.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "retangulo", largura: 9, profundidade: 9,
+          altura: 8, escala: 15,
+          medidas: { altura: "8 cm", lado: "9 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-retangular", pasta: "questoes",
+        alt: "Pirâmide de base retangular com a altura de 9 cm marcada e as medidas da base escritas embaixo.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "retangulo", largura: 6, profundidade: 5,
+          altura: 9, escala: 18,
+          medidas: { altura: "9 cm", legenda: "base: 5 cm × 6 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-triangular", pasta: "questoes",
+        alt: "Pirâmide de base triangular com a altura de 10 cm marcada e as medidas do triângulo escritas embaixo.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "triangulo", largura: 8, profundidade: 3,
+          altura: 10, escala: 17,
+          medidas: { altura: "10 cm", legenda: "base: triângulo de 8 cm por 3 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-achar-altura", pasta: "questoes",
+        alt: "Pirâmide de base quadrada de 6 cm de lado com a altura marcada por uma interrogação.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "retangulo", largura: 6, profundidade: 6,
+          altura: 8, escala: 20,
+          medidas: { altura: "?", lado: "6 cm", legenda: "volume: 96 cm³" },
+        }),
+      },
+
+      // --- lição 3: volume do cone ---
+      {
+        id: "vl9-ideia-cone", pasta: "licoes",
+        alt: "Cone encaixado dentro do cilindro de mesma base e mesma altura, desenhado tracejado.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 6, altura: 8, escala: 26, comparar: true,
+          medidas: { altura: "h", raio: "r" },
+        }),
+      },
+      {
+        id: "vl9-res-cone-tres-oito", pasta: "licoes",
+        alt: "Cone com 3 cm de raio da base e 8 cm de altura, com as duas medidas marcadas.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 6, altura: 8, escala: 26,
+          medidas: { altura: "8 cm", raio: "3 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-cone-seis-dez", pasta: "questoes",
+        alt: "Cone com 6 cm de raio da base e 10 cm de altura, com as duas medidas marcadas.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 12, altura: 10, escala: 17,
+          medidas: { altura: "10 cm", raio: "6 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-geratriz", pasta: "questoes",
+        alt: "Cone de 3 cm de raio e 4 cm de altura, com a geratriz destacada e rotulada pela letra g.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 6, altura: 4, escala: 26, geratriz: true,
+          medidas: { altura: "4 cm", raio: "3 cm", geratriz: "g" },
+        }),
+      },
+      {
+        id: "vl9-q-cilindro-noventa", pasta: "questoes",
+        alt: "Cone encaixado no cilindro tracejado de mesma base e altura, com o volume do cilindro escrito embaixo.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 6, altura: 8, escala: 24, comparar: true,
+          medidas: { legenda: "o cilindro tem 90 cm³" },
+        }),
+      },
+      {
+        id: "vl9-q-cone-cinco-nove", pasta: "questoes",
+        alt: "Cone com 5 cm de raio da base e 9 cm de altura, com as duas medidas marcadas.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 10, altura: 9, escala: 19,
+          medidas: { altura: "9 cm", raio: "5 cm" },
+        }),
+      },
+
+      // --- lição 4: volume da esfera ---
+      {
+        id: "vl9-ideia-arquimedes", pasta: "licoes",
+        alt: "Meia-esfera ao lado de um cilindro com um cone retirado de dentro, os dois cortados na mesma altura e as duas seções pintadas.",
+        desenho: () => cavalieriEsfera({
+          corte: 0.55,
+          rotulo: "cortando na mesma altura, as duas seções têm a mesma área",
+        }),
+      },
+      {
+        id: "vl9-res-esfera-tres", pasta: "licoes",
+        alt: "Esfera de 3 cm de raio, com o equador tracejado e o raio marcado a partir do centro.",
+        desenho: () => solidoPontudo({
+          tipo: "esfera", raio: 3, escala: 30,
+          medidas: { raio: "3 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-esfera-seis", pasta: "questoes",
+        alt: "Esfera de 6 cm de raio, com o equador tracejado e o raio marcado a partir do centro.",
+        desenho: () => solidoPontudo({
+          tipo: "esfera", raio: 6, escala: 15,
+          medidas: { raio: "6 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-area-cinco", pasta: "questoes",
+        alt: "Esfera de 5 cm de raio, com o raio marcado e a superfície em destaque.",
+        desenho: () => solidoPontudo({
+          tipo: "esfera", raio: 5, escala: 18,
+          medidas: { raio: "5 cm", legenda: "quanto mede a superfície?" },
+        }),
+      },
+      {
+        id: "vl9-q-por-que-vale", pasta: "questoes",
+        alt: "Meia-esfera ao lado de um cilindro com um cone retirado, os dois cortados na mesma altura.",
+        desenho: () => cavalieriEsfera({
+          corte: 0.4,
+          rotulo: "os dois sólidos, cortados na mesma altura",
+        }),
+      },
+      {
+        id: "vl9-q-raio-dobra", pasta: "questoes",
+        alt: "Tabela com o raio das duas bolas: 2 cm e 4 cm.",
+        desenho: () => tabela({
+          cabecalho: ["bola", "raio"],
+          linhas: [["primeira", "2 cm"], ["segunda", "4 cm"]],
+          rotulo: "quantas vezes a segunda tem mais volume?",
+        }),
+      },
+
+      // --- lição 5: quando entra o terço ---
+      {
+        id: "vl9-ideia-roteiro", pasta: "licoes",
+        alt: "Quatro sólidos lado a lado: prisma, cilindro, pirâmide e cone, nomeados.",
+        desenho: () => solidos({
+          itens: [
+            { tipo: "prisma-retangular", rotulo: "prisma" },
+            { tipo: "cilindro", rotulo: "cilindro" },
+            { tipo: "piramide", rotulo: "pirâmide" },
+            { tipo: "cone", rotulo: "cone" },
+          ],
+          escala: 74,
+        }),
+      },
+      {
+        id: "vl9-res-cilindro-e-cone", pasta: "licoes",
+        alt: "Cone de 3 cm de raio e 8 cm de altura encaixado no cilindro tracejado de mesmas medidas.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 6, altura: 8, escala: 26, comparar: true,
+          medidas: { altura: "8 cm", raio: "3 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-prisma-sem-terco", pasta: "questoes",
+        alt: "Prisma de base quadrada de 4 cm de lado e 9 cm de altura, com a altura marcada.",
+        desenho: () => prisma({
+          base: "retangulo", largura: 4, profundidade: 4, altura: 9, escala: 19,
+          medidas: { altura: "9 cm", legenda: "base quadrada de 4 cm de lado" },
+        }),
+      },
+      {
+        id: "vl9-q-quem-leva-terco", pasta: "questoes",
+        alt: "Quatro sólidos lado a lado: cilindro, cone, prisma e pirâmide, nomeados e sem medidas.",
+        desenho: () => solidos({
+          itens: [
+            { tipo: "cilindro", rotulo: "cilindro" },
+            { tipo: "cone", rotulo: "cone" },
+            { tipo: "prisma-retangular", rotulo: "prisma" },
+            { tipo: "piramide", rotulo: "pirâmide" },
+          ],
+          escala: 74,
+        }),
+      },
+      {
+        id: "vl9-q-cilindro-dois-dez", pasta: "questoes",
+        alt: "Cilindro de 2 cm de raio e 10 cm de altura, com a altura marcada.",
+        desenho: () => prisma({
+          base: "circulo", largura: 4, altura: 10, escala: 20,
+          medidas: { altura: "10 cm", legenda: "raio da base: 2 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-quantas-vezes", pasta: "questoes",
+        alt: "Pirâmide encaixada dentro do prisma tracejado de mesma base e mesma altura, sem medidas escritas.",
+        desenho: () => solidoPontudo({
+          tipo: "piramide", base: "retangulo", largura: 5, profundidade: 5,
+          altura: 6, escala: 26, comparar: true,
+          medidas: { legenda: "mesma base, mesma altura" },
+        }),
+      },
+
+      // --- lição 6: sólidos no mundo ---
+      {
+        id: "vl9-ideia-mundo", pasta: "licoes",
+        alt: "Silo: um cilindro com um cone de telhado em cima, desenhado como uma peça só.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 6, altura: 3, escala: 24,
+          pedestal: { altura: 5, medida: "cilindro" },
+          medidas: { altura: "cone", legenda: "um sólido feito de dois" },
+        }),
+      },
+      {
+        id: "vl9-res-casquinha", pasta: "licoes",
+        alt: "Cone de 3 cm de raio na boca e 10 cm de profundidade, com as duas medidas marcadas.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 6, altura: 10, escala: 22,
+          medidas: { altura: "10 cm", raio: "3 cm" },
+        }),
+      },
+      {
+        id: "vl9-q-silo", pasta: "questoes",
+        alt: "Silo formado por um cilindro de 5 m de altura com um cone de 3 m em cima, ambos de 2 m de raio.",
+        desenho: () => solidoPontudo({
+          tipo: "cone", largura: 4, altura: 3, escala: 24,
+          pedestal: { altura: 5, medida: "5 m" },
+          medidas: { altura: "3 m", raio: "2 m" },
+        }),
+      },
+      {
+        id: "vl9-q-triplicar", pasta: "questoes",
+        alt: "Tabela com as medidas das duas maquetes: a segunda tem o triplo de cada medida da primeira.",
+        desenho: () => tabela({
+          cabecalho: ["medida", "maquete 1", "maquete 2"],
+          linhas: [["lado da base", "4 cm", "12 cm"], ["altura", "6 cm", "18 cm"]],
+          rotulo: "todas as medidas foram triplicadas",
+        }),
+      },
+      {
+        id: "vl9-q-bola-na-caixa", pasta: "questoes",
+        alt: "Bola de 3 cm de raio dentro de uma caixa cúbica de 6 cm de aresta, encostando nas faces.",
+        desenho: () => solidoPontudo({
+          tipo: "esfera", raio: 3, escala: 26, caixa: true,
+          medidas: { raio: "3 cm", legenda: "caixa cúbica de 6 cm de aresta" },
+        }),
+      },
+      {
+        id: "vl9-q-tres-cilindros", pasta: "questoes",
+        alt: "Tabela com o raio e a altura dos três cilindros do enunciado.",
+        desenho: () => tabela({
+          cabecalho: ["cilindro", "raio", "altura"],
+          linhas: [["V₁", "10 cm", "10 cm"], ["V₂", "5 cm", "10 cm"], ["V₃", "5 cm", "20 cm"]],
+          rotulo: "qual é a ordem crescente dos volumes?",
+        }),
+      },
+    ];
+  })(),
+
+  // ═══════════════ Ilustrações das páginas fixas ═══════════════
+  //
+  // A home, a página "como funciona" e as perguntas frequentes precisam de
+  // imagem — uma página que só explica com texto não convence ninguém de que
+  // o site explica com figura.
+  //
+  // E as imagens delas não são ilustração de banco: são as MESMAS figuras que
+  // as lições usam, saídas dos mesmos geradores. Quem chega pela busca vê
+  // exatamente o que vai encontrar lá dentro, e não uma promessa.
+  //
+  // Elas vivem em /assets/site para não se misturarem com as de conteúdo, e
+  // passam pela auditoria de texto como qualquer outra.
+  ...(() => {
+    return [
+      {
+        id: "site-ideia", pasta: "site",
+        alt: "Triângulo com uma reta paralela à base traçada pelo vértice de cima: os ângulos a e b da base reaparecem ao lado do ângulo c, formando um ângulo raso.",
+        // Os alternos PRECISAM ser rotulados. Sem `aLinha` e `bLinha` a figura
+        // desenha dois arcos mudos em cima da paralela, e a demonstração não
+        // se lê: o que ela mostra é justamente que aqueles dois arcos são o a
+        // e o b da base, e que a + c + b fecha o raso.
+        desenho: () => trianguloParalela({
+          rotulos: { a: "a", b: "b", c: "c", aLinha: "a", bLinha: "b" },
+          rotulo: "por que os ângulos somam 180°",
+        }),
+      },
+      {
+        id: "site-resolvido", pasta: "site",
+        alt: "Balança de dois pratos, com uma caixinha marcada x e uma ficha de valor 2 de um lado e uma ficha de valor 5 do outro.",
+        desenho: () => balanca({
+          esquerda: ["x", "2"], direita: ["5"],
+          rotulo: "o que a igualdade afirma",
+        }),
+      },
+      {
+        id: "site-suavez", pasta: "site",
+        alt: "Quadrado de lado a mais b repartido em quatro regiões: dois quadrados e dois retângulos iguais.",
+        desenho: () => quadradoSoma({
+          a: 3, b: 2, revelar: "areas",
+          rotulo: "o erro mais comum, visível",
+        }),
+      },
+      {
+        id: "site-pi", pasta: "site",
+        alt: "Círculo com o diâmetro marcado e, abaixo, a volta dele esticada numa fita repartida em três diâmetros mais uma sobra.",
+        desenho: () => piDesenrolado({
+          diametro: 84,
+          rotulo: "de onde vem o π",
+        }),
+      },
+      {
+        id: "site-figura", pasta: "site",
+        alt: "Três cubos lado a lado, cada um com uma pirâmide diferente destacada dentro dele.",
+        desenho: () => cuboEmPiramides({
+          quais: [0, 1, 2],
+          nomes: ["base: o chão", "base: a frente", "base: a lateral"],
+          rotulo: "as três, juntas, são o cubo",
+        }),
+      },
+      {
+        id: "site-conta", pasta: "site",
+        alt: "Grade com os trinta e seis resultados possíveis de dois dados, com as somas escritas em cada célula.",
+        desenho: () => gradeDados({
+          destacar: (a, b) => a + b === 7,
+          rotulo: "somar 7 é o caso mais provável",
         }),
       },
     ];

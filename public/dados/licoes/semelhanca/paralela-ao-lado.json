@@ -1,0 +1,205 @@
+{
+  "id": "paralela-ao-lado",
+  "numero": 4,
+  "titulo": "A paralela que recorta",
+  "pergunta": "O que acontece quando se corta um triângulo com uma paralela?",
+  "ideia": {
+    "paragrafos": [
+      "Tome um triângulo ABC e trace uma reta paralela ao lado BC, cortando os outros dois lados em D e E. O que se forma no topo é um triângulo ADE — e ele é SEMELHANTE ao triângulo original. Esse fato tem nome de teorema fundamental da semelhança, e é a configuração mais frequente de toda a geometria do 9º ano.",
+      "A demonstração é curta e usa o 7º ano inteiro. O ângulo do vértice A é o mesmo nos dois triângulos, porque é literalmente o mesmo ângulo. E o ângulo em D é igual ao ângulo em B, porque DE e BC são paralelas cortadas pela transversal AB — são ângulos correspondentes. Dois ângulos iguais, caso AA, semelhança provada.",
+      "Provada a semelhança, a proporção vale entre TODOS os lados correspondentes: AD está para AB assim como AE está para AC, assim como DE está para BC. Note que o primeiro membro compara AD com AB, e não com DB — o lado do triângulo pequeno se compara com o lado INTEIRO do grande, e confundir isso é o erro mais comum da lição.",
+      "Num exemplo concreto: AD mede 4, DB mede 2 e DE mede 5. Então AB mede 4 + 2 = 6, e a razão do pequeno para o grande é 4/6, ou 2/3. Logo DE está para BC nessa mesma razão: 5/BC = 2/3, e BC mede 7,5.",
+      "Há uma segunda leitura da mesma figura, que é o Teorema de Tales aplicado ao triângulo: a paralela divide os dois lados que ela corta em partes proporcionais, ou seja, AD/DB é igual a AE/EC. Essa versão compara pedaços do mesmo lado, e não lados inteiros — é outra proporção, igualmente verdadeira, e a próxima matéria a generaliza.",
+      "Reconhecer essa configuração numa figura de prova vale muito. Sempre que aparecerem duas retas paralelas dentro de um triângulo, ou dois triângulos encaixados compartilhando um vértice, há semelhança disponível — e com ela, uma medida que parecia inacessível."
+    ],
+    "destaque": "Uma paralela a um lado recorta um triângulo semelhante ao original. E o lado pequeno se compara com o lado INTEIRO, não com o pedaço restante.",
+    "imagem": "sm9-ideia-paralela"
+  },
+  "resolvido": {
+    "enunciado": "No triângulo ABC, DE é paralela a BC. Sabendo que AD = 4, DB = 2 e DE = 5, quanto mede BC?",
+    "imagem": "sm9-res-paralela",
+    "passos": [
+      {
+        "titulo": "Ache o lado inteiro",
+        "explicacao": "O lado AB é a soma dos dois pedaços em que D o divide.",
+        "conta": "AB = 4 + 2 = 6"
+      },
+      {
+        "titulo": "Escreva a razão",
+        "explicacao": "Ela compara o lado do triângulo pequeno com o lado inteiro do grande.",
+        "conta": "AD/AB = 4/6 = 2/3"
+      },
+      {
+        "titulo": "Monte a proporção com DE e BC",
+        "explicacao": "Os dois são lados correspondentes, então valem a mesma razão.",
+        "conta": "5/BC = 2/3"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Multiplicando cruzado e isolando a medida procurada.",
+        "conta": "2 × BC = 15 → BC = 7,5"
+      }
+    ],
+    "fecho": "Conferindo o sentido: BC tem de ser maior que DE, e 7,5 é mesmo maior que 5."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "No triângulo ABC, DE é paralela a BC. Sabendo que AD = 3, DB = 3 e DE = 4, quanto mede BC? Digite apenas o número.",
+      "imagem": "sm9-q-paralela-8",
+      "dica": "Some AD e DB para achar AB, e compare AD com AB — não com DB.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é a medida de DE, dada no enunciado. Como AD é metade de AB, o triângulo de cima é metade do grande, e BC tem de ser o dobro de DE."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a medida de AB, o lado inteiro. A pergunta é por BC, que é o lado correspondente a DE — e a razão entre eles é 1 para 2."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 sai de usar a razão 3, comparando AD com DB de um jeito trocado. A razão certa é AD/AB = 3/6 = 1/2, e o dobro de 4 é 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o lado inteiro",
+          "explicacao": "AB é a soma dos dois pedaços que D determina.",
+          "conta": "AB = 3 + 3 = 6"
+        },
+        {
+          "titulo": "Escreva a razão",
+          "explicacao": "O triângulo de cima é metade do grande em cada medida.",
+          "conta": "3/6 = 1/2"
+        },
+        {
+          "titulo": "Aplique a DE",
+          "explicacao": "Se DE é metade de BC, então BC é o dobro de DE.",
+          "conta": "BC = 8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que o triângulo recortado pela paralela é semelhante ao triângulo original?",
+      "imagem": "sm9-q-por-que-semelhante",
+      "dica": "Procure dois ângulos iguais, e lembre do que paralelas cortadas por uma transversal produzem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque compartilham o ângulo do topo e a paralela cria ângulos correspondentes iguais" },
+        { "rotulo": "B", "texto": "Porque os dois têm a mesma área" },
+        { "rotulo": "C", "texto": "Porque a paralela divide o triângulo ao meio" },
+        { "rotulo": "D", "texto": "Porque todo triângulo é semelhante a qualquer outro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os dois têm a mesma área",
+          "porque": "As áreas são bem diferentes: o triângulo de cima cabe inteiro dentro do grande. E área igual não garantiria forma igual de jeito nenhum."
+        },
+        {
+          "resposta": "Porque a paralela divide o triângulo ao meio",
+          "porque": "Ela pode cortar em qualquer altura, e quase nunca divide ao meio. A semelhança vale para qualquer posição da paralela."
+        },
+        {
+          "resposta": "Porque todo triângulo é semelhante a qualquer outro",
+          "porque": "Não é: um triângulo de 30-60-90 não é semelhante a um equilátero. Semelhança exige ângulos iguais, e aqui eles são iguais por um motivo específico."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o primeiro ângulo igual",
+          "explicacao": "O ângulo do vértice A é literalmente o mesmo nos dois triângulos.",
+          "conta": "ângulo em A comum"
+        },
+        {
+          "titulo": "Ache o segundo",
+          "explicacao": "DE e BC são paralelas cortadas pela transversal AB, do 7º ano.",
+          "conta": "ângulo em D = ângulo em B"
+        },
+        {
+          "titulo": "Aplique o caso AA",
+          "explicacao": "Dois ângulos iguais já garantem a semelhança.",
+          "conta": "ADE ~ ABC"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No triângulo ABC, DE é paralela a BC. Sabendo que AD = 6, AB = 9 e BC = 12, quanto mede DE? Digite apenas o número.",
+      "imagem": "sm9-q-paralela-de",
+      "dica": "Aqui o lado inteiro já foi dado: a razão é AD sobre AB.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "18",
+          "porque": "18 sai de aplicar a razão ao contrário, ampliando em vez de reduzir. DE está DENTRO do triângulo e é menor que BC — um resultado maior que 12 já denuncia o erro."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a medida de DB, que é 9 − 6. Ele é o pedaço que sobra no lado AB, e não o lado procurado."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é a medida de AB, dada no enunciado. DE corresponde a BC, e não a AB."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a razão",
+          "explicacao": "Compara o lado do triângulo pequeno com o lado inteiro do grande.",
+          "conta": "AD/AB = 6/9 = 2/3"
+        },
+        {
+          "titulo": "Aplique a BC",
+          "explicacao": "DE é a mesma fração de BC que AD é de AB.",
+          "conta": "DE = 2/3 × 12 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa figura com DE paralela a BC, qual proporção NÃO vale?",
+      "imagem": "sm9-q-qual-nao-vale",
+      "dica": "O lado do triângulo pequeno se compara com o lado inteiro do grande, não com o pedaço restante.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "AD/DB = DE/BC" },
+        { "rotulo": "B", "texto": "AD/AB = DE/BC" },
+        { "rotulo": "C", "texto": "AD/AB = AE/AC" },
+        { "rotulo": "D", "texto": "AD/DB = AE/EC" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "AD/AB = DE/BC",
+          "porque": "Essa vale: é a razão de semelhança escrita duas vezes. Com AD = 4, AB = 6 e DE = 5, ela dá BC = 7,5, que é o resultado correto."
+        },
+        {
+          "resposta": "AD/AB = AE/AC",
+          "porque": "Essa também vale, e pelo mesmo motivo: AD e AE são lados do triângulo pequeno, AB e AC os correspondentes do grande."
+        },
+        {
+          "resposta": "AD/DB = AE/EC",
+          "porque": "Essa vale, e é a versão de Tales: a paralela corta os dois lados em partes proporcionais. Ela compara pedaços do mesmo lado, o que é legítimo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que cada fração compara",
+          "explicacao": "Do lado esquerdo, um pedaço com o outro pedaço; do direito, lado com lado inteiro.",
+          "conta": "AD/DB ≠ DE/BC"
+        },
+        {
+          "titulo": "Teste com números",
+          "explicacao": "Com AD = 4, DB = 2, DE = 5 e BC = 7,5 as duas frações discordam.",
+          "conta": "4/2 = 2 · 5/7,5 = 0,67"
+        }
+      ]
+    }
+  ]
+}

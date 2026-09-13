@@ -1,0 +1,184 @@
+{
+  "id": "arco-e-central",
+  "numero": 1,
+  "titulo": "O arco e o ângulo central",
+  "pergunta": "Como se mede um pedaço de circunferência?",
+  "ideia": {
+    "paragrafos": [
+      "Dois pontos sobre uma circunferência a repartem em dois pedaços, e cada pedaço chama-se ARCO. Para falar deles sem confusão, a matéria dá uma medida em graus a cada um — e a soma dos dois é sempre 360°, porque juntos eles formam a volta inteira.",
+      "A medida de um arco vem do ÂNGULO CENTRAL que o enxerga: o ângulo formado pelos dois raios que vão do centro até as pontas do arco. Se esse ângulo mede 120°, diz-se que o arco mede 120°, e o outro arco entre os mesmos dois pontos mede 240°.",
+      "Repare que essa é uma medida de ABERTURA, e não de comprimento. Duas circunferências de tamanhos diferentes podem ter arcos de 120° cada uma, e os dois arcos terão comprimentos bem diferentes em centímetros. O grau mede o quanto o arco abre; o centímetro mede o quanto ele anda. A lição 5 liga as duas coisas.",
+      "Um vocabulário que aparece junto e vale fixar agora: a CORDA é o segmento que liga as duas pontas do arco, cortando por dentro do círculo. O DIÂMETRO é a corda que passa pelo centro, e é a maior de todas. E o arco correspondente a um diâmetro mede 180°, porque ele é meia volta.",
+      "A relação entre arco e ângulo central é de igualdade, e é a mais simples da matéria — mas é a base de tudo o que vem depois. Num relógio, por exemplo, as doze marcas repartem a volta em doze arcos iguais, cada um de 360 ÷ 12 = 30°. É por isso que o ponteiro das horas anda 30° por hora.",
+      "Vale um cuidado de leitura em prova: quando o enunciado diz \"o arco AB\", ele quase sempre se refere ao menor dos dois, salvo se a figura ou o texto disserem o contrário. Quando os dois são relevantes, costuma-se nomear um ponto no meio de cada um para desfazer a ambiguidade."
+    ],
+    "destaque": "O arco tem a medida do ângulo central que o enxerga. E os dois arcos entre dois pontos somam sempre 360°.",
+    "imagem": "ar9-ideia-arco-central"
+  },
+  "resolvido": {
+    "enunciado": "Numa circunferência, o ângulo central que enxerga o arco AB mede 110°. Quanto mede o arco AB, e quanto mede o outro arco entre A e B?",
+    "imagem": "ar9-res-110",
+    "passos": [
+      {
+        "titulo": "Leia a medida do arco",
+        "explicacao": "O arco tem exatamente a medida do ângulo central que o enxerga.",
+        "conta": "arco AB = 110°"
+      },
+      {
+        "titulo": "Lembre o total da volta",
+        "explicacao": "Os dois arcos entre os mesmos dois pontos formam a circunferência inteira.",
+        "conta": "360° no total"
+      },
+      {
+        "titulo": "Subtraia",
+        "explicacao": "O que sobra da volta é o outro arco.",
+        "conta": "360 − 110 = 250°"
+      }
+    ],
+    "fecho": "Os dois arcos medem 110° e 250°, e juntos fecham os 360° da volta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa circunferência, um arco mede 140°. Quanto mede o outro arco entre os mesmos dois pontos? Digite apenas o número.",
+      "imagem": "ar9-q-outro-arco",
+      "dica": "Os dois arcos juntos formam a volta inteira.",
+      "formato": "numero",
+      "resposta": 220,
+      "errosComuns": [
+        {
+          "resposta": "40",
+          "porque": "40 é 180 − 140, usando meia volta em vez da volta inteira. A circunferência tem 360°, e não 180°."
+        },
+        {
+          "resposta": "140",
+          "porque": "140 é a medida do arco DADO. O outro é o que sobra da volta depois de tirar esse."
+        },
+        {
+          "resposta": "500",
+          "porque": "500 é 360 + 140, somando quando era preciso subtrair. Nenhum arco de uma circunferência passa de 360°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o total",
+          "explicacao": "Os dois arcos entre dois pontos formam a volta inteira.",
+          "conta": "140 + x = 360"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O outro arco é o que falta para fechar a volta.",
+          "conta": "360 − 140 = 220"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O que a medida em GRAUS de um arco mede?",
+      "imagem": "ar9-q-o-que-mede",
+      "dica": "Compare dois arcos de 120° em circunferências de tamanhos diferentes.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A abertura do ângulo central, e não o comprimento do arco" },
+        { "rotulo": "B", "texto": "O comprimento do arco em centímetros" },
+        { "rotulo": "C", "texto": "O raio da circunferência" },
+        { "rotulo": "D", "texto": "A área da fatia correspondente" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O comprimento do arco em centímetros",
+          "porque": "Dois arcos de 120° em circunferências de tamanhos diferentes têm comprimentos diferentes. O grau mede o quanto o arco abre; o centímetro mede o quanto ele anda."
+        },
+        {
+          "resposta": "O raio da circunferência",
+          "porque": "O raio não muda de um arco para outro da mesma circunferência, e a medida do arco muda. São coisas independentes."
+        },
+        {
+          "resposta": "A área da fatia correspondente",
+          "porque": "A área do setor depende do raio ao quadrado, além do ângulo. O grau sozinho não diz nada sobre área — a lição 5 mostra como ligar os dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare dois tamanhos",
+          "explicacao": "Um arco de 120° numa circunferência pequena e noutra grande.",
+          "conta": "mesma abertura"
+        },
+        {
+          "titulo": "Compare os comprimentos",
+          "explicacao": "O da circunferência grande é bem mais longo, e os dois têm 120°.",
+          "conta": "comprimentos diferentes"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num relógio, as doze marcas repartem a circunferência em arcos iguais. Quanto mede cada um desses arcos, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-relogio",
+      "dica": "Reparta a volta inteira pelo número de arcos.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é o número de marcas, e não a medida de cada arco. Cada arco é a volta dividida por doze."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é 180 ÷ 12, usando meia volta. O mostrador de um relógio é a circunferência inteira, de 360°."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é o número de minutos da hora, e não uma medida de ângulo. O arco entre duas marcas de HORA vale 30°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os arcos",
+          "explicacao": "Doze marcas igualmente espaçadas criam doze arcos iguais.",
+          "conta": "12 arcos"
+        },
+        {
+          "titulo": "Reparta a volta",
+          "explicacao": "Cada arco leva a mesma fatia dos 360°.",
+          "conta": "360 / 12 = 30°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quanto mede o arco correspondente a um diâmetro? Digite apenas o número.",
+      "imagem": "ar9-q-diametro",
+      "dica": "O diâmetro passa pelo centro. Que ângulo central ele forma?",
+      "formato": "numero",
+      "resposta": 180,
+      "errosComuns": [
+        {
+          "resposta": "360",
+          "porque": "360 é a volta INTEIRA. O diâmetro divide a circunferência em duas metades, e cada uma leva metade da volta."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 seria um quarto da volta. O diâmetro corta a circunferência ao meio, e não em quatro."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é a razão entre o diâmetro e o raio, e não uma medida de arco. O arco se mede em graus."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe os dois raios",
+          "explicacao": "O diâmetro é formado por dois raios em sentidos opostos.",
+          "conta": "ângulo raso no centro"
+        },
+        {
+          "titulo": "Leia a medida",
+          "explicacao": "Um ângulo raso mede 180°, e o arco herda essa medida.",
+          "conta": "arco = 180°"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "pitagoras",
+  "titulo": "Teorema de Pitágoras",
+  "ano": 9,
+  "descricao": "O teorema mais conhecido da matemática, e um dos poucos que quase todo adulto ainda lembra — em geral como uma fórmula solta. Aqui ele entra pelo desenho que o demonstra: os quadrados construídos sobre os três lados, com os dois menores somando exatamente o maior. Depois disso, a² + b² = c² deixa de ser uma frase a decorar e vira uma coisa que se viu acontecer.",
+  "pergunta": "Por que os quadrados dos catetos somam o quadrado da hipotenusa?",
+  "videos": [
+    {
+      "id": "RxfPjqXx-g0",
+      "titulo": "TEOREMA DE PITÁGORAS | FÓrmula teorema de Pitágoras   \\Prof. Gis/ MATEMÁTICA",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação do teorema e da fórmula, do começo. Serve de segunda passagem pelas lições 1 e 2."
+    },
+    {
+      "id": "YBkhviGTcnM",
+      "titulo": "TEOREMA DE PITÁGORAS EXERCÍCIOS \\Prof. Gis/:",
+      "canal": "Gis com Giz",
+      "descricao": "Só exercícios de achar a hipotenusa e os catetos. Bom para treinar depois das lições 2 e 3."
+    },
+    {
+      "id": "tJwdgWdFvGg",
+      "titulo": "TEOREMA DE PITÁGORAS - Exercícios para aprender e praticar",
+      "canal": "Gis com Giz",
+      "descricao": "Mais exercícios, com problemas de situação parecidos com os da lição 6. Útil como revisão final."
+    },
+    {
+      "id": "y3O5ZfAOw-g",
+      "titulo": "TEOREMA DE PITÁGORAS  -  Com a professora Gis",
+      "canal": "Marcos Aba Matemática",
+      "descricao": "A mesma professora em outro canal, com outra abordagem do teorema. Útil se a primeira explicação não pegou."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/pitagoras/o-que-e.json" },
+    { "id": "achar-hipotenusa", "arquivo": "/dados/licoes/pitagoras/achar-hipotenusa.json" },
+    { "id": "achar-cateto", "arquivo": "/dados/licoes/pitagoras/achar-cateto.json" },
+    { "id": "ternos-e-reciproca", "arquivo": "/dados/licoes/pitagoras/ternos-e-reciproca.json" },
+    { "id": "diagonal-e-altura", "arquivo": "/dados/licoes/pitagoras/diagonal-e-altura.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/pitagoras/problemas.json" }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Escadas, telas e atalhos",
+  "pergunta": "Onde o teorema aparece sem ninguém desenhar o triângulo?",
+  "ideia": {
+    "paragrafos": [
+      "Fora do caderno, o triângulo retângulo quase nunca vem desenhado: ele aparece quando alguém encosta uma escada na parede, atravessa uma praça na diagonal, mede uma televisão de canto a canto ou calcula a distância entre dois pontos de um mapa. O trabalho é reconhecer a figura antes de fazer qualquer conta.",
+      "O caso da escada é o mais comum. A escada é a HIPOTENUSA — ela é o caminho inclinado —, a distância do pé da escada até a parede é um cateto, e a altura alcançada é o outro. Uma escada de 13 m com a base a 5 m da parede alcança √(169 − 25) = 12 m.",
+      "Repare que a escada nunca alcança a altura igual ao próprio comprimento: ela é a hipotenusa, e a hipotenusa é maior que qualquer cateto. Uma resposta que dê a altura igual ou maior que a escada está errada, e isso se percebe sem refazer a conta.",
+      "O caso do atalho é o que dá sentido geométrico ao teorema. Andar 6 quarteirões para leste e 8 para o norte é percorrer 14 quarteirões; ir em linha reta é percorrer 10. A economia é real, e o número 10 é a hipotenusa do triângulo formado pelos dois trechos.",
+      "Isso leva direto à distância entre dois pontos no plano cartesiano, do 6º ano. Do ponto (0, 0) ao ponto (6, 8), a diferença horizontal é 6 e a vertical é 8 — os dois catetos. A distância é 10. Qualquer par de pontos vira um triângulo retângulo assim, com os catetos paralelos aos eixos.",
+      "O roteiro é sempre o mesmo: desenhe o triângulo (nem que seja de cabeça), decida quem é a hipotenusa, escreva o teorema, resolva e confira se o tamanho da resposta faz sentido. É o passo do desenho que costuma ser pulado, e é ele que evita a maior parte dos erros."
+    ],
+    "destaque": "A escada, o cabo e o atalho são sempre a HIPOTENUSA. Desenhar o triângulo antes de contar evita quase todo erro.",
+    "imagem": "pt9-ideia-escada"
+  },
+  "resolvido": {
+    "enunciado": "Uma escada de 5 m está encostada numa parede, com a base a 3 m dela. Que altura da parede a escada alcança?",
+    "imagem": "pt9-res-escada",
+    "passos": [
+      {
+        "titulo": "Desenhe o triângulo",
+        "explicacao": "A parede e o chão formam o ângulo reto; a escada fecha a figura.",
+        "conta": "chão, parede e escada"
+      },
+      {
+        "titulo": "Decida quem é a hipotenusa",
+        "explicacao": "É a escada, porque ela é o lado oposto ao ângulo reto entre chão e parede.",
+        "conta": "hipotenusa = 5 m"
+      },
+      {
+        "titulo": "Escreva e isole",
+        "explicacao": "O que falta é um cateto, então a conta é de subtração.",
+        "conta": "h² = 25 − 9 = 16"
+      },
+      {
+        "titulo": "Tire a raiz e confira",
+        "explicacao": "A altura tem de ser menor que os 5 m da escada, e 4 é.",
+        "conta": "h = 4 m"
+      }
+    ],
+    "fecho": "É o terno 3-4-5 de novo. Ele aparece tanto em problema de escada que vale reconhecê-lo de vista."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma escada de 13 m está encostada numa parede, com a base a 5 m dela. Que altura da parede ela alcança, em metros? Digite apenas o número.",
+      "imagem": "pt9-q-escada-12",
+      "dica": "A escada é a hipotenusa. O que falta é um cateto, então a conta subtrai.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "13",
+          "porque": "13 é o comprimento da escada, e ela está inclinada. A altura alcançada é sempre MENOR que a escada, porque a escada é a hipotenusa."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é 13 − 5, subtraindo os lados em vez dos quadrados. O teorema subtrai 169 − 25, que dá 144."
+        },
+        {
+          "resposta": "13,93",
+          "porque": "13,93 é a raiz de 194, ou seja, de 169 + 25 — somando quando era preciso subtrair. A altura ficaria maior que a escada, o que é impossível."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Decida quem é a hipotenusa",
+          "explicacao": "É a escada, que é o lado inclinado da figura.",
+          "conta": "hipotenusa = 13"
+        },
+        {
+          "titulo": "Subtraia os quadrados",
+          "explicacao": "O quadrado da escada menos o quadrado da distância à parede.",
+          "conta": "169 − 25 = 144"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "144 é quadrado perfeito, e a resposta é menor que 13, como devia.",
+          "conta": "√144 = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Para ir da esquina A até a esquina B, uma pessoa anda 6 quarteirões para leste e 8 para o norte. Se ela pudesse atravessar em linha reta, quantos quarteirões percorreria? Digite apenas o número.",
+      "imagem": "pt9-q-atalho",
+      "dica": "Os dois trechos são os catetos, e o caminho reto é a hipotenusa.",
+      "formato": "numero",
+      "resposta": 10,
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é 6 + 8, o caminho PELAS ruas. O atalho em linha reta é mais curto — é justamente essa economia que a pergunta mede."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é 8 − 6. Subtrair seria o caminho se um dos dados fosse a hipotenusa, e aqui os dois trechos são catetos."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é a soma dos quadrados, 36 + 64. Falta tirar a raiz para chegar ao comprimento: √100 = 10."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o triângulo",
+          "explicacao": "Os dois trechos são perpendiculares, então formam um ângulo reto.",
+          "conta": "catetos 6 e 8"
+        },
+        {
+          "titulo": "Some os quadrados",
+          "explicacao": "O caminho reto é a hipotenusa do triângulo.",
+          "conta": "36 + 64 = 100"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "E compare com os 14 quarteirões do caminho pelas ruas.",
+          "conta": "√100 = 10"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No plano cartesiano, qual é a distância entre os pontos (0, 0) e (9, 12)? Digite apenas o número.",
+      "imagem": "pt9-q-distancia-plano",
+      "dica": "A diferença horizontal e a vertical são os catetos de um triângulo retângulo.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "21",
+          "porque": "21 é 9 + 12, somando as duas diferenças. Elas são os catetos, e a distância é a hipotenusa — sempre menor que a soma."
+        },
+        {
+          "resposta": "225",
+          "porque": "225 é a soma dos quadrados, 81 + 144. A distância é a raiz disso, que dá 15."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é 12 − 9, a diferença entre as coordenadas. Ela não tem papel nenhum aqui: os catetos são as próprias diferenças em cada eixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache os dois catetos",
+          "explicacao": "São as diferenças de coordenada em cada eixo.",
+          "conta": "horizontal 9 · vertical 12"
+        },
+        {
+          "titulo": "Aplique o teorema",
+          "explicacao": "A distância é a hipotenusa do triângulo formado.",
+          "conta": "81 + 144 = 225 → √225 = 15"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num problema de escada encostada na parede, qual medida é a hipotenusa?",
+      "imagem": "pt9-q-quem-e-a-escada",
+      "dica": "Procure o ângulo reto primeiro: ele fica entre quais duas coisas?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A escada, porque o ângulo reto está entre o chão e a parede" },
+        { "rotulo": "B", "texto": "A altura alcançada na parede" },
+        { "rotulo": "C", "texto": "A distância do pé da escada até a parede" },
+        { "rotulo": "D", "texto": "Depende de qual das três for a maior medida dada" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A altura alcançada na parede",
+          "porque": "Ela é um cateto: encosta no ângulo reto formado entre a parede e o chão. A hipotenusa é o lado que não toca esse ângulo."
+        },
+        {
+          "resposta": "A distância do pé da escada até a parede",
+          "porque": "Também é um cateto, deitado no chão. Os dois catetos são justamente o que forma o ângulo reto."
+        },
+        {
+          "resposta": "Depende de qual das três for a maior medida dada",
+          "porque": "A hipotenusa É a maior das três, mas o que a define é a posição em relação ao ângulo reto — e na escada essa posição é sempre a mesma, tenha o problema os números que tiver."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o ângulo reto",
+          "explicacao": "A parede sobe perpendicular ao chão, e é ali que ele está.",
+          "conta": "entre chão e parede"
+        },
+        {
+          "titulo": "Ache o lado oposto",
+          "explicacao": "É o único dos três que não encosta nesse ângulo.",
+          "conta": "a escada"
+        }
+      ]
+    }
+  ]
+}

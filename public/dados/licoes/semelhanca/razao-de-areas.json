@@ -1,0 +1,201 @@
+{
+  "id": "razao-de-areas",
+  "numero": 5,
+  "titulo": "Dobrar o lado não dobra a área",
+  "pergunta": "Se tudo cresce k vezes, quanto cresce a área?",
+  "ideia": {
+    "paragrafos": [
+      "Aqui mora a armadilha mais teimosa da geometria, e ela sobrevive a anos de escola: a ideia de que ampliar uma figura ao dobro dobra também a área. Não dobra — quadruplica. E o motivo é simples de ver, difícil de desconfiar sozinho.",
+      "Pense num quadrado de lado 2, com área 4. Dobrando o lado para 4, a área passa a 16 — quatro vezes maior, e não duas. A razão é que a área depende de DUAS dimensões, e as duas cresceram: 4 é o dobro de 2 na largura E o dobro na altura, então a área cresceu 2 × 2 vezes.",
+      "A regra vale para qualquer figura, não só para o quadrado: se dois polígonos são semelhantes com razão k, a razão entre as áreas é k². Com k = 3, a área fica nove vezes maior; com k = 10, cem vezes. Um mapa em escala 1 para 100 000 esconde um fator de dez bilhões na área.",
+      "E o que acontece com o PERÍMETRO? Ele cresce só k vezes, como qualquer comprimento — somar lados que ficaram k vezes maiores dá um total k vezes maior. É essa diferença de comportamento entre comprimento e área que confunde: as duas medidas descrevem a mesma ampliação e crescem em ritmos diferentes.",
+      "A regra também funciona ao contrário, e assim ela costuma cair em prova: sabendo que as áreas estão na razão 9, a razão de semelhança é a RAIZ de 9, ou seja, 3. Quem esquece de tirar a raiz responde que os lados ficaram nove vezes maiores — um erro que a figura desmentiria na hora.",
+      "Um exemplo que fixa a ideia: uma pizza de 40 cm de diâmetro não tem o dobro da pizza de 20 cm — tem o quádruplo. É a mesma conclusão do 7º ano, na lição de círculo, e agora ela aparece como caso particular de uma regra geral sobre figuras semelhantes."
+    ],
+    "destaque": "Comprimento cresce k; área cresce k². Dobrar os lados quadruplica a área, porque duas dimensões cresceram.",
+    "imagem": "sm9-ideia-area-k2"
+  },
+  "resolvido": {
+    "enunciado": "Dois triângulos são semelhantes com razão 3. O menor tem área 5 cm². Qual é a área do maior?",
+    "imagem": "sm9-res-area-45",
+    "passos": [
+      {
+        "titulo": "Separe o que cresce como comprimento",
+        "explicacao": "Lado e perímetro crescem pela razão, sem nenhum expoente.",
+        "conta": "lado e perímetro: × 3"
+      },
+      {
+        "titulo": "Eleve a razão ao quadrado",
+        "explicacao": "A área depende de duas dimensões, e as duas cresceram pelo mesmo fator.",
+        "conta": "3² = 9"
+      },
+      {
+        "titulo": "Aplique ao valor conhecido",
+        "explicacao": "A área do maior é a do menor multiplicada por esse fator.",
+        "conta": "5 × 9 = 45"
+      },
+      {
+        "titulo": "Confira o sentido",
+        "explicacao": "O triângulo maior tem de ter área maior, e nove vezes é bastante.",
+        "conta": "45 > 5"
+      }
+    ],
+    "fecho": "São 45 cm². Os lados ficaram 3 vezes maiores, mas a área ficou 9 vezes — a diferença entre k e k²."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Dois polígonos são semelhantes com razão 2. O menor tem área 7 cm². Qual é a área do maior, em centímetros quadrados? Digite apenas o número.",
+      "imagem": "sm9-q-area-28",
+      "dica": "A razão entre as áreas é o quadrado da razão de semelhança.",
+      "formato": "numero",
+      "resposta": 28,
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é 7 × 2, aplicando a razão de semelhança direto na área. Ela vale para comprimentos; a área cresce pelo QUADRADO da razão, ou seja, 4 vezes."
+        },
+        {
+          "resposta": "49",
+          "porque": "49 é 7², elevando a área ao quadrado. Quem é elevado ao quadrado é a RAZÃO, e não a área: o fator é 2² = 4."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 7 + 2, somando a razão. Semelhança amplia por multiplicação, e nunca por soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve a razão ao quadrado",
+          "explicacao": "É por esse fator que a área cresce, porque duas dimensões cresceram.",
+          "conta": "2² = 4"
+        },
+        {
+          "titulo": "Multiplique a área",
+          "explicacao": "Aplicando o fator à área conhecida.",
+          "conta": "7 × 4 = 28"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Dois triângulos semelhantes têm áreas 9 cm² e 36 cm². Qual é a razão de semelhança entre eles? Digite apenas o número.",
+      "imagem": "sm9-q-razao-pelas-areas",
+      "dica": "A razão das áreas é k². Para achar k, é preciso desfazer o quadrado.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é a razão entre as ÁREAS, que é 36 ÷ 9. Ela vale k², então a razão de semelhança é a raiz de 4, que é 2."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é a diferença entre as áreas. Razão é divisão, e ainda precisa da raiz depois."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é a raiz de 36, ou seja, o lado de um quadrado com aquela área. A razão sai de comparar as duas áreas primeiro, e só depois tirar a raiz."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida as áreas",
+          "explicacao": "Esse quociente é o quadrado da razão de semelhança.",
+          "conta": "36 / 9 = 4"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "É o passo que desfaz o quadrado e devolve a razão dos comprimentos.",
+          "conta": "√4 = 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Ampliando uma figura de modo que todos os lados dobrem, o que acontece com a área?",
+      "imagem": "sm9-q-o-que-acontece",
+      "dica": "Pense num quadrado de lado 2 e num de lado 4, e compare as áreas.",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Ela quadruplica, porque as duas dimensões dobraram"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Ela dobra, como os lados"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Ela fica oito vezes maior"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Ela não muda, porque a forma é a mesma"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Ela dobra, como os lados",
+          "porque": "É o erro mais comum da lição. Um quadrado de lado 2 tem área 4, e um de lado 4 tem área 16 — quatro vezes, e não duas, porque largura e altura cresceram."
+        },
+        {
+          "resposta": "Ela fica oito vezes maior",
+          "porque": "Oito é 2³, e o cubo vale para o VOLUME, onde três dimensões crescem. Área tem duas dimensões, então o expoente é 2."
+        },
+        {
+          "resposta": "Ela não muda, porque a forma é a mesma",
+          "porque": "A forma se mantém, mas o tamanho não. Uma figura maior ocupa mais espaço: é exatamente isso que a área mede."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste num quadrado",
+          "explicacao": "Com lado 2 e com lado 4, as áreas saem fáceis de comparar.",
+          "conta": "2×2 = 4 · 4×4 = 16"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "As duas dimensões dobraram, então a área cresceu duas vezes duas.",
+          "conta": "16 / 4 = 4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois polígonos são semelhantes com razão 2,5. O perímetro do menor é 12 cm. Qual é o perímetro do maior, em centímetros? Digite apenas o número.",
+      "imagem": "sm9-q-perimetro",
+      "dica": "Perímetro é soma de comprimentos, e comprimento cresce pela razão, não pelo quadrado dela.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "75",
+          "porque": "75 é 12 × 6,25, usando k² como se o perímetro fosse área. Perímetro é soma de COMPRIMENTOS, e comprimento cresce só k vezes."
+        },
+        {
+          "resposta": "14,5",
+          "porque": "14,5 é 12 + 2,5, somando a razão. Ela multiplica cada lado, e a soma dos lados multiplicados também fica multiplicada."
+        },
+        {
+          "resposta": "4,8",
+          "porque": "4,8 é 12 ÷ 2,5, dividindo em vez de multiplicar. Esse seria o caminho do maior para o menor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que o perímetro é",
+          "explicacao": "É a soma dos lados, e cada lado ficou k vezes maior.",
+          "conta": "soma de comprimentos"
+        },
+        {
+          "titulo": "Multiplique pela razão",
+          "explicacao": "Sem elevar ao quadrado: o quadrado vale para área.",
+          "conta": "12 × 2,5 = 30"
+        }
+      ]
+    }
+  ]
+}

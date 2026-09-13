@@ -1,0 +1,199 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Sólidos no mundo",
+  "pergunta": "Onde essas contas aparecem fora da prova?",
+  "ideia": {
+    "paragrafos": [
+      "Quase nenhum objeto real é um cone puro ou uma pirâmide pura. Um silo de fazenda é um cilindro com um cone de telhado em cima. Uma casquinha de sorvete é um cone com uma meia-esfera por cima. Um copo descartável é um cone com a ponta cortada. A matéria aparece, mas quase sempre misturada.",
+      "A saída é a mesma de Áreas do 8º ano, e vale repetir: parta a figura difícil em figuras fáceis. Calcule o volume de cada pedaço com a fórmula dele e some — ou subtraia, quando o problema for de espaço que sobra dentro de uma caixa.",
+      "O caso de subtrair aparece muito. Uma bola dentro de uma caixa cúbica: o que sobra é o volume do cubo menos o da esfera. Um cone cavado num bloco de madeira: o que resta é o bloco menos o cone. Em todos, a única dificuldade é enxergar os dois sólidos separados.",
+      "Há também os problemas de ESCALA, e eles escondem uma armadilha de intuição. Triplicar todas as medidas de um sólido não triplica o volume: multiplica por 27, porque o fator 3 entra nas três dimensões. Dobrar multiplica por 8. Comprimentos crescem na primeira potência do fator, áreas na segunda, volumes na terceira.",
+      "Isso explica por que uma bola de sorvete do dobro do diâmetro não custa o dobro: ela tem oito vezes mais sorvete. E explica por que o raio vale mais que a altura num cilindro ou num cone — o raio está ao quadrado e a altura não, então alargar rende mais que esticar.",
+      "O roteiro de todo problema desta lição é o mesmo: separe os sólidos, decida um a um se leva o terço, calcule cada pedaço e junte no fim. A parte difícil quase nunca é a conta; é enxergar de quantos pedaços a coisa é feita."
+    ],
+    "destaque": "Sólido composto se resolve em pedaços. E multiplicar todas as medidas por f multiplica o volume por f × f × f.",
+    "imagem": "vl9-ideia-mundo"
+  },
+  "resolvido": {
+    "enunciado": "Uma casquinha de sorvete tem formato de cone com 3 cm de raio na boca e 10 cm de profundidade. Quanto sorvete cabe dentro dela, em cm³? Use π = 3,14.",
+    "imagem": "vl9-res-casquinha",
+    "passos": [
+      {
+        "titulo": "Reconheça o sólido",
+        "explicacao": "A casquinha é um cone, e o raio dado é o da base circular.",
+        "conta": "cone · leva terço"
+      },
+      {
+        "titulo": "Calcule a área da base",
+        "explicacao": "A boca da casquinha é um círculo de 3 cm de raio.",
+        "conta": "3,14 × 3 × 3 = 28,26 cm²"
+      },
+      {
+        "titulo": "Multiplique pela altura e reparta",
+        "explicacao": "A profundidade da casquinha é a altura do cone.",
+        "conta": "28,26 × 10 / 3 = 94,2 cm³"
+      }
+    ],
+    "fecho": "94,2 cm³, que é quase um copo americano — e mostra que a casquinha guarda bem menos do que parece, porque ela afunila."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um silo é formado por um cilindro de 2 m de raio e 5 m de altura, com um cone de telhado de mesmo raio e 3 m de altura em cima. Qual é o volume total do silo, em m³? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl9-q-silo",
+      "dica": "Separe o silo em dois sólidos, calcule cada um e só depois junte.",
+      "formato": "numero",
+      "resposta": 75.36,
+      "errosComuns": [
+        {
+          "resposta": "100,48",
+          "porque": "100,48 soma o cilindro com o cone sem dividir o cone por três. O telhado termina em ponta, então ele entra na soma valendo um terço do cilindro de mesmas medidas."
+        },
+        {
+          "resposta": "62,8",
+          "porque": "62,8 é só o CILINDRO, 3,14 × 4 × 5. O telhado cônico tem volume próprio e precisa ser somado."
+        },
+        {
+          "resposta": "33,49",
+          "porque": "33,49 aplica o terço ao silo inteiro, como se ele fosse todo pontudo. Só o telhado é: o corpo do silo é um cilindro comum e não leva divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "O corpo, que é um cilindro",
+          "explicacao": "Duas bases iguais, então a conta para na multiplicação.",
+          "conta": "3,14 × 4 × 5 = 62,8 m³"
+        },
+        {
+          "titulo": "O telhado, que é um cone",
+          "explicacao": "Mesma base, altura de 3 m, e agora entra o terço.",
+          "conta": "3,14 × 4 × 3 / 3 = 12,56 m³"
+        },
+        {
+          "titulo": "Some os dois pedaços",
+          "explicacao": "O silo é a união deles, sem sobreposição.",
+          "conta": "62,8 + 12,56 = 75,36 m³"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma maquete de uma pirâmide foi construída e depois refeita com TODAS as medidas triplicadas. Quantas vezes o volume da segunda é maior que o da primeira? Digite apenas o número.",
+      "imagem": "vl9-q-triplicar",
+      "dica": "O fator entra em cada uma das três dimensões do sólido, e não só numa.",
+      "formato": "numero",
+      "resposta": 27,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é quantas vezes cada MEDIDA cresceu, e não o volume. Volume é produto de três medidas, então o fator 3 aparece três vezes na conta."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o fator da ÁREA: ele vale para a superfície da maquete, onde só duas dimensões entram. Volume tem três, e por isso o fator é 3 × 3 × 3."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é 3 × 2, ou 3 + 3, caminhos que não correspondem a nada na fórmula. O fator do volume é o fator das medidas elevado à terceira potência."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja onde o fator entra",
+          "explicacao": "A base tem duas dimensões e a altura tem uma, somando três.",
+          "conta": "base 2 dimensões · altura 1 dimensão"
+        },
+        {
+          "titulo": "Eleve o fator ao cubo",
+          "explicacao": "Cada dimensão contribui com um fator 3, e eles se multiplicam.",
+          "conta": "3 × 3 × 3 = 27 vezes"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma bola de 3 cm de raio é guardada numa caixa cúbica de 6 cm de aresta, que ela encosta nas seis faces. Quantos cm³ sobram vazios dentro da caixa? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl9-q-bola-na-caixa",
+      "dica": "O que sobra é a diferença entre dois volumes que você já sabe calcular.",
+      "formato": "numero",
+      "resposta": 102.96,
+      "errosComuns": [
+        {
+          "resposta": "113,04",
+          "porque": "113,04 é o volume da BOLA, e não o espaço vazio. A pergunta é sobre o que sobra na caixa, que é o cubo menos a bola."
+        },
+        {
+          "resposta": "216",
+          "porque": "216 é o volume do CUBO inteiro, 6 × 6 × 6. Parte dele está ocupada pela bola, e essa parte precisa ser descontada."
+        },
+        {
+          "resposta": "329,04",
+          "porque": "329,04 soma o cubo com a bola em vez de subtrair. A bola está DENTRO da caixa: ela ocupa espaço que já estava contado nos 216 cm³."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volume da caixa",
+          "explicacao": "Um cubo de 6 cm de aresta, que é um prisma comum.",
+          "conta": "6 × 6 × 6 = 216 cm³"
+        },
+        {
+          "titulo": "Volume da bola",
+          "explicacao": "Encostar nas seis faces dá à bola um raio de 3 cm.",
+          "conta": "4 × 3,14 × 27 / 3 = 113,04 cm³"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O que sobra é o espaço da caixa que a bola não ocupa.",
+          "conta": "216 − 113,04 = 102,96 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Três cilindros têm alturas e raios das bases iguais a 10 e 10 cm, 10 e 5 cm, e 20 e 5 cm, nessa ordem. Escrevendo os volumes deles como V₁, V₂ e V₃, qual é a ordem crescente?",
+      "imagem": "vl9-q-tres-cilindros",
+      "dica": "Calcule os três deixando o pi indicado; assim dá para comparar sem arredondar nada.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "V₂ < V₃ < V₁" },
+        { "rotulo": "B", "texto": "V₂ < V₁ < V₃" },
+        { "rotulo": "C", "texto": "V₁ < V₂ < V₃" },
+        { "rotulo": "D", "texto": "V₃ < V₂ < V₁" }
+      ],
+      "correta": 0,
+      "fonte": {
+        "prova": "Banco de Questões da OBMEP",
+        "ano": 2010,
+        "referencia": "Nível 3, problema 93 (item a), \"Três cilindros\""
+      },
+      "errosComuns": [
+        {
+          "resposta": "V₂ < V₁ < V₃",
+          "porque": "Põe o terceiro cilindro no topo por ele ser o mais ALTO, com 20 cm. Mas o raio entra ao quadrado e a altura não: o primeiro, com raio 10, dá 1000π contra os 500π do terceiro."
+        },
+        {
+          "resposta": "V₁ < V₂ < V₃",
+          "porque": "Ordena pela altura de baixo para cima e ignora o raio. O primeiro cilindro tem o dobro do raio dos outros dois, e é justamente ele o maior de todos."
+        },
+        {
+          "resposta": "V₃ < V₂ < V₁",
+          "porque": "Acerta que o primeiro é o maior, mas inverte os outros dois. O segundo e o terceiro têm o mesmo raio, então entre eles decide a altura — e 20 cm é mais que 10 cm."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule os três com pi indicado",
+          "explicacao": "Área da base vezes altura, sem terço, porque são cilindros.",
+          "conta": "V₁ = 1000π · V₂ = 250π · V₃ = 500π"
+        },
+        {
+          "titulo": "Ordene",
+          "explicacao": "Com o mesmo pi nos três, basta comparar os números da frente.",
+          "conta": "250 < 500 < 1000"
+        }
+      ]
+    }
+  ]
+}

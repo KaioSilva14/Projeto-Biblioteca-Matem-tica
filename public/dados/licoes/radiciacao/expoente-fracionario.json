@@ -1,0 +1,195 @@
+{
+  "id": "expoente-fracionario",
+  "numero": 2,
+  "titulo": "Raiz é potência de expoente fracionário",
+  "pergunta": "O que significa elevar um número a 1/2?",
+  "ideia": {
+    "paragrafos": [
+      "Esta é a lição que dá unidade à matéria, e ela repete um movimento que o 8º ano já fez: quando o expoente zero e o negativo entraram, eles não vieram por definição imposta — vieram de continuar o padrão que já existia. Aqui acontece o mesmo com o expoente fracionário.",
+      "A propriedade que guia é a de potência de potência, do 8º ano: elevar uma potência a outro expoente multiplica os expoentes. Então, seja lá o que 4^(1/2) signifique, elevá-lo ao quadrado tem de dar 4^(1/2 × 2) = 4¹ = 4.",
+      "Mas só existe um número positivo que, elevado ao quadrado, dá 4: é o 2, que é √4. Então 4^(1/2) não PODE ser outra coisa senão √4. A definição não foi escolhida — ela foi forçada pela propriedade que já valia.",
+      "O mesmo argumento vale para qualquer índice. 8^(1/3) elevado ao cubo dá 8¹ = 8, então 8^(1/3) é a raiz cúbica de 8, que é 2. Em geral: elevar a 1/n é tirar a raiz de índice n.",
+      "E com numerador diferente de 1 a regra se estende: a^(m/n) é a raiz de índice n de a elevado a m. Por exemplo, 8^(2/3) é a raiz cúbica de 8², ou seja, ∛64 = 4 — e dá no mesmo fazer a raiz primeiro e a potência depois: (∛8)² = 2² = 4. A ordem é escolha de conveniência, e convém quase sempre tirar a raiz primeiro, porque os números ficam menores.",
+      "O ganho disso é grande: todas as propriedades de potência que o 8º ano provou passam a valer para radical sem nenhuma demonstração nova. A lição seguinte usa exatamente isso."
+    ],
+    "destaque": "4^(1/2) tem de ser √4, porque elevá-lo ao quadrado precisa dar 4. A definição é forçada pela propriedade.",
+    "imagem": "rd9-ideia-fracionario"
+  },
+  "resolvido": {
+    "enunciado": "Quanto vale 8^(2/3)?",
+    "imagem": "rd9-res-oito-dois-tercos",
+    "passos": [
+      {
+        "titulo": "Leia o denominador",
+        "explicacao": "O 3 embaixo é o índice da raiz que será tirada.",
+        "conta": "raiz cúbica"
+      },
+      {
+        "titulo": "Leia o numerador",
+        "explicacao": "O 2 em cima é o expoente a que o número será elevado.",
+        "conta": "ao quadrado"
+      },
+      {
+        "titulo": "Tire a raiz primeiro",
+        "explicacao": "Fazendo a raiz antes, os números ficam menores.",
+        "conta": "∛8 = 2"
+      },
+      {
+        "titulo": "Eleve ao quadrado",
+        "explicacao": "Agora o expoente do numerador entra.",
+        "conta": "2² = 4"
+      }
+    ],
+    "fecho": "Pela outra ordem daria o mesmo: 8² = 64, e ∛64 = 4 — com números bem maiores no caminho."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale 9^(1/2)? Digite apenas o número.",
+      "imagem": "rd9-q-nove-meio",
+      "dica": "Expoente 1/2 é a raiz de índice 2, ou seja, a raiz quadrada.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "4.5",
+          "porque": "4,5 é metade de 9. Expoente 1/2 não significa dividir por 2: ele significa tirar a raiz quadrada, que é o número que elevado ao quadrado dá 9."
+        },
+        {
+          "resposta": "81",
+          "porque": "81 é 9², ou seja, o expoente foi lido como 2 em vez de 1/2. Expoente fracionário com 2 embaixo puxa para a raiz, e não para o quadrado."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 9 × 2, multiplicando pelo denominador do expoente. O denominador é o ÍNDICE da raiz, e não um fator."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o expoente",
+          "explicacao": "O denominador 2 é o índice da raiz.",
+          "conta": "9^(1/2) = √9"
+        },
+        {
+          "titulo": "Calcule a raiz",
+          "explicacao": "Procurando o número que elevado ao quadrado dá 9.",
+          "conta": "√9 = 3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que 4^(1/2) tem de ser igual a √4, e não a outra coisa qualquer?",
+      "imagem": "rd9-q-por-que-forcado",
+      "dica": "Eleve 4^(1/2) ao quadrado usando a propriedade de potência de potência.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque elevá-lo ao quadrado precisa dar 4, e só √4 faz isso" },
+        { "rotulo": "B", "texto": "Porque alguém decidiu definir assim" },
+        { "rotulo": "C", "texto": "Porque 1/2 é metade, e raiz é metade do número" },
+        { "rotulo": "D", "texto": "Porque 4 é quadrado perfeito" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque alguém decidiu definir assim",
+          "porque": "A definição não foi escolhida livremente: qualquer outro valor quebraria a propriedade de potência de potência, que já valia antes. É a propriedade que força o resultado."
+        },
+        {
+          "resposta": "Porque 1/2 é metade, e raiz é metade do número",
+          "porque": "Raiz não é metade: √4 é 2, que por acaso é metade de 4 — mas √9 é 3, e metade de 9 seria 4,5. A coincidência no 4 engana, e é bom desconfiar dela."
+        },
+        {
+          "resposta": "Porque 4 é quadrado perfeito",
+          "porque": "O argumento vale para qualquer número, inclusive os que não são quadrados perfeitos: 5^(1/2) é √5 pelo mesmo motivo. Ser quadrado perfeito só torna a conta bonita."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve ao quadrado",
+          "explicacao": "Usando a propriedade que multiplica os expoentes.",
+          "conta": "(4^(1/2))² = 4^(1/2 × 2) = 4"
+        },
+        {
+          "titulo": "Veja quem cumpre isso",
+          "explicacao": "Entre os positivos, só um número elevado ao quadrado dá 4.",
+          "conta": "só √4 serve"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto vale 16^(3/4)? Digite apenas o número.",
+      "imagem": "rd9-q-dezesseis",
+      "dica": "O denominador dá o índice da raiz e o numerador dá o expoente. Tire a raiz primeiro.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é 16 × 3/4, tratando o expoente como um fator. Expoente fracionário não multiplica: o denominador é índice de raiz e o numerador é potência."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é ⁴√16, ou seja, só o primeiro passo. Falta elevar esse resultado ao expoente do numerador: 2³ = 8, porque ⁴√16 é 2."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é ⁴√16, feito corretamente. Mas o numerador 3 ainda não entrou: elevando 2 ao cubo sai 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire a raiz de índice 4",
+          "explicacao": "O denominador do expoente dá o índice.",
+          "conta": "⁴√16 = 2"
+        },
+        {
+          "titulo": "Eleve ao numerador",
+          "explicacao": "O 3 em cima é o expoente que falta aplicar.",
+          "conta": "2³ = 8"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a vantagem de tirar a raiz ANTES de elevar à potência, em a^(m/n)?",
+      "imagem": "rd9-q-qual-ordem",
+      "dica": "Compare o tamanho dos números no caminho, nas duas ordens.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Os números do caminho ficam menores, e o resultado é o mesmo" },
+        { "rotulo": "B", "texto": "O resultado fica diferente, e mais correto" },
+        { "rotulo": "C", "texto": "Só assim a conta é permitida" },
+        { "rotulo": "D", "texto": "Nenhuma: as duas ordens dão trabalho igual" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O resultado fica diferente, e mais correto",
+          "porque": "As duas ordens dão exatamente o mesmo resultado: 8^(2/3) é 4 pelos dois caminhos. Se dessem resultados diferentes, uma delas estaria errada."
+        },
+        {
+          "resposta": "Só assim a conta é permitida",
+          "porque": "As duas ordens são permitidas. Elevar primeiro dá 8² = 64 e depois ∛64 = 4 — caminho legítimo, só com números maiores."
+        },
+        {
+          "resposta": "Nenhuma: as duas ordens dão trabalho igual",
+          "porque": "Há diferença real de trabalho: em 8^(2/3), tirar a raiz primeiro lida com 8, e elevar primeiro lida com 64. Com expoentes maiores a diferença cresce depressa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Faça pelas duas ordens",
+          "explicacao": "Comparando os números que aparecem no meio do caminho.",
+          "conta": "∛8 = 2 · ou 8² = 64"
+        },
+        {
+          "titulo": "Compare o esforço",
+          "explicacao": "Os dois chegam a 4, mas um deles passa por números bem maiores.",
+          "conta": "mesmo fim, caminho mais curto"
+        }
+      ]
+    }
+  ]
+}

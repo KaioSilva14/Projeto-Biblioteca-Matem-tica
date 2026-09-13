@@ -1,0 +1,194 @@
+{
+  "id": "lei-da-funcao",
+  "numero": 2,
+  "titulo": "A lei da função e a tabela",
+  "pergunta": "Como escrever a regra a partir da situação?",
+  "ideia": {
+    "paragrafos": [
+      "A parte difícil quase nunca é fazer a conta: é escrever a regra. Um enunciado chega em português — \"o estacionamento cobra 6 reais fixos mais 3 por hora\" — e o trabalho é traduzir isso numa lei, que é como se chama a regra escrita com letras: f(x) = 3x + 6.",
+      "A tradução tem um método, e ele é sempre o mesmo. Primeiro, decida quem é a entrada e dê um nome a ela — aqui, x é o número de horas. Depois separe o que é FIXO do que DEPENDE da entrada: os 6 reais não mudam com o tempo, e os 3 reais aparecem uma vez por hora. O que depende da entrada multiplica x; o que é fixo entra sozinho.",
+      "A função afim é exatamente esse formato: f(x) = ax + b, com a e b números. Quase toda situação de \"uma parte fixa mais uma parte proporcional\" cai aí — conta de luz, corrida de táxi, salário com comissão, aluguel de bicicleta. É por isso que ela é a primeira função que se estuda.",
+      "Escrita a lei, a tabela sai de graça: escolha valores de x, calcule f(x) para cada um e anote os pares. Com x = 0, 1, 2 e 3, a lei f(x) = 3x + 6 dá 6, 9, 12 e 15. Uma coisa salta aos olhos nessa lista: a cada hora a mais, o preço sobe sempre 3 — e essa regularidade é o coração da matéria, que a lição 4 vai nomear.",
+      "A tabela também serve ao contrário, e essa é a pergunta que mais cai em prova: sabendo a saída, qual era a entrada? Se a conta deu 24 reais, então 3x + 6 = 24, uma equação do 1º grau do 7º ano — e ela dá x = 6 horas. Ir da entrada para a saída é substituir; voltar é resolver uma equação.",
+      "Vale insistir num cuidado de leitura: o que multiplica x é o valor de CADA unidade, e o que fica solto é o que se paga mesmo sem usar nada. Trocar os dois é o erro mais caro da lição, porque a conta segue bonita e o resultado sai errado do começo ao fim."
+    ],
+    "destaque": "O que depende da entrada multiplica x; o que é fixo entra sozinho. Ir e voltar: substituir num sentido, resolver equação no outro.",
+    "imagem": "fa9-ideia-fixo-variavel"
+  },
+  "resolvido": {
+    "enunciado": "Uma pizzaria cobra R$ 20,00 de taxa de entrega mais R$ 30,00 por pizza. Escreva a lei e calcule o preço de 3 pizzas.",
+    "imagem": "fa9-res-pizzaria",
+    "passos": [
+      {
+        "titulo": "Escolha a entrada",
+        "explicacao": "É a grandeza que o cliente decide, e da qual o preço depende.",
+        "conta": "x = número de pizzas"
+      },
+      {
+        "titulo": "Separe o fixo do variável",
+        "explicacao": "A taxa não muda com a quantidade; o preço da pizza aparece uma vez por pizza.",
+        "conta": "fixo 20 · por pizza 30"
+      },
+      {
+        "titulo": "Escreva a lei",
+        "explicacao": "O que depende da entrada multiplica x, e o fixo entra sozinho.",
+        "conta": "f(x) = 30x + 20"
+      },
+      {
+        "titulo": "Calcule para 3 pizzas",
+        "explicacao": "Substituindo a entrada na lei que acabou de ser escrita.",
+        "conta": "30 × 3 + 20 = 110"
+      }
+    ],
+    "fecho": "São R$ 110,00. E repare: cada pizza a mais acrescenta sempre 30 reais, nunca outra coisa."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na função f(x) = 5x + 10, para qual valor de x a saída é 45? Digite apenas o número.",
+      "imagem": "fa9-q-caminho-de-volta",
+      "dica": "Aqui você conhece a saída e procura a entrada: monte a equação 5x + 10 = 45.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é 45 ÷ 5, dividindo sem tirar antes a parte fixa. Os 10 não dependem de x: eles saem primeiro, e só o que sobra é dividido."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 sai de dividir 45 por 5 e somar 2, ou de somar o 10 em vez de tirar. A equação é 5x = 45 − 10, e não 45 + 10."
+        },
+        {
+          "resposta": "255",
+          "porque": "255 é f(45): a entrada foi trocada com a saída. A pergunta dá o valor que SAIU e pede o que entrou."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a equação",
+          "explicacao": "A saída conhecida vai para o lugar de f(x).",
+          "conta": "5x + 10 = 45"
+        },
+        {
+          "titulo": "Tire a parte fixa",
+          "explicacao": "Os 10 não dependem da entrada, então saem dos dois lados primeiro.",
+          "conta": "5x = 35"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Sobrou uma equação do 1º grau, do 7º ano.",
+          "conta": "x = 7"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um estacionamento cobra R$ 6,00 fixos mais R$ 3,00 por hora. Quanto custa deixar o carro por 4 horas, em reais? Digite apenas o número.",
+      "imagem": "fa9-q-estacionamento",
+      "dica": "Escreva a lei primeiro, separando o que é fixo do que depende do tempo.",
+      "formato": "numero",
+      "resposta": 18,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é 3 × 4, só a parte que depende do tempo. Falta somar os 6 reais fixos, que se pagam independentemente de quantas horas o carro fica."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 sai de (6 + 3) × 4, cobrando a taxa fixa uma vez por hora. Ela é fixa justamente por ser cobrada uma vez só."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 6 × 4, tratando a taxa fixa como se fosse o preço da hora. Quem multiplica o tempo são os 3 reais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a lei",
+          "explicacao": "O preço por hora multiplica o tempo; a taxa entra sozinha.",
+          "conta": "f(x) = 3x + 6"
+        },
+        {
+          "titulo": "Substitua as 4 horas",
+          "explicacao": "A entrada é o tempo, e é ela que vai no lugar do x.",
+          "conta": "3 × 4 + 6 = 18"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual lei descreve \"o dobro de um número, menos 7\"?",
+      "imagem": "fa9-q-traduzir",
+      "dica": "Traduza cada pedaço da frase na ordem em que ele aparece.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "f(x) = 2x − 7" },
+        { "rotulo": "B", "texto": "f(x) = 2(x − 7)" },
+        { "rotulo": "C", "texto": "f(x) = x² − 7" },
+        { "rotulo": "D", "texto": "f(x) = 7 − 2x" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "f(x) = 2(x − 7)",
+          "porque": "Aqui o 7 é tirado ANTES de dobrar, e a frase manda dobrar primeiro. Em x = 10, a lei certa dá 13 e esta dá 6."
+        },
+        {
+          "resposta": "f(x) = x² − 7",
+          "porque": "O dobro é vezes 2, e não elevado ao quadrado. Em x = 3, o dobro é 6 e o quadrado é 9 — só coincidem quando x vale 0 ou 2."
+        },
+        {
+          "resposta": "f(x) = 7 − 2x",
+          "porque": "Esta tira o dobro DE 7, e a frase tira 7 do dobro. As duas dão resultados opostos: em x = 5, uma dá 3 e a outra dá −3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o dobro",
+          "explicacao": "Dobrar é multiplicar por 2, e é o que a frase manda fazer primeiro.",
+          "conta": "2x"
+        },
+        {
+          "titulo": "Tire o 7 do que já foi escrito",
+          "explicacao": "A subtração vem depois, sobre o dobro inteiro.",
+          "conta": "f(x) = 2x − 7"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma função afim tem f(1) = 7, f(2) = 11 e f(3) = 15. Quanto vale f(5)? Digite apenas o número.",
+      "imagem": "fa9-q-tabela-continua",
+      "dica": "Veja quanto a saída cresce a cada passo de 1 na entrada, e continue a tabela.",
+      "formato": "numero",
+      "resposta": 23,
+      "errosComuns": [
+        {
+          "resposta": "19",
+          "porque": "19 é f(4): a tabela avançou um passo só. De 3 para 5 são DOIS passos, e cada um soma 4."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 sai de somar 5 ao 15, usando a entrada como se fosse o acréscimo. O que cresce a cada passo é 4, e não o valor de x."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é 7 × 5, multiplicando a primeira saída pela entrada. A função não é proporcional: ela tem uma parte fixa, e f(1) já é 7 porque 4 + 3 dá 7."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça o passo",
+          "explicacao": "De uma linha para a seguinte, a saída sempre cresce o mesmo tanto.",
+          "conta": "11 − 7 = 4 · 15 − 11 = 4"
+        },
+        {
+          "titulo": "Ande dois passos",
+          "explicacao": "De x = 3 até x = 5 há dois avanços de 1.",
+          "conta": "15 + 4 + 4 = 23"
+        }
+      ]
+    }
+  ]
+}

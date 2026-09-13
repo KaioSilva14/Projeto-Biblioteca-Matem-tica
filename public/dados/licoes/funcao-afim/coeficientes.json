@@ -1,0 +1,195 @@
+{
+  "id": "coeficientes",
+  "numero": 4,
+  "titulo": "O que a e b fazem",
+  "pergunta": "Dá para saber o desenho só olhando os dois números?",
+  "ideia": {
+    "paragrafos": [
+      "Na lei f(x) = ax + b, os dois números têm papéis muito diferentes, e cada um deles é visível no gráfico. Reconhecê-los transforma a leitura da função: em vez de calcular uma tabela para descobrir como a reta se comporta, basta olhar os coeficientes.",
+      "O b é o mais fácil: ele é o valor da função quando a entrada é zero, porque f(0) = a × 0 + b dá b. No gráfico, é onde a reta corta o eixo vertical. Em situação real, é o valor inicial — a taxa que se paga antes de consumir qualquer coisa, o dinheiro que já estava na conta antes de começar a poupar.",
+      "O a é o que a matéria tem de mais importante, e chama-se TAXA DE VARIAÇÃO: ele diz quanto a saída muda quando a entrada anda uma unidade. Em f(x) = 3x + 5, avançar de x para x + 1 aumenta a saída em exatamente 3, e isso vale em qualquer ponto da reta — de 0 para 1, de 10 para 11, de −4 para −3.",
+      "Dá para ver isso na conta: f(x + 1) − f(x) = [a(x+1) + b] − [ax + b], e tudo se cancela menos o a. Não é coincidência nem regra decorada: é o que sobra da subtração, e é por isso que a variação é sempre a mesma. No desenho, o a é a inclinação — um passo para a direita e uma subida de a.",
+      "O sinal do a decide o sentido da reta. Com a positivo, andar para a direita sobe: a função é CRESCENTE. Com a negativo, andar para a direita desce: ela é DECRESCENTE, e a subida de a vira uma descida. Com a igual a zero não sobra função afim de verdade — a saída fica sempre b, e o gráfico é uma reta horizontal.",
+      "Duas consequências que a prova costuma cobrar. Duas funções com o mesmo a têm retas PARALELAS: elas sobem igual e nunca se encontram, mudando só a altura de partida. E duas funções com o mesmo b cortam o eixo vertical no mesmo ponto: as retas se cruzam justamente ali."
+    ],
+    "destaque": "O b é onde a reta começa, no eixo vertical. O a é quanto ela sobe a cada passo — e o sinal dele diz se sobe ou desce.",
+    "imagem": "fa9-ideia-a-e-b"
+  },
+  "resolvido": {
+    "enunciado": "Descreva o gráfico de f(x) = −2x + 5 sem calcular tabela nenhuma.",
+    "imagem": "fa9-res-decrescente",
+    "passos": [
+      {
+        "titulo": "Identifique os coeficientes",
+        "explicacao": "O sinal faz parte do número, como já valia nas equações.",
+        "conta": "a = −2 · b = 5"
+      },
+      {
+        "titulo": "Leia o b",
+        "explicacao": "Ele é o valor da função em zero, ou seja, onde a reta corta o eixo vertical.",
+        "conta": "corta o eixo y em 5"
+      },
+      {
+        "titulo": "Leia o sinal do a",
+        "explicacao": "Negativo significa que andar para a direita faz a saída diminuir.",
+        "conta": "decrescente"
+      },
+      {
+        "titulo": "Leia o tamanho do a",
+        "explicacao": "É o quanto a saída muda a cada passo de 1 na entrada.",
+        "conta": "desce 2 por passo"
+      }
+    ],
+    "fecho": "Conferindo com dois valores: f(0) = 5 e f(1) = 3 — desceu 2, como o coeficiente prometia."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na função f(x) = 3x − 7, quanto a saída aumenta quando a entrada anda uma unidade? Digite apenas o número.",
+      "imagem": "fa9-q-taxa",
+      "dica": "Essa é a pergunta que a taxa de variação responde. Olhe o número que multiplica o x.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "-7",
+          "porque": "−7 é o coeficiente b, que diz onde a reta começa — não quanto ela sobe. Quem manda na subida é o número que multiplica o x."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o quanto a ENTRADA andou, e a pergunta é sobre a saída. A cada passo de 1 na entrada, a saída avança 3."
+        },
+        {
+          "resposta": "-4",
+          "porque": "−4 sai de somar os dois coeficientes, 3 e −7. Eles têm papéis diferentes e não se combinam: um é a subida por passo, o outro é o ponto de partida."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare duas entradas vizinhas",
+          "explicacao": "Basta calcular a função em dois valores separados por uma unidade.",
+          "conta": "f(0) = −7 · f(1) = −4"
+        },
+        {
+          "titulo": "Meça a diferença",
+          "explicacao": "É o coeficiente de x, e o resultado seria o mesmo em qualquer par vizinho.",
+          "conta": "−4 − (−7) = 3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "A função f(x) = −4x + 1 é crescente ou decrescente, e por quê?",
+      "imagem": "fa9-q-cresce-ou-desce",
+      "dica": "Olhe o sinal do coeficiente que multiplica o x.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Decrescente, porque o coeficiente de x é negativo" },
+        { "rotulo": "B", "texto": "Crescente, porque o termo independente é positivo" },
+        { "rotulo": "C", "texto": "Crescente, porque 4 é maior que 1" },
+        { "rotulo": "D", "texto": "Decrescente, porque o coeficiente de x é maior que 1" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Crescente, porque o termo independente é positivo",
+          "porque": "O b diz onde a reta começa, e não para que lado ela vai. Esta reta parte de 1 e desce dali em diante: f(1) já vale −3."
+        },
+        {
+          "resposta": "Crescente, porque 4 é maior que 1",
+          "porque": "Comparar os dois coeficientes não diz nada sobre o sentido. O que decide é o SINAL do que multiplica o x, e aqui ele é negativo."
+        },
+        {
+          "resposta": "Decrescente, porque o coeficiente de x é maior que 1",
+          "porque": "A conclusão está certa, mas o motivo não. O tamanho do coeficiente diz a inclinação; quem decide subir ou descer é o sinal — f(x) = 4x + 1 também tem coeficiente maior que 1 e é crescente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o sinal do a",
+          "explicacao": "Ele é quem decide se andar para a direita sobe ou desce.",
+          "conta": "a = −4"
+        },
+        {
+          "titulo": "Confira com dois valores",
+          "explicacao": "A entrada cresceu e a saída diminuiu.",
+          "conta": "f(0) = 1 · f(1) = −3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Em que valor o gráfico de f(x) = 2x + 6 corta o eixo vertical? Digite apenas o número.",
+      "imagem": "fa9-q-corta-y",
+      "dica": "O eixo vertical é o lugar onde a entrada vale zero.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é a taxa de variação, que diz o quanto a reta sobe a cada passo. Onde ela corta o eixo vertical é dado pelo outro coeficiente."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o valor da ENTRADA no eixo vertical, e a pergunta é pela saída ali. Substituindo, f(0) = 2 × 0 + 6 = 6."
+        },
+        {
+          "resposta": "-3",
+          "porque": "−3 é onde a reta corta o eixo HORIZONTAL, que é a raiz da função — assunto da próxima lição. Os dois cortes são pontos diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o eixo vertical",
+          "explicacao": "Todo ponto do eixo vertical tem a primeira coordenada zero.",
+          "conta": "x = 0"
+        },
+        {
+          "titulo": "Calcule a saída ali",
+          "explicacao": "A parcela com x desaparece e sobra o termo independente.",
+          "conta": "f(0) = 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Duas funções afins têm o mesmo coeficiente a, mas b diferentes. O que se pode afirmar sobre os gráficos delas?",
+      "imagem": "fa9-q-paralelas",
+      "dica": "Pense no que o a controla e no que o b controla, cada um por sua conta.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "São retas paralelas, que nunca se encontram" },
+        { "rotulo": "B", "texto": "São a mesma reta" },
+        { "rotulo": "C", "texto": "Cruzam-se no eixo vertical" },
+        { "rotulo": "D", "texto": "Uma sobe e a outra desce" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "São a mesma reta",
+          "porque": "Seriam se os DOIS coeficientes coincidissem. Com b diferente, elas cortam o eixo vertical em alturas diferentes e ficam uma acima da outra."
+        },
+        {
+          "resposta": "Cruzam-se no eixo vertical",
+          "porque": "É o que aconteceria se o b fosse igual e o a diferente — exatamente o contrário do enunciado. Com b diferente, elas cortam esse eixo em pontos distintos."
+        },
+        {
+          "resposta": "Uma sobe e a outra desce",
+          "porque": "Isso dependeria de os sinais de a serem opostos. Como o a é o MESMO nas duas, as duas sobem igual ou as duas descem igual."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o a garante",
+          "explicacao": "Mesma taxa de variação significa mesma inclinação nas duas retas.",
+          "conta": "sobem igual"
+        },
+        {
+          "titulo": "Veja o que o b muda",
+          "explicacao": "Alturas de partida diferentes deixam uma reta acima da outra, sempre.",
+          "conta": "paralelas"
+        }
+      ]
+    }
+  ]
+}

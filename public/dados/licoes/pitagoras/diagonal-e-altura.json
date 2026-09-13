@@ -1,0 +1,199 @@
+{
+  "id": "diagonal-e-altura",
+  "numero": 5,
+  "titulo": "A diagonal e a altura",
+  "pergunta": "Onde há triângulo retângulo escondido numa figura sem ângulo reto marcado?",
+  "ideia": {
+    "paragrafos": [
+      "O teorema rende muito mais quando se aprende a ENXERGAR triângulos retângulos dentro de figuras que não parecem ter nenhum. Duas construções aparecem tanto que vale guardar o resultado delas: a diagonal do quadrado e a altura do triângulo equilátero.",
+      "Num quadrado de lado L, a diagonal parte um canto e cria um triângulo retângulo com dois catetos iguais a L. Então a diagonal ao quadrado vale L² + L², ou seja, 2L² — e a diagonal é L√2. Num quadrado de lado 5, ela mede 5√2, que é aproximadamente 7,07 com √2 = 1,4142.",
+      "Esse é o triângulo que revelou os irracionais, e vale reparar na coincidência: a primeira matéria do 9º ano começou pela impossibilidade de escrever √2 como fração, e a razão de √2 existir é exatamente esta figura. Um quadrado de lado 1 tem diagonal que nenhuma fração mede.",
+      "No triângulo equilátero de lado L, a altura cai no MEIO da base — e isso é o que torna a conta possível. Ela cria um triângulo retângulo de hipotenusa L e um cateto L/2, então a altura ao quadrado vale L² − L²/4, que é 3L²/4. Tirando a raiz, a altura é L√3/2.",
+      "Num equilátero de lado 6, a altura é 6√3/2, ou seja, 3√3 — aproximadamente 5,20 com √3 = 1,732. Repare que a altura é MENOR que o lado, como tem de ser: ela é um cateto de um triângulo cuja hipotenusa é o próprio lado.",
+      "A mesma leitura serve em outras figuras: a diagonal de um retângulo, a altura de um trapézio isósceles, a diagonal de uma caixa. Em todas, o movimento é o mesmo — procurar onde há um ângulo reto, nomear os catetos e a hipotenusa, e aplicar o teorema."
+    ],
+    "destaque": "Diagonal do quadrado: L√2. Altura do equilátero: L√3/2. As duas saem de achar o triângulo retângulo escondido.",
+    "imagem": "pt9-ideia-diagonal"
+  },
+  "resolvido": {
+    "enunciado": "Qual é a diagonal de um quadrado de lado 5 cm? Use √2 = 1,41.",
+    "imagem": "pt9-res-diagonal-quadrado",
+    "passos": [
+      {
+        "titulo": "Ache o triângulo retângulo",
+        "explicacao": "A diagonal parte o quadrado em dois triângulos com o ângulo reto no canto.",
+        "conta": "catetos 5 e 5"
+      },
+      {
+        "titulo": "Aplique o teorema",
+        "explicacao": "Os dois catetos são iguais, então os quadrados deles também.",
+        "conta": "25 + 25 = 50"
+      },
+      {
+        "titulo": "Tire a raiz e simplifique",
+        "explicacao": "50 é 25 vezes 2, e o 25 sai da raiz como 5.",
+        "conta": "√50 = 5√2"
+      },
+      {
+        "titulo": "Aproxime só no fim",
+        "explicacao": "Guardar o símbolo até aqui evita acumular erro de arredondamento.",
+        "conta": "5 × 1,41 = 7,05 cm"
+      }
+    ],
+    "fecho": "A diagonal é maior que o lado e menor que dois lados: 7,05 está entre 5 e 10, como tem de ser."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é a diagonal de um quadrado de lado 8 cm? Use √2 = 1,41 e digite apenas o número.",
+      "imagem": "pt9-q-diagonal-8",
+      "dica": "A diagonal de um quadrado de lado L mede L√2.",
+      "formato": "numero",
+      "resposta": 11.28,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é 8 + 8, somando os dois catetos. A diagonal é a hipotenusa, e ela é menor que a soma dos catetos."
+        },
+        {
+          "resposta": "128",
+          "porque": "128 é 64 + 64, a soma dos quadrados. Falta tirar a raiz: √128 é 8√2, perto de 11,28."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o lado do quadrado. A diagonal atravessa a figura e é maior que o lado — ela vale o lado multiplicado por √2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o triângulo",
+          "explicacao": "A diagonal é a hipotenusa de um triângulo de catetos iguais ao lado.",
+          "conta": "64 + 64 = 128"
+        },
+        {
+          "titulo": "Simplifique a raiz",
+          "explicacao": "128 é 64 vezes 2, e o 64 sai como 8.",
+          "conta": "√128 = 8√2"
+        },
+        {
+          "titulo": "Aproxime no fim",
+          "explicacao": "Multiplicando pelo valor aproximado de √2.",
+          "conta": "8 × 1,41 = 11,28"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a altura de um triângulo equilátero de lado 10 cm? Use √3 = 1,73 e digite apenas o número.",
+      "imagem": "pt9-q-altura-equilatero",
+      "dica": "A altura cai no meio da base, criando um triângulo retângulo de hipotenusa 10 e cateto 5.",
+      "formato": "numero",
+      "resposta": 8.65,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é o lado do triângulo. A altura é um CATETO do triângulo retângulo cuja hipotenusa é o lado, então ela é menor que 10."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é metade da base, ou seja, o outro cateto. A altura é o cateto vertical, e sai de √(100 − 25)."
+        },
+        {
+          "resposta": "75",
+          "porque": "75 é o quadrado da altura, que é 100 − 25. Falta tirar a raiz: √75 é 5√3, perto de 8,65."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Parta a base ao meio",
+          "explicacao": "A altura do equilátero cai exatamente no ponto médio da base.",
+          "conta": "hipotenusa 10 · cateto 5"
+        },
+        {
+          "titulo": "Subtraia os quadrados",
+          "explicacao": "A altura é o cateto que falta, e a hipotenusa é o lado do triângulo.",
+          "conta": "100 − 25 = 75"
+        },
+        {
+          "titulo": "Simplifique e aproxime",
+          "explicacao": "75 é 25 vezes 3, e o 25 sai como 5.",
+          "conta": "5√3 = 5 × 1,73 = 8,65"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a altura de um triângulo equilátero cria um triângulo retângulo com cateto igual à METADE da base?",
+      "imagem": "pt9-q-por-que-metade",
+      "dica": "Pense em onde a altura encontra a base num triângulo com os três lados iguais.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque no equilátero a altura cai no ponto médio da base" },
+        { "rotulo": "B", "texto": "Porque a altura é sempre metade do lado" },
+        { "rotulo": "C", "texto": "Porque o triângulo tem três lados" },
+        { "rotulo": "D", "texto": "Porque todo triângulo tem a altura no meio da base" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a altura é sempre metade do lado",
+          "porque": "Ela não é: num equilátero de lado 10, a altura vale cerca de 8,65 e a metade do lado é 5. Quem vale metade da base é o CATETO horizontal, e não a altura."
+        },
+        {
+          "resposta": "Porque o triângulo tem três lados",
+          "porque": "Todo triângulo tem três lados, e na maioria deles a altura não cai no meio da base. O que importa aqui é os três lados serem IGUAIS."
+        },
+        {
+          "resposta": "Porque todo triângulo tem a altura no meio da base",
+          "porque": "Só os isósceles e os equiláteros têm, quando a altura parte do vértice entre os lados iguais. Num triângulo escaleno ela cai em qualquer ponto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use a simetria",
+          "explicacao": "Com os três lados iguais, os dois triângulos formados pela altura são congruentes.",
+          "conta": "as duas metades coincidem"
+        },
+        {
+          "titulo": "Conclua sobre a base",
+          "explicacao": "Se as duas metades são iguais, o pé da altura é o ponto médio.",
+          "conta": "cateto = L/2"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A diagonal de um quadrado mede 6√2 cm. Quanto mede o lado dele, em centímetros? Digite apenas o número.",
+      "imagem": "pt9-q-lado-pela-diagonal",
+      "dica": "A diagonal é o lado multiplicado por √2. Aqui o caminho é o contrário.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "12",
+          "porque": "12 é o dobro de 6, como se a diagonal fosse o dobro do lado. Ela é o lado vezes √2, que é cerca de 1,41 — bem menos que 2."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é metade de 6. Dividir por 2 seria desfazer uma multiplicação por 2, e a diagonal multiplica o lado por √2."
+        },
+        {
+          "resposta": "8,49",
+          "porque": "8,49 é o valor aproximado da própria diagonal, 6 × 1,41. A pergunta é pelo lado, que é o 6 que acompanha o √2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a relação",
+          "explicacao": "A diagonal de um quadrado é o lado multiplicado pela raiz de dois.",
+          "conta": "d = L√2"
+        },
+        {
+          "titulo": "Compare com o dado",
+          "explicacao": "O número que acompanha o √2 é justamente o lado.",
+          "conta": "6√2 = L√2 → L = 6"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "achar-cateto",
+  "numero": 3,
+  "titulo": "Achar um cateto",
+  "pergunta": "E quando o lado que falta não é o maior?",
+  "ideia": {
+    "paragrafos": [
+      "Quando os dados são a hipotenusa e um cateto, a conta muda de sinal: em vez de somar, subtrai. E isso não é uma segunda fórmula a decorar — é a mesma fórmula com a incógnita em outro lugar, resolvida como qualquer equação do 7º ano.",
+      "Escreva o teorema com os nomes certos e veja: a² + b² = c², com c a hipotenusa. Se o que falta é o cateto b, então b² = c² − a². A subtração aparece porque o termo b² foi isolado, e não porque existe uma regra nova. Quem entende isso não precisa memorizar dois casos.",
+      "Num exemplo: hipotenusa 13 e um cateto 5. O quadrado da hipotenusa é 169, o do cateto conhecido é 25, e o do cateto procurado é 169 − 25 = 144. Tirando a raiz, o cateto mede 12. Repare que o resultado saiu MENOR que a hipotenusa, como tem de ser.",
+      "O erro clássico da lição é somar por hábito: 169 + 25 dá 194, e a raiz disso é quase 14 — maior que a hipotenusa, o que é impossível. A conferência de plausibilidade pega esse erro sozinha, e vale sempre fazê-la: nenhum cateto pode passar da hipotenusa.",
+      "O passo que decide tudo, então, é identificar quem é a hipotenusa antes de escrever qualquer conta. Em problema de texto, ela costuma aparecer como a escada inteira, o cabo esticado, o caminho reto, a diagonal — sempre o comprimento que atravessa, e não os que se encontram em ângulo reto.",
+      "Vale observar que o resultado pode ser irracional aqui também. Com hipotenusa 4 e cateto 2, sobra 16 − 4 = 12, e o cateto é √12, que simplifica para 2√3. A matéria de radiciação continua sendo a ferramenta para deixar a resposta na forma mais limpa."
+    ],
+    "destaque": "Quando falta um cateto, a conta é de SUBTRAÇÃO — porque é o mesmo teorema com a incógnita isolada em outro lugar.",
+    "imagem": "pt9-ideia-subtrair"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo retângulo tem hipotenusa 13 cm e um cateto de 5 cm. Quanto mede o outro cateto?",
+    "imagem": "pt9-res-cateto-12",
+    "passos": [
+      {
+        "titulo": "Identifique a hipotenusa",
+        "explicacao": "É o maior lado, oposto ao ângulo reto — aqui, os 13 cm.",
+        "conta": "c = 13 · a = 5"
+      },
+      {
+        "titulo": "Escreva o teorema",
+        "explicacao": "Com o cateto procurado ainda como incógnita.",
+        "conta": "5² + b² = 13²"
+      },
+      {
+        "titulo": "Isole o que falta",
+        "explicacao": "Passando o quadrado do cateto conhecido para o outro lado.",
+        "conta": "b² = 169 − 25 = 144"
+      },
+      {
+        "titulo": "Tire a raiz",
+        "explicacao": "É o passo que devolve o comprimento a partir da área.",
+        "conta": "b = 12 cm"
+      }
+    ],
+    "fecho": "Conferindo: 12 é menor que a hipotenusa 13, como todo cateto tem de ser."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo retângulo tem hipotenusa 25 cm e um cateto de 7 cm. Quanto mede o outro cateto, em centímetros? Digite apenas o número.",
+      "imagem": "pt9-q-cateto-24",
+      "dica": "Escreva o teorema com a hipotenusa no lugar certo e isole o cateto que falta.",
+      "formato": "numero",
+      "resposta": 24,
+      "errosComuns": [
+        {
+          "resposta": "576",
+          "porque": "576 é o quadrado do cateto procurado, ou seja, 625 − 49. Falta tirar a raiz: √576 = 24."
+        },
+        {
+          "resposta": "18",
+          "porque": "18 é 25 − 7, subtraindo os LADOS. O teorema subtrai os quadrados: 625 − 49, que dá 576."
+        },
+        {
+          "resposta": "26",
+          "porque": "26 sai de somar os quadrados em vez de subtrair. Um cateto não pode ser maior que a hipotenusa, e 26 já passa dos 25 — o próprio resultado denuncia o erro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o teorema",
+          "explicacao": "Os 25 cm são a hipotenusa, então eles ficam sozinhos de um lado.",
+          "conta": "7² + b² = 25²"
+        },
+        {
+          "titulo": "Isole e subtraia",
+          "explicacao": "Passando o quadrado do cateto conhecido para o outro lado.",
+          "conta": "b² = 625 − 49 = 576"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "576 é quadrado perfeito, então a medida sai exata.",
+          "conta": "b = 24"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo retângulo tem hipotenusa 10 m e um cateto de 6 m. Quanto mede o outro cateto, em metros? Digite apenas o número.",
+      "imagem": "pt9-q-cateto-8",
+      "dica": "Subtraia os quadrados, e depois tire a raiz.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "64",
+          "porque": "64 é o quadrado do cateto procurado, que é 100 − 36. A resposta é a raiz disso: 8."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é 10 − 6, subtraindo os lados em vez dos quadrados. Com o cateto 4, a hipotenusa daria √52, e não 10."
+        },
+        {
+          "resposta": "11,66",
+          "porque": "11,66 é a raiz de 136, ou seja, de 100 + 36 — somando quando era preciso subtrair. Um cateto maior que a hipotenusa é impossível."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Subtraia os quadrados",
+          "explicacao": "O quadrado da hipotenusa menos o do cateto conhecido.",
+          "conta": "100 − 36 = 64"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "É o passo que devolve o comprimento.",
+          "conta": "√64 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a conta vira subtração quando o lado que falta é um cateto?",
+      "imagem": "pt9-q-por-que-subtrai",
+      "dica": "Escreva a² + b² = c² e isole o termo que você não conhece.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque é o mesmo teorema com a incógnita isolada do outro lado" },
+        { "rotulo": "B", "texto": "Porque existe uma fórmula diferente para catetos" },
+        { "rotulo": "C", "texto": "Porque catetos são sempre menores que 10" },
+        { "rotulo": "D", "texto": "Porque a raiz quadrada exige subtração" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque existe uma fórmula diferente para catetos",
+          "porque": "Não existe segunda fórmula. É a mesma a² + b² = c², com o termo desconhecido passado para o outro lado — exatamente como em qualquer equação do 7º ano."
+        },
+        {
+          "resposta": "Porque catetos são sempre menores que 10",
+          "porque": "Eles podem ter qualquer medida: um triângulo de catetos 20 e 21 tem hipotenusa 29. O que vale sempre é o cateto ser menor que a hipotenusa, e isso não depende de número nenhum."
+        },
+        {
+          "resposta": "Porque a raiz quadrada exige subtração",
+          "porque": "A raiz não exige nada disso: quando se procura a hipotenusa, a raiz também aparece, e a conta antes dela é uma soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o teorema",
+          "explicacao": "Com a hipotenusa sozinha de um lado, como sempre.",
+          "conta": "a² + b² = c²"
+        },
+        {
+          "titulo": "Isole o cateto desconhecido",
+          "explicacao": "Passar o outro termo para o lado direito troca o sinal dele.",
+          "conta": "b² = c² − a²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um triângulo retângulo tem hipotenusa 17 cm e um cateto de 8 cm. Quanto mede o outro cateto, em centímetros? Digite apenas o número.",
+      "imagem": "pt9-q-cateto-15",
+      "dica": "289 menos 64 dá um quadrado perfeito.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "225",
+          "porque": "225 é o quadrado do cateto procurado. A medida é √225, que dá 15."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 17 − 8, subtraindo os lados. Com cateto 9, a hipotenusa daria √145, perto de 12 — e não 17."
+        },
+        {
+          "resposta": "18,8",
+          "porque": "18,8 é a raiz de 353, ou seja, de 289 + 64. Somar aqui produz um cateto maior que a hipotenusa, o que não existe."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Subtraia os quadrados",
+          "explicacao": "O da hipotenusa menos o do cateto conhecido.",
+          "conta": "289 − 64 = 225"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "225 é quadrado perfeito, e a raiz é 15.",
+          "conta": "√225 = 15"
+        }
+      ]
+    }
+  ]
+}

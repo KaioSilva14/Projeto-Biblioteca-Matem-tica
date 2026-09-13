@@ -1,0 +1,195 @@
+{
+  "id": "quadrilatero-inscrito",
+  "numero": 4,
+  "titulo": "O quadrilátero inscrito",
+  "pergunta": "O que acontece quando os quatro vértices caem na circunferência?",
+  "ideia": {
+    "paragrafos": [
+      "Um quadrilátero com os quatro vértices sobre uma mesma circunferência chama-se INSCRITO. E ele obedece a uma regra que não vale para quadriláteros quaisquer: os ângulos OPOSTOS somam sempre 180°.",
+      "A demonstração é curta e usa só a lição 2. Dois ângulos opostos do quadrilátero são ângulos inscritos, e cada um enxerga um dos dois arcos entre os outros dois vértices. Como os dois arcos somam a volta inteira, 360°, e cada ângulo vale metade do arco que enxerga, a soma dos dois ângulos vale metade de 360° — ou seja, 180°.",
+      "Repare no encadeamento, porque ele é o tipo de argumento que a matéria quer ensinar: nada de novo foi usado. A relação do inscrito, que já estava provada, mais o fato de que os dois arcos fecham a volta. Duas coisas conhecidas produzem uma terceira.",
+      "Na prática, a regra resolve rápido: sabendo um ângulo de um quadrilátero inscrito, o oposto sai por subtração. Se um vale 70°, o oposto vale 110°. E os outros dois também somam 180° entre si — então conhecer dois ângulos não vizinhos já fecha a figura inteira.",
+      "A recíproca também vale e é útil: se num quadrilátero os ângulos opostos somam 180°, então ele PODE ser inscrito numa circunferência. É assim que se descobre, a partir de medidas, que quatro pontos estão sobre uma mesma curva — o mesmo tipo de raciocínio da recíproca de Pitágoras.",
+      "Um caso particular conhecido cai direto: todo retângulo é inscritível, porque os quatro ângulos dele medem 90° e qualquer par de opostos soma 180°. O centro da circunferência, nesse caso, é o cruzamento das diagonais — e as diagonais são diâmetros."
+    ],
+    "destaque": "Num quadrilátero inscrito, ângulos opostos somam 180° — porque os dois arcos que eles enxergam fecham a volta.",
+    "imagem": "ar9-ideia-quadrilatero"
+  },
+  "resolvido": {
+    "enunciado": "Num quadrilátero inscrito numa circunferência, um ângulo mede 70°. Quanto mede o ângulo oposto a ele?",
+    "imagem": "ar9-res-oposto-110",
+    "passos": [
+      {
+        "titulo": "Reconheça os dois inscritos",
+        "explicacao": "Cada um dos dois ângulos opostos enxerga um dos dois arcos entre os outros vértices.",
+        "conta": "dois arcos, dois inscritos"
+      },
+      {
+        "titulo": "Some os dois arcos",
+        "explicacao": "Juntos eles formam a volta inteira da circunferência.",
+        "conta": "360°"
+      },
+      {
+        "titulo": "Tome a metade",
+        "explicacao": "Cada inscrito vale metade do arco dele, então a soma dos dois é metade do total.",
+        "conta": "360 / 2 = 180°"
+      },
+      {
+        "titulo": "Subtraia o ângulo conhecido",
+        "explicacao": "O oposto é o que falta para completar os 180°.",
+        "conta": "180 − 70 = 110°"
+      }
+    ],
+    "fecho": "E os outros dois ângulos também somam 180° entre si, pelo mesmo argumento."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num quadrilátero inscrito numa circunferência, um ângulo mede 85°. Quanto mede o ângulo oposto a ele, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-oposto-95",
+      "dica": "Ângulos opostos de um quadrilátero inscrito somam 180°.",
+      "formato": "numero",
+      "resposta": 95,
+      "errosComuns": [
+        {
+          "resposta": "275",
+          "porque": "275 é 360 − 85, usando a volta inteira. Quem soma 360° são os dois ARCOS; os dois ângulos somam metade disso."
+        },
+        {
+          "resposta": "85",
+          "porque": "85 é o próprio ângulo dado. Os opostos só ficam iguais quando os dois valem 90°, o que não é o caso aqui."
+        },
+        {
+          "resposta": "170",
+          "porque": "170 é 2 × 85, o ângulo CENTRAL correspondente. A pergunta é pelo outro ângulo do quadrilátero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a relação",
+          "explicacao": "Ângulos opostos de um quadrilátero inscrito somam meia volta.",
+          "conta": "85 + x = 180"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "O oposto é o que falta para 180°.",
+          "conta": "180 − 85 = 95"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que os ângulos opostos de um quadrilátero inscrito somam 180°?",
+      "imagem": "ar9-q-por-que-180",
+      "dica": "Cada um deles é um ângulo inscrito. Que arcos eles enxergam?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque os dois arcos que eles enxergam somam 360°, e cada um vale metade do seu" },
+        { "rotulo": "B", "texto": "Porque todo quadrilátero tem ângulos opostos somando 180°" },
+        { "rotulo": "C", "texto": "Porque a soma dos quatro ângulos é 360°" },
+        { "rotulo": "D", "texto": "Porque os quatro lados são iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque todo quadrilátero tem ângulos opostos somando 180°",
+          "porque": "Não tem: num quadrilátero qualquer os opostos podem somar 120° ou 250°. A regra é exclusiva dos inscritos, e é isso que a torna útil."
+        },
+        {
+          "resposta": "Porque a soma dos quatro ângulos é 360°",
+          "porque": "Essa soma vale em QUALQUER quadrilátero, e ela não diz como os 360° se repartem entre os pares. O que a lição prova é que cada par de opostos leva exatamente metade."
+        },
+        {
+          "resposta": "Porque os quatro lados são iguais",
+          "porque": "Os lados podem ser todos diferentes: basta os quatro vértices estarem na circunferência. A regra não fala de lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique os dois arcos",
+          "explicacao": "Cada ângulo oposto enxerga um dos dois arcos entre os outros dois vértices.",
+          "conta": "os dois somam 360°"
+        },
+        {
+          "titulo": "Aplique a relação do inscrito",
+          "explicacao": "Cada ângulo vale metade do arco dele, então a soma é metade de 360°.",
+          "conta": "180°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num quadrilátero inscrito, dois ângulos VIZINHOS medem 80° e 95°. Quanto mede o ângulo oposto ao de 80°, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-vizinhos",
+      "dica": "Cuidado: a regra vale para ângulos opostos, e não para vizinhos.",
+      "formato": "numero",
+      "resposta": 100,
+      "errosComuns": [
+        {
+          "resposta": "85",
+          "porque": "85 é o oposto do ângulo de 95°, e não do de 80°. Cada ângulo tem o seu par, e trocar os pares é o erro mais comum aqui."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é 85 − 80, misturando os dois pares numa subtração. O oposto do 80° sai de 180 − 80."
+        },
+        {
+          "resposta": "175",
+          "porque": "175 é 80 + 95, somando dois ângulos VIZINHOS. A regra da soma 180° vale só para o par de opostos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Isole o par certo",
+          "explicacao": "O ângulo de 80° e o oposto dele formam um par; o de 95° forma outro.",
+          "conta": "80 + x = 180"
+        },
+        {
+          "titulo": "Subtraia",
+          "explicacao": "Só o par de opostos entra nesta conta.",
+          "conta": "180 − 80 = 100"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um retângulo pode ser inscrito numa circunferência?",
+      "imagem": "ar9-q-retangulo",
+      "dica": "Confira se os ângulos opostos dele somam 180°.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque todos os ângulos dele medem 90° e cada par de opostos soma 180°" },
+        { "rotulo": "B", "texto": "Não, porque os lados dele não são todos iguais" },
+        { "rotulo": "C", "texto": "Só se ele for um quadrado" },
+        { "rotulo": "D", "texto": "Não, porque uma circunferência não tem cantos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque os lados dele não são todos iguais",
+          "porque": "A condição é sobre ÂNGULOS, e não sobre lados. Um retângulo bem alongado é inscritível do mesmo jeito — as diagonais dele viram diâmetros."
+        },
+        {
+          "resposta": "Só se ele for um quadrado",
+          "porque": "Todo retângulo serve: os quatro ângulos valem 90° em qualquer um deles, e 90 + 90 dá 180. O quadrado é só um caso particular."
+        },
+        {
+          "resposta": "Não, porque uma circunferência não tem cantos",
+          "porque": "A circunferência não precisa ter cantos: o que se pede é que os quatro VÉRTICES do quadrilátero caiam sobre ela, e os lados ficam por dentro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some um par de opostos",
+          "explicacao": "Todos os ângulos de um retângulo medem 90°.",
+          "conta": "90 + 90 = 180°"
+        },
+        {
+          "titulo": "Aplique a recíproca",
+          "explicacao": "Opostos somando 180° garantem que o quadrilátero é inscritível.",
+          "conta": "sim, é inscritível"
+        }
+      ]
+    }
+  ]
+}

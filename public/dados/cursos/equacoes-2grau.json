@@ -1,0 +1,41 @@
+{
+  "id": "equacoes-2grau",
+  "titulo": "Equações do 2º grau",
+  "ano": 9,
+  "descricao": "Bhaskara é a fórmula mais decorada do Ensino Fundamental, e decorá-la sem saber de onde vem é o caminho para esquecê-la na prova seguinte. Aqui ela é DEDUZIDA, completando o quadrado — o mesmo recurso geométrico que o 8º ano usou em produtos notáveis. E o discriminante deixa de ser um número que se calcula por hábito: ele é a resposta de uma pergunta que vem antes.",
+  "pergunta": "De onde vem a fórmula de Bhaskara?",
+  "videos": [
+    {
+      "id": "HCylt5HtFMs",
+      "titulo": "EQUAÇÃO DO 2 GRAU 9° ANO \\Prof. Gis/ aula 1",
+      "canal": "Gis com Giz",
+      "descricao": "Apresenta a equação e os coeficientes antes de qualquer fórmula, que é a ordem da lição 1."
+    },
+    {
+      "id": "GX2qKdb5ATE",
+      "titulo": "EQUAÇÃO DO 2º GRAU INCOMPLETA SEM FÓRMULA \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só as incompletas, resolvidas sem Bhaskara. É exatamente o assunto da lição 2."
+    },
+    {
+      "id": "KarCkEGZqXA",
+      "titulo": "EQUAÇÃO DO 2 GRAU FÓRMULA DE BHÁSKARA | \\Prof. Gis/ AULA 2",
+      "canal": "Gis com Giz",
+      "descricao": "A fórmula aplicada passo a passo, com vários exemplos. Bom para treinar depois da lição 4."
+    },
+    {
+      "id": "bDzwyFUqPHw",
+      "titulo": "EQUAÇÃO DO 2 GRAU |  ANÁLISE DO DISCRIMINANTE | \\Prof. Gis/ AULA 5",
+      "canal": "Gis com Giz",
+      "descricao": "Dedicado ao delta e ao que ele revela antes da conta. Serve como revisão da lição 5."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/equacoes-2grau/o-que-e.json" },
+    { "id": "incompletas", "arquivo": "/dados/licoes/equacoes-2grau/incompletas.json" },
+    { "id": "completar-quadrado", "arquivo": "/dados/licoes/equacoes-2grau/completar-quadrado.json" },
+    { "id": "bhaskara", "arquivo": "/dados/licoes/equacoes-2grau/bhaskara.json" },
+    { "id": "discriminante", "arquivo": "/dados/licoes/equacoes-2grau/discriminante.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/equacoes-2grau/problemas.json" }
+  ]
+}

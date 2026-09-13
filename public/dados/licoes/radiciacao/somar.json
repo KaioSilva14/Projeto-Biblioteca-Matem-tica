@@ -1,0 +1,207 @@
+{
+  "id": "somar",
+  "numero": 5,
+  "titulo": "Somar e subtrair radicais",
+  "pergunta": "Quando dois radicais podem ser juntados numa parcela só?",
+  "ideia": {
+    "paragrafos": [
+      "A lição 3 deixou claro que a raiz não distribui sobre a soma — √9 + √16 não é √25. Isso não impede, porém, que radicais sejam somados: só impede que a soma seja feita POR DENTRO da raiz. Ela é feita por fora, e a regra é a mesma da álgebra do 7º ano.",
+      "Volte à ideia dos tokens de Linguagem algébrica: 3x + 2x junta e vira 5x, porque as duas parcelas contam a mesma coisa. Já 3x + 2y não junta, porque x e y são coisas diferentes. Com radicais é idêntico — troque x por √3 e a regra vale sem mudar nada.",
+      "Então 2√3 + 5√3 = 7√3, porque as duas parcelas contam a mesma coisa: o √3. Radicais assim, com o MESMO índice e o MESMO radicando, chamam-se semelhantes, e só eles se juntam. √2 + √3 não junta e fica como está — e escrever √5 ali seria um erro grosseiro, porque √2 + √3 ≈ 3,15 enquanto √5 ≈ 2,24.",
+      "A parte esperta vem agora. √8 + √18 parece impossível de juntar, porque os radicandos são diferentes. Mas simplificando os dois — √8 = 2√2 e √18 = 3√2 —, eles revelam o mesmo √2 e a soma sai: 2√2 + 3√2 = 5√2.",
+      "É por isso que a lição de simplificar veio antes. Sem ela, radicais semelhantes disfarçados passariam por diferentes, e somas perfeitamente possíveis pareceriam travadas. A rotina é sempre: simplificar tudo primeiro, e só depois olhar quem é semelhante a quem.",
+      "Uma conferência barata: some os valores aproximados e compare com o resultado. √8 + √18 dá cerca de 2,83 + 4,24 = 7,07, e 5√2 também dá 7,07. Se os dois não batessem, alguma simplificação saiu errada."
+    ],
+    "destaque": "Só radicais SEMELHANTES se somam — mesmo índice e mesmo radicando. Simplifique antes de decidir quem é semelhante.",
+    "imagem": "rd9-ideia-semelhantes"
+  },
+  "resolvido": {
+    "enunciado": "Calcule √8 + √18.",
+    "imagem": "rd9-res-oito-mais-dezoito",
+    "passos": [
+      {
+        "titulo": "Olhe se são semelhantes",
+        "explicacao": "Os radicandos 8 e 18 são diferentes, então ainda não dá para somar.",
+        "conta": "8 ≠ 18"
+      },
+      {
+        "titulo": "Simplifique o primeiro",
+        "explicacao": "8 é 4 × 2, e o 4 é quadrado perfeito.",
+        "conta": "√8 = 2√2"
+      },
+      {
+        "titulo": "Simplifique o segundo",
+        "explicacao": "18 é 9 × 2, e o 9 é quadrado perfeito.",
+        "conta": "√18 = 3√2"
+      },
+      {
+        "titulo": "Agora some",
+        "explicacao": "Os dois viraram múltiplos do mesmo √2, então as parcelas se juntam.",
+        "conta": "2√2 + 3√2 = 5√2"
+      }
+    ],
+    "fecho": "Os radicandos eram diferentes só na aparência — simplificados, os dois eram √2."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Calcule 2√3 + 5√3.",
+      "imagem": "rd9-q-somar-semelhantes",
+      "dica": "As duas parcelas contam a mesma coisa. É a regra de juntar termos semelhantes, do 7º ano.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "7√3" },
+        { "rotulo": "B", "texto": "7√6" },
+        { "rotulo": "C", "texto": "10√3" },
+        { "rotulo": "D", "texto": "√30" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "7√6",
+          "porque": "O radicando não muda ao somar: √3 + √3 continua contando √3, como x + x continua contando x. Somar os radicandos seria como transformar x + x em x²."
+        },
+        {
+          "resposta": "10√3",
+          "porque": "10 é 2 × 5, multiplicando os coeficientes. A operação pedida é uma SOMA, então os coeficientes se somam: 2 + 5 = 7."
+        },
+        {
+          "resposta": "√30",
+          "porque": "√30 sai de multiplicar tudo e enfiar dentro da raiz. A conta é uma soma de parcelas semelhantes, e o resultado guarda o mesmo √3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confira se são semelhantes",
+          "explicacao": "As duas parcelas têm o mesmo índice e o mesmo radicando.",
+          "conta": "√3 nos dois"
+        },
+        {
+          "titulo": "Some os coeficientes",
+          "explicacao": "O radical fica intacto, como o x de 2x + 5x.",
+          "conta": "2 + 5 = 7 → 7√3"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "√2 + √3 pode ser escrito como √5?",
+      "imagem": "rd9-q-nao-junta",
+      "dica": "Compare os valores aproximados dos dois lados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: √2 + √3 dá cerca de 3,15, e √5 dá cerca de 2,24" },
+        { "rotulo": "B", "texto": "Sim, porque 2 + 3 = 5" },
+        { "rotulo": "C", "texto": "Sim, mas só depois de simplificar" },
+        { "rotulo": "D", "texto": "Não, porque √5 não existe" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque 2 + 3 = 5",
+          "porque": "Somar os radicandos é justamente o que não se pode fazer: a raiz não distribui sobre a soma. Os valores aproximados denunciam o erro — 3,15 contra 2,24."
+        },
+        {
+          "resposta": "Sim, mas só depois de simplificar",
+          "porque": "√2 e √3 já estão simplificados: 2 e 3 são primos e não têm quadrado perfeito como fator. Simplificar não vai aproximá-los — eles continuam radicais diferentes."
+        },
+        {
+          "resposta": "Não, porque √5 não existe",
+          "porque": "√5 existe e vale cerca de 2,24 — é um irracional como qualquer outro. O problema não é ele existir, e sim ele não ser igual a √2 + √3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os radicandos",
+          "explicacao": "2 e 3 são diferentes, então as parcelas não são semelhantes.",
+          "conta": "não junta"
+        },
+        {
+          "titulo": "Confira pelos valores",
+          "explicacao": "Somando as aproximações e comparando com √5.",
+          "conta": "1,41 + 1,73 = 3,15 ≠ 2,24"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Calcule √12 + √27.",
+      "imagem": "rd9-q-simplificar-antes",
+      "dica": "Os radicandos são diferentes, mas simplifique os dois antes de desistir.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5√3" },
+        { "rotulo": "B", "texto": "√39" },
+        { "rotulo": "C", "texto": "6√3" },
+        { "rotulo": "D", "texto": "Não é possível somar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "√39",
+          "porque": "√39 vem de somar os radicandos, o que a raiz não permite. Simplificados, os dois viram múltiplos de √3 e a soma sai: 2√3 + 3√3 = 5√3, que vale cerca de 8,66."
+        },
+        {
+          "resposta": "6√3",
+          "porque": "6 é 2 × 3, multiplicando os coeficientes depois de simplificar. A operação é soma, então eles se somam: 2 + 3 = 5."
+        },
+        {
+          "resposta": "Não é possível somar",
+          "porque": "É possível, e é justamente o ponto da lição: 12 e 27 parecem diferentes, mas √12 = 2√3 e √27 = 3√3 revelam o mesmo radical por baixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Simplifique os dois",
+          "explicacao": "12 é 4 × 3 e 27 é 9 × 3, com quadrados perfeitos nos dois.",
+          "conta": "√12 = 2√3 · √27 = 3√3"
+        },
+        {
+          "titulo": "Some os coeficientes",
+          "explicacao": "Agora as duas parcelas contam o mesmo √3.",
+          "conta": "2√3 + 3√3 = 5√3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é a primeira coisa a fazer antes de decidir se dois radicais podem ser somados?",
+      "imagem": "rd9-q-primeiro-passo",
+      "dica": "Pense no que fez √8 e √18 revelarem ser semelhantes.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Simplificar os dois, porque semelhantes podem estar disfarçados" },
+        { "rotulo": "B", "texto": "Somar os radicandos e ver se dá quadrado perfeito" },
+        { "rotulo": "C", "texto": "Calcular os valores decimais de cada um" },
+        { "rotulo": "D", "texto": "Comparar os coeficientes de fora da raiz" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Somar os radicandos e ver se dá quadrado perfeito",
+          "porque": "Somar radicandos é exatamente o erro que a lição 3 nomeou. Isso não é um teste válido para nada: √8 + √18 não tem relação com √26."
+        },
+        {
+          "resposta": "Calcular os valores decimais de cada um",
+          "porque": "Os decimais servem para CONFERIR o resultado no fim, mas não para decidir se junta: dois irracionais podem ter valores próximos sem serem semelhantes."
+        },
+        {
+          "resposta": "Comparar os coeficientes de fora da raiz",
+          "porque": "Os coeficientes não decidem nada: 2√3 e 5√3 têm coeficientes diferentes e se somam, enquanto 2√3 e 2√5 têm o mesmo coeficiente e não se somam. Quem decide é o radical."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre do caso do √8 e √18",
+          "explicacao": "Os radicandos pareciam diferentes e não eram, depois de simplificados.",
+          "conta": "2√2 e 3√2"
+        },
+        {
+          "titulo": "Estabeleça a rotina",
+          "explicacao": "Simplificar primeiro é o que revela os semelhantes disfarçados.",
+          "conta": "simplificar → comparar"
+        }
+      ]
+    }
+  ]
+}

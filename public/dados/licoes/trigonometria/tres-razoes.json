@@ -1,0 +1,189 @@
+{
+  "id": "tres-razoes",
+  "numero": 1,
+  "titulo": "Oposto, adjacente e hipotenusa",
+  "pergunta": "O que as três razões comparam?",
+  "ideia": {
+    "paragrafos": [
+      "Escolha um dos ângulos agudos de um triângulo retângulo e chame-o de θ. A partir dessa escolha, os três lados ganham nomes: a hipotenusa continua sendo a hipotenusa, o cateto que fica DE FRENTE para θ é o cateto oposto, e o cateto que ENCOSTA em θ é o cateto adjacente.",
+      "Repare no que acabou de acontecer: oposto e adjacente não são propriedades do triângulo, são propriedades do ÂNGULO ESCOLHIDO. Trocando θ pelo outro ângulo agudo, os dois catetos trocam de papel — o que era oposto vira adjacente e vice-versa. É o engano número um da matéria, e ele acontece antes de qualquer conta.",
+      "Com os nomes na mão, as três razões são simples de escrever. O SENO de θ é o oposto dividido pela hipotenusa. O COSSENO é o adjacente dividido pela hipotenusa. E a TANGENTE é o oposto dividido pelo adjacente — a única das três que não usa a hipotenusa.",
+      "Num triângulo de catetos 3 e 4 e hipotenusa 5, tomando θ como o ângulo que encosta no cateto 4: o oposto é 3, o adjacente é 4. Então sen θ = 3/5 = 0,6; cos θ = 4/5 = 0,8; e tg θ = 3/4 = 0,75.",
+      "Duas conferências rápidas que evitam erro. Seno e cosseno são sempre MENORES que 1, porque a hipotenusa é o maior lado e ela está no denominador dos dois. A tangente não tem esse teto: ela pode passar de 1 sempre que o oposto for maior que o adjacente.",
+      "Uma sigla ajuda a lembrar, e ela é honesta desde que os nomes estejam claros: SOH-CAH-TOA — Seno é Oposto sobre Hipotenusa, Cosseno é Adjacente sobre Hipotenusa, Tangente é Oposto sobre Adjacente. Mas a sigla não substitui saber quem é oposto de quem."
+    ],
+    "destaque": "Oposto e adjacente dependem do ângulo escolhido, e não do triângulo. Trocar de ângulo troca os dois de papel.",
+    "imagem": "tr9-ideia-nomes"
+  },
+  "resolvido": {
+    "enunciado": "Num triângulo retângulo de catetos 3 e 4 e hipotenusa 5, calcule o seno, o cosseno e a tangente do ângulo que encosta no cateto 4.",
+    "imagem": "tr9-res-tres-razoes",
+    "passos": [
+      {
+        "titulo": "Nomeie os lados a partir do ângulo",
+        "explicacao": "O cateto que encosta em θ é o adjacente; o que fica de frente é o oposto.",
+        "conta": "oposto 3 · adjacente 4 · hipotenusa 5"
+      },
+      {
+        "titulo": "Calcule o seno",
+        "explicacao": "É o oposto dividido pela hipotenusa.",
+        "conta": "3 / 5 = 0,6"
+      },
+      {
+        "titulo": "Calcule o cosseno",
+        "explicacao": "É o adjacente dividido pela hipotenusa.",
+        "conta": "4 / 5 = 0,8"
+      },
+      {
+        "titulo": "Calcule a tangente",
+        "explicacao": "É o oposto dividido pelo adjacente, sem a hipotenusa.",
+        "conta": "3 / 4 = 0,75"
+      }
+    ],
+    "fecho": "Repare: seno e cosseno ficaram abaixo de 1, porque a hipotenusa é o maior lado e está no denominador."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo retângulo de catetos 3 e 4 e hipotenusa 5, quanto vale o seno do ângulo cujo cateto oposto mede 3? Digite apenas o número.",
+      "imagem": "tr9-q-seno-06",
+      "dica": "Seno é o cateto oposto dividido pela hipotenusa.",
+      "formato": "numero",
+      "resposta": 0.6,
+      "errosComuns": [
+        {
+          "resposta": "0,8",
+          "porque": "0,8 é o COSSENO desse ângulo, que usa o cateto adjacente (4) no lugar do oposto. O seno pega o lado de frente para o ângulo."
+        },
+        {
+          "resposta": "0,75",
+          "porque": "0,75 é a TANGENTE, que divide o oposto pelo adjacente. O seno divide pela hipotenusa, que aqui mede 5."
+        },
+        {
+          "resposta": "1,67",
+          "porque": "1,67 é 5 ÷ 3, ou seja, a razão invertida. Seno é oposto SOBRE hipotenusa, e por isso ele nunca passa de 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique os dois lados",
+          "explicacao": "O oposto ao ângulo e a hipotenusa, que é o maior lado.",
+          "conta": "oposto 3 · hipotenusa 5"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "O seno é a razão entre esses dois.",
+          "conta": "3 / 5 = 0,6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "No mesmo triângulo de catetos 3 e 4 e hipotenusa 5, quanto vale o cosseno do ângulo cujo cateto adjacente mede 4? Digite apenas o número.",
+      "imagem": "tr9-q-cosseno-08",
+      "dica": "Cosseno é o cateto adjacente dividido pela hipotenusa.",
+      "formato": "numero",
+      "resposta": 0.8,
+      "errosComuns": [
+        {
+          "resposta": "0,6",
+          "porque": "0,6 é o SENO desse ângulo, que usa o cateto oposto (3). O cosseno usa o cateto que encosta no ângulo."
+        },
+        {
+          "resposta": "1,25",
+          "porque": "1,25 é 5 ÷ 4, a razão invertida. Cosseno é adjacente SOBRE hipotenusa, e ele nunca passa de 1."
+        },
+        {
+          "resposta": "1,33",
+          "porque": "1,33 é 4 ÷ 3, ou seja, a tangente do OUTRO ângulo agudo. O cosseno sempre divide pela hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique os dois lados",
+          "explicacao": "O cateto que encosta no ângulo e a hipotenusa.",
+          "conta": "adjacente 4 · hipotenusa 5"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "O cosseno é a razão entre esses dois.",
+          "conta": "4 / 5 = 0,8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que acontece com os nomes dos catetos quando se troca o ângulo agudo escolhido?",
+      "imagem": "tr9-q-troca-de-papel",
+      "dica": "Pense em qual cateto fica de frente para cada um dos dois ângulos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O oposto vira adjacente e o adjacente vira oposto" },
+        { "rotulo": "B", "texto": "Nada muda: os nomes são do triângulo" },
+        { "rotulo": "C", "texto": "A hipotenusa vira um cateto" },
+        { "rotulo": "D", "texto": "Os dois catetos passam a ser opostos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Nada muda: os nomes são do triângulo",
+          "porque": "Eles são do ÂNGULO. O cateto 3 é oposto a um dos ângulos agudos e adjacente ao outro — a mesma medida, dois papéis, conforme o ângulo escolhido."
+        },
+        {
+          "resposta": "A hipotenusa vira um cateto",
+          "porque": "A hipotenusa é definida pelo ângulo RETO, e ele não muda. Ela continua sendo a hipotenusa qualquer que seja o ângulo agudo escolhido."
+        },
+        {
+          "resposta": "Os dois catetos passam a ser opostos",
+          "porque": "Cada ângulo agudo tem exatamente um cateto oposto e um adjacente. Os dois catetos nunca são opostos ao mesmo ângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o primeiro ângulo",
+          "explicacao": "O cateto de frente para ele é o oposto; o que o toca é o adjacente.",
+          "conta": "oposto 3 · adjacente 4"
+        },
+        {
+          "titulo": "Vá para o outro ângulo",
+          "explicacao": "Agora o cateto 4 é que fica de frente, e o 3 é que encosta.",
+          "conta": "oposto 4 · adjacente 3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "No triângulo de catetos 3 e 4, quanto vale a tangente do ângulo cujo cateto oposto mede 3? Digite apenas o número.",
+      "imagem": "tr9-q-tangente-075",
+      "dica": "Tangente é o oposto dividido pelo adjacente, e ela não usa a hipotenusa.",
+      "formato": "numero",
+      "resposta": 0.75,
+      "errosComuns": [
+        {
+          "resposta": "0,6",
+          "porque": "0,6 é o seno, que divide o oposto pela HIPOTENUSA. A tangente divide pelo outro cateto, que mede 4."
+        },
+        {
+          "resposta": "1,33",
+          "porque": "1,33 é 4 ÷ 3, a razão invertida — que é a tangente do outro ângulo agudo. Aqui o oposto é 3 e ele vai no numerador."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é 3 × 4, multiplicando os catetos. Tangente é uma razão, e razão é divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique os dois catetos",
+          "explicacao": "A tangente é a única das três que não usa a hipotenusa.",
+          "conta": "oposto 3 · adjacente 4"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "O oposto vai no numerador, e o adjacente no denominador.",
+          "conta": "3 / 4 = 0,75"
+        }
+      ]
+    }
+  ]
+}

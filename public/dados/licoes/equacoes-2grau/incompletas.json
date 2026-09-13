@@ -1,0 +1,195 @@
+{
+  "id": "incompletas",
+  "numero": 2,
+  "titulo": "As que se resolvem sem fórmula",
+  "pergunta": "Toda equação do 2º grau precisa de Bhaskara?",
+  "ideia": {
+    "paragrafos": [
+      "Antes de construir a fórmula geral, vale conhecer os casos em que ela não é necessária. Quando o coeficiente b ou o c vale zero, a equação chama-se INCOMPLETA, e ela se resolve com o que o 7º e o 8º ano já deram — mais rápido e com menos chance de erro.",
+      "O primeiro caso é c = 0, como em 3x² − 12x = 0. Aqui os dois termos têm x, então ele pode ser posto em evidência: x(3x − 12) = 0. E agora entra uma ideia poderosa: um produto só dá zero se algum dos fatores for zero. Então x = 0 ou 3x − 12 = 0, o que dá x = 4. Duas raízes, e uma delas é sempre o zero neste caso.",
+      "O segundo caso é b = 0, como em x² − 9 = 0. Aqui o x aparece só ao quadrado, então dá para isolá-lo: x² = 9. E a partir daí vem o cuidado mais importante da lição — a resposta NÃO é só 3. Tanto 3² quanto (−3)² dão 9, então x = 3 ou x = −3, e escreve-se x = ±3.",
+      "Esquecer a raiz negativa é o erro mais comum do Fundamental inteiro nessa parte, e ele tem uma raiz clara: no 6º ano, √9 foi definido como 3, um número só. Isso continua verdade — o símbolo √ devolve o valor positivo. Mas a pergunta aqui é outra: quais números elevados ao quadrado dão 9? E essa pergunta tem duas respostas.",
+      "O terceiro caso, com b = 0 e c = 0, é o mais simples: ax² = 0 só se resolve com x = 0.",
+      "Reconhecer a incompleta economiza tempo real numa prova. E há um ganho a mais: o caso do produto que dá zero vai reaparecer o ano inteiro, inclusive quando uma equação completa for resolvida por fatoração."
+    ],
+    "destaque": "Um produto só dá zero se um fator for zero. E x² = 9 tem DUAS respostas: 3 e −3.",
+    "imagem": "eq9-ideia-incompletas"
+  },
+  "resolvido": {
+    "enunciado": "Resolva 3x² − 12x = 0.",
+    "imagem": "eq9-res-fator-comum",
+    "passos": [
+      {
+        "titulo": "Reconheça o caso",
+        "explicacao": "Não há termo independente, então os dois termos têm x.",
+        "conta": "c = 0"
+      },
+      {
+        "titulo": "Ponha o x em evidência",
+        "explicacao": "É a fatoração por fator comum, do 8º ano.",
+        "conta": "x(3x − 12) = 0"
+      },
+      {
+        "titulo": "Use o produto nulo",
+        "explicacao": "Um produto só é zero se um dos fatores for zero.",
+        "conta": "x = 0 ou 3x − 12 = 0"
+      },
+      {
+        "titulo": "Resolva o segundo fator",
+        "explicacao": "É uma equação do 1º grau, do 7º ano.",
+        "conta": "x = 0 ou x = 4"
+      }
+    ],
+    "fecho": "Com c = 0, o zero é sempre uma das raízes — dá para prever antes de calcular."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Resolva x² − 16 = 0. Qual é a raiz POSITIVA? Digite apenas o número.",
+      "imagem": "eq9-q-b-zero",
+      "dica": "Isole o x² e lembre que a pergunta 'que número ao quadrado dá 16' tem duas respostas.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é o valor de x², e não de x. Falta tirar a raiz: o número que elevado ao quadrado dá 16 é 4."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é 16 ÷ 2, dividindo em vez de tirar a raiz. Elevar 8 ao quadrado daria 64, e não 16."
+        },
+        {
+          "resposta": "256",
+          "porque": "256 é 16², elevando ao quadrado quando era preciso fazer o contrário. A equação diz que x² vale 16, então x é a raiz de 16."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Isole o x ao quadrado",
+          "explicacao": "Passando o 16 para o outro lado da igualdade.",
+          "conta": "x² = 16"
+        },
+        {
+          "titulo": "Procure os dois números",
+          "explicacao": "Tanto 4 quanto −4 elevados ao quadrado dão 16.",
+          "conta": "x = ±4 · a positiva é 4"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantas raízes reais tem a equação x² − 9 = 0?",
+      "imagem": "eq9-q-quantas-raizes",
+      "dica": "Pergunte-se quais números, elevados ao quadrado, dão 9.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Duas: 3 e −3" },
+        { "rotulo": "B", "texto": "Uma só: 3" },
+        { "rotulo": "C", "texto": "Uma só: 9" },
+        { "rotulo": "D", "texto": "Nenhuma" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Uma só: 3",
+          "porque": "É o erro mais comum da lição, e vem de confundir duas perguntas. O símbolo √9 devolve só 3, mas a equação pergunta quais números ao quadrado dão 9 — e (−3)² também dá 9."
+        },
+        {
+          "resposta": "Uma só: 9",
+          "porque": "9 é o valor de x², e não de x. Substituindo x = 9 na equação daria 81 − 9 = 72, e não zero."
+        },
+        {
+          "resposta": "Nenhuma",
+          "porque": "Existem duas: 3 e −3, e as duas zeram a equação. Equação do 2º grau sem raiz real existe, mas é quando o quadrado teria de dar um número negativo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Isole o quadrado",
+          "explicacao": "Passando o 9 para o outro lado.",
+          "conta": "x² = 9"
+        },
+        {
+          "titulo": "Teste os dois sinais",
+          "explicacao": "O quadrado apaga o sinal, então o positivo e o negativo servem.",
+          "conta": "3² = 9 · (−3)² = 9"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Na equação 2x² − 10x = 0, uma das raízes é sempre previsível. Qual é ela? Digite apenas o número.",
+      "imagem": "eq9-q-raiz-zero",
+      "dica": "Ponha o x em evidência e olhe o primeiro fator.",
+      "formato": "numero",
+      "resposta": 0,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é a OUTRA raiz, que sai de 2x − 10 = 0. Ela é legítima, mas não é a previsível: a que sempre aparece quando c = 0 é o zero."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o coeficiente a, e não uma raiz. Substituindo x = 2 na equação daria 8 − 20 = −12, e não zero."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 vem do termo 10x, mas não é raiz: substituindo x = 10 sairia 200 − 100 = 100. As raízes são 0 e 5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ponha o x em evidência",
+          "explicacao": "Os dois termos têm x como fator comum.",
+          "conta": "x(2x − 10) = 0"
+        },
+        {
+          "titulo": "Olhe o primeiro fator",
+          "explicacao": "Se o próprio x for zero, o produto já é zero.",
+          "conta": "x = 0 sempre serve"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que x(3x − 12) = 0 permite concluir que x = 0 ou 3x − 12 = 0?",
+      "imagem": "eq9-q-produto-nulo",
+      "dica": "Pense no que precisa acontecer para uma multiplicação dar zero.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque um produto só dá zero se algum dos fatores for zero" },
+        { "rotulo": "B", "texto": "Porque os dois fatores têm de ser zero ao mesmo tempo" },
+        { "rotulo": "C", "texto": "Porque o x sempre vale zero" },
+        { "rotulo": "D", "texto": "Porque toda equação do 2º grau tem o zero como raiz" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os dois fatores têm de ser zero ao mesmo tempo",
+          "porque": "Basta UM deles. Com x = 4, o primeiro fator vale 4 e o segundo vale zero — e o produto já é zero. Exigir os dois eliminaria uma das raízes."
+        },
+        {
+          "resposta": "Porque o x sempre vale zero",
+          "porque": "O x pode valer 4 nesta equação, e ela continua satisfeita. O zero é UMA das raízes, e não a única."
+        },
+        {
+          "resposta": "Porque toda equação do 2º grau tem o zero como raiz",
+          "porque": "Só as que têm c = 0. Em x² − 5x + 6 = 0, as raízes são 2 e 3, e o zero não serve: substituindo daria 6, e não zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Pense na multiplicação",
+          "explicacao": "Multiplicar dois números diferentes de zero nunca dá zero.",
+          "conta": "≠0 × ≠0 ≠ 0"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Se o produto deu zero, pelo menos um dos fatores era zero.",
+          "conta": "x = 0 ou 3x − 12 = 0"
+        }
+      ]
+    }
+  ]
+}

@@ -35,6 +35,33 @@ const grupo = (n) => console.log(`\n${n}`);
 let montagens = 0;
 
 /**
+ * O catálogo de verdade com a ÚLTIMA matéria de um ano marcada como por
+ * publicar. É o estado que a página precisa exibir e que o catálogo real não
+ * tem mais — todos os quatro anos estão prontos.
+ *
+ * A matéria indisponível também perde o `arquivo`, como manda o modelo: um
+ * teste de conteúdo reprova matéria sem conteúdo que aponte para um arquivo.
+ */
+/**
+ * Todos os anos em que TODAS as matérias estão publicadas.
+ *
+ * Os testes de certificado de ano usavam `find` e cobriam só o primeiro — o
+ * 6º. Com os quatro anos fechados, isso deixava três de fora justamente
+ * quando a conferência passou a valer para todos. Cada um deles tem número
+ * diferente de matérias, e é aí que o desenho do certificado aperta.
+ */
+const anosCompletos = catalogo.anos.filter((a) => a.cursos.every((c) => c.disponivel));
+
+function catalogoComPendencia(numeroDoAno) {
+  const copia = JSON.parse(JSON.stringify(catalogo));
+  const ano = copia.anos.find((a) => a.ano === numeroDoAno);
+  const ultima = ano.cursos[ano.cursos.length - 1];
+  ultima.disponivel = false;
+  delete ultima.arquivo;
+  return { catalogo: copia, ano, pendente: ultima };
+}
+
+/**
  * Monta uma página num jsdom novo.
  *
  * O app.js registra o listener de DOMContentLoaded no momento do import,
@@ -42,7 +69,7 @@ let montagens = 0;
  * o import leva uma query string para o ESM reavaliar o módulo em vez de
  * devolver a instância do cache — que ainda apontaria para o document anterior.
  */
-async function montar(arquivo, busca = "", progresso = null) {
+async function montar(arquivo, busca = "", progresso = null, catalogoFalso = null) {
   const html = readFileSync(join(PUBLICO, arquivo), "utf8");
   const dom = new JSDOM(html, { url: `http://localhost:3000/${arquivo}${busca}` });
   const { window } = dom;
@@ -57,7 +84,17 @@ async function montar(arquivo, busca = "", progresso = null) {
   window.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {} });
 
   globalThis.fetch = async (url) => {
-    const caminho = join(PUBLICO, new URL(url, "http://localhost:3000/").pathname);
+    const rota = new URL(url, "http://localhost:3000/").pathname;
+    // Um catálogo de mentira, quando pedido. Quatro testes deste arquivo
+    // precisam de uma matéria POR PUBLICAR, e o catálogo de verdade deixou de
+    // ter uma quando o 9º ano fechou. Depender do catálogo real para isso já
+    // quebrou três vezes — e a última foi esta, com os quatro anos prontos.
+    // Montando a pendência aqui, os testes seguem cobrindo o comportamento
+    // para sempre, e nenhum deles crava ano nem matéria.
+    if (catalogoFalso && rota === "/dados/catalogo.json") {
+      return { ok: true, json: async () => catalogoFalso };
+    }
+    const caminho = join(PUBLICO, rota);
     try {
       return { ok: true, json: async () => JSON.parse(readFileSync(caminho, "utf8")) };
     } catch {
@@ -161,14 +198,14 @@ await teste("certificados conquistados aparecem na home", async () => {
 grupo("Página de ano");
 
 await teste("lista as matérias do ano, separando prontas de 'em breve'", async () => {
-  // O ano é escolhido do catálogo, e não fixado aqui: assim que o 6º ficou
-  // completo, um teste que cravasse "?a=6" passaria a exigir matéria em breve
-  // num ano que não tem mais nenhuma. É o mesmo cuidado do teste de curso
-  // indisponível.
-  const comPendencia = catalogo.anos.find((a) => a.cursos.some((c) => !c.disponivel));
-  assert.ok(comPendencia, "o catálogo inteiro está pronto — este teste perdeu o objeto");
+  // A pendência é MONTADA aqui, e não procurada no catálogo. Escolher do
+  // catálogo já foi a correção de uma quebra anterior, e ela durou enquanto
+  // sobrou algum ano por fechar; com os quatro prontos, o teste ficou sem
+  // objeto. Um catálogo de mentira resolve de vez, e continua sem cravar
+  // ano nem matéria — o número do ano sai do próprio catálogo.
+  const { catalogo: falso, ano: comPendencia } = catalogoComPendencia(catalogo.anos[0].ano);
 
-  const { doc } = await montar("ano.html", `?a=${comPendencia.ano}`);
+  const { doc } = await montar("ano.html", `?a=${comPendencia.ano}`, null, falso);
   assert.match(doc.querySelector("[data-cabecalho]").textContent, new RegExp(`${comPendencia.ano}º ano`));
   const linhas = doc.querySelectorAll(".linha--curso");
   assert.equal(linhas.length, comPendencia.cursos.length);
@@ -182,8 +219,7 @@ await teste("lista as matérias do ano, separando prontas de 'em breve'", async 
 });
 
 await teste("um ano inteiro pronto não mostra nenhuma matéria em breve", async () => {
-  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
-  if (!completo) return;                      // ainda não há ano fechado
+ for (const completo of anosCompletos) {
   const { doc } = await montar("ano.html", `?a=${completo.ano}`);
   const linhas = doc.querySelectorAll(".linha--curso");
   assert.equal(linhas.length, completo.cursos.length);
@@ -191,48 +227,47 @@ await teste("um ano inteiro pronto não mostra nenhuma matéria em breve", async
   assert.ok([...linhas].every((l) => l.tagName === "A"), "toda matéria pronta tem de ser link");
   // e o rodapé não explica uma marca que não aparece na página
   assert.equal(doc.querySelector("[data-nota-embreve]").hidden, true);
+ }
 });
 
 await teste("num ano com pendências o rodapé continua explicando o 'em breve'", async () => {
-  const pendente = catalogo.anos.find((a) => a.cursos.some((c) => !c.disponivel));
-  assert.ok(pendente, "o catálogo inteiro está pronto — este teste perdeu o objeto");
-  const { doc } = await montar("ano.html", `?a=${pendente.ano}`);
+  const { catalogo: falso, ano } = catalogoComPendencia(catalogo.anos[0].ano);
+  const { doc } = await montar("ano.html", `?a=${ano.ano}`, null, falso);
   assert.equal(doc.querySelector("[data-nota-embreve]").hidden, false);
 });
 
 await teste("ano com matéria por escrever não mostra certificado de ano", async () => {
-  const pendente = catalogo.anos.find((a) => a.cursos.some((c) => !c.disponivel));
-  const { doc } = await montar("ano.html", `?a=${pendente.ano}`);
+  const { catalogo: falso, ano } = catalogoComPendencia(catalogo.anos[0].ano);
+  const { doc } = await montar("ano.html", `?a=${ano.ano}`, null, falso);
   const area = doc.querySelector("[data-certificado-ano]");
   assert.equal(area.hidden, true, "cobrar um ano que ninguém escreveu não faz sentido");
   assert.equal(area.querySelector(".certificado"), null);
 });
 
 await teste("ano completo mas não estudado mostra quantas matérias faltam", async () => {
-  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
-  if (!completo) return;
+ for (const completo of anosCompletos) {
   const { doc } = await montar("ano.html", `?a=${completo.ano}`);
   const bloco = doc.querySelector("[data-certificado-ano] .certificado");
   assert.ok(bloco, "o bloco do certificado de ano deveria aparecer");
   assert.match(bloco.textContent, /Ano ainda em andamento/);
   assert.match(bloco.textContent, new RegExp(`Faltam ${completo.cursos.length} matérias`));
   assert.equal(bloco.querySelector(".certificado__campo"), null, "não pede nome antes de concluir");
+ }
 });
 
 await teste("com o ano inteiro concluído, o certificado de ano libera nome e download", async () => {
-  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
-  if (!completo) return;
+ for (const completo of anosCompletos) {
   const { doc } = await montar("ano.html", `?a=${completo.ano}`, anoConcluido(completo.ano));
   const bloco = doc.querySelector("[data-certificado-ano] .certificado");
   assert.match(bloco.textContent, new RegExp(`${completo.ano}º ano concluído`));
   assert.match(bloco.textContent, new RegExp(`as ${completo.cursos.length} matérias`));
   assert.ok(bloco.querySelector(".certificado__campo"), "faltou o campo de nome");
   assert.ok(botao(doc, "Baixar certificado do ano"), "faltou o botão de download");
+ }
 });
 
 await teste("concluir o ano registra o certificado de ano no armazenamento local", async () => {
-  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
-  if (!completo) return;
+ for (const completo of anosCompletos) {
   const { window } = await montar("ano.html", `?a=${completo.ano}`, anoConcluido(completo.ano));
   const salvo = JSON.parse(window.localStorage.getItem("biblioteca_matematica_v3"));
   const cert = salvo.anos[String(completo.ano)];
@@ -243,11 +278,53 @@ await teste("concluir o ano registra o certificado de ano no armazenamento local
   const somados = Object.values(anoConcluido(completo.ano).cursos).map((c) => c.certificado);
   assert.equal(cert.questoes, somados.reduce((t, c) => t + c.questoes, 0));
   assert.equal(cert.licoes, somados.reduce((t, c) => t + c.licoes, 0));
+ }
+});
+
+/**
+ * Toda faixa montada por script tem de manter o `.container` dentro dela.
+ *
+ * `.banda` só tem respiro vertical; quem alinha o conteúdo com o resto do
+ * site é o container. Duas seções limpavam a faixa inteira e escreviam
+ * direto nela, e o `limpar` apagava o container que o HTML trazia — os
+ * certificados apareciam colados na borda da janela. O defeito é invisível
+ * para quem testa só conteúdo, e só aparece na tela.
+ */
+function conferirMiolo(doc, seletor) {
+  const faixa = doc.querySelector(seletor);
+  assert.ok(faixa, `${seletor}: faixa não existe`);
+  if (faixa.hidden) return;
+  const dentro = faixa.querySelector(":scope > .container");
+  assert.ok(dentro, `${seletor}: perdeu o .container e vai colar na borda da janela`);
+  assert.ok(dentro.children.length > 0, `${seletor}: o container ficou vazio`);
+  for (const filho of faixa.children) {
+    assert.ok(
+      filho.classList.contains("container"),
+      `${seletor}: <${filho.tagName.toLowerCase()}> escrito fora do container`
+    );
+  }
+}
+
+await teste("a faixa de certificados da home fica dentro do container", async () => {
+  const { licoes } = lerCursoDisco("fracoes");
+  const p = cursoConcluido("fracoes", licoes);
+  p.cursos.fracoes.certificado = {
+    cursoId: "fracoes", cursoTitulo: "Frações", ano: 6,
+    nome: "Ana Lima", data: "2026-09-01T10:00:00.000Z", questoes: 32, acertosDePrimeira: 24,
+  };
+  const { doc } = await montar("index.html", "", p);
+  conferirMiolo(doc, "[data-certificados]");
+});
+
+await teste("a faixa do certificado de ano também fica dentro do container", async () => {
+  for (const completo of anosCompletos) {
+    const { doc } = await montar("ano.html", `?a=${completo.ano}`, anoConcluido(completo.ano));
+    conferirMiolo(doc, "[data-certificado-ano]");
+  }
 });
 
 await teste("o certificado de ano aparece na home junto dos de matéria", async () => {
-  const completo = catalogo.anos.find((a) => a.cursos.every((c) => c.disponivel));
-  if (!completo) return;
+ for (const completo of anosCompletos) {
   const progresso = anoConcluido(completo.ano);
   progresso.anos[String(completo.ano)] = {
     ano: completo.ano, anoTitulo: `${completo.ano}º ano`, nome: "Ana Lima",
@@ -261,6 +338,7 @@ await teste("o certificado de ano aparece na home junto dos de matéria", async 
   assert.match(linhas[0].textContent, new RegExp(`${completo.ano}º ano completo`), "o do ano vem primeiro");
   assert.equal(linhas[0].getAttribute("href"), `/ano.html?a=${completo.ano}#certificado`);
   assert.equal(linhas.length, completo.cursos.length + 1, "o do ano não substitui os de matéria");
+ }
 });
 
 await teste("as matérias prontas linkam para a página do curso", async () => {
@@ -270,9 +348,38 @@ await teste("as matérias prontas linkam para a página do curso", async () => {
   assert.match(pronta.getAttribute("href"), /^\/curso\.html\?c=/);
 });
 
+/**
+ * O recado de erro precisa de três coisas: dizer o que houve, dizer por que
+ * pode ter acontecido, e oferecer um caminho que funcione.
+ *
+ * O teste confere a ESTRUTURA, e não a frase. Cravar o texto já custou duas
+ * quebras: o recado foi reescrito para ser mais útil e os testes reprovaram
+ * a melhoria. O que não pode mudar é o aluno ficar sem saída.
+ */
+function conferirRecado(doc, seletor, ondeDeveLevar) {
+  const caixa = doc.querySelector(`${seletor} .recado`);
+  assert.ok(caixa, `${seletor}: esperava um bloco .recado`);
+  const titulo = caixa.querySelector(".recado__titulo");
+  assert.ok(titulo && titulo.textContent.trim().length > 8, "o recado precisa de um título");
+  const motivo = caixa.querySelector("p");
+  assert.ok(motivo && motivo.textContent.trim().length > 60, "o recado precisa explicar o motivo");
+  const saidas = [...caixa.querySelectorAll(".recado__acoes a")];
+  assert.ok(saidas.length >= 1, "o recado precisa de pelo menos uma saída");
+  for (const a of saidas) {
+    assert.match(a.getAttribute("href"), /^\//, "a saída tem de ser um link interno");
+    assert.ok(!a.getAttribute("href").includes("undefined"), "saída com undefined no endereço");
+  }
+  if (ondeDeveLevar) {
+    assert.ok(
+      saidas.some((a) => a.getAttribute("href").startsWith(ondeDeveLevar)),
+      `o recado deveria oferecer ${ondeDeveLevar}`
+    );
+  }
+}
+
 await teste("ano inexistente mostra recado em vez de página quebrada", async () => {
   const { doc } = await montar("ano.html", "?a=99");
-  assert.match(doc.querySelector("[data-cursos]").textContent, /Não encontramos esse ano/);
+  conferirRecado(doc, "[data-cursos]", "/#anos");
 });
 
 await teste("todos os quatro anos montam", async () => {
@@ -346,14 +453,10 @@ await teste("digitar o nome emite o certificado no armazenamento local", async (
 });
 
 await teste("matéria indisponível mostra recado", async () => {
-  // A matéria é escolhida do catálogo em vez de fixada aqui: com o id
-  // cravado, o teste quebrava toda vez que aquela matéria era publicada.
-  const indisponivel = catalogo.anos
-    .flatMap((a) => a.cursos)
-    .find((c) => !c.disponivel);
-  assert.ok(indisponivel, "o catálogo não tem mais nenhuma matéria por publicar");
-
-  const { doc } = await montar("curso.html", `?c=${indisponivel.id}`);
+  // Pela mesma razão do teste do ano: com os quatro anos publicados, não há
+  // mais matéria por escrever no catálogo de verdade. A pendência é montada.
+  const { catalogo: falso, pendente } = catalogoComPendencia(catalogo.anos[0].ano);
+  const { doc } = await montar("curso.html", `?c=${pendente.id}`, null, falso);
   assert.match(doc.querySelector("[data-curso]").textContent, /ainda não está disponível/);
 });
 
@@ -464,7 +567,13 @@ await teste("a última lição aponta para o certificado, não para a próxima",
 
 await teste("lição inexistente mostra recado em vez de página quebrada", async () => {
   const { doc } = await montar("licao.html", "?c=fracoes&l=nao-existe");
-  assert.match(doc.querySelector("[data-licao]").textContent, /Não encontramos essa lição/);
+  // a saída oferecida é a própria matéria, que é onde a lista das lições está
+  conferirRecado(doc, "[data-licao]", "/curso.html?c=fracoes");
+});
+
+await teste("matéria inexistente também mostra recado com saída", async () => {
+  const { doc } = await montar("curso.html", "?c=nao-existe-mesmo");
+  conferirRecado(doc, "[data-curso]", "/#anos");
 });
 
 await teste("TODAS as lições de TODAS as matérias disponíveis montam sem erro", async () => {

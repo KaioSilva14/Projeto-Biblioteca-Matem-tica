@@ -1,0 +1,189 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Medir o que não se alcança",
+  "pergunta": "Como um ângulo medido do chão devolve uma altura?",
+  "ideia": {
+    "paragrafos": [
+      "A trigonometria nasceu de um problema prático: medir distâncias que ninguém consegue percorrer — a altura de uma montanha, a largura de um rio, a distância de um navio à costa. O método é sempre o mesmo: medir o que dá para medir, medir um ÂNGULO, e deixar a razão fazer o resto.",
+      "O caso mais comum é o ângulo de elevação. Alguém no chão olha para o topo de um prédio; o ângulo entre a linha do olhar e a horizontal chama-se ângulo de elevação. Com ele e com a distância até a base do prédio, a altura sai pela tangente — porque a distância é o cateto adjacente e a altura é o oposto.",
+      "Num exemplo: de um ponto a 60 m da base de um prédio, o topo é visto sob um ângulo de elevação de 30°. Então tg 30° = altura / 60, e com tg 30° ≈ 0,58 a altura fica perto de 34,8 m. Nenhuma trena subiu no prédio.",
+      "A escolha da razão segue o mesmo critério da lição 4, e vale repetir porque é onde se erra: se o que se mede no chão é a DISTÂNCIA até a base, o lado conhecido é o adjacente e a razão é a tangente. Se o que se mede é a linha do olhar inteira, o lado conhecido é a hipotenusa e a razão é o seno.",
+      "A mesma estrutura aparece em rampas e telhados. Numa rampa, o comprimento da rampa é a hipotenusa e a altura vencida é o oposto — daí o seno. O ângulo de inclinação de uma rampa de acessibilidade, aliás, é regulado por norma justamente porque a razão entre altura e comprimento determina o esforço de subir.",
+      "E há um detalhe honesto de leitura: quem olha para o topo do prédio raramente está com o olho no chão. Em problemas mais completos, a altura do observador entra somada no fim. Aqui os enunciados tomam o olhar a partir do chão, e isso é dito — um problema que não disser está mal formulado."
+    ],
+    "destaque": "Meça o que se alcança, meça um ângulo, e deixe a razão devolver o que não se alcança.",
+    "imagem": "tr9-ideia-elevacao"
+  },
+  "resolvido": {
+    "enunciado": "De um ponto no chão a 60 m da base de um prédio, o topo é visto sob ângulo de elevação de 30°. Qual é a altura do prédio? Use tg 30° = 0,58.",
+    "imagem": "tr9-res-predio",
+    "passos": [
+      {
+        "titulo": "Desenhe o triângulo",
+        "explicacao": "O chão e o prédio formam o ângulo reto; a linha do olhar fecha a figura.",
+        "conta": "chão, prédio e o olhar"
+      },
+      {
+        "titulo": "Nomeie os lados",
+        "explicacao": "A distância medida no chão encosta no ângulo; a altura fica de frente para ele.",
+        "conta": "adjacente 60 · oposto = altura"
+      },
+      {
+        "titulo": "Escolha a razão",
+        "explicacao": "Os dois lados em jogo são catetos, então é a tangente.",
+        "conta": "tg 30° = altura / 60"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "A altura está no numerador, então sai multiplicando.",
+        "conta": "0,58 × 60 = 34,8 m"
+      }
+    ],
+    "fecho": "Um prédio de uns 34,8 m tem por volta de onze andares — resultado plausível, e medido do chão."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma rampa faz 45° com o chão e avança 8 m na horizontal. Que altura ela vence, em metros? Digite apenas o número.",
+      "imagem": "tr9-q-rampa-45",
+      "dica": "O avanço horizontal é o cateto adjacente e a altura é o oposto: use a tangente.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "11,3",
+          "porque": "11,3 é 8 × 1,41, ou seja, o comprimento da RAMPA — a hipotenusa. A pergunta é pela altura, que com 45° é igual ao avanço horizontal."
+        },
+        {
+          "resposta": "5,7",
+          "porque": "5,7 é 8 × 0,71, usando o seno de 45°. O seno compara um cateto com a hipotenusa, e aqui os dois lados em jogo são catetos."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é metade de 8. Nada em 45° divide por dois: a tangente vale 1, então altura e avanço são iguais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a razão",
+          "explicacao": "Avanço horizontal e altura são os dois catetos.",
+          "conta": "tg 45° = altura / 8"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Com tangente 1, a altura iguala o avanço.",
+          "conta": "altura = 1 × 8 = 8"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma escada de 10 m está apoiada numa parede fazendo 60° com o chão. Que altura da parede ela alcança, em metros? Use sen 60° = 0,87 e digite apenas o número.",
+      "imagem": "tr9-q-escada-60",
+      "dica": "A escada é a hipotenusa e a altura é o cateto oposto ao ângulo: use o seno.",
+      "formato": "numero",
+      "resposta": 8.7,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é 10 × 0,5, usando o cosseno de 60°. Isso dá a distância do pé da escada até a parede, e não a altura alcançada."
+        },
+        {
+          "resposta": "17,3",
+          "porque": "17,3 é 10 × 1,73, usando a tangente. A altura não pode passar do comprimento da escada, que é a hipotenusa."
+        },
+        {
+          "resposta": "11,5",
+          "porque": "11,5 é 10 ÷ 0,87, dividindo quando era preciso multiplicar. O resultado ficaria maior que a escada, o que é impossível."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a razão",
+          "explicacao": "A escada é a hipotenusa e a altura fica de frente para o ângulo.",
+          "conta": "sen 60° = altura / 10"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "A altura sai multiplicando, e ela fica abaixo dos 10 m da escada.",
+          "conta": "0,87 × 10 = 8,7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "De um ponto no chão a 90 m da base de uma torre, o topo é visto sob ângulo de elevação de 30°. Qual é a altura da torre, em metros? Use tg 30° = 0,58 e digite apenas o número.",
+      "imagem": "tr9-q-torre-30",
+      "dica": "A distância medida no chão é o cateto adjacente ao ângulo.",
+      "formato": "numero",
+      "resposta": 52.2,
+      "errosComuns": [
+        {
+          "resposta": "45",
+          "porque": "45 é 90 × 0,5, usando o seno de 30°. O seno compara um cateto com a HIPOTENUSA, e os 90 m são um cateto."
+        },
+        {
+          "resposta": "155,2",
+          "porque": "155,2 é 90 ÷ 0,58, dividindo quando era preciso multiplicar. Com 30° de elevação, a torre é bem mais baixa que a distância até ela."
+        },
+        {
+          "resposta": "78,3",
+          "porque": "78,3 é 90 × 0,87, usando o cosseno de 30°. O cosseno também envolve a hipotenusa, que aqui não foi dada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Nomeie os lados",
+          "explicacao": "A distância no chão encosta no ângulo; a altura fica de frente.",
+          "conta": "adjacente 90 · oposto = altura"
+        },
+        {
+          "titulo": "Aplique a tangente",
+          "explicacao": "É a razão que usa os dois catetos.",
+          "conta": "0,58 × 90 = 52,2"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que a trigonometria consegue medir alturas que ninguém alcança?",
+      "imagem": "tr9-q-por-que-mede",
+      "dica": "Pense no que precisa ser medido no chão, e no que a razão devolve.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque um ângulo medido do chão já determina a razão entre os lados" },
+        { "rotulo": "B", "texto": "Porque a altura é sempre igual à distância até a base" },
+        { "rotulo": "C", "texto": "Porque o ângulo de elevação é sempre 45°" },
+        { "rotulo": "D", "texto": "Porque prédios têm altura padronizada" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a altura é sempre igual à distância até a base",
+          "porque": "Isso só acontece quando o ângulo de elevação é exatamente 45°. Com 30°, uma distância de 60 m dá uma altura de 34,8 m — bem diferente."
+        },
+        {
+          "resposta": "Porque o ângulo de elevação é sempre 45°",
+          "porque": "Ele depende de onde o observador está: quanto mais longe, menor o ângulo. É justamente por variar que ele carrega a informação da altura."
+        },
+        {
+          "resposta": "Porque prédios têm altura padronizada",
+          "porque": "Não têm, e o método funciona igual para montanhas, torres e árvores. O que o método usa é geometria, e não um catálogo de alturas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que é medido",
+          "explicacao": "Uma distância no chão e um ângulo, os dois ao alcance de quem mede.",
+          "conta": "distância e ângulo"
+        },
+        {
+          "titulo": "Veja o que a razão devolve",
+          "explicacao": "O ângulo fixa a razão entre os lados, e a distância conhecida entrega a altura.",
+          "conta": "altura = tg θ × distância"
+        }
+      ]
+    }
+  ]
+}

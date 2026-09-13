@@ -1,0 +1,194 @@
+{
+  "id": "bhaskara",
+  "numero": 4,
+  "titulo": "A fórmula, e de onde ela vem",
+  "pergunta": "Por que a fórmula tem exatamente aquele formato?",
+  "ideia": {
+    "paragrafos": [
+      "A lição anterior resolveu x² + 6x = 7 completando o quadrado. Fazer isso toda vez dá trabalho — então a ideia agora é fazer UMA VEZ SÓ, com letras no lugar dos números. O que sair serve para qualquer equação, e é a fórmula que todo mundo conhece.",
+      "Parta de ax² + bx + c = 0. Primeiro divida tudo por a, que é diferente de zero: x² + (b/a)x + c/a = 0. Passe o termo independente para o outro lado: x² + (b/a)x = −c/a.",
+      "Agora complete o quadrado, pela regra da lição 3 — metade do coeficiente de x, ao quadrado. Metade de b/a é b/2a, e o quadrado disso é b²/4a². Somando aos dois lados e escrevendo o esquerdo como quadrado: (x + b/2a)² = b²/4a² − c/a.",
+      "Juntando o lado direito numa fração só, com denominador comum 4a²: ele vira (b² − 4ac)/4a². Tirando a raiz dos dois lados, x + b/2a = ±√(b² − 4ac) / 2a. E isolando o x, sai a fórmula: x = (−b ± √(b² − 4ac)) / 2a.",
+      "Agora cada pedaço dela tem explicação. O −b/2a vem do deslocamento feito ao completar o quadrado. O ± vem do duplo sinal da raiz, como em x² = 9. E o b² − 4ac, que ganhou o nome de DISCRIMINANTE e o símbolo Δ, é o que sobrou dentro da raiz depois de juntar as frações.",
+      "A fórmula é atribuída a Bhaskara no Brasil, mas o nome é uma convenção nossa: o método é bem mais antigo e aparece em vários lugares, inclusive em al-Khwarizmi, no século IX, com o mesmo argumento de completar o quadrado que você acabou de ver."
+    ],
+    "destaque": "A fórmula é o método da lição 3 feito uma vez só, com letras. O ± vem do duplo sinal da raiz.",
+    "imagem": "eq9-ideia-deducao"
+  },
+  "resolvido": {
+    "enunciado": "Resolva x² − 5x + 6 = 0 pela fórmula.",
+    "imagem": "eq9-res-bhaskara",
+    "passos": [
+      {
+        "titulo": "Identifique os coeficientes",
+        "explicacao": "Com atenção ao sinal do coeficiente do meio.",
+        "conta": "a = 1 · b = −5 · c = 6"
+      },
+      {
+        "titulo": "Calcule o discriminante",
+        "explicacao": "É o que fica dentro da raiz na fórmula.",
+        "conta": "(−5)² − 4 × 1 × 6 = 25 − 24 = 1"
+      },
+      {
+        "titulo": "Monte a fórmula",
+        "explicacao": "O oposto de b, mais ou menos a raiz do discriminante, sobre 2a.",
+        "conta": "x = (5 ± √1) / 2"
+      },
+      {
+        "titulo": "Resolva os dois sinais",
+        "explicacao": "Cada sinal produz uma das raízes.",
+        "conta": "x = 6/2 = 3 ou x = 4/2 = 2"
+      }
+    ],
+    "fecho": "Conferindo o 2: 4 − 10 + 6 dá zero ✓. E o 3: 9 − 15 + 6 também dá zero ✓."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Na equação x² + 2x − 8 = 0, quanto vale o discriminante? Digite apenas o número.",
+      "imagem": "eq9-q-calcular-delta",
+      "dica": "O discriminante é b² − 4ac. Cuidado com o sinal do c.",
+      "formato": "numero",
+      "resposta": 36,
+      "errosComuns": [
+        {
+          "resposta": "-28",
+          "porque": "−28 sai de 4 − 32, ou seja, de tratar o c como +8. Ele vale −8, e −4 × 1 × (−8) dá +32 — dois sinais negativos se cancelam."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é só o b², parando no primeiro termo. Falta subtrair 4ac, que aqui vale −32 — e subtrair um negativo é somar."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é √36, ou seja, a raiz do discriminante. Ela aparece depois, dentro da fórmula; o discriminante em si é 36."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique os coeficientes",
+          "explicacao": "O termo independente é negativo, e o sinal vai junto.",
+          "conta": "a = 1 · b = 2 · c = −8"
+        },
+        {
+          "titulo": "Aplique a fórmula do discriminante",
+          "explicacao": "Menos 4 vezes a vezes c, com c negativo, dá uma soma.",
+          "conta": "2² − 4 × 1 × (−8) = 4 + 32 = 36"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Resolvendo x² + 2x − 8 = 0, qual é a raiz POSITIVA? Digite apenas o número.",
+      "imagem": "eq9-q-raiz-positiva",
+      "dica": "Com o discriminante 36, a raiz dele é 6. Aplique a fórmula com os dois sinais.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "-4",
+          "porque": "−4 é a outra raiz, que sai do sinal de menos: (−2 − 6)/2 = −4. Ela está certa, mas a pergunta é pela positiva."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 seria a resposta se o sinal do b tivesse sido esquecido. Com b = 2, a fórmula começa com −2, e a raiz positiva sai (−2 + 6)/2 = 2."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o valor absoluto do termo independente, e não uma raiz. Substituindo x = 8 na equação daria 64 + 16 − 8 = 72, longe de zero."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a fórmula",
+          "explicacao": "Com b = 2, o oposto dele é −2, e a raiz do discriminante é 6.",
+          "conta": "x = (−2 ± 6) / 2"
+        },
+        {
+          "titulo": "Use o sinal de mais",
+          "explicacao": "É ele que produz a raiz positiva.",
+          "conta": "(−2 + 6) / 2 = 2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "De onde vem o sinal ± da fórmula de Bhaskara?",
+      "imagem": "eq9-q-de-onde-o-mais-menos",
+      "dica": "Lembre do passo da dedução em que a raiz quadrada foi tirada dos dois lados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Do passo em que se tira a raiz dos dois lados, como em x² = 9" },
+        { "rotulo": "B", "texto": "De o coeficiente b poder ser positivo ou negativo" },
+        { "rotulo": "C", "texto": "De a equação ter dois coeficientes" },
+        { "rotulo": "D", "texto": "De uma convenção, para não esquecer nenhuma raiz" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "De o coeficiente b poder ser positivo ou negativo",
+          "porque": "O sinal do b já está embutido no −b da fórmula, que muda conforme a equação. O ± é outra coisa: ele vem da raiz quadrada, que admite dois valores."
+        },
+        {
+          "resposta": "De a equação ter dois coeficientes",
+          "porque": "Ela tem três — a, b e c —, e a contagem deles não tem relação com o duplo sinal. O ± aparece num passo específico da dedução."
+        },
+        {
+          "resposta": "De uma convenção, para não esquecer nenhuma raiz",
+          "porque": "Não é convenção: ele SAI da dedução. Ao tirar a raiz de (x + b/2a)², os dois sinais servem, exatamente como em x² = 9, cujas soluções são 3 e −3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte ao passo da raiz",
+          "explicacao": "Depois de completar o quadrado, a raiz é tirada dos dois lados.",
+          "conta": "(x + b/2a)² = Δ/4a²"
+        },
+        {
+          "titulo": "Lembre da lição 2",
+          "explicacao": "O quadrado apaga o sinal, então os dois valores servem.",
+          "conta": "x + b/2a = ±√Δ / 2a"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Resolvendo 2x² − 7x + 3 = 0, qual é a MAIOR raiz? Digite apenas o número.",
+      "imagem": "eq9-q-com-a-diferente",
+      "dica": "Aqui o a não vale 1, então o denominador 2a não é 2. Calcule o discriminante primeiro.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "0.5",
+          "porque": "0,5 é a MENOR das duas raízes, que sai do sinal de menos: (7 − 5)/4 = 0,5. Ela está correta, mas a pergunta pede a maior."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 sai de dividir por 2 em vez de por 2a. Com a = 2, o denominador da fórmula é 4 — e (7 + 5)/4 dá 3."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é o discriminante: (−7)² − 4 × 2 × 3 = 49 − 24. Ele é o passo do meio, e ainda entra na fórmula sob a raiz."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule o discriminante",
+          "explicacao": "Com a = 2, b = −7 e c = 3, lidos já na forma geral.",
+          "conta": "49 − 24 = 25"
+        },
+        {
+          "titulo": "Monte a fórmula",
+          "explicacao": "O denominador é 2a, que aqui vale 4.",
+          "conta": "x = (7 ± 5) / 4"
+        },
+        {
+          "titulo": "Use o sinal de mais",
+          "explicacao": "É ele que produz a maior das duas raízes.",
+          "conta": "12 / 4 = 3"
+        }
+      ]
+    }
+  ]
+}

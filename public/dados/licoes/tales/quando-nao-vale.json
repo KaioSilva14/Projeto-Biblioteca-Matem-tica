@@ -1,0 +1,196 @@
+{
+  "id": "quando-nao-vale",
+  "numero": 5,
+  "titulo": "Quando o teorema NÃO vale",
+  "pergunta": "O que precisa ser verdade para poder usar Tales?",
+  "ideia": {
+    "paragrafos": [
+      "Um teorema só vale sob as condições dele, e o de Tales tem uma condição só — mas ela é inegociável: as retas do feixe precisam ser PARALELAS. Sem isso, a proporção simplesmente não existe, e usar o teorema produz uma resposta errada com aparência de resposta certa.",
+      "Dá para ver o estrago. Se a reta do meio está levemente torta, ela encontra cada transversal num ponto deslocado, e os pedaços mudam de tamanhos diferentes em cada uma. A razão de uma transversal deixa de ser a da outra, e nenhuma regra de três recupera isso. Só quando as retas são de fato paralelas a razão se repete.",
+      "Em prova, isso vira um cuidado de leitura. O paralelismo pode estar escrito no enunciado, indicado por setinhas na figura, ou implícito pelo contexto — divisas de terrenos entre duas ruas paralelas, degraus de escada, linhas de um caderno. O que não se pode é SUPOR paralelismo porque a figura parece paralela.",
+      "O segundo engano mais comum não é sobre paralelismo: é sobre o que o teorema promete. Ele garante proporção, não igualdade. Quem lê \"os segmentos são proporcionais\" e entende \"os segmentos são iguais\" vai procurar números repetidos na figura e não vai achar — porque, salvo coincidência, eles não estão lá.",
+      "O terceiro engano é misturar a razão certa com a errada. A razão ENTRE OS PEDAÇOS de uma transversal (AB/BC) é uma coisa; a razão ENTRE AS TRANSVERSAIS (AB/A'B') é outra. As duas aparecem em montagens corretas diferentes, e trocá-las no meio de uma conta dá um número que não corresponde a nada.",
+      "Vale ainda saber o que o teorema não promete: ele não diz nada sobre ângulos, não diz nada sobre áreas, e não exige que as transversais se cruzem ou deixem de se cruzar. Ele fala de uma coisa só, e é justamente essa modéstia que o torna aplicável em tantas situações."
+    ],
+    "destaque": "Sem paralelismo não há proporção. E proporcional nunca quis dizer igual.",
+    "imagem": "tl9-ideia-sem-paralelismo"
+  },
+  "resolvido": {
+    "enunciado": "Três retas cortam duas transversais. Numa transversal os segmentos medem 4 e 8; na outra, medem 5 e 12. As três retas são paralelas?",
+    "imagem": "tl9-res-nao-sao",
+    "passos": [
+      {
+        "titulo": "Calcule a razão da primeira",
+        "explicacao": "O pedaço de cima dividido pelo de baixo.",
+        "conta": "4/8 = 0,5"
+      },
+      {
+        "titulo": "Calcule a da segunda",
+        "explicacao": "A mesma leitura, no mesmo sentido.",
+        "conta": "5/12 ≈ 0,42"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Se as retas fossem paralelas, as duas razões seriam iguais.",
+        "conta": "0,5 ≠ 0,42"
+      }
+    ],
+    "fecho": "Não são paralelas. É a recíproca do teorema servindo de teste: razões diferentes denunciam o paralelismo que não existe."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "O que precisa ser verdade para o Teorema de Tales poder ser aplicado?",
+      "imagem": "tl9-q-a-condicao",
+      "dica": "É uma condição só, e ela está no nome \"feixe de paralelas\".",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "As retas do feixe precisam ser paralelas entre si" },
+        { "rotulo": "B", "texto": "As transversais precisam ser paralelas entre si" },
+        { "rotulo": "C", "texto": "Os segmentos precisam ter medidas inteiras" },
+        { "rotulo": "D", "texto": "As transversais precisam ser perpendiculares às paralelas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "As transversais precisam ser paralelas entre si",
+          "porque": "É o contrário: se elas fossem paralelas ao feixe, não o cortariam; e paralelas entre si em outra direção também não é exigido. Elas podem ter inclinações completamente diferentes."
+        },
+        {
+          "resposta": "Os segmentos precisam ter medidas inteiras",
+          "porque": "Medidas quebradas funcionam do mesmo jeito. O teorema fala de razões, e razões existem entre quaisquer dois comprimentos."
+        },
+        {
+          "resposta": "As transversais precisam ser perpendiculares às paralelas",
+          "porque": "Se fossem, todos os pedaços de uma transversal seriam iguais aos da outra, e o teorema viraria um caso particular sem graça. Ele vale para transversal em qualquer inclinação."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte ao enunciado do teorema",
+          "explicacao": "Ele fala de um FEIXE, que é um conjunto de retas paralelas.",
+          "conta": "feixe = retas paralelas"
+        },
+        {
+          "titulo": "Veja o que é livre",
+          "explicacao": "A inclinação de cada transversal não entra em condição nenhuma.",
+          "conta": "transversal: qualquer uma"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Três retas cortam duas transversais. Numa, os segmentos medem 3 e 6; na outra, medem 4 e 10. As três retas são paralelas?",
+      "imagem": "tl9-q-sao-paralelas",
+      "dica": "Calcule a razão nas duas transversais e compare.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, porque 3/6 dá 0,5 e 4/10 dá 0,4" },
+        { "rotulo": "B", "texto": "Sim, porque em ambas o segundo segmento é maior" },
+        { "rotulo": "C", "texto": "Sim, porque todas as medidas são inteiras" },
+        { "rotulo": "D", "texto": "Não, porque 6 e 10 são números diferentes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque em ambas o segundo segmento é maior",
+          "porque": "Isso é necessário, mas não basta: as razões precisam ser IGUAIS, e não só ter o mesmo sentido. Aqui uma dá 0,5 e a outra 0,4."
+        },
+        {
+          "resposta": "Sim, porque todas as medidas são inteiras",
+          "porque": "Números inteiros não garantem paralelismo nenhum. O teste é comparar as razões, e elas discordam."
+        },
+        {
+          "resposta": "Não, porque 6 e 10 são números diferentes",
+          "porque": "Segmentos correspondentes quase nunca são iguais, e isso é esperado — a transversal mais inclinada tem pedaços maiores. O problema é a razão, e não a medida."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule as duas razões",
+          "explicacao": "Sempre no mesmo sentido: de cima sobre de baixo.",
+          "conta": "3/6 = 0,5 · 4/10 = 0,4"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "Paralelismo exigiria razões iguais, e estas discordam.",
+          "conta": "não são paralelas"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "\"Os segmentos são proporcionais\" significa que eles são iguais?",
+      "imagem": "tl9-q-proporcional-nao-e-igual",
+      "dica": "Olhe o exemplo da lição 1: 4 e 6 numa transversal, 6 e 9 na outra.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: significa que a razão entre eles se repete" },
+        { "rotulo": "B", "texto": "Sim: proporcional e igual são a mesma coisa" },
+        { "rotulo": "C", "texto": "Sim, mas só quando as transversais têm inclinações diferentes" },
+        { "rotulo": "D", "texto": "Não: significa que um é sempre o dobro do outro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim: proporcional e igual são a mesma coisa",
+          "porque": "São coisas diferentes, e essa confusão é a mais cara da matéria. Os segmentos 4, 6 e 6, 9 são proporcionais e não têm um número igual entre eles."
+        },
+        {
+          "resposta": "Sim, mas só quando as transversais têm inclinações diferentes",
+          "porque": "É justamente ao contrário: com inclinações diferentes os segmentos ficam com tamanhos diferentes. Eles só coincidem quando as inclinações coincidem."
+        },
+        {
+          "resposta": "Não: significa que um é sempre o dobro do outro",
+          "porque": "Dobro é só uma razão entre infinitas. A razão pode ser 2 para 3, 5 para 7 ou qualquer outra — o que importa é ela se repetir."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe um exemplo",
+          "explicacao": "Os segmentos da lição 1, nas duas transversais.",
+          "conta": "4 e 6 · 6 e 9"
+        },
+        {
+          "titulo": "Compare as razões",
+          "explicacao": "Nenhum número se repete, e as duas razões dão o mesmo.",
+          "conta": "4/6 = 6/9 = 2/3"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Três retas cortam duas transversais. Numa, os segmentos medem 6 e 9; na outra, o primeiro mede 8. Para que as retas sejam paralelas, quanto deve medir o segundo? Digite apenas o número.",
+      "imagem": "tl9-q-para-ser-paralela",
+      "dica": "Imponha que as duas razões sejam iguais e resolva.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "11",
+          "porque": "11 é 8 + 3, somando a diferença entre 6 e 9. Paralelismo exige a mesma RAZÃO, e não a mesma diferença."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o segundo segmento da OUTRA transversal. As duas têm inclinações diferentes, então os pedaços não coincidem — o primeiro já é 8 contra 6."
+        },
+        {
+          "resposta": "5,33",
+          "porque": "5,33 sai de inverter a proporção: 9/6 = 8/x. O segundo pedaço é o maior nas duas transversais, então a resposta tem de passar de 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Iguale as razões",
+          "explicacao": "É o que o paralelismo exige, e é a recíproca do teorema.",
+          "conta": "6/9 = 8/x"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando cruzado e dividindo por 6.",
+          "conta": "6x = 72 → x = 12"
+        }
+      ]
+    }
+  ]
+}

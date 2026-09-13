@@ -303,73 +303,85 @@
           "id": "irracionais",
           "titulo": "Números irracionais e reais",
           "resumo": "A raiz de 2 e os números que não cabem em fração nenhuma.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/irracionais.json"
         },
         {
           "id": "radiciacao",
           "titulo": "Potenciação e radiciação",
           "resumo": "Expoente negativo, expoente fracionário e as propriedades.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/radiciacao.json"
         },
         {
           "id": "equacoes-2grau",
           "titulo": "Equações do 2º grau",
           "resumo": "Bhaskara, e o que o discriminante está tentando te contar.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/equacoes-2grau.json"
         },
         {
           "id": "funcao-afim",
           "titulo": "Função afim",
           "resumo": "A regra que liga duas grandezas, e o gráfico que a desenha.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/funcao-afim.json"
         },
         {
           "id": "funcao-quadratica",
           "titulo": "Função quadrática",
           "resumo": "A parábola: onde ela corta o eixo e onde está o vértice.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/funcao-quadratica.json"
         },
         {
           "id": "semelhanca",
           "titulo": "Semelhança de triângulos",
           "resumo": "Mesma forma, tamanhos diferentes — e a proporção que sai disso.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/semelhanca.json"
         },
         {
           "id": "tales",
           "titulo": "Teorema de Tales",
           "resumo": "Retas paralelas cortando transversais e a proporção entre segmentos.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/tales.json"
         },
         {
           "id": "pitagoras",
           "titulo": "Teorema de Pitágoras",
           "resumo": "Por que a² + b² = c², e não só que é assim.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/pitagoras.json"
         },
         {
           "id": "relacoes-metricas",
           "titulo": "Relações métricas no triângulo retângulo",
           "resumo": "Altura, projeções e as relações que saem da semelhança.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/relacoes-metricas.json"
         },
         {
           "id": "trigonometria",
           "titulo": "Trigonometria no triângulo retângulo",
           "resumo": "Seno, cosseno e tangente: medir o que não dá para alcançar.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/trigonometria.json"
         },
         {
           "id": "arcos-angulos",
           "titulo": "Arcos e ângulos na circunferência",
           "resumo": "Ângulo central, ângulo inscrito e a relação entre os dois.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/arcos-angulos.json"
         },
         {
           "id": "volume-9",
           "titulo": "Volume de sólidos",
           "resumo": "Cone, pirâmide e esfera — e de onde vem o famoso terço.",
-          "disponivel": false
+          "disponivel": true,
+          "arquivo": "/dados/cursos/volume-9.json"
         }
       ]
     }

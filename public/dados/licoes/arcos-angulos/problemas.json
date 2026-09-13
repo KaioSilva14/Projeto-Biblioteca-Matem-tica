@@ -1,0 +1,184 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Relógios, rodas e fatias",
+  "pergunta": "Onde a circunferência dividida aparece no dia a dia?",
+  "ideia": {
+    "paragrafos": [
+      "Sempre que alguma coisa gira ou é repartida em torno de um centro, a matéria aparece. O mostrador de um relógio, os assentos de uma roda-gigante, as fatias de uma pizza, os setores de um gráfico de pizza — todos são a mesma circunferência de 360° repartida.",
+      "O relógio é o caso mais rico, e vale destrinchar. As doze marcas repartem a volta em arcos de 30°, então o ponteiro das horas anda 30° por hora. O ponteiro dos minutos dá a volta inteira em 60 minutos, ou seja, 6° por minuto. Às 3 horas em ponto, o ângulo entre os dois é de três arcos: 90°.",
+      "Um detalhe que a maioria esquece e que a prova adora: o ponteiro das HORAS também se move dentro da hora. Às 3h30, ele não está mais exatamente no 3 — ele já andou meio arco, 15°, em direção ao 4. Ignorar isso é o erro clássico dos problemas de relógio.",
+      "Na roda-gigante e em qualquer repartição igual, a conta é a mesma da lição 1: a volta dividida pelo número de partes. Doze cabines dão arcos de 30°; vinte cabines dão 18°. E o ângulo entre duas cabines quaisquer é um múltiplo desse arco unitário.",
+      "Quando o problema pede distância percorrida em vez de ângulo, entra a lição 5. Uma cabine que sobe um quarto da volta numa roda de 20 m de raio percorre (90/360) × 2 × 3,14 × 20, que dá 31,4 m de trajeto curvo — bem mais que a distância em linha reta entre os dois pontos.",
+      "O roteiro é curto: identifique a repartição da volta, descubra quantos arcos unitários o problema envolve, e decida se a resposta é em graus ou em comprimento. É a mesma decisão que a lição 5 tratou, agora vestida de situação."
+    ],
+    "destaque": "Repartir a volta em partes iguais dá o arco unitário. Depois é contar quantos deles o problema pede.",
+    "imagem": "ar9-ideia-relogio"
+  },
+  "resolvido": {
+    "enunciado": "Que ângulo os dois ponteiros de um relógio formam às 3 horas em ponto?",
+    "imagem": "ar9-res-tres-horas",
+    "passos": [
+      {
+        "titulo": "Ache o arco unitário",
+        "explicacao": "As doze marcas repartem a volta em doze arcos iguais.",
+        "conta": "360 / 12 = 30°"
+      },
+      {
+        "titulo": "Conte os arcos entre os ponteiros",
+        "explicacao": "Às 3 em ponto, o de minutos está no 12 e o de horas no 3.",
+        "conta": "3 arcos"
+      },
+      {
+        "titulo": "Multiplique",
+        "explicacao": "Cada arco entre duas marcas vizinhas vale 30°.",
+        "conta": "3 × 30 = 90°"
+      }
+    ],
+    "fecho": "Às 3 em ponto o ângulo é reto — e é por isso que o ponteiro das horas fica exatamente na marca, sem avanço extra."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Que ângulo os dois ponteiros de um relógio formam às 4 horas em ponto, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-quatro-horas",
+      "dica": "Conte quantos arcos de 30° separam os dois ponteiros.",
+      "formato": "numero",
+      "resposta": 120,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é o número de ARCOS entre os ponteiros, e não a medida em graus. Cada arco vale 30°, então são 4 × 30."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é a medida de UM arco, entre duas marcas vizinhas. Às 4 horas os ponteiros estão separados por quatro deles."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 é o ângulo das 3 horas, com três arcos. Às 4 horas há um arco a mais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o arco unitário",
+          "explicacao": "A volta repartida pelas doze marcas.",
+          "conta": "360 / 12 = 30°"
+        },
+        {
+          "titulo": "Conte e multiplique",
+          "explicacao": "Do 12 ao 4 são quatro arcos de 30° cada um.",
+          "conta": "4 × 30 = 120°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma roda-gigante tem 20 cabines igualmente espaçadas. Que ângulo, em graus, separa duas cabines vizinhas? Digite apenas o número.",
+      "imagem": "ar9-q-roda-gigante",
+      "dica": "Reparta a volta inteira pelo número de cabines.",
+      "formato": "numero",
+      "resposta": 18,
+      "errosComuns": [
+        {
+          "resposta": "20",
+          "porque": "20 é o número de CABINES, e não a medida do ângulo. O ângulo sai de repartir os 360° entre elas."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 360 ÷ 10, repartindo por dez em vez de vinte. Com o dobro de cabines, cada arco fica com metade da abertura."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é 180 ÷ 20, usando meia volta. A roda gira a circunferência inteira, de 360°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os arcos",
+          "explicacao": "Vinte cabines igualmente espaçadas criam vinte arcos iguais.",
+          "conta": "20 arcos"
+        },
+        {
+          "titulo": "Reparta a volta",
+          "explicacao": "Cada arco leva a mesma fatia dos 360°.",
+          "conta": "360 / 20 = 18°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa roda-gigante de 20 m de raio, quantos metros uma cabine percorre ao subir um quarto de volta? Use π = 3,14 e digite apenas o número.",
+      "imagem": "ar9-q-percurso",
+      "dica": "É o comprimento de um arco de 90° numa circunferência de raio 20.",
+      "formato": "numero",
+      "resposta": 31.4,
+      "errosComuns": [
+        {
+          "resposta": "125,6",
+          "porque": "125,6 é a circunferência INTEIRA, 2 × 3,14 × 20. Um quarto de volta leva um quarto dela."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é o raio da roda. O percurso é pela curva, e ele é bem mais longo que o raio."
+        },
+        {
+          "resposta": "314",
+          "porque": "314 é um quarto da ÁREA do círculo, que usa o raio ao quadrado. O percurso é um comprimento, e ele usa 2πr."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a fração da volta",
+          "explicacao": "Um quarto de volta são 90° dos 360°.",
+          "conta": "90 / 360 = 1/4"
+        },
+        {
+          "titulo": "Calcule e reparta",
+          "explicacao": "A circunferência inteira dividida em quatro.",
+          "conta": "125,6 / 4 = 31,4 m"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Às 3h30, onde está o ponteiro das horas?",
+      "imagem": "ar9-q-tres-e-meia",
+      "dica": "Ele não fica parado na marca esperando a hora virar.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Meio arco depois do 3, ou seja, 15° adiante da marca" },
+        { "rotulo": "B", "texto": "Exatamente sobre o 3, porque a hora ainda não virou" },
+        { "rotulo": "C", "texto": "Exatamente sobre o 4, porque já passou da metade" },
+        { "rotulo": "D", "texto": "Sobre o 6, junto com o ponteiro dos minutos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Exatamente sobre o 3, porque a hora ainda não virou",
+          "porque": "É o erro clássico dos problemas de relógio. O ponteiro das horas se move continuamente: em meia hora ele anda metade de um arco, ou seja, 15°."
+        },
+        {
+          "resposta": "Exatamente sobre o 4, porque já passou da metade",
+          "porque": "Ele só chega ao 4 quando a hora completa. Às 3h30 está no meio do caminho entre o 3 e o 4."
+        },
+        {
+          "resposta": "Sobre o 6, junto com o ponteiro dos minutos",
+          "porque": "Quem vai ao 6 é o ponteiro dos MINUTOS, que marca os 30 minutos. O das horas anda bem mais devagar — doze vezes mais devagar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache quanto ele anda por hora",
+          "explicacao": "Um arco inteiro entre duas marcas.",
+          "conta": "30° por hora"
+        },
+        {
+          "titulo": "Tome a metade",
+          "explicacao": "Em meia hora ele percorre metade desse arco.",
+          "conta": "15° adiante do 3"
+        }
+      ]
+    }
+  ]
+}

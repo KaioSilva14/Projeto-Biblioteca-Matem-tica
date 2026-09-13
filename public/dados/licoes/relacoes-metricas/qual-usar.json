@@ -1,0 +1,195 @@
+{
+  "id": "qual-usar",
+  "numero": 4,
+  "titulo": "Escolher a relação certa",
+  "pergunta": "Com cinco fórmulas na mão, qual delas resolve?",
+  "ideia": {
+    "paragrafos": [
+      "Aqui está a razão de a matéria ser temida: são cinco relações, e a prova nunca diz qual usar. Decorar as cinco sem um critério de escolha produz o aluno que escreve todas e torce. O critério existe, é simples, e cabe numa frase — escolha a relação em que TODAS as medidas dadas aparecem, e a procurada também.",
+      "As cinco, reunidas: a = m + n liga a hipotenusa às projeções; b² = a·m e c² = a·n ligam cada cateto à hipotenusa e à projeção dele; h² = m·n liga a altura às duas projeções; e a·h = b·c liga a altura à hipotenusa e aos catetos.",
+      "Antes de escolher, faça um inventário. Escreva o que o problema deu e o que ele pede, com os nomes da matéria. \"Hipotenusa 25 e projeção 9, quero o cateto\" já aponta para b² = a·m antes de qualquer conta — é a única das cinco em que esses três aparecem juntos.",
+      "Quando nenhuma relação serve direto, o caminho é dar um passo intermediário. Com os dois catetos e nada mais, primeiro a hipotenusa sai por Pitágoras, e só então a altura sai de a·h = b·c. Dois passos, cada um com uma relação certa — e nada de tentar forçar uma fórmula que não contém os dados.",
+      "Um erro que vale antecipar: usar h² = m·n quando as projeções não foram dadas. Ela é a relação mais bonita das cinco e por isso a mais tentadora, mas sem m e n ela não ajuda em nada. Do mesmo jeito, a·h = b·c é inútil quando os catetos são desconhecidos.",
+      "E vale sempre conferir o resultado contra a figura. A altura é a menor das medidas em jogo; cada projeção é menor que o cateto dela; a hipotenusa é a maior de todas. Um resultado que quebre alguma dessas ordens está errado, mesmo que a conta pareça impecável."
+    ],
+    "destaque": "Escolha a relação em que os dados E a incógnita aparecem juntos. Se nenhuma servir, dê um passo intermediário.",
+    "imagem": "rm9-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo retângulo tem catetos 9 e 12. Quanto mede a altura relativa à hipotenusa?",
+    "imagem": "rm9-res-dois-passos",
+    "passos": [
+      {
+        "titulo": "Faça o inventário",
+        "explicacao": "Só os dois catetos são conhecidos, e a altura é o que se procura.",
+        "conta": "tenho b e c · quero h"
+      },
+      {
+        "titulo": "Veja que nenhuma relação serve direto",
+        "explicacao": "A relação que tem a altura e os catetos também exige a hipotenusa.",
+        "conta": "a · h = b · c · falta o a"
+      },
+      {
+        "titulo": "Dê o passo intermediário",
+        "explicacao": "A hipotenusa sai por Pitágoras, que é a matéria anterior.",
+        "conta": "81 + 144 = 225 → a = 15"
+      },
+      {
+        "titulo": "Agora aplique a relação",
+        "explicacao": "Com os três dados na mão, a altura sai numa divisão.",
+        "conta": "15h = 108 → h = 7,2"
+      }
+    ],
+    "fecho": "Conferindo a ordem: 7,2 é menor que os dois catetos e bem menor que a hipotenusa, como a altura tem de ser."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um problema dá a hipotenusa e uma das projeções, e pede o cateto correspondente. Qual relação usar?",
+      "imagem": "rm9-q-escolher",
+      "dica": "Procure a única das cinco em que essas três medidas aparecem juntas.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "b² = a · m" },
+        { "rotulo": "B", "texto": "h² = m · n" },
+        { "rotulo": "C", "texto": "a · h = b · c" },
+        { "rotulo": "D", "texto": "a = m + n" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "h² = m · n",
+          "porque": "Essa relação devolve a ALTURA, e ainda exige as duas projeções. O problema deu uma só, e pede um cateto — nada dela serve aqui."
+        },
+        {
+          "resposta": "a · h = b · c",
+          "porque": "Ela tem o cateto procurado, mas exige também a altura e o outro cateto, que o problema não deu. Sobram duas incógnitas numa equação só."
+        },
+        {
+          "resposta": "a = m + n",
+          "porque": "Ela usa a hipotenusa e a projeção dadas, mas devolve a OUTRA projeção, e não o cateto. Seria um passo intermediário possível, e não a resposta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste o que há",
+          "explicacao": "A hipotenusa e uma projeção são os dados; o cateto é a incógnita.",
+          "conta": "a e m · quero b"
+        },
+        {
+          "titulo": "Procure a relação com os três",
+          "explicacao": "Só uma das cinco contém exatamente a, m e b.",
+          "conta": "b² = a · m"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo retângulo tem catetos 9 e 12. Quanto mede a hipotenusa? Digite apenas o número.",
+      "imagem": "rm9-q-hipotenusa-15",
+      "dica": "Aqui a matéria anterior resolve, e o resultado é o passo intermediário do roteiro.",
+      "formato": "numero",
+      "resposta": 15,
+      "errosComuns": [
+        {
+          "resposta": "225",
+          "porque": "225 é a soma dos quadrados, 81 + 144. Falta tirar a raiz: √225 = 15."
+        },
+        {
+          "resposta": "21",
+          "porque": "21 é 9 + 12, somando os lados. A hipotenusa é sempre menor que a soma dos catetos."
+        },
+        {
+          "resposta": "108",
+          "porque": "108 é 9 × 12, o produto dos catetos. Ele aparece na relação a·h = b·c, e não no cálculo da hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique Pitágoras",
+          "explicacao": "Os dois dados são catetos, então a soma dos quadrados dá o quadrado da hipotenusa.",
+          "conta": "81 + 144 = 225"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "E guarde o resultado: ele é o passo que destrava a relação da altura.",
+          "conta": "a = 15"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num triângulo retângulo, a hipotenusa mede 15 e um dos catetos mede 9. Quanto mede a projeção desse cateto? Digite apenas o número.",
+      "imagem": "rm9-q-projecao-54",
+      "dica": "Use a relação que liga cateto, hipotenusa e projeção, com a projeção como incógnita.",
+      "formato": "numero",
+      "resposta": 5.4,
+      "errosComuns": [
+        {
+          "resposta": "135",
+          "porque": "135 é 15 × 9, multiplicando a hipotenusa pelo cateto. A relação multiplica a hipotenusa pela PROJEÇÃO, e o cateto entra ao quadrado do outro lado."
+        },
+        {
+          "resposta": "9,6",
+          "porque": "9,6 é a projeção do OUTRO cateto, que mede 12. As duas projeções somam os 15 da hipotenusa, e cada cateto anda com a dele."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é 15 − 9, subtraindo o cateto da hipotenusa. Eles não se subtraem: o cateto não é um pedaço da hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a relação",
+          "explicacao": "É a que contém cateto, hipotenusa e projeção ao mesmo tempo.",
+          "conta": "9² = 15 × m"
+        },
+        {
+          "titulo": "Isole",
+          "explicacao": "Dividindo os dois lados pela hipotenusa.",
+          "conta": "m = 81 / 15 = 5,4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que não adianta usar h² = m · n quando o problema dá só os dois catetos?",
+      "imagem": "rm9-q-por-que-nao-serve",
+      "dica": "Confira se as medidas que a relação exige estão entre as que o problema deu.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque essa relação exige as projeções, e elas não foram dadas" },
+        { "rotulo": "B", "texto": "Porque essa relação só vale em triângulos isósceles" },
+        { "rotulo": "C", "texto": "Porque a altura não existe quando só há catetos" },
+        { "rotulo": "D", "texto": "Porque as projeções são sempre iguais aos catetos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque essa relação só vale em triângulos isósceles",
+          "porque": "Ela vale em qualquer triângulo retângulo: no exemplo da lição 3, com projeções 9 e 16, a altura dá 12 e o triângulo é bem escaleno."
+        },
+        {
+          "resposta": "Porque a altura não existe quando só há catetos",
+          "porque": "A altura existe sempre — o que falta é um caminho DIRETO até ela. Com os dois catetos, ela sai em dois passos, passando pela hipotenusa."
+        },
+        {
+          "resposta": "Porque as projeções são sempre iguais aos catetos",
+          "porque": "Elas são sempre menores: no exemplo da lição, o cateto 15 projeta 9 e o cateto 20 projeta 16. São medidas diferentes com nomes diferentes."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os dois inventários",
+          "explicacao": "A relação pede m e n; o problema deu b e c.",
+          "conta": "pede m e n · tem b e c"
+        },
+        {
+          "titulo": "Ache o caminho que serve",
+          "explicacao": "A hipotenusa sai por Pitágoras e destrava a outra relação da altura.",
+          "conta": "a primeiro, depois a·h = b·c"
+        }
+      ]
+    }
+  ]
+}

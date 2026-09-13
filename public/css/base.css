@@ -391,3 +391,28 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .rodape__interno { max-width: var(--largura); margin-inline: auto; }
 .rodape a { color: var(--body); font-size: 14px; }
 .rodape a:hover { color: var(--ink); }
+
+/* ═══════════ Rodapé com as páginas do site ═══════════
+   O rodapé deixou de ser uma assinatura e virou navegação: são estes links,
+   presentes em toda página, que dizem ao buscador que existem "Como
+   funciona", "Perguntas frequentes" e as demais — é de uma estrutura assim
+   que saem os links extras que o Google mostra abaixo do resultado. */
+.rodape__grade {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: var(--e-2xl);
+  align-items: start;
+}
+.rodape__marca p:last-child { margin-bottom: 0; max-width: 34ch; }
+.rodape__coluna { display: flex; flex-direction: column; gap: var(--e-sm); }
+.rodape__coluna .eyebrow { margin-bottom: var(--e-xs); }
+.rodape__coluna a { width: fit-content; }
+.rodape__fim {
+  margin: var(--e-2xl) 0 0;
+  padding-top: var(--e-lg);
+  border-top: 1px solid var(--hairline);
+}
+@media (max-width: 720px) {
+  .rodape__grade { grid-template-columns: 1fr 1fr; gap: var(--e-xl); }
+  .rodape__marca { grid-column: 1 / -1; }
+}

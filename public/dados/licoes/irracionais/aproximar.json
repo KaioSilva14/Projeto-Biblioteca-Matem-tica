@@ -1,0 +1,201 @@
+{
+  "id": "aproximar",
+  "numero": 3,
+  "titulo": "Aproximar um irracional",
+  "pergunta": "Como trabalhar com um número que você nunca vai escrever inteiro?",
+  "ideia": {
+    "paragrafos": [
+      "Se as casas de √2 nunca acabam, como usar esse número numa conta prática? A resposta é: com uma aproximação boa o bastante — e o trabalho é saber quão boa ela é, o que exige saber entre que valores o número está preso.",
+      "O método é procurar os quadrados perfeitos vizinhos. Para √50: o quadrado perfeito abaixo é 49 = 7², e o acima é 64 = 8². Como 49 < 50 < 64, tirando a raiz dos três sai 7 < √50 < 8. Pronto: sem calculadora nenhuma, √50 está preso entre 7 e 8.",
+      "Repare que a raiz PRESERVA a ordem. Se um número é maior que outro, a raiz dele também é maior — é por isso que dá para tirar a raiz dos três lados da desigualdade sem virar nada de lugar. Essa propriedade é o que faz o método funcionar.",
+      "Para estreitar mais, testam-se decimais. 7,1² = 50,41, que já passou de 50; então √50 está entre 7 e 7,1. Testando 7,07² = 49,98, ainda abaixo: agora sabemos que 7,07 < √50 < 7,08. Cada casa decimal a mais exige um teste e aperta o intervalo dez vezes.",
+      "Esse processo nunca termina, e isso não é um defeito: é a própria natureza do número. Cada passo dá uma aproximação melhor, e o cálculo para quando a precisão já serve para o que se quer. Numa conta de marcenaria, duas casas bastam; num cálculo de engenharia, talvez oito.",
+      "E vale distinguir com cuidado: 1,41 é uma APROXIMAÇÃO de √2, e não √2. Escrever \"√2 = 1,41\" é falso, ainda que o erro seja pequeno. O certo é \"√2 ≈ 1,41\" — e guardar o símbolo √2 nas contas intermediárias, aproximando só no fim, evita que o errinho se acumule."
+    ],
+    "destaque": "Ache os quadrados perfeitos vizinhos e a raiz fica presa entre eles. Cada casa decimal a mais aperta o intervalo dez vezes.",
+    "imagem": "ir9-ideia-aproximar"
+  },
+  "resolvido": {
+    "enunciado": "Entre quais inteiros consecutivos está √50?",
+    "imagem": "ir9-res-entre-quais",
+    "passos": [
+      {
+        "titulo": "Procure o quadrado perfeito abaixo",
+        "explicacao": "O maior quadrado que não passa de 50.",
+        "conta": "7² = 49 · 49 < 50"
+      },
+      {
+        "titulo": "Procure o de cima",
+        "explicacao": "O menor quadrado que passa de 50.",
+        "conta": "8² = 64 · 64 > 50"
+      },
+      {
+        "titulo": "Escreva a desigualdade",
+        "explicacao": "O 50 está preso entre os dois quadrados.",
+        "conta": "49 < 50 < 64"
+      },
+      {
+        "titulo": "Tire a raiz dos três",
+        "explicacao": "A raiz preserva a ordem, então nada troca de lugar.",
+        "conta": "7 < √50 < 8"
+      }
+    ],
+    "fecho": "√50 vale aproximadamente 7,07 — mas o intervalo entre 7 e 8 saiu sem calculadora nenhuma."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o MENOR inteiro entre os quais √20 está preso, ou seja, o inteiro imediatamente abaixo de √20? Digite apenas o número.",
+      "imagem": "ir9-q-entre-20",
+      "dica": "Procure o maior quadrado perfeito que não passa de 20.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "5",
+          "porque": "5 é o inteiro de CIMA: 5² = 25, que passa de 20. O de baixo é o 4, porque 4² = 16, e 16 é o maior quadrado que não passa de 20."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é metade de 20, e não a raiz dele. Metade e raiz são coisas diferentes: 10 × 10 dá 100, e não 20."
+        },
+        {
+          "resposta": "16",
+          "porque": "16 é o quadrado perfeito abaixo de 20, e não a raiz dele. A pergunta é pelo inteiro cujo quadrado é 16 — ou seja, o 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os quadrados vizinhos",
+          "explicacao": "Procurando os quadrados perfeitos em volta de 20.",
+          "conta": "4² = 16 · 5² = 25"
+        },
+        {
+          "titulo": "Prenda o 20 entre eles",
+          "explicacao": "O 20 fica entre 16 e 25, então a raiz fica entre 4 e 5.",
+          "conta": "4 < √20 < 5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que é possível tirar a raiz dos três lados de 49 < 50 < 64 sem trocar nada de lugar?",
+      "imagem": "ir9-q-preserva-ordem",
+      "dica": "Compare com o que acontece numa inequação ao multiplicar por um negativo, no 7º ano.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque a raiz preserva a ordem: número maior tem raiz maior" },
+        { "rotulo": "B", "texto": "Porque os três números são positivos" },
+        { "rotulo": "C", "texto": "Porque 49 e 64 são quadrados perfeitos" },
+        { "rotulo": "D", "texto": "Porque a desigualdade sempre pode ser elevada ou reduzida à vontade" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os três números são positivos",
+          "porque": "Serem positivos é necessário para a raiz quadrada existir, mas não é o que garante a ordem. O que garante é a raiz ser crescente: se a > b, então √a > √b, sempre."
+        },
+        {
+          "resposta": "Porque 49 e 64 são quadrados perfeitos",
+          "porque": "Isso só torna a conta bonita, com raízes inteiras nas pontas. A desigualdade continuaria valendo com 50 < 51 < 52, mesmo sem nenhum quadrado perfeito ali."
+        },
+        {
+          "resposta": "Porque a desigualdade sempre pode ser elevada ou reduzida à vontade",
+          "porque": "Não pode: elevar ao quadrado inverte a ordem entre negativos, porque −3 < −2 mas 9 > 4. A operação precisa preservar a ordem, e a raiz quadrada de positivos preserva."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste a propriedade",
+          "explicacao": "Com números maiores, as raízes também ficam maiores.",
+          "conta": "4 < 9 → 2 < 3"
+        },
+        {
+          "titulo": "Aplique aos três",
+          "explicacao": "Como a ordem se mantém, os sinais de menor continuam apontando para o mesmo lado.",
+          "conta": "7 < √50 < 8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Testando decimais, descobre-se que 1,41² = 1,9881 e 1,42² = 2,0164. Qual é o valor de √2 com duas casas decimais, arredondado para baixo?",
+      "imagem": "ir9-q-duas-casas",
+      "dica": "Procure qual dos dois quadrados ainda não passou de 2.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "1,41" },
+        { "rotulo": "B", "texto": "1,42" },
+        { "rotulo": "C", "texto": "1,40" },
+        { "rotulo": "D", "texto": "2,00" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "1,42",
+          "porque": "1,42² dá 2,0164, que já PASSOU de 2. Então 1,42 é maior que √2, e arredondando para baixo o valor é 1,41."
+        },
+        {
+          "resposta": "1,40",
+          "porque": "1,40 também é menor que √2, mas não é a melhor aproximação com duas casas: 1,41 é maior que 1,40 e continua abaixo de √2, porque 1,41² = 1,9881."
+        },
+        {
+          "resposta": "2,00",
+          "porque": "2 é o RADICANDO, e não a raiz. A raiz de 2 é o número que multiplicado por si mesmo dá 2 — e 2 × 2 daria 4."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os dois quadrados com 2",
+          "explicacao": "Um deles fica abaixo de 2 e o outro passa.",
+          "conta": "1,9881 < 2 < 2,0164"
+        },
+        {
+          "titulo": "Fique com o de baixo",
+          "explicacao": "O último valor cujo quadrado ainda não passou de 2.",
+          "conta": "√2 ≈ 1,41"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Escrever \"√2 = 1,41\" está correto?",
+      "imagem": "ir9-q-igual-ou-aprox",
+      "dica": "Eleve 1,41 ao quadrado e veja se dá exatamente 2.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: 1,41 é aproximação, e o certo é usar o sinal ≈" },
+        { "rotulo": "B", "texto": "Sim, porque a diferença é pequena" },
+        { "rotulo": "C", "texto": "Sim, desde que se use duas casas decimais" },
+        { "rotulo": "D", "texto": "Não, porque √2 vale 1,42" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque a diferença é pequena",
+          "porque": "A diferença ser pequena justifica USAR a aproximação, mas não escrever que os dois são iguais. 1,41² dá 1,9881, e não 2 — então os números são diferentes, por pouco que seja."
+        },
+        {
+          "resposta": "Sim, desde que se use duas casas decimais",
+          "porque": "Nenhum número de casas resolve: as casas de √2 não acabam nunca, então qualquer decimal escrito é sempre uma aproximação. O sinal ≈ é o que registra isso."
+        },
+        {
+          "resposta": "Não, porque √2 vale 1,42",
+          "porque": "1,42 também não é o valor exato — ele passa de √2, já que 1,42² = 2,0164. Nenhum decimal finito é igual a √2, e por isso o erro não é o valor escolhido, e sim o sinal de igual."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste a igualdade",
+          "explicacao": "Se os dois fossem iguais, os quadrados também seriam.",
+          "conta": "1,41² = 1,9881 ≠ 2"
+        },
+        {
+          "titulo": "Use o sinal certo",
+          "explicacao": "O símbolo de aproximadamente registra que o valor não é exato.",
+          "conta": "√2 ≈ 1,41"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Telhados, rampas e áreas",
+  "pergunta": "Onde as relações aparecem fora do caderno?",
+  "ideia": {
+    "paragrafos": [
+      "A configuração desta matéria — um triângulo retângulo com a altura traçada até a hipotenusa — aparece sempre que há um vão coberto por duas inclinações que se encontram em ângulo reto. O caso mais comum é o telhado de duas águas, e o que se procura quase sempre é a altura do cume.",
+      "Num telhado assim, as duas águas são os catetos, o vão entre as paredes é a hipotenusa, e a altura do cume acima da linha do vão é a altura relativa à hipotenusa. Com águas de 9 m e 12 m e vão de 15 m, o cume fica 7,2 m acima — pela relação a·h = b·c.",
+      "A mesma relação tem uma segunda leitura que vale muito em problema de área, e ela já apareceu na lição 3: a·h = b·c é a área do triângulo escrita de dois jeitos. Dividindo tudo por 2, os dois lados viram a área — metade do produto dos catetos, e metade da hipotenusa vezes a altura.",
+      "Disso sai um atalho útil. A área de um triângulo retângulo é sempre metade do produto dos CATETOS, sem precisar de altura nenhuma, porque os catetos já são perpendiculares um ao outro. Com catetos 9 e 12, a área é 54 — e só depois, se o problema pedir a altura, ela sai de dividir o dobro da área pela hipotenusa.",
+      "Outra aparição frequente é a rampa com apoio central: uma rampa reta apoiada num pilar vertical que toca o ponto onde a inclinação muda. As projeções são os dois trechos do chão, o pilar é a altura, e h² = m·n dá a altura do pilar sem medir nada em cima.",
+      "O roteiro é o de sempre, e ele vale repetir: desenhe a figura, nomeie cada medida com os nomes da matéria, faça o inventário do que há e do que falta, escolha a relação que contém os dois, e confira a ordem dos tamanhos no fim."
+    ],
+    "destaque": "Telhado de duas águas e rampa com pilar são a mesma figura. E a área do retângulo sai dos catetos, sem altura.",
+    "imagem": "rm9-ideia-telhado"
+  },
+  "resolvido": {
+    "enunciado": "Um telhado de duas águas tem inclinações de 9 m e 12 m, que se encontram em ângulo reto sobre um vão de 15 m. Que altura o cume fica acima da linha do vão?",
+    "imagem": "rm9-res-telhado",
+    "passos": [
+      {
+        "titulo": "Nomeie a figura",
+        "explicacao": "As duas águas são os catetos, o vão é a hipotenusa e o cume fica na altura.",
+        "conta": "b = 9 · c = 12 · a = 15"
+      },
+      {
+        "titulo": "Confira que o triângulo fecha",
+        "explicacao": "Com ângulo reto entre as águas, Pitágoras tem de valer — e vale.",
+        "conta": "81 + 144 = 225 = 15² ✓"
+      },
+      {
+        "titulo": "Escolha a relação",
+        "explicacao": "Ela é a única que liga a altura à hipotenusa e aos dois catetos.",
+        "conta": "a · h = b · c"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Dividindo o produto dos catetos pela hipotenusa.",
+        "conta": "15h = 108 → h = 7,2 m"
+      }
+    ],
+    "fecho": "O cume fica 7,2 m acima do vão — menos que qualquer uma das águas, como a altura sempre é."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um telhado de duas águas tem inclinações de 15 m e 20 m, que se encontram em ângulo reto sobre um vão de 25 m. Que altura, em metros, o cume fica acima do vão? Digite apenas o número.",
+      "imagem": "rm9-q-telhado-12",
+      "dica": "É a altura relativa à hipotenusa, e há uma relação que usa os catetos e a hipotenusa.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "300",
+          "porque": "300 é o produto das duas águas, 15 × 20. Ele ainda precisa ser dividido pelo vão: 300 ÷ 25 = 12."
+        },
+        {
+          "resposta": "17,5",
+          "porque": "17,5 é a média entre 15 e 20. A altura não é média dos catetos: ela sai de a·h = b·c."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é o vão, ou seja, a hipotenusa. A altura é perpendicular a ele e sempre menor que qualquer um dos outros lados."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a relação",
+          "explicacao": "Os três dados são os dois catetos e a hipotenusa.",
+          "conta": "a · h = b · c"
+        },
+        {
+          "titulo": "Substitua e isole",
+          "explicacao": "Dividindo o produto das águas pelo vão.",
+          "conta": "25h = 300 → h = 12"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é a área, em metros quadrados, de um triângulo retângulo de catetos 9 m e 12 m? Digite apenas o número.",
+      "imagem": "rm9-q-area-54",
+      "dica": "Num triângulo retângulo, os catetos já são perpendiculares um ao outro.",
+      "formato": "numero",
+      "resposta": 54,
+      "errosComuns": [
+        {
+          "resposta": "108",
+          "porque": "108 é o produto dos catetos, sem dividir por 2. A área do triângulo é metade do retângulo que os dois catetos formariam."
+        },
+        {
+          "resposta": "21",
+          "porque": "21 é 9 + 12, somando os catetos. Área é produto, e ainda dividido por dois."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a hipotenusa deste triângulo. Ela aparece no cálculo da altura, e não é a área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Use os catetos como base e altura",
+          "explicacao": "Eles já formam o ângulo reto, então um é a altura relativa ao outro.",
+          "conta": "base 9 · altura 12"
+        },
+        {
+          "titulo": "Aplique a fórmula da área",
+          "explicacao": "Metade do produto da base pela altura.",
+          "conta": "9 × 12 / 2 = 54"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma rampa reta se apoia num pilar vertical, e os dois trechos de chão de cada lado do pilar medem 4 m e 9 m. A rampa forma ângulo reto no topo do pilar. Que altura tem o pilar, em metros? Digite apenas o número.",
+      "imagem": "rm9-q-pilar-6",
+      "dica": "Os dois trechos de chão são as projeções, e o pilar é a altura.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "13",
+          "porque": "13 é 4 + 9, ou seja, o vão inteiro no chão — a hipotenusa. O pilar é perpendicular a ele, e sai da relação h² = m·n."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é o quadrado da altura, que é 4 × 9. Falta tirar a raiz: √36 = 6."
+        },
+        {
+          "resposta": "6,5",
+          "porque": "6,5 é a média entre 4 e 9. A altura é a média GEOMÉTRICA das projeções — a raiz do produto —, e não a média comum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Nomeie a figura",
+          "explicacao": "Os dois trechos de chão são as projeções e o pilar é a altura.",
+          "conta": "m = 4 · n = 9"
+        },
+        {
+          "titulo": "Aplique a relação",
+          "explicacao": "É a que liga a altura às duas projeções.",
+          "conta": "h² = 4 × 9 = 36 → h = 6"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que vale a relação a · h = b · c num triângulo retângulo?",
+      "imagem": "rm9-q-por-que-area",
+      "dica": "Calcule a área do triângulo de dois jeitos diferentes e compare.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque é a área do triângulo escrita de dois jeitos, sem o divisor 2" },
+        { "rotulo": "B", "texto": "Porque a hipotenusa é sempre igual à soma dos catetos" },
+        { "rotulo": "C", "texto": "Porque a altura é sempre a média dos catetos" },
+        { "rotulo": "D", "texto": "Porque os quatro lados formam um retângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a hipotenusa é sempre igual à soma dos catetos",
+          "porque": "Ela nunca é: com catetos 9 e 12 a soma dá 21 e a hipotenusa mede 15. Se fossem iguais, o triângulo seria uma linha reta."
+        },
+        {
+          "resposta": "Porque a altura é sempre a média dos catetos",
+          "porque": "Ela não é: com catetos 9 e 12 a média seria 10,5 e a altura vale 7,2. A altura é sempre menor que os dois catetos."
+        },
+        {
+          "resposta": "Porque os quatro lados formam um retângulo",
+          "porque": "O triângulo tem três lados, e a altura é um quarto segmento por dentro dele. Nenhum retângulo é formado aqui — o que há são duas maneiras de medir a mesma área."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a área pelos catetos",
+          "explicacao": "Eles são perpendiculares, então um serve de altura para o outro.",
+          "conta": "área = b · c / 2"
+        },
+        {
+          "titulo": "Calcule pela hipotenusa",
+          "explicacao": "Com a hipotenusa como base, a altura relativa a ela é o h.",
+          "conta": "área = a · h / 2"
+        },
+        {
+          "titulo": "Iguale e corte o 2",
+          "explicacao": "As duas expressões medem a mesma área, e o divisor some dos dois lados.",
+          "conta": "a · h = b · c"
+        }
+      ]
+    }
+  ]
+}

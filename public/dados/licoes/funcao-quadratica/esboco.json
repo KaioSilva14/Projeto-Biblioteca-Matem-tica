@@ -1,0 +1,200 @@
+{
+  "id": "esboco",
+  "numero": 5,
+  "titulo": "Esboçar a parábola",
+  "pergunta": "Qual é a ordem certa para desenhar a curva?",
+  "ideia": {
+    "paragrafos": [
+      "Montar uma tabela de dez pontos funciona, mas é trabalho desnecessário e nunca garante que o desenho saia certo — se os valores escolhidos caírem todos de um lado do vértice, a curva sai torta. Há um roteiro melhor, com quatro passos, e ele usa só o que as lições anteriores já deram.",
+      "O primeiro passo é a CONCAVIDADE: olhe o sinal de a e decida se a boca aponta para cima ou para baixo. Isso não custa conta nenhuma e já fixa metade do desenho. O segundo é o CORTE NO EIXO VERTICAL, que é o c — também de graça, porque ele está escrito na lei.",
+      "O terceiro passo são as RAÍZES: calcule o discriminante e resolva, se houver. Elas dão os pontos em que a curva encontra o eixo horizontal, e são as âncoras laterais do esboço. Se o discriminante for negativo, não há corte e a curva fica inteira de um lado do eixo — o que já é uma informação forte.",
+      "O quarto é o VÉRTICE, e ele é o mais importante: é o ponto de virada, e sem ele não dá para saber até onde a curva desce ou sobe. Com esses quatro dados na mão, o traçado é quase automático — e um quinto ponto qualquer, de conferência, custa uma substituição.",
+      "A simetria fecha o trabalho de graça. Marcado um ponto de um lado do eixo de simetria, o espelho dele do outro lado também pertence à curva, sem nenhuma conta. É assim que dois pontos calculados viram quatro pontos marcados.",
+      "Vale reparar num caso que o roteiro cobre sem esforço: com a positivo e discriminante negativo, a parábola abre para cima e não toca o eixo horizontal — logo, ela fica inteiramente acima dele, e a função é positiva para qualquer entrada. Trocando o sinal de a, ela fica inteiramente abaixo. São conclusões que saem só de combinar os dois primeiros passos."
+    ],
+    "destaque": "Concavidade, corte no eixo vertical, raízes e vértice — nessa ordem. A simetria dá os pontos restantes sem conta.",
+    "imagem": "fq9-ideia-roteiro"
+  },
+  "resolvido": {
+    "enunciado": "Esboce o gráfico de f(x) = x² − 2x − 3.",
+    "imagem": "fq9-res-esboco",
+    "passos": [
+      {
+        "titulo": "Decida a concavidade",
+        "explicacao": "O coeficiente do termo quadrático é positivo, então a boca aponta para cima.",
+        "conta": "a = 1 → abre para cima"
+      },
+      {
+        "titulo": "Marque o corte no eixo vertical",
+        "explicacao": "Ele é o termo independente, e sai da lei sem nenhuma conta.",
+        "conta": "passa por (0, −3)"
+      },
+      {
+        "titulo": "Ache as raízes",
+        "explicacao": "O discriminante vale 16, e a raiz dele é 4, então há dois cortes.",
+        "conta": "x = −1 e x = 3"
+      },
+      {
+        "titulo": "Ache o vértice",
+        "explicacao": "Ele fica no meio das raízes, e a altura sai substituindo.",
+        "conta": "(1, −4)"
+      }
+    ],
+    "fecho": "Quatro dados e a curva está determinada: boca para cima, fundo em (1, −4) e cortes em −1 e 3."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma função quadrática tem a positivo e discriminante negativo. Onde fica a parábola dela?",
+      "imagem": "fq9-q-acima-do-eixo",
+      "dica": "Combine os dois primeiros passos do roteiro: para que lado abre, e quantos cortes tem.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Inteiramente acima do eixo horizontal" },
+        { "rotulo": "B", "texto": "Inteiramente abaixo do eixo horizontal" },
+        { "rotulo": "C", "texto": "Cortando o eixo horizontal em dois pontos" },
+        { "rotulo": "D", "texto": "Encostando no eixo horizontal em um ponto" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Inteiramente abaixo do eixo horizontal",
+          "porque": "Isso aconteceria com a NEGATIVO e discriminante negativo. Com a positivo a curva abre para cima, e se ela não toca o eixo é porque está acima dele."
+        },
+        {
+          "resposta": "Cortando o eixo horizontal em dois pontos",
+          "porque": "Dois cortes exigem discriminante positivo. Com ele negativo não existe raiz real, e a curva não alcança o eixo."
+        },
+        {
+          "resposta": "Encostando no eixo horizontal em um ponto",
+          "porque": "O encosto acontece com discriminante ZERO, e não negativo. Negativo significa que nem sequer há contato."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia a concavidade",
+          "explicacao": "Com a positivo, a curva abre para cima e tem um ponto mais baixo.",
+          "conta": "boca para cima"
+        },
+        {
+          "titulo": "Leia o discriminante",
+          "explicacao": "Negativo significa nenhum contato com o eixo horizontal.",
+          "conta": "sem raiz real"
+        },
+        {
+          "titulo": "Junte os dois",
+          "explicacao": "Se ela abre para cima e não desce até o eixo, está toda acima dele.",
+          "conta": "f(x) > 0 sempre"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Em que altura fica o vértice de f(x) = x² − 4? Digite apenas o número, com o sinal.",
+      "imagem": "fq9-q-vertice-simples",
+      "dica": "Com b igual a zero, o eixo de simetria é o próprio eixo vertical.",
+      "formato": "numero",
+      "resposta": -4,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "O sinal se perdeu: o termo independente é −4, e com x = 0 a saída é exatamente ele. A curva desce abaixo do eixo horizontal."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é a primeira coordenada do vértice, porque o b é zero. A pergunta é pela altura, que é f(0)."
+        },
+        {
+          "resposta": "-2",
+          "porque": "−2 é uma das raízes da função, que é onde a curva cruza o eixo horizontal. O vértice fica no meio das raízes, mais abaixo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o x do vértice",
+          "explicacao": "Com b igual a zero, o oposto dele sobre 2a também dá zero.",
+          "conta": "x = 0"
+        },
+        {
+          "titulo": "Substitua",
+          "explicacao": "A altura do vértice é a saída da função naquele ponto.",
+          "conta": "f(0) = −4"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Qual é a ordem mais eficiente para esboçar uma parábola?",
+      "imagem": "fq9-q-ordem-do-roteiro",
+      "dica": "Comece pelo que não custa conta nenhuma.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Concavidade, corte no eixo vertical, raízes e vértice" },
+        { "rotulo": "B", "texto": "Uma tabela com dez valores de x escolhidos ao acaso" },
+        { "rotulo": "C", "texto": "Vértice primeiro, e depois nada mais é necessário" },
+        { "rotulo": "D", "texto": "Raízes primeiro, e a concavidade sai delas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Uma tabela com dez valores de x escolhidos ao acaso",
+          "porque": "Funciona, mas dá muito mais trabalho e não garante nada: se os dez valores caírem do mesmo lado do vértice, a curva sai torta e o ponto de virada some do desenho."
+        },
+        {
+          "resposta": "Vértice primeiro, e depois nada mais é necessário",
+          "porque": "O vértice diz onde está o ponto de virada, mas não diz para que lado a curva abre nem quão fechada ela é. Sem a concavidade, dois desenhos opostos caberiam no mesmo vértice."
+        },
+        {
+          "resposta": "Raízes primeiro, e a concavidade sai delas",
+          "porque": "Não sai: as parábolas de x² − 4 e de −x² + 4 têm as MESMAS raízes, −2 e 2, e abrem para lados opostos. A concavidade vem do sinal de a, e de mais nada."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece pelo que é de graça",
+          "explicacao": "O sinal de a e o termo independente estão escritos na lei, sem conta nenhuma.",
+          "conta": "concavidade · corte em c"
+        },
+        {
+          "titulo": "Depois o que exige conta",
+          "explicacao": "As raízes ancoram os lados e o vértice fixa o ponto de virada.",
+          "conta": "raízes · vértice"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Qual é o valor MÁXIMO de f(x) = −x² + 6x − 5? Digite apenas o número.",
+      "imagem": "fq9-q-valor-maximo",
+      "dica": "Ache o x do vértice primeiro; o valor máximo é a altura dele.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é a primeira coordenada do vértice, ou seja, ONDE o máximo acontece. O valor máximo é a altura daquele ponto: f(3)."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é uma das raízes da função, onde a saída vale zero — o contrário de um máximo. A outra raiz é 1, e o vértice fica no meio delas."
+        },
+        {
+          "resposta": "-5",
+          "porque": "−5 é o termo independente, que é a altura em x = 0. O máximo acontece em x = 3, bem longe dali."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o x do vértice",
+          "explicacao": "É o oposto do b sobre o dobro do a, com o a valendo −1.",
+          "conta": "−6 / (−2) = 3"
+        },
+        {
+          "titulo": "Substitua",
+          "explicacao": "Com a negativo, a altura do vértice é o maior valor que a função alcança.",
+          "conta": "f(3) = −9 + 18 − 5 = 4"
+        }
+      ]
+    }
+  ]
+}

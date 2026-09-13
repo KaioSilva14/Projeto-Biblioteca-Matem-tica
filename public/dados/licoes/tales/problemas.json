@@ -1,0 +1,216 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Terrenos, cercas e ruas",
+  "pergunta": "Onde um feixe de paralelas aparece fora do caderno?",
+  "ideia": {
+    "paragrafos": [
+      "O problema clássico do teorema está no cadastro de imóveis, e ele é antigo: um quarteirão entre duas ruas paralelas é repartido em lotes, e as divisas entre os lotes são paralelas entre si. As duas ruas são as transversais, as divisas são o feixe — e as frentes dos lotes numa rua ficam proporcionais às frentes na outra.",
+      "Isso resolve uma pergunta prática. Um terreno tem 54 m de frente na rua da frente e 36 m na rua de trás; ele é repartido em três lotes com frentes de 12, 18 e 24 m na primeira rua. Quanto cada lote tem de frente na segunda? A razão entre as ruas é 36/54, ou 2/3, e cada frente é multiplicada por ela: saem 8, 12 e 16 m.",
+      "A conferência é imediata e vale sempre fazer: 8 + 12 + 16 dá 36, que é a frente total da rua de trás. Se a soma não fechar, alguma frente foi calculada errado — e esse teste pega o erro sem precisar refazer nenhuma multiplicação.",
+      "A outra aparição frequente é a fileira de pontos igualmente espaçados: postes de cerca, degraus, marcas de régua, mourões. Aqui a armadilha não é a proporção, é a CONTAGEM. Entre 12 postes não há 12 vãos, há 11 — e entre o terceiro e o sexto poste não há 3 postes de distância, há 3 vãos.",
+      "O roteiro desses problemas é curto: identifique quem são as paralelas e quem são as transversais, escreva a proporção com os dados na mesma ordem, resolva e confira contra a figura ou contra a soma total. Nenhuma técnica nova, só a leitura correta da situação.",
+      "E vale reparar no que Tales dispensa: ninguém precisou entrar no terreno, subir na cerca ou medir uma diagonal. Medidas acessíveis — as frentes de uma rua, o vão entre dois postes — produzem medidas inacessíveis, e é isso que faz o teorema atravessar vinte e seis séculos ainda em uso."
+    ],
+    "destaque": "Lotes entre ruas paralelas e postes igualmente espaçados são feixes disfarçados. Confira somando: o total tem de fechar.",
+    "imagem": "tl9-ideia-lotes"
+  },
+  "resolvido": {
+    "enunciado": "Um quarteirão entre duas ruas paralelas tem 54 m de frente na rua A e 36 m na rua B. Ele é dividido em três lotes com frentes de 12, 18 e 24 m na rua A, com divisas paralelas. Quanto mede a frente de cada lote na rua B?",
+    "imagem": "tl9-res-lotes",
+    "passos": [
+      {
+        "titulo": "Identifique o feixe",
+        "explicacao": "As divisas são as paralelas, e as duas ruas são as transversais.",
+        "conta": "divisas ∥ divisas"
+      },
+      {
+        "titulo": "Ache a razão entre as ruas",
+        "explicacao": "Ela é a mesma para todos os lotes, e é isso que o teorema garante.",
+        "conta": "36/54 = 2/3"
+      },
+      {
+        "titulo": "Aplique a cada frente",
+        "explicacao": "Cada frente da rua A é multiplicada pela mesma razão.",
+        "conta": "12→8 · 18→12 · 24→16"
+      },
+      {
+        "titulo": "Confira a soma",
+        "explicacao": "As três frentes juntas têm de dar a frente total da rua B.",
+        "conta": "8 + 12 + 16 = 36 ✓"
+      }
+    ],
+    "fecho": "As frentes na rua B medem 8, 12 e 16 m. O lote maior continua sendo o maior — a proporção não troca a ordem."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma cerca reta de arame tem 12 postes igualmente espaçados. A distância entre o terceiro e o sexto poste é de 3,3 m. Qual é o comprimento da cerca, em metros? Digite apenas o número.",
+      "imagem": "tl9-q-obmep-cerca",
+      "dica": "Conte os VÃOS entre o terceiro e o sexto poste, e depois os vãos da cerca inteira.",
+      "formato": "numero",
+      "resposta": 12.1,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Nível 2, problema 9 — Quanto mede a cerca?"
+      },
+      "errosComuns": [
+        {
+          "resposta": "13,2",
+          "porque": "13,2 sai de contar 12 vãos em vez de 11. Entre 12 postes há sempre um vão a menos que o número de postes — o primeiro poste não abre vão atrás dele."
+        },
+        {
+          "resposta": "9,9",
+          "porque": "9,9 sai de dividir 3,3 por 3 e multiplicar por 9, ou de outra contagem de vãos. Do primeiro ao décimo segundo poste são 11 vãos de 1,1 m."
+        },
+        {
+          "resposta": "8,4",
+          "porque": "8,4 não corresponde a nenhuma contagem de vãos com o passo de 1,1 m. Vale refazer os dois passos: primeiro o vão unitário, depois quantos deles a cerca tem."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Conte os vãos do trecho dado",
+          "explicacao": "Do terceiro ao sexto poste há três vãos, e não três postes.",
+          "conta": "6 − 3 = 3 vãos"
+        },
+        {
+          "titulo": "Ache o vão unitário",
+          "explicacao": "Os postes são igualmente espaçados, então basta dividir.",
+          "conta": "3,3 / 3 = 1,1 m"
+        },
+        {
+          "titulo": "Conte os vãos da cerca inteira",
+          "explicacao": "Com 12 postes, há 11 vãos entre o primeiro e o último.",
+          "conta": "11 × 1,1 = 12,1 m"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Dois lotes ficam entre duas ruas paralelas, com a divisa entre eles paralela às laterais. Na rua A, as frentes medem 10 m e 15 m. Na rua B, o primeiro lote tem 8 m de frente. Quanto mede a frente do segundo na rua B? Digite apenas o número.",
+      "imagem": "tl9-q-dois-lotes",
+      "dica": "A razão entre as frentes se repete nas duas ruas.",
+      "formato": "numero",
+      "resposta": 12,
+      "errosComuns": [
+        {
+          "resposta": "13",
+          "porque": "13 é 8 + 5, somando a diferença entre 10 e 15. O feixe conserva a razão, e não a diferença — 15 é uma vez e meia o 10, e não 5 a mais no sentido proporcional."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a frente do segundo lote na rua A. Na rua B as frentes são menores, porque a rua B é mais curta: a primeira já caiu de 10 para 8."
+        },
+        {
+          "resposta": "5,33",
+          "porque": "5,33 sai de inverter a proporção: 15/10 = 8/x. O segundo lote é o maior nas duas ruas, então a frente dele tem de passar de 8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "As frentes da rua A estão para as da rua B na mesma razão.",
+          "conta": "10/15 = 8/x"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Multiplicando cruzado e dividindo por 10.",
+          "conta": "10x = 120 → x = 12"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um quarteirão entre duas ruas paralelas tem dois lotes com frentes de 20 m e 30 m na rua A. Na rua B, a frente total do quarteirão é 40 m. Quanto mede a frente do lote MENOR na rua B? Digite apenas o número.",
+      "imagem": "tl9-q-frente-menor",
+      "dica": "Ache primeiro a frente total na rua A, e compare com os 40 m da rua B.",
+      "formato": "numero",
+      "resposta": 16,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é a frente do lote MAIOR na rua B, que corresponde aos 30 m. A pergunta é pelo menor, que corresponde aos 20 m."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é a frente do lote menor na rua A. Na rua B as frentes encolhem, porque o total caiu de 50 m para 40 m."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 sai de dividir 40 por 5 e multiplicar por 1, tratando a razão 20 para 30 como 1 para 4. A frente menor leva 20 das 50 partes, ou seja, dois quintos dos 40 m."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache a frente total na rua A",
+          "explicacao": "É a soma das duas frentes daquele lado.",
+          "conta": "20 + 30 = 50 m"
+        },
+        {
+          "titulo": "Monte a proporção",
+          "explicacao": "A frente menor está para o total do mesmo jeito nas duas ruas.",
+          "conta": "20/50 = x/40"
+        },
+        {
+          "titulo": "Resolva e confira",
+          "explicacao": "A outra frente dá 24, e as duas somam os 40 m da rua B.",
+          "conta": "50x = 800 → x = 16"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "No problema dos lotes entre duas ruas, por que as divisas precisam ser paralelas?",
+      "imagem": "tl9-q-por-que-divisas",
+      "dica": "Sem paralelismo, o que acontece com a proporção entre as frentes?",
+      "formato": "alternativas",
+      "alternativas": [
+        {
+          "rotulo": "A",
+          "texto": "Porque só um feixe de paralelas garante frentes proporcionais nas duas ruas"
+        },
+        {
+          "rotulo": "B",
+          "texto": "Porque lotes precisam ser retangulares"
+        },
+        {
+          "rotulo": "C",
+          "texto": "Porque assim todos os lotes ficam com a mesma área"
+        },
+        {
+          "rotulo": "D",
+          "texto": "Porque as ruas são paralelas entre si"
+        }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque lotes precisam ser retangulares",
+          "porque": "Eles não precisam: com as ruas paralelas e as divisas paralelas entre si mas inclinadas, os lotes saem em forma de paralelogramo, e o teorema continua valendo."
+        },
+        {
+          "resposta": "Porque assim todos os lotes ficam com a mesma área",
+          "porque": "As áreas ficam bem diferentes — no exemplo da lição, um lote tem frente 12 e outro 24. O paralelismo garante proporção entre as frentes, e não igualdade de área."
+        },
+        {
+          "resposta": "Porque as ruas são paralelas entre si",
+          "porque": "As ruas serem paralelas é dado do problema, e não motivo. Elas fazem o papel de TRANSVERSAIS aqui, e o teorema nem exige que elas sejam paralelas entre si."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique os papéis",
+          "explicacao": "As divisas fazem o papel do feixe; as ruas, o das transversais.",
+          "conta": "divisas = o feixe"
+        },
+        {
+          "titulo": "Lembre a condição",
+          "explicacao": "O teorema exige paralelismo no feixe, e sem ele a proporção some.",
+          "conta": "sem paralelas, sem proporção"
+        }
+      ]
+    }
+  ]
+}

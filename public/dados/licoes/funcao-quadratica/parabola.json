@@ -1,0 +1,195 @@
+{
+  "id": "parabola",
+  "numero": 2,
+  "titulo": "A parábola, e para que lado ela abre",
+  "pergunta": "Que curva é essa, e o que decide o formato dela?",
+  "ideia": {
+    "paragrafos": [
+      "Marcando no plano os pares de f(x) = x², aparece uma curva com nome próprio: PARÁBOLA. Ela não é um V com as pontas arredondadas nem um pedaço de círculo — é uma curva que desce, alcança um ponto mais baixo e volta a subir, com os dois ramos abrindo cada vez mais.",
+      "A parábola tem uma simetria exata, e ela se enxerga na tabela antes de se enxergar no desenho: f(−3) e f(3) dão os dois 9; f(−2) e f(2) dão os dois 4. Existe uma reta vertical que divide a curva em duas metades iguais, e cada ponto de um lado tem um gêmeo do outro, na mesma altura.",
+      "Quem decide o formato é o coeficiente a. Com a POSITIVO, a curva abre para cima: ela desce, vira e sobe, e tem um ponto mais baixo. Com a NEGATIVO, ela abre para baixo: sobe, vira e desce, e tem um ponto mais alto. Essa palavra — CONCAVIDADE — é só o nome disso.",
+      "Dá para ver por que: para valores de x bem grandes, em módulo, o termo ax² domina os outros dois, porque ele cresce muito mais depressa. Se a é positivo, esse termo puxa a saída para cima nos dois extremos; se é negativo, puxa para baixo nos dois. O meio do caminho é que fica decidido pelos outros coeficientes.",
+      "O tamanho do a também importa, e de um jeito que surpreende: quanto MAIOR o a, mais FECHADA é a parábola. Em f(x) = 3x², a saída em x = 2 já é 12, enquanto em f(x) = x² é só 4 — a curva sobe mais depressa e os ramos ficam mais apertados. Um a pequeno produz uma parábola aberta e rasa.",
+      "E o c tem a mesma leitura da função afim: ele é f(0), ou seja, a altura em que a curva cruza o eixo vertical. Em f(x) = x² − 2x − 3, a parábola passa por (0, −3). Esse é o primeiro ponto que se marca ao esboçar, porque sai sem nenhuma conta."
+    ],
+    "destaque": "O sinal de a decide para que lado a parábola abre; o tamanho dele decide se ela é fechada ou rasa. O c é onde ela cruza o eixo vertical.",
+    "imagem": "fq9-ideia-concavidade"
+  },
+  "resolvido": {
+    "enunciado": "Descreva o gráfico de f(x) = −x² + 4 sem montar tabela.",
+    "imagem": "fq9-res-abre-para-baixo",
+    "passos": [
+      {
+        "titulo": "Identifique os coeficientes",
+        "explicacao": "O a é o que multiplica o termo quadrático, com o sinal junto.",
+        "conta": "a = −1 · b = 0 · c = 4"
+      },
+      {
+        "titulo": "Leia o sinal do a",
+        "explicacao": "Negativo significa que os dois ramos apontam para baixo.",
+        "conta": "concavidade para baixo"
+      },
+      {
+        "titulo": "Leia o c",
+        "explicacao": "Ele é f(0), a altura do cruzamento com o eixo vertical.",
+        "conta": "passa por (0, 4)"
+      },
+      {
+        "titulo": "Use a simetria",
+        "explicacao": "Com b igual a zero, o eixo de simetria é o próprio eixo vertical.",
+        "conta": "f(−2) = f(2) = 0"
+      }
+    ],
+    "fecho": "É uma parábola de boca para baixo com o ponto mais alto em (0, 4), cortando o eixo horizontal em −2 e em 2."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Para que lado abre a parábola de f(x) = −2x² + 3x + 1?",
+      "imagem": "fq9-q-para-que-lado",
+      "dica": "Olhe o sinal do coeficiente que multiplica o termo quadrático.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Para baixo, porque o coeficiente de x² é negativo" },
+        { "rotulo": "B", "texto": "Para cima, porque o termo independente é positivo" },
+        { "rotulo": "C", "texto": "Para cima, porque há um termo com +3x" },
+        { "rotulo": "D", "texto": "Para baixo, porque o coeficiente de x² é par" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Para cima, porque o termo independente é positivo",
+          "porque": "O c diz onde a curva cruza o eixo vertical, e não para que lado ela abre. Quem decide a concavidade é só o coeficiente do termo quadrático."
+        },
+        {
+          "resposta": "Para cima, porque há um termo com +3x",
+          "porque": "O b desloca a curva para os lados, mas não vira a boca dela. Com a negativo ela abre para baixo, tenha o b o sinal que tiver."
+        },
+        {
+          "resposta": "Para baixo, porque o coeficiente de x² é par",
+          "porque": "A conclusão está certa e o motivo não. f(x) = 2x² tem coeficiente par e abre para CIMA — o que decide é o sinal, e não a paridade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Isole o coeficiente a",
+          "explicacao": "É o número que multiplica o x ao quadrado, com o sinal.",
+          "conta": "a = −2"
+        },
+        {
+          "titulo": "Leia o sinal",
+          "explicacao": "Negativo puxa a curva para baixo nos dois extremos.",
+          "conta": "concavidade para baixo"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Em que altura o gráfico de f(x) = x² − 2x − 3 cruza o eixo vertical? Digite apenas o número, com o sinal.",
+      "imagem": "fq9-q-cruza-vertical",
+      "dica": "No eixo vertical a entrada vale zero. Calcule f(0).",
+      "formato": "numero",
+      "resposta": -3,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "O sinal se perdeu: o termo independente é −3, e não +3. Substituindo, f(0) = 0 − 0 − 3 dá −3."
+        },
+        {
+          "resposta": "0",
+          "porque": "0 é o valor da ENTRADA sobre o eixo vertical, e não a altura do cruzamento. A altura é f(0)."
+        },
+        {
+          "resposta": "-2",
+          "porque": "−2 é o coeficiente b, que acompanha o x. Com x = 0 essa parcela vale zero e o que sobra é o termo independente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Traduza o eixo vertical",
+          "explicacao": "Todos os pontos desse eixo têm entrada zero.",
+          "conta": "x = 0"
+        },
+        {
+          "titulo": "Calcule f(0)",
+          "explicacao": "As duas parcelas com x zeram e sobra o termo independente.",
+          "conta": "f(0) = −3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Numa parábola, o que acontece com duas entradas que ficam à mesma distância do eixo de simetria, uma de cada lado?",
+      "imagem": "fq9-q-simetria",
+      "dica": "Calcule f(−2) e f(2) em f(x) = x² e compare.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "As duas produzem exatamente a mesma saída" },
+        { "rotulo": "B", "texto": "As saídas são opostas, uma positiva e outra negativa" },
+        { "rotulo": "C", "texto": "A saída da direita é sempre maior" },
+        { "rotulo": "D", "texto": "As saídas não têm relação nenhuma" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "As saídas são opostas, uma positiva e outra negativa",
+          "porque": "Isso valeria para uma reta que passa pela origem, e não para a parábola. Em f(x) = x², tanto −2 quanto 2 dão 4 — o mesmo número, e não o oposto."
+        },
+        {
+          "resposta": "A saída da direita é sempre maior",
+          "porque": "Ela seria maior se a curva fosse crescente o tempo todo, e a parábola não é. Pontos simétricos ficam na MESMA altura, e é isso que a simetria significa."
+        },
+        {
+          "resposta": "As saídas não têm relação nenhuma",
+          "porque": "Têm a relação mais forte possível: são iguais. É justamente essa igualdade que faz a curva ter duas metades espelhadas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste um par simétrico",
+          "explicacao": "Em f(x) = x², os valores −2 e 2 estão à mesma distância do eixo.",
+          "conta": "f(−2) = 4 · f(2) = 4"
+        },
+        {
+          "titulo": "Generalize",
+          "explicacao": "Cada ponto de um lado tem um gêmeo do outro, na mesma altura.",
+          "conta": "saídas iguais"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na função f(x) = x², quanto vale f(−3)? Digite apenas o número.",
+      "imagem": "fq9-q-f-de-menos-3",
+      "dica": "Elevar ao quadrado é multiplicar o número por ele mesmo, sinal incluído.",
+      "formato": "numero",
+      "resposta": 9,
+      "errosComuns": [
+        {
+          "resposta": "-9",
+          "porque": "O quadrado de um negativo é positivo: (−3) × (−3) dá +9, porque dois sinais negativos se cancelam na multiplicação."
+        },
+        {
+          "resposta": "-6",
+          "porque": "−6 é o dobro de −3. Elevar ao quadrado não é dobrar: é multiplicar o número por ele mesmo."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 também vem de dobrar, agora com o sinal corrigido. O quadrado de −3 é 9, o mesmo valor de f(3) — é a simetria da parábola."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua com o sinal",
+          "explicacao": "O parêntese é necessário: é o número inteiro que vai ao quadrado.",
+          "conta": "f(−3) = (−3)²"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "Negativo vezes negativo dá positivo.",
+          "conta": "(−3) × (−3) = 9"
+        }
+      ]
+    }
+  ]
+}

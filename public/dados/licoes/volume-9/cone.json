@@ -1,0 +1,178 @@
+{
+  "id": "cone",
+  "numero": 3,
+  "titulo": "Volume do cone",
+  "pergunta": "O cone é um sólido novo ou é uma pirâmide disfarçada?",
+  "ideia": {
+    "paragrafos": [
+      "O cone parece outra coisa, mas não é. Pense num prisma de base hexagonal e depois num de base com vinte lados, e depois num de cem: quanto mais lados, mais a base parece um círculo e mais o sólido parece um cilindro. Foi assim que o 7º ano chegou no círculo, e é assim que o cone chega aqui.",
+      "Um cone é o que uma pirâmide vira quando a base tem tantos lados que passa a ser uma circunferência. Então tudo o que vale para a pirâmide vale para ele — inclusive o terço. O volume é a área da base vezes a altura, dividido por três; o que muda é só qual conta de área vem antes.",
+      "A base do cone é um círculo, e a área dele é π × r², do 7º ano. Substituindo, o volume fica V = π × r² × h ÷ 3. Nas contas deste site, π vale 3,14 — que é aproximação, e por isso as respostas saem aproximadas também.",
+      "Vale prestar atenção em quem está ao quadrado. O raio está; a altura não. Isso quer dizer que o raio pesa muito mais: dobrar o raio multiplica o volume por quatro, enquanto dobrar a altura só o dobra. É a mesma observação que a lição do círculo deixou, agora no espaço.",
+      "Além da altura, o cone tem outra medida que aparece o tempo todo em prova: a GERATRIZ, que é o comprimento do lado inclinado, do bico até a borda da base. Ela não entra no volume, mas entra na área da superfície — e cobrar uma pelo outra é armadilha comum.",
+      "A geratriz se calcula com o Teorema de Pitágoras, da matéria 8 deste ano: a altura, o raio e a geratriz formam um triângulo retângulo, com a geratriz na hipotenusa. Então g² = r² + h². Num cone de raio 3 e altura 4, a geratriz é 5 — e nenhuma dessas três medidas precisou ser medida com régua."
+    ],
+    "destaque": "O cone é uma pirâmide de base redonda: V = π × r² × h ÷ 3. E a geratriz sai de Pitágoras, não do volume.",
+    "imagem": "vl9-ideia-cone"
+  },
+  "resolvido": {
+    "enunciado": "Um cone tem 3 cm de raio da base e 8 cm de altura. Qual é o volume dele, em cm³? Use π = 3,14.",
+    "imagem": "vl9-res-cone-tres-oito",
+    "passos": [
+      {
+        "titulo": "Calcule a área da base",
+        "explicacao": "A base é um círculo, e a área dele usa o raio ao quadrado.",
+        "conta": "3,14 × 3 × 3 = 28,26 cm²"
+      },
+      {
+        "titulo": "Multiplique pela altura",
+        "explicacao": "Isso dá o volume do cilindro de mesma base e mesma altura.",
+        "conta": "28,26 × 8 = 226,08 cm³"
+      },
+      {
+        "titulo": "Divida por três",
+        "explicacao": "O cone é o sólido pontudo desse cilindro, então vale um terço dele.",
+        "conta": "226,08 / 3 = 75,36 cm³"
+      }
+    ],
+    "fecho": "75,36 cm³. E, de novo, a conferência: bem menos que os 226,08 cm³ do cilindro que o envolve."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um cone tem 6 cm de raio da base e 10 cm de altura. Qual é o volume dele, em cm³? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl9-q-cone-seis-dez",
+      "dica": "Área do círculo primeiro, depois a altura, e o terço por último.",
+      "formato": "numero",
+      "resposta": 376.8,
+      "errosComuns": [
+        {
+          "resposta": "1130,4",
+          "porque": "1130,4 é o volume do CILINDRO de mesma base e mesma altura. O cone termina em ponta e ocupa um terço dele — falta dividir por três."
+        },
+        {
+          "resposta": "125,6",
+          "porque": "125,6 sai de usar o COMPRIMENTO da circunferência, 2 × 3,14 × 6, no lugar da área do círculo. Para volume quem entra é a área da base, e ela usa o raio ao quadrado."
+        },
+        {
+          "resposta": "188,4",
+          "porque": "188,4 é metade do resultado certo, o que acontece ao dividir por seis em vez de três — geralmente por aplicar junto o \"sobre dois\" da área do triângulo. A base aqui é um círculo, e a divisão é só por três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "Círculo de raio 6 cm, com π valendo 3,14.",
+          "conta": "3,14 × 6 × 6 = 113,04 cm²"
+        },
+        {
+          "titulo": "Altura e terço",
+          "explicacao": "Multiplique pela altura e reparta em três, como na pirâmide.",
+          "conta": "113,04 × 10 / 3 = 376,8 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um cone tem 3 cm de raio da base e 4 cm de altura. Quanto mede a geratriz dele, em cm? Digite apenas o número.",
+      "imagem": "vl9-q-geratriz",
+      "dica": "O raio, a altura e a geratriz formam um triângulo retângulo dentro do cone.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é 3 + 4, somando o raio com a altura. Os dois são catetos de um triângulo retângulo, e a hipotenusa nunca é a soma deles — ela é sempre menor que isso."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é 3 × 4, multiplicando raio por altura. Isso não é Pitágoras: no teorema os catetos entram ao quadrado e são somados, não multiplicados entre si."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é 3² + 4², ou seja, o QUADRADO da geratriz. A conta parou um passo antes: falta extrair a raiz quadrada de 25."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o triângulo retângulo",
+          "explicacao": "Os catetos são o raio e a altura; a geratriz é a hipotenusa.",
+          "conta": "g² = 3² + 4²"
+        },
+        {
+          "titulo": "Some e tire a raiz",
+          "explicacao": "Somar os quadrados dá o quadrado da geratriz, e a raiz devolve ela.",
+          "conta": "g² = 25 · g = 5 cm"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um cilindro tem 90 cm³ de volume. Um cone tem exatamente a mesma base e a mesma altura que ele. Qual é o volume do cone, em cm³? Digite apenas o número.",
+      "imagem": "vl9-q-cilindro-noventa",
+      "dica": "Não é preciso saber o raio nem a altura: a relação entre os dois sólidos basta.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "270",
+          "porque": "270 é 90 × 3, multiplicando por três em vez de dividir. Quem é maior é o cilindro: o cone cabe dentro dele, e por isso o número tem de diminuir."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é a metade de 90. A metade seria o resultado se o cone valesse metade do cilindro, mas ele vale um terço — é o que a lição 1 demonstrou repartindo o cubo."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 são DOIS terços de 90, ou seja, o que SOBRA no cilindro depois de tirar o cone. A questão pede o cone, que é o terço restante."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre da relação",
+          "explicacao": "Mesma base e mesma altura colocam o cone dentro do cilindro.",
+          "conta": "cone = cilindro / 3"
+        },
+        {
+          "titulo": "Aplique ao número dado",
+          "explicacao": "Basta repartir o volume do cilindro em três partes.",
+          "conta": "90 / 3 = 30 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Um cone tem 5 cm de raio da base e 9 cm de altura. Qual é o volume dele, em cm³? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl9-q-cone-cinco-nove",
+      "dica": "O mesmo roteiro de sempre: área do círculo, altura e terço.",
+      "formato": "numero",
+      "resposta": 235.5,
+      "errosComuns": [
+        {
+          "resposta": "706,5",
+          "porque": "706,5 é o volume do cilindro de raio 5 e altura 9. Como o sólido é um cone, ainda falta o último passo, que é dividir por três."
+        },
+        {
+          "resposta": "47,1",
+          "porque": "47,1 sai de usar o raio sem elevar ao quadrado: 3,14 × 5 × 9 ÷ 3. A área do círculo é π × r × r, e o raio precisa entrar duas vezes."
+        },
+        {
+          "resposta": "78,5",
+          "porque": "78,5 é só a ÁREA da base, 3,14 × 5 × 5. Ela é o primeiro passo da conta; ainda faltam a altura e o terço."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "Círculo de raio 5 cm, com o raio ao quadrado.",
+          "conta": "3,14 × 5 × 5 = 78,5 cm²"
+        },
+        {
+          "titulo": "Altura e terço",
+          "explicacao": "Multiplique pela altura e reparta o resultado em três.",
+          "conta": "78,5 × 9 / 3 = 235,5 cm³"
+        }
+      ]
+    }
+  ]
+}

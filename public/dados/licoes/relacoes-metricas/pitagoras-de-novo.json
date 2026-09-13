@@ -1,0 +1,195 @@
+{
+  "id": "pitagoras-de-novo",
+  "numero": 5,
+  "titulo": "Pitágoras sai de graça",
+  "pergunta": "As cinco relações e o teorema anterior são coisas separadas?",
+  "ideia": {
+    "paragrafos": [
+      "Há uma surpresa escondida nas relações desta matéria, e ela amarra as duas últimas: somando as duas relações das projeções, o Teorema de Pitágoras aparece sozinho. Não é coincidência nem truque — é a mesma geometria vista de outro ângulo.",
+      "A conta é curta. As duas relações dizem b² = a·m e c² = a·n. Somando os dois lados: b² + c² = a·m + a·n. Pondo o a em evidência, do jeito que o 8º ano ensinou: b² + c² = a·(m + n). E a lição 1 já garantiu que m + n é a própria hipotenusa a. Logo b² + c² = a·a = a².",
+      "Testando no triângulo de catetos 15 e 20: 225 + 400 dá 625, e 25 × (9 + 16) dá 25 × 25, que também é 625. As duas contas passam pelo mesmo lugar por caminhos diferentes.",
+      "Vale antecipar uma dúvida legítima: isso não é raciocínio circular? Não é. As relações das projeções foram demonstradas por SEMELHANÇA de triângulos, sem usar Pitágoras em nenhum momento. Então esta é, de fato, uma segunda demonstração do teorema — e uma das mais elegantes que existem.",
+      "Isso também explica por que as duas matérias vizinhas se sentem parecidas. Pitágoras é o caso particular em que só a hipotenusa e os catetos entram; as relações métricas são o mesmo triângulo descrito com mais detalhe, incluindo a altura e as projeções. Quem tem as cinco relações tem Pitágoras de brinde.",
+      "Na prática, guarde isso como conferência: qualquer conjunto de valores que você calcular para a, b, c, h, m e n tem de satisfazer TODAS as relações ao mesmo tempo, Pitágoras incluído. Se uma delas não fechar, há erro em algum passo — e a conferência custa uma multiplicação."
+    ],
+    "destaque": "Somando b² = a·m e c² = a·n sai b² + c² = a², e a demonstração não usa Pitágoras em lugar nenhum.",
+    "imagem": "rm9-ideia-soma-das-duas"
+  },
+  "resolvido": {
+    "enunciado": "Mostre que as relações das projeções, somadas, produzem o Teorema de Pitágoras no triângulo de catetos 15 e 20.",
+    "imagem": "rm9-res-soma",
+    "passos": [
+      {
+        "titulo": "Escreva as duas relações",
+        "explicacao": "Cada cateto ao quadrado é a hipotenusa vezes a projeção dele.",
+        "conta": "225 = 25 × 9 · 400 = 25 × 16"
+      },
+      {
+        "titulo": "Some os dois lados",
+        "explicacao": "Somando membro a membro, como em qualquer par de igualdades.",
+        "conta": "225 + 400 = 25×9 + 25×16"
+      },
+      {
+        "titulo": "Ponha a hipotenusa em evidência",
+        "explicacao": "É a fatoração por fator comum, do 8º ano.",
+        "conta": "625 = 25 × (9 + 16)"
+      },
+      {
+        "titulo": "Troque a soma das projeções",
+        "explicacao": "Elas somam a própria hipotenusa, pela relação da lição 1.",
+        "conta": "625 = 25 × 25 = 25²"
+      }
+    ],
+    "fecho": "E 625 é mesmo 15² + 20². Pitágoras saiu sem ser usado em nenhum passo."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo retângulo de hipotenusa 25 e projeções 9 e 16, quanto vale a·m mais a·n? Digite apenas o número.",
+      "imagem": "rm9-q-soma-dos-produtos",
+      "dica": "Some os dois produtos, ou ponha o a em evidência antes.",
+      "formato": "numero",
+      "resposta": 625,
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 é a hipotenusa, e também a soma das projeções. A pergunta é pela soma dos dois PRODUTOS, que dá 225 + 400."
+        },
+        {
+          "resposta": "225",
+          "porque": "225 é só o primeiro produto, 25 × 9. Falta somar o segundo, que é 25 × 16 = 400."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é 25 + 25, ou seja, o dobro da hipotenusa. A soma pedida é de produtos, e ela dá o QUADRADO da hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule cada produto",
+          "explicacao": "Cada um é o quadrado de um dos catetos.",
+          "conta": "25×9 = 225 · 25×16 = 400"
+        },
+        {
+          "titulo": "Some os dois",
+          "explicacao": "O resultado é o quadrado da hipotenusa, e é isso que a lição afirma.",
+          "conta": "225 + 400 = 625"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O que se obtém ao somar as duas relações b² = a·m e c² = a·n?",
+      "imagem": "rm9-q-o-que-sai",
+      "dica": "Some os dois lados e ponha a hipotenusa em evidência.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O Teorema de Pitágoras, porque m + n é a própria hipotenusa" },
+        { "rotulo": "B", "texto": "A relação da altura, h² = m · n" },
+        { "rotulo": "C", "texto": "Nada útil, porque as duas relações são independentes" },
+        { "rotulo": "D", "texto": "A área do triângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A relação da altura, h² = m · n",
+          "porque": "Essa relação vem de comparar os dois triângulos menores entre si, e não de somar as outras duas. Somar b² e c² não produz altura nenhuma."
+        },
+        {
+          "resposta": "Nada útil, porque as duas relações são independentes",
+          "porque": "Elas não são: as duas têm o fator a do lado direito, e é justamente ele que sai em evidência. Somadas, elas produzem b² + c² = a(m+n) = a²."
+        },
+        {
+          "resposta": "A área do triângulo",
+          "porque": "A área aparece na outra relação, a·h = b·c, que é a área escrita de dois jeitos. A soma das projeções produz um quadrado, e não uma área de triângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some e fatore",
+          "explicacao": "O fator comum do lado direito é a hipotenusa.",
+          "conta": "b² + c² = a(m + n)"
+        },
+        {
+          "titulo": "Troque a soma das projeções",
+          "explicacao": "Elas somam a própria hipotenusa.",
+          "conta": "b² + c² = a²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Num triângulo retângulo de catetos 15 e 20, quanto vale b² + c²? Digite apenas o número.",
+      "imagem": "rm9-q-confere-625",
+      "dica": "Some os quadrados dos dois catetos e compare com o quadrado da hipotenusa.",
+      "formato": "numero",
+      "resposta": 625,
+      "errosComuns": [
+        {
+          "resposta": "35",
+          "porque": "35 é 15 + 20, somando os lados em vez dos quadrados. A pergunta é por b² + c²."
+        },
+        {
+          "resposta": "300",
+          "porque": "300 é 15 × 20, o produto dos catetos. Ele aparece na relação a·h = b·c, e vale 25 × 12 — outra igualdade da matéria."
+        },
+        {
+          "resposta": "25",
+          "porque": "25 é a hipotenusa. A soma dos quadrados dos catetos é o QUADRADO dela, que vale 625."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve cada cateto",
+          "explicacao": "São as duas parcelas da soma pedida.",
+          "conta": "225 e 400"
+        },
+        {
+          "titulo": "Some e compare",
+          "explicacao": "O resultado é o quadrado da hipotenusa, como a lição mostrou.",
+          "conta": "625 = 25²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Por que usar as relações métricas para demonstrar Pitágoras NÃO é raciocínio circular?",
+      "imagem": "rm9-q-nao-e-circular",
+      "dica": "Pense em como as relações das projeções foram demonstradas na lição 2.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque elas foram demonstradas por semelhança, sem usar Pitágoras" },
+        { "rotulo": "B", "texto": "Porque Pitágoras é mais antigo que as relações métricas" },
+        { "rotulo": "C", "texto": "Porque as duas demonstrações usam números diferentes" },
+        { "rotulo": "D", "texto": "Porque circular só acontece com três ou mais etapas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque Pitágoras é mais antigo que as relações métricas",
+          "porque": "A ordem histórica não decide se um argumento é circular — isso depende do que cada demonstração USA. Um resultado antigo pode perfeitamente ser redemonstrado com ferramentas novas."
+        },
+        {
+          "resposta": "Porque as duas demonstrações usam números diferentes",
+          "porque": "Demonstração não é sobre números particulares: ela vale para qualquer triângulo retângulo. O que importa é quais RESULTADOS anteriores cada uma invoca."
+        },
+        {
+          "resposta": "Porque circular só acontece com três ou mais etapas",
+          "porque": "Um argumento fica circular com duas etapas apenas, se uma delas depende da outra. Aqui não depende: a semelhança não usa Pitágoras em passo nenhum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Volte à origem das relações",
+          "explicacao": "Elas saíram de comparar triângulos semelhantes, pelo caso AA.",
+          "conta": "semelhança, e nada mais"
+        },
+        {
+          "titulo": "Confira o que não foi usado",
+          "explicacao": "Nenhum passo daquela demonstração invocou o teorema.",
+          "conta": "sem circularidade"
+        }
+      ]
+    }
+  ]
+}

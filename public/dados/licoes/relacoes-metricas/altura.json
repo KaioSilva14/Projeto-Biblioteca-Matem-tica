@@ -1,0 +1,184 @@
+{
+  "id": "altura",
+  "numero": 3,
+  "titulo": "As duas relações da altura",
+  "pergunta": "Como achar a altura sem passar pelos catetos?",
+  "ideia": {
+    "paragrafos": [
+      "A altura tem duas relações, e elas servem a situações diferentes. A primeira liga a altura às duas projeções: h² = m·n. A segunda liga a altura à hipotenusa e aos dois catetos: a·h = b·c. Saber qual usar é questão de olhar quais medidas o problema deu.",
+      "A primeira sai de comparar os dois triângulos menores entre si. Neles, a altura h faz papéis trocados: é um cateto num e no outro também, mas correspondendo a projeções diferentes. A proporção fica h/m = n/h, e multiplicando cruzado sai h² = m·n. A altura é a média geométrica das projeções.",
+      "Testando no triângulo de catetos 15 e 20, com projeções 9 e 16: h² = 9 × 16 = 144, então h = 12. Confere com o desenho — a altura tem de ser menor que o menor cateto, e 12 é menor que 15.",
+      "A segunda relação tem uma leitura mais direta, e ela é a área do triângulo escrita de dois jeitos. A área é metade do produto dos catetos, porque eles são perpendiculares entre si: b·c/2. E é também metade da hipotenusa vezes a altura relativa a ela: a·h/2. Igualando as duas expressões, os meios se cancelam e sobra a·h = b·c.",
+      "No mesmo exemplo: a·h = 25 × 12 = 300, e b·c = 15 × 20 = 300 ✓. Essa relação é a mais usada na prática, porque hipotenusa e catetos costumam ser os dados mais fáceis de obter — e a altura, o que se procura.",
+      "Um detalhe que vale guardar: a altura relativa à hipotenusa é sempre a MENOR das três alturas do triângulo retângulo. As outras duas são os próprios catetos, porque eles já são perpendiculares um ao outro. Uma altura maior que um cateto denuncia erro na conta."
+    ],
+    "destaque": "h² = m·n usa as projeções; a·h = b·c é a área escrita de dois jeitos. Escolha pela informação que o problema deu.",
+    "imagem": "rm9-ideia-altura"
+  },
+  "resolvido": {
+    "enunciado": "Num triângulo retângulo, as projeções dos catetos medem 9 e 16. Quanto mede a altura relativa à hipotenusa?",
+    "imagem": "rm9-res-altura-12",
+    "passos": [
+      {
+        "titulo": "Veja quais dados existem",
+        "explicacao": "São as duas projeções, e a relação que usa exatamente essas duas é a primeira.",
+        "conta": "h² = m · n"
+      },
+      {
+        "titulo": "Substitua",
+        "explicacao": "O quadrado da altura é o produto das duas projeções.",
+        "conta": "h² = 9 × 16 = 144"
+      },
+      {
+        "titulo": "Tire a raiz",
+        "explicacao": "É o passo que devolve o comprimento a partir do quadrado.",
+        "conta": "h = 12"
+      }
+    ],
+    "fecho": "Pelo outro caminho: a hipotenusa mede 25 e os catetos 15 e 20, então 25h = 300 e h = 12. Os dois concordam."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo retângulo, as projeções dos catetos medem 4 e 9. Quanto mede a altura relativa à hipotenusa? Digite apenas o número.",
+      "imagem": "rm9-q-altura-6",
+      "dica": "Com as duas projeções na mão, a relação da altura é o produto delas.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "36",
+          "porque": "36 é o quadrado da altura, que é 4 × 9. Falta tirar a raiz: √36 = 6."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é 4 + 9, ou seja, a HIPOTENUSA deste triângulo. A altura é perpendicular a ela e sai do produto das projeções, não da soma."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é 9 − 4. A subtração das projeções não corresponde a nenhuma medida da figura."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a relação",
+          "explicacao": "O quadrado da altura é o produto das duas projeções.",
+          "conta": "h² = 4 × 9 = 36"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "E confira: a altura é menor que a hipotenusa, que aqui vale 13.",
+          "conta": "h = 6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Um triângulo retângulo tem catetos 6 e 8 e hipotenusa 10. Quanto mede a altura relativa à hipotenusa? Digite apenas o número.",
+      "imagem": "rm9-q-altura-48",
+      "dica": "Com os catetos e a hipotenusa na mão, a relação certa é a que iguala as duas áreas.",
+      "formato": "numero",
+      "resposta": 4.8,
+      "errosComuns": [
+        {
+          "resposta": "48",
+          "porque": "48 é o produto dos catetos, 6 × 8. Ele ainda precisa ser dividido pela hipotenusa: 48 ÷ 10 = 4,8."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é a média entre 6 e 8. A altura não é média dos catetos: ela sai de a·h = b·c, que dá 4,8."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é a área do triângulo, que é metade de 6 × 8. A altura sai de dividir o dobro da área pela hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a relação",
+          "explicacao": "Os dados são os dois catetos e a hipotenusa, e há uma relação que usa os três.",
+          "conta": "a · h = b · c"
+        },
+        {
+          "titulo": "Substitua e isole",
+          "explicacao": "Dividindo os dois lados pela hipotenusa.",
+          "conta": "10h = 48 → h = 4,8"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um problema dá as duas projeções e pede a altura. Qual relação é a mais direta?",
+      "imagem": "rm9-q-qual-relacao",
+      "dica": "Escolha a que usa exatamente as medidas que o problema deu.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "h² = m · n, porque ela usa só as duas projeções" },
+        { "rotulo": "B", "texto": "a · h = b · c, porque ela tem a altura isolada" },
+        { "rotulo": "C", "texto": "b² = a · m, porque ela é a mais conhecida" },
+        { "rotulo": "D", "texto": "a = m + n, porque ela usa as duas projeções" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "a · h = b · c, porque ela tem a altura isolada",
+          "porque": "Ela tem a altura, mas exige também a hipotenusa e os dois catetos — três medidas que o problema não deu. Daria para chegar lá, mas por um caminho bem mais longo."
+        },
+        {
+          "resposta": "b² = a · m, porque ela é a mais conhecida",
+          "porque": "Essa relação nem tem a altura nela: ela liga um cateto à hipotenusa e a uma projeção. Ser conhecida não ajuda se ela não contém o que se procura."
+        },
+        {
+          "resposta": "a = m + n, porque ela usa as duas projeções",
+          "porque": "Ela usa as duas projeções mesmo, mas devolve a HIPOTENUSA, e não a altura. É um passo útil no meio do caminho, e não a resposta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste o que o problema deu",
+          "explicacao": "Só as duas projeções, e nada mais.",
+          "conta": "m e n"
+        },
+        {
+          "titulo": "Ache a relação que usa só isso",
+          "explicacao": "É a que tem a altura de um lado e as duas projeções do outro.",
+          "conta": "h² = m · n"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo retângulo, as projeções medem 2 e 8. Quanto mede a altura relativa à hipotenusa? Digite apenas o número.",
+      "imagem": "rm9-q-altura-4",
+      "dica": "Multiplique as projeções e tire a raiz do produto.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é o quadrado da altura, que é 2 × 8. A medida é a raiz disso: 4."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é 2 + 8, a HIPOTENUSA deste triângulo. A altura é outra medida, e sai do produto das projeções."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é a média entre 2 e 8. A altura é a média GEOMÉTRICA — a raiz do produto —, e não a média comum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a relação",
+          "explicacao": "O quadrado da altura é o produto das duas projeções.",
+          "conta": "h² = 2 × 8 = 16"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "E confira: 4 é menor que a hipotenusa, que vale 10.",
+          "conta": "h = 4"
+        }
+      ]
+    }
+  ]
+}

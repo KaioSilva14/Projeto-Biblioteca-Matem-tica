@@ -1,0 +1,190 @@
+{
+  "id": "raiz-enesima",
+  "numero": 1,
+  "titulo": "A raiz de qualquer índice",
+  "pergunta": "Existe raiz que desfaz o cubo, e não só o quadrado?",
+  "ideia": {
+    "paragrafos": [
+      "A raiz quadrada é conhecida desde o 6º ano: ela desfaz o quadrado. Se 5² = 25, então √25 = 5. Mas o quadrado não é a única potência que existe — e para cada uma delas existe a raiz que a desfaz.",
+      "A raiz CÚBICA desfaz o cubo. Como 2³ = 8, a raiz cúbica de 8 é 2, e escreve-se ∛8 = 2. O numerozinho no canto do sinal chama-se ÍNDICE, e ele diz qual potência está sendo desfeita: índice 3 desfaz a terceira potência, índice 5 desfaz a quinta, e assim por diante.",
+      "Na raiz quadrada o índice 2 fica subentendido — √9 é o mesmo que ²√9. É a única que se escreve sem índice, por ser a mais comum, e é bom saber disso para não estranhar quando o 2 aparecer escrito.",
+      "A definição geral é uma frase só: a raiz de índice n de um número é aquele que, elevado a n, devolve o número. Procurar ⁴√81 é procurar o número que multiplicado por si mesmo quatro vezes dá 81 — e como 3 × 3 × 3 × 3 = 81, a resposta é 3.",
+      "Há uma diferença importante entre índices pares e ímpares, e ela vem do sinal. Elevar a uma potência PAR sempre dá resultado positivo, então não existe raiz quadrada de número negativo nos reais: nenhum número ao quadrado dá −4. Já a potência ÍMPAR conserva o sinal, e por isso ∛(−8) = −2 existe sem problema, porque (−2)³ = −8.",
+      "Repare que essa restrição não é uma regra decorada: ela é consequência do que o sinal faz na multiplicação, que o 7º ano já estabeleceu. Índice par exige radicando positivo; índice ímpar aceita qualquer número."
+    ],
+    "destaque": "O índice diz qual potência a raiz desfaz. Índice par exige radicando positivo; índice ímpar aceita negativo.",
+    "imagem": "rd9-ideia-indice"
+  },
+  "resolvido": {
+    "enunciado": "Quanto vale ⁴√81?",
+    "imagem": "rd9-res-raiz-quarta",
+    "passos": [
+      {
+        "titulo": "Leia o que o índice pede",
+        "explicacao": "Índice 4 significa procurar o número que elevado à quarta dá 81.",
+        "conta": "? ⁴ = 81"
+      },
+      {
+        "titulo": "Teste os pequenos",
+        "explicacao": "Começando pelo 2 e subindo, porque a potência cresce rápido.",
+        "conta": "2⁴ = 16 · 3⁴ = 81"
+      },
+      {
+        "titulo": "Escreva a resposta",
+        "explicacao": "O 3 elevado à quarta devolve exatamente o radicando.",
+        "conta": "⁴√81 = 3"
+      }
+    ],
+    "fecho": "Conferir é elevar de volta: 3 × 3 × 3 × 3 = 81."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale ∛27? Digite apenas o número.",
+      "imagem": "rd9-q-raiz-cubica-27",
+      "dica": "Procure o número que multiplicado por si mesmo TRÊS vezes dá 27.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é 27 ÷ 3, ou a raiz quadrada aproximada. A raiz cúbica procura o número que aparece TRÊS vezes na multiplicação: 3 × 3 × 3 = 27."
+        },
+        {
+          "resposta": "5.2",
+          "porque": "Cerca de 5,2 é a raiz QUADRADA de 27, que desfaz o quadrado. O índice 3 pede a raiz cúbica, que é bem menor: 3."
+        },
+        {
+          "resposta": "27",
+          "porque": "27 é o radicando, ou seja, o número de dentro da raiz. A raiz é o que se procura: aquele que elevado ao cubo devolve 27."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Leia o índice",
+          "explicacao": "Índice 3 pede o número que elevado ao cubo dá o radicando.",
+          "conta": "? ³ = 27"
+        },
+        {
+          "titulo": "Teste",
+          "explicacao": "Multiplicando o 3 por si mesmo três vezes.",
+          "conta": "3 × 3 × 3 = 27"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que não existe raiz quadrada de −4 entre os números reais?",
+      "imagem": "rd9-q-por-que-nao-existe",
+      "dica": "Pense no sinal do resultado quando um número é multiplicado por si mesmo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque nenhum número ao quadrado dá negativo" },
+        { "rotulo": "B", "texto": "Porque −4 é pequeno demais" },
+        { "rotulo": "C", "texto": "Porque a resposta seria −2" },
+        { "rotulo": "D", "texto": "Porque raiz só existe para números inteiros" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque −4 é pequeno demais",
+          "porque": "O tamanho não tem nada a ver: √(−100) e √(−0,01) também não existem. O que impede é o SINAL — qualquer número ao quadrado dá positivo ou zero."
+        },
+        {
+          "resposta": "Porque a resposta seria −2",
+          "porque": "−2 não serve: (−2)² = +4, e não −4. Negativo vezes negativo dá positivo, que é exatamente o motivo de a raiz não existir."
+        },
+        {
+          "resposta": "Porque raiz só existe para números inteiros",
+          "porque": "Existe para qualquer real positivo: √2, √0,25 e √7,3 são todos legítimos. A restrição é sobre o sinal do radicando, e não sobre ele ser inteiro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste os dois sinais",
+          "explicacao": "Elevando ao quadrado um positivo e um negativo.",
+          "conta": "2² = 4 · (−2)² = 4"
+        },
+        {
+          "titulo": "Veja o que falta",
+          "explicacao": "Nenhum dos dois casos produz resultado negativo.",
+          "conta": "quadrado nunca é negativo"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto vale ∛(−8)? Digite apenas o número, com o sinal.",
+      "imagem": "rd9-q-cubica-negativa",
+      "dica": "Índice ímpar conserva o sinal. Procure o número que elevado ao cubo dá −8.",
+      "formato": "numero",
+      "resposta": -2,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 ao cubo dá +8, e não −8. Como o índice é ímpar, o sinal do radicando passa para a raiz: a resposta é −2, porque (−2)³ = −8."
+        },
+        {
+          "resposta": "-4",
+          "porque": "(−4)³ dá −64, bem longe de −8. O número procurado é o que aparece três vezes na multiplicação, e −2 × −2 × −2 dá −8."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o valor absoluto do radicando, e não a raiz. A raiz cúbica de −8 é o número que elevado ao cubo devolve −8."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o índice",
+          "explicacao": "Índice 3 é ímpar, então o radicando pode ser negativo.",
+          "conta": "índice ímpar ✓"
+        },
+        {
+          "titulo": "Teste o negativo",
+          "explicacao": "Multiplicando −2 por si mesmo três vezes, o sinal se mantém.",
+          "conta": "(−2)³ = −8"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Na raiz ⁵√32, o que o número 5 representa?",
+      "imagem": "rd9-q-o-que-e-indice",
+      "dica": "Ele fica no canto do sinal e diz qual potência está sendo desfeita.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O índice: a potência que a raiz desfaz" },
+        { "rotulo": "B", "texto": "O radicando" },
+        { "rotulo": "C", "texto": "O resultado da raiz" },
+        { "rotulo": "D", "texto": "Quantas casas decimais a resposta tem" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O radicando",
+          "porque": "O radicando é o número de DENTRO da raiz, que aqui é 32. O 5 fica no canto do sinal e tem outro papel: dizer qual potência está sendo desfeita."
+        },
+        {
+          "resposta": "O resultado da raiz",
+          "porque": "O resultado é 2, porque 2⁵ = 32. O 5 é o índice, escrito antes de a conta ser feita — ele faz parte da pergunta, e não da resposta."
+        },
+        {
+          "resposta": "Quantas casas decimais a resposta tem",
+          "porque": "O índice não tem relação com casas decimais: ⁵√32 dá exatamente 2, sem casa nenhuma. Ele diz qual potência a raiz desfaz."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize o número",
+          "explicacao": "Ele fica no canto esquerdo do sinal de raiz, e não dentro dele.",
+          "conta": "⁵√32 · o 5 é o índice"
+        },
+        {
+          "titulo": "Veja o que ele pede",
+          "explicacao": "Procurar o número que elevado à quinta devolve 32.",
+          "conta": "2⁵ = 32"
+        }
+      ]
+    }
+  ]
+}

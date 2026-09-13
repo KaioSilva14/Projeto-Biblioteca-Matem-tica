@@ -1,0 +1,41 @@
+{
+  "id": "radiciacao",
+  "titulo": "Potenciação e radiciação",
+  "ano": 9,
+  "descricao": "A raiz deixa de ser só a operação que desfaz o quadrado e vira uma potência como as outras — com expoente fracionário. Feita essa ponte, todas as propriedades de potência que o 8º ano deu passam a valer para radical de graça, e simplificar, somar e racionalizar deixam de ser três regras soltas para decorar.",
+  "pergunta": "O que a raiz tem a ver com expoente?",
+  "videos": [
+    {
+      "id": "uqZuvrV7cEs",
+      "titulo": "POTENCIAÇÃO E RADICIAÇÃO COM RADICAIS \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Faz a ponte entre potência e raiz, que é o assunto das lições 1 e 2. Serve se o expoente fracionário ainda parecer arbitrário."
+    },
+    {
+      "id": "494171csjuw",
+      "titulo": "PROPRIEDADES DOS RADICAIS | RADICIAÇÃO | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Percorre as propriedades uma a uma, com exemplos no quadro. É exatamente a lição 3."
+    },
+    {
+      "id": "5ulxKU0It6w",
+      "titulo": "SIMPLIFICAÇÃO DE RADICAIS | SIMPLIFICAÇÃO DE RAIZ | |RADICIAÇÃO | \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "Só simplificação, decompondo o radicando em fatores primos. Para treinar depois da lição 4."
+    },
+    {
+      "id": "Z1D5lWVCP4Q",
+      "titulo": "RACIONALIZAÇÃO DE DENOMINADORES - Simplificação de Radical - Aula 01",
+      "canal": "Marcos Aba Matemática",
+      "descricao": "Dedicado à racionalização, com vários casos resolvidos. Bom para depois da lição 6."
+    }
+  ],
+  "licoes": [
+    { "id": "raiz-enesima", "arquivo": "/dados/licoes/radiciacao/raiz-enesima.json" },
+    { "id": "expoente-fracionario", "arquivo": "/dados/licoes/radiciacao/expoente-fracionario.json" },
+    { "id": "propriedades", "arquivo": "/dados/licoes/radiciacao/propriedades.json" },
+    { "id": "simplificar", "arquivo": "/dados/licoes/radiciacao/simplificar.json" },
+    { "id": "somar", "arquivo": "/dados/licoes/radiciacao/somar.json" },
+    { "id": "racionalizar", "arquivo": "/dados/licoes/radiciacao/racionalizar.json" }
+  ]
+}

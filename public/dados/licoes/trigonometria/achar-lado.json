@@ -1,0 +1,189 @@
+{
+  "id": "achar-lado",
+  "numero": 4,
+  "titulo": "Achar um lado",
+  "pergunta": "Com um ângulo e um lado, como os outros saem?",
+  "ideia": {
+    "paragrafos": [
+      "Aqui a matéria começa a pagar. Conhecendo um ângulo agudo e UM dos lados, qualquer outro lado sai numa conta só — e isso é o que torna a trigonometria a ferramenta que mede o inacessível.",
+      "O roteiro tem três passos e nunca muda. Primeiro, nomeie os lados em relação ao ângulo dado: quem é oposto, quem é adjacente, quem é a hipotenusa. Segundo, escolha a razão que contém o lado CONHECIDO e o lado PROCURADO. Terceiro, monte a igualdade e resolva.",
+      "É o segundo passo que decide tudo, e ele é mecânico: se os dois lados em jogo são o oposto e a hipotenusa, use o seno; se são o adjacente e a hipotenusa, o cosseno; se são os dois catetos, a tangente. Nenhuma escolha é criativa — ela só depende de quais dois lados aparecem.",
+      "Num exemplo: uma rampa de 20 m de comprimento sobe com 30° de inclinação. Qual a altura que ela alcança? A rampa é a hipotenusa; a altura é o cateto oposto ao ângulo. Os dois juntos aparecem no seno: sen 30° = altura / 20. Como sen 30° é 0,5, a altura é 10 m.",
+      "Repare no cuidado de montagem: o lado procurado pode estar no numerador ou no denominador, e isso muda o último passo. Se ele está em cima, sai multiplicando; se está embaixo, sai dividindo. Com cos 60° = 5 / h, por exemplo, h = 5 / 0,5 = 10.",
+      "A conferência de plausibilidade continua valendo, e aqui ela é fácil: a hipotenusa é sempre o maior dos três lados. Um resultado em que a hipotenusa sai menor que um cateto está errado, e o desenho denuncia isso antes de qualquer recálculo."
+    ],
+    "destaque": "Escolha a razão que contém o lado conhecido e o procurado. A escolha é mecânica, e não criativa.",
+    "imagem": "tr9-ideia-escolher"
+  },
+  "resolvido": {
+    "enunciado": "Uma rampa de 20 m sobe com inclinação de 30°. Que altura ela alcança?",
+    "imagem": "tr9-res-rampa",
+    "passos": [
+      {
+        "titulo": "Nomeie os lados",
+        "explicacao": "A rampa é o lado inclinado, então ela é a hipotenusa; a altura fica de frente para o ângulo.",
+        "conta": "hipotenusa 20 · oposto = altura"
+      },
+      {
+        "titulo": "Escolha a razão",
+        "explicacao": "A que contém o oposto e a hipotenusa ao mesmo tempo é o seno.",
+        "conta": "sen 30° = altura / 20"
+      },
+      {
+        "titulo": "Substitua o valor tabelado",
+        "explicacao": "O seno de 30° vale meio, como a lição anterior deduziu.",
+        "conta": "0,5 = altura / 20"
+      },
+      {
+        "titulo": "Isole",
+        "explicacao": "A altura está no numerador, então ela sai multiplicando.",
+        "conta": "altura = 0,5 × 20 = 10 m"
+      }
+    ],
+    "fecho": "Conferindo: 10 é menor que os 20 m da rampa, como todo cateto tem de ser."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo retângulo com um ângulo de 30° e hipotenusa 12, quanto mede o cateto oposto a esse ângulo? Digite apenas o número.",
+      "imagem": "tr9-q-oposto-30",
+      "dica": "O oposto e a hipotenusa aparecem juntos no seno, e sen 30° vale 0,5.",
+      "formato": "numero",
+      "resposta": 6,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é 12 ÷ 0,5, dividindo quando era preciso multiplicar. O cateto oposto está no numerador da razão, e ele é menor que a hipotenusa."
+        },
+        {
+          "resposta": "10,4",
+          "porque": "10,4 é 12 × 0,87, ou seja, o cateto ADJACENTE — que sai do cosseno de 30°. A pergunta é pelo lado de frente para o ângulo."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a hipotenusa, dada no enunciado. Um cateto é sempre menor que ela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a razão",
+          "explicacao": "O oposto e a hipotenusa aparecem juntos no seno.",
+          "conta": "sen 30° = x / 12"
+        },
+        {
+          "titulo": "Substitua e isole",
+          "explicacao": "Com sen 30° valendo 0,5, o cateto sai multiplicando.",
+          "conta": "x = 0,5 × 12 = 6"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num triângulo retângulo com um ângulo de 45° e cateto adjacente medindo 7, quanto mede o cateto oposto? Digite apenas o número.",
+      "imagem": "tr9-q-oposto-45",
+      "dica": "Os dois lados em jogo são catetos, e a razão que usa os dois é a tangente.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "9,9",
+          "porque": "9,9 é 7 × 1,41, ou seja, a HIPOTENUSA deste triângulo. A pergunta é pelo outro cateto, e com 45° ele é igual ao primeiro."
+        },
+        {
+          "resposta": "4,97",
+          "porque": "4,97 é 7 × 0,71, usando o seno em vez da tangente. O seno compara um cateto com a hipotenusa, e aqui os dois lados em jogo são catetos."
+        },
+        {
+          "resposta": "3,5",
+          "porque": "3,5 é metade de 7. Nada na trigonometria de 45° divide por dois: a tangente vale 1, então os dois catetos são iguais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a razão",
+          "explicacao": "Os dois lados em jogo são catetos, então é a tangente.",
+          "conta": "tg 45° = x / 7"
+        },
+        {
+          "titulo": "Substitua e isole",
+          "explicacao": "Com tg 45° valendo 1, os dois catetos ficam iguais.",
+          "conta": "x = 1 × 7 = 7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um problema dá a hipotenusa e pede o cateto ADJACENTE a um ângulo conhecido. Qual razão usar?",
+      "imagem": "tr9-q-qual-razao",
+      "dica": "Procure a razão em que esses dois lados aparecem juntos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O cosseno, porque ele é o adjacente sobre a hipotenusa" },
+        { "rotulo": "B", "texto": "O seno, porque ele é o mais usado" },
+        { "rotulo": "C", "texto": "A tangente, porque ela é a mais completa" },
+        { "rotulo": "D", "texto": "Qualquer uma das três, porque todas dão o mesmo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O seno, porque ele é o mais usado",
+          "porque": "O seno usa o cateto OPOSTO, e o problema pede o adjacente. Ser mais usado não ajuda se a razão não contém os lados em jogo."
+        },
+        {
+          "resposta": "A tangente, porque ela é a mais completa",
+          "porque": "A tangente é a única que NÃO usa a hipotenusa, e a hipotenusa é justamente o dado que o problema deu. Ela é a menos indicada aqui."
+        },
+        {
+          "resposta": "Qualquer uma das três, porque todas dão o mesmo",
+          "porque": "As três dão números diferentes: para 30°, elas valem 0,5, 0,87 e 0,58. Cada uma compara um par de lados diferente."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os dois lados em jogo",
+          "explicacao": "A hipotenusa é o dado e o adjacente é a incógnita.",
+          "conta": "adjacente e hipotenusa"
+        },
+        {
+          "titulo": "Ache a razão que usa os dois",
+          "explicacao": "É a que divide o adjacente pela hipotenusa.",
+          "conta": "cosseno"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo retângulo com um ângulo de 60° e cateto adjacente medindo 5, quanto mede a hipotenusa? Digite apenas o número.",
+      "imagem": "tr9-q-hipotenusa-60",
+      "dica": "Adjacente e hipotenusa aparecem no cosseno, e cos 60° vale 0,5. Aqui a incógnita está no denominador.",
+      "formato": "numero",
+      "resposta": 10,
+      "errosComuns": [
+        {
+          "resposta": "2,5",
+          "porque": "2,5 é 5 × 0,5, multiplicando quando era preciso dividir. A hipotenusa está no DENOMINADOR da razão, e ela é maior que qualquer cateto."
+        },
+        {
+          "resposta": "8,7",
+          "porque": "8,7 é 5 × 1,73, usando a tangente de 60°. Isso daria o cateto OPOSTO, e não a hipotenusa."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é o cateto adjacente, dado no enunciado. A hipotenusa é sempre maior que ele."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a razão",
+          "explicacao": "Adjacente e hipotenusa aparecem juntos no cosseno.",
+          "conta": "cos 60° = 5 / h"
+        },
+        {
+          "titulo": "Substitua e isole",
+          "explicacao": "A incógnita está embaixo, então ela sai dividindo.",
+          "conta": "0,5 = 5 / h → h = 10"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "id": "achar-angulo",
+  "numero": 5,
+  "titulo": "Achar o ângulo",
+  "pergunta": "E quando o que falta é a inclinação?",
+  "ideia": {
+    "paragrafos": [
+      "Até aqui o ângulo era dado e um lado era procurado. Agora o caminho é o contrário: os lados são conhecidos e o ângulo é a incógnita. É o que acontece quando alguém mede uma rampa pronta e quer saber a inclinação dela, ou olha um telhado e quer saber quantos graus ele faz com a horizontal.",
+      "O método é curto. Escolha a razão que usa os dois lados conhecidos, calcule o valor dela, e procure na tabela qual ângulo tem esse valor. Se os dois lados são o oposto e a hipotenusa, o valor é um seno; se são os dois catetos, é uma tangente.",
+      "Num exemplo: uma rampa em que o cateto oposto mede 5 e a hipotenusa mede 10. A razão dos dois é o seno, e ela vale 5/10 = 0,5. Na tabela, o ângulo cujo seno é 0,5 é o de 30°. A inclinação da rampa é 30°.",
+      "Neste site o caminho de volta usa a tabela dos três ângulos notáveis, porque são os únicos com valores exatos e memorizáveis. Fora deles, o caminho é uma tecla da calculadora — as funções inversas, escritas sen⁻¹, cos⁻¹ e tg⁻¹, que devolvem o ângulo a partir da razão.",
+      "Um cuidado que evita resposta absurda: seno e cosseno de um ângulo agudo estão SEMPRE entre 0 e 1. Se a divisão dos dois lados der um número maior que 1, ou os lados foram trocados, ou o que se chamou de hipotenusa não é a hipotenusa. A tangente, essa sim, pode passar de 1 livremente.",
+      "E há uma leitura útil do que os valores significam: quanto maior o ângulo, maior o seno e menor o cosseno. Um ângulo perto de 0° tem seno quase zero e cosseno quase 1; um ângulo perto de 90° tem o contrário. Isso permite estimar antes de consultar a tabela."
+    ],
+    "destaque": "Calcule a razão com os dois lados conhecidos e procure o ângulo na tabela. É a tabela lida ao contrário.",
+    "imagem": "tr9-ideia-de-volta"
+  },
+  "resolvido": {
+    "enunciado": "Numa rampa, o cateto oposto ao ângulo de subida mede 5 m e a rampa inteira mede 10 m. Qual é a inclinação?",
+    "imagem": "tr9-res-inclinacao-30",
+    "passos": [
+      {
+        "titulo": "Nomeie os lados",
+        "explicacao": "A rampa inteira é o lado inclinado, então ela é a hipotenusa.",
+        "conta": "oposto 5 · hipotenusa 10"
+      },
+      {
+        "titulo": "Escolha a razão",
+        "explicacao": "Oposto e hipotenusa juntos aparecem no seno.",
+        "conta": "sen θ = 5 / 10"
+      },
+      {
+        "titulo": "Calcule o valor",
+        "explicacao": "A divisão devolve um número entre 0 e 1, como tem de ser.",
+        "conta": "sen θ = 0,5"
+      },
+      {
+        "titulo": "Procure na tabela",
+        "explicacao": "O ângulo notável com seno 0,5 é o de 30°.",
+        "conta": "θ = 30°"
+      }
+    ],
+    "fecho": "Conferindo a estimativa: 0,5 é um seno pequeno, e 30° é mesmo um ângulo pequeno entre os três notáveis."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo retângulo, os dois catetos medem 6 cada um. Quanto mede o ângulo agudo, em graus? Digite apenas o número.",
+      "imagem": "tr9-q-angulo-45",
+      "dica": "Com os dois catetos, a razão é a tangente. Que ângulo tem tangente 1?",
+      "formato": "numero",
+      "resposta": 45,
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30° tem tangente 0,58, e não 1. A tangente aqui vale 6 ÷ 6 = 1, que corresponde a 45°."
+        },
+        {
+          "resposta": "60",
+          "porque": "60° tem tangente 1,73. Com os dois catetos iguais, a razão é exatamente 1, e isso só acontece em 45°."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o valor da TANGENTE, e não o ângulo. A pergunta é pela medida em graus, que sai de consultar a tabela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a razão",
+          "explicacao": "Os dois lados conhecidos são catetos, então é a tangente.",
+          "conta": "tg θ = 6 / 6"
+        },
+        {
+          "titulo": "Procure na tabela",
+          "explicacao": "O ângulo notável com tangente 1 é o de 45°.",
+          "conta": "θ = 45°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num triângulo retângulo, o cateto oposto a um ângulo mede 5 e a hipotenusa mede 10. Quanto mede esse ângulo, em graus? Digite apenas o número.",
+      "imagem": "tr9-q-angulo-30",
+      "dica": "Oposto e hipotenusa aparecem no seno. Calcule o valor e consulte a tabela.",
+      "formato": "numero",
+      "resposta": 30,
+      "errosComuns": [
+        {
+          "resposta": "0,5",
+          "porque": "0,5 é o valor do SENO, e não o ângulo. Falta o último passo: procurar na tabela qual ângulo tem esse seno."
+        },
+        {
+          "resposta": "60",
+          "porque": "60° tem seno 0,87. Quem tem seno 0,5 é o ângulo de 30° — e o 60° é o outro ângulo agudo deste mesmo triângulo."
+        },
+        {
+          "resposta": "45",
+          "porque": "45° tem seno 0,71. A razão aqui deu 0,5, que é menor, e corresponde a um ângulo menor."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a razão",
+          "explicacao": "Oposto sobre hipotenusa é o seno.",
+          "conta": "5 / 10 = 0,5"
+        },
+        {
+          "titulo": "Procure na tabela",
+          "explicacao": "O ângulo notável com seno 0,5 é o de 30°.",
+          "conta": "θ = 30°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um problema dá os DOIS catetos e pede o ângulo. Qual razão usar?",
+      "imagem": "tr9-q-qual-para-angulo",
+      "dica": "Procure a razão que não usa a hipotenusa.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "A tangente, porque ela é a única que compara os dois catetos" },
+        { "rotulo": "B", "texto": "O seno, porque ele é o mais simples" },
+        { "rotulo": "C", "texto": "O cosseno, porque ele usa o cateto adjacente" },
+        { "rotulo": "D", "texto": "Nenhuma: é preciso achar a hipotenusa antes" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "O seno, porque ele é o mais simples",
+          "porque": "O seno exige a hipotenusa, que o problema não deu. Usá-lo obrigaria a um passo extra, e a tangente resolve direto."
+        },
+        {
+          "resposta": "O cosseno, porque ele usa o cateto adjacente",
+          "porque": "Ele usa o adjacente e a HIPOTENUSA. O outro cateto não entra nele, então ele não serve com esses dois dados."
+        },
+        {
+          "resposta": "Nenhuma: é preciso achar a hipotenusa antes",
+          "porque": "Dá para achá-la por Pitágoras, mas é trabalho desnecessário: a tangente compara exatamente os dois lados que o problema já deu."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os lados conhecidos",
+          "explicacao": "Os dois catetos, e nenhuma hipotenusa.",
+          "conta": "oposto e adjacente"
+        },
+        {
+          "titulo": "Ache a razão que usa os dois",
+          "explicacao": "É a única das três que dispensa a hipotenusa.",
+          "conta": "tangente"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo retângulo, o cateto adjacente a um ângulo mede 4 e a hipotenusa mede 8. Quanto mede esse ângulo, em graus? Digite apenas o número.",
+      "imagem": "tr9-q-angulo-60",
+      "dica": "Adjacente e hipotenusa aparecem no cosseno. Que ângulo notável tem cosseno 0,5?",
+      "formato": "numero",
+      "resposta": 60,
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30° tem cosseno 0,87, e não 0,5. Quem tem cosseno 0,5 é o de 60° — o seno de 30° é que vale 0,5, e são razões diferentes."
+        },
+        {
+          "resposta": "0,5",
+          "porque": "0,5 é o valor do COSSENO, e não o ângulo. Falta consultar a tabela para descobrir de que ângulo ele é."
+        },
+        {
+          "resposta": "45",
+          "porque": "45° tem cosseno 0,71. A razão aqui deu 0,5, menor — e cosseno menor corresponde a ângulo MAIOR."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule a razão",
+          "explicacao": "Adjacente sobre hipotenusa é o cosseno.",
+          "conta": "4 / 8 = 0,5"
+        },
+        {
+          "titulo": "Procure na tabela",
+          "explicacao": "O ângulo notável com cosseno 0,5 é o de 60°.",
+          "conta": "θ = 60°"
+        }
+      ]
+    }
+  ]
+}

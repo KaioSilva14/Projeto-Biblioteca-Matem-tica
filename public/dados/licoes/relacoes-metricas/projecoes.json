@@ -1,0 +1,189 @@
+{
+  "id": "projecoes",
+  "numero": 2,
+  "titulo": "Cada cateto e a projeção dele",
+  "pergunta": "Que relação liga um cateto à sombra dele na hipotenusa?",
+  "ideia": {
+    "paragrafos": [
+      "A primeira relação que vem da semelhança liga cada cateto à projeção dele. Ela diz: o quadrado de um cateto é igual ao produto da hipotenusa pela projeção desse cateto. Em símbolos, b² = a·m e c² = a·n.",
+      "De onde isso sai? Do triângulo menor da direita comparado com o original. Nos dois, o lado b faz papéis diferentes: no original ele é um cateto, no menor ele é a HIPOTENUSA. E a projeção m, que é um cateto do menor, corresponde ao cateto b do original. A proporção fica b/a = m/b, e multiplicando cruzado sai b² = a·m.",
+      "Vale prestar atenção à leitura dessa proporção, porque ela é o coração da matéria: o cateto b aparece nos dois lugares porque ele é o lado correspondente a si mesmo em escalas diferentes. É a mesma estrutura da média geométrica — b é o meio proporcional entre a e m.",
+      "Testando no triângulo da lição anterior, de catetos 15 e 20: b² = 225 e a·m = 25 × 9 = 225 ✓. E c² = 400 com a·n = 25 × 16 = 400 ✓. As duas relações fecham, e elas fecham em qualquer triângulo retângulo.",
+      "Essa relação é útil nos dois sentidos. Conhecendo a hipotenusa e uma projeção, o cateto sai por uma raiz. Conhecendo um cateto e a hipotenusa, a projeção sai por uma divisão. É o segundo caso que aparece mais em prova, e ele é mais rápido do que parece: m = b²/a.",
+      "Um cuidado que evita o erro mais comum: cada cateto anda com a PROJEÇÃO DELE, e não com a outra. Escrever b² = a·n troca os pares e produz um número que não corresponde a nada — no exemplo, daria 400 em vez de 225."
+    ],
+    "destaque": "b² = a·m e c² = a·n. Cada cateto ao quadrado é a hipotenusa vezes a projeção DELE.",
+    "imagem": "rm9-ideia-projecoes"
+  },
+  "resolvido": {
+    "enunciado": "Num triângulo retângulo, a hipotenusa mede 25 e uma das projeções mede 9. Quanto mede o cateto correspondente a essa projeção?",
+    "imagem": "rm9-res-cateto-15",
+    "passos": [
+      {
+        "titulo": "Escolha a relação",
+        "explicacao": "Os dados são a hipotenusa e uma projeção, e a relação que liga os dois ao cateto é essa.",
+        "conta": "b² = a · m"
+      },
+      {
+        "titulo": "Substitua",
+        "explicacao": "A hipotenusa multiplica a projeção do cateto procurado.",
+        "conta": "b² = 25 × 9 = 225"
+      },
+      {
+        "titulo": "Tire a raiz",
+        "explicacao": "É o passo que devolve o comprimento a partir do quadrado.",
+        "conta": "b = 15"
+      },
+      {
+        "titulo": "Confira o tamanho",
+        "explicacao": "O cateto tem de ser maior que a projeção dele e menor que a hipotenusa.",
+        "conta": "9 < 15 < 25 ✓"
+      }
+    ],
+    "fecho": "O outro cateto sai do mesmo jeito, com a outra projeção: c² = 25 × 16 = 400, então c = 20."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo retângulo, a hipotenusa mede 25 e uma das projeções mede 16. Quanto mede o cateto correspondente? Digite apenas o número.",
+      "imagem": "rm9-q-cateto-20",
+      "dica": "O quadrado do cateto é a hipotenusa vezes a projeção dele.",
+      "formato": "numero",
+      "resposta": 20,
+      "errosComuns": [
+        {
+          "resposta": "400",
+          "porque": "400 é o quadrado do cateto, que é 25 × 16. Falta tirar a raiz: √400 = 20."
+        },
+        {
+          "resposta": "41",
+          "porque": "41 é 25 + 16, somando quando a relação manda multiplicar. A relação é b² = a·m, um produto."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é a OUTRA projeção, que sai de 25 − 16. Ela pertence ao outro cateto, e não é o que a questão pede."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a relação",
+          "explicacao": "A hipotenusa multiplica a projeção do cateto procurado.",
+          "conta": "c² = 25 × 16 = 400"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "400 é quadrado perfeito, então a medida sai exata.",
+          "conta": "c = 20"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num triângulo retângulo, a hipotenusa mede 20 e uma das projeções mede 5. Quanto mede o cateto correspondente? Digite apenas o número.",
+      "imagem": "rm9-q-cateto-10",
+      "dica": "Multiplique a hipotenusa pela projeção e tire a raiz do resultado.",
+      "formato": "numero",
+      "resposta": 10,
+      "errosComuns": [
+        {
+          "resposta": "100",
+          "porque": "100 é o quadrado do cateto, ou seja, 20 × 5. A medida é a raiz disso: 10."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é 20 ÷ 5. A relação multiplica a hipotenusa pela projeção; dividir daria um número sem significado na figura."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 é a OUTRA projeção, 20 − 5. Ela é um pedaço da hipotenusa, e não o cateto procurado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Aplique a relação",
+          "explicacao": "O quadrado do cateto é a hipotenusa vezes a projeção dele.",
+          "conta": "b² = 20 × 5 = 100"
+        },
+        {
+          "titulo": "Tire a raiz",
+          "explicacao": "E confira: 10 fica entre a projeção 5 e a hipotenusa 20.",
+          "conta": "b = 10"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "De onde vem a relação b² = a · m?",
+      "imagem": "rm9-q-de-onde-vem",
+      "dica": "Compare o triângulo menor com o original, e veja que papel o lado b faz em cada um.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Da semelhança entre o triângulo menor e o original, onde b/a = m/b" },
+        { "rotulo": "B", "texto": "Do teorema de Pitágoras aplicado ao triângulo menor" },
+        { "rotulo": "C", "texto": "Do fato de a e m serem sempre iguais" },
+        { "rotulo": "D", "texto": "De uma convenção adotada para facilitar as contas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Do teorema de Pitágoras aplicado ao triângulo menor",
+          "porque": "Pitágoras aplicado ao menor dá h² + m² = b², que é outra igualdade. A relação b² = a·m sai de comparar DOIS triângulos, e não de um só."
+        },
+        {
+          "resposta": "Do fato de a e m serem sempre iguais",
+          "porque": "Eles quase nunca são: no exemplo da lição a hipotenusa mede 25 e a projeção, 9. A relação liga números diferentes por uma proporção."
+        },
+        {
+          "resposta": "De uma convenção adotada para facilitar as contas",
+          "porque": "Não é convenção: é uma consequência da semelhança, demonstrável. E ela pode ser conferida em qualquer triângulo retângulo — 15² dá 225, e 25 × 9 também."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os dois triângulos",
+          "explicacao": "No original, b é cateto; no menor, b é a hipotenusa.",
+          "conta": "b/a = m/b"
+        },
+        {
+          "titulo": "Multiplique cruzado",
+          "explicacao": "É a proporção resolvida como qualquer regra de três.",
+          "conta": "b² = a × m"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo retângulo, a hipotenusa mede 10 e um dos catetos mede 6. Quanto mede a projeção desse cateto? Digite apenas o número.",
+      "imagem": "rm9-q-projecao-36",
+      "dica": "Agora o caminho é o contrário: a relação continua a mesma, com a projeção como incógnita.",
+      "formato": "numero",
+      "resposta": 3.6,
+      "errosComuns": [
+        {
+          "resposta": "60",
+          "porque": "60 é 10 × 6, multiplicando a hipotenusa pelo cateto. A relação multiplica a hipotenusa pela PROJEÇÃO, e é o quadrado do cateto que fica do outro lado."
+        },
+        {
+          "resposta": "6,4",
+          "porque": "6,4 é a projeção do OUTRO cateto, que mede 8. Cada cateto anda com a projeção dele, e as duas somam os 10 da hipotenusa."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 é 10 − 6, subtraindo o cateto da hipotenusa. Eles não se subtraem: o que se subtrai são as duas projeções, e nenhum cateto é projeção."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a relação",
+          "explicacao": "Com a projeção no lugar da incógnita desta vez.",
+          "conta": "6² = 10 × m"
+        },
+        {
+          "titulo": "Isole",
+          "explicacao": "Dividindo os dois lados pela hipotenusa.",
+          "conta": "m = 36 / 10 = 3,6"
+        }
+      ]
+    }
+  ]
+}

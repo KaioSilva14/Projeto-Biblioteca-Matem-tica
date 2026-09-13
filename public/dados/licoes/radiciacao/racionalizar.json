@@ -1,0 +1,207 @@
+{
+  "id": "racionalizar",
+  "numero": 6,
+  "titulo": "Racionalizar o denominador",
+  "pergunta": "Por que incomoda ter uma raiz embaixo da fração?",
+  "ideia": {
+    "paragrafos": [
+      "1/√2 é um número perfeitamente legítimo. Mesmo assim, a forma preferida para escrevê-lo é √2/2 — e vale entender por quê antes de aprender como, porque o motivo original explica a regra inteira.",
+      "Antes das calculadoras, dividir por um irracional era um pesadelo. Calcular 1 ÷ 1,4142... à mão significava dividir por um número de infinitas casas. Já √2/2 pede 1,4142 ÷ 2, uma divisão por inteiro — muito mais simples. A regra nasceu para poupar trabalho, e ficou como convenção de escrita.",
+      "O método usa uma ideia que a matéria de frações equivalentes do 6º ano já deu: multiplicar numerador e denominador pelo mesmo número não muda a fração. O truque é escolher o número que faz a raiz do denominador sumir — e para √2, esse número é o próprio √2, porque √2 × √2 = 2.",
+      "Então 1/√2 × (√2/√2) = √2/2. A fração é a mesma — as duas valem 0,7071 —, mas agora o denominador é inteiro. Repare que a raiz não desapareceu: ela só mudou de andar, do denominador para o numerador.",
+      "Às vezes o resultado simplifica ainda mais, e vale conferir. 6/√3 vira 6√3/3, e o 6 com o 3 simplificam: sobra 2√3. Deixar 6√3/3 não está errado, mas está incompleto — a mesma exigência de forma final da lição 4.",
+      "E há um caso em que a racionalização é dispensável, e reconhecê-lo poupa trabalho: quando o denominador já é racional, não há nada a fazer. √2/3 já está na forma preferida, porque a raiz está em cima."
+    ],
+    "destaque": "Multiplique em cima e embaixo pela raiz do denominador. A raiz não some — ela muda de andar.",
+    "imagem": "rd9-ideia-racionalizar"
+  },
+  "resolvido": {
+    "enunciado": "Racionalize o denominador de 6/√3.",
+    "imagem": "rd9-res-seis-sobre-raiz3",
+    "passos": [
+      {
+        "titulo": "Escolha o multiplicador",
+        "explicacao": "É a própria raiz do denominador, porque ela desfaz a si mesma.",
+        "conta": "multiplicar por √3/√3"
+      },
+      {
+        "titulo": "Multiplique em cima e embaixo",
+        "explicacao": "Como o fator vale 1, a fração não muda de valor.",
+        "conta": "6√3 / (√3 × √3)"
+      },
+      {
+        "titulo": "Resolva o denominador",
+        "explicacao": "A raiz multiplicada por si mesma devolve o radicando.",
+        "conta": "6√3 / 3"
+      },
+      {
+        "titulo": "Simplifique",
+        "explicacao": "O 6 e o 3 têm fator comum, e a fração ainda reduz.",
+        "conta": "2√3"
+      }
+    ],
+    "fecho": "Conferindo: 6 ÷ 1,732 dá 3,46, e 2 × 1,732 também dá 3,46."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Racionalize o denominador de 1/√2.",
+      "imagem": "rd9-q-racionalizar-um",
+      "dica": "Multiplique numerador e denominador por √2 e veja o que acontece embaixo.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "√2/2" },
+        { "rotulo": "B", "texto": "2/√2" },
+        { "rotulo": "C", "texto": "√2" },
+        { "rotulo": "D", "texto": "1/2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2/√2",
+          "porque": "Isso apenas troca o numerador e o denominador de lugar, e a raiz continua embaixo — que é justamente o que se queria evitar. Além disso o valor mudou: 2/√2 dá 1,41, e 1/√2 dá 0,71."
+        },
+        {
+          "resposta": "√2",
+          "porque": "√2 vale cerca de 1,41, o dobro do valor certo. O denominador 2 não pode sumir: ele aparece porque √2 × √2 = 2."
+        },
+        {
+          "resposta": "1/2",
+          "porque": "1/2 vale 0,5, e 1/√2 vale cerca de 0,71. A raiz não desaparece na racionalização — ela sobe para o numerador."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique por √2/√2",
+          "explicacao": "Esse fator vale 1, então a fração não muda de valor.",
+          "conta": "(1 × √2) / (√2 × √2)"
+        },
+        {
+          "titulo": "Resolva o denominador",
+          "explicacao": "A raiz multiplicada por si mesma devolve o radicando.",
+          "conta": "√2 / 2"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Racionalize e simplifique 10/√2.",
+      "imagem": "rd9-q-racionalizar-dez",
+      "dica": "Depois de racionalizar, confira se o número de cima e o de baixo ainda simplificam.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5√2" },
+        { "rotulo": "B", "texto": "10√2/2" },
+        { "rotulo": "C", "texto": "√20" },
+        { "rotulo": "D", "texto": "10/2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "10√2/2",
+          "porque": "Esse é o passo do meio, e ele está certo — só não está terminado. O 10 e o 2 simplificam, e o resultado final é 5√2."
+        },
+        {
+          "resposta": "√20",
+          "porque": "√20 vale cerca de 4,47, e 10/√2 vale cerca de 7,07. Além disso √20 ainda simplificaria para 2√5, que também não é o resultado."
+        },
+        {
+          "resposta": "10/2",
+          "porque": "10/2 dá 5, mas a raiz sumiu do caminho. Ela não desaparece: sobe para o numerador, e o resultado é 5√2, que vale cerca de 7,07."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Multiplique por √2/√2",
+          "explicacao": "O fator vale 1 e faz a raiz do denominador sumir.",
+          "conta": "10√2 / 2"
+        },
+        {
+          "titulo": "Simplifique a fração",
+          "explicacao": "O 10 de cima e o 2 de baixo ainda têm fator comum.",
+          "conta": "5√2"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a racionalização do denominador foi inventada?",
+      "imagem": "rd9-q-por-que-existe",
+      "dica": "Pense em como seria fazer essa divisão à mão, antes das calculadoras.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Para trocar uma divisão por irracional por uma divisão por inteiro" },
+        { "rotulo": "B", "texto": "Porque fração com raiz embaixo está errada" },
+        { "rotulo": "C", "texto": "Porque o resultado fica maior" },
+        { "rotulo": "D", "texto": "Para fazer a raiz desaparecer da conta" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque fração com raiz embaixo está errada",
+          "porque": "Não está errada: 1/√2 é um número perfeitamente válido, igual a √2/2. A racionalização é convenção de escrita e conveniência de cálculo, e não correção de erro."
+        },
+        {
+          "resposta": "Porque o resultado fica maior",
+          "porque": "O valor não muda em nada — é a mesma fração escrita de outro jeito, e as duas valem 0,7071. Multiplicar por √2/√2 é multiplicar por 1."
+        },
+        {
+          "resposta": "Para fazer a raiz desaparecer da conta",
+          "porque": "Ela não desaparece: sai do denominador e aparece no numerador. O que se ganha é dividir por um inteiro em vez de por um número de infinitas casas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare as duas divisões",
+          "explicacao": "Uma divide por um irracional, a outra por um inteiro.",
+          "conta": "1 ÷ 1,4142… ou 1,4142 ÷ 2"
+        },
+        {
+          "titulo": "Veja qual dá menos trabalho",
+          "explicacao": "Dividir por 2 é imediato; por um irracional, não.",
+          "conta": "denominador inteiro"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A fração √2/3 precisa ser racionalizada?",
+      "imagem": "rd9-q-precisa-mesmo",
+      "dica": "Olhe onde está a raiz: em cima ou embaixo?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: o denominador já é inteiro" },
+        { "rotulo": "B", "texto": "Sim, porque tem raiz na fração" },
+        { "rotulo": "C", "texto": "Sim, multiplicando tudo por √3" },
+        { "rotulo": "D", "texto": "Não dá para saber sem calcular o valor" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque tem raiz na fração",
+          "porque": "O que a racionalização tira é a raiz do DENOMINADOR. Aqui ela já está no numerador, que é exatamente onde se quer que ela fique."
+        },
+        {
+          "resposta": "Sim, multiplicando tudo por √3",
+          "porque": "Isso pioraria: multiplicar por √3/√3 daria √6/9 — ainda correto em valor, mas mais complicado e sem nenhum ganho, porque o denominador já era inteiro."
+        },
+        {
+          "resposta": "Não dá para saber sem calcular o valor",
+          "porque": "Dá, e basta olhar: a decisão depende de onde a raiz está, e não de quanto a fração vale. Raiz embaixo pede racionalização; raiz em cima, não."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize a raiz",
+          "explicacao": "Ela está no numerador, e o denominador é o inteiro 3.",
+          "conta": "√2 em cima · 3 embaixo"
+        },
+        {
+          "titulo": "Aplique o critério",
+          "explicacao": "Só se racionaliza quando a raiz está no denominador.",
+          "conta": "nada a fazer"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "id": "angulos-notaveis",
+  "numero": 3,
+  "titulo": "Os três ângulos notáveis",
+  "pergunta": "De onde saem os valores da tabela?",
+  "ideia": {
+    "paragrafos": [
+      "Três ângulos aparecem tanto em exercícios que os valores deles são tabelados: 30°, 45° e 60°. Eles são chamados de NOTÁVEIS, e o que os torna especiais é que as razões deles saem de duas figuras simples — sem calculadora, sem tabela decorada.",
+      "O 45° vem do quadrado. Cortando um quadrado de lado 1 pela diagonal, sobra um triângulo retângulo com dois catetos iguais a 1 e hipotenusa √2, pelo teorema de Pitágoras. Os dois ângulos agudos medem 45° cada um. Então sen 45° = 1/√2, que racionalizado vira √2/2, ou cerca de 0,71. O cosseno dá o mesmo, e a tangente dá 1/1 = 1.",
+      "Os outros dois vêm do triângulo equilátero. Num equilátero de lado 2, a altura corta a base ao meio e cria um triângulo retângulo de hipotenusa 2, um cateto 1 e o outro √3, de novo por Pitágoras. Os ângulos dele são 30° e 60°.",
+      "Do ângulo de 30°, o cateto oposto é o 1 e o adjacente é o √3. Então sen 30° = 1/2 = 0,5; cos 30° = √3/2, cerca de 0,87; e tg 30° = 1/√3, que racionalizado vira √3/3, cerca de 0,58.",
+      "Do ângulo de 60°, os papéis se invertem: o oposto é √3 e o adjacente é 1. Então sen 60° = √3/2 ≈ 0,87; cos 60° = 0,5; e tg 60° = √3 ≈ 1,73. Repare no espelhamento — o seno de 30° é o cosseno de 60°, e vice-versa. Isso vale sempre para ângulos que somam 90°.",
+      "Vale reparar num padrão que ajuda a lembrar: os senos de 30°, 45° e 60° são √1/2, √2/2 e √3/2, nessa ordem, e os cossenos são a mesma lista de trás para frente. O seno cresce com o ângulo; o cosseno diminui."
+    ],
+    "destaque": "O 45° sai do quadrado cortado; o 30° e o 60° saem do equilátero partido ao meio. E sempre com Pitágoras.",
+    "imagem": "tr9-ideia-tabela"
+  },
+  "resolvido": {
+    "enunciado": "Deduza o seno, o cosseno e a tangente de 45° a partir de um quadrado de lado 1.",
+    "imagem": "tr9-res-quarenta-e-cinco",
+    "passos": [
+      {
+        "titulo": "Corte o quadrado pela diagonal",
+        "explicacao": "Sobra um triângulo retângulo com dois catetos iguais ao lado do quadrado.",
+        "conta": "catetos 1 e 1"
+      },
+      {
+        "titulo": "Ache a hipotenusa",
+        "explicacao": "É a diagonal do quadrado, pelo teorema de Pitágoras.",
+        "conta": "1 + 1 = 2 → √2"
+      },
+      {
+        "titulo": "Escreva o seno e o cosseno",
+        "explicacao": "Os dois catetos são iguais, então as duas razões dão o mesmo.",
+        "conta": "1/√2 = √2/2 ≈ 0,71"
+      },
+      {
+        "titulo": "Escreva a tangente",
+        "explicacao": "Ela divide um cateto pelo outro, e os dois são iguais.",
+        "conta": "1 / 1 = 1"
+      }
+    ],
+    "fecho": "A racionalização é a da matéria 2 do 9º ano: 1/√2 multiplicado por √2/√2 vira √2/2."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale o seno de 30°? Digite apenas o número.",
+      "imagem": "tr9-q-sen-30",
+      "dica": "No equilátero partido ao meio, o cateto oposto a 30° é metade da hipotenusa.",
+      "formato": "numero",
+      "resposta": 0.5,
+      "errosComuns": [
+        {
+          "resposta": "0,87",
+          "porque": "0,87 é o COSSENO de 30°, que vale √3/2. O seno de 30° é o menor dos dois, porque o cateto oposto a 30° é o menor cateto."
+        },
+        {
+          "resposta": "0,58",
+          "porque": "0,58 é a TANGENTE de 30°, que vale √3/3. Ela divide os dois catetos entre si, sem a hipotenusa."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é a medida do ângulo em graus, e não a razão. Seno é sempre um número entre 0 e 1 num ângulo agudo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o triângulo",
+          "explicacao": "A altura do equilátero de lado 2 cria hipotenusa 2 e cateto oposto 1.",
+          "conta": "oposto 1 · hipotenusa 2"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "O oposto sobre a hipotenusa, que é a definição de seno.",
+          "conta": "1 / 2 = 0,5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quanto vale a tangente de 45°? Digite apenas o número.",
+      "imagem": "tr9-q-tg-45",
+      "dica": "Com 45°, os dois catetos do triângulo são iguais.",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "0,71",
+          "porque": "0,71 é o SENO (e também o cosseno) de 45°, que vale √2/2. A tangente divide um cateto pelo outro, e eles são iguais."
+        },
+        {
+          "resposta": "1,41",
+          "porque": "1,41 é o valor de √2, ou seja, a hipotenusa do triângulo de catetos 1. A tangente nem usa a hipotenusa."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é o ângulo em graus, e não a razão. A tangente dele é 1, um número puro."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte o triângulo",
+          "explicacao": "Com 45°, o triângulo é a metade de um quadrado.",
+          "conta": "catetos 1 e 1"
+        },
+        {
+          "titulo": "Divida um cateto pelo outro",
+          "explicacao": "Eles são iguais, então a razão dá um.",
+          "conta": "1 / 1 = 1"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que o seno de 30° vale exatamente 1/2?",
+      "imagem": "tr9-q-por-que-metade",
+      "dica": "Pense no triângulo equilátero cortado pela altura, e em quanto vale cada pedaço da base.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque a altura do equilátero corta a base ao meio, e o oposto a 30° fica valendo metade da hipotenusa" },
+        { "rotulo": "B", "texto": "Porque 30 é metade de 60" },
+        { "rotulo": "C", "texto": "Porque todo seno vale metade do ângulo" },
+        { "rotulo": "D", "texto": "Porque o triângulo tem dois lados iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque 30 é metade de 60",
+          "porque": "O seno não acompanha a proporção do ângulo: sen 60° é 0,87, que não é o dobro de 0,5. A razão é geométrica, e vem do corte da base."
+        },
+        {
+          "resposta": "Porque todo seno vale metade do ângulo",
+          "porque": "Isso daria sen 45° = 22,5, o que nem é um número entre 0 e 1. O seno não tem relação aritmética direta com a medida do ângulo."
+        },
+        {
+          "resposta": "Porque o triângulo tem dois lados iguais",
+          "porque": "O triângulo que aparece depois do corte é escaleno: lados 1, √3 e 2. Quem tinha lados iguais era o equilátero original, antes do corte."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Corte o equilátero",
+          "explicacao": "A altura cai no ponto médio da base, dividindo o lado 2 em dois pedaços de 1.",
+          "conta": "base 2 → metades de 1"
+        },
+        {
+          "titulo": "Escreva a razão",
+          "explicacao": "O cateto oposto a 30° é essa metade, e a hipotenusa é o lado inteiro.",
+          "conta": "1 / 2 = 0,5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quanto vale o cosseno de 60°? Digite apenas o número.",
+      "imagem": "tr9-q-cos-60",
+      "dica": "No mesmo triângulo do equilátero, olhe qual cateto encosta no ângulo de 60°.",
+      "formato": "numero",
+      "resposta": 0.5,
+      "errosComuns": [
+        {
+          "resposta": "0,87",
+          "porque": "0,87 é o SENO de 60°, que vale √3/2 — o cateto oposto é o maior. O cosseno usa o adjacente, que é o menor."
+        },
+        {
+          "resposta": "1,73",
+          "porque": "1,73 é a TANGENTE de 60°, que vale √3. Cosseno e seno nunca passam de 1; a tangente pode passar."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 é o ângulo em graus. O cosseno dele é 0,5, e repare que é o mesmo valor do seno de 30° — os dois ângulos somam 90°."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o cateto adjacente",
+          "explicacao": "No triângulo do equilátero, o lado que encosta em 60° é o menor cateto.",
+          "conta": "adjacente 1 · hipotenusa 2"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "O adjacente sobre a hipotenusa.",
+          "conta": "1 / 2 = 0,5"
+        }
+      ]
+    }
+  ]
+}

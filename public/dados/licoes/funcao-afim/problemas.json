@@ -1,0 +1,228 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Onde isso aparece",
+  "pergunta": "Como comparar duas opções que crescem em ritmos diferentes?",
+  "ideia": {
+    "paragrafos": [
+      "Quase toda cobrança do mundo real tem o formato da função afim: uma parte fixa, que se paga de qualquer jeito, e uma parte que cresce com o uso. Conta de luz, plano de celular, corrida de táxi, aluguel de bicicleta, salário com comissão. Reconhecer o formato é metade do problema resolvido.",
+      "A pergunta interessante quase nunca é \"quanto custa\": é \"qual das duas opções compensa\". E aí entram duas funções ao mesmo tempo. Um plano com taxa alta e preço por unidade baixo começa caro e sobe devagar; outro com taxa baixa e preço alto começa barato e sobe rápido. Em algum ponto eles se cruzam.",
+      "Esse ponto é o que decide a escolha, e achá-lo é igualar as duas leis. Se o plano A custa 30 + 0,50 por GB e o B custa 10 + 1,50 por GB, então 30 + 0,5x = 10 + 1,5x leva a 20 = x: com 20 GB os dois custam a mesma coisa. Antes disso o B é mais barato; depois, o A.",
+      "No gráfico, o cruzamento das duas retas é esse mesmo ponto — a mesma leitura que Sistemas de equações deixou pronta no 8º ano. Aliás, o problema É um sistema: duas equações do 1º grau e um par que serve nas duas. A diferença é o que se faz com a resposta depois.",
+      "Porque em problema de escolha a resposta não termina no número. Achado o ponto de equilíbrio, ainda é preciso dizer qual lado é qual, e para isso basta testar um valor de cada lado — como na lição 5. Quem para no 20 respondeu a equação, mas não respondeu a pergunta.",
+      "Um último cuidado, herdado de Inequações: nem todo resultado quebrado serve como está. Se a entrada é um número de meses ou de pessoas, a resposta tem de virar inteiro — e para que lado arredondar depende do enunciado, não de regra fixa."
+    ],
+    "destaque": "Duas opções se comparam igualando as leis. O cruzamento diz ONDE elas empatam; testar os lados diz qual compensa.",
+    "imagem": "fa9-ideia-dois-planos"
+  },
+  "resolvido": {
+    "enunciado": "O plano A custa R$ 30,00 fixos mais R$ 0,50 por GB. O plano B custa R$ 10,00 fixos mais R$ 1,50 por GB. Com quantos GB os dois custam o mesmo, e qual compensa acima disso?",
+    "imagem": "fa9-res-cruzamento",
+    "passos": [
+      {
+        "titulo": "Escreva as duas leis",
+        "explicacao": "Cada plano tem a parte fixa e a parte que depende do consumo.",
+        "conta": "A(x) = 0,5x + 30 · B(x) = 1,5x + 10"
+      },
+      {
+        "titulo": "Iguale as duas",
+        "explicacao": "O ponto de equilíbrio é onde os dois preços coincidem.",
+        "conta": "0,5x + 30 = 1,5x + 10"
+      },
+      {
+        "titulo": "Resolva a equação",
+        "explicacao": "Juntando as parcelas com x de um lado e os números do outro.",
+        "conta": "20 = x"
+      },
+      {
+        "titulo": "Teste os dois lados",
+        "explicacao": "Um valor abaixo e um acima dizem qual plano é o mais barato em cada faixa.",
+        "conta": "em 10 GB: A = 35 · B = 25"
+      }
+    ],
+    "fecho": "Empatam em 20 GB, a 40 reais cada. Abaixo disso o B é melhor; acima, o A — porque ele sobe mais devagar."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma locadora A cobra R$ 40,00 fixos mais R$ 2,00 por hora. A locadora B cobra R$ 10,00 fixos mais R$ 5,00 por hora. Com quantas horas as duas custam o mesmo? Digite apenas o número.",
+      "imagem": "fa9-q-duas-locadoras",
+      "dica": "Escreva as duas leis e iguale-as: o empate é o x que serve nas duas.",
+      "formato": "numero",
+      "resposta": 10,
+      "errosComuns": [
+        {
+          "resposta": "30",
+          "porque": "30 é a diferença entre as duas taxas fixas, 40 − 10, e é o passo do meio da conta. Ainda falta dividir pela diferença dos preços por hora, que é 3."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é a diferença entre os preços por hora, 5 − 2. Ele é o divisor da conta, e não a resposta: a resposta é 30 ÷ 3."
+        },
+        {
+          "resposta": "50",
+          "porque": "50 é a soma das duas taxas fixas, 40 + 10. As taxas não se somam — elas ficam em lados opostos da igualdade, e o que importa é a diferença entre elas."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva as duas leis",
+          "explicacao": "A parte fixa entra sozinha e o preço por hora multiplica o tempo.",
+          "conta": "A(x) = 2x + 40 · B(x) = 5x + 10"
+        },
+        {
+          "titulo": "Iguale",
+          "explicacao": "O empate acontece quando as duas contas dão o mesmo valor.",
+          "conta": "2x + 40 = 5x + 10"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Juntando os termos com x de um lado e os números do outro.",
+          "conta": "30 = 3x → x = 10"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "O preço de uma corrida de táxi é de R$ 2,50 fixos (a \"bandeirada\") mais R$ 0,10 por 100 metros rodados. Tenho apenas R$ 10,00 no bolso. Tenho dinheiro para uma corrida de, no máximo, quantos quilômetros? Digite apenas o número.",
+      "imagem": "fa9-q-obmep-taxi",
+      "dica": "Tire a bandeirada primeiro e veja quantos trechos de 100 metros cabem no que sobrou.",
+      "formato": "numero",
+      "resposta": 7.5,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Nível 2, problema 39 — Taxi caro"
+      },
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é o dinheiro do bolso, e não a distância. Parte dele vai embora na bandeirada antes de o táxi andar um metro."
+        },
+        {
+          "resposta": "75",
+          "porque": "75 é o número de TRECHOS de 100 metros, que é o passo do meio. Cada trecho tem 100 metros, então são 7 500 metros — ou 7,5 quilômetros."
+        },
+        {
+          "resposta": "12,5",
+          "porque": "12,5 sai de esquecer a bandeirada e dividir os 10 reais inteiros por 0,10 ÷ 100 m. Os 2,50 fixos são cobrados antes, e sobram 7,50 para rodar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire a parte fixa",
+          "explicacao": "A bandeirada é cobrada uma vez, independentemente da distância.",
+          "conta": "10,00 − 2,50 = 7,50"
+        },
+        {
+          "titulo": "Conte os trechos",
+          "explicacao": "Cada trecho de 100 metros custa dez centavos.",
+          "conta": "7,50 ÷ 0,10 = 75 trechos"
+        },
+        {
+          "titulo": "Passe para quilômetros",
+          "explicacao": "São 75 trechos de 100 metros cada, e mil metros fazem um quilômetro.",
+          "conta": "7 500 m = 7,5 km"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma companhia telefônica cobra tarifa mensal fixa de R$ 18,00, dá 10 horas de ligações grátis por mês e cobra R$ 0,03 por minuto que exceder essas 10 horas. Em janeiro, Geni falou 15 horas e 17 minutos; em fevereiro, 9 horas e 55 minutos. Qual foi a despesa dela nos dois meses, em reais? Digite apenas o número.",
+      "imagem": "fa9-q-obmep-telefone",
+      "dica": "Calcule cada mês separado, e repare que num deles as horas gratuitas não foram esgotadas.",
+      "formato": "numero",
+      "resposta": 45.51,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Nível 2, problema 10 — Telefone"
+      },
+      "errosComuns": [
+        {
+          "resposta": "27,51",
+          "porque": "27,51 é só a conta de janeiro. Fevereiro também é cobrado: mesmo sem passar das 10 horas, a tarifa fixa de 18 reais é devida."
+        },
+        {
+          "resposta": "36",
+          "porque": "36 é 18 + 18, as duas tarifas fixas. Falta o excedente de janeiro: 5 horas e 17 minutos, ou seja, 317 minutos a três centavos cada."
+        },
+        {
+          "resposta": "63,51",
+          "porque": "63,51 cobra também os minutos de fevereiro, que foram 9 h 55 min — abaixo das 10 horas gratuitas. Nesse mês não há excedente nenhum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o excedente de janeiro",
+          "explicacao": "Só o que passa das 10 horas gratuitas é cobrado por minuto.",
+          "conta": "15h17 − 10h = 5h17 = 317 min"
+        },
+        {
+          "titulo": "Feche janeiro",
+          "explicacao": "A tarifa fixa mais o excedente a três centavos o minuto.",
+          "conta": "18 + 317 × 0,03 = 27,51"
+        },
+        {
+          "titulo": "Feche fevereiro",
+          "explicacao": "Foram 9h55, abaixo do limite gratuito, então só a tarifa fixa é devida.",
+          "conta": "18,00"
+        },
+        {
+          "titulo": "Some os dois meses",
+          "explicacao": "A despesa pedida é a dos dois meses juntos.",
+          "conta": "27,51 + 18 = 45,51"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Duas velas têm o mesmo comprimento, mas são de materiais diferentes: uma queima completamente em três horas e a outra em quatro, ambas com velocidade constante. Quantos minutos depois das 13 horas as duas devem ser acesas ao mesmo tempo para que, às 16 horas, o comprimento de uma seja o dobro do da outra? Digite apenas o número.",
+      "imagem": "fa9-q-obmep-velas",
+      "dica": "Chame o comprimento inicial de 1. Depois de t horas sobra 1 − t/3 de uma e 1 − t/4 da outra.",
+      "formato": "numero",
+      "resposta": 36,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Nível 2, problema 142 — Queima de velas"
+      },
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 são os minutos que passam das 2 horas no tempo de queima: ele é 2 h 24 min. A pergunta é outra — quanto DEPOIS das 13 horas as velas são acesas, e 16 h menos 2 h 24 min dá 13 h 36 min."
+        },
+        {
+          "resposta": "144",
+          "porque": "144 é o tempo de queima inteiro em minutos, 2 h 24 min. Esse é o intervalo que as velas ficam acesas, e não o atraso depois das 13 horas."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 minutos daria 14 horas como momento de acender, e a queima duraria 2 horas até as 16 h. Em 2 horas sobram 1/3 de uma vela e 1/2 da outra, e 1/2 não é o dobro de 1/3."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Chame o comprimento de 1",
+          "explicacao": "O comprimento real não importa, e tomá-lo como 1 simplifica tudo.",
+          "conta": "sobra 1 − t/3 e 1 − t/4"
+        },
+        {
+          "titulo": "Escreva a condição",
+          "explicacao": "A que queima mais devagar é a que dura quatro horas, e é ela que fica com o dobro.",
+          "conta": "1 − t/4 = 2(1 − t/3)"
+        },
+        {
+          "titulo": "Resolva",
+          "explicacao": "Juntando os termos com t de um lado, a equação é do 1º grau.",
+          "conta": "5t/12 = 1 → t = 2,4 h"
+        },
+        {
+          "titulo": "Volte ao relógio",
+          "explicacao": "São 2 horas e 24 minutos de queima, contados para trás a partir das 16 horas.",
+          "conta": "16h − 2h24 = 13h36"
+        }
+      ]
+    }
+  ]
+}

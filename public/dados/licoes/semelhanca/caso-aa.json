@@ -1,0 +1,190 @@
+{
+  "id": "caso-aa",
+  "numero": 2,
+  "titulo": "Dois ângulos bastam",
+  "pergunta": "Quanto é preciso conferir para garantir semelhança?",
+  "ideia": {
+    "paragrafos": [
+      "Conferir a definição inteira dá trabalho: são três ângulos e três razões de lados. Felizmente não é preciso. Há um atalho, e ele é curto ao ponto de parecer bom demais: se dois ângulos de um triângulo são iguais a dois ângulos do outro, os triângulos são semelhantes. Ponto final.",
+      "A razão é a soma dos ângulos internos, do 7º ano. Se dois ângulos coincidem, o terceiro não tem escolha: ele é 180° menos a soma dos outros dois, e sai igual nos dois triângulos. Dois ângulos iguais arrastam o terceiro junto — e com os três ângulos iguais, a forma está fixada.",
+      "Esse é o caso AA, e é o mais usado de toda a geometria do 9º ano. Ele aparece em quase todo problema com paralelas, em quase toda conta de sombra e em toda a matéria de relações métricas que vem depois. Quando um exercício pede para provar semelhança, procurar dois ângulos iguais é o primeiro movimento.",
+      "Vale confrontar isso com o 8º ano, porque a diferença é instrutiva. Lá, AAA NÃO garantia congruência, e a matéria dedicou uma lição a esse fracasso: três ângulos iguais fixam a forma, mas não dizem nada sobre o tamanho. Aqui o tamanho não está sendo exigido — e o que era insuficiente para congruência é exatamente suficiente para semelhança.",
+      "Dois cuidados na hora de usar. Primeiro, os ângulos precisam ser CORRESPONDENTES: um triângulo com 40° e 60° é semelhante a outro com 40° e 60°, mas não a um com 40° e 80°. Segundo, ângulo reto conta como ângulo igual — dois triângulos retângulos que compartilham mais um ângulo já são semelhantes, e isso economiza muito trabalho.",
+      "Existem os casos com lados, e a próxima lição os usa: três lados proporcionais (LLL) e dois lados proporcionais com o ângulo entre eles igual (LAL). Mas o AA resolve a maioria dos problemas, e é por onde vale começar sempre."
+    ],
+    "destaque": "Dois ângulos iguais bastam para garantir semelhança — o terceiro vem de graça pela soma 180°.",
+    "imagem": "sm9-ideia-caso-aa"
+  },
+  "resolvido": {
+    "enunciado": "Um triângulo tem ângulos de 50° e 60°; outro tem ângulos de 60° e 70°. Eles são semelhantes?",
+    "imagem": "sm9-res-terceiro-angulo",
+    "passos": [
+      {
+        "titulo": "Complete o primeiro",
+        "explicacao": "O terceiro ângulo sai da soma dos internos, que é 180°.",
+        "conta": "180 − 50 − 60 = 70"
+      },
+      {
+        "titulo": "Complete o segundo",
+        "explicacao": "Mesma conta, com os dois ângulos dele.",
+        "conta": "180 − 60 − 70 = 50"
+      },
+      {
+        "titulo": "Compare os trios",
+        "explicacao": "A ordem em que os ângulos foram dados não importa: o conjunto é o mesmo.",
+        "conta": "50, 60, 70 nos dois"
+      }
+    ],
+    "fecho": "São semelhantes pelo caso AA — e bastavam dois ângulos iguais para afirmar isso, sem completar nada."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo tem ângulos de 40° e 75°. Quanto mede o terceiro ângulo, em graus? Digite apenas o número.",
+      "imagem": "sm9-q-terceiro",
+      "dica": "Os três ângulos internos de um triângulo somam 180°.",
+      "formato": "numero",
+      "resposta": 65,
+      "errosComuns": [
+        {
+          "resposta": "115",
+          "porque": "115 é a soma dos dois ângulos dados, que é o passo do meio. Falta subtrair essa soma de 180."
+        },
+        {
+          "resposta": "245",
+          "porque": "245 é 180 + 65, ou 40 + 75 + 130 — em todo caso, uma soma onde deveria haver subtração. Nenhum ângulo interno de um triângulo passa de 180°."
+        },
+        {
+          "resposta": "35",
+          "porque": "35 é a diferença entre 75 e 40, e ela não tem papel nenhum aqui. O terceiro ângulo é o que falta para 180."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Some os dois conhecidos",
+          "explicacao": "É o quanto do total de 180° já está ocupado.",
+          "conta": "40 + 75 = 115"
+        },
+        {
+          "titulo": "Tire de 180",
+          "explicacao": "O que sobra é o terceiro ângulo interno.",
+          "conta": "180 − 115 = 65"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Por que dois ângulos iguais já garantem que os triângulos são semelhantes?",
+      "imagem": "sm9-q-por-que-dois",
+      "dica": "Pense no que acontece com o terceiro ângulo quando os outros dois estão decididos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o terceiro ângulo fica determinado pela soma 180°" },
+        { "rotulo": "B", "texto": "Porque dois ângulos já formam um triângulo" },
+        { "rotulo": "C", "texto": "Porque os lados ficam automaticamente iguais" },
+        { "rotulo": "D", "texto": "Porque todo triângulo tem dois ângulos iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque dois ângulos já formam um triângulo",
+          "porque": "Dois ângulos não formam figura fechada nenhuma — é preciso o terceiro lado. O que eles fazem é DETERMINAR o terceiro ângulo, e é daí que vem a garantia."
+        },
+        {
+          "resposta": "Porque os lados ficam automaticamente iguais",
+          "porque": "Eles ficam proporcionais, e não iguais — se ficassem iguais, os triângulos seriam congruentes, e o caso AAA já foi descartado para congruência no 8º ano."
+        },
+        {
+          "resposta": "Porque todo triângulo tem dois ângulos iguais",
+          "porque": "Só os isósceles têm. Um triângulo de 50°, 60° e 70° não tem nenhum par igual, e nem por isso deixa de servir ao caso AA."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o terceiro ângulo",
+          "explicacao": "Ele é o que falta para completar 180° em cada triângulo.",
+          "conta": "180 − (primeiro + segundo)"
+        },
+        {
+          "titulo": "Compare os dois",
+          "explicacao": "Como os dois primeiros coincidem, essa subtração dá o mesmo nos dois.",
+          "conta": "os três ângulos coincidem"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Ter os três ângulos iguais garante que dois triângulos são CONGRUENTES?",
+      "imagem": "sm9-q-aaa-nao-basta",
+      "dica": "Lembre do caso AAA, do 8º ano. O que faltava nele?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: garante semelhança, mas o tamanho pode ser qualquer um" },
+        { "rotulo": "B", "texto": "Sim, porque os ângulos determinam tudo" },
+        { "rotulo": "C", "texto": "Não, porque os ângulos podem estar em ordens diferentes" },
+        { "rotulo": "D", "texto": "Sim, desde que o triângulo seja retângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, porque os ângulos determinam tudo",
+          "porque": "Eles determinam a FORMA, e não o tamanho. Um triângulo de lados 3, 4 e 5 e outro de 30, 40 e 50 têm exatamente os mesmos ângulos e não se sobrepõem."
+        },
+        {
+          "resposta": "Não, porque os ângulos podem estar em ordens diferentes",
+          "porque": "A ordem se resolve casando os vértices certos. O que falta de verdade é uma informação de TAMANHO, e nenhum ângulo carrega isso."
+        },
+        {
+          "resposta": "Sim, desde que o triângulo seja retângulo",
+          "porque": "O ângulo reto não muda nada: dois triângulos retângulos de 3-4-5 e 30-40-50 continuam sendo ampliação um do outro, e não cópias."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Exiba um contraexemplo",
+          "explicacao": "Dois triângulos com os mesmos ângulos e tamanhos bem diferentes.",
+          "conta": "3-4-5 e 30-40-50"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "A forma coincide, mas a sobreposição é impossível.",
+          "conta": "semelhantes, não congruentes"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Dois triângulos têm ângulos de 30°, 60° e 90°. O menor lado de um mede 5 cm e o menor lado do outro mede 15 cm. Qual é a razão de semelhança do menor para o maior? Digite apenas o número.",
+      "imagem": "sm9-q-razao-pelos-lados",
+      "dica": "Os ângulos já garantem a semelhança. A razão sai de comparar dois lados correspondentes.",
+      "formato": "numero",
+      "resposta": 3,
+      "errosComuns": [
+        {
+          "resposta": "10",
+          "porque": "10 é a diferença entre 15 e 5. A razão de semelhança é um fator de multiplicação, e sai de uma divisão: 15 ÷ 5."
+        },
+        {
+          "resposta": "75",
+          "porque": "75 é 5 × 15, multiplicando os dois lados. Para achar por quanto um foi ampliado, divide-se um pelo outro."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 seria a razão se o maior medisse 10 cm. Com 15, o fator é 3 — e todos os outros lados também ficam três vezes maiores."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Confirme a semelhança",
+          "explicacao": "Os três ângulos coincidem, então o caso AA já resolve.",
+          "conta": "30, 60 e 90 nos dois"
+        },
+        {
+          "titulo": "Divida os lados correspondentes",
+          "explicacao": "O menor lado de um corresponde ao menor lado do outro.",
+          "conta": "15 / 5 = 3"
+        }
+      ]
+    }
+  ]
+}

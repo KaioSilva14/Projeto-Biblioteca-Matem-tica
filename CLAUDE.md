@@ -31,7 +31,8 @@ certificado.
   saída compilada como ESM nos testes. A raiz não pode virar `type: module`
   porque `server.js` usa `require`. Não apagar.
 - Scripts: `npm run build`, `npm start`, `npm run dev`, `npm run imagens`,
-  `npm run figuras`, `npm run videos`, `npm test`.
+  `npm run figuras`, `npm run videos`, `npm run marca`, `npm run seo`,
+  `npm run capa`, `npm test`.
 
 ## Design — leia o DESIGN.md
 
@@ -155,7 +156,7 @@ O player só é carregado no clique; antes disso a página não fala com o YouTu
 **Toda questão tem imagem, e imagem é arquivo PNG em `/assets`.** A página
 nunca desenha figura em tempo de execução.
 
-- `ferramentas/desenhos.mjs` — 57 geradores paramétricos de SVG: roda, barra,
+- `ferramentas/desenhos.mjs` — 60 geradores paramétricos de SVG: roda, barra,
   barras empilhadas, barras comparadas, rodas comparadas, grade, reta numérica,
   reta decimal, coleção, recipientes, barra de etapas, corte duplo, barra por
   categorias, preço por parte, quadro de ordens, conta armada, arranjos
@@ -592,6 +593,26 @@ nunca desenha figura em tempo de execução.
   para corrigir uma figura publicada. Depois de usá-lo, rodar o lote completo
   para restaurar o índice.
 
+  **NUNCA rodar dois `npm run imagens` ao mesmo tempo.** Os dois usam a mesma
+  pasta `ferramentas/.temp-imagens` e o mesmo `imagens.json`: um apaga o HTML
+  temporário que o outro está abrindo, e o segundo morre no meio com um erro
+  de arquivo inexistente. Aconteceu ao publicar Relações métricas — o lote
+  novo foi lançado com o anterior ainda rodando, e as 36 figuras da matéria
+  não saíram, embora o índice parecesse completo (ele era o do lote que
+  terminou antes). O sintoma é sempre o mesmo: `npm test` reclama de imagem
+  "fora do índice" para uma matéria inteira. A cura é um lote só, do começo.
+
+  E vale lembrar do que o lote NÃO vê: ele importa o manifesto ao iniciar,
+  então uma matéria acrescentada enquanto ele roda fica para o lote seguinte.
+  O mesmo vale para `desenhos.mjs`: corrigir um gerador durante o lote não
+  muda nada nas figuras dele — é preciso um lote novo.
+
+  **E o lote demora a morrer de verdade.** No fechamento do 9º ano a
+  armadilha da concorrência foi repetida exatamente porque o índice já
+  estava escrito e parecia terminado, mas o processo ainda não tinha
+  encerrado. Antes de lançar outro, conferir que `ferramentas/.temp-imagens`
+  está vazia — é o sinal confiável, e não o `imagens.json`.
+
 O conteúdo cita a imagem **pelo id**; o índice resolve caminho, alt e
 dimensões. Por isso o CSS de `.figura__img` **não pode** declarar
 `width: auto` — isso faria o navegador usar a largura física do PNG 2x e a
@@ -608,7 +629,20 @@ Duas regras de conteúdo para as figuras:
   `tests/conteudo.test.mjs` recalcula cada resposta do zero, a partir dos dados
   do enunciado. Se você adicionar questão, adicione a verificação junto.
 - **Questões de aplicação vêm de provas públicas da OBMEP**, com `fonte`
-  declarada. São livres para redistribuir, com atribuição.
+  declarada.
+  - **Cuidado com o que se afirma sobre a licença delas.** O projeto dizia
+    "são livres para redistribuir, com atribuição" — e isso é mais do que a
+    OBMEP declara. Conferido em setembro de 2026: nem `obmep.org.br` nem o
+    Portal da Matemática publicam licença aberta (Creative Commons ou
+    equivalente) para as provas e os Bancos de Questões. O que é verdade é
+    que ela os publica abertamente e sem custo, para uso educacional, e que
+    os direitos continuam sendo dela e do IMPA.
+  - A consequência prática está escrita no LICENSE, no README, no
+    CONTRIBUTING e nas páginas de agradecimentos e de perguntas do site:
+    **essas questões não podem ser comercializadas**, e a permissão ampla da
+    MIT cobre o código e não se estende a elas. O aviso existe para ninguém
+    reutilizar o repositório num produto pago sem perceber o que está
+    levando junto.
   - Onde achar: `https://www.obmep.org.br/provas_static/<ano>/f1n1.htm` tem os
     links (Google Drive) da prova e das soluções. O download direto funciona
     com `https://drive.google.com/uc?export=download&id=<ID>`.
@@ -688,7 +722,7 @@ Duas regras de conteúdo para as figuras:
 
 ## Testes
 
-`npm test` roda o build e três arquivos (223 testes):
+`npm test` roda o build e quatro arquivos (516 testes):
 
 - `tests/conteudo.test.mjs` — percorre o catálogo inteiro: integridade de todos
   os cursos e, principalmente, a **recontagem independente de toda a
@@ -709,17 +743,29 @@ Duas regras de conteúdo para as figuras:
   fica exatamente o triplo da uva.
 - `tests/motor.test.mjs` — correção, diagnóstico de erro, progresso por curso e
   certificado.
-- `tests/pagina.test.mjs` — integração: monta as quatro páginas reais e
-  percorre o caminho do aluno até o certificado.
+- `tests/pagina.test.mjs` — integração: monta as páginas reais e percorre o
+  caminho do aluno até o certificado.
+- `tests/site.test.mjs` — a moldura: metadados, canonical, ícone, cartão
+  social, sitemap, robots, links internos e medidas de imagem.
 
 Detalhe do teste de integração: `app.js` registra o listener de
 `DOMContentLoaded` no import, ligado ao document daquele momento. Como cada
 montagem cria um jsdom novo, o import usa `?m=N` para forçar reavaliação.
 
-**Teste de página não pode cravar ano nem matéria.** Já quebrou duas vezes por
+**Teste de página não pode cravar ano nem matéria.** Já quebrou três vezes por
 isso: uma ao publicar a matéria que estava fixada como indisponível, outra ao
 fechar o 6º ano, quando o teste do "em breve" passou a exigir uma marca que
-aquele ano não tem mais. Os dois agora escolhem do catálogo o que precisam.
+aquele ano não tem mais, e a terceira ao fechar o 9º.
+
+**E escolher do catálogo não bastou.** Quatro testes precisam de uma matéria
+POR PUBLICAR — a linha "em breve", o recado da página de matéria, o rodapé que
+o explica e o certificado de ano que não deve aparecer. Enquanto sobrava algum
+ano por fechar eles achavam o objeto no catálogo; com os quatro anos prontos,
+ficaram sem. A correção definitiva é MONTAR a pendência: `catalogoComPendencia`
+copia o catálogo de verdade, marca a última matéria de um ano como
+indisponível e tira o `arquivo` dela, e o `montar` serve essa cópia no lugar
+do arquivo real. Os testes seguem sem cravar ano nem matéria, e agora não têm
+mais como perder o objeto.
 O aviso do rodapé de `ano.html` some quando o ano inteiro fica pronto
 (`data-nota-embreve`), e há teste para os dois lados.
 
@@ -903,6 +949,192 @@ título começa no mesmo x, medido em 320, 360 e 390px. O rótulo do fim desce
 para a segunda linha da mesma coluna — antes ele usava um `padding-left: 44px`
 chutado, que nem batia com os 38px reais.
 
+
+## A moldura do site: busca, compartilhamento e páginas fixas
+
+O conteúdo estava pronto e o site não tinha cara de site: nenhum ícone, nenhum
+cartão ao compartilhar um link, nenhuma página explicando o que ele é, e um
+404 em texto puro. Isso foi resolvido de uma vez, e a regra que organiza tudo
+é a mesma de `imagens.json`: **o que se repete em nove páginas é gerado, não
+copiado.**
+
+### O endereço mora numa linha
+
+`ferramentas/site.mjs` guarda a URL pública
+(`https://projeto-biblioteca-matem-tica.vercel.app`) e os metadados de cada
+página. Trocar de domínio é alterar `SITE` e rodar `npm run seo` — o sitemap,
+o canonical, o og:url e o JSON-LD de todas as páginas são reescritos juntos.
+
+O endereço aparece num segundo lugar, `src/ts/seo.ts`, porque as páginas que o
+JavaScript monta reescrevem o canonical delas em tempo de execução. **Um teste
+exige que os dois sejam iguais**, e ainda que o `.js` compilado esteja em dia —
+canonical apontando para outro domínio é pior que canonical nenhum.
+
+### `npm run seo` e a injeção por marca
+
+`ferramentas/aplicar-seo.mjs` substitui o que está entre `<!-- seo -->`,
+`<!-- nav -->` e `<!-- rodape -->` em cada HTML, e gera `sitemap.xml`,
+`robots.txt` e `site.webmanifest`. O HTML continua versionado e legível; a
+ferramenta não precisa entender a página.
+
+Três coisas que ela faz e que valem lembrar:
+
+- **as medidas de cada `<img>` saem do índice de imagens**, e não da mão. Sem
+  `width`/`height` a página pula quando a figura chega (o CLS que o Google
+  mede); com a medida escrita à mão, basta um gerador mudar de escala para o
+  HTML reservar o espaço errado, que é o mesmo defeito;
+- **ela recusa página cujo título passe de 60 caracteres ou cuja descrição
+  passe de 160** — o que passa disso o Google corta, e um título cortado no
+  meio de uma palavra custa clique. Há também um piso de 70 para a descrição:
+  curta demais, o Google descarta e inventa uma a partir do texto da página;
+- **ela recusa HTML em `public/` que não esteja declarado em `site.mjs`**, que
+  é como uma página nova não nasce órfã de canonical e fora do sitemap.
+
+**Unificar rodapé tem exceção, e ela custou dois testes.** A página do ano
+traz o aviso que explica a marca "em breve", e o rodapé uniforme o apagou na
+primeira versão. Hoje o gerador recebe um `extra` por página.
+
+### As páginas fixas
+
+Cinco, e elas existem tanto para quem chega quanto para o buscador: são links
+como estes, presentes em todas as páginas, que produzem os "sitelinks" abaixo
+do resultado.
+
+- `sobre.html` — o método em seis faixas, cada uma com uma figura;
+- `perguntas.html` — cinco perguntas em `<details>`, com `FAQPage` em JSON-LD;
+- `privacidade.html` — o que fica guardado e onde;
+- `agradecimentos.html` — OBMEP, os professores do YouTube, as fontes livres;
+- `404.html` — com a grade dos anos, para a página de erro oferecer saída.
+
+**As ilustrações delas são as MESMAS figuras das lições**, saídas dos mesmos
+geradores e indexadas em `imagens.json` sob `pasta: "site"`. Quem chega pela
+busca vê o que vai encontrar lá dentro, e não uma promessa. O teste de
+figura órfã precisou passar a varrer os HTML das páginas fixas, senão ele
+acusaria como órfã justamente a imagem que apresenta o site.
+
+### A marca
+
+`npm run marca` (`ferramentas/gerar-marca.mjs`) rasteriza o MESMO glifo do
+cabeçalho em oito arquivos. Os tamanhos não são gosto:
+
+- **48, 96 e 144** porque o Google só considera o ícone do resultado de busca
+  se ele for quadrado e múltiplo de 48 — é ele que aparece ao lado do
+  endereço, como o da Khan Academy. O 512 do manifesto NÃO é múltiplo de 48, e
+  o teste só cobra a regra dos ícones declarados como `rel="icon"`;
+- **180** é o do iPhone, **32** é o da aba;
+- **1200 × 630** é o cartão social; fora de 1,91 : 1 a imagem é cortada.
+
+Duas coisas aprendidas ao gerar: o rasterizador precisa de `--disable-lcd-text`
+(sem ele o texto sai com franja colorida, que vira halo depois da compressão
+das redes), e o glifo ocupa 60% do quadrado — encostando nas bordas, o ícone
+de 48px vira borrão justamente onde ele precisa ser lido.
+
+### O que o Google recebe
+
+- `Organization` com `logo` de 512px e `WebSite` na home — é o par que produz
+  o nome e o ícone ao lado do endereço;
+- `SiteNavigationElement` para cada ano e cada página fixa;
+- `FAQPage` na página de perguntas, **lido do próprio HTML** pela ferramenta,
+  para não existirem duas versões da mesma pergunta;
+- `BreadcrumbList` em toda página montada por script, escrito pelo
+  `src/ts/seo.ts` — é ele que troca o endereço cru por
+  "Biblioteca Matemática › 9º ano › Volume de sólidos".
+
+**Sitelink não se pede.** Quem decide é o Google, e o que dá para fazer é o que
+está feito: estrutura clara, links estáveis em todas as páginas, sitemap
+completo e títulos distintos. O resto é tempo de indexação.
+
+### Recado de erro
+
+`recado()` deixou de ser uma frase solta e passou a ter três partes: o que
+aconteceu, por que pode ter acontecido, e um caminho de volta que funciona —
+e o caminho é específico do erro (uma lição inexistente oferece a lista de
+lições daquela matéria).
+
+**O teste confere a ESTRUTURA, e não a frase.** Cravar o texto já custou duas
+quebras: o recado foi reescrito para ser mais útil e os testes reprovaram a
+melhoria. O que não pode mudar é o aluno ficar sem saída.
+
+E o `server.js` passou a servir a `404.html` de verdade, com status 404 — o
+mesmo que a hospedagem faz em produção. Responder 200 numa página que não
+existe (o "soft 404") enche o índice de endereços mortos.
+
+### `.banda` não alinha nada; quem alinha é o `.container`
+
+Duas seções montadas por script — os certificados da home e o certificado de
+ano — limpavam a FAIXA inteira e escreviam direto nela. E o `limpar` apagava
+justamente o `<div class="container">` que o HTML trazia: o conteúdo saía
+colado nas bordas da janela, desalinhado de tudo o mais na página.
+
+O defeito é invisível para quem testa conteúdo e só aparece na tela, porque
+tudo funcionava — os certificados certos, na ordem certa, com os números
+certos, no lugar errado.
+
+A correção não foi pontual: existe um helper `miolo(faixa)` que devolve o
+container da faixa, limpo, criando-o se não houver. Quem monta uma faixa pede
+o miolo dela, e não pode mais escrever fora dele. **Dois testes conferem que
+nenhum filho direto de uma faixa montada por script é outra coisa que não o
+container.**
+
+### Figura de apresentação também precisa se explicar sozinha
+
+A figura da home que mostra a soma dos ângulos saiu com os dois alternos da
+paralela sem rótulo — dois arcos mudos em cima da reta. Geometricamente
+correta e argumentativamente muda: o que ela existe para mostrar é que
+aqueles arcos SÃO o a e o b da base. O `trianguloParalela` já tinha `aLinha`
+e `bLinha`, e a lição publicada os usava; a chamada da página fixa é que os
+esqueceu.
+
+### `npm run imagens --faltando`
+
+Gera só as figuras que ainda não estão no índice e preserva as outras
+entradas. É o modo para acrescentar meia dúzia de figuras sem refazer as mil
+e oitocentas. **Ele não conserta figura cujo GERADOR mudou**, porque nem olha
+para as que já existem — depois de mexer num gerador, o lote é completo.
+
+### A capa do repositório
+
+`npm run capa` gera `.github/capa.svg` — o nome do projeto em matriz de
+pontos, digitado letra por letra — e os seis selos de `.github/selos/`.
+
+O jeito comum de fazer isso é apontar para um serviço que devolve o SVG
+pronto. **Aqui é gerado e comitado**, pela mesma razão de tudo o mais: um
+serviço de terceiro pode sair do ar, mudar de rota ou passar a cobrar, e cada
+visitante do README viraria uma visita contada num servidor alheio.
+
+Quatro coisas que a capa obrigou a aprender:
+
+- **O GitHub renderiza o SVG dentro de um `<img>`, onde script não roda.**
+  Animação declarativa — CSS e SMIL — roda; JavaScript, não.
+- **Cada letra precisa do próprio `@keyframes`.** Com um `animation-delay`
+  compartilhado e `infinite`, as vinte letras entram em ciclos defasados e a
+  frase nunca mais se forma inteira.
+- **O estado de REPOUSO tem de ser o texto visível**, e a animação é que o
+  esconde e o traz de volta. Com `opacity:0` no repouso, um leitor que não
+  rode a animação mostra um retângulo vazio no lugar do nome do projeto — a
+  pior falha possível, porque é silenciosa. Há teste.
+- **A tipografia vai em atributo, não em classe**, para sobreviver caso o
+  bloco de estilo seja descartado.
+- E o espaçamento: com uma coluna de vão entre letras elas encostam e a
+  palavra vira mancha; são duas. O acento do "Á" era o sintoma — ele lia como
+  se estivesse entre duas letras.
+
+**As abas do topo do repositório não se pedem.** O GitHub as mostra quando
+existem `README.md`, `CONTRIBUTING.md` e `LICENSE` com esses nomes. Dentro do
+README, o que separa assunto é `<details>`.
+
+**A licença é MIT para o CÓDIGO**, e o arquivo diz isso explicitamente: MIT no
+conteúdo pedagógico relicenciaria as lições e, pior, as questões da OBMEP
+junto — que são de terceiro e têm condição própria de redistribuição.
+
+### `tests/site.test.mjs`
+
+Vinte e três testes que não olham para Matemática nenhuma: título, descrição,
+canonical, ícone, cartão, sitemap, robots, links internos e medidas de
+imagem. O último deles é o que segura o conjunto — **rodar `aplicar-seo` de
+novo não pode mudar arquivo nenhum**, o que denuncia qualquer tag editada à
+mão que tenha divergido da fonte.
+
 ## Pendências
 
 **O 6º ano está completo, revisado e fechado: 14 de 14 matérias** — 88 lições,
@@ -936,6 +1168,166 @@ junto: os três emitem, somam os números certos dos certificados de matéria,
 registram-se sozinhos ao concluir e geram o PNG. A lista de 12 matérias cabe
 nas três colunas sem aperto — o 6º ano, com 14, é o caso mais apertado e
 continua passando.
+
+**E os cinco testes de certificado de ano percorrem agora TODOS os anos
+completos, e não só o primeiro.** Eles usavam `find`, o que cobria o 6º e
+deixava os outros três de fora — justamente quando a conferência passou a
+valer para todos. Cada ano tem número diferente de matérias, e é aí que o
+desenho do certificado aperta.
+
+**O 9º ano está COMPLETO: 12 de 12 matérias** — 72 lições, 288 questões,
+864 diagnósticos, 432 imagens, 44 vídeos verificados e 10 questões da OBMEP.
+Na ordem do catálogo: ~~Números irracionais e reais~~, ~~Potenciação e
+radiciação~~, ~~Equações do 2º grau~~, ~~Função afim~~, ~~Função quadrática~~,
+~~Semelhança de triângulos~~, ~~Teorema de Tales~~, ~~Teorema de Pitágoras~~,
+~~Relações métricas no triângulo retângulo~~, ~~Trigonometria no triângulo
+retângulo~~, ~~Arcos e ângulos na circunferência~~ e ~~Volume de sólidos~~.
+
+**A revisão de fechamento do 9º está feita, e com ela o site inteiro.** Os
+números, que valem como linha de base para o próximo:
+
+- **368 páginas · 936 figuras · 0 achado estrutural.** O site inteiro
+  rastreado num viewport de 320px: nenhum "Carregando" preso, nenhuma imagem
+  com `naturalWidth` zero, nenhum vazamento horizontal e nenhum link com
+  "undefined".
+- **Pior escala em 320px: 0,65**, o mesmo patamar que fechou o 7º e o 8º. A
+  figura mais apertada continua sendo uma reta numérica de 460px.
+- **288 questões percorridas uma a uma nas 12 matérias**, com 288 de 288
+  diagnósticos aparecendo e 288 de 288 respostas certas aceitas. Todas as 72
+  lições ficaram concluídas no `localStorage`.
+- **0 problema de texto nas 1872 figuras do site**, pela primeira vez desde
+  que a auditoria existe.
+- **486 testes passando** — 415 de conteúdo, 43 de motor e 28 de página.
+
+**Com isso o catálogo dos quatro anos está fechado: 51 matérias, 312 lições,
+1248 questões, 3771 diagnósticos de erro, 1872 figuras, 202 vídeos
+verificados e 27 questões da OBMEP.**
+
+**O que Volume de sólidos (9º ano) deixou registrado:**
+
+- **O terço é DEMONSTRADO, e não decretado.** Quase todo livro chega nele por
+  uma experiência com areia, que convence e não explica. A lição 1 reparte um
+  cubo em três pirâmides congruentes: escolhido um vértice, as três faces que
+  não o contêm são as bases, e o bico é o vértice. Cada uma tem uma FACE por
+  base e a ARESTA por altura, e daí V = B × h / 3 aparece em vez de ser
+  imposta. É o mesmo papel de `trianguloParalela` na soma dos ângulos e de
+  `piDesenrolado` no π.
+- **E a repartição é conferida por CONTAGEM.** Um ponto (x, y, z) do cubo
+  pertence à pirâmide cuja face-base corresponde à MENOR das três
+  coordenadas — o que torna a partição evidente. O teste varre a grade e
+  exige que as três contagens saiam exatamente iguais. Nada nessa varredura
+  sabe o que é pirâmide.
+- **Cuidado com os EMPATES nessa varredura.** Os pontos com duas coordenadas
+  iguais caem nos planos x = y, y = z e x = z, que são a fronteira entre duas
+  pirâmides. A primeira versão do teste exigia zero empates e quebrou: numa
+  grade N × N × N eles são inevitáveis. O que importa é que as três contagens
+  sejam IGUAIS entre si, e que os empates sejam poucos.
+- **Nenhum volume é conferido pela fórmula que a matéria ensina.** Todos saem
+  de somar as áreas das seções horizontais (Cavalieri), e essa soma não
+  conhece cone, pirâmide nem esfera — ela recebe só uma função que diz a área
+  na altura y. A área de cada seção é o único ingrediente emprestado, e vem
+  do 7º ano (círculo) e do 8º (retângulo e triângulo).
+- **A lição 4 traz a única demonstração da esfera que cabe no Fundamental.**
+  Uma meia-esfera de raio r e um cilindro de raio r e altura r com um cone
+  retirado de dentro têm, em toda altura, seções de MESMA área: π(r² − y²) de
+  um lado e πr² − πy² do outro, que é a mesma coisa escrita de dois jeitos.
+  Logo a meia-esfera vale cilindro menos cone, ou 2πr³/3 — e o 4/3 é o dobro
+  disso. O teste confere a igualdade das seções e depois o volume, os dois
+  por fatias.
+- **O cone entra como pirâmide de base redonda**, e não como sólido novo. É a
+  mesma passagem do polígono de muitos lados para o círculo que o 7º ano fez,
+  e é ela que faz o terço valer para ele de graça.
+- **A escala é provada por varredura**, como no Volume do 8º: multiplicar
+  todas as medidas por f multiplica o volume por f³ e a área por f² — agora
+  também no cone e na esfera, que não têm aresta nenhuma para medir.
+- **A questão inversa é resolvida por BUSCA.** Com volume 96 e base 36, o
+  teste varre as alturas em décimos e exige que só uma sirva, em vez de
+  isolar a letra. Mesma disciplina das equações do 7º ano.
+- Da OBMEP veio o item (a) do problema 93 do Banco de Questões 2010, Nível 3,
+  "Três cilindros". Ele é textual — as medidas estão no enunciado, e a figura
+  do PDF só ilustra —, e é uma das raras de geometria espacial que não
+  dependem do desenho da prova. **A figura do site é uma TABELA, de
+  propósito:** desenhar os três cilindros em escala entregaria a ordem, que é
+  a resposta. O teste soma as fatias e ainda exige que a ordem seja ESTRITA,
+  senão a questão teria duas alternativas certas.
+
+**A auditoria de texto zerou pela primeira vez: 0 problema em 1872 figuras.**
+Ela pegou 27 transbordos no fechamento do 9º ano, e os três defeitos por trás
+deles valem guardar:
+
+- **`comRotulo` media o texto como se ele fosse Inter, e boa parte das
+  legendas é DM Mono.** Mono é mais largo, e por isso "base quadrada de 4 cm
+  de lado" cabia na conta e não cabia na tela. Ele passou a aceitar um quarto
+  parâmetro, `mono`.
+- **Toda linha centralizada no rodapé precisa passar pelo `comRotulo`, e não
+  só o campo chamado `rotulo`.** A `legenda` do `prisma` e a do
+  `solidoPontudo` são escritas no mesmo lugar e do mesmo jeito, e nenhuma das
+  duas contava na caixa.
+- **Rótulo com âncora à direita precisa da largura MAIS a distância até a
+  borda.** A altura do `solidoPontudo` é escrita com `ancora: "end"` a 20px da
+  margem esquerda, então a margem tem de ser a largura do texto mais 22 — com
+  os 16 de sempre ele começava 4px fora da caixa, em nove figuras.
+- **A margem do TOPO também conta rótulo**, e isso já tinha sido aprendido no
+  `areaPorRecorte`: o nome do vértice de cima do `trianguloCortado` é escrito
+  8px acima de um vértice que mora em y = 16, e o "A" começava 1px fora — em
+  doze figuras de Semelhança e de Tales.
+- **No `planoFuncao`, o rótulo do eixo vertical DESVIA da fileira dos rótulos
+  do eixo horizontal.** No canto de baixo à esquerda os dois "−1" ficam a
+  menos de dez pixels um do outro e saíam empilhados. Separar na horizontal
+  não resolve: para não encostar, o rótulo do eixo y teria de ficar colado no
+  eixo ou mais de um passo de malha à esquerda. É a mesma saída dos rótulos de
+  ponto da `retaInteiros`.
+
+**Os três geradores novos, e o que eles obrigaram a aprender:**
+
+- **`cuboEmPiramides`** desenha o cubo em fio de arame com uma das três
+  pirâmides destacada, um painel por pirâmide. A primeira versão pintava só a
+  face-base e traçava as quatro arestas até o bico: os três painéis saíam
+  praticamente iguais, cada um lendo como "uma caixa de arame com um risco na
+  diagonal". O que separa as três é qual FACE é a base, e isso só aparece
+  quando as faces visíveis do sólido são pintadas e as escondidas vão
+  tracejadas. A visibilidade sai do produto escalar da normal de cada face
+  com a direção do observador, que é deduzida da própria projeção: dois
+  pontos que diferem por (−0,5; −0,42; 1) caem no mesmo pixel.
+- **O `aresta` do `cuboEmPiramides` é RÓTULO, e não escala.** Na primeira
+  versão ele multiplicava o desenho, e a figura de um cubo de 9 cm saía nove
+  vezes maior que a de um de 1 cm sem nada mudar de conteúdo.
+- **`solidoPontudo`** usa a projeção oblíqua do `prisma` do 8º ano, de
+  propósito: o aluno acabou de ver o cilindro desenhado assim, e o cone
+  precisa parecer o mesmo objeto com a tampa puxada para um ponto. O
+  `comparar` põe o sólido reto de mesma base e altura por fora, tracejado.
+- **A caixa dele muda com o `comparar`, e isso não é detalhe.** Sem ele o
+  ponto mais alto é o ápice; com ele é a tampa do cilindro, que passa meia
+  elipse acima. Reservar sempre o pior caso deixava um vão de meia elipse no
+  topo de todo cone sozinho — o mesmo defeito que o `areaPorRecorte` teve com
+  a silhueta que não aparece.
+- **No cone, "esquerda" e "direita" se decidem pelo ângulo visto do ápice, e
+  o y da tela cresce para BAIXO.** Perto de 0 é a geratriz da direita, perto
+  de π a da esquerda. Trocar os dois punha o rótulo da geratriz por dentro do
+  cone, onde ele cai em cima da altura tracejada.
+- **Uma tentativa foi feita e DESCARTADA: desenhar o líquido de um cone
+  despejado no cilindro**, com a tampa dele em h/3. Com o cone e a coluna de
+  líquido no mesmo desenho, nenhum dos dois se lê. Quem prova o terço é o
+  `cuboEmPiramides`; o `comparar` existe para mostrar que a base e a altura
+  são as MESMAS, e isso um desenho limpo faz melhor.
+- **`cavalieriEsfera`** desenha os dois sólidos de Arquimedes cortados na
+  mesma altura, com as duas seções pintadas, e CALCULA os dois raios a partir
+  da altura do corte. Um teste lê as elipses de volta do SVG e exige que a
+  área do disco bata com a da coroa — se a figura discordasse, ela estaria
+  desmentindo a demonstração que ilustra.
+- **A caixa dela precisa contar a ELIPSE DE BAIXO**, e não parar na linha do
+  chão: com a altura fechada em r + margens, o nome de cada sólido caía em
+  cima da própria base. É o mesmo defeito da margem de topo do
+  `areaPorRecorte`, agora embaixo. E dois sólidos lado a lado passam fácil do
+  teto: com escala 34 a figura media 535px (0,55 em 320px), e a escala passou
+  a CEDER para caber, como o braço das paralelas do 7º ano.
+- **A figura não pode desmentir o próprio rótulo, e isso vale no espaço** —
+  a medição do Volume do 8º ano foi repetida aqui, pelas arestas verticais e
+  com o desconto de √1,25 na largura do cone, porque a projeção oblíqua
+  inclina a elipse.
+- **Quatro sólidos numa fileira dão 516px** (0,56 em 320px). Em duas fileiras
+  de dois eles sobem para 298px sem encolher nada — a mesma saída de
+  `angulosComparados` e `figurasComparadas`.
 
 **O que Volume deixou registrado:**
 
@@ -1238,7 +1630,7 @@ não o teste.
   geometria, combinatória e teoria dos números, e notação científica não é
   tema dele — a mesma razão já registrada para estatística.
 
-O catálogo tem os quatro anos, mas só os dois primeiros estão fechados.
+O catálogo tem os quatro anos, e os quatro estão fechados e revisados.
 
 O que a revisão de fechamento do 7º deixou medido, e vale como linha de base
 para a próxima:

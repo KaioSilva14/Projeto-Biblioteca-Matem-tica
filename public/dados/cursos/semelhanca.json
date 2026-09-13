@@ -1,0 +1,35 @@
+{
+  "id": "semelhanca",
+  "titulo": "Semelhança de triângulos",
+  "ano": 9,
+  "descricao": "Congruência, no 8º ano, exigia figuras idênticas. Semelhança afrouxa exatamente uma coisa — o tamanho — e guarda a forma, e é esse afrouxamento que a torna útil: é ela que mede a altura de um prédio pela sombra, que dá sentido a uma maquete e que sustenta Tales, Pitágoras e a trigonometria que vêm logo depois. E ela traz a armadilha mais teimosa da geometria: dobrar os lados não dobra a área.",
+  "pergunta": "O que se ganha ao exigir a mesma forma, mas não o mesmo tamanho?",
+  "videos": [
+    {
+      "id": "TeKvhnJgNYU",
+      "titulo": "SEMELHANÇA DE TRIÂNGULOS | RAZÃO DE SEMELHANÇA | TEOREMA DE TALES  | 9º ano - \\Pof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação da ideia e da razão de semelhança, do começo. Serve de segunda passagem pelas lições 1 e 2."
+    },
+    {
+      "id": "lYEJ19G9fck",
+      "titulo": "SEMELHANÇA DE TRIÂNGULOS EXERCÍCIOS  | RAZÃO DE SEMELHANÇA |",
+      "canal": "Gis com Giz",
+      "descricao": "Só exercícios de achar o lado que falta pela proporção. Bom para treinar depois da lição 3."
+    },
+    {
+      "id": "L8A1Mdw4kQw",
+      "titulo": "SEMELHANÇA DE TRIÂNGULOS - EXERCÍCIOS  | SEMELHANÇA DE FIGURAS |",
+      "canal": "Gis com Giz",
+      "descricao": "Semelhança em figuras que não são triângulos, com exercícios resolvidos. Amplia o que a lição 5 trata."
+    }
+  ],
+  "licoes": [
+    { "id": "o-que-e", "arquivo": "/dados/licoes/semelhanca/o-que-e.json" },
+    { "id": "caso-aa", "arquivo": "/dados/licoes/semelhanca/caso-aa.json" },
+    { "id": "lado-que-falta", "arquivo": "/dados/licoes/semelhanca/lado-que-falta.json" },
+    { "id": "paralela-ao-lado", "arquivo": "/dados/licoes/semelhanca/paralela-ao-lado.json" },
+    { "id": "razao-de-areas", "arquivo": "/dados/licoes/semelhanca/razao-de-areas.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/semelhanca/problemas.json" }
+  ]
+}

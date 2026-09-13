@@ -1,0 +1,202 @@
+{
+  "id": "comparar",
+  "numero": 4,
+  "titulo": "Comparar e ordenar reais",
+  "pergunta": "Como decidir quem é maior entre uma fração, um decimal e uma raiz?",
+  "ideia": {
+    "paragrafos": [
+      "Num mesmo problema aparecem números escritos de jeitos diferentes: 3/2, 1,45, √2, 140%. Comparar exige trazer todos para uma forma comum — e a mais prática é a decimal, porque é nela que a comparação se faz olhando as casas da esquerda para a direita.",
+      "Fração vira decimal dividindo: 3/2 = 1,5. Porcentagem vira decimal dividindo por 100: 140% = 1,4. E raiz vira decimal por aproximação, pelo método da lição anterior — com casas suficientes para decidir a comparação, e não mais que isso.",
+      "Quantas casas são suficientes? Tantas quantas forem necessárias para os números se separarem. Comparando √2 com 1,41, duas casas não bastam — as duas dão 1,41. Com três casas, √2 ≈ 1,414 contra 1,410, e a decisão sai: √2 é maior.",
+      "Há um atalho útil quando os dois lados são raízes: raiz maior é a de radicando maior. Comparar √7 com √5 não exige calcular nada, porque 7 > 5 implica √7 > √5. É a mesma propriedade que permitiu prender a raiz entre inteiros.",
+      "E há um atalho para comparar raiz com inteiro: eleve os dois ao quadrado. √10 contra 3 vira 10 contra 9, e a comparação fica imediata. Isso só vale com os dois lados positivos — com negativos, elevar ao quadrado inverte a ordem, como a matéria de inequações do 7º ano já avisava.",
+      "Na reta numérica, comparar é ver quem está mais à direita, e essa leitura vale para qualquer real. É bom motivo para desenhar a reta quando a comparação tem mais de dois números: a ordem aparece toda de uma vez, em vez de sair de comparações aos pares."
+    ],
+    "destaque": "Traga todos à forma decimal, com casas suficientes para se separarem. Entre duas raízes, a de radicando maior vence.",
+    "imagem": "ir9-ideia-comparar"
+  },
+  "resolvido": {
+    "enunciado": "Coloque em ordem crescente: 3/2, √2 e 1,41.",
+    "imagem": "ir9-res-ordenar",
+    "passos": [
+      {
+        "titulo": "Traga tudo para decimal",
+        "explicacao": "A fração é dividida e a raiz é aproximada com casas suficientes.",
+        "conta": "3/2 = 1,5 · √2 ≈ 1,414"
+      },
+      {
+        "titulo": "Confira se as casas separam",
+        "explicacao": "Com duas casas, √2 e 1,41 empatariam — a terceira casa é que decide.",
+        "conta": "1,414 > 1,410"
+      },
+      {
+        "titulo": "Ordene",
+        "explicacao": "Comparando os decimais da esquerda para a direita.",
+        "conta": "1,41 < √2 < 3/2"
+      }
+    ],
+    "fecho": "O mais próximo de √2 na lista é 1,41 — e mesmo assim ele é menor."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Qual é o maior: √7 ou √5?",
+      "imagem": "ir9-q-duas-raizes",
+      "dica": "Não é preciso calcular nenhuma das duas. Compare o que está dentro da raiz.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "√7, porque 7 é maior que 5" },
+        { "rotulo": "B", "texto": "√5, porque a raiz inverte a ordem" },
+        { "rotulo": "C", "texto": "São iguais, porque os dois são irracionais" },
+        { "rotulo": "D", "texto": "Não dá para decidir sem calcular as casas decimais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "√5, porque a raiz inverte a ordem",
+          "porque": "A raiz não inverte: ela PRESERVA a ordem entre positivos. Quem inverte é multiplicar por um negativo, que é a exceção da matéria de inequações do 7º ano."
+        },
+        {
+          "resposta": "São iguais, porque os dois são irracionais",
+          "porque": "Ser irracional não torna dois números iguais, assim como ser inteiro não torna 5 igual a 7. √7 ≈ 2,65 e √5 ≈ 2,24 são números bem diferentes."
+        },
+        {
+          "resposta": "Não dá para decidir sem calcular as casas decimais",
+          "porque": "Dá, e é justamente o atalho da lição: entre duas raízes quadradas, a de radicando maior é maior. Calcular as casas confirmaria, mas não é necessário."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Compare os radicandos",
+          "explicacao": "É o que está dentro do sinal de raiz.",
+          "conta": "7 > 5"
+        },
+        {
+          "titulo": "Use que a raiz preserva a ordem",
+          "explicacao": "Radicando maior produz raiz maior, entre positivos.",
+          "conta": "√7 > √5"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Qual é o maior: √10 ou 3?",
+      "imagem": "ir9-q-raiz-e-inteiro",
+      "dica": "Eleve os dois ao quadrado e compare os resultados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "√10, porque 10 é maior que 9" },
+        { "rotulo": "B", "texto": "3, porque inteiro é sempre maior que raiz" },
+        { "rotulo": "C", "texto": "São iguais" },
+        { "rotulo": "D", "texto": "3, porque √10 vale 2,5" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "3, porque inteiro é sempre maior que raiz",
+          "porque": "Não há regra assim: √100 é 10, bem maior que 3. O que decide é a comparação entre os quadrados, e aqui 10 passa de 9."
+        },
+        {
+          "resposta": "São iguais",
+          "porque": "Seriam iguais se 10 fosse 9, porque 3² = 9. Como 10 é um pouco maior, √10 é um pouco maior que 3 — cerca de 3,16."
+        },
+        {
+          "resposta": "3, porque √10 vale 2,5",
+          "porque": "2,5 ao quadrado dá 6,25, e não 10. √10 fica entre 3 e 4, porque 3² = 9 e 4² = 16 prendem o 10 entre eles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Eleve os dois ao quadrado",
+          "explicacao": "Como os dois são positivos, elevar preserva a ordem.",
+          "conta": "(√10)² = 10 · 3² = 9"
+        },
+        {
+          "titulo": "Compare",
+          "explicacao": "O maior quadrado vem do maior número.",
+          "conta": "10 > 9 → √10 > 3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Comparando √2 com 1,41, por que duas casas decimais não bastam?",
+      "imagem": "ir9-q-quantas-casas",
+      "dica": "Escreva √2 com duas casas e compare com 1,41.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque com duas casas os dois dão 1,41 e a comparação empata" },
+        { "rotulo": "B", "texto": "Porque √2 tem exatamente três casas" },
+        { "rotulo": "C", "texto": "Porque duas casas nunca bastam para comparar" },
+        { "rotulo": "D", "texto": "Porque 1,41 é maior que √2" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque √2 tem exatamente três casas",
+          "porque": "√2 não tem número definido de casas: elas não acabam nunca. Três casas bastam para ESTA comparação, e não porque o número termine ali."
+        },
+        {
+          "resposta": "Porque duas casas nunca bastam para comparar",
+          "porque": "Muitas vezes bastam: comparar √2 com 1,5 se resolve com uma casa só, porque 1,4 já é menor que 1,5. O número de casas necessário depende de quão próximos os valores estão."
+        },
+        {
+          "resposta": "Porque 1,41 é maior que √2",
+          "porque": "É o contrário: √2 ≈ 1,4142 é maior que 1,41. E é justamente a terceira casa que revela isso — com duas, os dois pareceriam iguais."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva os dois com duas casas",
+          "explicacao": "Truncando √2 na segunda casa decimal.",
+          "conta": "1,41 e 1,41"
+        },
+        {
+          "titulo": "Vá para a terceira",
+          "explicacao": "É nela que os dois números se separam.",
+          "conta": "1,414 > 1,410"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Numa reta numérica, o que significa um número estar mais à direita que outro?",
+      "imagem": "ir9-q-na-reta",
+      "dica": "É a mesma convenção da reta dos inteiros, no 7º ano.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Que ele é maior" },
+        { "rotulo": "B", "texto": "Que ele é menor" },
+        { "rotulo": "C", "texto": "Que ele é irracional" },
+        { "rotulo": "D", "texto": "Que ele está mais longe do zero" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Que ele é menor",
+          "porque": "É o contrário, e a convenção vem desde a reta dos inteiros do 7º ano: os números crescem da esquerda para a direita, e é por isso que −5 fica à esquerda de −2."
+        },
+        {
+          "resposta": "Que ele é irracional",
+          "porque": "A posição na reta não diz nada sobre o tipo do número: racionais e irracionais estão misturados por toda ela, e entre dois racionais quaisquer sempre existe um irracional."
+        },
+        {
+          "resposta": "Que ele está mais longe do zero",
+          "porque": "Isso vale só à direita do zero. Entre os negativos, estar mais à direita é estar MAIS PERTO do zero — −2 está à direita de −5 e é menor em distância."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre a convenção da reta",
+          "explicacao": "Os números crescem da esquerda para a direita.",
+          "conta": "← menor · maior →"
+        },
+        {
+          "titulo": "Aplique a qualquer real",
+          "explicacao": "A regra não muda para irracional: quem está à direita é maior.",
+          "conta": "mais à direita = maior"
+        }
+      ]
+    }
+  ]
+}

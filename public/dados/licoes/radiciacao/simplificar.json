@@ -1,0 +1,206 @@
+{
+  "id": "simplificar",
+  "numero": 4,
+  "titulo": "Simplificar radicais",
+  "pergunta": "Como tirar de dentro da raiz o que já tem raiz exata?",
+  "ideia": {
+    "paragrafos": [
+      "√12 não é um número redondo, mas também não está na forma mais simples. Dentro do 12 existe um quadrado perfeito escondido — o 4 —, e a propriedade do produto da lição anterior permite tirá-lo de lá.",
+      "O caminho: escreva 12 como 4 × 3, separe a raiz do produto em produto de raízes, e calcule a que sai exata. √12 = √(4 × 3) = √4 × √3 = 2√3. O 2 saiu da raiz, o 3 ficou dentro, e o número é o mesmo — 2 × 1,732 dá os mesmos 3,464 de √12.",
+      "O trabalho todo é achar o maior quadrado perfeito que divide o radicando. Para 50, ele é 25, e sai 5√2. Se você escolher um menor, o resultado não fica errado — só fica incompleto: √50 = √(4 × 12,5) nem serve, porque 12,5 não é inteiro, mas em outros casos dá para simplificar duas vezes até chegar ao fim.",
+      "Quando o número é grande, a fatoração em primos do 6º ano resolve sem tentativa e erro. Fatorando 72: 2 × 2 × 2 × 3 × 3. Cada PAR de fatores iguais vira um fator fora da raiz — o par de 2 sai como 2, o par de 3 sai como 3, e sobra um 2 sozinho dentro. Resultado: 6√2.",
+      "É essa a regra prática: fatores em par saem, fatores sozinhos ficam. Com índice 3, quem sai são os TRIOS, e o raciocínio é o mesmo — ∛54 = ∛(27 × 2) = 3∛2, porque o 27 é três vezes o 3.",
+      "Simplificar não é enfeite. Sem isso, √8 + √18 pareceria uma soma impossível; simplificados, viram 2√2 + 3√2, que é a soma da próxima lição. A forma simplificada é o que torna os radicais comparáveis entre si."
+    ],
+    "destaque": "Fatore o radicando: cada PAR de fatores iguais sai da raiz, e o que estiver sozinho fica dentro.",
+    "imagem": "rd9-ideia-simplificar"
+  },
+  "resolvido": {
+    "enunciado": "Simplifique √72.",
+    "imagem": "rd9-res-fatorar-72",
+    "passos": [
+      {
+        "titulo": "Fatore o radicando",
+        "explicacao": "Dividindo por primos sucessivamente, como no 6º ano.",
+        "conta": "72 = 2 × 2 × 2 × 3 × 3"
+      },
+      {
+        "titulo": "Procure os pares",
+        "explicacao": "Cada par de fatores iguais vira um fator fora da raiz.",
+        "conta": "um par de 2 · um par de 3"
+      },
+      {
+        "titulo": "Tire os pares para fora",
+        "explicacao": "O par de 2 sai valendo 2, e o par de 3 sai valendo 3.",
+        "conta": "2 × 3 = 6 fora"
+      },
+      {
+        "titulo": "Veja o que sobrou",
+        "explicacao": "Um único 2 ficou sem par, então ele permanece dentro.",
+        "conta": "√72 = 6√2"
+      }
+    ],
+    "fecho": "Conferindo: 6 × 1,4142 dá 8,485, e √72 também dá 8,485."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Simplifique √50.",
+      "imagem": "rd9-q-simplificar-50",
+      "dica": "Procure o maior quadrado perfeito que divide 50.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "5√2" },
+        { "rotulo": "B", "texto": "2√5" },
+        { "rotulo": "C", "texto": "25√2" },
+        { "rotulo": "D", "texto": "√50 já está simplificado" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "2√5",
+          "porque": "2√5 vale cerca de 4,47, e √50 vale cerca de 7,07 — números diferentes. O que sai da raiz é √25 = 5, e o que fica dentro é o 2."
+        },
+        {
+          "resposta": "25√2",
+          "porque": "25 é o quadrado perfeito que estava DENTRO da raiz; quem sai é a raiz dele, que vale 5. Com 25 fora, o resultado daria 35,4 em vez de 7,07."
+        },
+        {
+          "resposta": "√50 já está simplificado",
+          "porque": "Ainda dá para simplificar: 50 é 25 × 2, e o 25 é quadrado perfeito. Radical simplificado é aquele cujo radicando não tem mais nenhum quadrado perfeito como fator."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o quadrado perfeito",
+          "explicacao": "O maior quadrado perfeito que divide 50 é o 25.",
+          "conta": "50 = 25 × 2"
+        },
+        {
+          "titulo": "Separe as raízes",
+          "explicacao": "A raiz do produto é o produto das raízes.",
+          "conta": "√25 × √2"
+        },
+        {
+          "titulo": "Tire a que é exata",
+          "explicacao": "√25 sai valendo 5 e o 2 fica dentro.",
+          "conta": "5√2"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Simplifique √45.",
+      "imagem": "rd9-q-simplificar-45",
+      "dica": "Fatore 45 e procure o par de fatores iguais.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "3√5" },
+        { "rotulo": "B", "texto": "5√3" },
+        { "rotulo": "C", "texto": "9√5" },
+        { "rotulo": "D", "texto": "15" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "5√3",
+          "porque": "5√3 vale cerca de 8,66, e √45 vale cerca de 6,71. Os números foram trocados de lugar: 45 é 9 × 5, então quem sai é √9 = 3 e quem fica é o 5."
+        },
+        {
+          "resposta": "9√5",
+          "porque": "9 é o quadrado perfeito de dentro; quem sai da raiz é √9 = 3. Deixando o 9 fora, o valor daria 20,1 em vez de 6,71."
+        },
+        {
+          "resposta": "15",
+          "porque": "15 sai de multiplicar 3 por 5, como se a raiz tivesse sumido. O 5 continua dentro da raiz, porque não tem par — o resultado é 3√5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fatore o radicando",
+          "explicacao": "Decompondo 45 em fatores primos.",
+          "conta": "45 = 3 × 3 × 5"
+        },
+        {
+          "titulo": "Tire o par",
+          "explicacao": "O par de 3 sai valendo 3, e o 5 fica sozinho dentro.",
+          "conta": "3√5"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Ao simplificar √200, qual número sai de dentro da raiz? Digite apenas ele.",
+      "imagem": "rd9-q-simplificar-200",
+      "dica": "Fatore 200 e conte quantos pares de fatores iguais existem.",
+      "formato": "numero",
+      "resposta": 10,
+      "errosComuns": [
+        {
+          "resposta": "100",
+          "porque": "100 é o quadrado perfeito que estava dentro da raiz; quem sai é a raiz dele, ou seja, 10. √200 simplificado é 10√2."
+        },
+        {
+          "resposta": "2",
+          "porque": "2 é o que FICA dentro da raiz, sem par. A pergunta é sobre o que sai, que é 10."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 sai de simplificar demais, tirando também o 2 que não tem par. Com 20 fora o resultado daria 28,3, e √200 vale cerca de 14,1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Fatore",
+          "explicacao": "Decompondo 200 em fatores primos, como no 6º ano.",
+          "conta": "200 = 2 × 2 × 2 × 5 × 5"
+        },
+        {
+          "titulo": "Conte os pares",
+          "explicacao": "Há um par de 2 e um par de 5, e sobra um 2 sozinho.",
+          "conta": "2 × 5 = 10 sai"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Quando um radical está completamente simplificado?",
+      "imagem": "rd9-q-quando-parou",
+      "dica": "Pense no que ainda poderia ser tirado de dentro da raiz.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Quando o radicando não tem mais nenhum quadrado perfeito como fator" },
+        { "rotulo": "B", "texto": "Quando o radicando é menor que 10" },
+        { "rotulo": "C", "texto": "Quando não sobra nada fora da raiz" },
+        { "rotulo": "D", "texto": "Quando o radicando é ímpar" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Quando o radicando é menor que 10",
+          "porque": "O tamanho não decide: √8 tem radicando menor que 10 e ainda simplifica, virando 2√2. Já √11 não simplifica, e 11 é maior que 10."
+        },
+        {
+          "resposta": "Quando não sobra nada fora da raiz",
+          "porque": "É o contrário do que costuma acontecer: simplificar justamente TIRA fatores para fora. √50 simplificado é 5√2, com o 5 fora — e está completamente simplificado."
+        },
+        {
+          "resposta": "Quando o radicando é ímpar",
+          "porque": "√45 tem radicando ímpar e simplifica, virando 3√5. O que decide é haver ou não quadrado perfeito entre os fatores, e não a paridade."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que permite simplificar",
+          "explicacao": "Um quadrado perfeito entre os fatores do radicando.",
+          "conta": "fator que é quadrado"
+        },
+        {
+          "titulo": "Diga quando acaba",
+          "explicacao": "Sem nenhum fator desses, não há mais o que tirar.",
+          "conta": "nenhum par sobrando"
+        }
+      ]
+    }
+  ]
+}

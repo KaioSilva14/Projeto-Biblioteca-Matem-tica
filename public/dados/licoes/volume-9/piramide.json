@@ -1,0 +1,178 @@
+{
+  "id": "piramide",
+  "numero": 2,
+  "titulo": "Volume da pirâmide",
+  "pergunta": "Como calcular o volume de uma pirâmide de base qualquer?",
+  "ideia": {
+    "paragrafos": [
+      "A lição anterior mostrou de onde vem o terço num caso só: o cubo repartido em três. A fórmula que apareceu ali vale para qualquer pirâmide, com base de qualquer formato — triângulo, quadrado, retângulo, hexágono. O volume é a área da base vezes a altura, dividido por três.",
+      "Escrita de uma vez: V = B × h ÷ 3, onde B é a ÁREA da base e h é a altura. Os dois nomes precisam ser lidos com cuidado, porque é aí que a maioria dos erros nasce. B não é o lado da base: é a área dela, e calcular essa área é um trabalho de Áreas do 8º ano, que acontece no plano antes de o espaço entrar.",
+      "Uma pirâmide de base quadrada de lado 6 tem B = 36. Uma de base retangular 5 por 6 tem B = 30. Uma de base triangular com base 8 e altura 3 tem B = 12. A parte espacial é sempre a mesma multiplicação; o que muda de uma para outra é só a conta de área que vem antes.",
+      "A ALTURA da pirâmide é a distância do bico até o PLANO da base, medida em linha perpendicular. Ela não é a aresta que sobe pela lateral, e não é a altura de uma das faces triangulares. Numa pirâmide bem pontuda essas três medidas são bem diferentes, e trocar uma pela outra dá um volume maior do que o verdadeiro.",
+      "A altura de uma face triangular tem até nome próprio, apótema, justamente porque ela é útil em outra conta: a da área lateral, quando se quer saber quanto papel forra a pirâmide. Para VOLUME, quem serve é a altura de dentro, a que desce do bico e encontra a base em ângulo reto.",
+      "O roteiro é curto e vale para todas: calcule a área da base, multiplique pela altura, divida por três. E, no fim, uma conferência barata — o resultado tem de dar menos que o do prisma de mesmas medidas, porque a pirâmide cabe dentro dele."
+    ],
+    "destaque": "V = B × h ÷ 3, com B sendo a ÁREA da base e h a altura de dentro — não a aresta lateral.",
+    "imagem": "vl9-ideia-piramide"
+  },
+  "resolvido": {
+    "enunciado": "Uma pirâmide tem base quadrada de 6 cm de lado e altura de 10 cm. Qual é o volume dela, em cm³?",
+    "imagem": "vl9-res-quadrada-seis",
+    "passos": [
+      {
+        "titulo": "Calcule a área da base",
+        "explicacao": "A base é um quadrado, então a área é o lado vezes ele mesmo.",
+        "conta": "6 × 6 = 36 cm²"
+      },
+      {
+        "titulo": "Multiplique pela altura",
+        "explicacao": "Isso dá o volume do prisma de mesma base e mesma altura.",
+        "conta": "36 × 10 = 360 cm³"
+      },
+      {
+        "titulo": "Divida por três",
+        "explicacao": "A pirâmide ocupa um terço desse prisma, pela lição anterior.",
+        "conta": "360 / 3 = 120 cm³"
+      }
+    ],
+    "fecho": "120 cm³ — e repare que ele ficou bem abaixo dos 360 cm³ do prisma, que é a conferência de sempre."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma pirâmide tem base quadrada de 9 cm de lado e altura de 8 cm. Qual é o volume dela, em cm³? Digite apenas o número.",
+      "imagem": "vl9-q-quadrada-nove",
+      "dica": "Comece pela área do quadrado da base; só depois entre com a altura.",
+      "formato": "numero",
+      "resposta": 216,
+      "errosComuns": [
+        {
+          "resposta": "648",
+          "porque": "648 é 81 × 8, o volume do prisma de mesma base e mesma altura. A pirâmide termina em ponta e vale um terço disso — falta dividir por três."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 9 × 8 ÷ 3, usando o LADO da base no lugar da área dela. O B da fórmula é a área: aqui, 9 × 9 = 81."
+        },
+        {
+          "resposta": "72",
+          "porque": "72 é 9 × 8, o lado vezes a altura, sem elevar a base ao quadrado nem dividir por três. Faltaram os dois passos."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "A base é um quadrado de lado 9 cm.",
+          "conta": "9 × 9 = 81 cm²"
+        },
+        {
+          "titulo": "Multiplique e reparta",
+          "explicacao": "Área da base vezes altura, e o resultado dividido por três.",
+          "conta": "81 × 8 / 3 = 216 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma pirâmide tem base retangular de 5 cm por 6 cm e altura de 9 cm. Qual é o volume dela, em cm³? Digite apenas o número.",
+      "imagem": "vl9-q-retangular",
+      "dica": "A base mudou de formato, mas o roteiro é o mesmo: área da base, altura, terço.",
+      "formato": "numero",
+      "resposta": 90,
+      "errosComuns": [
+        {
+          "resposta": "270",
+          "porque": "270 é 30 × 9, o volume do prisma de mesma base e altura. Como o sólido é uma pirâmide, ainda falta dividir por três."
+        },
+        {
+          "resposta": "30",
+          "porque": "30 é só a ÁREA da base, 5 × 6. Ela é o começo da conta: ainda faltam a altura e o terço."
+        },
+        {
+          "resposta": "20",
+          "porque": "20 é 5 + 6 + 9, somando as três medidas. Volume vem de multiplicar, e somar comprimentos não produz volume nenhum."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área da base",
+          "explicacao": "A base é um retângulo, e a área dele é um lado vezes o outro.",
+          "conta": "5 × 6 = 30 cm²"
+        },
+        {
+          "titulo": "Multiplique e reparta",
+          "explicacao": "O mesmo fechamento de sempre, porque a fórmula não muda com o formato.",
+          "conta": "30 × 9 / 3 = 90 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Uma pirâmide tem por base um triângulo de 8 cm de base e 3 cm de altura, e a pirâmide tem 10 cm de altura. Qual é o volume dela, em cm³? Digite apenas o número.",
+      "imagem": "vl9-q-triangular",
+      "dica": "Há duas alturas no enunciado: uma é do triângulo da base, a outra é da pirâmide.",
+      "formato": "numero",
+      "resposta": 40,
+      "errosComuns": [
+        {
+          "resposta": "80",
+          "porque": "80 é 8 × 3 × 10 ÷ 3, esquecendo de dividir a área do triângulo por dois. A base é um triângulo, e a área dele é base vezes altura sobre dois."
+        },
+        {
+          "resposta": "120",
+          "porque": "120 é 12 × 10, o volume do prisma de base triangular com essas medidas. A pirâmide vale um terço dele."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é só a área do triângulo da base, 8 × 3 ÷ 2. Ela é o primeiro passo; ainda faltam a altura da pirâmide e o terço."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Área do triângulo da base",
+          "explicacao": "Base vezes altura dividido por dois, como em Áreas.",
+          "conta": "8 × 3 / 2 = 12 cm²"
+        },
+        {
+          "titulo": "Agora a parte espacial",
+          "explicacao": "A altura que entra aqui é a da pirâmide, e não a do triângulo.",
+          "conta": "12 × 10 / 3 = 40 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma pirâmide de base quadrada de 6 cm de lado tem volume de 96 cm³. Qual é a altura dela, em cm? Digite apenas o número.",
+      "imagem": "vl9-q-achar-altura",
+      "dica": "Monte a fórmula com a altura em aberto e desfaça as operações uma a uma.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "16",
+          "porque": "16 é 96 ÷ 6, dividindo pelo LADO da base em vez da área dela, e sem desfazer o terço. O B da fórmula é 6 × 6 = 36."
+        },
+        {
+          "resposta": "2,67",
+          "porque": "2,67 é 96 ÷ 36, esquecendo de desfazer a divisão por três. Como o volume foi dividido por três, o caminho de volta multiplica por três antes de repartir pela base."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 96 ÷ 4, um caminho que não corresponde a nenhuma parte da fórmula. A conta certa desfaz o terço primeiro e depois divide pela área da base."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Desfaça o terço",
+          "explicacao": "O volume da pirâmide é um terço do prisma, então o prisma é o triplo dela.",
+          "conta": "96 × 3 = 288 cm³"
+        },
+        {
+          "titulo": "Divida pela área da base",
+          "explicacao": "Sobrou base vezes altura, e a base do quadrado de lado 6 é 36.",
+          "conta": "288 / 36 = 8 cm"
+        }
+      ]
+    }
+  ]
+}

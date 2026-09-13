@@ -1,0 +1,195 @@
+{
+  "id": "o-que-e",
+  "numero": 1,
+  "titulo": "Os três quadrados",
+  "pergunta": "O que o teorema afirma, antes de virar fórmula?",
+  "ideia": {
+    "paragrafos": [
+      "Num triângulo retângulo, o lado oposto ao ângulo reto chama-se HIPOTENUSA, e os outros dois são os CATETOS. A hipotenusa é sempre o maior dos três lados, e reconhecê-la é o primeiro passo de tudo o que vem depois — trocar a hipotenusa por um cateto estraga a conta desde o começo.",
+      "Agora construa um quadrado sobre cada lado, para fora do triângulo. Com catetos 3 e 4, os quadrados dos catetos têm áreas 9 e 16, e o quadrado da hipotenusa tem área 25. E 9 mais 16 dá exatamente 25. Isso não é coincidência deste caso: acontece com qualquer triângulo retângulo.",
+      "Essa é a afirmação do teorema, e ela é sobre ÁREAS antes de ser sobre números: a área do quadrado construído sobre a hipotenusa é igual à soma das áreas dos quadrados construídos sobre os catetos. Escrita com letras, com a e b os catetos e c a hipotenusa, ela vira a² + b² = c².",
+      "O símbolo ² aqui não é enfeite de notação: ele está lembrando que cada parcela É uma área de quadrado. Quem lê a fórmula sem essa imagem acaba somando os lados em vez dos quadrados — o erro de achar que 3 + 4 dá a hipotenusa, quando 3 + 4 daria 7 e a hipotenusa mede 5.",
+      "A recíproca também vale, e ela é útil: se num triângulo os quadrados dos dois lados menores somam o quadrado do maior, então o triângulo É retângulo. É assim que se verifica um ângulo reto sem transferidor — e é o que a lição 4 vai explorar.",
+      "O teorema leva o nome de Pitágoras, que viveu no século VI antes de Cristo, mas as relações já eram conhecidas e usadas séculos antes na Babilônia, no Egito e na China. O que a tradição grega acrescentou foi a DEMONSTRAÇÃO: mostrar que vale sempre, e não só nos casos testados."
+    ],
+    "destaque": "O quadrado da hipotenusa tem a área dos dois quadrados dos catetos juntos. É sobre área, e por isso o expoente 2.",
+    "imagem": "pt9-ideia-tres-quadrados"
+  },
+  "resolvido": {
+    "enunciado": "Num triângulo retângulo de catetos 3 e 4, confira que os quadrados dos catetos somam o quadrado da hipotenusa, que mede 5.",
+    "imagem": "pt9-res-tres-quatro-cinco",
+    "passos": [
+      {
+        "titulo": "Identifique quem é quem",
+        "explicacao": "A hipotenusa é o lado oposto ao ângulo reto, e é o maior dos três.",
+        "conta": "catetos 3 e 4 · hipotenusa 5"
+      },
+      {
+        "titulo": "Calcule os quadrados dos catetos",
+        "explicacao": "Cada um é a área do quadrado construído sobre aquele lado.",
+        "conta": "3² = 9 · 4² = 16"
+      },
+      {
+        "titulo": "Some as duas áreas",
+        "explicacao": "É a soma que o teorema afirma ser igual à terceira área.",
+        "conta": "9 + 16 = 25"
+      },
+      {
+        "titulo": "Compare com o quadrado da hipotenusa",
+        "explicacao": "A área do quadrado maior tem de dar exatamente a mesma coisa.",
+        "conta": "5² = 25 ✓"
+      }
+    ],
+    "fecho": "Repare no que NÃO acontece: 3 + 4 dá 7, e a hipotenusa mede 5. A soma é dos quadrados, não dos lados."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Num triângulo retângulo, qual lado é a hipotenusa?",
+      "imagem": "pt9-q-quem-e-hipotenusa",
+      "dica": "Ela tem uma posição fixa em relação ao ângulo reto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O lado oposto ao ângulo reto, que é sempre o maior" },
+        { "rotulo": "B", "texto": "Qualquer um dos três, dependendo da posição do desenho" },
+        { "rotulo": "C", "texto": "O lado de baixo, sempre" },
+        { "rotulo": "D", "texto": "O menor dos três lados" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Qualquer um dos três, dependendo da posição do desenho",
+          "porque": "Girar o desenho não muda quem é quem: a hipotenusa é definida pela posição em relação ao ÂNGULO RETO, e não em relação à folha."
+        },
+        {
+          "resposta": "O lado de baixo, sempre",
+          "porque": "Depende de como o triângulo foi desenhado. Num triângulo com o ângulo reto no canto de baixo, o lado de baixo é um cateto — e a hipotenusa é a inclinada."
+        },
+        {
+          "resposta": "O menor dos três lados",
+          "porque": "É o contrário: ela é o MAIOR. O quadrado dela é a soma dos outros dois, então a área dela é maior que a de cada um deles."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize o ângulo reto",
+          "explicacao": "Ele é o de 90°, marcado com o quadradinho na figura.",
+          "conta": "o ângulo de 90°"
+        },
+        {
+          "titulo": "Olhe para o lado oposto",
+          "explicacao": "É ele que não encosta no ângulo reto, e é o maior dos três.",
+          "conta": "a hipotenusa"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num triângulo retângulo de catetos 6 e 8, qual é a área do quadrado construído sobre a hipotenusa? Digite apenas o número.",
+      "imagem": "pt9-q-area-do-maior",
+      "dica": "Some as áreas dos quadrados dos catetos. Não precisa achar a hipotenusa.",
+      "formato": "numero",
+      "resposta": 100,
+      "errosComuns": [
+        {
+          "resposta": "14",
+          "porque": "14 é 6 + 8, somando os LADOS. O teorema soma os quadrados: 36 + 64, que dá 100."
+        },
+        {
+          "resposta": "10",
+          "porque": "10 é a medida da hipotenusa, e não a área do quadrado dela. A área é 10², ou seja, 100."
+        },
+        {
+          "resposta": "48",
+          "porque": "48 é 6 × 8, o produto dos catetos — que vale o dobro da área do triângulo, e não a área do quadrado da hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule as duas áreas",
+          "explicacao": "Cada uma é o quadrado do cateto correspondente.",
+          "conta": "6² = 36 · 8² = 64"
+        },
+        {
+          "titulo": "Some as duas áreas",
+          "explicacao": "O teorema diz que essa soma é a área do quadrado da hipotenusa.",
+          "conta": "36 + 64 = 100"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que a fórmula tem expoentes 2 em vez de somar os lados direto?",
+      "imagem": "pt9-q-por-que-quadrado",
+      "dica": "Olhe a figura: o que está sendo somado são comprimentos ou áreas?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o que se soma são as ÁREAS dos quadrados, e não os lados" },
+        { "rotulo": "B", "texto": "Porque o triângulo tem dois catetos" },
+        { "rotulo": "C", "texto": "Porque o expoente 2 aparece em toda fórmula de geometria" },
+        { "rotulo": "D", "texto": "Porque sem ele a conta daria um número negativo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o triângulo tem dois catetos",
+          "porque": "A quantidade de catetos não decide expoente nenhum. O expoente 2 está ali porque cada parcela é a área de um quadrado, e área tem duas dimensões."
+        },
+        {
+          "resposta": "Porque o expoente 2 aparece em toda fórmula de geometria",
+          "porque": "Não aparece: o perímetro do quadrado é 4 vezes o lado, sem expoente nenhum. Aqui ele tem um motivo específico, que é a figura dos quadrados."
+        },
+        {
+          "resposta": "Porque sem ele a conta daria um número negativo",
+          "porque": "Somar 3 e 4 dá 7, um número positivo. O problema não é o sinal: é que 7 não é a hipotenusa, que mede 5."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o que a figura soma",
+          "explicacao": "Os dois quadrados menores cabem exatamente dentro do maior.",
+          "conta": "áreas, e não lados"
+        },
+        {
+          "titulo": "Teste somando os lados",
+          "explicacao": "Com catetos 3 e 4, somar daria 7, e a hipotenusa mede 5.",
+          "conta": "3 + 4 = 7 ≠ 5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo retângulo, o quadrado de um cateto tem área 25 e o quadrado da hipotenusa tem área 169. Qual é a área do quadrado do outro cateto? Digite apenas o número.",
+      "imagem": "pt9-q-area-que-falta",
+      "dica": "As duas áreas menores somam a maior. Uma delas já é conhecida.",
+      "formato": "numero",
+      "resposta": 144,
+      "errosComuns": [
+        {
+          "resposta": "194",
+          "porque": "194 é 169 + 25, somando quando era preciso subtrair. A área da hipotenusa é a MAIOR, então a que falta sai de tirar 25 dela."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a medida do cateto, e não a área do quadrado dele. A área é 12², ou seja, 144."
+        },
+        {
+          "resposta": "13",
+          "porque": "13 é a medida da hipotenusa, porque 13² dá 169. A pergunta é pela área do quadrado do outro cateto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o que o teorema diz",
+          "explicacao": "As duas áreas dos catetos, somadas, dão a área da hipotenusa.",
+          "conta": "25 + ? = 169"
+        },
+        {
+          "titulo": "Isole a que falta",
+          "explicacao": "É uma subtração, porque a área maior já é conhecida.",
+          "conta": "169 − 25 = 144"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "id": "prova-raiz2",
+  "numero": 1,
+  "titulo": "Provar que √2 não é fração",
+  "pergunta": "Como se PROVA que um número não pode ser escrito de certo jeito?",
+  "ideia": {
+    "paragrafos": [
+      "O 8º ano afirmou que √2 não é fração nenhuma. Afirmar é fácil; o difícil é provar. E repare no tipo de afirmação: não basta testar mil frações e ver que nenhuma serve — sobrariam infinitas por testar. É preciso um argumento que valha para TODAS de uma vez.",
+      "O caminho para isso chama-se demonstração por absurdo, e ele é uma ideia esperta. Em vez de provar que a coisa é impossível, SUPÕE-SE que ela é possível — e então se mostra que essa suposição leva a uma conclusão que se contradiz. Se supor uma coisa produz um absurdo, a coisa não pode ser verdade.",
+      "Vamos a ela. Suponha que √2 seja fração: √2 = p/q, com p e q inteiros e a fração já SIMPLIFICADA, isto é, p e q sem fator comum. Toda fração pode ser simplificada até esse ponto, então essa suposição não perde nada.",
+      "Elevando os dois lados ao quadrado: 2 = p²/q², logo p² = 2q². Isso diz que p² é par. E se p² é par, então p também é par — porque o quadrado de um número ímpar é sempre ímpar. Sendo par, p pode ser escrito como 2k.",
+      "Substituindo: (2k)² = 2q², ou seja, 4k² = 2q², e dividindo por 2 sobra q² = 2k². Pelo mesmo argumento de antes, q² é par, logo q é par. Mas então p e q são AMBOS pares — e uma fração com numerador e denominador pares não estava simplificada, que era exatamente o que supusemos.",
+      "A suposição produziu a negação de si mesma. Logo ela é falsa: não existem inteiros p e q com √2 = p/q. E como a conclusão não dependeu de quais inteiros seriam, ela vale para todos ao mesmo tempo — que era o que não dava para fazer testando um por um."
+    ],
+    "destaque": "Supor que √2 é fração leva à conclusão de que a fração não estava simplificada. A suposição nega a si mesma.",
+    "imagem": "ir9-ideia-cadeia"
+  },
+  "resolvido": {
+    "enunciado": "Por que \"p² é par\" permite concluir que \"p é par\"?",
+    "imagem": "ir9-res-par-impar",
+    "passos": [
+      {
+        "titulo": "Tente o contrário",
+        "explicacao": "Suponha que p fosse ímpar, e veja no que isso dá.",
+        "conta": "p ímpar → p = 2n + 1"
+      },
+      {
+        "titulo": "Eleve ao quadrado",
+        "explicacao": "Abrindo o quadrado da soma, que é o produto notável do 8º ano.",
+        "conta": "(2n + 1)² = 4n² + 4n + 1"
+      },
+      {
+        "titulo": "Olhe o resultado",
+        "explicacao": "Os dois primeiros termos são pares, e sobra um 1 no fim.",
+        "conta": "par + par + 1 = ímpar"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "Ímpar ao quadrado dá sempre ímpar, então quadrado par só vem de número par.",
+        "conta": "p² par → p par"
+      }
+    ],
+    "fecho": "Esse passo é usado duas vezes na demonstração: uma para p e outra para q."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Numa demonstração por absurdo, o que se faz no primeiro passo?",
+      "imagem": "ir9-q-o-que-e-absurdo",
+      "dica": "Pense no que a demonstração precisa derrubar, e por onde ela começa para conseguir isso.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Supõe-se verdadeiro exatamente o que se quer negar" },
+        { "rotulo": "B", "texto": "Testam-se vários exemplos até nenhum funcionar" },
+        { "rotulo": "C", "texto": "Calcula-se o valor com muitas casas decimais" },
+        { "rotulo": "D", "texto": "Procura-se um contraexemplo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Testam-se vários exemplos até nenhum funcionar",
+          "porque": "Testar exemplos nunca prova impossibilidade: sobrariam infinitas frações por testar. É justamente para evitar isso que a demonstração por absurdo existe — ela trata todos os casos de uma vez."
+        },
+        {
+          "resposta": "Calcula-se o valor com muitas casas decimais",
+          "porque": "Nenhum número de casas decidiria a questão. Por mais casas que se calcule, sempre seria possível imaginar que a periodicidade começa depois da última calculada."
+        },
+        {
+          "resposta": "Procura-se um contraexemplo",
+          "porque": "Contraexemplo serve para derrubar uma afirmação do tipo \"vale sempre\". Aqui a afirmação é \"não existe nenhum\", e para essa um exemplo isolado não ajuda: seria preciso encontrar um que EXISTE, o que é o oposto do que se conclui."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe o que se quer provar",
+          "explicacao": "Que √2 não pode ser escrito como fração de inteiros.",
+          "conta": "provar a impossibilidade"
+        },
+        {
+          "titulo": "Comece pelo avesso",
+          "explicacao": "Supondo que pode, e mostrando que isso leva a uma contradição.",
+          "conta": "supor √2 = p/q"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Na demonstração, por que se supõe que a fração p/q já está SIMPLIFICADA?",
+      "imagem": "ir9-q-por-que-simplificada",
+      "dica": "É essa suposição que a conclusão final acaba contrariando.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque é ela que a conclusão final vai contradizer" },
+        { "rotulo": "B", "texto": "Porque fração não simplificada não é número" },
+        { "rotulo": "C", "texto": "Porque só frações simplificadas podem ser elevadas ao quadrado" },
+        { "rotulo": "D", "texto": "Porque assim p e q ficam menores e a conta é mais fácil" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque fração não simplificada não é número",
+          "porque": "4/6 é um número tão legítimo quanto 2/3 — é o mesmo número, aliás. A suposição de já estar simplificada não exclui nenhum caso: toda fração pode ser simplificada até chegar lá."
+        },
+        {
+          "resposta": "Porque só frações simplificadas podem ser elevadas ao quadrado",
+          "porque": "Qualquer fração pode ser elevada ao quadrado, simplificada ou não. A restrição existe por outro motivo: é dela que sai a contradição no fim."
+        },
+        {
+          "resposta": "Porque assim p e q ficam menores e a conta é mais fácil",
+          "porque": "Os números até ficam menores, mas isso é irrelevante — a demonstração não calcula nada com eles. O que importa é que \"sem fator comum\" é exatamente o que a conclusão final nega."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que a conclusão diz",
+          "explicacao": "Que p e q são ambos pares, ou seja, têm o fator 2 em comum.",
+          "conta": "p e q pares"
+        },
+        {
+          "titulo": "Compare com a suposição",
+          "explicacao": "Foi suposto que eles não tinham fator comum nenhum.",
+          "conta": "contradição"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Se p é um número ímpar, quanto vale o resto da divisão de p² por 2? Digite apenas o número.",
+      "imagem": "ir9-q-impar-ao-quadrado",
+      "dica": "Escreva o ímpar como 2n + 1, eleve ao quadrado e veja o que sobra além dos termos pares.",
+      "formato": "numero",
+      "resposta": 1,
+      "errosComuns": [
+        {
+          "resposta": "0",
+          "porque": "Resto 0 significaria que p² é par, e o quadrado de um ímpar nunca é par: (2n + 1)² = 4n² + 4n + 1 deixa sempre o 1 sobrando. É esse passo que sustenta a demonstração."
+        },
+        {
+          "resposta": "2",
+          "porque": "O resto de uma divisão por 2 só pode ser 0 ou 1 — se fosse 2, ainda caberia mais uma vez o divisor. Aqui o resto é 1."
+        },
+        {
+          "resposta": "3",
+          "porque": "3 é maior que o divisor, então não pode ser resto de uma divisão por 2. Dividindo qualquer número por 2, sobra 0 ou 1."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva o ímpar",
+          "explicacao": "Todo número ímpar é um par mais 1.",
+          "conta": "p = 2n + 1"
+        },
+        {
+          "titulo": "Eleve ao quadrado",
+          "explicacao": "Usando o quadrado da soma, do 8º ano.",
+          "conta": "(2n + 1)² = 4n² + 4n + 1"
+        },
+        {
+          "titulo": "Separe o que é par",
+          "explicacao": "Os termos com 4 são pares, e sobra o 1.",
+          "conta": "resto 1"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "A demonstração da lição vale para √2. Ela também provaria que √4 não é fração?",
+      "imagem": "ir9-q-vale-para-4",
+      "dica": "Tente refazer o argumento com 4 no lugar de 2 e veja em que passo ele para de funcionar.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não, e nem poderia: √4 é 2, que é fração" },
+        { "rotulo": "B", "texto": "Sim, o argumento vale para qualquer raiz" },
+        { "rotulo": "C", "texto": "Sim, mas só se 4 for escrito como 2²" },
+        { "rotulo": "D", "texto": "Não dá para saber sem calcular as casas decimais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, o argumento vale para qualquer raiz",
+          "porque": "Se valesse para qualquer raiz, provaria que √4 não é fração — e √4 é 2, que é fração (2/1). Um argumento que prova algo falso está errado em algum passo, e aqui ele quebra justamente porque 4 é quadrado perfeito."
+        },
+        {
+          "resposta": "Sim, mas só se 4 for escrito como 2²",
+          "porque": "Escrever 4 como 2² não muda o número nem o resultado: √4 continua sendo 2, um racional. Nenhuma forma de escrever o 4 faria a raiz dele deixar de ser fração."
+        },
+        {
+          "resposta": "Não dá para saber sem calcular as casas decimais",
+          "porque": "Dá para saber sem calcular nada: 2 × 2 = 4, então √4 = 2 exatamente. Não há casas decimais a investigar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule √4",
+          "explicacao": "Procurando o número que multiplicado por si mesmo dá 4.",
+          "conta": "√4 = 2"
+        },
+        {
+          "titulo": "Veja se é fração",
+          "explicacao": "Todo inteiro é fração de denominador 1.",
+          "conta": "2 = 2/1 · é racional"
+        }
+      ]
+    }
+  ]
+}

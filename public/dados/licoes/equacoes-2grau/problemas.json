@@ -1,0 +1,209 @@
+{
+  "id": "problemas",
+  "numero": 6,
+  "titulo": "Soma, produto e problemas",
+  "pergunta": "Como as raízes se relacionam com os coeficientes?",
+  "ideia": {
+    "paragrafos": [
+      "Há um atalho que dispensa Bhaskara em muitos casos, e ele sai da própria fórmula. Somando as duas raízes, as partes com ±√Δ se cancelam e sobra −b/a. Multiplicando-as, aparece uma diferença de quadrados — o produto notável do 8º ano — e o resultado é c/a.",
+      "Então, para x² + bx + c = 0 com a = 1: a soma das raízes é −b e o produto é c. Em x² − 5x + 6 = 0, isso diz que as raízes somam 5 e multiplicam 6 — e dois números com essa propriedade se acham de cabeça: 2 e 3. Sem discriminante, sem fórmula.",
+      "O atalho tem limite claro, e é bom saber quando não insistir: ele só ajuda quando as raízes são inteiras pequenas. Em x² − 5x + 3 = 0 não há dois inteiros que somem 5 e multipliquem 3, então a fórmula volta a ser o caminho. Testar rapidamente e desistir cedo é parte do método.",
+      "Em problemas de texto, a equação do 2º grau costuma aparecer por ÁREA. Um terreno retangular com 3 m a mais de comprimento que de largura e área de 40 m² vira x(x + 3) = 40, que é x² + 3x − 40 = 0 depois de arrumada. É a mesma tradução de enunciado que o 7º ano ensinou, agora com um grau a mais.",
+      "E aí vem o passo que só existe no 2º grau: CONFERIR SE A RAIZ SERVE. Aquela equação tem raízes 5 e −8, e a segunda é matematicamente correta — mas largura de terreno não é negativa, então ela é descartada. A matemática dá duas respostas; o problema escolhe uma.",
+      "Esse descarte não é detalhe de prova: é o que separa resolver a equação de resolver o problema. Toda vez que a incógnita for comprimento, quantidade de pessoas ou tempo, as raízes negativas saem — e vale dizer por que, em vez de apagá-las em silêncio."
+    ],
+    "destaque": "Soma das raízes é −b/a e produto é c/a. E a raiz que não serve ao problema é descartada, com motivo.",
+    "imagem": "eq9-ideia-soma-produto"
+  },
+  "resolvido": {
+    "enunciado": "Um terreno retangular tem 3 m a mais de comprimento que de largura, e área de 40 m². Qual é a largura?",
+    "imagem": "eq9-res-terreno",
+    "passos": [
+      {
+        "titulo": "Nomeie a incógnita",
+        "explicacao": "A largura é o que se procura, e o comprimento se escreve a partir dela.",
+        "conta": "largura x · comprimento x + 3"
+      },
+      {
+        "titulo": "Monte a equação",
+        "explicacao": "A área do retângulo é o produto dos dois lados.",
+        "conta": "x(x + 3) = 40"
+      },
+      {
+        "titulo": "Arrume na forma geral",
+        "explicacao": "Abrindo o produto e passando tudo para um lado.",
+        "conta": "x² + 3x − 40 = 0"
+      },
+      {
+        "titulo": "Resolva",
+        "explicacao": "Pelo discriminante 169, cuja raiz é 13.",
+        "conta": "x = 5 ou x = −8"
+      },
+      {
+        "titulo": "Descarte o que não serve",
+        "explicacao": "Largura é comprimento, e comprimento não é negativo.",
+        "conta": "largura = 5 m"
+      }
+    ],
+    "fecho": "Conferindo: 5 por 8 dá 40 m², e o comprimento é mesmo 3 m maior."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "A soma de dois números naturais é 11. Qual é o maior produto possível entre esses dois números? Digite apenas o número.",
+      "imagem": "eq9-q-obmep-produto",
+      "dica": "Liste os pares de naturais que somam 11 e compare os produtos.",
+      "formato": "numero",
+      "resposta": 30,
+      "fonte": {
+        "prova": "OBMEP · Banco de Questões",
+        "ano": 2010,
+        "referencia": "Problema 72 — Produto máximo"
+      },
+      "errosComuns": [
+        {
+          "resposta": "28",
+          "porque": "28 é 4 × 7, um dos pares que somam 11 — mas não o de maior produto. O par 5 e 6 dá 30, e ele é o mais equilibrado dos dois."
+        },
+        {
+          "resposta": "24",
+          "porque": "24 é 3 × 8. Ele é maior que 18 e 10, mas ainda não é o máximo: quanto mais próximos os dois números, maior o produto, e o par mais próximo é 5 e 6."
+        },
+        {
+          "resposta": "11",
+          "porque": "11 é a SOMA dada no enunciado, e não um produto. A pergunta é sobre o maior produto possível entre dois números com essa soma."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Liste os pares",
+          "explicacao": "Todos os pares de naturais cuja soma é 11.",
+          "conta": "1+10 · 2+9 · 3+8 · 4+7 · 5+6"
+        },
+        {
+          "titulo": "Calcule os produtos",
+          "explicacao": "Multiplicando os dois números de cada par da lista.",
+          "conta": "10 · 18 · 24 · 28 · 30"
+        },
+        {
+          "titulo": "Pegue o maior",
+          "explicacao": "O produto cresce à medida que os números se aproximam.",
+          "conta": "5 × 6 = 30"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Na equação x² − 7x + 12 = 0, quanto vale a SOMA das raízes? Digite apenas o número.",
+      "imagem": "eq9-q-soma-raizes",
+      "dica": "Com a = 1, a soma das raízes é o oposto do coeficiente b.",
+      "formato": "numero",
+      "resposta": 7,
+      "errosComuns": [
+        {
+          "resposta": "-7",
+          "porque": "−7 é o próprio coeficiente b, e a soma é o OPOSTO dele. Conferindo pelas raízes: elas são 3 e 4, que somam 7 — um número positivo."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é o PRODUTO das raízes, que é o coeficiente c quando a vale 1. A soma é outra coisa: o oposto do b."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é o discriminante da equação: 49 − 48. Ele diz quantas raízes existem, e não quanto elas somam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Identifique o b",
+          "explicacao": "O sinal vai junto com o número.",
+          "conta": "b = −7"
+        },
+        {
+          "titulo": "Tome o oposto",
+          "explicacao": "Com a = 1, a soma das raízes é −b.",
+          "conta": "soma = 7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Um terreno retangular tem 5 m a mais de comprimento que de largura, e área de 36 m². Qual é a largura, em metros? Digite apenas o número.",
+      "imagem": "eq9-q-terreno-36",
+      "dica": "Monte a equação com a largura como incógnita e descarte a raiz que não pode ser uma medida.",
+      "formato": "numero",
+      "resposta": 4,
+      "errosComuns": [
+        {
+          "resposta": "9",
+          "porque": "9 é o COMPRIMENTO, que vale 4 + 5. A pergunta é pela largura, que é o valor de x na equação."
+        },
+        {
+          "resposta": "-9",
+          "porque": "−9 é a outra raiz da equação, e ela é matematicamente correta. Mas largura de terreno não é negativa, então essa raiz é descartada pelo problema."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 seria a largura se o terreno fosse quadrado, porque 6 × 6 = 36. Aqui os lados diferem em 5 m, e a conta certa é x(x + 5) = 36."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a equação",
+          "explicacao": "A área é o produto da largura pelo comprimento.",
+          "conta": "x(x + 5) = 36"
+        },
+        {
+          "titulo": "Arrume e resolva",
+          "explicacao": "Abrindo o produto, o discriminante dá 169 e a raiz dele é 13.",
+          "conta": "x² + 5x − 36 = 0 → x = 4 ou −9"
+        },
+        {
+          "titulo": "Descarte o negativo",
+          "explicacao": "A incógnita é uma medida de comprimento.",
+          "conta": "largura = 4 m"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num problema de área, a equação deu raízes 5 e −8. Por que a raiz −8 é descartada?",
+      "imagem": "eq9-q-por-que-descarta",
+      "dica": "Pense no que a incógnita representa no problema, e não na equação.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque a incógnita é uma medida, e medida não é negativa" },
+        { "rotulo": "B", "texto": "Porque raízes negativas estão sempre erradas" },
+        { "rotulo": "C", "texto": "Porque a equação só pode ter uma raiz" },
+        { "rotulo": "D", "texto": "Porque −8 não satisfaz a equação" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque raízes negativas estão sempre erradas",
+          "porque": "Elas são legítimas em muitos problemas — temperatura, saldo bancário e altitude aceitam valores negativos sem nenhum problema. O descarte vem do que a incógnita representa AQUI."
+        },
+        {
+          "resposta": "Porque a equação só pode ter uma raiz",
+          "porque": "A equação tem duas, e as duas são corretas como números. O problema é que uma delas não descreve uma situação possível no contexto do enunciado."
+        },
+        {
+          "resposta": "Porque −8 não satisfaz a equação",
+          "porque": "Ela satisfaz: substituindo −8 em x² + 3x − 40 sai 64 − 24 − 40 = 0. É por ser matematicamente correta e fisicamente impossível que o descarte precisa ser justificado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que o x representa",
+          "explicacao": "Ele foi definido como a largura do terreno.",
+          "conta": "x = medida de comprimento"
+        },
+        {
+          "titulo": "Confronte com o valor",
+          "explicacao": "Nenhum terreno tem largura negativa, então o valor não descreve nada.",
+          "conta": "−8 descartado pelo contexto"
+        }
+      ]
+    }
+  ]
+}

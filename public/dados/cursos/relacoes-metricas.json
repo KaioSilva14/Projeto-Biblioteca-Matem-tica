@@ -1,0 +1,35 @@
+{
+  "id": "relacoes-metricas",
+  "titulo": "Relações métricas no triângulo retângulo",
+  "ano": 9,
+  "descricao": "Cinco fórmulas que costumam ser decoradas em bloco e trocadas umas pelas outras na prova. Aqui elas saem de um desenho só: a altura traçada até a hipotenusa parte o triângulo em dois menores que têm exatamente a mesma forma do original — e cada relação é uma proporção entre esses três triângulos. Quem enxerga a semelhança não precisa lembrar de fórmula nenhuma.",
+  "pergunta": "De onde saem as cinco relações, e como escolher a certa?",
+  "videos": [
+    {
+      "id": "mFszQZAke7o",
+      "titulo": "RELAÇÕES MÉTRICAS NO TRIÂNGULO RETÂNGULO \\Prof. Gis/",
+      "canal": "Gis com Giz",
+      "descricao": "A apresentação das relações e de onde elas vêm, do começo. Serve de segunda passagem pelas lições 1 a 3."
+    },
+    {
+      "id": "b_XeGs1ZzNw",
+      "titulo": "MACETE Relações Métricas no Triângulo Retângulo - 9º Ano",
+      "canal": "Jonathan Vieira",
+      "descricao": "Um jeito rápido de lembrar qual relação usar em cada caso. Complementa a lição 4, que trata da escolha."
+    },
+    {
+      "id": "nR12SF_erRQ",
+      "titulo": "RELAÇÕES MÉTRICAS NO TRIÂNGULO RETÂNGULO | RÁPIDO E FÁCIL",
+      "canal": "Dicasdemat Sandro Curió",
+      "descricao": "Uma explicação curta e direta, com exercícios resolvidos. Útil se a primeira abordagem não pegou."
+    }
+  ],
+  "licoes": [
+    { "id": "os-tres-triangulos", "arquivo": "/dados/licoes/relacoes-metricas/os-tres-triangulos.json" },
+    { "id": "projecoes", "arquivo": "/dados/licoes/relacoes-metricas/projecoes.json" },
+    { "id": "altura", "arquivo": "/dados/licoes/relacoes-metricas/altura.json" },
+    { "id": "qual-usar", "arquivo": "/dados/licoes/relacoes-metricas/qual-usar.json" },
+    { "id": "pitagoras-de-novo", "arquivo": "/dados/licoes/relacoes-metricas/pitagoras-de-novo.json" },
+    { "id": "problemas", "arquivo": "/dados/licoes/relacoes-metricas/problemas.json" }
+  ]
+}

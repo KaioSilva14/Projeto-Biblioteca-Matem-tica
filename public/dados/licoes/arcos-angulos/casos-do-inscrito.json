@@ -1,0 +1,184 @@
+{
+  "id": "casos-do-inscrito",
+  "numero": 3,
+  "titulo": "Dois presentes da regra",
+  "pergunta": "O que a relação do inscrito entrega sem cobrar nada?",
+  "ideia": {
+    "paragrafos": [
+      "A relação da lição anterior tem duas consequências que aparecem tanto em prova que quase viram regras próprias. As duas saem da mesma frase — inscrito é metade do central — sem nenhuma ideia nova.",
+      "A primeira: ângulos inscritos que enxergam o MESMO arco são todos iguais. O motivo é imediato, porque todos eles valem metade do mesmo ângulo central. Numa figura com três ou quatro vértices espalhados apontando para o mesmo par de pontos, todos os ângulos marcados são o mesmo número — e reconhecer isso resolve a questão sem conta nenhuma.",
+      "A segunda é mais bonita e tem nome próprio: todo ângulo inscrito que enxerga um SEMICÍRCULO é reto. Se as duas pontas do arco são as extremidades de um diâmetro, o arco mede 180°, e metade de 180 é 90. Qualquer ponto da circunferência, ligado às duas pontas de um diâmetro, forma um ângulo reto.",
+      "Esse resultado é conhecido como Teorema de Tales para a circunferência, e é o mesmo Tales da matéria 7. Ele tem uma consequência prática que vale guardar: dado um segmento, todos os pontos que o enxergam sob ângulo reto estão sobre a circunferência que tem esse segmento como diâmetro.",
+      "E ele responde uma pergunta que a matéria de Pitágoras deixou em aberto sem perceber: por que um triângulo inscrito numa semicircunferência é sempre retângulo? Porque o lado que é diâmetro corresponde a um arco de 180°, e o ângulo oposto a ele é inscrito nesse arco.",
+      "Na prática, ao olhar uma figura de circunferência, dois reflexos economizam tempo: procurar diâmetros — onde houver um, há ângulos retos — e procurar vértices diferentes apontando para o mesmo par de pontos, que carregam ângulos iguais."
+    ],
+    "destaque": "Inscritos no mesmo arco são iguais. E inscrito num semicírculo é sempre reto, porque metade de 180 é 90.",
+    "imagem": "ar9-ideia-semicirculo"
+  },
+  "resolvido": {
+    "enunciado": "Num triângulo inscrito numa circunferência, um dos lados é o diâmetro. Quanto mede o ângulo oposto a esse lado?",
+    "imagem": "ar9-res-reto",
+    "passos": [
+      {
+        "titulo": "Meça o arco do diâmetro",
+        "explicacao": "O diâmetro corta a circunferência ao meio, então o arco correspondente é meia volta.",
+        "conta": "arco = 180°"
+      },
+      {
+        "titulo": "Reconheça o ângulo oposto",
+        "explicacao": "O vértice está na circunferência e os lados vão às pontas do diâmetro: é um inscrito.",
+        "conta": "ângulo inscrito nesse arco"
+      },
+      {
+        "titulo": "Aplique a relação",
+        "explicacao": "O inscrito vale metade do arco que enxerga.",
+        "conta": "180 / 2 = 90°"
+      }
+    ],
+    "fecho": "O triângulo é retângulo, e ele é retângulo qualquer que seja a posição do terceiro vértice na circunferência."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Um triângulo está inscrito numa circunferência e um dos lados dele é o diâmetro. Quanto mede o ângulo oposto a esse lado, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-reto-90",
+      "dica": "O arco correspondente ao diâmetro mede 180°, e o inscrito vale metade dele.",
+      "formato": "numero",
+      "resposta": 90,
+      "errosComuns": [
+        {
+          "resposta": "180",
+          "porque": "180 é a medida do ARCO, que é a mesma do ângulo central. O inscrito vale metade, e nenhum ângulo interno de triângulo chega a 180°."
+        },
+        {
+          "resposta": "60",
+          "porque": "60 seria o caso de um triângulo equilátero, e a posição do terceiro vértice não muda nada aqui: o ângulo oposto ao diâmetro é sempre reto."
+        },
+        {
+          "resposta": "45",
+          "porque": "45 é metade de 90, aplicando a divisão duas vezes. O arco é 180°, e metade dele já dá o resultado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça o arco",
+          "explicacao": "O diâmetro corresponde a meia volta da circunferência.",
+          "conta": "180°"
+        },
+        {
+          "titulo": "Tome a metade",
+          "explicacao": "O ângulo inscrito vale metade do arco que enxerga.",
+          "conta": "90°"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Três ângulos inscritos, com vértices em pontos diferentes, enxergam o mesmo arco. O primeiro mede 35°. Quanto mede o terceiro, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-todos-iguais",
+      "dica": "Todos valem metade do mesmo ângulo central.",
+      "formato": "numero",
+      "resposta": 35,
+      "errosComuns": [
+        {
+          "resposta": "105",
+          "porque": "105 é 3 × 35, como se os ângulos se somassem. Eles não se somam: cada um vale metade do mesmo central, então todos são iguais."
+        },
+        {
+          "resposta": "70",
+          "porque": "70 é o ângulo CENTRAL correspondente, que vale o dobro de cada inscrito. A pergunta é por outro inscrito."
+        },
+        {
+          "resposta": "11,67",
+          "porque": "11,67 é 35 dividido por 3, como se o valor fosse repartido entre os três. Cada um tem o valor inteiro, e não uma fatia dele."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o que é comum",
+          "explicacao": "Os três enxergam o mesmo arco, então o mesmo ângulo central.",
+          "conta": "um central só"
+        },
+        {
+          "titulo": "Conclua",
+          "explicacao": "Metade do mesmo número dá sempre o mesmo número.",
+          "conta": "todos valem 35°"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Por que todo ângulo inscrito num semicírculo é reto?",
+      "imagem": "ar9-q-por-que-reto",
+      "dica": "Qual é a medida do arco correspondente a um diâmetro?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque o arco correspondente mede 180°, e o inscrito vale metade disso" },
+        { "rotulo": "B", "texto": "Porque o triângulo formado é sempre isósceles" },
+        { "rotulo": "C", "texto": "Porque o raio é perpendicular à corda" },
+        { "rotulo": "D", "texto": "Porque todo triângulo inscrito é retângulo" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o triângulo formado é sempre isósceles",
+          "porque": "Ele quase nunca é: com o vértice fora do meio do arco, os dois lados saem bem diferentes. E o ângulo continua reto do mesmo jeito."
+        },
+        {
+          "resposta": "Porque o raio é perpendicular à corda",
+          "porque": "Isso vale para o raio que passa pelo MEIO de uma corda, e é outro resultado. O ângulo reto aqui está no vértice da circunferência, e não no centro."
+        },
+        {
+          "resposta": "Porque todo triângulo inscrito é retângulo",
+          "porque": "Nem todo: um triângulo inscrito cujos três lados são cordas comuns pode ser acutângulo ou obtusângulo. O ângulo reto só aparece quando um dos lados é o DIÂMETRO."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Meça o arco do diâmetro",
+          "explicacao": "Ele corta a circunferência ao meio.",
+          "conta": "180°"
+        },
+        {
+          "titulo": "Aplique a relação da lição 2",
+          "explicacao": "O inscrito vale metade do arco que enxerga.",
+          "conta": "180 / 2 = 90°"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo inscrito numa circunferência com um lado sobre o diâmetro, um dos ângulos agudos mede 28°. Quanto mede o outro ângulo agudo, em graus? Digite apenas o número.",
+      "imagem": "ar9-q-outro-agudo",
+      "dica": "O ângulo oposto ao diâmetro é reto, e os três ângulos do triângulo somam 180°.",
+      "formato": "numero",
+      "resposta": 62,
+      "errosComuns": [
+        {
+          "resposta": "152",
+          "porque": "152 é 180 − 28, esquecendo que o ângulo reto já ocupa 90° dos 180°. Sobram 90° para os dois agudos juntos."
+        },
+        {
+          "resposta": "28",
+          "porque": "28 é o ângulo dado. Os dois agudos só seriam iguais num triângulo isósceles, e aqui eles têm de somar 90°."
+        },
+        {
+          "resposta": "90",
+          "porque": "90 é o ângulo oposto ao diâmetro, que já está contado. A pergunta é pelo terceiro ângulo do triângulo."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o ângulo do diâmetro",
+          "explicacao": "O inscrito no semicírculo é reto, pela lição.",
+          "conta": "90°"
+        },
+        {
+          "titulo": "Use a soma dos internos",
+          "explicacao": "Os três ângulos do triângulo somam 180°, do 7º ano.",
+          "conta": "180 − 90 − 28 = 62°"
+        }
+      ]
+    }
+  ]
+}

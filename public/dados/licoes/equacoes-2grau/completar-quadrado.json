@@ -1,0 +1,200 @@
+{
+  "id": "completar-quadrado",
+  "numero": 3,
+  "titulo": "Completar o quadrado",
+  "pergunta": "Como transformar uma equação difícil numa incompleta?",
+  "ideia": {
+    "paragrafos": [
+      "A lição anterior resolveu x² = 9 sem esforço. O problema das equações completas é o termo do meio, o bx — sem ele tudo seria fácil. A ideia desta lição é conseguir isso: reescrever a equação de um jeito que o x apareça uma vez só, dentro de um quadrado.",
+      "Tome x² + 6x = 7. O lado esquerdo quase é um quadrado perfeito: o 8º ano mostrou que (x + 3)² = x² + 6x + 9. Comparando, falta exatamente o 9 — e ele pode ser acrescentado, desde que aos DOIS lados, porque somar o mesmo número dos dois lados não muda a igualdade, como a balança do 7º ano dizia.",
+      "Somando 9 de cada lado: x² + 6x + 9 = 16, ou seja, (x + 3)² = 16. E agora a equação virou do tipo da lição 2 — o x aparece uma vez só. Tirando a raiz dos dois lados, x + 3 = ±4, o que dá x = 1 ou x = −7.",
+      "De onde saiu o 9? Da metade do coeficiente de x, elevada ao quadrado: metade de 6 é 3, e 3² = 9. Isso não é truque: é a estrutura do quadrado da soma, em que o termo do meio é sempre 2 vezes o produto dos dois. Se o meio é 6x, o segundo termo é 3, e o quadrado dele é o que falta.",
+      "Geometricamente, o nome é literal. x² + 6x é um quadrado de lado x com dois retângulos de 3 por x grudados em dois lados — e essa figura tem um canto vazio de 3 por 3. Acrescentar 9 é preencher o canto e COMPLETAR o quadrado de lado x + 3.",
+      "Este método resolve qualquer equação do 2º grau, e é ele que a próxima lição aplica com letras em vez de números para produzir a fórmula de Bhaskara. Quem entende esta lição não precisa decorar a fórmula seguinte: pode deduzi-la."
+    ],
+    "destaque": "Some aos dois lados a metade do coeficiente de x, ao quadrado. O canto que faltava fecha o quadrado.",
+    "imagem": "eq9-ideia-completar"
+  },
+  "resolvido": {
+    "enunciado": "Resolva x² + 6x = 7 completando o quadrado.",
+    "imagem": "eq9-res-completar",
+    "passos": [
+      {
+        "titulo": "Ache o que falta",
+        "explicacao": "É a metade do coeficiente de x, elevada ao quadrado.",
+        "conta": "metade de 6 é 3 · 3² = 9"
+      },
+      {
+        "titulo": "Some aos dois lados",
+        "explicacao": "Somar o mesmo número dos dois lados não muda a igualdade.",
+        "conta": "x² + 6x + 9 = 7 + 9"
+      },
+      {
+        "titulo": "Escreva como quadrado",
+        "explicacao": "O lado esquerdo agora é o quadrado da soma, do 8º ano.",
+        "conta": "(x + 3)² = 16"
+      },
+      {
+        "titulo": "Tire a raiz dos dois lados",
+        "explicacao": "E lembre dos dois sinais, como na lição anterior.",
+        "conta": "x + 3 = ±4"
+      },
+      {
+        "titulo": "Resolva os dois casos",
+        "explicacao": "Cada sinal produz uma equação do 1º grau.",
+        "conta": "x = 1 ou x = −7"
+      }
+    ],
+    "fecho": "Conferindo o x = 1: 1 + 6 dá 7 ✓. E o x = −7: 49 − 42 também dá 7 ✓."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Para completar o quadrado em x² + 8x, que número deve ser somado? Digite apenas ele.",
+      "imagem": "eq9-q-quanto-falta",
+      "dica": "Pegue a metade do coeficiente de x e eleve ao quadrado.",
+      "formato": "numero",
+      "resposta": 16,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é a metade de 8, que é o primeiro passo. Falta elevar ao quadrado: 4² = 16. Conferindo, (x + 4)² = x² + 8x + 16."
+        },
+        {
+          "resposta": "64",
+          "porque": "64 é 8², elevando o coeficiente inteiro em vez da metade dele. Com 64 o quadrado não fecha: (x + 8)² daria x² + 16x + 64, e o termo do meio ficou errado."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é o próprio coeficiente de x. Ele precisa passar por dois passos antes de virar o número que falta: dividir por 2 e elevar ao quadrado."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Divida o coeficiente por 2",
+          "explicacao": "O termo do meio é o dobro do produto, então a metade dá o segundo termo.",
+          "conta": "8 ÷ 2 = 4"
+        },
+        {
+          "titulo": "Eleve ao quadrado",
+          "explicacao": "É esse o número que falta para o trinômio fechar.",
+          "conta": "4² = 16"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Ao completar o quadrado, por que o número precisa ser somado aos DOIS lados da equação?",
+      "imagem": "eq9-q-dois-lados",
+      "dica": "Lembre da balança do 7º ano: o que acontece se você põe peso só de um lado?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque somar só de um lado mudaria a igualdade e as raízes" },
+        { "rotulo": "B", "texto": "Porque o outro lado também é um quadrado" },
+        { "rotulo": "C", "texto": "Para o resultado ficar par" },
+        { "rotulo": "D", "texto": "Porque a equação tem dois lados iguais" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque o outro lado também é um quadrado",
+          "porque": "Ele quase nunca é: em x² + 6x = 7, o lado direito é só o número 7. O motivo de somar dos dois lados é preservar a igualdade, e não completar um segundo quadrado."
+        },
+        {
+          "resposta": "Para o resultado ficar par",
+          "porque": "A paridade não tem nada a ver: completar x² + 5x pediria somar 6,25, que nem inteiro é. O que importa é os dois lados receberem a mesma coisa."
+        },
+        {
+          "resposta": "Porque a equação tem dois lados iguais",
+          "porque": "Os lados são iguais em VALOR, e é justamente isso que a soma unilateral quebraria. Somar 9 só à esquerda faria a igualdade deixar de valer."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que a igualdade afirma",
+          "explicacao": "Os dois lados valem o mesmo, como os pratos de uma balança.",
+          "conta": "esquerda = direita"
+        },
+        {
+          "titulo": "Veja o efeito de somar num lado só",
+          "explicacao": "A balança desequilibra e a equação passa a ter outras soluções.",
+          "conta": "as raízes mudariam"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Resolvendo x² − 4x = 5 por completar o quadrado, chega-se a (x − 2)² = 9. Qual é a MAIOR raiz? Digite apenas o número.",
+      "imagem": "eq9-q-duas-raizes-completar",
+      "dica": "Tire a raiz dos dois lados sem esquecer o duplo sinal, e resolva os dois casos.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "3",
+          "porque": "3 é o valor de x − 2, e não de x. Falta o último passo: somando 2, sai x = 5."
+        },
+        {
+          "resposta": "-1",
+          "porque": "−1 é a OUTRA raiz, que vem do sinal negativo: x − 2 = −3 dá x = −1. A pergunta é pela maior das duas, que é 5."
+        },
+        {
+          "resposta": "9",
+          "porque": "9 é o valor de (x − 2)², e não de x. É preciso tirar a raiz e depois somar 2."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Tire a raiz dos dois lados",
+          "explicacao": "Com os dois sinais, porque o quadrado apaga o sinal.",
+          "conta": "x − 2 = ±3"
+        },
+        {
+          "titulo": "Resolva os dois casos",
+          "explicacao": "Somando 2 em cada um dos dois casos, para isolar o x.",
+          "conta": "x = 5 ou x = −1"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "O que a expressão \"completar o quadrado\" descreve geometricamente?",
+      "imagem": "eq9-q-o-canto-vazio",
+      "dica": "Pense em x² + 6x como um quadrado com retângulos grudados nos lados.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Preencher o canto que falta para a figura virar um quadrado maior" },
+        { "rotulo": "B", "texto": "Elevar a equação inteira ao quadrado" },
+        { "rotulo": "C", "texto": "Desenhar um quadrado de lado x" },
+        { "rotulo": "D", "texto": "Dobrar a área da figura" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Elevar a equação inteira ao quadrado",
+          "porque": "Nada é elevado ao quadrado no método: o que se faz é SOMAR um número aos dois lados. Elevar a equação ao quadrado criaria raízes que não existiam."
+        },
+        {
+          "resposta": "Desenhar um quadrado de lado x",
+          "porque": "Esse quadrado é o x² que já estava lá, antes de completar. O nome vem do quadrado MAIOR, de lado x + 3, que se forma depois de preencher o canto."
+        },
+        {
+          "resposta": "Dobrar a área da figura",
+          "porque": "A área acrescentada é a do canto que falta — no exemplo, 9 —, e não o dobro do que havia. De x² + 6x para (x+3)², o que entrou foi exatamente o quadradinho do canto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Monte a figura",
+          "explicacao": "Um quadrado de lado x com dois retângulos de 3 por x nos lados.",
+          "conta": "x² + 3x + 3x"
+        },
+        {
+          "titulo": "Veja o buraco",
+          "explicacao": "Falta o quadradinho do canto para a figura virar um quadrado inteiro.",
+          "conta": "canto 3 × 3 = 9"
+        }
+      ]
+    }
+  ]
+}

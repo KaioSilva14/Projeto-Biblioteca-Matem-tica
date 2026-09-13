@@ -1,0 +1,195 @@
+{
+  "id": "grafico",
+  "numero": 3,
+  "titulo": "Por que o gráfico é uma reta",
+  "pergunta": "O que o desenho mostra que a tabela não mostra?",
+  "ideia": {
+    "paragrafos": [
+      "Cada linha da tabela é um par: uma entrada e a saída dela. E par de números, desde o 6º ano, é ponto no plano cartesiano — a entrada no eixo horizontal, a saída no vertical. Marcando os pares de f(x) = 2x − 3, aparecem (0, −3), (1, −1), (2, 1), (3, 3).",
+      "Marcados, eles não ficam espalhados: ficam alinhados. E isso não é sorte nem é só o caso deste exemplo — acontece com toda função afim, e há uma razão que se enxerga na própria tabela. Cada passo de 1 na entrada muda a saída sempre pelo mesmo tanto, aqui 2. Subir sempre a mesma altura a cada passo igual é a definição de andar em linha reta.",
+      "Daí sai uma consequência prática que economiza muito trabalho: como o gráfico é uma reta, DOIS pontos bastam para traçá-lo. Não é preciso calcular dez valores; calcula-se dois, marca-se e liga. Os dois mais cômodos costumam ser x = 0, que dá o ponto onde a reta corta o eixo vertical, e algum x que caia em número redondo.",
+      "O plano agora precisa dos quatro quadrantes, e não só do primeiro como no 6º ano: a saída pode ser negativa, a entrada também, e uma reta que desce atravessa o eixo. Os números negativos dos eixos não são detalhe — parte do gráfico mora lá.",
+      "O gráfico também responde a uma pergunta de leitura que a tabela responde mal: dado um ponto qualquer, ele pertence ao gráfico? Basta testar na lei. O ponto (3, 5) pertence ao gráfico de f(x) = 2x − 1 porque f(3) dá 5; o ponto (3, 6) não pertence, porque f(3) não dá 6. Pertencer ao gráfico é satisfazer a lei, e nada mais.",
+      "Uma advertência sobre o desenho: a reta se estende para os dois lados sem fim, e o que cabe na folha é um pedaço dela. Em problema de situação real isso costuma ter limite — não existe tempo negativo de estacionamento —, mas a função como objeto matemático continua valendo para qualquer entrada."
+    ],
+    "destaque": "Passos iguais na entrada produzem sempre a mesma variação na saída — e é isso que faz o gráfico ser uma reta. Dois pontos bastam.",
+    "imagem": "fa9-ideia-por-que-reta"
+  },
+  "resolvido": {
+    "enunciado": "Trace o gráfico de f(x) = 2x − 3.",
+    "imagem": "fa9-res-reta-2x-3",
+    "passos": [
+      {
+        "titulo": "Escolha duas entradas",
+        "explicacao": "Duas bastam, porque o gráfico de uma função afim é uma reta.",
+        "conta": "x = 0 e x = 3"
+      },
+      {
+        "titulo": "Calcule as saídas",
+        "explicacao": "Substituindo cada entrada na lei, uma de cada vez.",
+        "conta": "f(0) = −3 · f(3) = 3"
+      },
+      {
+        "titulo": "Marque os dois pontos",
+        "explicacao": "A entrada vai no eixo horizontal e a saída no vertical.",
+        "conta": "(0, −3) e (3, 3)"
+      },
+      {
+        "titulo": "Ligue e prolongue",
+        "explicacao": "A reta continua para os dois lados além dos pontos marcados.",
+        "conta": "a reta está traçada"
+      }
+    ],
+    "fecho": "Conferindo com um terceiro ponto: f(1) = −1, e o ponto (1, −1) cai exatamente sobre a reta."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Por que o gráfico de uma função afim é sempre uma reta?",
+      "imagem": "fa9-q-por-que-reta",
+      "dica": "Olhe a tabela: quanto a saída muda a cada passo de 1 na entrada?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque passos iguais na entrada mudam a saída sempre pelo mesmo tanto" },
+        { "rotulo": "B", "texto": "Porque a lei tem só duas letras" },
+        { "rotulo": "C", "texto": "Porque todos os gráficos são retas" },
+        { "rotulo": "D", "texto": "Porque a entrada e a saída são sempre positivas" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque a lei tem só duas letras",
+          "porque": "A quantidade de letras não decide o formato do gráfico. O que decide é a regularidade da variação, e é ela que faz os pontos ficarem alinhados."
+        },
+        {
+          "resposta": "Porque todos os gráficos são retas",
+          "porque": "Não são. O gráfico de f(x) = x² é uma curva, e já no ano que vem ele aparece. A reta é uma propriedade da função afim, e não de função em geral."
+        },
+        {
+          "resposta": "Porque a entrada e a saída são sempre positivas",
+          "porque": "Nem uma nem outra precisam ser. Em f(x) = 2x − 3, a saída é negativa para x = 0, e o gráfico continua sendo uma reta."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Olhe a variação",
+          "explicacao": "Em f(x) = 2x − 3, cada passo de 1 na entrada soma sempre 2 na saída.",
+          "conta": "−3 · −1 · 1 · 3"
+        },
+        {
+          "titulo": "Traduza no desenho",
+          "explicacao": "Andar sempre a mesma altura a cada passo igual é caminhar em linha reta.",
+          "conta": "pontos alinhados"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Quantos pontos, no mínimo, bastam para traçar o gráfico de uma função afim? Digite apenas o número.",
+      "imagem": "fa9-q-quantos-pontos",
+      "dica": "Pense em quantos pontos determinam uma reta.",
+      "formato": "numero",
+      "resposta": 2,
+      "errosComuns": [
+        {
+          "resposta": "1",
+          "porque": "Um ponto só não decide a reta: por ele passam infinitas retas, cada uma com uma inclinação. É preciso um segundo ponto para fixar a direção."
+        },
+        {
+          "resposta": "3",
+          "porque": "Três pontos servem, e até ajudam a conferir, mas o mínimo é 2. Como o gráfico já se sabe reta, o terceiro só confirma o que os dois primeiros decidiram."
+        },
+        {
+          "resposta": "4",
+          "porque": "Quatro é bem mais do que o necessário. Assim que se sabe que o gráfico é uma reta, dois pontos a determinam."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Lembre o que a reta precisa",
+          "explicacao": "Por um ponto só passam infinitas retas, em todas as direções.",
+          "conta": "um ponto não basta"
+        },
+        {
+          "titulo": "Acrescente o segundo",
+          "explicacao": "Dois pontos distintos determinam uma reta e só uma.",
+          "conta": "2 pontos"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O ponto (3, 5) pertence ao gráfico de f(x) = 2x − 1?",
+      "imagem": "fa9-q-pertence",
+      "dica": "Calcule f(3) e compare com a segunda coordenada do ponto.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sim, porque f(3) dá exatamente 5" },
+        { "rotulo": "B", "texto": "Não, porque 3 e 5 são números diferentes" },
+        { "rotulo": "C", "texto": "Sim, porque os dois números são positivos" },
+        { "rotulo": "D", "texto": "Não, porque a lei tem um sinal de menos" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Não, porque 3 e 5 são números diferentes",
+          "porque": "As duas coordenadas quase nunca são iguais, e não precisam ser. O teste é outro: substituir a primeira na lei e ver se sai a segunda."
+        },
+        {
+          "resposta": "Sim, porque os dois números são positivos",
+          "porque": "O sinal não decide nada. O ponto (3, 9) também tem as duas coordenadas positivas e NÃO pertence ao gráfico, porque f(3) dá 5."
+        },
+        {
+          "resposta": "Não, porque a lei tem um sinal de menos",
+          "porque": "O sinal de menos entra na conta como qualquer outro: 2 × 3 − 1 dá 5. Pertencer ao gráfico é satisfazer a lei, e este ponto satisfaz."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Substitua a primeira coordenada",
+          "explicacao": "A primeira coordenada do ponto é a entrada.",
+          "conta": "f(3) = 2 × 3 − 1"
+        },
+        {
+          "titulo": "Compare com a segunda",
+          "explicacao": "Se a saída bater, o ponto está sobre a reta.",
+          "conta": "5 = 5 ✓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "No gráfico da figura, a reta passa por (0, 1) e sobe 1 a cada passo de 1 para a direita. Quanto vale f(4)? Digite apenas o número.",
+      "imagem": "fa9-q-ler-grafico",
+      "dica": "Ande quatro passos para a direita a partir do ponto marcado, subindo 1 em cada um.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "4",
+          "porque": "4 é o valor da ENTRADA, e não da saída. A reta parte de 1 e sobe 1 a cada passo, então depois de quatro passos ela está em 5."
+        },
+        {
+          "resposta": "1",
+          "porque": "1 é f(0), o ponto de partida. A pergunta é pela saída depois de quatro passos para a direita."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 sai de dobrar o 4, como se a reta subisse 2 por passo. Ela sobe 1, e o enunciado diz isso."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Comece pelo ponto conhecido",
+          "explicacao": "O gráfico corta o eixo vertical em 1, então f(0) vale 1.",
+          "conta": "f(0) = 1"
+        },
+        {
+          "titulo": "Ande quatro passos",
+          "explicacao": "Cada passo para a direita acrescenta 1 à saída.",
+          "conta": "1 + 1 + 1 + 1 + 1 = 5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "id": "esfera",
+  "numero": 4,
+  "titulo": "Volume da esfera",
+  "pergunta": "De onde sai o quatro terços de pi erre ao cubo?",
+  "ideia": {
+    "paragrafos": [
+      "A esfera é o único sólido desta matéria que não tem base nem altura. Ela é só o conjunto dos pontos que ficam a uma mesma distância de um centro, e essa distância é o raio. Não há por onde começar a conta do jeito usual, porque não existe uma face para chamar de base.",
+      "A fórmula é V = 4 × π × r³ ÷ 3, e ela costuma ser decorada torta: às vezes o aluno põe o quadrado no lugar do cubo, às vezes troca o quatro terços por três quartos. Mas existe um argumento, de Arquimedes, que cabe inteiro no 9º ano — e ele usa só o que as lições 1 e 3 já provaram.",
+      "Compare dois sólidos de mesma altura r. À esquerda, uma meia-esfera de raio r apoiada no chão. À direita, um cilindro de raio r e altura r do qual foi retirado um cone de mesma base e mesma altura, com o bico para baixo.",
+      "Agora corte os dois com um plano horizontal a uma altura y qualquer. Do lado da meia-esfera, o corte é um círculo: o raio dele, o raio r da esfera e a altura y formam um triângulo retângulo, então o raio do corte vale √(r² − y²) e a área dele é π × (r² − y²).",
+      "Do lado do cilindro vazado, o corte é um anel: o disco de raio r menos o buraco do cone. E o buraco tem raio exatamente y, porque esse cone tem raio r e altura r: ele abre um tanto de raio para cada tanto igual de altura, então na altura y o raio já é y. A área do anel é π × r² − π × y², que é a MESMA coisa que π × (r² − y²).",
+      "Ou seja: em qualquer altura que se corte, os dois sólidos têm fatias de mesma área. Dois sólidos fatiados assim têm de ter o mesmo volume — e o da direita a gente sabe calcular: é o cilindro menos o cone, ou seja, π × r³ menos um terço disso, o que dá dois terços de π × r³.",
+      "Então a meia-esfera vale 2 × π × r³ ÷ 3, e a esfera inteira, o dobro: 4 × π × r³ ÷ 3. O quatro terços deixou de ser um enfeite da fórmula — ele é o dobro dos dois terços que sobraram depois de tirar o cone.",
+      "A superfície da esfera tem fórmula própria, A = 4 × π × r², e ela não se confunde com o volume: ali o raio está ao QUADRADO, porque área é medida de duas dimensões. No volume ele está ao CUBO. Quem se lembra dessa diferença nunca troca uma pela outra."
+    ],
+    "destaque": "A meia-esfera é o cilindro menos o cone — e é daí que vem o dois terços que, dobrado, dá o quatro terços.",
+    "imagem": "vl9-ideia-arquimedes"
+  },
+  "resolvido": {
+    "enunciado": "Uma esfera tem 3 cm de raio. Qual é o volume dela, em cm³? Use π = 3,14.",
+    "imagem": "vl9-res-esfera-tres",
+    "passos": [
+      {
+        "titulo": "Eleve o raio ao cubo",
+        "explicacao": "No volume da esfera o raio aparece três vezes, e não duas.",
+        "conta": "3 × 3 × 3 = 27"
+      },
+      {
+        "titulo": "Multiplique por quatro e por pi",
+        "explicacao": "É a parte de cima da fração: quatro vezes pi vezes o cubo do raio.",
+        "conta": "4 × 3,14 × 27 = 339,12"
+      },
+      {
+        "titulo": "Divida por três",
+        "explicacao": "Fecha o quatro terços da fórmula.",
+        "conta": "339,12 / 3 = 113,04 cm³"
+      }
+    ],
+    "fecho": "113,04 cm³. Uma bola de 3 cm de raio cabe folgada num cubo de 6 cm de aresta, que tem 216 cm³ — e o que sobra nos cantos é quase metade da caixa."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Uma esfera tem 6 cm de raio. Qual é o volume dela, em cm³? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl9-q-esfera-seis",
+      "dica": "Comece elevando o raio ao cubo; só depois entre com o quatro terços e o pi.",
+      "formato": "numero",
+      "resposta": 904.32,
+      "errosComuns": [
+        {
+          "resposta": "150,72",
+          "porque": "150,72 usa o raio ao QUADRADO, 4 × 3,14 × 36 ÷ 3. No volume da esfera o raio entra três vezes, porque volume é medida de três dimensões."
+        },
+        {
+          "resposta": "2712,96",
+          "porque": "2712,96 é o resultado certo multiplicado por três, ou seja, sem dividir pela parte de baixo da fração. O quatro terços tem um três embaixo que precisa ser usado."
+        },
+        {
+          "resposta": "452,16",
+          "porque": "452,16 é a ÁREA da superfície dessa esfera, 4 × 3,14 × 36. Ela é uma medida de área, em cm², e a questão pede o volume, em cm³."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Raio ao cubo",
+          "explicacao": "O raio aparece três vezes no volume da esfera.",
+          "conta": "6 × 6 × 6 = 216"
+        },
+        {
+          "titulo": "Complete o quatro terços",
+          "explicacao": "Multiplique por quatro e por pi, e divida por três.",
+          "conta": "4 × 3,14 × 216 / 3 = 904,32 cm³"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Uma esfera tem 5 cm de raio. Qual é a área da superfície dela, em cm²? Use π = 3,14 e digite apenas o número.",
+      "imagem": "vl9-q-area-cinco",
+      "dica": "A pergunta é de área, e não de volume — repare em qual expoente o raio leva.",
+      "formato": "numero",
+      "resposta": 314,
+      "errosComuns": [
+        {
+          "resposta": "523,33",
+          "porque": "523,33 é o VOLUME dessa esfera, que usa o raio ao cubo e divide por três. A pergunta é de área da superfície, que não tem divisão nem cubo."
+        },
+        {
+          "resposta": "78,5",
+          "porque": "78,5 é a área de um CÍRCULO de raio 5, e não da superfície da esfera. A esfera tem exatamente quatro vezes essa área — é o que o 4 da fórmula diz."
+        },
+        {
+          "resposta": "104,67",
+          "porque": "104,67 divide a área por três, trazendo para cá o terço que só existe no volume. Área da superfície não leva divisão nenhuma: são 4 × π × r²."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escolha a fórmula certa",
+          "explicacao": "Área da superfície usa o raio ao quadrado, porque área tem duas dimensões.",
+          "conta": "A = 4 × π × r²"
+        },
+        {
+          "titulo": "Substitua e calcule",
+          "explicacao": "Basta trocar o raio por 5 e o pi por 3,14, sem nenhuma divisão no fim.",
+          "conta": "4 × 3,14 × 25 = 314 cm²"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "No argumento de Arquimedes, por que a meia-esfera tem o mesmo volume que o cilindro sem o cone?",
+      "imagem": "vl9-q-por-que-vale",
+      "dica": "Pense no que acontece quando os dois sólidos são cortados na mesma altura.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque, cortados numa altura qualquer, os dois produzem fatias de mesma área" },
+        { "rotulo": "B", "texto": "Porque os dois sólidos têm a mesma altura e a mesma largura" },
+        { "rotulo": "C", "texto": "Porque os dois têm exatamente a mesma forma, vistos de cima" },
+        { "rotulo": "D", "texto": "Porque a esfera foi definida como sendo o cilindro menos o cone" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os dois sólidos têm a mesma altura e a mesma largura",
+          "porque": "Ter a mesma altura e a mesma largura não garante volume igual — um cone e um cilindro têm as duas coisas iguais e volumes bem diferentes. O que garante é a igualdade das fatias em TODA altura."
+        },
+        {
+          "resposta": "Porque os dois têm exatamente a mesma forma, vistos de cima",
+          "porque": "Vistos de cima eles são bem diferentes: de um lado um disco cheio, do outro um anel com buraco. O que coincide é a ÁREA, e não a forma — e é só disso que o argumento precisa."
+        },
+        {
+          "resposta": "Porque a esfera foi definida como sendo o cilindro menos o cone",
+          "porque": "A esfera é definida como os pontos a uma mesma distância do centro, e nada nessa definição fala de cilindro. A igualdade dos volumes é uma conclusão demonstrada, e não uma definição."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Corte os dois na altura y",
+          "explicacao": "De um lado sai um disco; do outro, um anel.",
+          "conta": "disco π(r² − y²) · anel πr² − πy²"
+        },
+        {
+          "titulo": "Compare as duas áreas",
+          "explicacao": "As duas expressões são a mesma coisa escrita de dois jeitos.",
+          "conta": "π(r² − y²) = πr² − πy²"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Uma bola tem 2 cm de raio e outra tem 4 cm. Quantas vezes o volume da segunda é maior que o da primeira? Digite apenas o número.",
+      "imagem": "vl9-q-raio-dobra",
+      "dica": "No volume da esfera o raio aparece três vezes, e cada uma delas dobra.",
+      "formato": "numero",
+      "resposta": 8,
+      "errosComuns": [
+        {
+          "resposta": "2",
+          "porque": "2 é quantas vezes o RAIO cresceu, e não o volume. Como o raio entra três vezes na conta, o fator 2 também aparece três vezes: 2 × 2 × 2."
+        },
+        {
+          "resposta": "4",
+          "porque": "4 seria o fator se o raio aparecesse duas vezes — é o que acontece com a ÁREA da superfície. No volume ele aparece três vezes, o que dá 8."
+        },
+        {
+          "resposta": "6",
+          "porque": "6 é 2 × 3, multiplicando o fator do raio pelo número de dimensões. O certo é elevar o fator à terceira potência, e não multiplicá-lo por três."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que acontece com r³",
+          "explicacao": "Se o raio dobra, cada um dos três fatores dobra junto.",
+          "conta": "(2r)³ = 2 × 2 × 2 × r³"
+        },
+        {
+          "titulo": "Junte os fatores",
+          "explicacao": "Os três dois se multiplicam entre si e saem da conta como um só.",
+          "conta": "2 × 2 × 2 = 8 vezes"
+        }
+      ]
+    }
+  ]
+}

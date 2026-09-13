@@ -1,0 +1,195 @@
+{
+  "id": "os-tres-triangulos",
+  "numero": 1,
+  "titulo": "Um corte, três triângulos",
+  "pergunta": "O que a altura até a hipotenusa revela?",
+  "ideia": {
+    "paragrafos": [
+      "Tome um triângulo retângulo e trace a ALTURA relativa à hipotenusa: o segmento que sai do vértice do ângulo reto e cai perpendicular à hipotenusa. Esse traço parte o triângulo em dois menores — e os dois são semelhantes ao original, e semelhantes entre si.",
+      "A razão é o caso AA da matéria de semelhança. O triângulo da esquerda compartilha com o original o ângulo do vértice esquerdo, e ambos têm um ângulo reto. Dois ângulos iguais bastam. O mesmo argumento vale para o triângulo da direita, com o ângulo do vértice direito. Três triângulos, a mesma forma, tamanhos diferentes.",
+      "Daí vem todo o resto da matéria, e vale dizer isso agora: as cinco relações métricas não são cinco fatos independentes. São cinco proporções escritas entre esses três triângulos semelhantes — e quem enxerga a semelhança consegue reconstruir qualquer uma delas sem lembrar da fórmula.",
+      "Antes disso, os nomes. A hipotenusa é a, os catetos são b e c, a altura é h. E os dois pedaços em que a altura corta a hipotenusa chamam-se PROJEÇÕES dos catetos: m é a projeção do cateto b, n é a projeção do cateto c. Cada projeção fica encostada no cateto correspondente.",
+      "A primeira relação é a mais óbvia de todas, e é fácil esquecê-la justamente por isso: a = m + n. As duas projeções, juntas, formam a hipotenusa inteira. Num triângulo de catetos 15 e 20, a hipotenusa mede 25 e as projeções medem 9 e 16 — e 9 mais 16 dá exatamente 25.",
+      "A palavra projeção tem sentido físico: é a sombra que o cateto faria sobre a hipotenusa se a luz viesse perpendicular a ela. O cateto maior projeta a sombra maior, e é por isso que o 20 corresponde ao 16, e o 15 ao 9."
+    ],
+    "destaque": "A altura parte o retângulo em dois triângulos semelhantes ao original. Todas as relações saem dessa semelhança.",
+    "imagem": "rm9-ideia-tres-triangulos"
+  },
+  "resolvido": {
+    "enunciado": "Num triângulo retângulo de catetos 15 e 20, a hipotenusa mede 25 e as projeções medem 9 e 16. Identifique quem é quem.",
+    "imagem": "rm9-res-nomes",
+    "passos": [
+      {
+        "titulo": "Nomeie a hipotenusa e os catetos",
+        "explicacao": "A hipotenusa é o lado oposto ao ângulo reto, e é sempre o maior.",
+        "conta": "a = 25 · b = 15 · c = 20"
+      },
+      {
+        "titulo": "Trace a altura",
+        "explicacao": "Ela sai do vértice do ângulo reto e cai perpendicular à hipotenusa.",
+        "conta": "h relativa a a"
+      },
+      {
+        "titulo": "Case cada projeção com o cateto dela",
+        "explicacao": "A projeção fica encostada no cateto correspondente, e a maior pertence ao cateto maior.",
+        "conta": "m = 9 (de b) · n = 16 (de c)"
+      },
+      {
+        "titulo": "Confira a soma",
+        "explicacao": "As duas projeções juntas formam a hipotenusa inteira.",
+        "conta": "9 + 16 = 25 ✓"
+      }
+    ],
+    "fecho": "Repare no par: o cateto 20 tem a projeção maior, 16; o cateto 15 tem a menor, 9."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Por que os dois triângulos criados pela altura são semelhantes ao triângulo original?",
+      "imagem": "rm9-q-por-que-semelhantes",
+      "dica": "Procure dois ângulos iguais em cada par de triângulos.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Porque cada um compartilha um ângulo com o original e os dois têm ângulo reto" },
+        { "rotulo": "B", "texto": "Porque os três têm a mesma área" },
+        { "rotulo": "C", "texto": "Porque a altura divide o triângulo em duas partes iguais" },
+        { "rotulo": "D", "texto": "Porque todo triângulo retângulo é semelhante a qualquer outro" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Porque os três têm a mesma área",
+          "porque": "As áreas são bem diferentes: os dois menores cabem dentro do original e somados dão a área dele. Semelhança é sobre forma, e não sobre área."
+        },
+        {
+          "resposta": "Porque a altura divide o triângulo em duas partes iguais",
+          "porque": "Ela quase nunca divide em partes iguais: no exemplo da lição, as projeções são 9 e 16. Só num triângulo isósceles os dois pedaços ficariam iguais."
+        },
+        {
+          "resposta": "Porque todo triângulo retângulo é semelhante a qualquer outro",
+          "porque": "Não é: um de catetos 3 e 4 não é semelhante a um de catetos 1 e 10. O ângulo reto sozinho é um ângulo só, e o caso AA pede dois."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Ache o primeiro ângulo igual",
+          "explicacao": "O triângulo da esquerda compartilha com o original o ângulo do vértice esquerdo.",
+          "conta": "ângulo comum"
+        },
+        {
+          "titulo": "Ache o segundo",
+          "explicacao": "O original tem ângulo reto no topo, e o menor tem ângulo reto no pé da altura.",
+          "conta": "dois ângulos iguais → caso AA"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "Num triângulo retângulo, as projeções dos catetos sobre a hipotenusa medem 9 e 16. Quanto mede a hipotenusa? Digite apenas o número.",
+      "imagem": "rm9-q-soma-projecoes",
+      "dica": "As duas projeções, juntas, formam a hipotenusa inteira.",
+      "formato": "numero",
+      "resposta": 25,
+      "errosComuns": [
+        {
+          "resposta": "7",
+          "porque": "7 é 16 − 9. As projeções são dois pedaços VIZINHOS da hipotenusa, então elas se somam, e não se subtraem."
+        },
+        {
+          "resposta": "144",
+          "porque": "144 é 9 × 16, que é o quadrado da ALTURA — outra relação da matéria, que a lição 3 vai tratar. A hipotenusa é a soma das projeções."
+        },
+        {
+          "resposta": "12",
+          "porque": "12 é a raiz de 9 × 16, ou seja, a altura do triângulo. Ela é perpendicular à hipotenusa, e não parte dela."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Veja o que as projeções são",
+          "explicacao": "São os dois pedaços em que a altura corta a hipotenusa.",
+          "conta": "a = m + n"
+        },
+        {
+          "titulo": "Some as duas",
+          "explicacao": "Os dois pedaços juntos formam o lado inteiro.",
+          "conta": "9 + 16 = 25"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "O que é a PROJEÇÃO de um cateto sobre a hipotenusa?",
+      "imagem": "rm9-q-o-que-e-projecao",
+      "dica": "É um dos pedaços em que a altura corta a hipotenusa. Qual deles?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "O pedaço da hipotenusa que fica encostado naquele cateto" },
+        { "rotulo": "B", "texto": "A metade da hipotenusa" },
+        { "rotulo": "C", "texto": "A altura do triângulo" },
+        { "rotulo": "D", "texto": "O próprio cateto, medido de outro jeito" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "A metade da hipotenusa",
+          "porque": "As duas projeções quase nunca são iguais: no exemplo da lição elas medem 9 e 16, e a hipotenusa mede 25. Só num triângulo isósceles elas coincidiriam."
+        },
+        {
+          "resposta": "A altura do triângulo",
+          "porque": "A altura é perpendicular à hipotenusa; as projeções estão SOBRE ela. São segmentos com direções diferentes, e comprimentos diferentes."
+        },
+        {
+          "resposta": "O próprio cateto, medido de outro jeito",
+          "porque": "A projeção é sempre menor que o cateto dela: 9 contra 15 e 16 contra 20 no exemplo. Ela é a sombra do cateto sobre a hipotenusa, e não o cateto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Localize o pé da altura",
+          "explicacao": "Ele parte a hipotenusa em dois pedaços.",
+          "conta": "dois pedaços"
+        },
+        {
+          "titulo": "Case cada pedaço com um cateto",
+          "explicacao": "Cada projeção fica do lado do cateto que ela projeta.",
+          "conta": "m com b · n com c"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Num triângulo retângulo de hipotenusa 20, uma das projeções mede 4. Quanto mede a outra? Digite apenas o número.",
+      "imagem": "rm9-q-outra-projecao",
+      "dica": "As duas projeções somam a hipotenusa.",
+      "formato": "numero",
+      "resposta": 16,
+      "errosComuns": [
+        {
+          "resposta": "24",
+          "porque": "24 é 20 + 4, somando quando era preciso subtrair. As duas projeções juntas dão 20, então a que falta é 20 − 4."
+        },
+        {
+          "resposta": "5",
+          "porque": "5 é 20 ÷ 4. A relação entre as projeções e a hipotenusa é de soma, e não de divisão."
+        },
+        {
+          "resposta": "8",
+          "porque": "8 é a raiz de 4 × 16, ou seja, a altura deste triângulo. Ela não é uma projeção: é perpendicular à hipotenusa."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Escreva a relação",
+          "explicacao": "As duas projeções formam a hipotenusa inteira.",
+          "conta": "m + n = 20"
+        },
+        {
+          "titulo": "Isole a que falta",
+          "explicacao": "Subtraindo a projeção conhecida da hipotenusa.",
+          "conta": "20 − 4 = 16"
+        }
+      ]
+    }
+  ]
+}

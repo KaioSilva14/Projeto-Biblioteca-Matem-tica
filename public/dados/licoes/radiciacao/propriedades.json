@@ -1,0 +1,200 @@
+{
+  "id": "propriedades",
+  "numero": 3,
+  "titulo": "As propriedades dos radicais",
+  "pergunta": "Quais regras de potência sobrevivem quando o expoente vira fração?",
+  "ideia": {
+    "paragrafos": [
+      "A lição anterior mostrou que raiz é potência de expoente fracionário. A consequência é confortável: toda propriedade de potência provada no 8º ano continua valendo, sem precisar de demonstração nova. Esta lição só traduz as que interessam para a linguagem dos radicais.",
+      "A primeira é o PRODUTO. Como potências de mesma base multiplicam somando expoentes, e aqui a base é que muda, a regra que vale é a do produto elevado a um expoente: (a × b)^(1/n) = a^(1/n) × b^(1/n). Em linguagem de radical: a raiz do produto é o produto das raízes — √(4 × 9) = √4 × √9 = 2 × 3 = 6, e de fato √36 = 6.",
+      "A segunda é o QUOCIENTE, e funciona igual: a raiz do quociente é o quociente das raízes. √(36/4) = √36 / √4 = 6/2 = 3, e √9 = 3 confirma.",
+      "A terceira aparece o tempo todo e vale guardar: a raiz de índice n de a elevado a n devolve a — desde que a seja positivo. É a própria ideia de operação inversa, e é ela que faz √(5²) = 5 e ∛(7³) = 7.",
+      "Agora a parte que mais causa erro, e vale dizer em voz alta: NÃO existe propriedade para a SOMA. √(9 + 16) não é √9 + √16. A esquerda dá √25 = 5; a direita dá 3 + 4 = 7. São números diferentes, e o exemplo é bom de guardar porque as contas são fáceis de conferir.",
+      "Isso não é uma exceção esquisita: é o mesmo padrão do 8º ano, em que (a + b)² não é a² + b². Potência e raiz distribuem sobre produto e quociente, e não sobre soma e diferença. Quem lembra de um dos dois casos lembra do outro."
+    ],
+    "destaque": "Raiz distribui sobre produto e quociente. Sobre SOMA não distribui: √(9+16) = 5, mas √9 + √16 = 7.",
+    "imagem": "rd9-ideia-propriedades"
+  },
+  "resolvido": {
+    "enunciado": "Calcule √(9 + 16) e √9 + √16, e compare.",
+    "imagem": "rd9-res-soma-nao-vale",
+    "passos": [
+      {
+        "titulo": "Resolva dentro da raiz primeiro",
+        "explicacao": "A soma sob o sinal de raiz é uma conta só, feita antes da raiz.",
+        "conta": "√(9 + 16) = √25 = 5"
+      },
+      {
+        "titulo": "Agora separe as raízes",
+        "explicacao": "Calculando cada raiz e somando depois.",
+        "conta": "√9 + √16 = 3 + 4 = 7"
+      },
+      {
+        "titulo": "Compare",
+        "explicacao": "Os dois caminhos deram números diferentes.",
+        "conta": "5 ≠ 7"
+      },
+      {
+        "titulo": "Conclua",
+        "explicacao": "Não existe propriedade da raiz da soma, e separar assim é erro.",
+        "conta": "√(a + b) ≠ √a + √b"
+      }
+    ],
+    "fecho": "É o mesmo padrão de (a + b)² ≠ a² + b², do 8º ano: nem potência nem raiz distribuem sobre soma."
+  },
+  "questoes": [
+    {
+      "id": "q1",
+      "enunciado": "Quanto vale √4 × √25? Digite apenas o número.",
+      "imagem": "rd9-q-produto-raizes",
+      "dica": "Você pode calcular cada raiz e multiplicar, ou juntar tudo numa raiz só. Os dois caminhos dão o mesmo.",
+      "formato": "numero",
+      "resposta": 10,
+      "errosComuns": [
+        {
+          "resposta": "29",
+          "porque": "29 é 4 + 25, somando os radicandos. O sinal entre as raízes é de multiplicação, então o que vai para dentro é o produto: 4 × 25 = 100."
+        },
+        {
+          "resposta": "100",
+          "porque": "100 é o produto dos radicandos, que fica DENTRO da raiz. Falta tirar a raiz: √100 = 10."
+        },
+        {
+          "resposta": "7",
+          "porque": "7 é 2 + 5, somando as duas raízes em vez de multiplicá-las. A conta pedida é um produto."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule cada raiz",
+          "explicacao": "As duas são raízes de quadrados perfeitos.",
+          "conta": "√4 = 2 · √25 = 5"
+        },
+        {
+          "titulo": "Multiplique",
+          "explicacao": "É a operação que o enunciado pede entre elas.",
+          "conta": "2 × 5 = 10"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "enunciado": "√(9 + 16) é igual a √9 + √16?",
+      "imagem": "rd9-q-soma-dentro",
+      "dica": "Calcule os dois lados separadamente e compare os números.",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Não: o primeiro dá 5 e o segundo dá 7" },
+        { "rotulo": "B", "texto": "Sim, a raiz distribui sobre a soma" },
+        { "rotulo": "C", "texto": "Sim, mas só quando os dois são quadrados perfeitos" },
+        { "rotulo": "D", "texto": "Não dá para comparar sem calculadora" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sim, a raiz distribui sobre a soma",
+          "porque": "Não distribui, e este exemplo mostra: √25 = 5 de um lado e 3 + 4 = 7 do outro. A raiz distribui sobre produto e quociente, nunca sobre soma."
+        },
+        {
+          "resposta": "Sim, mas só quando os dois são quadrados perfeitos",
+          "porque": "9 e 16 são justamente quadrados perfeitos, e mesmo assim a igualdade falha. Serem quadrados só facilita a conferência — não salva a propriedade."
+        },
+        {
+          "resposta": "Não dá para comparar sem calculadora",
+          "porque": "Dá, e as contas são das mais simples: √25 = 5, √9 = 3 e √16 = 4. É por isso que este exemplo é bom de guardar."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Calcule o lado esquerdo",
+          "explicacao": "Resolvendo a soma antes de tirar a raiz.",
+          "conta": "√(9 + 16) = √25 = 5"
+        },
+        {
+          "titulo": "Calcule o direito",
+          "explicacao": "Tirando cada raiz e somando depois.",
+          "conta": "3 + 4 = 7"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "enunciado": "Quanto vale √(100/4)? Digite apenas o número.",
+      "imagem": "rd9-q-quociente",
+      "dica": "Você pode dividir primeiro ou separar as raízes — os dois caminhos valem para quociente.",
+      "formato": "numero",
+      "resposta": 5,
+      "errosComuns": [
+        {
+          "resposta": "25",
+          "porque": "25 é 100 ÷ 4, o quociente que fica DENTRO da raiz. Falta o último passo: √25 = 5."
+        },
+        {
+          "resposta": "2.5",
+          "porque": "2,5 é 10 ÷ 4, dividindo a raiz do numerador pelo denominador sem tirar a raiz dele. O denominador também entra na raiz: √4 = 2, e 10 ÷ 2 = 5."
+        },
+        {
+          "resposta": "96",
+          "porque": "96 é 100 − 4, subtraindo em vez de dividir. A barra dentro da raiz indica divisão."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Separe as raízes",
+          "explicacao": "A raiz do quociente é o quociente das raízes.",
+          "conta": "√100 / √4"
+        },
+        {
+          "titulo": "Calcule as duas",
+          "explicacao": "Os dois radicandos são quadrados perfeitos.",
+          "conta": "10 / 2"
+        },
+        {
+          "titulo": "Divida",
+          "explicacao": "Terminando a conta com as duas raízes já calculadas.",
+          "conta": "10 ÷ 2 = 5"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "enunciado": "Sobre quais operações a raiz distribui?",
+      "imagem": "rd9-q-quais-distribuem",
+      "dica": "Lembre do padrão do 8º ano com o quadrado da soma: ele distribuía sobre o quê?",
+      "formato": "alternativas",
+      "alternativas": [
+        { "rotulo": "A", "texto": "Sobre produto e quociente, mas não sobre soma e diferença" },
+        { "rotulo": "B", "texto": "Sobre todas as quatro operações" },
+        { "rotulo": "C", "texto": "Só sobre a soma" },
+        { "rotulo": "D", "texto": "Sobre nenhuma: cada raiz é calculada sozinha" }
+      ],
+      "correta": 0,
+      "errosComuns": [
+        {
+          "resposta": "Sobre todas as quatro operações",
+          "porque": "A soma é o contraexemplo: √(9 + 16) dá 5, enquanto √9 + √16 dá 7. Basta um caso para derrubar o \"todas\"."
+        },
+        {
+          "resposta": "Só sobre a soma",
+          "porque": "É exatamente a operação sobre a qual ela NÃO distribui. Sobre produto funciona: √(4 × 9) e √4 × √9 dão 6 os dois."
+        },
+        {
+          "resposta": "Sobre nenhuma: cada raiz é calculada sozinha",
+          "porque": "Sobre produto e quociente ela distribui, e é isso que permite simplificar √12 como √4 × √3 na próxima lição. Sem essa propriedade, a matéria inteira não existiria."
+        }
+      ],
+      "resolucao": [
+        {
+          "titulo": "Teste no produto",
+          "explicacao": "Comparando a raiz do produto com o produto das raízes.",
+          "conta": "√36 = 6 · √4 × √9 = 6 ✓"
+        },
+        {
+          "titulo": "Teste na soma",
+          "explicacao": "Comparando a raiz da soma com a soma das raízes.",
+          "conta": "√25 = 5 · √9 + √16 = 7 ✗"
+        }
+      ]
+    }
+  ]
+}

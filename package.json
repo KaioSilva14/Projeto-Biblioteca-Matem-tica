@@ -25,8 +25,11 @@
     "build": "tsc",
     "dev:build": "tsc --watch",
     "imagens": "node ferramentas/gerar-imagens.mjs",
-    "test": "npm run build && node tests/conteudo.test.mjs && node tests/motor.test.mjs && node tests/pagina.test.mjs",
+    "test": "npm run build && node tests/conteudo.test.mjs && node tests/motor.test.mjs && node tests/pagina.test.mjs && node tests/site.test.mjs",
     "videos": "node ferramentas/verificar-videos.mjs",
-    "figuras": "node ferramentas/auditar-figuras.mjs"
+    "figuras": "node ferramentas/auditar-figuras.mjs",
+    "marca": "node ferramentas/gerar-marca.mjs",
+    "seo": "node ferramentas/aplicar-seo.mjs",
+    "capa": "node ferramentas/gerar-capa-readme.mjs"
   }
 }
