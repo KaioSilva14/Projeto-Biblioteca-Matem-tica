@@ -261,7 +261,13 @@ function enderecosDoConteudo() {
 }
 
 function gerarSitemap() {
-  const hoje = new Date().toISOString().slice(0, 10);
+  // Sem <lastmod>, de propósito. A primeira versão carimbava a data do dia em
+  // que a ferramenta rodava, e isso era mentira duas vezes: dizia ao buscador
+  // que as 372 páginas tinham mudado naquele dia, e deixava o sitemap
+  // "alterado" a cada execução sem que nada tivesse mudado de fato — o teste
+  // de estabilidade quebrou no primeiro dia seguinte. Uma data que não
+  // corresponde à última mudança real é pior que nenhuma: o Google ignora
+  // `lastmod` de site que o usa assim.
   const todas = [
     ...PAGINAS.map((p) => ({ caminho: p.caminho, prioridade: p.prioridade, frequencia: p.frequencia })),
     ...enderecosDoConteudo(),
@@ -269,7 +275,6 @@ function gerarSitemap() {
   const corpo = todas.map(({ caminho, prioridade, frequencia }) => [
     "  <url>",
     `    <loc>${escapar(absoluto(caminho))}</loc>`,
-    `    <lastmod>${hoje}</lastmod>`,
     `    <changefreq>${frequencia}</changefreq>`,
     `    <priority>${prioridade}</priority>`,
     "  </url>",

@@ -2,2233 +2,1861 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/sobre.html</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/perguntas.html</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/privacidade.html</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/agradecimentos.html</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/ano.html?a=6</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=fracoes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=reta-numerica</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=equivalentes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=simplificar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=comparar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=fracao-de-quantidade</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=somar-subtrair</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes&amp;l=do-que-sobrou</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=decimais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=o-que-e-virgula</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=ler-escrever</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=na-reta</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=comparar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=somar-subtrair</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=por-dez</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=multiplicar-dividir</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=decimais&amp;l=arredondar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=divisibilidade</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=divisibilidade&amp;l=multiplos-divisores</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=divisibilidade&amp;l=criterios</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=divisibilidade&amp;l=primos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=divisibilidade&amp;l=fatoracao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=divisibilidade&amp;l=mdc</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=divisibilidade&amp;l=mmc</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=potencias</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=potencias&amp;l=o-que-e-potencia</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=potencias&amp;l=quadrado-cubo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=potencias&amp;l=potencias-de-10</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=potencias&amp;l=ordem-operacoes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=potencias&amp;l=raiz-quadrada</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=potencias&amp;l=estimar-raiz</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=porcentagem</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=porcentagem&amp;l=o-que-e-porcentagem</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=porcentagem&amp;l=converter</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=porcentagem&amp;l=calcular</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=porcentagem&amp;l=mentalmente</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=porcentagem&amp;l=desconto-aumento</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=porcentagem&amp;l=parte-e-total</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=angulos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=angulos&amp;l=o-que-e-angulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=angulos&amp;l=classificar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=angulos&amp;l=transferidor</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=angulos&amp;l=complementar-suplementar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=angulos&amp;l=opostos-pelo-vertice</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=angulos&amp;l=soma-triangulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=figuras-planas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=figuras-planas&amp;l=poligonos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=figuras-planas&amp;l=triangulos-lados</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=figuras-planas&amp;l=triangulos-angulos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=figuras-planas&amp;l=quadrilateros</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=figuras-planas&amp;l=regulares</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=figuras-planas&amp;l=circulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=perimetro</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=perimetro&amp;l=o-que-e-perimetro</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=perimetro&amp;l=regulares</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=perimetro&amp;l=retangulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=perimetro&amp;l=compostas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=perimetro&amp;l=mesmo-perimetro</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=perimetro&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=area</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area&amp;l=o-que-e-area</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area&amp;l=retangulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area&amp;l=quadrado-triangulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area&amp;l=compostas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area&amp;l=unidades</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=solidos-volume</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=solidos-volume&amp;l=solidos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=solidos-volume&amp;l=prismas-piramides</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=solidos-volume&amp;l=planificacao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=solidos-volume&amp;l=volume-cubinhos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=solidos-volume&amp;l=formula</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=solidos-volume&amp;l=capacidade</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=medidas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=medidas&amp;l=medir</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=medidas&amp;l=comprimento</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=medidas&amp;l=massa</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=medidas&amp;l=capacidade</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=medidas&amp;l=tempo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=medidas&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=plano-cartesiano</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=plano-cartesiano&amp;l=localizar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=plano-cartesiano&amp;l=ler-marcar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=plano-cartesiano&amp;l=ordem-importa</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=plano-cartesiano&amp;l=distancias</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=plano-cartesiano&amp;l=figuras</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=plano-cartesiano&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=graficos-tabelas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=graficos-tabelas&amp;l=tabela</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=graficos-tabelas&amp;l=colunas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=graficos-tabelas&amp;l=barras</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=graficos-tabelas&amp;l=duas-formas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=graficos-tabelas&amp;l=enganosos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=graficos-tabelas&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=media</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=media&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=media&amp;l=calcular</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=media&amp;l=entre-extremos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=media&amp;l=com-media</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=media&amp;l=quando-mente</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=media&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/ano.html?a=7</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=inteiros</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inteiros&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inteiros&amp;l=na-reta</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inteiros&amp;l=comparar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inteiros&amp;l=somar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inteiros&amp;l=subtrair</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inteiros&amp;l=multiplicar-dividir</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inteiros&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=racionais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=racionais&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=racionais&amp;l=na-reta</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=racionais&amp;l=formas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=racionais&amp;l=comparar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=racionais&amp;l=somar-subtrair</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=racionais&amp;l=multiplicar-dividir</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=racionais&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=razao-proporcao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=razao-proporcao&amp;l=o-que-e-razao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=razao-proporcao&amp;l=proporcao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=razao-proporcao&amp;l=propriedade</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=razao-proporcao&amp;l=escala</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=razao-proporcao&amp;l=grandezas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=razao-proporcao&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=regra-de-tres</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=regra-de-tres&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=regra-de-tres&amp;l=direta</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=regra-de-tres&amp;l=inversa</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=regra-de-tres&amp;l=qual-usar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=regra-de-tres&amp;l=unidades</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=regra-de-tres&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=juros-simples</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=juros-simples&amp;l=fator</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=juros-simples&amp;l=sucessivos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=juros-simples&amp;l=com-proporcao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=juros-simples&amp;l=o-que-e-juro</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=juros-simples&amp;l=montante</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=juros-simples&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=algebra-inicial</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=algebra-inicial&amp;l=a-letra</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=algebra-inicial&amp;l=traduzir</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=algebra-inicial&amp;l=valor-numerico</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=algebra-inicial&amp;l=semelhantes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=algebra-inicial&amp;l=igualdade</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=algebra-inicial&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=equacoes-1grau</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-1grau&amp;l=equilibrio</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-1grau&amp;l=isolar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-1grau&amp;l=duas-operacoes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-1grau&amp;l=dois-lados</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-1grau&amp;l=parenteses-fracoes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-1grau&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=inequacoes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inequacoes&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inequacoes&amp;l=na-reta</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inequacoes&amp;l=resolver</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inequacoes&amp;l=inverter</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inequacoes&amp;l=traduzir</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=inequacoes&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=retas-paralelas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=retas-paralelas&amp;l=paralelas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=retas-paralelas&amp;l=transversal</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=retas-paralelas&amp;l=correspondentes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=retas-paralelas&amp;l=alternos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=retas-paralelas&amp;l=colaterais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=retas-paralelas&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=triangulos-quadrilateros</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=triangulos-quadrilateros&amp;l=triangulos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=triangulos-quadrilateros&amp;l=soma-triangulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=triangulos-quadrilateros&amp;l=existencia</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=triangulos-quadrilateros&amp;l=quadrilateros</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=triangulos-quadrilateros&amp;l=soma-quadrilatero</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=triangulos-quadrilateros&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=circunferencia</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=circunferencia&amp;l=circunferencia-circulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=circunferencia&amp;l=o-numero-pi</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=circunferencia&amp;l=comprimento</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=circunferencia&amp;l=area</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=circunferencia&amp;l=dobrar-o-raio</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=circunferencia&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=estatistica-7</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-7&amp;l=tres-resumos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-7&amp;l=media</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-7&amp;l=mediana</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-7&amp;l=moda</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-7&amp;l=qual-usar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-7&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=probabilidade-7</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-7&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-7&amp;l=espaco-amostral</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-7&amp;l=calcular</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-7&amp;l=formas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-7&amp;l=dois-dados</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-7&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/ano.html?a=8</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=notacao-cientifica</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=notacao-cientifica&amp;l=propriedades</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=notacao-cientifica&amp;l=expoente-zero</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=notacao-cientifica&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=notacao-cientifica&amp;l=numeros-grandes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=notacao-cientifica&amp;l=numeros-pequenos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=notacao-cientifica&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=reais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=reais&amp;l=divisao-que-nao-acaba</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=reais&amp;l=periodo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=reais&amp;l=geratriz</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=reais&amp;l=irracionais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=reais&amp;l=reta-real</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=reais&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=produtos-notaveis</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=produtos-notaveis&amp;l=multiplicar-binomios</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=produtos-notaveis&amp;l=quadrado-soma</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=produtos-notaveis&amp;l=quadrado-diferenca</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=produtos-notaveis&amp;l=soma-por-diferenca</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=produtos-notaveis&amp;l=erro-classico</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=produtos-notaveis&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=fatoracao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fatoracao&amp;l=fator-comum</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fatoracao&amp;l=agrupamento</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fatoracao&amp;l=diferenca-quadrados</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fatoracao&amp;l=trinomio-quadrado</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fatoracao&amp;l=escolher-caminho</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fatoracao&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=fracoes-algebricas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes-algebricas&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes-algebricas&amp;l=simplificar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes-algebricas&amp;l=multiplicar-dividir</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes-algebricas&amp;l=somar-iguais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes-algebricas&amp;l=somar-diferentes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=fracoes-algebricas&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=sistemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=sistemas&amp;l=duas-incognitas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=sistemas&amp;l=substituicao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=sistemas&amp;l=adicao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=sistemas&amp;l=escolher-metodo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=sistemas&amp;l=no-grafico</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=sistemas&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=poligonos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=poligonos&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=poligonos&amp;l=soma-internos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=poligonos&amp;l=angulo-regular</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=poligonos&amp;l=externos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=poligonos&amp;l=diagonais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=poligonos&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=congruencia</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=congruencia&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=congruencia&amp;l=lll</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=congruencia&amp;l=lal</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=congruencia&amp;l=ala</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=congruencia&amp;l=nao-serve</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=congruencia&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=area-8</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area-8&amp;l=somar-pedacos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area-8&amp;l=paralelogramo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area-8&amp;l=trapezio</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area-8&amp;l=losango</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area-8&amp;l=compostas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=area-8&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=volume-8</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-8&amp;l=base-vezes-altura</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-8&amp;l=prismas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-8&amp;l=cilindro</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-8&amp;l=compostos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-8&amp;l=escala</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-8&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=probabilidade-8</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-8&amp;l=contar-caminhos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-8&amp;l=arvore</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-8&amp;l=sucessivos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-8&amp;l=sem-reposicao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-8&amp;l=pelo-menos-um</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=probabilidade-8&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=estatistica-8</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-8&amp;l=populacao-amostra</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-8&amp;l=amostra-boa</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-8&amp;l=frequencia</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-8&amp;l=setores</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-8&amp;l=grafico-mente</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=estatistica-8&amp;l=pesquisa</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/ano.html?a=9</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=irracionais</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=irracionais&amp;l=prova-raiz2</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=irracionais&amp;l=existe</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=irracionais&amp;l=aproximar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=irracionais&amp;l=comparar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=irracionais&amp;l=operar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=irracionais&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=radiciacao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=radiciacao&amp;l=raiz-enesima</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=radiciacao&amp;l=expoente-fracionario</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=radiciacao&amp;l=propriedades</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=radiciacao&amp;l=simplificar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=radiciacao&amp;l=somar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=radiciacao&amp;l=racionalizar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=equacoes-2grau</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-2grau&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-2grau&amp;l=incompletas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-2grau&amp;l=completar-quadrado</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-2grau&amp;l=bhaskara</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-2grau&amp;l=discriminante</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=equacoes-2grau&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=funcao-afim</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-afim&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-afim&amp;l=lei-da-funcao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-afim&amp;l=grafico</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-afim&amp;l=coeficientes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-afim&amp;l=raiz</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-afim&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=funcao-quadratica</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-quadratica&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-quadratica&amp;l=parabola</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-quadratica&amp;l=raizes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-quadratica&amp;l=vertice</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-quadratica&amp;l=esboco</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=funcao-quadratica&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=semelhanca</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=semelhanca&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=semelhanca&amp;l=caso-aa</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=semelhanca&amp;l=lado-que-falta</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=semelhanca&amp;l=paralela-ao-lado</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=semelhanca&amp;l=razao-de-areas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=semelhanca&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=tales</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=tales&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=tales&amp;l=montar-a-proporcao</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=tales&amp;l=no-triangulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=tales&amp;l=dividir-segmento</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=tales&amp;l=quando-nao-vale</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=tales&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=pitagoras</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=pitagoras&amp;l=o-que-e</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=pitagoras&amp;l=achar-hipotenusa</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=pitagoras&amp;l=achar-cateto</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=pitagoras&amp;l=ternos-e-reciproca</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=pitagoras&amp;l=diagonal-e-altura</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=pitagoras&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=relacoes-metricas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=relacoes-metricas&amp;l=os-tres-triangulos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=relacoes-metricas&amp;l=projecoes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=relacoes-metricas&amp;l=altura</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=relacoes-metricas&amp;l=qual-usar</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=relacoes-metricas&amp;l=pitagoras-de-novo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=relacoes-metricas&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=trigonometria</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=trigonometria&amp;l=tres-razoes</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=trigonometria&amp;l=por-que-funciona</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=trigonometria&amp;l=angulos-notaveis</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=trigonometria&amp;l=achar-lado</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=trigonometria&amp;l=achar-angulo</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=trigonometria&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=arcos-angulos</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=arcos-angulos&amp;l=arco-e-central</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=arcos-angulos&amp;l=inscrito</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=arcos-angulos&amp;l=casos-do-inscrito</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=arcos-angulos&amp;l=quadrilatero-inscrito</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=arcos-angulos&amp;l=comprimento-e-area</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=arcos-angulos&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/curso.html?c=volume-9</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-9&amp;l=de-onde-vem-o-terco</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-9&amp;l=piramide</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-9&amp;l=cone</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-9&amp;l=esfera</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-9&amp;l=escolher-o-solido</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://projeto-biblioteca-matem-tica.vercel.app/licao.html?c=volume-9&amp;l=problemas</loc>
-    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

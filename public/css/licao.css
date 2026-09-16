@@ -157,24 +157,30 @@
    empurrar a pagina inteira para o lado. */
 @media (max-width: 599px) {
   .figura {
-    padding: var(--e-md);
+    padding: 6px;
     overflow-x: auto;
     overscroll-behavior-x: contain;
   }
 
-  /* Sangria ate a borda da tela. O recuo e a soma exata dos paddings dos
-     ancestrais nesta faixa (container 16 + card 16), entao a figura encosta
-     no limite do viewport sem usar 100vw — que somaria a barra de rolagem e
-     poderia criar rolagem horizontal na pagina inteira. Sem as bordas
-     laterais e sem raio, para ler como faixa e nao como caixa cortada. */
-  .bloco > .figura {
-    margin-inline: calc(var(--e-lg) * -1);
-    border-inline: 0;
-    border-radius: 0;
-  }
+  /* A figura NUNCA atravessa a borda da caixa em que mora.
+
+     A primeira versão dava a ela uma sangria até a beira da tela: dentro de
+     um card, margem de −32px — os 16 do card MAIS os 16 do container. Ela
+     ganhava uns 15 pontos de escala e cobrava caro: a faixa da figura
+     cortava a borda lateral do card, que sumia em cima e embaixo dela, e a
+     figura parecia um pedaço colado por cima da questão. Foi o Kaio quem
+     viu, num celular de verdade — as revisões mediam num iframe, que não
+     acusa isso porque nada vaza da página: o defeito é de desenho, não de
+     largura.
+
+     Agora, dentro de card, a figura vai só até a borda DE DENTRO: recua
+     exatamente o padding do card (16px), perde as bordas laterais e fica
+     como uma faixa entre as duas linhas do próprio card. Fora de card (a
+     parte "A ideia"), ela fica no alinhamento do texto, como tudo o mais. O
+     aperto de escala é compensado pelo padding de 6px. */
   .enunciado > .figura,
   .questao > .figura {
-    margin-inline: calc(var(--e-2xl) * -1);
+    margin-inline: calc(var(--e-lg) * -1);
     border-inline: 0;
     border-radius: 0;
   }

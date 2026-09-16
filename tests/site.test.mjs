@@ -281,6 +281,9 @@ teste("o sitemap é XML bem formado e o & está escapado", () => {
   // lições todas têm "&l=" no endereço.
   const crus = xml.match(/&(?!amp;|lt;|gt;|quot;|apos;)/g);
   assert.equal(crus, null, `o sitemap tem ${crus?.length} "&" sem escapar`);
+  // Nenhuma data de modificação: carimbar o dia da execução afirmava que o
+  // site inteiro tinha mudado hoje, e tornava o arquivo diferente a cada dia.
+  assert.ok(!xml.includes("<lastmod>"), "o sitemap voltou a carimbar data — ela seria a da execução, não a da mudança");
 });
 
 teste("o robots libera o site e aponta para o sitemap", () => {

@@ -819,8 +819,29 @@ ilegíveis. A correção foi reduzir os paddings para 16px abaixo de 600px e dar
 **sangria até a borda da tela** às figuras. Resultado medido: pior escala subiu
 de 0,39 para 0,63 em 320px, e de 0,55 para 0,78 em 390px.
 
-A sangria usa a soma exata dos paddings dos ancestrais, **não `100vw`** — vw
-inclui a barra de rolagem e cria rolagem horizontal na página inteira.
+**A sangria foi DESFEITA, e isto vale mais que a história acima.** Ela dava à
+figura dentro de um card uma margem de −32px — o padding do card MAIS o do
+container — e a faixa da figura atravessava a borda lateral do card até a
+beira da tela. A borda do card sumia em cima e embaixo da figura, e ela
+parecia um pedaço colado por cima da questão. O Kaio viu isso num celular de
+verdade, em todas as lições.
+
+Nenhuma revisão tinha pegado, e por um motivo que vale guardar: **as sondas
+mediam vazamento da PÁGINA, e nada vazava.** O defeito é de desenho — um
+elemento cruzando a borda da caixa em que mora —, não de largura.
+
+Hoje a regra é: **a figura nunca atravessa a borda da caixa em que mora.**
+Dentro de card ela recua só o padding do card (16px) e vira uma faixa entre as
+duas linhas do próprio card; fora de card fica no alinhamento do texto. O
+padding da figura caiu para 6px para compensar. O preço é medido: a pior
+escala em 320px caiu de 0,65 para 0,60 — e foi escolha consciente, porque a
+versão maior era a feia.
+
+A sonda que confere isso emula o celular de verdade pelo CDP
+(`Emulation.setDeviceMetricsOverride` com `mobile: true`, em vez de iframe) e
+compara o retângulo de cada `.figura` com o do `.card` que a contém. Rodada
+contra a versão antiga ela acusa 153 de 153 figuras; contra a nova, 0 de 918
+em 320, 360 e 412px.
 
 Um piso de escala com rolagem horizontal dentro da figura foi testado e
 descartado: rendia 3 a 5 pontos percentuais e cobrava uma barra de rolagem com
